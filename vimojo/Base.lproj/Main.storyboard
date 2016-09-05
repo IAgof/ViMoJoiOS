@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ONf-um-ugJ">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Record Controller-->
+        <scene sceneID="vP0-YV-lKK">
+            <objects>
+                <viewController storyboardIdentifier="RecordViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="31E-sq-qOD" customClass="RecordController" customModule="vimojo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ori-Z0-WZf"/>
+                        <viewControllerLayoutGuide type="bottom" id="iHv-Wl-fVq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vFq-z7-Nw8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Kl-ym-3ZQ" customClass="GPUImageView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_record_icon_focus_focused" translatesAutoresizingMaskIntoConstraints="NO" id="THD-Xp-k6G">
+                                        <rect key="frame" x="266" y="266" width="68" height="68"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CiJ-Ll-EF1">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YN4-JO-VO2">
+                                                <rect key="frame" x="389" y="8" width="211" height="22"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLS-oa-Pa6">
+                                                        <rect key="frame" x="0.0" y="0.0" width="24" height="22"/>
+                                                        <state key="normal" image="activity_record_icon_battery_charged"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYJ-QZ-tjN">
+                                                        <rect key="frame" x="34" y="0.0" width="16" height="22"/>
+                                                        <state key="normal" image="activity_record_icon_memory"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2j-0r-Ynx">
+                                                        <rect key="frame" x="60" y="0.0" width="25" height="22"/>
+                                                        <state key="normal" image="activity_record_icon_resolution_1080"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dn-ri-8O1">
+                                                        <rect key="frame" x="95" y="0.0" width="14" height="22"/>
+                                                        <state key="normal" image="activity_record_icon_geolocation_normal"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwy-pV-J8a">
+                                                        <rect key="frame" x="119" y="0.0" width="18" height="22"/>
+                                                        <state key="normal" image="activity_record_icon_microphone_normal"/>
+                                                        <state key="selected" image="activity_record_icon_microphone_normal"/>
+                                                        <state key="highlighted" image="activity_record_icon_microphone_normal"/>
+                                                    </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_record_icon_recording" translatesAutoresizingMaskIntoConstraints="NO" id="Y9E-dj-M8I">
+                                                        <rect key="frame" x="147" y="0.0" width="8" height="22"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aut-g5-zjP">
+                                                        <rect key="frame" x="165" y="0.0" width="46" height="22"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                                            <rect key="frame" x="317" y="8" width="75" height="21"/>
+                                                        </variation>
+                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                                        </variation>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.77750538790000001" colorSpace="calibratedWhite"/>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="YN4-JO-VO2" secondAttribute="trailing" constant="4" id="0Ki-dv-4Ig"/>
+                                            <constraint firstItem="YN4-JO-VO2" firstAttribute="leading" secondItem="CiJ-Ll-EF1" secondAttribute="leading" constant="4" id="Bfc-CX-zx6"/>
+                                            <constraint firstAttribute="bottom" secondItem="YN4-JO-VO2" secondAttribute="bottom" constant="4" id="IAa-q9-py2"/>
+                                            <constraint firstItem="YN4-JO-VO2" firstAttribute="top" secondItem="CiJ-Ll-EF1" secondAttribute="top" constant="4" id="LPJ-eZ-pw9"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7DH-Ci-Hyp">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <subviews>
+                                            <stackView contentMode="scaleToFill" misplaced="YES" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="IQg-o2-2nM">
+                                                <rect key="frame" x="106" y="562" width="389" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3L-6v-7eH">
+                                                        <rect key="frame" x="0.0" y="0.0" width="29" height="30"/>
+                                                        <state key="normal" image="activity_record_icon_zoom"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JwN-me-qb7">
+                                                        <rect key="frame" x="59" y="0.0" width="30" height="30"/>
+                                                        <state key="normal" image="activity_record_icon_iso"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7j1-ue-IIf">
+                                                        <rect key="frame" x="119" y="0.0" width="30" height="30"/>
+                                                        <state key="normal" image="activity_record_icon_exposure"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEC-ZY-02I">
+                                                        <rect key="frame" x="179" y="0.0" width="30" height="30"/>
+                                                        <state key="normal" image="activity_record_icon_mode"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wb8-BD-zdl">
+                                                        <rect key="frame" x="239" y="0.0" width="30" height="30"/>
+                                                        <state key="normal" image="activity_record_white_balance"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKC-lg-RKb">
+                                                        <rect key="frame" x="299" y="0.0" width="30" height="30"/>
+                                                        <state key="normal" image="activity_record_icon_mode_automatic"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8l-9H-y4q">
+                                                        <rect key="frame" x="359" y="0.0" width="30" height="30"/>
+                                                        <state key="normal" image="activity_record_icon_metering_evaluative"/>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.77750538793103452" colorSpace="calibratedWhite"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="IQg-o2-2nM" firstAttribute="top" secondItem="7DH-Ci-Hyp" secondAttribute="top" id="Sck-gP-1rT"/>
+                                            <constraint firstAttribute="trailing" secondItem="IQg-o2-2nM" secondAttribute="trailing" constant="4" id="Zhd-Av-zxh"/>
+                                            <constraint firstItem="IQg-o2-2nM" firstAttribute="leading" secondItem="7DH-Ci-Hyp" secondAttribute="leading" constant="4" id="bZL-D8-sj0"/>
+                                            <constraint firstAttribute="bottom" secondItem="IQg-o2-2nM" secondAttribute="bottom" id="dkF-Oj-3jf"/>
+                                            <constraint firstItem="IQg-o2-2nM" firstAttribute="leading" secondItem="7DH-Ci-Hyp" secondAttribute="leading" id="eKf-iZ-kee"/>
+                                            <constraint firstItem="IQg-o2-2nM" firstAttribute="top" secondItem="7DH-Ci-Hyp" secondAttribute="top" constant="4" id="fM4-vS-NLs"/>
+                                            <constraint firstAttribute="bottom" secondItem="IQg-o2-2nM" secondAttribute="bottom" constant="4" id="p5T-eV-UD3"/>
+                                            <constraint firstAttribute="trailing" secondItem="IQg-o2-2nM" secondAttribute="trailing" id="xLw-t0-sMR"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Sck-gP-1rT"/>
+                                                <exclude reference="dkF-Oj-3jf"/>
+                                                <exclude reference="eKf-iZ-kee"/>
+                                                <exclude reference="xLw-t0-sMR"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=regular">
+                                            <mask key="constraints">
+                                                <exclude reference="dkF-Oj-3jf"/>
+                                                <exclude reference="eKf-iZ-kee"/>
+                                                <exclude reference="xLw-t0-sMR"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="7DH-Ci-Hyp" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="1Bx-DJ-dsM"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7DH-Ci-Hyp" secondAttribute="trailing" constant="10" id="Hx6-uJ-evI"/>
+                                    <constraint firstAttribute="trailing" secondItem="CiJ-Ll-EF1" secondAttribute="trailing" constant="8" id="KDw-BS-5wI"/>
+                                    <constraint firstItem="THD-Xp-k6G" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="UcJ-5Z-t8q"/>
+                                    <constraint firstItem="7DH-Ci-Hyp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9Kl-ym-3ZQ" secondAttribute="leading" constant="10" id="gE7-5w-oOh"/>
+                                    <constraint firstAttribute="bottom" secondItem="7DH-Ci-Hyp" secondAttribute="bottom" constant="8" id="iFC-oX-dcx"/>
+                                    <constraint firstItem="CiJ-Ll-EF1" firstAttribute="top" secondItem="9Kl-ym-3ZQ" secondAttribute="top" constant="8" id="nUu-Sf-laA"/>
+                                    <constraint firstItem="THD-Xp-k6G" firstAttribute="centerY" secondItem="9Kl-ym-3ZQ" secondAttribute="centerY" id="vcb-u9-6wA"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRf-8q-oTu">
+                                <rect key="frame" x="20" y="8" width="28" height="28"/>
+                                <state key="normal" image="activity_record_icon_clear"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_record_icon_rec_area" translatesAutoresizingMaskIntoConstraints="NO" id="yWo-rG-dBr">
+                                <rect key="frame" x="488" y="257" width="112" height="171"/>
+                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="290" y="114" width="110" height="153"/>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LC6-Gc-POv">
+                                <rect key="frame" x="539" y="318" width="50" height="50"/>
+                                <state key="normal" image="activity_record_icon_rec"/>
+                                <state key="selected" image="activity_record_icon_stop"/>
+                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="343" y="187" width="47" height="47"/>
+                                </variation>
+                                <connections>
+                                    <action selector="pushRecord:" destination="31E-sq-qOD" eventType="touchUpInside" id="fk9-gP-0VM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWd-SG-2Si">
+                                <rect key="frame" x="506" y="359" width="28" height="28"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
+                                <state key="normal" image="activity_record_icon_controls_normal"/>
+                                <state key="highlighted" image="activity_record_icon_controls_pressed"/>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="519" y="464" width="34" height="35"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="317" y="210" width="34" height="35"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="519" y="464" width="34" height="35"/>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZi-UQ-LjO">
+                                <rect key="frame" x="556" y="276" width="31" height="29"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
+                                <state key="normal" image="activity_record_icon_change_camera_normal"/>
+                                <state key="selected" image="activity_record_icon_change_camera_pressed"/>
+                                <state key="highlighted" image="activity_record_icon_change_camera_pressed"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="357" y="272" width="32" height="34"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="356" y="138" width="32" height="34"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="357" y="272" width="32" height="34"/>
+                                </variation>
+                                <connections>
+                                    <action selector="pushRotateCamera:" destination="31E-sq-qOD" eventType="touchUpInside" id="Gzk-Ft-jJN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zK-cN-5V1">
+                                <rect key="frame" x="553" y="381" width="37" height="33"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
+                                <state key="normal" image="activity_record_gallery_normal"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="358" y="379" width="29" height="26"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="357" y="249" width="29" height="26"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="358" y="379" width="29" height="26"/>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5P-A2-uPz">
+                                <rect key="frame" x="513" y="292" width="18" height="36"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
+                                <state key="normal" image="activity_record_icon_flash_normal"/>
+                                <state key="selected" image="activity_record_icon_flash_pressed"/>
+                                <state key="highlighted" image="activity_record_icon_flash_pressed"/>
+                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="323" y="130" width="20" height="35"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="0.0" y="378" width="20" height="35"/>
+                                </variation>
+                                <connections>
+                                    <action selector="pushFlash:" destination="31E-sq-qOD" eventType="touchUpInside" id="OEY-IX-n13"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LC6-Gc-POv" firstAttribute="top" secondItem="lZi-UQ-LjO" secondAttribute="bottom" constant="13" id="7Uc-YU-K4T"/>
+                            <constraint firstItem="0zK-cN-5V1" firstAttribute="centerX" secondItem="LC6-Gc-POv" secondAttribute="centerX" constant="7" id="7y2-Yy-hjy">
+                                <variation key="heightClass=compact" constant="7"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="LC6-Gc-POv" secondAttribute="trailing" constant="-9" id="C8W-5u-zvy"/>
+                            <constraint firstItem="9Kl-ym-3ZQ" firstAttribute="leading" secondItem="vFq-z7-Nw8" secondAttribute="leadingMargin" constant="-20" id="GoJ-Xl-ZzM"/>
+                            <constraint firstItem="LC6-Gc-POv" firstAttribute="centerY" secondItem="yWo-rG-dBr" secondAttribute="centerY" id="Gue-76-Muu"/>
+                            <constraint firstItem="0zK-cN-5V1" firstAttribute="top" secondItem="LC6-Gc-POv" secondAttribute="bottom" constant="13" id="JVN-fG-Nl4"/>
+                            <constraint firstItem="LC6-Gc-POv" firstAttribute="leading" secondItem="KWd-SG-2Si" secondAttribute="trailing" constant="5" id="LUp-tp-KRi"/>
+                            <constraint firstItem="lZi-UQ-LjO" firstAttribute="centerX" secondItem="LC6-Gc-POv" secondAttribute="centerX" constant="7" id="U36-FT-yZG"/>
+                            <constraint firstItem="LC6-Gc-POv" firstAttribute="leading" secondItem="C5P-A2-uPz" secondAttribute="trailing" constant="8" id="V0h-wf-smp"/>
+                            <constraint firstItem="zRf-8q-oTu" firstAttribute="leading" secondItem="vFq-z7-Nw8" secondAttribute="leadingMargin" id="VDv-i7-p90"/>
+                            <constraint firstItem="iHv-Wl-fVq" firstAttribute="top" secondItem="9Kl-ym-3ZQ" secondAttribute="bottom" id="Y1y-hW-Lhk"/>
+                            <constraint firstItem="9Kl-ym-3ZQ" firstAttribute="top" secondItem="vFq-z7-Nw8" secondAttribute="topMargin" id="agD-cy-rFN"/>
+                            <constraint firstItem="yWo-rG-dBr" firstAttribute="centerY" secondItem="vFq-z7-Nw8" secondAttribute="centerY" constant="42" id="bMl-pC-BYP"/>
+                            <constraint firstItem="C5P-A2-uPz" firstAttribute="centerY" secondItem="LC6-Gc-POv" secondAttribute="centerY" constant="-33" id="bo2-c6-VMY">
+                                <variation key="heightClass=compact" constant="-33"/>
+                            </constraint>
+                            <constraint firstItem="zRf-8q-oTu" firstAttribute="top" secondItem="vFq-z7-Nw8" secondAttribute="topMargin" constant="8" id="fYc-S7-MZj">
+                                <variation key="widthClass=regular" constant="20"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="9Kl-ym-3ZQ" secondAttribute="trailing" constant="-20" id="l0J-i4-DTw"/>
+                            <constraint firstItem="KWd-SG-2Si" firstAttribute="centerY" secondItem="LC6-Gc-POv" secondAttribute="centerY" constant="30" id="vJX-f9-emk">
+                                <variation key="heightClass=compact" constant="30"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="yWo-rG-dBr" secondAttribute="trailing" constant="-20" id="xz9-eX-dAq"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="cameraRotationButton" destination="lZi-UQ-LjO" id="QCl-eF-pNT"/>
+                        <outlet property="cameraView" destination="9Kl-ym-3ZQ" id="nWg-AF-LrN"/>
+                        <outlet property="chronometrer" destination="aut-g5-zjP" id="DNH-x9-fZr"/>
+                        <outlet property="flashButton" destination="C5P-A2-uPz" id="1SC-dF-B2O"/>
+                        <outlet property="focusImageView" destination="THD-Xp-k6G" id="Rj2-Yj-CEJ"/>
+                        <outlet property="recordButton" destination="LC6-Gc-POv" id="Ub9-X5-UC0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Itv-c0-Cy8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-770" y="280.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mvL-fA-W5b">
+            <objects>
+                <navigationController id="ONf-um-ugJ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TMN-bQ-dEe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6AT-XL-gis" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="251" y="387"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="activity_record_gallery_normal" width="37" height="33"/>
+        <image name="activity_record_icon_battery_charged" width="24" height="16"/>
+        <image name="activity_record_icon_change_camera_normal" width="31" height="29"/>
+        <image name="activity_record_icon_change_camera_pressed" width="31" height="29"/>
+        <image name="activity_record_icon_clear" width="28" height="28"/>
+        <image name="activity_record_icon_controls_normal" width="28" height="28"/>
+        <image name="activity_record_icon_controls_pressed" width="28" height="28"/>
+        <image name="activity_record_icon_exposure" width="30" height="30"/>
+        <image name="activity_record_icon_flash_normal" width="18" height="36"/>
+        <image name="activity_record_icon_flash_pressed" width="18" height="36"/>
+        <image name="activity_record_icon_focus_focused" width="68" height="68"/>
+        <image name="activity_record_icon_geolocation_normal" width="14" height="21"/>
+        <image name="activity_record_icon_iso" width="30" height="30"/>
+        <image name="activity_record_icon_memory" width="16" height="20"/>
+        <image name="activity_record_icon_metering_evaluative" width="30" height="30"/>
+        <image name="activity_record_icon_microphone_normal" width="18" height="20"/>
+        <image name="activity_record_icon_mode" width="30" height="30"/>
+        <image name="activity_record_icon_mode_automatic" width="30" height="30"/>
+        <image name="activity_record_icon_rec" width="50" height="50"/>
+        <image name="activity_record_icon_rec_area" width="112" height="171"/>
+        <image name="activity_record_icon_recording" width="8" height="8"/>
+        <image name="activity_record_icon_resolution_1080" width="25" height="16"/>
+        <image name="activity_record_icon_stop" width="50" height="51"/>
+        <image name="activity_record_icon_zoom" width="29" height="30"/>
+        <image name="activity_record_white_balance" width="30" height="30"/>
+    </resources>
+</document>

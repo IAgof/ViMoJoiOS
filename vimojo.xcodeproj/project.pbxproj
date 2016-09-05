@@ -1,0 +1,1058 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A93BCE281D7D590C00421BD0 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93BCE0C1D7D577300421BD0 /* GPUImage.framework */; };
+		A93BCE291D7D590C00421BD0 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A93BCE0C1D7D577300421BD0 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A93BCE2D1D7D591A00421BD0 /* Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93BCE1E1D7D58F600421BD0 /* Project.framework */; };
+		A93BCE2E1D7D591A00421BD0 /* Project.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A93BCE1E1D7D58F600421BD0 /* Project.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A93BCE321D7D594100421BD0 /* GPUImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A93BCE0C1D7D577300421BD0 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A93BCE431D7D599900421BD0 /* ViMoJoTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE421D7D599900421BD0 /* ViMoJoTracker.swift */; };
+		A93BCE4C1D7D5C7400421BD0 /* ConfigPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE4A1D7D5C7400421BD0 /* ConfigPreferences.swift */; };
+		A93BCE4D1D7D5C7400421BD0 /* AnalitycsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE4B1D7D5C7400421BD0 /* AnalitycsConstants.swift */; };
+		A93BCE4F1D7D77B300421BD0 /* AVResolutionParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE4E1D7D77B300421BD0 /* AVResolutionParse.swift */; };
+		A93BCE511D7D77FF00421BD0 /* CompatibleResolutionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE501D7D77FF00421BD0 /* CompatibleResolutionsInteractor.swift */; };
+		A93BCE531D7D785100421BD0 /* SettingsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE521D7D785100421BD0 /* SettingsConstants.swift */; };
+		A93BCE571D7D792B00421BD0 /* AddVideoToProjectUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE551D7D792B00421BD0 /* AddVideoToProjectUseCase.swift */; };
+		A93BCE581D7D792B00421BD0 /* GetActualProjectAVCompositionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE561D7D792B00421BD0 /* GetActualProjectAVCompositionUseCase.swift */; };
+		A93BCE5E1D7D7A1300421BD0 /* iso639_2.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE5B1D7D7A1300421BD0 /* iso639_2.bundle */; };
+		A93BCE5F1D7D7A1300421BD0 /* NSLocale+ISO639_2.m in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE5D1D7D7A1300421BD0 /* NSLocale+ISO639_2.m */; };
+		A93BCE611D7D7A5A00421BD0 /* AVQualityParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE601D7D7A5A00421BD0 /* AVQualityParse.swift */; };
+		A93BCE631D7D7A7200421BD0 /* CompatibleQualityInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE621D7D7A7200421BD0 /* CompatibleQualityInteractor.swift */; };
+		A93BCE641D7D7E3C00421BD0 /* Project.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A93BCE1E1D7D58F600421BD0 /* Project.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A93BCE6E1D7D7E8C00421BD0 /* VideonaMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93BCE6B1D7D7E8000421BD0 /* VideonaMedia.framework */; };
+		A93BCE6F1D7D7E8C00421BD0 /* VideonaMedia.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A93BCE6B1D7D7E8000421BD0 /* VideonaMedia.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A93BCE721D7D7E9400421BD0 /* VideonaMedia.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A93BCE6B1D7D7E8000421BD0 /* VideonaMedia.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A93BCE741D7D88EE00421BD0 /* activity_record_rec_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE731D7D88EE00421BD0 /* activity_record_rec_circle.png */; };
+		A93BCE761D7D92C300421BD0 /* filter_free.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE751D7D92C300421BD0 /* filter_free.png */; };
+		A93BCE781D7D93B700421BD0 /* water_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE771D7D93B700421BD0 /* water_mark.png */; };
+		A9B385EA1D7D51380065D3EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B385E91D7D51380065D3EC /* AppDelegate.swift */; };
+		A9B385EF1D7D51380065D3EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B385ED1D7D51380065D3EC /* Main.storyboard */; };
+		A9B385F11D7D51380065D3EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9B385F01D7D51380065D3EC /* Assets.xcassets */; };
+		A9B385F41D7D51380065D3EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B385F21D7D51380065D3EC /* LaunchScreen.storyboard */; };
+		A9B385FF1D7D51380065D3EC /* vimojoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B385FE1D7D51380065D3EC /* vimojoTests.swift */; };
+		A9B386221D7D52E30065D3EC /* RecordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386201D7D52E30065D3EC /* RecordPresenter.swift */; };
+		A9B386231D7D52E30065D3EC /* RecordPresenterInterfaceIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386211D7D52E30065D3EC /* RecordPresenterInterfaceIO.swift */; };
+		A9B386261D7D52EA0065D3EC /* RecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386241D7D52EA0065D3EC /* RecordController.swift */; };
+		A9B386291D7D52F40065D3EC /* RecordWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386281D7D52F40065D3EC /* RecordWireframe.swift */; };
+		A9B3862B1D7D531B0065D3EC /* RecorderConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3862A1D7D531B0065D3EC /* RecorderConstants.swift */; };
+		A9B386301D7D53230065D3EC /* RecorderInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3862C1D7D53230065D3EC /* RecorderInteractorInterface.swift */; };
+		A9B386311D7D53230065D3EC /* RecorderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3862D1D7D53230065D3EC /* RecorderInteractor.swift */; };
+		A9B386321D7D53230065D3EC /* CameraInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3862E1D7D53230065D3EC /* CameraInteractor.swift */; };
+		A9B386331D7D53230065D3EC /* CameraInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3862F1D7D53230065D3EC /* CameraInteractorInterface.swift */; };
+		A9B386381D7D53450065D3EC /* ClipsAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386361D7D53450065D3EC /* ClipsAlbum.swift */; };
+		A9B386391D7D53450065D3EC /* ExportedAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386371D7D53450065D3EC /* ExportedAlbum.swift */; };
+		A9B3863D1D7D53740065D3EC /* ThumbnailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3863C1D7D53740065D3EC /* ThumbnailInteractor.swift */; };
+		A9B386411D7D53880065D3EC /* TimerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3863F1D7D53880065D3EC /* TimerInteractor.swift */; };
+		A9B386421D7D53880065D3EC /* TimerInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386401D7D53880065D3EC /* TimerInteractorInterface.swift */; };
+		A9B386451D7D53960065D3EC /* FlashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386441D7D53960065D3EC /* FlashInteractor.swift */; };
+		A9B386491D7D53B20065D3EC /* ExporterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386481D7D53B20065D3EC /* ExporterInteractor.swift */; };
+		A9B3864D1D7D53BA0065D3EC /* AddFilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3864A1D7D53BA0065D3EC /* AddFilterInteractor.swift */; };
+		A9B3864E1D7D53BA0065D3EC /* RemoveFilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3864B1D7D53BA0065D3EC /* RemoveFilterInteractor.swift */; };
+		A9B3864F1D7D53BA0065D3EC /* ChangeFilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3864C1D7D53BA0065D3EC /* ChangeFilterInteractor.swift */; };
+		A9B386531D7D53D10065D3EC /* CameraRecorderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386511D7D53D10065D3EC /* CameraRecorderInteractor.swift */; };
+		A9B386541D7D53D10065D3EC /* CameraRecorderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386521D7D53D10065D3EC /* CameraRecorderInterface.swift */; };
+		A9B386561D7D54CF0065D3EC /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386551D7D54CF0065D3EC /* AppDependencies.swift */; };
+		A9B386581D7D551A0065D3EC /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386571D7D551A0065D3EC /* Utils.swift */; };
+		A9B3865A1D7D55340065D3EC /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386591D7D55340065D3EC /* RootWireframe.swift */; };
+		A9B3865F1D7D55660065D3EC /* VideonaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3865D1D7D55660065D3EC /* VideonaController.swift */; };
+		A9B386601D7D55660065D3EC /* VideonaControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3865E1D7D55660065D3EC /* VideonaControllerInterface.swift */; };
+		D510F238D42EC32267BF0097 /* Pods_vimojo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 611A67ECA44E0DA346D59215 /* Pods_vimojo.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A93BCE091D7D577300421BD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A93BCE031D7D577300421BD0 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
+		A93BCE0B1D7D577300421BD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A93BCE031D7D577300421BD0 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCE209E51943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
+		A93BCE1D1D7D58F600421BD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A93BCE181D7D58F600421BD0 /* Project.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A94197221D782557004704E0;
+			remoteInfo = Project;
+		};
+		A93BCE1F1D7D58F600421BD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A93BCE181D7D58F600421BD0 /* Project.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A941972C1D782557004704E0;
+			remoteInfo = ProjectTests;
+		};
+		A93BCE2A1D7D590C00421BD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A93BCE031D7D577300421BD0 /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCE209E41943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
+		A93BCE2F1D7D591A00421BD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A93BCE181D7D58F600421BD0 /* Project.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A94197211D782557004704E0;
+			remoteInfo = Project;
+		};
+		A93BCE6A1D7D7E8000421BD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A93BCE651D7D7E8000421BD0 /* VideonaMedia.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A9D2C1DD1D7589F200508F48;
+			remoteInfo = VideonaMedia;
+		};
+		A93BCE6C1D7D7E8000421BD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A93BCE651D7D7E8000421BD0 /* VideonaMedia.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A9D2C1E71D7589F200508F48;
+			remoteInfo = VideonaMediaTests;
+		};
+		A93BCE701D7D7E8C00421BD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A93BCE651D7D7E8000421BD0 /* VideonaMedia.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A9D2C1DC1D7589F200508F48;
+			remoteInfo = VideonaMedia;
+		};
+		A9B385FB1D7D51380065D3EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9B385DE1D7D51380065D3EC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9B385E51D7D51380065D3EC;
+			remoteInfo = vimojo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A93BCE2C1D7D590C00421BD0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A93BCE2E1D7D591A00421BD0 /* Project.framework in Embed Frameworks */,
+				A93BCE291D7D590C00421BD0 /* GPUImage.framework in Embed Frameworks */,
+				A93BCE6F1D7D7E8C00421BD0 /* VideonaMedia.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A93BCE311D7D593600421BD0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A93BCE721D7D7E9400421BD0 /* VideonaMedia.framework in CopyFiles */,
+				A93BCE641D7D7E3C00421BD0 /* Project.framework in CopyFiles */,
+				A93BCE321D7D594100421BD0 /* GPUImage.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		611A67ECA44E0DA346D59215 /* Pods_vimojo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vimojo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6141F0217968E5687F3D0A99 /* Pods-vimojo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vimojo/Pods-vimojo.debug.xcconfig"; sourceTree = "<group>"; };
+		679AE3ECF855A4ACA04759A6 /* Pods-vimojo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojo.release.xcconfig"; path = "Pods/Target Support Files/Pods-vimojo/Pods-vimojo.release.xcconfig"; sourceTree = "<group>"; };
+		A93BCE031D7D577300421BD0 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = ../GPUImageForViMojoApp/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
+		A93BCE181D7D58F600421BD0 /* Project.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Project.xcodeproj; path = "../Videona Frameworks/Project/Project.xcodeproj"; sourceTree = "<group>"; };
+		A93BCE421D7D599900421BD0 /* ViMoJoTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViMoJoTracker.swift; sourceTree = "<group>"; };
+		A93BCE4A1D7D5C7400421BD0 /* ConfigPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigPreferences.swift; sourceTree = "<group>"; };
+		A93BCE4B1D7D5C7400421BD0 /* AnalitycsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalitycsConstants.swift; sourceTree = "<group>"; };
+		A93BCE4E1D7D77B300421BD0 /* AVResolutionParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVResolutionParse.swift; sourceTree = "<group>"; };
+		A93BCE501D7D77FF00421BD0 /* CompatibleResolutionsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompatibleResolutionsInteractor.swift; sourceTree = "<group>"; };
+		A93BCE521D7D785100421BD0 /* SettingsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsConstants.swift; sourceTree = "<group>"; };
+		A93BCE551D7D792B00421BD0 /* AddVideoToProjectUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddVideoToProjectUseCase.swift; sourceTree = "<group>"; };
+		A93BCE561D7D792B00421BD0 /* GetActualProjectAVCompositionUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetActualProjectAVCompositionUseCase.swift; sourceTree = "<group>"; };
+		A93BCE5A1D7D7A1200421BD0 /* vimojo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "vimojo-Bridging-Header.h"; sourceTree = "<group>"; };
+		A93BCE5B1D7D7A1300421BD0 /* iso639_2.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iso639_2.bundle; sourceTree = "<group>"; };
+		A93BCE5C1D7D7A1300421BD0 /* NSLocale+ISO639_2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLocale+ISO639_2.h"; sourceTree = "<group>"; };
+		A93BCE5D1D7D7A1300421BD0 /* NSLocale+ISO639_2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLocale+ISO639_2.m"; sourceTree = "<group>"; };
+		A93BCE601D7D7A5A00421BD0 /* AVQualityParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVQualityParse.swift; sourceTree = "<group>"; };
+		A93BCE621D7D7A7200421BD0 /* CompatibleQualityInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompatibleQualityInteractor.swift; sourceTree = "<group>"; };
+		A93BCE651D7D7E8000421BD0 /* VideonaMedia.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = VideonaMedia.xcodeproj; path = "../Videona Frameworks/VideonaMedia/VideonaMedia.xcodeproj"; sourceTree = "<group>"; };
+		A93BCE731D7D88EE00421BD0 /* activity_record_rec_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = activity_record_rec_circle.png; sourceTree = "<group>"; };
+		A93BCE751D7D92C300421BD0 /* filter_free.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filter_free.png; sourceTree = "<group>"; };
+		A93BCE771D7D93B700421BD0 /* water_mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water_mark.png; sourceTree = "<group>"; };
+		A9B385E61D7D51380065D3EC /* vimojo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vimojo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9B385E91D7D51380065D3EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A9B385EE1D7D51380065D3EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A9B385F01D7D51380065D3EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A9B385F31D7D51380065D3EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A9B385F51D7D51380065D3EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9B385FA1D7D51380065D3EC /* vimojoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vimojoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9B385FE1D7D51380065D3EC /* vimojoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vimojoTests.swift; sourceTree = "<group>"; };
+		A9B386001D7D51380065D3EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9B386201D7D52E30065D3EC /* RecordPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordPresenter.swift; sourceTree = "<group>"; };
+		A9B386211D7D52E30065D3EC /* RecordPresenterInterfaceIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordPresenterInterfaceIO.swift; sourceTree = "<group>"; };
+		A9B386241D7D52EA0065D3EC /* RecordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordController.swift; sourceTree = "<group>"; };
+		A9B386281D7D52F40065D3EC /* RecordWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordWireframe.swift; sourceTree = "<group>"; };
+		A9B3862A1D7D531B0065D3EC /* RecorderConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecorderConstants.swift; sourceTree = "<group>"; };
+		A9B3862C1D7D53230065D3EC /* RecorderInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecorderInteractorInterface.swift; sourceTree = "<group>"; };
+		A9B3862D1D7D53230065D3EC /* RecorderInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecorderInteractor.swift; sourceTree = "<group>"; };
+		A9B3862E1D7D53230065D3EC /* CameraInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraInteractor.swift; sourceTree = "<group>"; };
+		A9B3862F1D7D53230065D3EC /* CameraInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraInteractorInterface.swift; sourceTree = "<group>"; };
+		A9B386361D7D53450065D3EC /* ClipsAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipsAlbum.swift; sourceTree = "<group>"; };
+		A9B386371D7D53450065D3EC /* ExportedAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportedAlbum.swift; sourceTree = "<group>"; };
+		A9B3863C1D7D53740065D3EC /* ThumbnailInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailInteractor.swift; sourceTree = "<group>"; };
+		A9B3863F1D7D53880065D3EC /* TimerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerInteractor.swift; sourceTree = "<group>"; };
+		A9B386401D7D53880065D3EC /* TimerInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerInteractorInterface.swift; sourceTree = "<group>"; };
+		A9B386441D7D53960065D3EC /* FlashInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashInteractor.swift; sourceTree = "<group>"; };
+		A9B386481D7D53B20065D3EC /* ExporterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExporterInteractor.swift; sourceTree = "<group>"; };
+		A9B3864A1D7D53BA0065D3EC /* AddFilterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFilterInteractor.swift; sourceTree = "<group>"; };
+		A9B3864B1D7D53BA0065D3EC /* RemoveFilterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveFilterInteractor.swift; sourceTree = "<group>"; };
+		A9B3864C1D7D53BA0065D3EC /* ChangeFilterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeFilterInteractor.swift; sourceTree = "<group>"; };
+		A9B386511D7D53D10065D3EC /* CameraRecorderInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraRecorderInteractor.swift; sourceTree = "<group>"; };
+		A9B386521D7D53D10065D3EC /* CameraRecorderInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraRecorderInterface.swift; sourceTree = "<group>"; };
+		A9B386551D7D54CF0065D3EC /* AppDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
+		A9B386571D7D551A0065D3EC /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = ../../VideonaiOS/Videona/Videona/Utils.swift; sourceTree = "<group>"; };
+		A9B386591D7D55340065D3EC /* RootWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootWireframe.swift; sourceTree = "<group>"; };
+		A9B3865D1D7D55660065D3EC /* VideonaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideonaController.swift; sourceTree = "<group>"; };
+		A9B3865E1D7D55660065D3EC /* VideonaControllerInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideonaControllerInterface.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A9B385E31D7D51380065D3EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A93BCE6E1D7D7E8C00421BD0 /* VideonaMedia.framework in Frameworks */,
+				D510F238D42EC32267BF0097 /* Pods_vimojo.framework in Frameworks */,
+				A93BCE281D7D590C00421BD0 /* GPUImage.framework in Frameworks */,
+				A93BCE2D1D7D591A00421BD0 /* Project.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9B385F71D7D51380065D3EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		92F58ABC92663D90F49BD48B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				611A67ECA44E0DA346D59215 /* Pods_vimojo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A93BCE041D7D577300421BD0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A93BCE0A1D7D577300421BD0 /* libGPUImage.a */,
+				A93BCE0C1D7D577300421BD0 /* GPUImage.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A93BCE191D7D58F600421BD0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A93BCE1E1D7D58F600421BD0 /* Project.framework */,
+				A93BCE201D7D58F600421BD0 /* ProjectTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A93BCE401D7D598600421BD0 /* Recorder */ = {
+			isa = PBXGroup;
+			children = (
+				A9B386191D7D522A0065D3EC /* App Logic */,
+				A9B3861C1D7D523F0065D3EC /* User Interface */,
+			);
+			name = Recorder;
+			sourceTree = "<group>";
+		};
+		A93BCE411D7D598B00421BD0 /* Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				A93BCE421D7D599900421BD0 /* ViMoJoTracker.swift */,
+			);
+			name = Tracker;
+			sourceTree = "<group>";
+		};
+		A93BCE491D7D5C6B00421BD0 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A93BCE521D7D785100421BD0 /* SettingsConstants.swift */,
+				A93BCE4A1D7D5C7400421BD0 /* ConfigPreferences.swift */,
+				A93BCE4B1D7D5C7400421BD0 /* AnalitycsConstants.swift */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		A93BCE541D7D792300421BD0 /* Use case */ = {
+			isa = PBXGroup;
+			children = (
+				A93BCE621D7D7A7200421BD0 /* CompatibleQualityInteractor.swift */,
+				A93BCE601D7D7A5A00421BD0 /* AVQualityParse.swift */,
+				A93BCE551D7D792B00421BD0 /* AddVideoToProjectUseCase.swift */,
+				A93BCE561D7D792B00421BD0 /* GetActualProjectAVCompositionUseCase.swift */,
+			);
+			name = "Use case";
+			sourceTree = "<group>";
+		};
+		A93BCE591D7D7A0700421BD0 /* NSLocale */ = {
+			isa = PBXGroup;
+			children = (
+				A93BCE5B1D7D7A1300421BD0 /* iso639_2.bundle */,
+				A93BCE5C1D7D7A1300421BD0 /* NSLocale+ISO639_2.h */,
+				A93BCE5D1D7D7A1300421BD0 /* NSLocale+ISO639_2.m */,
+			);
+			name = NSLocale;
+			sourceTree = "<group>";
+		};
+		A93BCE661D7D7E8000421BD0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A93BCE6B1D7D7E8000421BD0 /* VideonaMedia.framework */,
+				A93BCE6D1D7D7E8000421BD0 /* VideonaMediaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A9B385DD1D7D51380065D3EC = {
+			isa = PBXGroup;
+			children = (
+				A93BCE651D7D7E8000421BD0 /* VideonaMedia.xcodeproj */,
+				A93BCE181D7D58F600421BD0 /* Project.xcodeproj */,
+				A93BCE031D7D577300421BD0 /* GPUImage.xcodeproj */,
+				A9B385E81D7D51380065D3EC /* vimojo */,
+				A9B385FD1D7D51380065D3EC /* vimojoTests */,
+				A9B385E71D7D51380065D3EC /* Products */,
+				B6E938587713C28335B15999 /* Pods */,
+				92F58ABC92663D90F49BD48B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A9B385E71D7D51380065D3EC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9B385E61D7D51380065D3EC /* vimojo.app */,
+				A9B385FA1D7D51380065D3EC /* vimojoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A9B385E81D7D51380065D3EC /* vimojo */ = {
+			isa = PBXGroup;
+			children = (
+				A93BCE5A1D7D7A1200421BD0 /* vimojo-Bridging-Header.h */,
+				A9B386571D7D551A0065D3EC /* Utils.swift */,
+				A93BCE751D7D92C300421BD0 /* filter_free.png */,
+				A93BCE771D7D93B700421BD0 /* water_mark.png */,
+				A93BCE731D7D88EE00421BD0 /* activity_record_rec_circle.png */,
+				A93BCE4E1D7D77B300421BD0 /* AVResolutionParse.swift */,
+				A93BCE501D7D77FF00421BD0 /* CompatibleResolutionsInteractor.swift */,
+				A9B385E91D7D51380065D3EC /* AppDelegate.swift */,
+				A9B386551D7D54CF0065D3EC /* AppDependencies.swift */,
+				A9B3865B1D7D55440065D3EC /* Common */,
+				A9B386181D7D519E0065D3EC /* Modules */,
+				A9B386171D7D51940065D3EC /* StoryBoard */,
+				A9B385F01D7D51380065D3EC /* Assets.xcassets */,
+				A9B385F51D7D51380065D3EC /* Info.plist */,
+			);
+			path = vimojo;
+			sourceTree = "<group>";
+		};
+		A9B385FD1D7D51380065D3EC /* vimojoTests */ = {
+			isa = PBXGroup;
+			children = (
+				A9B385FE1D7D51380065D3EC /* vimojoTests.swift */,
+				A9B386001D7D51380065D3EC /* Info.plist */,
+			);
+			path = vimojoTests;
+			sourceTree = "<group>";
+		};
+		A9B386171D7D51940065D3EC /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				A9B385ED1D7D51380065D3EC /* Main.storyboard */,
+				A9B385F21D7D51380065D3EC /* LaunchScreen.storyboard */,
+			);
+			name = StoryBoard;
+			sourceTree = "<group>";
+		};
+		A9B386181D7D519E0065D3EC /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				A93BCE401D7D598600421BD0 /* Recorder */,
+				A93BCE411D7D598B00421BD0 /* Tracker */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		A9B386191D7D522A0065D3EC /* App Logic */ = {
+			isa = PBXGroup;
+			children = (
+				A9B3861B1D7D52370065D3EC /* Interactor */,
+				A9B3861A1D7D52310065D3EC /* Model */,
+			);
+			name = "App Logic";
+			sourceTree = "<group>";
+		};
+		A9B3861A1D7D52310065D3EC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A9B3862A1D7D531B0065D3EC /* RecorderConstants.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A9B3861B1D7D52370065D3EC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				A9B3862C1D7D53230065D3EC /* RecorderInteractorInterface.swift */,
+				A9B3862D1D7D53230065D3EC /* RecorderInteractor.swift */,
+				A9B3862E1D7D53230065D3EC /* CameraInteractor.swift */,
+				A9B3862F1D7D53230065D3EC /* CameraInteractorInterface.swift */,
+				A9B386501D7D53C60065D3EC /* Recorder interactor */,
+				A9B386471D7D53A90065D3EC /* Exporter interactor */,
+				A9B386461D7D539D0065D3EC /* Filters Interactor */,
+				A9B386431D7D538E0065D3EC /* Flash */,
+				A9B3863E1D7D537C0065D3EC /* Timer */,
+				A9B3863B1D7D536A0065D3EC /* Thumbnail */,
+				A9B386351D7D53350065D3EC /* CustomAlbum */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		A9B3861C1D7D523F0065D3EC /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				A9B3861E1D7D52540065D3EC /* View */,
+				A9B3861D1D7D524E0065D3EC /* Presenter */,
+				A9B3861F1D7D525C0065D3EC /* Wireframe */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
+		A9B3861D1D7D524E0065D3EC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A9B386201D7D52E30065D3EC /* RecordPresenter.swift */,
+				A9B386211D7D52E30065D3EC /* RecordPresenterInterfaceIO.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		A9B3861E1D7D52540065D3EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A9B386241D7D52EA0065D3EC /* RecordController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A9B3861F1D7D525C0065D3EC /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				A9B386281D7D52F40065D3EC /* RecordWireframe.swift */,
+			);
+			name = Wireframe;
+			sourceTree = "<group>";
+		};
+		A9B386351D7D53350065D3EC /* CustomAlbum */ = {
+			isa = PBXGroup;
+			children = (
+				A9B386361D7D53450065D3EC /* ClipsAlbum.swift */,
+				A9B386371D7D53450065D3EC /* ExportedAlbum.swift */,
+			);
+			name = CustomAlbum;
+			sourceTree = "<group>";
+		};
+		A9B3863B1D7D536A0065D3EC /* Thumbnail */ = {
+			isa = PBXGroup;
+			children = (
+				A9B3863C1D7D53740065D3EC /* ThumbnailInteractor.swift */,
+			);
+			name = Thumbnail;
+			sourceTree = "<group>";
+		};
+		A9B3863E1D7D537C0065D3EC /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				A9B3863F1D7D53880065D3EC /* TimerInteractor.swift */,
+				A9B386401D7D53880065D3EC /* TimerInteractorInterface.swift */,
+			);
+			name = Timer;
+			sourceTree = "<group>";
+		};
+		A9B386431D7D538E0065D3EC /* Flash */ = {
+			isa = PBXGroup;
+			children = (
+				A9B386441D7D53960065D3EC /* FlashInteractor.swift */,
+			);
+			name = Flash;
+			sourceTree = "<group>";
+		};
+		A9B386461D7D539D0065D3EC /* Filters Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				A9B3864A1D7D53BA0065D3EC /* AddFilterInteractor.swift */,
+				A9B3864B1D7D53BA0065D3EC /* RemoveFilterInteractor.swift */,
+				A9B3864C1D7D53BA0065D3EC /* ChangeFilterInteractor.swift */,
+			);
+			name = "Filters Interactor";
+			sourceTree = "<group>";
+		};
+		A9B386471D7D53A90065D3EC /* Exporter interactor */ = {
+			isa = PBXGroup;
+			children = (
+				A9B386481D7D53B20065D3EC /* ExporterInteractor.swift */,
+			);
+			name = "Exporter interactor";
+			sourceTree = "<group>";
+		};
+		A9B386501D7D53C60065D3EC /* Recorder interactor */ = {
+			isa = PBXGroup;
+			children = (
+				A9B386511D7D53D10065D3EC /* CameraRecorderInteractor.swift */,
+				A9B386521D7D53D10065D3EC /* CameraRecorderInterface.swift */,
+			);
+			name = "Recorder interactor";
+			sourceTree = "<group>";
+		};
+		A9B3865B1D7D55440065D3EC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A93BCE591D7D7A0700421BD0 /* NSLocale */,
+				A93BCE541D7D792300421BD0 /* Use case */,
+				A93BCE491D7D5C6B00421BD0 /* Constants */,
+				A9B3865C1D7D554E0065D3EC /* ViMoJo as Module */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		A9B3865C1D7D554E0065D3EC /* ViMoJo as Module */ = {
+			isa = PBXGroup;
+			children = (
+				A9B3865D1D7D55660065D3EC /* VideonaController.swift */,
+				A9B3865E1D7D55660065D3EC /* VideonaControllerInterface.swift */,
+				A9B386591D7D55340065D3EC /* RootWireframe.swift */,
+			);
+			name = "ViMoJo as Module";
+			sourceTree = "<group>";
+		};
+		B6E938587713C28335B15999 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6141F0217968E5687F3D0A99 /* Pods-vimojo.debug.xcconfig */,
+				679AE3ECF855A4ACA04759A6 /* Pods-vimojo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A9B385E51D7D51380065D3EC /* vimojo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9B386031D7D51380065D3EC /* Build configuration list for PBXNativeTarget "vimojo" */;
+			buildPhases = (
+				7FA181D530392B2A9105D375 /* Check Pods Manifest.lock */,
+				A9B385E21D7D51380065D3EC /* Sources */,
+				A9B385E31D7D51380065D3EC /* Frameworks */,
+				A9B385E41D7D51380065D3EC /* Resources */,
+				F12117A10579B8225472990E /* Embed Pods Frameworks */,
+				959B377D4B35976E230DE36F /* Copy Pods Resources */,
+				A93BCE2C1D7D590C00421BD0 /* Embed Frameworks */,
+				A93BCE311D7D593600421BD0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A93BCE2B1D7D590C00421BD0 /* PBXTargetDependency */,
+				A93BCE301D7D591A00421BD0 /* PBXTargetDependency */,
+				A93BCE711D7D7E8C00421BD0 /* PBXTargetDependency */,
+			);
+			name = vimojo;
+			productName = vimojo;
+			productReference = A9B385E61D7D51380065D3EC /* vimojo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A9B385F91D7D51380065D3EC /* vimojoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9B386061D7D51380065D3EC /* Build configuration list for PBXNativeTarget "vimojoTests" */;
+			buildPhases = (
+				A9B385F61D7D51380065D3EC /* Sources */,
+				A9B385F71D7D51380065D3EC /* Frameworks */,
+				A9B385F81D7D51380065D3EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9B385FC1D7D51380065D3EC /* PBXTargetDependency */,
+			);
+			name = vimojoTests;
+			productName = vimojoTests;
+			productReference = A9B385FA1D7D51380065D3EC /* vimojoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A9B385DE1D7D51380065D3EC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Videona;
+				TargetAttributes = {
+					A9B385E51D7D51380065D3EC = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					A9B385F91D7D51380065D3EC = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = A9B385E51D7D51380065D3EC;
+					};
+				};
+			};
+			buildConfigurationList = A9B385E11D7D51380065D3EC /* Build configuration list for PBXProject "vimojo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A9B385DD1D7D51380065D3EC;
+			productRefGroup = A9B385E71D7D51380065D3EC /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A93BCE041D7D577300421BD0 /* Products */;
+					ProjectRef = A93BCE031D7D577300421BD0 /* GPUImage.xcodeproj */;
+				},
+				{
+					ProductGroup = A93BCE191D7D58F600421BD0 /* Products */;
+					ProjectRef = A93BCE181D7D58F600421BD0 /* Project.xcodeproj */;
+				},
+				{
+					ProductGroup = A93BCE661D7D7E8000421BD0 /* Products */;
+					ProjectRef = A93BCE651D7D7E8000421BD0 /* VideonaMedia.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				A9B385E51D7D51380065D3EC /* vimojo */,
+				A9B385F91D7D51380065D3EC /* vimojoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A93BCE0A1D7D577300421BD0 /* libGPUImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGPUImage.a;
+			remoteRef = A93BCE091D7D577300421BD0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A93BCE0C1D7D577300421BD0 /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = A93BCE0B1D7D577300421BD0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A93BCE1E1D7D58F600421BD0 /* Project.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Project.framework;
+			remoteRef = A93BCE1D1D7D58F600421BD0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A93BCE201D7D58F600421BD0 /* ProjectTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ProjectTests.xctest;
+			remoteRef = A93BCE1F1D7D58F600421BD0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A93BCE6B1D7D7E8000421BD0 /* VideonaMedia.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = VideonaMedia.framework;
+			remoteRef = A93BCE6A1D7D7E8000421BD0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A93BCE6D1D7D7E8000421BD0 /* VideonaMediaTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = VideonaMediaTests.xctest;
+			remoteRef = A93BCE6C1D7D7E8000421BD0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A9B385E41D7D51380065D3EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A93BCE741D7D88EE00421BD0 /* activity_record_rec_circle.png in Resources */,
+				A9B385F41D7D51380065D3EC /* LaunchScreen.storyboard in Resources */,
+				A93BCE781D7D93B700421BD0 /* water_mark.png in Resources */,
+				A93BCE5E1D7D7A1300421BD0 /* iso639_2.bundle in Resources */,
+				A9B385F11D7D51380065D3EC /* Assets.xcassets in Resources */,
+				A9B385EF1D7D51380065D3EC /* Main.storyboard in Resources */,
+				A93BCE761D7D92C300421BD0 /* filter_free.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9B385F81D7D51380065D3EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7FA181D530392B2A9105D375 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		959B377D4B35976E230DE36F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F12117A10579B8225472990E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A9B385E21D7D51380065D3EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A93BCE4F1D7D77B300421BD0 /* AVResolutionParse.swift in Sources */,
+				A9B3864F1D7D53BA0065D3EC /* ChangeFilterInteractor.swift in Sources */,
+				A93BCE511D7D77FF00421BD0 /* CompatibleResolutionsInteractor.swift in Sources */,
+				A9B386311D7D53230065D3EC /* RecorderInteractor.swift in Sources */,
+				A9B386301D7D53230065D3EC /* RecorderInteractorInterface.swift in Sources */,
+				A9B386221D7D52E30065D3EC /* RecordPresenter.swift in Sources */,
+				A93BCE571D7D792B00421BD0 /* AddVideoToProjectUseCase.swift in Sources */,
+				A9B386331D7D53230065D3EC /* CameraInteractorInterface.swift in Sources */,
+				A9B386581D7D551A0065D3EC /* Utils.swift in Sources */,
+				A9B386291D7D52F40065D3EC /* RecordWireframe.swift in Sources */,
+				A9B386391D7D53450065D3EC /* ExportedAlbum.swift in Sources */,
+				A93BCE531D7D785100421BD0 /* SettingsConstants.swift in Sources */,
+				A93BCE631D7D7A7200421BD0 /* CompatibleQualityInteractor.swift in Sources */,
+				A9B386321D7D53230065D3EC /* CameraInteractor.swift in Sources */,
+				A9B386231D7D52E30065D3EC /* RecordPresenterInterfaceIO.swift in Sources */,
+				A9B386261D7D52EA0065D3EC /* RecordController.swift in Sources */,
+				A9B3862B1D7D531B0065D3EC /* RecorderConstants.swift in Sources */,
+				A93BCE5F1D7D7A1300421BD0 /* NSLocale+ISO639_2.m in Sources */,
+				A9B386531D7D53D10065D3EC /* CameraRecorderInteractor.swift in Sources */,
+				A9B385EA1D7D51380065D3EC /* AppDelegate.swift in Sources */,
+				A9B386411D7D53880065D3EC /* TimerInteractor.swift in Sources */,
+				A93BCE4D1D7D5C7400421BD0 /* AnalitycsConstants.swift in Sources */,
+				A9B3865F1D7D55660065D3EC /* VideonaController.swift in Sources */,
+				A9B386541D7D53D10065D3EC /* CameraRecorderInterface.swift in Sources */,
+				A93BCE4C1D7D5C7400421BD0 /* ConfigPreferences.swift in Sources */,
+				A9B386491D7D53B20065D3EC /* ExporterInteractor.swift in Sources */,
+				A9B386561D7D54CF0065D3EC /* AppDependencies.swift in Sources */,
+				A9B3865A1D7D55340065D3EC /* RootWireframe.swift in Sources */,
+				A93BCE431D7D599900421BD0 /* ViMoJoTracker.swift in Sources */,
+				A9B3863D1D7D53740065D3EC /* ThumbnailInteractor.swift in Sources */,
+				A9B3864E1D7D53BA0065D3EC /* RemoveFilterInteractor.swift in Sources */,
+				A9B386451D7D53960065D3EC /* FlashInteractor.swift in Sources */,
+				A9B386601D7D55660065D3EC /* VideonaControllerInterface.swift in Sources */,
+				A9B386381D7D53450065D3EC /* ClipsAlbum.swift in Sources */,
+				A9B3864D1D7D53BA0065D3EC /* AddFilterInteractor.swift in Sources */,
+				A9B386421D7D53880065D3EC /* TimerInteractorInterface.swift in Sources */,
+				A93BCE611D7D7A5A00421BD0 /* AVQualityParse.swift in Sources */,
+				A93BCE581D7D792B00421BD0 /* GetActualProjectAVCompositionUseCase.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9B385F61D7D51380065D3EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9B385FF1D7D51380065D3EC /* vimojoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A93BCE2B1D7D590C00421BD0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImageFramework;
+			targetProxy = A93BCE2A1D7D590C00421BD0 /* PBXContainerItemProxy */;
+		};
+		A93BCE301D7D591A00421BD0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Project;
+			targetProxy = A93BCE2F1D7D591A00421BD0 /* PBXContainerItemProxy */;
+		};
+		A93BCE711D7D7E8C00421BD0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = VideonaMedia;
+			targetProxy = A93BCE701D7D7E8C00421BD0 /* PBXContainerItemProxy */;
+		};
+		A9B385FC1D7D51380065D3EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9B385E51D7D51380065D3EC /* vimojo */;
+			targetProxy = A9B385FB1D7D51380065D3EC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A9B385ED1D7D51380065D3EC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9B385EE1D7D51380065D3EC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A9B385F21D7D51380065D3EC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9B385F31D7D51380065D3EC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A9B386011D7D51380065D3EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A9B386021D7D51380065D3EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A9B386041D7D51380065D3EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6141F0217968E5687F3D0A99 /* Pods-vimojo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = vimojo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e86830c9-df8e-479e-b037-319e6d03d448";
+				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A9B386051D7D51380065D3EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 679AE3ECF855A4ACA04759A6 /* Pods-vimojo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = vimojo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e86830c9-df8e-479e-b037-319e6d03d448";
+				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		A9B386071D7D51380065D3EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = vimojoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vimojo.app/vimojo";
+			};
+			name = Debug;
+		};
+		A9B386081D7D51380065D3EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = vimojoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vimojo.app/vimojo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A9B385E11D7D51380065D3EC /* Build configuration list for PBXProject "vimojo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9B386011D7D51380065D3EC /* Debug */,
+				A9B386021D7D51380065D3EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9B386031D7D51380065D3EC /* Build configuration list for PBXNativeTarget "vimojo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9B386041D7D51380065D3EC /* Debug */,
+				A9B386051D7D51380065D3EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9B386061D7D51380065D3EC /* Build configuration list for PBXNativeTarget "vimojoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9B386071D7D51380065D3EC /* Debug */,
+				A9B386081D7D51380065D3EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A9B385DE1D7D51380065D3EC /* Project object */;
+}
