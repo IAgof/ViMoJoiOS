@@ -47,6 +47,8 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
         // Do any additional setup after loading the view, typically from a nib.
         eventHandler?.viewDidLoad(cameraView)
         
+        roundBorderOfViews()
+        
 //        let trans = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
 //        zoomSlider.transform = trans
     }
@@ -258,6 +260,13 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
             self.secondaryChronometerLabel.alpha = 1
             self.secondaryRecordingIndicator.alpha = 1
         })
+    }
+    
+    //MARK : - Inner functions
+    
+    func roundBorderOfViews() {
+        upperContainerView.layer.cornerRadius = 4
+        modeContainerView.layer.cornerRadius = 4
     }
     
     //MARK: - Landscape Orientation
