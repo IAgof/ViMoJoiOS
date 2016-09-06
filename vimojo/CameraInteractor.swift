@@ -283,6 +283,7 @@ class CameraInteractor:CameraRecorderDelegate,
         }
     }
     
+    var maxZoomFactor = CGFloat(10)
     func zoom(pinch: UIPinchGestureRecognizer) {
         var device: AVCaptureDevice = self.videoCamera.inputCamera
         var vZoomFactor = (pinch.scale)
@@ -295,12 +296,41 @@ class CameraInteractor:CameraRecorderDelegate,
             
             if (vZoomFactor < device.activeFormat.videoMaxZoomFactor){
                 let desiredZoomFactor = device.videoZoomFactor + CGFloat.init( atan2f(Float(pinch.velocity), pinchVelocityDividerFactor))
+                if maxZoomFactor > device.activeFormat.videoMaxZoomFactor {
+                    maxZoomFactor = device.activeFormat.videoMaxZoomFactor
+                }
                 // Check if desiredZoomFactor fits required range from 1.0 to activeFormat.videoMaxZoomFactor
-                device.videoZoomFactor = max(1.0, min(desiredZoomFactor, device.activeFormat.videoMaxZoomFactor));
-                
+                let videoFutureFactor = min(desiredZoomFactor, maxZoomFactor)
+                device.videoZoomFactor = max(1.0, videoFutureFactor);
+//                print("Desired zoom = \(videoFutureFactor)")
+                cameraDelegate.zoomPinchedValueUpdate(videoFutureFactor)
             }else{
                 NSLog("Unable to set videoZoom: (max %f, asked %f)", device.activeFormat.videoMaxZoomFactor, vZoomFactor);
             }
+        }catch error as NSError{
+            NSLog("Unable to set videoZoom: %@", error.localizedDescription);
+        }catch _{
+            
+        }
+    }
+    
+    
+    func zoom(value:Float){
+        var device: AVCaptureDevice = self.videoCamera.inputCamera
+        let maxZoom = device.activeFormat.videoMaxZoomFactor
+        
+        let desiredZoomFactor = CGFloat(value)
+        if maxZoomFactor > device.activeFormat.videoMaxZoomFactor {
+            maxZoomFactor = device.activeFormat.videoMaxZoomFactor
+        }
+        var error:NSError!
+        do{
+            try device.lockForConfiguration()
+            defer {device.unlockForConfiguration()}
+            
+            // Check if desiredZoomFactor fits required range from 1.0 to activeFormat.videoMaxZoomFactor
+            device.videoZoomFactor = max(1.0, min(desiredZoomFactor, maxZoomFactor));
+//            print("Desired zoom = \(desiredZoomFactor)")
         }catch error as NSError{
             NSLog("Unable to set videoZoom: %@", error.localizedDescription);
         }catch _{

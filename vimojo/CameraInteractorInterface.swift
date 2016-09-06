@@ -10,15 +10,6 @@ import Foundation
 import GPUImage
 import Project
 
-protocol CameraInteractorDelegate {
-    func trackVideoRecorded(videoLenght:Double)
-    func flashOn()
-    func flashOff()
-    func cameraFront()
-    func cameraRear()
-    func showFocus(center:CGPoint)
-}
-
 protocol CameraInteractorInterface {
     init(display:GPUImageView,
          cameraDelegate: CameraInteractorDelegate,
@@ -29,6 +20,7 @@ protocol CameraInteractorInterface {
     func rotateCamera()
     func cameraViewTapAction(tapDisplay:UIGestureRecognizer)
     func zoom(pinch: UIPinchGestureRecognizer)
+    func zoom(value:Float)
     
     func changeBlendImage(image:UIImage)
     func changeFilter(newFilter:GPUImageFilter)
@@ -39,3 +31,15 @@ protocol CameraInteractorInterface {
     func stopCamera()
     func startCamera()
 }
+
+protocol CameraInteractorDelegate {
+    func trackVideoRecorded(videoLenght:Double)
+    func flashOn()
+    func flashOff()
+    func cameraFront()
+    func cameraRear()
+    func showFocus(center:CGPoint)
+    func zoomPinchedValueUpdate(value:CGFloat)
+}
+
+

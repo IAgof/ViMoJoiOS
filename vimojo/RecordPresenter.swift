@@ -27,6 +27,7 @@ class RecordPresenter: NSObject
     //MARK: - Constants
     var isRecording = false
     var buttonsAreHidden = false
+    var zoomIsShowed = false
     
     //MARK: - Event handler
     func viewDidLoad(displayView:GPUImageView){
@@ -92,12 +93,40 @@ class RecordPresenter: NSObject
         }else{
             delegate?.showSecondaryRecordViews()
             delegate?.hidePrincipalViews()
+            hideZoomViewIfYouCan()
             
             delegate?.showHideAllButtonsButtonImage()
             buttonsAreHidden = true
         }
     }
     
+    func pushZoom() {
+        if zoomIsShowed{
+            hideZoomViewIfYouCan()
+        }else{
+            showZoomView()
+        }
+    }
+    
+    func zoomValueChanged(value: Float) {
+        cameraInteractor?.zoom(value)
+    }
+    
+    //////////////////////////////////////////
+    func showZoomView(){
+        delegate?.showZoomView()
+        
+        zoomIsShowed = true
+    }
+    func hideZoomViewIfYouCan(){
+        if !zoomIsShowed {
+            return
+        }
+        delegate?.hideZoomView()
+        
+        zoomIsShowed = false
+    }
+    //////////////////////////////////////////
     func startRecord(){
         self.trackStartRecord()
         
@@ -273,6 +302,10 @@ class RecordPresenter: NSObject
     
     func showFocus(center: CGPoint) {
         delegate?.showFocusAtPoint(center)
+    }
+    
+    func zoomPinchedValueUpdate(value: CGFloat) {
+        delegate?.setSliderValue(Float(value))
     }
     
     //MARK: - Timer delegate

@@ -18,10 +18,13 @@ protocol RecordPresenterInterface{
     func pushFlash()
     func pushRotateCamera()
     func pushHideAllButtons()
+    func pushZoom()
     
     func resetRecorder()
     func displayHasPinched(pinchGesture:UIPinchGestureRecognizer)
     func checkFlashAvaliable()
+    
+    func zoomValueChanged(value:Float)
 }
 
 protocol RecordPresenterDelegate {
@@ -47,4 +50,9 @@ protocol RecordPresenterDelegate {
     
     func hideSecondaryRecordViews()
     func showSecondaryRecordViews()
+    
+    func hideZoomView()
+    func showZoomView()
+    
+    func setSliderValue(value:Float)
 }

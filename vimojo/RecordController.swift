@@ -14,26 +14,36 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
     //MARK: - Variables VIPER
     var eventHandler: RecordPresenterInterface?
     
-    //MARK: - Outlets
+    //MARK: Outlets
+    //MARK: - UIButton
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var cameraRotationButton: UIButton!
     @IBOutlet weak var flashButton: UIButton!
     @IBOutlet weak var secondaryRecordButton: UIButton!
+    @IBOutlet weak var hideAllButtonsButton: UIButton!
+
+    //MARK: - UIButton
     @IBOutlet weak var cameraView: GPUImageView!
     @IBOutlet weak var zoomSlider: UISlider!
+    
+    //MARK: - UIButton
     @IBOutlet weak var zoomSliderContainer: UIView!
     @IBOutlet weak var upperContainerView: UIView!
     @IBOutlet weak var modeContainerView: UIView!
     @IBOutlet weak var recordAreaContainerView: UIView!
+    @IBOutlet weak var zoomContainerView: UIView!
+
+    //MARK: - UIButton
     @IBOutlet weak var secondaryChronometerLabel: UILabel!
     @IBOutlet weak var chronometrer: UILabel!
+    
     @IBOutlet weak var secondaryRecordingIndicator: UIImageView!
     @IBOutlet weak var focusImageView: UIImageView!
-    @IBOutlet weak var hideAllButtonsButton: UIButton!
     
     var alertController:UIAlertController?
     var tapDisplay:UIGestureRecognizer?
     var pinchDisplay:UIPinchGestureRecognizer?
+    
     var defaultThumbImage:UIImage{
         guard let image = UIImage(named: "activity_record_gallery_normal") else{
             return UIImage()
@@ -47,12 +57,15 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
         // Do any additional setup after loading the view, typically from a nib.
         eventHandler?.viewDidLoad(cameraView)
         
-        roundBorderOfViews()
-        
-//        let trans = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
-//        zoomSlider.transform = trans
+        self.configureViews()
     }
-
+    
+    func configureViews(){
+        roundBorderOfViews()
+        rotateSlider()
+        zoomSlider.value = 0.0
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         print("Recorder view will appear")
@@ -73,6 +86,10 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
         //Force landscape mode
         let value = UIInterfaceOrientation.LandscapeLeft.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
+    }
+    
+    @IBAction func zoomSliderValueChanged(sender: AnyObject) {
+        eventHandler?.zoomValueChanged(zoomSlider.value)
     }
     
     func configureView() {
@@ -112,7 +129,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
     }
     
     @IBAction func pushZoom(sender: AnyObject) {
-        
+        eventHandler?.pushZoom()
     }
     
     
@@ -262,11 +279,40 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
         })
     }
     
+    func hideZoomView() {
+        UIView.animateWithDuration(0.5, animations: {
+            self.zoomContainerView.alpha = 0
+            }, completion: {
+                finishCorrect in
+                if finishCorrect{
+                    self.zoomContainerView.hidden = true
+                }
+        })
+    }
+    
+    func showZoomView() {
+        self.zoomContainerView.hidden = false
+        UIView.animateWithDuration(0.5, animations: {
+            self.zoomContainerView.alpha = 0
+            self.zoomContainerView.alpha = 1
+        })
+    }
+    
+    func setSliderValue(value: Float) {
+        zoomSlider.value = value
+    }
+    
     //MARK : - Inner functions
     
     func roundBorderOfViews() {
         upperContainerView.layer.cornerRadius = 4
         modeContainerView.layer.cornerRadius = 4
+        zoomContainerView.layer.cornerRadius = 4
+    }
+    
+    func rotateSlider(){
+        let trans = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
+        zoomSlider.transform = trans
     }
     
     //MARK: - Landscape Orientation
