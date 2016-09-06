@@ -17,6 +17,7 @@ protocol RecordPresenterInterface{
     func pushRecord()
     func pushFlash()
     func pushRotateCamera()
+    func pushHideAllButtons()
     
     func resetRecorder()
     func displayHasPinched(pinchGesture:UIPinchGestureRecognizer)
@@ -35,8 +36,15 @@ protocol RecordPresenterDelegate {
     func showFrontCameraSelected()
     func showFocusAtPoint(point:CGPoint)
     func showStopButton()
-    
+    func showHideAllButtonsButtonImage()
+    func showAllButtonsButtonImage()
+
     func getControllerName()->String
     func updateChronometer(time:String)
     
+    func hidePrincipalViews()
+    func showPrincipalViews()
+    
+    func hideSecondaryRecordViews()
+    func showSecondaryRecordViews()
 }

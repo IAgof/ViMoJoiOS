@@ -26,6 +26,7 @@ class RecordPresenter: NSObject
     
     //MARK: - Constants
     var isRecording = false
+    var buttonsAreHidden = false
     
     //MARK: - Event handler
     func viewDidLoad(displayView:GPUImageView){
@@ -78,6 +79,22 @@ class RecordPresenter: NSObject
             self.stopRecord()
         }else{
             self.startRecord()
+        }
+    }
+    
+    func pushHideAllButtons() {
+        if buttonsAreHidden{
+            delegate?.showPrincipalViews()
+            delegate?.hideSecondaryRecordViews()
+            
+            delegate?.showAllButtonsButtonImage()
+            buttonsAreHidden = false
+        }else{
+            delegate?.showSecondaryRecordViews()
+            delegate?.hidePrincipalViews()
+            
+            delegate?.showHideAllButtonsButtonImage()
+            buttonsAreHidden = true
         }
     }
     

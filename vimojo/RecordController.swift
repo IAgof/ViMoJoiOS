@@ -18,11 +18,18 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var cameraRotationButton: UIButton!
     @IBOutlet weak var flashButton: UIButton!
+    @IBOutlet weak var secondaryRecordButton: UIButton!
     @IBOutlet weak var cameraView: GPUImageView!
-    @IBOutlet weak var chronometrer: UILabel!
-    @IBOutlet weak var focusImageView: UIImageView!
     @IBOutlet weak var zoomSlider: UISlider!
     @IBOutlet weak var zoomSliderContainer: UIView!
+    @IBOutlet weak var upperContainerView: UIView!
+    @IBOutlet weak var modeContainerView: UIView!
+    @IBOutlet weak var recordAreaContainerView: UIView!
+    @IBOutlet weak var secondaryChronometerLabel: UILabel!
+    @IBOutlet weak var chronometrer: UILabel!
+    @IBOutlet weak var secondaryRecordingIndicator: UIImageView!
+    @IBOutlet weak var focusImageView: UIImageView!
+    @IBOutlet weak var hideAllButtonsButton: UIButton!
     
     var alertController:UIAlertController?
     var tapDisplay:UIGestureRecognizer?
@@ -99,7 +106,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
     }
     
     @IBAction func pushHideButtons(sender: AnyObject) {
-    
+        eventHandler?.pushHideAllButtons()
     }
     
     @IBAction func pushZoom(sender: AnyObject) {
@@ -162,21 +169,25 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
     
     
     
-    //MARK: - Protocol Interface
+    //MARK: - Delegate Interface
     func showRecordButton(){
         self.recordButton.selected = true
+        self.secondaryRecordButton.selected = true
     }
     
     func showStopButton(){
         self.recordButton.selected = false
+        self.secondaryRecordButton.selected = false
     }
     
     func recordButtonEnable(state: Bool) {
         self.recordButton.enabled = state
+        self.secondaryRecordButton.enabled = state
     }
     
     func updateChronometer(time: String) {
         self.chronometrer.text = time
+        self.secondaryChronometerLabel.text = time
     }
     
     func showFlashOn(on:Bool){
@@ -206,6 +217,46 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
         
         Utils.sharedInstance.delay(0.5, closure: {
             self.focusImageView.hidden = true
+        })
+    }
+    
+    func showAllButtonsButtonImage() {
+        hideAllButtonsButton.selected = false
+    }
+    
+    func showHideAllButtonsButtonImage() {
+        hideAllButtonsButton.selected = true
+    }
+    
+    func hidePrincipalViews() {
+        UIView.animateWithDuration(0.5, animations: {
+            self.modeContainerView.alpha = 0
+            self.upperContainerView.alpha = 0
+            self.recordAreaContainerView.alpha = 0
+        })
+    }
+    
+    func showPrincipalViews() {
+        UIView.animateWithDuration(0.5, animations: {
+            self.modeContainerView.alpha = 1
+            self.upperContainerView.alpha = 1
+            self.recordAreaContainerView.alpha = 1
+        })
+    }
+    
+    func hideSecondaryRecordViews() {
+        UIView.animateWithDuration(0.5, animations: {
+            self.secondaryRecordButton.alpha = 0
+            self.secondaryChronometerLabel.alpha = 0
+            self.secondaryRecordingIndicator.alpha = 0
+        })
+    }
+    
+    func showSecondaryRecordViews() {
+        UIView.animateWithDuration(0.5, animations: {
+            self.secondaryRecordButton.alpha = 1
+            self.secondaryChronometerLabel.alpha = 1
+            self.secondaryRecordingIndicator.alpha = 1
         })
     }
     
