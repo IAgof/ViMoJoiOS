@@ -9,7 +9,7 @@
 import UIKit
 import GPUImage
 
-class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPresenterDelegate {
+class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPresenterDelegate{
     
     //MARK: - Variables VIPER
     var eventHandler: RecordPresenterInterface?
@@ -22,18 +22,20 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
     @IBOutlet weak var secondaryRecordButton: UIButton!
     @IBOutlet weak var hideAllButtonsButton: UIButton!
 
-    //MARK: - UIButton
+    //MARK: - Custom
     @IBOutlet weak var cameraView: GPUImageView!
     @IBOutlet weak var zoomSlider: UISlider!
+    @IBOutlet weak var batteryView: BatteryRemainingView!
+    @IBOutlet weak var overlayClearGrid: UIImageView!
     
-    //MARK: - UIButton
+    //MARK: - UIView
     @IBOutlet weak var zoomSliderContainer: UIView!
     @IBOutlet weak var upperContainerView: UIView!
     @IBOutlet weak var modeContainerView: UIView!
     @IBOutlet weak var recordAreaContainerView: UIView!
     @IBOutlet weak var zoomContainerView: UIView!
 
-    //MARK: - UIButton
+    //MARK: - UILabel
     @IBOutlet weak var secondaryChronometerLabel: UILabel!
     @IBOutlet weak var chronometrer: UILabel!
     
@@ -61,6 +63,8 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
     }
     
     func configureViews(){
+        batteryView.delegate = self
+        
         roundBorderOfViews()
         rotateSlider()
         zoomSlider.value = 0.0
@@ -164,7 +168,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
     
     
     @IBAction func pushBattery(sender: AnyObject) {
-        
+        eventHandler?.pushBattery()
     }
     
     
@@ -185,8 +189,6 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
     @IBAction func pushMic(sender: AnyObject) {
         
     }
-    
-    
     
     //MARK: - Delegate Interface
     func showRecordButton(){
@@ -248,58 +250,43 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
     }
     
     func hidePrincipalViews() {
-        UIView.animateWithDuration(0.5, animations: {
-            self.modeContainerView.alpha = 0
-            self.upperContainerView.alpha = 0
-            self.recordAreaContainerView.alpha = 0
-        })
+        fadeOutView([modeContainerView,upperContainerView,recordAreaContainerView])
     }
     
     func showPrincipalViews() {
-        UIView.animateWithDuration(0.5, animations: {
-            self.modeContainerView.alpha = 1
-            self.upperContainerView.alpha = 1
-            self.recordAreaContainerView.alpha = 1
-        })
+        fadeInView([modeContainerView,upperContainerView,recordAreaContainerView])
     }
     
     func hideSecondaryRecordViews() {
-        UIView.animateWithDuration(0.5, animations: {
-            self.secondaryRecordButton.alpha = 0
-            self.secondaryChronometerLabel.alpha = 0
-            self.secondaryRecordingIndicator.alpha = 0
-        })
+        fadeOutView([secondaryRecordButton,secondaryChronometerLabel,secondaryRecordingIndicator,overlayClearGrid])
     }
     
     func showSecondaryRecordViews() {
-        UIView.animateWithDuration(0.5, animations: {
-            self.secondaryRecordButton.alpha = 1
-            self.secondaryChronometerLabel.alpha = 1
-            self.secondaryRecordingIndicator.alpha = 1
-        })
+        fadeInView([secondaryRecordButton,secondaryChronometerLabel,secondaryRecordingIndicator,overlayClearGrid])
     }
     
     func hideZoomView() {
-        UIView.animateWithDuration(0.5, animations: {
-            self.zoomContainerView.alpha = 0
-            }, completion: {
-                finishCorrect in
-                if finishCorrect{
-                    self.zoomContainerView.hidden = true
-                }
-        })
+        fadeOutView([zoomContainerView])
     }
     
     func showZoomView() {
-        self.zoomContainerView.hidden = false
-        UIView.animateWithDuration(0.5, animations: {
-            self.zoomContainerView.alpha = 0
-            self.zoomContainerView.alpha = 1
-        })
+        fadeInView([zoomContainerView])
     }
     
     func setSliderValue(value: Float) {
         zoomSlider.value = value
+    }
+    
+    func showBatteryRemaining() {
+        fadeInView([batteryView])
+    }
+    
+    func updateBatteryValues() {
+        batteryView.updateValues()
+    }
+    
+    func hideBatteryView() {
+        fadeOutView([batteryView])
     }
     
     //MARK : - Inner functions
@@ -371,5 +358,47 @@ extension UIButton {
         let heightToAdd = (44-buttonSize.height > 0) ? 44-buttonSize.height : 0
         let largerFrame = CGRect(x: 0-(widthToAdd/2), y: 0-(heightToAdd/2), width: buttonSize.width+widthToAdd, height: buttonSize.height+heightToAdd)
         return (CGRectContainsPoint(largerFrame, point)) ? self : nil
+    }
+}
+
+//Animation for transitions fadeIn and fadeOut
+extension RecordController{
+    func fadeInView(views:[UIView]){
+        for view in views{
+            view.hidden = false
+        }
+        
+        UIView.animateWithDuration(0.5, animations: {
+            for view in views{
+                view.alpha = 0
+            }
+            
+            for view in views{
+                view.alpha = 1
+            }
+        })
+    }
+    
+    func fadeOutView(views:[UIView]) {
+        UIView.animateWithDuration(0.5, animations: {
+            for view in views{
+                view.alpha = 0
+            }
+            
+            }, completion: {
+                success in
+                if success {
+                    for view in views{
+                        view.hidden = true
+                    }
+                }
+        })
+    }
+}
+
+//MARK: - BatteryRemaining delegate
+extension RecordController:BatteryRemainingDelegate {
+    func closeButtonPushed() {
+        eventHandler?.pushCloseBatteryButton()
     }
 }

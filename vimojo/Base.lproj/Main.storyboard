@@ -33,6 +33,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLS-oa-Pa6">
                                                         <rect key="frame" x="0.0" y="0.0" width="24" height="22"/>
                                                         <state key="normal" image="activity_record_icon_battery_charged"/>
+                                                        <connections>
+                                                            <action selector="pushBattery:" destination="31E-sq-qOD" eventType="touchUpInside" id="c6p-1u-kxc"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYJ-QZ-tjN">
                                                         <rect key="frame" x="34" y="0.0" width="16" height="22"/>
@@ -342,6 +345,14 @@
                                             <constraint firstAttribute="bottom" secondItem="VbY-TC-26F" secondAttribute="bottom" constant="2" id="xam-jm-Dt1"/>
                                         </constraints>
                                     </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ig-Ws-YbI" customClass="BatteryRemainingView" customModule="vimojo" customModuleProvider="target">
+                                        <rect key="frame" x="180" y="236" width="240" height="128"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="WNh-gO-d27"/>
+                                            <constraint firstAttribute="width" constant="240" id="tg4-ug-1Gv"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -360,6 +371,7 @@
                                     <constraint firstAttribute="bottom" secondItem="nt1-cO-8OT" secondAttribute="bottom" constant="8" id="S1j-tX-ome"/>
                                     <constraint firstItem="THD-Xp-k6G" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="UcJ-5Z-t8q"/>
                                     <constraint firstItem="2JR-Xm-zWV" firstAttribute="centerX" secondItem="zRf-8q-oTu" secondAttribute="centerX" id="VlY-d9-hg4"/>
+                                    <constraint firstItem="7ig-Ws-YbI" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="YS0-Y7-l7Z"/>
                                     <constraint firstAttribute="trailing" secondItem="E5V-mU-ie5" secondAttribute="trailing" id="eiR-Ud-YFq"/>
                                     <constraint firstItem="7DH-Ci-Hyp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9Kl-ym-3ZQ" secondAttribute="leading" constant="10" id="gE7-5w-oOh"/>
                                     <constraint firstAttribute="bottom" secondItem="7DH-Ci-Hyp" secondAttribute="bottom" constant="8" id="iFC-oX-dcx"/>
@@ -368,15 +380,23 @@
                                         <variation key="widthClass=regular" constant="4"/>
                                     </constraint>
                                     <constraint firstItem="THD-Xp-k6G" firstAttribute="centerY" secondItem="9Kl-ym-3ZQ" secondAttribute="centerY" id="vcb-u9-6wA"/>
+                                    <constraint firstItem="7ig-Ws-YbI" firstAttribute="centerY" secondItem="9Kl-ym-3ZQ" secondAttribute="centerY" id="wkc-cI-ODG"/>
                                     <constraint firstAttribute="trailing" secondItem="nt1-cO-8OT" secondAttribute="trailing" constant="8" id="xX9-jE-utt"/>
                                 </constraints>
                             </view>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="overlay_clear_grid" translatesAutoresizingMaskIntoConstraints="NO" id="Usb-Qc-mHY">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Usb-Qc-mHY" secondAttribute="trailing" constant="-20" id="Acu-ek-vzz"/>
                             <constraint firstItem="9Kl-ym-3ZQ" firstAttribute="leading" secondItem="vFq-z7-Nw8" secondAttribute="leadingMargin" constant="-20" id="GoJ-Xl-ZzM"/>
+                            <constraint firstItem="iHv-Wl-fVq" firstAttribute="top" secondItem="Usb-Qc-mHY" secondAttribute="bottom" id="XmL-oJ-4vV"/>
                             <constraint firstItem="iHv-Wl-fVq" firstAttribute="top" secondItem="9Kl-ym-3ZQ" secondAttribute="bottom" id="Y1y-hW-Lhk"/>
+                            <constraint firstItem="Usb-Qc-mHY" firstAttribute="leading" secondItem="vFq-z7-Nw8" secondAttribute="leadingMargin" constant="-20" id="ZtQ-88-NCd"/>
                             <constraint firstItem="9Kl-ym-3ZQ" firstAttribute="top" secondItem="vFq-z7-Nw8" secondAttribute="topMargin" id="agD-cy-rFN"/>
+                            <constraint firstItem="Usb-Qc-mHY" firstAttribute="top" secondItem="ori-Z0-WZf" secondAttribute="bottom" id="kTN-Jz-wS9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9Kl-ym-3ZQ" secondAttribute="trailing" constant="-20" id="l0J-i4-DTw"/>
                         </constraints>
                     </view>
@@ -385,6 +405,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="batteryView" destination="7ig-Ws-YbI" id="K9A-MK-qeA"/>
                         <outlet property="cameraRotationButton" destination="lZi-UQ-LjO" id="QCl-eF-pNT"/>
                         <outlet property="cameraView" destination="9Kl-ym-3ZQ" id="nWg-AF-LrN"/>
                         <outlet property="chronometrer" destination="aut-g5-zjP" id="DNH-x9-fZr"/>
@@ -392,6 +413,7 @@
                         <outlet property="focusImageView" destination="THD-Xp-k6G" id="Rj2-Yj-CEJ"/>
                         <outlet property="hideAllButtonsButton" destination="zRf-8q-oTu" id="VGJ-Nx-BDq"/>
                         <outlet property="modeContainerView" destination="7DH-Ci-Hyp" id="DI1-uf-SM0"/>
+                        <outlet property="overlayClearGrid" destination="Usb-Qc-mHY" id="fwh-Pg-Vgo"/>
                         <outlet property="recordAreaContainerView" destination="E5V-mU-ie5" id="upI-1r-nbI"/>
                         <outlet property="recordButton" destination="LC6-Gc-POv" id="Ub9-X5-UC0"/>
                         <outlet property="secondaryChronometerLabel" destination="mqP-WM-mhr" id="Zlt-Ac-Q4D"/>
@@ -447,5 +469,6 @@
         <image name="activity_record_icon_stop" width="50" height="51"/>
         <image name="activity_record_icon_zoom" width="29" height="30"/>
         <image name="activity_record_white_balance" width="30" height="30"/>
+        <image name="overlay_clear_grid" width="552" height="311"/>
     </resources>
 </document>

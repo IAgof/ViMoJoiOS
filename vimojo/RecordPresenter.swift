@@ -27,7 +27,10 @@ class RecordPresenter: NSObject
     //MARK: - Constants
     var isRecording = false
     var buttonsAreHidden = false
+    
+    //MARK: - Showing controllers
     var zoomIsShowed = false
+    var batteryIsShowed = false
     
     //MARK: - Event handler
     func viewDidLoad(displayView:GPUImageView){
@@ -60,13 +63,12 @@ class RecordPresenter: NSObject
         delegate?.forceOrientation()
     }
     
-    
-    func pushSettings() {
-        print("Record presenter pushSettings")
-        self.trackSettingsPushed()
-    }
-    
-    func pushShare() {
+    func pushRecord() {
+        if isRecording {
+            self.stopRecord()
+        }else{
+            self.startRecord()
+        }
     }
     
     func pushFlash() {
@@ -75,12 +77,8 @@ class RecordPresenter: NSObject
         self.trackFlash(flashState)
     }
     
-    func pushRecord() {
-        if isRecording {
-            self.stopRecord()
-        }else{
-            self.startRecord()
-        }
+    func pushRotateCamera() {
+        cameraInteractor!.rotateCamera()
     }
     
     func pushHideAllButtons() {
@@ -108,25 +106,48 @@ class RecordPresenter: NSObject
         }
     }
     
+    func pushBattery() {
+        if batteryIsShowed{
+            hideBatteryViewIfYouCan()
+        }else{
+            delegate?.updateBatteryValues()
+            delegate?.showBatteryRemaining()
+            
+            batteryIsShowed = true
+        }
+    }
+
+    func pushCloseBatteryButton() {
+        hideBatteryViewIfYouCan()
+    }
+    
+    func resetRecorder() {
+        cameraInteractor?.removeFilters()
+        
+        interactor?.clearProject()
+    }
+    
+    func displayHasTapped(tapGesture:UIGestureRecognizer){
+        cameraInteractor?.cameraViewTapAction(tapGesture)
+    }
+    
+    func displayHasPinched(pinchGesture: UIPinchGestureRecognizer) {
+        cameraInteractor?.zoom(pinchGesture)
+    }
+    
+    func checkFlashAvaliable(){
+        let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        if device.hasTorch == false{
+            delegate?.showFlashSupported(false)
+        }
+        
+    }
+    
     func zoomValueChanged(value: Float) {
         cameraInteractor?.zoom(value)
     }
     
-    //////////////////////////////////////////
-    func showZoomView(){
-        delegate?.showZoomView()
-        
-        zoomIsShowed = true
-    }
-    func hideZoomViewIfYouCan(){
-        if !zoomIsShowed {
-            return
-        }
-        delegate?.hideZoomView()
-        
-        zoomIsShowed = false
-    }
-    //////////////////////////////////////////
+    //MARK: - Inner functions
     func startRecord(){
         self.trackStartRecord()
         
@@ -167,10 +188,6 @@ class RecordPresenter: NSObject
         self.stopTimer()
     }
     
-    func pushRotateCamera() {
-        cameraInteractor!.rotateCamera()
-    }
-    
     func thumbnailHasTapped() {
         let nClips = interactor?.getNumberOfClipsInProject()
         
@@ -180,21 +197,28 @@ class RecordPresenter: NSObject
 
         }
     }
-    
-    func displayHasTapped(tapGesture:UIGestureRecognizer){
-        cameraInteractor?.cameraViewTapAction(tapGesture)
-    }
-    
-    func displayHasPinched(pinchGesture: UIPinchGestureRecognizer) {
-        cameraInteractor?.zoom(pinchGesture)
-    }
-    
-    func checkFlashAvaliable(){
-        let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
-        if device.hasTorch == false{
-            delegate?.showFlashSupported(false)
-        }
 
+    func showZoomView(){
+        delegate?.showZoomView()
+        
+        zoomIsShowed = true
+    }
+    func hideZoomViewIfYouCan(){
+        if !zoomIsShowed {
+            return
+        }
+        delegate?.hideZoomView()
+        
+        zoomIsShowed = false
+    }
+    
+    func hideBatteryViewIfYouCan(){
+        if !batteryIsShowed {
+            return
+        }
+        delegate?.hideBatteryView()
+        
+        batteryIsShowed = false
     }
     
     //MARK: - Track Events
@@ -253,12 +277,6 @@ class RecordPresenter: NSObject
                                                                   recording: isRecording,
                                                                   interaction:  AnalyticsConstants().INTERACTION_OPEN_SETTINGS,
                                                                   result: "")
-    }
-    
-    func resetRecorder() {
-        cameraInteractor?.removeFilters()
-        
-        interactor?.clearProject()
     }
     
     //MARK: - Camera delegate

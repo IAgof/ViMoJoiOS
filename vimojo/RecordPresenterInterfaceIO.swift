@@ -19,6 +19,8 @@ protocol RecordPresenterInterface{
     func pushRotateCamera()
     func pushHideAllButtons()
     func pushZoom()
+    func pushBattery()
+    func pushCloseBatteryButton()
     
     func resetRecorder()
     func displayHasPinched(pinchGesture:UIPinchGestureRecognizer)
@@ -41,7 +43,8 @@ protocol RecordPresenterDelegate {
     func showStopButton()
     func showHideAllButtonsButtonImage()
     func showAllButtonsButtonImage()
-
+    func showBatteryRemaining()
+    
     func getControllerName()->String
     func updateChronometer(time:String)
     
@@ -55,4 +58,7 @@ protocol RecordPresenterDelegate {
     func showZoomView()
     
     func setSliderValue(value:Float)
+    
+    func updateBatteryValues()
+    func hideBatteryView()
 }
