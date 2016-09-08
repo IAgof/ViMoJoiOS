@@ -8,6 +8,8 @@
 
 import UIKit
 import GPUImage
+import SpaceOnDisk
+import BatteryRemaining
 
 class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPresenterDelegate{
     
@@ -21,11 +23,14 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
     @IBOutlet weak var flashButton: UIButton!
     @IBOutlet weak var secondaryRecordButton: UIButton!
     @IBOutlet weak var hideAllButtonsButton: UIButton!
+    @IBOutlet weak var batteryButton: UIButton!
 
     //MARK: - Custom
     @IBOutlet weak var cameraView: GPUImageView!
     @IBOutlet weak var zoomSlider: UISlider!
     @IBOutlet weak var batteryView: BatteryRemainingView!
+    @IBOutlet weak var spaceOnDiskView: SpaceOnDiskView!
+    
     @IBOutlet weak var overlayClearGrid: UIImageView!
     
     //MARK: - UIView
@@ -64,6 +69,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
     
     func configureViews(){
         batteryView.delegate = self
+        spaceOnDiskView.delegate = self
         
         roundBorderOfViews()
         rotateSlider()
@@ -173,7 +179,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
     
     
     @IBAction func pushMemory(sender: AnyObject) {
-        
+        eventHandler?.pushSpaceOnDisk()
     }
     
     
@@ -277,8 +283,16 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
         zoomSlider.value = value
     }
     
+    func setBatteryIcon(image: UIImage) {
+        batteryButton.setImage(image, forState: .Normal)
+    }
+    
     func showBatteryRemaining() {
         fadeInView([batteryView])
+    }
+    
+    func showSpaceOnDisk() {
+        fadeInView([spaceOnDiskView])
     }
     
     func updateBatteryValues() {
@@ -289,12 +303,22 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
         fadeOutView([batteryView])
     }
     
+    func updateSpaceOnDiskValues() {
+        spaceOnDiskView.updateValues()
+    }
+    
+    func hideSpaceOnDiskView() {
+        fadeOutView([spaceOnDiskView])
+    }
+    
     //MARK : - Inner functions
     
     func roundBorderOfViews() {
         upperContainerView.layer.cornerRadius = 4
         modeContainerView.layer.cornerRadius = 4
         zoomContainerView.layer.cornerRadius = 4
+        batteryView.layer.cornerRadius = 4
+        spaceOnDiskView.layer.cornerRadius = 4
     }
     
     func rotateSlider(){
@@ -398,7 +422,17 @@ extension RecordController{
 
 //MARK: - BatteryRemaining delegate
 extension RecordController:BatteryRemainingDelegate {
-    func closeButtonPushed() {
+    func closeBatteryRemainingPushed() {
         eventHandler?.pushCloseBatteryButton()
+    }
+    func valuesUpdated(value: Float) {
+        eventHandler?.batteryValuesUpdate(value)
+    }
+}
+
+//MARK: - SpaceOnDisk delegate
+extension RecordController:SpaceOnDiskDelegate {
+    func closeSpaceOnDiskPushed() {
+        eventHandler?.pushCloseSpaceOnDiskButton()
     }
 }

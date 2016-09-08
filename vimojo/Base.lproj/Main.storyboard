@@ -21,6 +21,24 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Kl-ym-3ZQ" customClass="GPUImageView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ig-Ws-YbI" customClass="SpaceOnDiskView" customModule="SpaceOnDisk">
+                                        <rect key="frame" x="180" y="236" width="240" height="128"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="WNh-gO-d27"/>
+                                            <constraint firstAttribute="width" constant="240" id="tg4-ug-1Gv"/>
+                                        </constraints>
+                                    </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="REF-Hb-DD3" customClass="BatteryRemainingView" customModule="BatteryRemaining">
+                                        <rect key="frame" x="180" y="236" width="240" height="128"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="5RR-U1-7v1"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="9ds-Ap-oRa"/>
+                                            <constraint firstAttribute="height" constant="128" id="PRp-Yp-Xc1"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="128" id="rcz-n4-C1d"/>
+                                        </constraints>
+                                    </view>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_record_icon_focus_focused" translatesAutoresizingMaskIntoConstraints="NO" id="THD-Xp-k6G">
                                         <rect key="frame" x="266" y="266" width="68" height="68"/>
                                     </imageView>
@@ -40,6 +58,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYJ-QZ-tjN">
                                                         <rect key="frame" x="34" y="0.0" width="16" height="22"/>
                                                         <state key="normal" image="activity_record_icon_memory"/>
+                                                        <connections>
+                                                            <action selector="pushMemory:" destination="31E-sq-qOD" eventType="touchUpInside" id="1QO-Et-FTZ"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2j-0r-Ynx">
                                                         <rect key="frame" x="60" y="0.0" width="25" height="22"/>
@@ -345,14 +366,6 @@
                                             <constraint firstAttribute="bottom" secondItem="VbY-TC-26F" secondAttribute="bottom" constant="2" id="xam-jm-Dt1"/>
                                         </constraints>
                                     </view>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ig-Ws-YbI" customClass="BatteryRemainingView" customModule="vimojo" customModuleProvider="target">
-                                        <rect key="frame" x="180" y="236" width="240" height="128"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="128" id="WNh-gO-d27"/>
-                                            <constraint firstAttribute="width" constant="240" id="tg4-ug-1Gv"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -360,6 +373,7 @@
                                     <constraint firstItem="zRf-8q-oTu" firstAttribute="top" secondItem="9Kl-ym-3ZQ" secondAttribute="top" constant="8" id="1l4-ff-wyJ"/>
                                     <constraint firstItem="nt1-cO-8OT" firstAttribute="top" secondItem="mqP-WM-mhr" secondAttribute="bottom" constant="2" id="7ec-Qm-pQK"/>
                                     <constraint firstItem="l5W-XL-ajn" firstAttribute="centerY" secondItem="mqP-WM-mhr" secondAttribute="centerY" id="8Wl-pK-drJ"/>
+                                    <constraint firstItem="REF-Hb-DD3" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="GGD-A0-01S"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7DH-Ci-Hyp" secondAttribute="trailing" constant="10" id="Hx6-uJ-evI"/>
                                     <constraint firstAttribute="trailing" secondItem="CiJ-Ll-EF1" secondAttribute="trailing" constant="8" id="KDw-BS-5wI"/>
                                     <constraint firstItem="E5V-mU-ie5" firstAttribute="centerY" secondItem="9Kl-ym-3ZQ" secondAttribute="centerY" constant="42" id="KoK-br-fOC"/>
@@ -372,6 +386,7 @@
                                     <constraint firstItem="THD-Xp-k6G" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="UcJ-5Z-t8q"/>
                                     <constraint firstItem="2JR-Xm-zWV" firstAttribute="centerX" secondItem="zRf-8q-oTu" secondAttribute="centerX" id="VlY-d9-hg4"/>
                                     <constraint firstItem="7ig-Ws-YbI" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="YS0-Y7-l7Z"/>
+                                    <constraint firstItem="REF-Hb-DD3" firstAttribute="centerY" secondItem="9Kl-ym-3ZQ" secondAttribute="centerY" id="ZT3-qF-IdD"/>
                                     <constraint firstAttribute="trailing" secondItem="E5V-mU-ie5" secondAttribute="trailing" id="eiR-Ud-YFq"/>
                                     <constraint firstItem="7DH-Ci-Hyp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9Kl-ym-3ZQ" secondAttribute="leading" constant="10" id="gE7-5w-oOh"/>
                                     <constraint firstAttribute="bottom" secondItem="7DH-Ci-Hyp" secondAttribute="bottom" constant="8" id="iFC-oX-dcx"/>
@@ -405,7 +420,8 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="batteryView" destination="7ig-Ws-YbI" id="K9A-MK-qeA"/>
+                        <outlet property="batteryButton" destination="kLS-oa-Pa6" id="a6X-w9-g9e"/>
+                        <outlet property="batteryView" destination="REF-Hb-DD3" id="gyN-YJ-REZ"/>
                         <outlet property="cameraRotationButton" destination="lZi-UQ-LjO" id="QCl-eF-pNT"/>
                         <outlet property="cameraView" destination="9Kl-ym-3ZQ" id="nWg-AF-LrN"/>
                         <outlet property="chronometrer" destination="aut-g5-zjP" id="DNH-x9-fZr"/>
@@ -419,6 +435,7 @@
                         <outlet property="secondaryChronometerLabel" destination="mqP-WM-mhr" id="Zlt-Ac-Q4D"/>
                         <outlet property="secondaryRecordButton" destination="nt1-cO-8OT" id="QK3-6r-tWD"/>
                         <outlet property="secondaryRecordingIndicator" destination="l5W-XL-ajn" id="cuT-cW-jHn"/>
+                        <outlet property="spaceOnDiskView" destination="7ig-Ws-YbI" id="WTY-mS-gj1"/>
                         <outlet property="upperContainerView" destination="CiJ-Ll-EF1" id="lOk-CH-s14"/>
                         <outlet property="zoomContainerView" destination="2JR-Xm-zWV" id="fpl-CA-rcv"/>
                         <outlet property="zoomSlider" destination="kVi-cV-0y9" id="jV1-xc-tTd"/>

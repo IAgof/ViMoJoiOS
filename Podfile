@@ -7,6 +7,8 @@ target 'vimojo' do
 pod 'Fabric'
 pod 'Crashlytics'
 pod 'Mixpanel'
+pod 'SpaceOnDisk', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/SpaceOnDisk'
+pod 'BatteryRemaining', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/BatteryRemaining'
 end
 
 target 'vimojoTests' do

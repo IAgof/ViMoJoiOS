@@ -1,4 +1,6 @@
 PODS:
+  - BatteryRemaining (1.0.0):
+    - MBCircularProgressBar
   - Crashlytics (3.8.0):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.8)
@@ -6,17 +8,28 @@ PODS:
   - Mixpanel (3.0.3):
     - Mixpanel/Mixpanel (= 3.0.3)
   - Mixpanel/Mixpanel (3.0.3)
+  - SpaceOnDisk (0.0.1):
+    - MBCircularProgressBar
 
 DEPENDENCIES:
+  - BatteryRemaining (from `/Users/Alejandro/Desktop/Repos/Videona_Pods/BatteryRemaining`)
   - Crashlytics
   - Fabric
-  - MBCircularProgressBar
   - Mixpanel
+  - SpaceOnDisk (from `/Users/Alejandro/Desktop/Repos/Videona_Pods/SpaceOnDisk`)
+
+EXTERNAL SOURCES:
+  BatteryRemaining:
+    :path: /Users/Alejandro/Desktop/Repos/Videona_Pods/BatteryRemaining
+  SpaceOnDisk:
+    :path: /Users/Alejandro/Desktop/Repos/Videona_Pods/SpaceOnDisk
 
 SPEC CHECKSUMS:
+  BatteryRemaining: 54458c1fcd8b74277cbbf8f2ba00e932795a5d67
   Crashlytics: 8601d9c74a4c4d28f3e7f408bf4c0e490c70e8b4
   Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
   MBCircularProgressBar: ff3b8e2f441214d9ee122a24ba0d4d00cc7de881
   Mixpanel: 45867daeaa3c60f88072a3cb1b44e0b6c5cec009
+  SpaceOnDisk: 0fda99ad025938cbe3d2d8535577fc13f620e525
 
 COCOAPODS: 0.39.0

@@ -31,6 +31,7 @@ class RecordPresenter: NSObject
     //MARK: - Showing controllers
     var zoomIsShowed = false
     var batteryIsShowed = false
+    var spaceOnDiskIsShowed = false
     
     //MARK: - Event handler
     func viewDidLoad(displayView:GPUImageView){
@@ -110,15 +111,34 @@ class RecordPresenter: NSObject
         if batteryIsShowed{
             hideBatteryViewIfYouCan()
         }else{
+            hideSpaceOnDiskViewIfYouCan()
+            
             delegate?.updateBatteryValues()
             delegate?.showBatteryRemaining()
             
             batteryIsShowed = true
         }
     }
-
+    
+    func pushSpaceOnDisk() {
+        if spaceOnDiskIsShowed{
+            hideSpaceOnDiskViewIfYouCan()
+        }else{
+            hideBatteryViewIfYouCan()
+            
+            delegate?.updateSpaceOnDiskValues()
+            delegate?.showSpaceOnDisk()
+            
+            spaceOnDiskIsShowed = true
+        }
+    }
+    
     func pushCloseBatteryButton() {
         hideBatteryViewIfYouCan()
+    }
+    
+    func pushCloseSpaceOnDiskButton() {
+        hideSpaceOnDiskViewIfYouCan()
     }
     
     func resetRecorder() {
@@ -145,6 +165,35 @@ class RecordPresenter: NSObject
     
     func zoomValueChanged(value: Float) {
         cameraInteractor?.zoom(value)
+    }
+
+    enum batteryImages:String {
+        case charged = "activity_record_icon_battery_charged"
+        case seventyFivePercent = "activity_record_icon_battery_75"
+        case fiftyPercent = "activity_record_icon_battery_50"
+        case twentyFivePercent = "activity_record_icon_battery_25"
+        case empty = "activity_record_icon_battery_empty"
+    }
+    
+    func getBatteryIcon(value:Float)->UIImage {
+        switch value {
+        case 0...10:
+            return UIImage(named: batteryImages.empty.rawValue)!
+        case 11...25:
+            return UIImage(named: batteryImages.twentyFivePercent.rawValue)!
+        case 26...50:
+            return UIImage(named: batteryImages.fiftyPercent.rawValue)!
+        case 51...75:
+            return UIImage(named: batteryImages.seventyFivePercent.rawValue)!
+        case 76...100:
+            return UIImage(named: batteryImages.charged.rawValue)!
+        default:
+            return UIImage(named: batteryImages.fiftyPercent.rawValue)!
+        }
+    }
+    
+    func batteryValuesUpdate(value: Float) {
+        delegate?.setBatteryIcon(getBatteryIcon(value))
     }
     
     //MARK: - Inner functions
@@ -203,6 +252,7 @@ class RecordPresenter: NSObject
         
         zoomIsShowed = true
     }
+    
     func hideZoomViewIfYouCan(){
         if !zoomIsShowed {
             return
@@ -219,6 +269,15 @@ class RecordPresenter: NSObject
         delegate?.hideBatteryView()
         
         batteryIsShowed = false
+    }
+    
+    func hideSpaceOnDiskViewIfYouCan(){
+        if !spaceOnDiskIsShowed {
+            return
+        }
+        delegate?.hideSpaceOnDiskView()
+        
+        spaceOnDiskIsShowed = false
     }
     
     //MARK: - Track Events

@@ -31,14 +31,6 @@
 		A93BCE741D7D88EE00421BD0 /* activity_record_rec_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE731D7D88EE00421BD0 /* activity_record_rec_circle.png */; };
 		A93BCE761D7D92C300421BD0 /* filter_free.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE751D7D92C300421BD0 /* filter_free.png */; };
 		A93BCE781D7D93B700421BD0 /* water_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE771D7D93B700421BD0 /* water_mark.png */; };
-		A96734EA1D7FF53600441872 /* BatteryRemainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96734E91D7FF53600441872 /* BatteryRemainingView.swift */; };
-		A96734EC1D7FF56200441872 /* BatteryRemainingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96734EB1D7FF56200441872 /* BatteryRemainingPresenter.swift */; };
-		A96734EE1D7FF56B00441872 /* BatteryRemainingPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96734ED1D7FF56B00441872 /* BatteryRemainingPresenterInterface.swift */; };
-		A96734F01D7FF57200441872 /* BatteryRemainingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96734EF1D7FF57200441872 /* BatteryRemainingInteractor.swift */; };
-		A96734F21D7FF57C00441872 /* BatteryRemainingInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96734F11D7FF57C00441872 /* BatteryRemainingInteractorInterface.swift */; };
-		A96734FF1D7FFBB000441872 /* BatteryRemainingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A96735011D7FFBB000441872 /* BatteryRemainingView.xib */; };
-		A96735641D8034D800441872 /* RemainingVideoBattery.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A967355F1D8034BD00441872 /* RemainingVideoBattery.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A96735651D8034FA00441872 /* RemainingVideoBattery.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A967355F1D8034BD00441872 /* RemainingVideoBattery.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9B385EA1D7D51380065D3EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B385E91D7D51380065D3EC /* AppDelegate.swift */; };
 		A9B385EF1D7D51380065D3EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B385ED1D7D51380065D3EC /* Main.storyboard */; };
 		A9B385F11D7D51380065D3EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9B385F01D7D51380065D3EC /* Assets.xcassets */; };
@@ -156,7 +148,6 @@
 				A93BCE2E1D7D591A00421BD0 /* Project.framework in Embed Frameworks */,
 				A93BCE291D7D590C00421BD0 /* GPUImage.framework in Embed Frameworks */,
 				A93BCE6F1D7D7E8C00421BD0 /* VideonaMedia.framework in Embed Frameworks */,
-				A96735641D8034D800441872 /* RemainingVideoBattery.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,7 +158,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A96735651D8034FA00441872 /* RemainingVideoBattery.framework in CopyFiles */,
 				A93BCE721D7D7E9400421BD0 /* VideonaMedia.framework in CopyFiles */,
 				A93BCE641D7D7E3C00421BD0 /* Project.framework in CopyFiles */,
 				A93BCE321D7D594100421BD0 /* GPUImage.framework in CopyFiles */,
@@ -180,6 +170,7 @@
 		611A67ECA44E0DA346D59215 /* Pods_vimojo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vimojo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6141F0217968E5687F3D0A99 /* Pods-vimojo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vimojo/Pods-vimojo.debug.xcconfig"; sourceTree = "<group>"; };
 		679AE3ECF855A4ACA04759A6 /* Pods-vimojo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojo.release.xcconfig"; path = "Pods/Target Support Files/Pods-vimojo/Pods-vimojo.release.xcconfig"; sourceTree = "<group>"; };
+		A905C02E1D8050C2001B4F25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		A93BCE031D7D577300421BD0 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = ../GPUImageForViMojoApp/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 		A93BCE181D7D58F600421BD0 /* Project.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Project.xcodeproj; path = "../Videona Frameworks/Project/Project.xcodeproj"; sourceTree = "<group>"; };
 		A93BCE421D7D599900421BD0 /* ViMoJoTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViMoJoTracker.swift; sourceTree = "<group>"; };
@@ -200,16 +191,8 @@
 		A93BCE731D7D88EE00421BD0 /* activity_record_rec_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = activity_record_rec_circle.png; sourceTree = "<group>"; };
 		A93BCE751D7D92C300421BD0 /* filter_free.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filter_free.png; sourceTree = "<group>"; };
 		A93BCE771D7D93B700421BD0 /* water_mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water_mark.png; sourceTree = "<group>"; };
-		A96734E91D7FF53600441872 /* BatteryRemainingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BatteryRemainingView.swift; path = BatteryRemainingView/BatteryRemainingView.swift; sourceTree = "<group>"; };
-		A96734EB1D7FF56200441872 /* BatteryRemainingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryRemainingPresenter.swift; sourceTree = "<group>"; };
-		A96734ED1D7FF56B00441872 /* BatteryRemainingPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryRemainingPresenterInterface.swift; sourceTree = "<group>"; };
-		A96734EF1D7FF57200441872 /* BatteryRemainingInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryRemainingInteractor.swift; sourceTree = "<group>"; };
-		A96734F11D7FF57C00441872 /* BatteryRemainingInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryRemainingInteractorInterface.swift; sourceTree = "<group>"; };
 		A96734F91D7FFBA300441872 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		A96734FA1D7FFBA300441872 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		A96735001D7FFBB000441872 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/BatteryRemainingView.xib; sourceTree = "<group>"; };
-		A96735051D7FFBEB00441872 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/BatteryRemainingView.strings; sourceTree = "<group>"; };
-		A967355F1D8034BD00441872 /* RemainingVideoBattery.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RemainingVideoBattery.framework; path = "../Videona Frameworks/RemainingVideoBattery/Build/Products/Debug-iphoneos/RemainingVideoBattery.framework"; sourceTree = "<group>"; };
 		A9B385E61D7D51380065D3EC /* vimojo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vimojo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B385E91D7D51380065D3EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9B385EE1D7D51380065D3EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -352,63 +335,9 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A96734DE1D7FF49E00441872 /* BatteryRemaining */ = {
-			isa = PBXGroup;
-			children = (
-				A96735071D80221B00441872 /* App Logic */,
-				A96734E31D7FF4BA00441872 /* User Interface */,
-			);
-			name = BatteryRemaining;
-			sourceTree = "<group>";
-		};
-		A96734E31D7FF4BA00441872 /* User Interface */ = {
-			isa = PBXGroup;
-			children = (
-				A96734E71D7FF4FA00441872 /* Presenter */,
-				A96734E51D7FF4C800441872 /* View */,
-			);
-			name = "User Interface";
-			sourceTree = "<group>";
-		};
-		A96734E41D7FF4C100441872 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				A96734EF1D7FF57200441872 /* BatteryRemainingInteractor.swift */,
-				A96734F11D7FF57C00441872 /* BatteryRemainingInteractorInterface.swift */,
-			);
-			name = Interactor;
-			sourceTree = "<group>";
-		};
-		A96734E51D7FF4C800441872 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				A96734E91D7FF53600441872 /* BatteryRemainingView.swift */,
-				A96735011D7FFBB000441872 /* BatteryRemainingView.xib */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		A96734E71D7FF4FA00441872 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				A96734EB1D7FF56200441872 /* BatteryRemainingPresenter.swift */,
-				A96734ED1D7FF56B00441872 /* BatteryRemainingPresenterInterface.swift */,
-			);
-			name = Presenter;
-			sourceTree = "<group>";
-		};
-		A96735071D80221B00441872 /* App Logic */ = {
-			isa = PBXGroup;
-			children = (
-				A96734E41D7FF4C100441872 /* Interactor */,
-			);
-			name = "App Logic";
-			sourceTree = "<group>";
-		};
 		A9B385DD1D7D51380065D3EC = {
 			isa = PBXGroup;
 			children = (
-				A967355F1D8034BD00441872 /* RemainingVideoBattery.framework */,
 				A93BCE651D7D7E8000421BD0 /* VideonaMedia.xcodeproj */,
 				A93BCE181D7D58F600421BD0 /* Project.xcodeproj */,
 				A93BCE031D7D577300421BD0 /* GPUImage.xcodeproj */,
@@ -471,7 +400,6 @@
 		A9B386181D7D519E0065D3EC /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				A96734DE1D7FF49E00441872 /* BatteryRemaining */,
 				A93BCE401D7D598600421BD0 /* Recorder */,
 				A93BCE411D7D598B00421BD0 /* Tracker */,
 			);
@@ -789,7 +717,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A93BCE741D7D88EE00421BD0 /* activity_record_rec_circle.png in Resources */,
-				A96734FF1D7FFBB000441872 /* BatteryRemainingView.xib in Resources */,
 				A9B385F41D7D51380065D3EC /* LaunchScreen.storyboard in Resources */,
 				A93BCE781D7D93B700421BD0 /* water_mark.png in Resources */,
 				A93BCE5E1D7D7A1300421BD0 /* iso639_2.bundle in Resources */,
@@ -861,7 +788,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A96734EE1D7FF56B00441872 /* BatteryRemainingPresenterInterface.swift in Sources */,
 				A93BCE4F1D7D77B300421BD0 /* AVResolutionParse.swift in Sources */,
 				A9B3864F1D7D53BA0065D3EC /* ChangeFilterInteractor.swift in Sources */,
 				A93BCE511D7D77FF00421BD0 /* CompatibleResolutionsInteractor.swift in Sources */,
@@ -871,7 +797,6 @@
 				A93BCE571D7D792B00421BD0 /* AddVideoToProjectUseCase.swift in Sources */,
 				A9B386331D7D53230065D3EC /* CameraInteractorInterface.swift in Sources */,
 				A9B386581D7D551A0065D3EC /* Utils.swift in Sources */,
-				A96734F01D7FF57200441872 /* BatteryRemainingInteractor.swift in Sources */,
 				A9B386291D7D52F40065D3EC /* RecordWireframe.swift in Sources */,
 				A9B386391D7D53450065D3EC /* ExportedAlbum.swift in Sources */,
 				A93BCE531D7D785100421BD0 /* SettingsConstants.swift in Sources */,
@@ -884,10 +809,7 @@
 				A9B386531D7D53D10065D3EC /* CameraRecorderInteractor.swift in Sources */,
 				A9B385EA1D7D51380065D3EC /* AppDelegate.swift in Sources */,
 				A9B386411D7D53880065D3EC /* TimerInteractor.swift in Sources */,
-				A96734EA1D7FF53600441872 /* BatteryRemainingView.swift in Sources */,
 				A93BCE4D1D7D5C7400421BD0 /* AnalitycsConstants.swift in Sources */,
-				A96734F21D7FF57C00441872 /* BatteryRemainingInteractorInterface.swift in Sources */,
-				A96734EC1D7FF56200441872 /* BatteryRemainingPresenter.swift in Sources */,
 				A9B3865F1D7D55660065D3EC /* VideonaController.swift in Sources */,
 				A9B386541D7D53D10065D3EC /* CameraRecorderInterface.swift in Sources */,
 				A93BCE4C1D7D5C7400421BD0 /* ConfigPreferences.swift in Sources */,
@@ -941,20 +863,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A96735011D7FFBB000441872 /* BatteryRemainingView.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A96735001D7FFBB000441872 /* en */,
-				A96735051D7FFBEB00441872 /* es */,
-			);
-			name = BatteryRemainingView.xib;
-			sourceTree = "<group>";
-		};
 		A9B385ED1D7D51380065D3EC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A9B385EE1D7D51380065D3EC /* Base */,
 				A96734F91D7FFBA300441872 /* es */,
+				A905C02E1D8050C2001B4F25 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1064,6 +978,16 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Crashlytics/iOS\"",
+					"\"${PODS_ROOT}/Fabric/iOS\"",
+					/Users/Alejandro/Desktop/Repos/Videona,
+					"Frameworks/**",
+					/Users/Alejandro/Desktop/Repos/Videona,
+					"Frameworks/SpaceOnDisk/**",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = vimojo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojo;
@@ -1082,6 +1006,16 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Crashlytics/iOS\"",
+					"\"${PODS_ROOT}/Fabric/iOS\"",
+					/Users/Alejandro/Desktop/Repos/Videona,
+					"Frameworks/**",
+					/Users/Alejandro/Desktop/Repos/Videona,
+					"Frameworks/SpaceOnDisk/**",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = vimojo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojo;

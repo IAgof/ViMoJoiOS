@@ -20,13 +20,16 @@ protocol RecordPresenterInterface{
     func pushHideAllButtons()
     func pushZoom()
     func pushBattery()
+    func pushSpaceOnDisk()
     func pushCloseBatteryButton()
+    func pushCloseSpaceOnDiskButton()
     
     func resetRecorder()
     func displayHasPinched(pinchGesture:UIPinchGestureRecognizer)
     func checkFlashAvaliable()
     
     func zoomValueChanged(value:Float)
+    func batteryValuesUpdate(value:Float)
 }
 
 protocol RecordPresenterDelegate {
@@ -44,6 +47,7 @@ protocol RecordPresenterDelegate {
     func showHideAllButtonsButtonImage()
     func showAllButtonsButtonImage()
     func showBatteryRemaining()
+    func showSpaceOnDisk()
     
     func getControllerName()->String
     func updateChronometer(time:String)
@@ -58,7 +62,11 @@ protocol RecordPresenterDelegate {
     func showZoomView()
     
     func setSliderValue(value:Float)
+    func setBatteryIcon(image:UIImage)
     
     func updateBatteryValues()
     func hideBatteryView()
+    
+    func updateSpaceOnDiskValues()
+    func hideSpaceOnDiskView()
 }
