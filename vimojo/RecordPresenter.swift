@@ -32,7 +32,9 @@ class RecordPresenter: NSObject
     var zoomIsShowed = false
     var batteryIsShowed = false
     var spaceOnDiskIsShowed = false
-    
+    var isoConfigIsShowed = false
+    var wbConfigIsShowed = false
+
     //MARK: - Event handler
     func viewDidLoad(displayView:GPUImageView){
         
@@ -99,14 +101,6 @@ class RecordPresenter: NSObject
         }
     }
     
-    func pushZoom() {
-        if zoomIsShowed{
-            hideZoomViewIfYouCan()
-        }else{
-            showZoomView()
-        }
-    }
-    
     func pushBattery() {
         if batteryIsShowed{
             hideBatteryViewIfYouCan()
@@ -130,6 +124,61 @@ class RecordPresenter: NSObject
             delegate?.showSpaceOnDisk()
             
             spaceOnDiskIsShowed = true
+        }
+    }
+    
+    func pushConfigMode(modePushed: VideoModeConfigurations) {
+        switch modePushed {
+        case .zomm:
+            pushZoom()
+            break
+        case .exposure:
+            
+            break
+        case .focus:
+            
+            break
+        case .whiteBalance:
+            pushWBConfig()
+            
+            break
+        case .iso:
+            pushISOConfig()
+            break
+            
+        }
+    }
+    
+    
+    func pushZoom() {
+        if zoomIsShowed{
+            hideZoomViewIfYouCan()
+        }else{
+            showZoomView()
+        }
+    }
+    
+    func pushISOConfig() {
+        if isoConfigIsShowed{
+            hideISOConfigIfYouCan()
+        }else{
+            hideAllModeConfigsIfNeccesary()
+
+            delegate?.showISOConfigView()
+            
+            isoConfigIsShowed = true
+        }
+    }
+    
+    func pushWBConfig() {
+        if wbConfigIsShowed{
+            hideWBConfigIfYouCan()
+        }else{
+            hideAllModeConfigsIfNeccesary()
+            
+            delegate?.showWBConfigView()
+            
+            wbConfigIsShowed = true
         }
     }
     
@@ -271,6 +320,15 @@ class RecordPresenter: NSObject
         batteryIsShowed = false
     }
     
+    func hideISOConfigIfYouCan(){
+        if !isoConfigIsShowed {
+            return
+        }
+        delegate?.hideISOConfigView()
+        
+        isoConfigIsShowed = false
+    }
+    
     func hideSpaceOnDiskViewIfYouCan(){
         if !spaceOnDiskIsShowed {
             return
@@ -278,6 +336,20 @@ class RecordPresenter: NSObject
         delegate?.hideSpaceOnDiskView()
         
         spaceOnDiskIsShowed = false
+    }
+    
+    func hideWBConfigIfYouCan(){
+        if !wbConfigIsShowed {
+            return
+        }
+        delegate?.hideWBConfigView()
+        
+        wbConfigIsShowed = false
+    }
+    
+    func hideAllModeConfigsIfNeccesary(){
+        hideWBConfigIfYouCan()
+        hideISOConfigIfYouCan()
     }
     
     //MARK: - Track Events

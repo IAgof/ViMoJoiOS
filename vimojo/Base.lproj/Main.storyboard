@@ -23,7 +23,7 @@
                                 <subviews>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ig-Ws-YbI" customClass="SpaceOnDiskView" customModule="SpaceOnDisk">
                                         <rect key="frame" x="180" y="236" width="240" height="128"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="WNh-gO-d27"/>
                                             <constraint firstAttribute="width" constant="240" id="tg4-ug-1Gv"/>
@@ -31,7 +31,7 @@
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="REF-Hb-DD3" customClass="BatteryRemainingView" customModule="BatteryRemaining">
                                         <rect key="frame" x="180" y="236" width="240" height="128"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="5RR-U1-7v1"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="9ds-Ap-oRa"/>
@@ -131,6 +131,9 @@
                                                         <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
                                                             <rect key="frame" x="49" y="0.0" width="30" height="30"/>
                                                         </variation>
+                                                        <connections>
+                                                            <action selector="pushISO:" destination="31E-sq-qOD" eventType="touchUpInside" id="gaA-qg-mne"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7j1-ue-IIf">
                                                         <rect key="frame" x="119" y="0.0" width="30" height="30"/>
@@ -152,6 +155,9 @@
                                                         <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
                                                             <rect key="frame" x="229" y="0.0" width="30" height="30"/>
                                                         </variation>
+                                                        <connections>
+                                                            <action selector="pushWhiteBalance:" destination="31E-sq-qOD" eventType="touchUpInside" id="2zP-Fn-74p"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKC-lg-RKb">
                                                         <rect key="frame" x="299" y="0.0" width="30" height="30"/>
@@ -337,14 +343,14 @@
                                                     <action selector="zoomSliderValueChanged:" destination="31E-sq-qOD" eventType="valueChanged" id="3qD-Q9-SDR"/>
                                                 </connections>
                                             </slider>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Btj-fe-7Jh">
-                                                <rect key="frame" x="2" y="2" width="31" height="15"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Btj-fe-7Jh">
+                                                <rect key="frame" x="2" y="2" width="36" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbY-TC-26F">
-                                                <rect key="frame" x="2" y="233" width="31" height="15"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbY-TC-26F">
+                                                <rect key="frame" x="2" y="232" width="36" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -366,13 +372,31 @@
                                             <constraint firstAttribute="bottom" secondItem="VbY-TC-26F" secondAttribute="bottom" constant="2" id="xam-jm-Dt1"/>
                                         </constraints>
                                     </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uHc-Xb-tvs" customClass="ISOConfigurationView" customModule="ISOConfiguration">
+                                        <rect key="frame" x="146" y="520" width="309" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="309" id="87z-CW-8Mh"/>
+                                            <constraint firstAttribute="height" constant="30" id="Q2n-Ef-hHs"/>
+                                        </constraints>
+                                    </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QoG-NT-WY4" customClass="WhiteBalanceView" customModule="WhiteBalance">
+                                        <rect key="frame" x="146" y="520" width="309" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="lSb-Js-qXq"/>
+                                            <constraint firstAttribute="width" constant="309" id="zx6-dX-fxH"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="7DH-Ci-Hyp" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="1Bx-DJ-dsM"/>
                                     <constraint firstItem="zRf-8q-oTu" firstAttribute="top" secondItem="9Kl-ym-3ZQ" secondAttribute="top" constant="8" id="1l4-ff-wyJ"/>
                                     <constraint firstItem="nt1-cO-8OT" firstAttribute="top" secondItem="mqP-WM-mhr" secondAttribute="bottom" constant="2" id="7ec-Qm-pQK"/>
+                                    <constraint firstItem="7DH-Ci-Hyp" firstAttribute="top" secondItem="QoG-NT-WY4" secondAttribute="bottom" constant="4" id="7iU-M4-BA8"/>
                                     <constraint firstItem="l5W-XL-ajn" firstAttribute="centerY" secondItem="mqP-WM-mhr" secondAttribute="centerY" id="8Wl-pK-drJ"/>
+                                    <constraint firstItem="uHc-Xb-tvs" firstAttribute="centerX" secondItem="7DH-Ci-Hyp" secondAttribute="centerX" id="CX3-3Z-RXg"/>
                                     <constraint firstItem="REF-Hb-DD3" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="GGD-A0-01S"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7DH-Ci-Hyp" secondAttribute="trailing" constant="10" id="Hx6-uJ-evI"/>
                                     <constraint firstAttribute="trailing" secondItem="CiJ-Ll-EF1" secondAttribute="trailing" constant="8" id="KDw-BS-5wI"/>
@@ -385,8 +409,10 @@
                                     <constraint firstAttribute="bottom" secondItem="nt1-cO-8OT" secondAttribute="bottom" constant="8" id="S1j-tX-ome"/>
                                     <constraint firstItem="THD-Xp-k6G" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="UcJ-5Z-t8q"/>
                                     <constraint firstItem="2JR-Xm-zWV" firstAttribute="centerX" secondItem="zRf-8q-oTu" secondAttribute="centerX" id="VlY-d9-hg4"/>
+                                    <constraint firstItem="QoG-NT-WY4" firstAttribute="centerX" secondItem="7DH-Ci-Hyp" secondAttribute="centerX" id="Xb6-PN-cOm"/>
                                     <constraint firstItem="7ig-Ws-YbI" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="YS0-Y7-l7Z"/>
                                     <constraint firstItem="REF-Hb-DD3" firstAttribute="centerY" secondItem="9Kl-ym-3ZQ" secondAttribute="centerY" id="ZT3-qF-IdD"/>
+                                    <constraint firstItem="7DH-Ci-Hyp" firstAttribute="top" secondItem="uHc-Xb-tvs" secondAttribute="bottom" constant="4" id="cwv-NB-WaJ"/>
                                     <constraint firstAttribute="trailing" secondItem="E5V-mU-ie5" secondAttribute="trailing" id="eiR-Ud-YFq"/>
                                     <constraint firstItem="7DH-Ci-Hyp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9Kl-ym-3ZQ" secondAttribute="leading" constant="10" id="gE7-5w-oOh"/>
                                     <constraint firstAttribute="bottom" secondItem="7DH-Ci-Hyp" secondAttribute="bottom" constant="8" id="iFC-oX-dcx"/>
@@ -428,6 +454,7 @@
                         <outlet property="flashButton" destination="C5P-A2-uPz" id="1SC-dF-B2O"/>
                         <outlet property="focusImageView" destination="THD-Xp-k6G" id="Rj2-Yj-CEJ"/>
                         <outlet property="hideAllButtonsButton" destination="zRf-8q-oTu" id="VGJ-Nx-BDq"/>
+                        <outlet property="isoConfigurationView" destination="uHc-Xb-tvs" id="ylO-tt-7CD"/>
                         <outlet property="modeContainerView" destination="7DH-Ci-Hyp" id="DI1-uf-SM0"/>
                         <outlet property="overlayClearGrid" destination="Usb-Qc-mHY" id="fwh-Pg-Vgo"/>
                         <outlet property="recordAreaContainerView" destination="E5V-mU-ie5" id="upI-1r-nbI"/>
@@ -437,6 +464,7 @@
                         <outlet property="secondaryRecordingIndicator" destination="l5W-XL-ajn" id="cuT-cW-jHn"/>
                         <outlet property="spaceOnDiskView" destination="7ig-Ws-YbI" id="WTY-mS-gj1"/>
                         <outlet property="upperContainerView" destination="CiJ-Ll-EF1" id="lOk-CH-s14"/>
+                        <outlet property="wbConfigurationView" destination="QoG-NT-WY4" id="8bv-h9-kEl"/>
                         <outlet property="zoomContainerView" destination="2JR-Xm-zWV" id="fpl-CA-rcv"/>
                         <outlet property="zoomSlider" destination="kVi-cV-0y9" id="jV1-xc-tTd"/>
                     </connections>

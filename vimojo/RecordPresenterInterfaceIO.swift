@@ -21,6 +21,12 @@ protocol RecordPresenterInterface{
     func pushZoom()
     func pushBattery()
     func pushSpaceOnDisk()
+    
+    func pushConfigMode(modePushed:VideoModeConfigurations)
+    
+    func pushISOConfig()
+    func pushWBConfig()
+    
     func pushCloseBatteryButton()
     func pushCloseSpaceOnDiskButton()
     
@@ -69,4 +75,10 @@ protocol RecordPresenterDelegate {
     
     func updateSpaceOnDiskValues()
     func hideSpaceOnDiskView()
+    
+    func showISOConfigView()
+    func hideISOConfigView()
+    
+    func showWBConfigView()
+    func hideWBConfigView()
 }

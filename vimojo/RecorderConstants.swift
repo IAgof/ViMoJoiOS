@@ -12,3 +12,11 @@ class RecordConstants: NSObject {
     let WAIT_TITLE = "please_wait"
     let WAIT_DESCRIPTION = "dialog_processing"
 }
+
+enum VideoModeConfigurations {
+    case zomm
+    case iso
+    case exposure
+    case whiteBalance
+    case focus
+}

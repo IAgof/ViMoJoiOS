@@ -10,8 +10,10 @@ import UIKit
 import GPUImage
 import SpaceOnDisk
 import BatteryRemaining
+import ISOConfiguration
+import WhiteBalance
 
-class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPresenterDelegate{
+class RecordController: ViMoJoController,UINavigationControllerDelegate{
     
     //MARK: - Variables VIPER
     var eventHandler: RecordPresenterInterface?
@@ -30,6 +32,8 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
     @IBOutlet weak var zoomSlider: UISlider!
     @IBOutlet weak var batteryView: BatteryRemainingView!
     @IBOutlet weak var spaceOnDiskView: SpaceOnDiskView!
+    @IBOutlet weak var isoConfigurationView: ISOConfigurationView!
+    @IBOutlet weak var wbConfigurationView: WhiteBalanceView!
     
     @IBOutlet weak var overlayClearGrid: UIImageView!
     
@@ -139,12 +143,12 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
     }
     
     @IBAction func pushZoom(sender: AnyObject) {
-        eventHandler?.pushZoom()
+        eventHandler?.pushConfigMode(VideoModeConfigurations.zomm)
     }
     
     
     @IBAction func pushISO(sender: AnyObject) {
-        
+        eventHandler?.pushConfigMode(VideoModeConfigurations.iso)
     }
     
     
@@ -159,7 +163,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
     
     
     @IBAction func pushWhiteBalance(sender: AnyObject) {
-        
+        eventHandler?.pushConfigMode(VideoModeConfigurations.whiteBalance)
     }
     
     
@@ -196,6 +200,117 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
         
     }
     
+     //MARK : - Inner functions
+    
+    func roundBorderOfViews() {
+        upperContainerView.layer.cornerRadius = 4
+        modeContainerView.layer.cornerRadius = 4
+        zoomContainerView.layer.cornerRadius = 4
+        batteryView.layer.cornerRadius = 4
+        spaceOnDiskView.layer.cornerRadius = 4
+    }
+    
+    func rotateSlider(){
+        let trans = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
+        zoomSlider.transform = trans
+    }
+    
+    //MARK: - Landscape Orientation
+    func forceOrientation(){
+        switch UIDevice.currentDevice().orientation{
+        case .Portrait,.PortraitUpsideDown:
+            let value = UIInterfaceOrientation.LandscapeRight.rawValue
+            UIDevice.currentDevice().setValue(value, forKey: "orientation")
+            Utils.sharedInstance.debugLog("Force orientation to landscape right)")
+            break
+        default:
+            break
+        }
+
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+            return UIInterfaceOrientationMask.Landscape
+    }
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
+}
+extension UINavigationController {
+    
+    override public func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        if let controller = visibleViewController{
+            return controller.supportedInterfaceOrientations()
+        }else{
+            return UIInterfaceOrientationMask.Portrait
+        }
+    }
+    public override func shouldAutorotate() -> Bool {
+        if visibleViewController != nil{
+            return visibleViewController!.shouldAutorotate()
+        }else{
+            return true
+        }
+    }
+}
+
+extension UIAlertController {
+    override public func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.All
+    }
+    public override func shouldAutorotate() -> Bool {
+        return false
+    }
+}
+
+extension UIButton {
+    public override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
+        let buttonSize = self.frame.size
+        let widthToAdd = (44-buttonSize.width > 0) ? 44-buttonSize.width : 0
+        let heightToAdd = (44-buttonSize.height > 0) ? 44-buttonSize.height : 0
+        let largerFrame = CGRect(x: 0-(widthToAdd/2), y: 0-(heightToAdd/2), width: buttonSize.width+widthToAdd, height: buttonSize.height+heightToAdd)
+        return (CGRectContainsPoint(largerFrame, point)) ? self : nil
+    }
+}
+
+//Animation for transitions fadeIn and fadeOut
+extension RecordController{
+    func fadeInView(views:[UIView]){
+        for view in views{
+            view.hidden = false
+        }
+        
+        UIView.animateWithDuration(0.5, animations: {
+            for view in views{
+                view.alpha = 0
+            }
+            
+            for view in views{
+                view.alpha = 1
+            }
+        })
+    }
+    
+    func fadeOutView(views:[UIView]) {
+        UIView.animateWithDuration(0.5, animations: {
+            for view in views{
+                view.alpha = 0
+            }
+            
+            }, completion: {
+                success in
+                if success {
+                    for view in views{
+                        view.hidden = true
+                    }
+                }
+        })
+    }
+}
+
+//MARK: - Presenter delegate
+extension RecordController:RecordPresenterDelegate {
     //MARK: - Delegate Interface
     func showRecordButton(){
         self.recordButton.selected = true
@@ -311,113 +426,22 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate,RecordPr
         fadeOutView([spaceOnDiskView])
     }
     
-    //MARK : - Inner functions
-    
-    func roundBorderOfViews() {
-        upperContainerView.layer.cornerRadius = 4
-        modeContainerView.layer.cornerRadius = 4
-        zoomContainerView.layer.cornerRadius = 4
-        batteryView.layer.cornerRadius = 4
-        spaceOnDiskView.layer.cornerRadius = 4
+    func showISOConfigView() {
+        fadeInView([isoConfigurationView])
     }
     
-    func rotateSlider(){
-        let trans = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
-        zoomSlider.transform = trans
+    func hideISOConfigView() {
+        fadeOutView([isoConfigurationView])
     }
     
-    //MARK: - Landscape Orientation
-    func forceOrientation(){
-        switch UIDevice.currentDevice().orientation{
-        case .Portrait,.PortraitUpsideDown:
-            let value = UIInterfaceOrientation.LandscapeRight.rawValue
-            UIDevice.currentDevice().setValue(value, forKey: "orientation")
-            Utils.sharedInstance.debugLog("Force orientation to landscape right)")
-            break
-        default:
-            break
-        }
+    func showWBConfigView() {
+        fadeInView([wbConfigurationView])
+    }
+    
+    func hideWBConfigView() {
+        fadeOutView([wbConfigurationView])
+    }
 
-    }
-    
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-            return UIInterfaceOrientationMask.Landscape
-    }
-    override func shouldAutorotate() -> Bool {
-        return true
-    }
-    
-}
-extension UINavigationController {
-    
-    override public func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if let controller = visibleViewController{
-            return controller.supportedInterfaceOrientations()
-        }else{
-            return UIInterfaceOrientationMask.Portrait
-        }
-    }
-    public override func shouldAutorotate() -> Bool {
-        if visibleViewController != nil{
-            return visibleViewController!.shouldAutorotate()
-        }else{
-            return true
-        }
-    }
-}
-
-extension UIAlertController {
-    override public func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.All
-    }
-    public override func shouldAutorotate() -> Bool {
-        return false
-    }
-}
-
-extension UIButton {
-    public override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
-        let buttonSize = self.frame.size
-        let widthToAdd = (44-buttonSize.width > 0) ? 44-buttonSize.width : 0
-        let heightToAdd = (44-buttonSize.height > 0) ? 44-buttonSize.height : 0
-        let largerFrame = CGRect(x: 0-(widthToAdd/2), y: 0-(heightToAdd/2), width: buttonSize.width+widthToAdd, height: buttonSize.height+heightToAdd)
-        return (CGRectContainsPoint(largerFrame, point)) ? self : nil
-    }
-}
-
-//Animation for transitions fadeIn and fadeOut
-extension RecordController{
-    func fadeInView(views:[UIView]){
-        for view in views{
-            view.hidden = false
-        }
-        
-        UIView.animateWithDuration(0.5, animations: {
-            for view in views{
-                view.alpha = 0
-            }
-            
-            for view in views{
-                view.alpha = 1
-            }
-        })
-    }
-    
-    func fadeOutView(views:[UIView]) {
-        UIView.animateWithDuration(0.5, animations: {
-            for view in views{
-                view.alpha = 0
-            }
-            
-            }, completion: {
-                success in
-                if success {
-                    for view in views{
-                        view.hidden = true
-                    }
-                }
-        })
-    }
 }
 
 //MARK: - BatteryRemaining delegate
