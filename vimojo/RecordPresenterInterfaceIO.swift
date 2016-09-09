@@ -21,11 +21,9 @@ protocol RecordPresenterInterface{
     func pushZoom()
     func pushBattery()
     func pushSpaceOnDisk()
+    func pushMic()
     
     func pushConfigMode(modePushed:VideoModeConfigurations)
-    
-    func pushISOConfig()
-    func pushWBConfig()
     
     func pushCloseBatteryButton()
     func pushCloseSpaceOnDiskButton()
@@ -36,6 +34,7 @@ protocol RecordPresenterInterface{
     
     func zoomValueChanged(value:Float)
     func batteryValuesUpdate(value:Float)
+    func audioLevelHasChanged(value:Float)
 }
 
 protocol RecordPresenterDelegate {
@@ -69,6 +68,7 @@ protocol RecordPresenterDelegate {
     
     func setSliderValue(value:Float)
     func setBatteryIcon(image:UIImage)
+    func setAudioColor(color:UIColor)
     
     func updateBatteryValues()
     func hideBatteryView()
@@ -81,4 +81,12 @@ protocol RecordPresenterDelegate {
     
     func showWBConfigView()
     func hideWBConfigView()
+    
+    func showExposureConfigView()
+    func hideExposureConfigView()
+    
+    func getMicValues()
+    func showMicLevelView()
+    func hideMicLevelView()
+    func setSelectedMicButton(state:Bool)
 }

@@ -34,7 +34,10 @@ class RecordPresenter: NSObject
     var spaceOnDiskIsShowed = false
     var isoConfigIsShowed = false
     var wbConfigIsShowed = false
-
+    var exposureConfigIsShowed = false
+    var micViewIsShowed = false
+    var micIsEnabled = false
+    
     //MARK: - Event handler
     func viewDidLoad(displayView:GPUImageView){
         
@@ -42,8 +45,10 @@ class RecordPresenter: NSObject
         cameraInteractor = CameraInteractor(display: displayView,
                                             cameraDelegate: self,
                                             project: (interactor?.getProject())! )
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(RecordPresenter.audioRouteChangeListener(_:)), name: AVAudioSessionRouteChangeNotification, object: nil)
         
         self.checkFlashAvaliable()
+        self.checkIfMicIsAvailable()
     }
     
     func viewWillDisappear() {
@@ -94,7 +99,9 @@ class RecordPresenter: NSObject
         }else{
             delegate?.showSecondaryRecordViews()
             delegate?.hidePrincipalViews()
+            
             hideZoomViewIfYouCan()
+            hideAllModeConfigsIfNeccesary()
             
             delegate?.showHideAllButtonsButtonImage()
             buttonsAreHidden = true
@@ -127,13 +134,27 @@ class RecordPresenter: NSObject
         }
     }
     
+    func pushMic() {
+        if micIsEnabled{
+            if micViewIsShowed{
+                hideMicViewIfYouCan()
+            }else{
+                
+                delegate?.getMicValues()
+                delegate?.showMicLevelView()
+                
+                micViewIsShowed = true
+            }
+        }
+    }
+    
     func pushConfigMode(modePushed: VideoModeConfigurations) {
         switch modePushed {
         case .zomm:
             pushZoom()
             break
         case .exposure:
-            
+            pushExposureConfig()
             break
         case .focus:
             
@@ -179,6 +200,18 @@ class RecordPresenter: NSObject
             delegate?.showWBConfigView()
             
             wbConfigIsShowed = true
+        }
+    }
+    
+    func pushExposureConfig() {
+        if exposureConfigIsShowed{
+            hideExposureConfigIfYouCan()
+        }else{
+            hideAllModeConfigsIfNeccesary()
+            
+            delegate?.showExposureConfigView()
+            
+            exposureConfigIsShowed = true
         }
     }
     
@@ -245,7 +278,25 @@ class RecordPresenter: NSObject
         delegate?.setBatteryIcon(getBatteryIcon(value))
     }
     
+    func audioLevelHasChanged(value: Float) {
+        delegate?.setAudioColor(getAudioLevelColor(value))
+    }
+    
     //MARK: - Inner functions
+    func getAudioLevelColor(value:Float)->UIColor{
+        switch value {
+        case 0 ... 0.5:
+            return UIColor.greenColor()
+        case 0.5 ... 0.6:
+            return UIColor.yellowColor()
+        case 0.6 ... 0.8:
+            return UIColor.orangeColor()
+        case 0.8 ... 1:
+            return UIColor.redColor()
+        default:
+            return UIColor.greenColor()
+        }
+    }
     func startRecord(){
         self.trackStartRecord()
         
@@ -338,6 +389,15 @@ class RecordPresenter: NSObject
         spaceOnDiskIsShowed = false
     }
     
+    func hideMicViewIfYouCan(){
+        if !micViewIsShowed {
+            return
+        }
+        delegate?.hideMicLevelView()
+        
+        micViewIsShowed = false
+    }
+    
     func hideWBConfigIfYouCan(){
         if !wbConfigIsShowed {
             return
@@ -347,9 +407,59 @@ class RecordPresenter: NSObject
         wbConfigIsShowed = false
     }
     
+    func hideExposureConfigIfYouCan(){
+        if !exposureConfigIsShowed {
+            return
+        }
+        delegate?.hideExposureConfigView()
+        
+        exposureConfigIsShowed = false
+    }
+    
     func hideAllModeConfigsIfNeccesary(){
         hideWBConfigIfYouCan()
         hideISOConfigIfYouCan()
+        hideExposureConfigIfYouCan()
+        
+        hideMicViewIfYouCan()
+    }
+    
+    
+    func checkIfMicIsAvailable(){
+        let route = AVAudioSession.sharedInstance().currentRoute
+        
+        for port in route.outputs {
+            if port.portType == AVAudioSessionPortHeadphones {
+                // Headphones located
+                setMicButtonState(true)
+            }else{
+                setMicButtonState(false)
+            }
+        }
+    }
+    
+    func setMicButtonState(state:Bool){
+        delegate?.setSelectedMicButton(state)
+        micIsEnabled = state
+        
+        if !state {
+            hideMicViewIfYouCan()
+        }
+    }
+    
+    dynamic private func audioRouteChangeListener(notification:NSNotification) {
+        let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
+        
+        switch audioRouteChangeReason {
+        case AVAudioSessionRouteChangeReason.NewDeviceAvailable.rawValue:
+            print("headphone plugged in")
+            setMicButtonState(true)
+        case AVAudioSessionRouteChangeReason.OldDeviceUnavailable.rawValue:
+            print("headphone pulled out")
+            setMicButtonState(false)
+        default:
+            break
+        }
     }
     
     //MARK: - Track Events

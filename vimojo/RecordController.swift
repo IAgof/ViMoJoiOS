@@ -12,6 +12,8 @@ import SpaceOnDisk
 import BatteryRemaining
 import ISOConfiguration
 import WhiteBalance
+import Exposure
+import AudioLevelBar
 
 class RecordController: ViMoJoController,UINavigationControllerDelegate{
     
@@ -26,7 +28,8 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var secondaryRecordButton: UIButton!
     @IBOutlet weak var hideAllButtonsButton: UIButton!
     @IBOutlet weak var batteryButton: UIButton!
-
+    @IBOutlet weak var micButton: UIButton!
+    
     //MARK: - Custom
     @IBOutlet weak var cameraView: GPUImageView!
     @IBOutlet weak var zoomSlider: UISlider!
@@ -34,8 +37,9 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var spaceOnDiskView: SpaceOnDiskView!
     @IBOutlet weak var isoConfigurationView: ISOConfigurationView!
     @IBOutlet weak var wbConfigurationView: WhiteBalanceView!
-    
+    @IBOutlet weak var exposureConfigurationView: ExposureView!
     @IBOutlet weak var overlayClearGrid: UIImageView!
+    @IBOutlet weak var audioLevelView: AudioLevelBarView!
     
     //MARK: - UIView
     @IBOutlet weak var zoomSliderContainer: UIView!
@@ -43,7 +47,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var modeContainerView: UIView!
     @IBOutlet weak var recordAreaContainerView: UIView!
     @IBOutlet weak var zoomContainerView: UIView!
-
+    
     //MARK: - UILabel
     @IBOutlet weak var secondaryChronometerLabel: UILabel!
     @IBOutlet weak var chronometrer: UILabel!
@@ -74,6 +78,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     func configureViews(){
         batteryView.delegate = self
         spaceOnDiskView.delegate = self
+        audioLevelView.delegate = self
         
         roundBorderOfViews()
         rotateSlider()
@@ -153,7 +158,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     
     
     @IBAction func pushExposure(sender: AnyObject) {
-        
+        eventHandler?.pushConfigMode(VideoModeConfigurations.exposure)
     }
     
     
@@ -197,10 +202,10 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     }
     
     @IBAction func pushMic(sender: AnyObject) {
-        
+        eventHandler?.pushMic()
     }
     
-     //MARK : - Inner functions
+    //MARK : - Inner functions
     
     func roundBorderOfViews() {
         upperContainerView.layer.cornerRadius = 4
@@ -226,11 +231,11 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         default:
             break
         }
-
+        
     }
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-            return UIInterfaceOrientationMask.Landscape
+        return UIInterfaceOrientationMask.Landscape
     }
     override func shouldAutorotate() -> Bool {
         return true
@@ -402,6 +407,10 @@ extension RecordController:RecordPresenterDelegate {
         batteryButton.setImage(image, forState: .Normal)
     }
     
+    func setAudioColor(color: UIColor) {
+        audioLevelView.setBarColor(color)
+    }
+    
     func showBatteryRemaining() {
         fadeInView([batteryView])
     }
@@ -441,7 +450,31 @@ extension RecordController:RecordPresenterDelegate {
     func hideWBConfigView() {
         fadeOutView([wbConfigurationView])
     }
-
+    
+    func showExposureConfigView() {
+        fadeInView([exposureConfigurationView])
+    }
+    
+    func hideExposureConfigView() {
+        fadeOutView([exposureConfigurationView])
+    }
+    
+    func getMicValues() {
+        audioLevelView.getAudioLevel()
+    }
+    
+    func showMicLevelView() {
+        fadeInView([audioLevelView])
+    }
+    
+    func hideMicLevelView() {
+        fadeOutView([audioLevelView])
+    }
+    
+    func setSelectedMicButton(state: Bool) {
+        micButton.selected = state
+    }
+    
 }
 
 //MARK: - BatteryRemaining delegate
@@ -458,5 +491,12 @@ extension RecordController:BatteryRemainingDelegate {
 extension RecordController:SpaceOnDiskDelegate {
     func closeSpaceOnDiskPushed() {
         eventHandler?.pushCloseSpaceOnDiskButton()
+    }
+}
+
+//MARK: - AudioLevelBar delegate
+extension RecordController:AudioLevelBarDelegate {
+    func audioLevelChange(value: Float) {
+        eventHandler?.audioLevelHasChanged(value)
     }
 }

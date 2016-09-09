@@ -11,6 +11,8 @@ pod 'SpaceOnDisk', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/SpaceOn
 pod 'BatteryRemaining', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/BatteryRemaining'
 pod 'ISOConfiguration', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/ISOConfiguration'
 pod 'WhiteBalance', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/WhiteBalance'
+pod 'Exposure', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/Exposure'
+pod 'AudioLevelBar', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/AudioLevelBar'
 end
 
 target 'vimojoTests' do

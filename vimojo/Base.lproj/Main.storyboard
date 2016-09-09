@@ -42,11 +42,19 @@
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_record_icon_focus_focused" translatesAutoresizingMaskIntoConstraints="NO" id="THD-Xp-k6G">
                                         <rect key="frame" x="266" y="266" width="68" height="68"/>
                                     </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CiJ-Ll-EF1">
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rX8-eJ-GlM" customClass="AudioLevelBarView" customModule="AudioLevelBar">
+                                        <rect key="frame" x="52" y="8" width="250" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="2GW-QI-VtX"/>
+                                            <constraint firstAttribute="width" constant="250" id="zkF-r4-Gkh"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CiJ-Ll-EF1">
                                         <rect key="frame" x="359" y="8" width="233" height="30"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YN4-JO-VO2">
-                                                <rect key="frame" x="4" y="4" width="225" height="22"/>
+                                                <rect key="frame" x="4" y="4" width="227" height="22"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLS-oa-Pa6">
                                                         <rect key="frame" x="0.0" y="0.0" width="24" height="22"/>
@@ -71,16 +79,18 @@
                                                         <state key="normal" image="activity_record_icon_geolocation_normal"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwy-pV-J8a">
-                                                        <rect key="frame" x="119" y="0.0" width="18" height="22"/>
-                                                        <state key="normal" image="activity_record_icon_microphone_normal"/>
+                                                        <rect key="frame" x="119" y="0.0" width="20" height="22"/>
+                                                        <state key="normal" image="activity_record_icon_microphone_pressed"/>
                                                         <state key="selected" image="activity_record_icon_microphone_normal"/>
-                                                        <state key="highlighted" image="activity_record_icon_microphone_normal"/>
+                                                        <connections>
+                                                            <action selector="pushMic:" destination="31E-sq-qOD" eventType="touchUpInside" id="Shq-D1-NHs"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_record_icon_recording" translatesAutoresizingMaskIntoConstraints="NO" id="Y9E-dj-M8I">
-                                                        <rect key="frame" x="147" y="0.0" width="8" height="22"/>
+                                                        <rect key="frame" x="149" y="0.0" width="8" height="22"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aut-g5-zjP">
-                                                        <rect key="frame" x="165" y="0.0" width="60" height="22"/>
+                                                        <rect key="frame" x="167" y="0.0" width="60" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="DOV-DS-jcW">
                                                                 <variation key="widthClass=regular" constant="80"/>
@@ -141,6 +151,9 @@
                                                         <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
                                                             <rect key="frame" x="109" y="0.0" width="30" height="30"/>
                                                         </variation>
+                                                        <connections>
+                                                            <action selector="pushExposure:" destination="31E-sq-qOD" eventType="touchUpInside" id="nr9-az-40A"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEC-ZY-02I">
                                                         <rect key="frame" x="179" y="0.0" width="30" height="30"/>
@@ -388,15 +401,26 @@
                                             <constraint firstAttribute="width" constant="309" id="zx6-dX-fxH"/>
                                         </constraints>
                                     </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oH9-CD-BIP" customClass="ExposureView" customModule="Exposure">
+                                        <rect key="frame" x="146" y="520" width="309" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="XJo-KX-DzQ"/>
+                                            <constraint firstAttribute="width" constant="309" id="q9k-db-FcF"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="7DH-Ci-Hyp" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="1Bx-DJ-dsM"/>
                                     <constraint firstItem="zRf-8q-oTu" firstAttribute="top" secondItem="9Kl-ym-3ZQ" secondAttribute="top" constant="8" id="1l4-ff-wyJ"/>
+                                    <constraint firstItem="rX8-eJ-GlM" firstAttribute="centerY" secondItem="CiJ-Ll-EF1" secondAttribute="centerY" id="3jx-CW-0a9"/>
                                     <constraint firstItem="nt1-cO-8OT" firstAttribute="top" secondItem="mqP-WM-mhr" secondAttribute="bottom" constant="2" id="7ec-Qm-pQK"/>
                                     <constraint firstItem="7DH-Ci-Hyp" firstAttribute="top" secondItem="QoG-NT-WY4" secondAttribute="bottom" constant="4" id="7iU-M4-BA8"/>
                                     <constraint firstItem="l5W-XL-ajn" firstAttribute="centerY" secondItem="mqP-WM-mhr" secondAttribute="centerY" id="8Wl-pK-drJ"/>
+                                    <constraint firstItem="oH9-CD-BIP" firstAttribute="centerX" secondItem="7DH-Ci-Hyp" secondAttribute="centerX" id="93G-5n-avV"/>
                                     <constraint firstItem="uHc-Xb-tvs" firstAttribute="centerX" secondItem="7DH-Ci-Hyp" secondAttribute="centerX" id="CX3-3Z-RXg"/>
+                                    <constraint firstItem="oH9-CD-BIP" firstAttribute="centerY" secondItem="7DH-Ci-Hyp" secondAttribute="centerY" id="Fgb-Oh-80t"/>
                                     <constraint firstItem="REF-Hb-DD3" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="GGD-A0-01S"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7DH-Ci-Hyp" secondAttribute="trailing" constant="10" id="Hx6-uJ-evI"/>
                                     <constraint firstAttribute="trailing" secondItem="CiJ-Ll-EF1" secondAttribute="trailing" constant="8" id="KDw-BS-5wI"/>
@@ -405,6 +429,7 @@
                                     <constraint firstItem="2JR-Xm-zWV" firstAttribute="centerY" secondItem="9Kl-ym-3ZQ" secondAttribute="centerY" id="Lw0-YN-NFF">
                                         <variation key="heightClass=compact" constant="20"/>
                                     </constraint>
+                                    <constraint firstItem="7DH-Ci-Hyp" firstAttribute="top" secondItem="oH9-CD-BIP" secondAttribute="bottom" constant="4" id="MmN-qx-ehk"/>
                                     <constraint firstItem="zRf-8q-oTu" firstAttribute="leading" secondItem="9Kl-ym-3ZQ" secondAttribute="leading" constant="8" id="PWG-Ec-Ta9"/>
                                     <constraint firstAttribute="bottom" secondItem="nt1-cO-8OT" secondAttribute="bottom" constant="8" id="S1j-tX-ome"/>
                                     <constraint firstItem="THD-Xp-k6G" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="UcJ-5Z-t8q"/>
@@ -417,6 +442,8 @@
                                     <constraint firstItem="7DH-Ci-Hyp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9Kl-ym-3ZQ" secondAttribute="leading" constant="10" id="gE7-5w-oOh"/>
                                     <constraint firstAttribute="bottom" secondItem="7DH-Ci-Hyp" secondAttribute="bottom" constant="8" id="iFC-oX-dcx"/>
                                     <constraint firstItem="CiJ-Ll-EF1" firstAttribute="top" secondItem="9Kl-ym-3ZQ" secondAttribute="top" constant="8" id="nUu-Sf-laA"/>
+                                    <constraint firstItem="rX8-eJ-GlM" firstAttribute="leading" secondItem="zRf-8q-oTu" secondAttribute="trailing" constant="16" id="nZj-vc-804"/>
+                                    <constraint firstItem="CiJ-Ll-EF1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rX8-eJ-GlM" secondAttribute="trailing" constant="15" id="oAd-uh-Y9G"/>
                                     <constraint firstItem="mqP-WM-mhr" firstAttribute="leading" secondItem="l5W-XL-ajn" secondAttribute="trailing" constant="2" id="rxT-20-vp3">
                                         <variation key="widthClass=regular" constant="4"/>
                                     </constraint>
@@ -424,6 +451,11 @@
                                     <constraint firstItem="7ig-Ws-YbI" firstAttribute="centerY" secondItem="9Kl-ym-3ZQ" secondAttribute="centerY" id="wkc-cI-ODG"/>
                                     <constraint firstAttribute="trailing" secondItem="nt1-cO-8OT" secondAttribute="trailing" constant="8" id="xX9-jE-utt"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Fgb-Oh-80t"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="overlay_clear_grid" translatesAutoresizingMaskIntoConstraints="NO" id="Usb-Qc-mHY">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -446,15 +478,18 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="audioLevelView" destination="rX8-eJ-GlM" id="Knv-F2-d8N"/>
                         <outlet property="batteryButton" destination="kLS-oa-Pa6" id="a6X-w9-g9e"/>
                         <outlet property="batteryView" destination="REF-Hb-DD3" id="gyN-YJ-REZ"/>
                         <outlet property="cameraRotationButton" destination="lZi-UQ-LjO" id="QCl-eF-pNT"/>
                         <outlet property="cameraView" destination="9Kl-ym-3ZQ" id="nWg-AF-LrN"/>
                         <outlet property="chronometrer" destination="aut-g5-zjP" id="DNH-x9-fZr"/>
+                        <outlet property="exposureConfigurationView" destination="oH9-CD-BIP" id="kd9-ir-Caj"/>
                         <outlet property="flashButton" destination="C5P-A2-uPz" id="1SC-dF-B2O"/>
                         <outlet property="focusImageView" destination="THD-Xp-k6G" id="Rj2-Yj-CEJ"/>
                         <outlet property="hideAllButtonsButton" destination="zRf-8q-oTu" id="VGJ-Nx-BDq"/>
                         <outlet property="isoConfigurationView" destination="uHc-Xb-tvs" id="ylO-tt-7CD"/>
+                        <outlet property="micButton" destination="lwy-pV-J8a" id="EwK-vA-2Wg"/>
                         <outlet property="modeContainerView" destination="7DH-Ci-Hyp" id="DI1-uf-SM0"/>
                         <outlet property="overlayClearGrid" destination="Usb-Qc-mHY" id="fwh-Pg-Vgo"/>
                         <outlet property="recordAreaContainerView" destination="E5V-mU-ie5" id="upI-1r-nbI"/>
@@ -471,7 +506,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Itv-c0-Cy8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-770" y="280"/>
+            <point key="canvasLocation" x="-813" y="269"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mvL-fA-W5b">
@@ -504,6 +539,7 @@
         <image name="activity_record_icon_memory" width="16" height="20"/>
         <image name="activity_record_icon_metering_evaluative" width="30" height="30"/>
         <image name="activity_record_icon_microphone_normal" width="18" height="20"/>
+        <image name="activity_record_icon_microphone_pressed" width="20" height="21"/>
         <image name="activity_record_icon_mode" width="30" height="30"/>
         <image name="activity_record_icon_mode_automatic" width="30" height="30"/>
         <image name="activity_record_icon_rec" width="50" height="50"/>
