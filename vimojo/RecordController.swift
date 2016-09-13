@@ -14,6 +14,9 @@ import ISOConfiguration
 import WhiteBalance
 import Exposure
 import AudioLevelBar
+import Focus
+import FocalLensSlider
+import ExpositionModes
 
 class RecordController: ViMoJoController,UINavigationControllerDelegate{
     
@@ -40,6 +43,9 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var exposureConfigurationView: ExposureView!
     @IBOutlet weak var overlayClearGrid: UIImageView!
     @IBOutlet weak var audioLevelView: AudioLevelBarView!
+    @IBOutlet weak var focusView: FocusView!
+    @IBOutlet weak var focalLensSliderView: FocalLensSliderView!
+    @IBOutlet weak var expositionModesView: ExpositionModesView!
     
     //MARK: - UIView
     @IBOutlet weak var zoomSliderContainer: UIView!
@@ -79,10 +85,23 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         batteryView.delegate = self
         spaceOnDiskView.delegate = self
         audioLevelView.delegate = self
-        
+        focusView.delegate = self
+
         roundBorderOfViews()
         rotateSlider()
-        zoomSlider.value = 0.0
+        rotateFocalSlider()
+        
+        zoomSlider.value = 0.0        
+    }
+    
+    func configureTapDisplay(){
+        tapDisplay = UITapGestureRecognizer(target: self, action: #selector(RecordController.displayTapped))
+        self.cameraView.addGestureRecognizer(tapDisplay!)
+    }
+
+    func configurePinchDisplay(){
+        pinchDisplay = UIPinchGestureRecognizer(target: self, action: #selector(RecordController.displayPinched))
+        self.cameraView.addGestureRecognizer(pinchDisplay!)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -115,13 +134,22 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         self.navigationController?.navigationBarHidden = true
         self.forceLandsCapeOnInit()
         
-        pinchDisplay = UIPinchGestureRecognizer(target: self, action: #selector(RecordController.displayPinched))
-        self.cameraView.addGestureRecognizer(pinchDisplay!)
+        configureTapDisplay()
+        configurePinchDisplay()
     }
     
     func displayPinched(){
         eventHandler!.displayHasPinched(pinchDisplay!)
     }
+    
+    func displayTapped(){
+        focusView.tapViewPointAndViewFrame((tapDisplay?.locationInView(cameraView))!,
+                                           frame: cameraView.frame)
+        
+        expositionModesView.tapViewPointAndViewFrame((tapDisplay?.locationInView(cameraView))!,
+                                                     frame: cameraView.frame)
+    }
+    
     override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
         return UIInterfaceOrientation.LandscapeLeft
     }
@@ -139,8 +167,8 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         eventHandler?.pushRotateCamera()
     }
     
-    @IBAction func pushGoToSettings(sender: AnyObject) {
-        
+    @IBAction func pushVideoSettingsConfig(sender: AnyObject) {
+        eventHandler?.pushVideoSettingsConfig()
     }
     
     @IBAction func pushHideButtons(sender: AnyObject) {
@@ -172,13 +200,13 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     }
     
     
-    @IBAction func pushAutomatic(sender: AnyObject) {
-        
+    @IBAction func pushExposureModes(sender: AnyObject) {
+        eventHandler?.pushExposureModes()
     }
     
     
     @IBAction func pushFocus(sender: AnyObject) {
-        
+        eventHandler?.pushFocus()
     }
     
     
@@ -218,6 +246,11 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     func rotateSlider(){
         let trans = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
         zoomSlider.transform = trans
+    }
+    
+    func rotateFocalSlider(){
+        let trans = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
+        focalLensSliderView.transform = trans
     }
     
     //MARK: - Landscape Orientation
@@ -279,6 +312,7 @@ extension UIButton {
     }
 }
 
+//MARK: - Animations
 //Animation for transitions fadeIn and fadeOut
 extension RecordController{
     func fadeInView(views:[UIView]){
@@ -380,7 +414,7 @@ extension RecordController:RecordPresenterDelegate {
     }
     
     func showPrincipalViews() {
-        fadeInView([modeContainerView,upperContainerView,recordAreaContainerView])
+        fadeInView([upperContainerView,recordAreaContainerView])
     }
     
     func hideSecondaryRecordViews() {
@@ -389,6 +423,14 @@ extension RecordController:RecordPresenterDelegate {
     
     func showSecondaryRecordViews() {
         fadeInView([secondaryRecordButton,secondaryChronometerLabel,secondaryRecordingIndicator,overlayClearGrid])
+    }
+    
+    func showVideoSettingsConfig() {
+        fadeInView([modeContainerView])
+    }
+    
+    func hideVideoSettingsConfig() {
+        fadeOutView([modeContainerView])
     }
     
     func hideZoomView() {
@@ -475,6 +517,23 @@ extension RecordController:RecordPresenterDelegate {
         micButton.selected = state
     }
     
+    func showFocusView() {
+        fadeInView([focusView])
+        focusView.checkIfFocalLensIsEnabled()
+    }
+    
+    func hideFocusView() {
+        fadeOutView([focusView])
+        fadeOutView([focalLensSliderView])
+    }
+    
+    func showExposureModesView() {
+        fadeInView([expositionModesView])
+    }
+    
+    func hideExposureModesView() {
+        fadeOutView([expositionModesView])
+    }
 }
 
 //MARK: - BatteryRemaining delegate
@@ -498,5 +557,17 @@ extension RecordController:SpaceOnDiskDelegate {
 extension RecordController:AudioLevelBarDelegate {
     func audioLevelChange(value: Float) {
         eventHandler?.audioLevelHasChanged(value)
+    }
+}
+
+
+//MARK: - Focus delegate
+extension RecordController: FocusDelegate{
+    func showFocusLens() {
+        fadeInView([focalLensSliderView])
+    }
+    
+    func hideFocusLens() {
+        fadeOutView([focalLensSliderView])
     }
 }

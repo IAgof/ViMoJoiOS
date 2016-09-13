@@ -17,11 +17,16 @@ protocol RecordPresenterInterface{
     func pushRecord()
     func pushFlash()
     func pushRotateCamera()
+    func pushVideoSettingsConfig()
+    
     func pushHideAllButtons()
+    
     func pushZoom()
     func pushBattery()
     func pushSpaceOnDisk()
     func pushMic()
+    func pushFocus()
+    func pushExposureModes()
     
     func pushConfigMode(modePushed:VideoModeConfigurations)
     
@@ -63,6 +68,9 @@ protocol RecordPresenterDelegate {
     func hideSecondaryRecordViews()
     func showSecondaryRecordViews()
     
+    func showVideoSettingsConfig()
+    func hideVideoSettingsConfig()
+    
     func hideZoomView()
     func showZoomView()
     
@@ -89,4 +97,10 @@ protocol RecordPresenterDelegate {
     func showMicLevelView()
     func hideMicLevelView()
     func setSelectedMicButton(state:Bool)
+    
+    func showFocusView()
+    func hideFocusView()
+    
+    func showExposureModesView()
+    func hideExposureModesView()
 }

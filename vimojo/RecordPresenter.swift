@@ -26,7 +26,8 @@ class RecordPresenter: NSObject
     
     //MARK: - Constants
     var isRecording = false
-    var buttonsAreHidden = false
+    var secondaryViewIsShowing = false
+    var videoSettingsConfigViewIsShowing = true
     
     //MARK: - Showing controllers
     var zoomIsShowed = false
@@ -36,6 +37,8 @@ class RecordPresenter: NSObject
     var wbConfigIsShowed = false
     var exposureConfigIsShowed = false
     var micViewIsShowed = false
+    var focusViewIsShowed = false
+    var exposureModesViewIsShowed = false
     var micIsEnabled = false
     
     //MARK: - Event handler
@@ -89,13 +92,29 @@ class RecordPresenter: NSObject
         cameraInteractor!.rotateCamera()
     }
     
+    func pushVideoSettingsConfig() {
+        if videoSettingsConfigViewIsShowing {
+            videoSettingsConfigViewIsShowing = false
+            
+            delegate?.hideVideoSettingsConfig()
+        }else{
+            videoSettingsConfigViewIsShowing = true
+            
+            delegate?.showVideoSettingsConfig()
+        }
+    }
+    
     func pushHideAllButtons() {
-        if buttonsAreHidden{
+        if secondaryViewIsShowing{
             delegate?.showPrincipalViews()
+            
+            if videoSettingsConfigViewIsShowing {
+                delegate?.showVideoSettingsConfig()
+            }
             delegate?.hideSecondaryRecordViews()
             
             delegate?.showAllButtonsButtonImage()
-            buttonsAreHidden = false
+            secondaryViewIsShowing = false
         }else{
             delegate?.showSecondaryRecordViews()
             delegate?.hidePrincipalViews()
@@ -104,7 +123,7 @@ class RecordPresenter: NSObject
             hideAllModeConfigsIfNeccesary()
             
             delegate?.showHideAllButtonsButtonImage()
-            buttonsAreHidden = true
+            secondaryViewIsShowing = true
         }
     }
     
@@ -212,6 +231,30 @@ class RecordPresenter: NSObject
             delegate?.showExposureConfigView()
             
             exposureConfigIsShowed = true
+        }
+    }
+    
+    func pushFocus() {
+        if focusViewIsShowed{
+            hideFocusIfYouCan()
+        }else{
+            hideAllModeConfigsIfNeccesary()
+            
+            delegate?.showFocusView()
+            
+            focusViewIsShowed = true
+        }
+    }
+    
+    func pushExposureModes() {
+        if exposureModesViewIsShowed{
+            hideExposureModesIfYouCan()
+        }else{
+            hideAllModeConfigsIfNeccesary()
+            
+            delegate?.showExposureModesView()
+            
+            exposureModesViewIsShowed = true
         }
     }
     
@@ -416,10 +459,30 @@ class RecordPresenter: NSObject
         exposureConfigIsShowed = false
     }
     
+    func hideFocusIfYouCan(){
+        if !focusViewIsShowed {
+            return
+        }
+        delegate?.hideFocusView()
+        
+        focusViewIsShowed = false
+    }
+    
+    func hideExposureModesIfYouCan(){
+        if !exposureModesViewIsShowed {
+            return
+        }
+        delegate?.hideExposureModesView()
+        
+        exposureModesViewIsShowed = false
+    }
+    
     func hideAllModeConfigsIfNeccesary(){
         hideWBConfigIfYouCan()
         hideISOConfigIfYouCan()
         hideExposureConfigIfYouCan()
+        hideFocusIfYouCan()
+        hideExposureModesIfYouCan()
         
         hideMicViewIfYouCan()
     }
