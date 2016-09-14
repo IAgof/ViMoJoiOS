@@ -355,59 +355,22 @@
                                             <action selector="pushHideButtons:" destination="31E-sq-qOD" eventType="touchUpInside" id="ISg-Pn-iGF"/>
                                         </connections>
                                     </button>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2JR-Xm-zWV">
-                                        <rect key="frame" x="2" y="175" width="40" height="250"/>
-                                        <subviews>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="4.5" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="kVi-cV-0y9">
-                                                <rect key="frame" x="-108" y="110" width="255" height="31"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="DTJ-1t-Vt5"/>
-                                                    <constraint firstAttribute="width" constant="250" id="lFi-v2-ai2">
-                                                        <variation key="heightClass=compact" constant="200"/>
-                                                        <variation key="widthClass=regular" constant="300"/>
-                                                    </constraint>
-                                                </constraints>
-                                                <connections>
-                                                    <action selector="zoomSliderValueChanged:" destination="31E-sq-qOD" eventType="valueChanged" id="3qD-Q9-SDR"/>
-                                                </connections>
-                                            </slider>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Btj-fe-7Jh">
-                                                <rect key="frame" x="2" y="2" width="36" height="16"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbY-TC-26F">
-                                                <rect key="frame" x="2" y="232" width="36" height="16"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="Btj-fe-7Jh" firstAttribute="top" secondItem="2JR-Xm-zWV" secondAttribute="top" constant="2" id="3YY-4V-w1P"/>
-                                            <constraint firstItem="kVi-cV-0y9" firstAttribute="centerY" secondItem="2JR-Xm-zWV" secondAttribute="centerY" id="DCG-yW-6S0"/>
-                                            <constraint firstAttribute="height" constant="250" id="TaX-Y9-oKQ">
-                                                <variation key="widthClass=regular" constant="350"/>
-                                            </constraint>
-                                            <constraint firstItem="Btj-fe-7Jh" firstAttribute="leading" secondItem="2JR-Xm-zWV" secondAttribute="leading" constant="2" id="aYd-km-I7F"/>
-                                            <constraint firstItem="VbY-TC-26F" firstAttribute="leading" secondItem="2JR-Xm-zWV" secondAttribute="leading" constant="2" id="ekv-g2-v3E"/>
-                                            <constraint firstAttribute="trailing" secondItem="Btj-fe-7Jh" secondAttribute="trailing" constant="2" id="n2X-Iy-fi5"/>
-                                            <constraint firstItem="kVi-cV-0y9" firstAttribute="centerX" secondItem="2JR-Xm-zWV" secondAttribute="centerX" id="qQJ-F4-HEA"/>
-                                            <constraint firstAttribute="trailing" secondItem="VbY-TC-26F" secondAttribute="trailing" constant="2" id="seL-BR-qqG"/>
-                                            <constraint firstAttribute="width" constant="40" id="tW7-8c-UGC"/>
-                                            <constraint firstAttribute="bottom" secondItem="VbY-TC-26F" secondAttribute="bottom" constant="2" id="xam-jm-Dt1"/>
-                                        </constraints>
-                                    </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EJu-rT-6M4" customClass="FocalLensSliderView" customModule="FocalLensSlider">
                                         <rect key="frame" x="-103" y="280" width="250" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="S6j-5z-GI9"/>
                                             <constraint firstAttribute="width" constant="250" id="yyy-z3-8ng">
+                                                <variation key="widthClass=regular" constant="350"/>
+                                            </constraint>
+                                        </constraints>
+                                    </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGv-vB-9p1" customClass="ZoomSliderView" customModule="ZoomCameraSlider">
+                                        <rect key="frame" x="-103" y="280" width="250" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="OK3-Ex-D4r"/>
+                                            <constraint firstAttribute="width" constant="250" id="Vb9-nY-VjD">
                                                 <variation key="widthClass=regular" constant="350"/>
                                             </constraint>
                                         </constraints>
@@ -457,6 +420,9 @@
                                 <constraints>
                                     <constraint firstItem="7DH-Ci-Hyp" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="1Bx-DJ-dsM"/>
                                     <constraint firstItem="zRf-8q-oTu" firstAttribute="top" secondItem="9Kl-ym-3ZQ" secondAttribute="top" constant="8" id="1l4-ff-wyJ"/>
+                                    <constraint firstItem="gGv-vB-9p1" firstAttribute="centerY" secondItem="9Kl-ym-3ZQ" secondAttribute="centerY" id="23S-rj-aL7">
+                                        <variation key="heightClass=compact" constant="10"/>
+                                    </constraint>
                                     <constraint firstItem="rX8-eJ-GlM" firstAttribute="centerY" secondItem="CiJ-Ll-EF1" secondAttribute="centerY" id="3jx-CW-0a9"/>
                                     <constraint firstItem="nt1-cO-8OT" firstAttribute="top" secondItem="mqP-WM-mhr" secondAttribute="bottom" constant="2" id="7ec-Qm-pQK"/>
                                     <constraint firstItem="7DH-Ci-Hyp" firstAttribute="top" secondItem="QoG-NT-WY4" secondAttribute="bottom" constant="4" id="7iU-M4-BA8"/>
@@ -474,15 +440,11 @@
                                     <constraint firstItem="7DH-Ci-Hyp" firstAttribute="top" secondItem="Zn6-dz-Qlw" secondAttribute="bottom" constant="4" id="Kbr-Qs-WpK"/>
                                     <constraint firstItem="E5V-mU-ie5" firstAttribute="centerY" secondItem="9Kl-ym-3ZQ" secondAttribute="centerY" constant="42" id="KoK-br-fOC"/>
                                     <constraint firstItem="mqP-WM-mhr" firstAttribute="centerX" secondItem="nt1-cO-8OT" secondAttribute="centerX" id="LRu-i1-PZb"/>
-                                    <constraint firstItem="2JR-Xm-zWV" firstAttribute="centerY" secondItem="9Kl-ym-3ZQ" secondAttribute="centerY" id="Lw0-YN-NFF">
-                                        <variation key="heightClass=compact" constant="20"/>
-                                    </constraint>
                                     <constraint firstItem="7DH-Ci-Hyp" firstAttribute="top" secondItem="oH9-CD-BIP" secondAttribute="bottom" constant="4" id="MmN-qx-ehk"/>
                                     <constraint firstItem="p8l-9H-y4q" firstAttribute="top" secondItem="2Jd-7d-AYh" secondAttribute="bottom" constant="8" id="PF5-XE-maO"/>
                                     <constraint firstItem="zRf-8q-oTu" firstAttribute="leading" secondItem="9Kl-ym-3ZQ" secondAttribute="leading" constant="8" id="PWG-Ec-Ta9"/>
                                     <constraint firstAttribute="bottom" secondItem="nt1-cO-8OT" secondAttribute="bottom" constant="8" id="S1j-tX-ome"/>
                                     <constraint firstItem="THD-Xp-k6G" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="UcJ-5Z-t8q"/>
-                                    <constraint firstItem="2JR-Xm-zWV" firstAttribute="centerX" secondItem="zRf-8q-oTu" secondAttribute="centerX" id="VlY-d9-hg4"/>
                                     <constraint firstItem="QoG-NT-WY4" firstAttribute="centerX" secondItem="7DH-Ci-Hyp" secondAttribute="centerX" id="Xb6-PN-cOm"/>
                                     <constraint firstItem="7ig-Ws-YbI" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="YS0-Y7-l7Z"/>
                                     <constraint firstItem="REF-Hb-DD3" firstAttribute="centerY" secondItem="9Kl-ym-3ZQ" secondAttribute="centerY" id="ZT3-qF-IdD"/>
@@ -497,6 +459,7 @@
                                         <variation key="widthClass=regular" constant="4"/>
                                     </constraint>
                                     <constraint firstItem="Zn6-dz-Qlw" firstAttribute="centerX" secondItem="KEC-ZY-02I" secondAttribute="centerX" id="tm3-69-JhM"/>
+                                    <constraint firstItem="gGv-vB-9p1" firstAttribute="centerX" secondItem="zRf-8q-oTu" secondAttribute="centerX" id="u3m-N5-NQC"/>
                                     <constraint firstItem="THD-Xp-k6G" firstAttribute="centerY" secondItem="9Kl-ym-3ZQ" secondAttribute="centerY" id="vcb-u9-6wA"/>
                                     <constraint firstItem="EJu-rT-6M4" firstAttribute="leading" secondItem="9Kl-ym-3ZQ" secondAttribute="leading" constant="4" id="w36-Pu-rJH"/>
                                     <constraint firstItem="Zn6-dz-Qlw" firstAttribute="centerX" secondItem="7DH-Ci-Hyp" secondAttribute="centerX" id="w6E-Oo-QFd"/>
@@ -510,12 +473,12 @@
                                         <exclude reference="2Jd-7d-AYh"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <exclude reference="B7l-ZD-cib"/>
+                                        <exclude reference="z7h-dG-YH5"/>
                                         <exclude reference="w36-Pu-rJH"/>
                                         <exclude reference="Fgb-Oh-80t"/>
                                         <exclude reference="w6E-Oo-QFd"/>
                                         <exclude reference="PF5-XE-maO"/>
-                                        <exclude reference="B7l-ZD-cib"/>
-                                        <exclude reference="z7h-dG-YH5"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact">
@@ -523,9 +486,9 @@
                                         <include reference="2Jd-7d-AYh"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="PF5-XE-maO"/>
                                         <exclude reference="B7l-ZD-cib"/>
                                         <include reference="z7h-dG-YH5"/>
+                                        <include reference="PF5-XE-maO"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -579,8 +542,7 @@
                         <outlet property="wbConfigurationView" destination="QoG-NT-WY4" id="8bv-h9-kEl"/>
                         <outlet property="whiteBalanceButton" destination="wb8-BD-zdl" id="Q3Q-t8-RGU"/>
                         <outlet property="zoomButton" destination="X3L-6v-7eH" id="nh6-bu-Dw3"/>
-                        <outlet property="zoomContainerView" destination="2JR-Xm-zWV" id="fpl-CA-rcv"/>
-                        <outlet property="zoomSlider" destination="kVi-cV-0y9" id="jV1-xc-tTd"/>
+                        <outlet property="zoomView" destination="gGv-vB-9p1" id="JYN-mp-awz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Itv-c0-Cy8" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -16,9 +16,9 @@ pod 'AudioLevelBar', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/Audio
 pod 'Focus', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/Focus'
 pod 'FocalLensSlider', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/FocalLensSlider'
 pod 'ExpositionModes', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/ExpositionModes'
+pod 'ZoomCameraSlider', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/ZoomCameraSlider'
 end
 
 target 'vimojoTests' do
 
 end
-

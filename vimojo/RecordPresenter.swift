@@ -274,10 +274,6 @@ class RecordPresenter: NSObject
         
         interactor?.clearProject()
     }
-        
-    func displayHasPinched(pinchGesture: UIPinchGestureRecognizer) {
-        cameraInteractor?.zoom(pinchGesture)
-    }
     
     func checkFlashAvaliable(){
         let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
@@ -285,10 +281,6 @@ class RecordPresenter: NSObject
             delegate?.showFlashSupported(false)
         }
         
-    }
-    
-    func zoomValueChanged(value: Float) {
-        cameraInteractor?.zoom(value)
     }
 
     enum batteryImages:String {
@@ -623,10 +615,6 @@ class RecordPresenter: NSObject
     
     func showFocus(center: CGPoint) {
         delegate?.showFocusAtPoint(center)
-    }
-    
-    func zoomPinchedValueUpdate(value: CGFloat) {
-        delegate?.setSliderValue(Float(value))
     }
     
     //MARK: - Timer delegate

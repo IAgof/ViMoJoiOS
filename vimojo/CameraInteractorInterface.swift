@@ -18,8 +18,6 @@ protocol CameraInteractorInterface {
     func setIsRecording(isRecording:Bool)
     func startRecordVideo(completion:(String)->Void)
     func rotateCamera()
-    func zoom(pinch: UIPinchGestureRecognizer)
-    func zoom(value:Float)
     
     func changeBlendImage(image:UIImage)
     func changeFilter(newFilter:GPUImageFilter)
@@ -38,7 +36,6 @@ protocol CameraInteractorDelegate {
     func cameraFront()
     func cameraRear()
     func showFocus(center:CGPoint)
-    func zoomPinchedValueUpdate(value:CGFloat)
 }
 
 

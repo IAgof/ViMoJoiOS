@@ -17,6 +17,7 @@ import AudioLevelBar
 import Focus
 import FocalLensSlider
 import ExpositionModes
+import ZoomCameraSlider
 
 class RecordController: ViMoJoController,UINavigationControllerDelegate{
     
@@ -44,7 +45,6 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
 
     //MARK: - Custom
     @IBOutlet weak var cameraView: GPUImageView!
-    @IBOutlet weak var zoomSlider: UISlider!
     @IBOutlet weak var batteryView: BatteryRemainingView!
     @IBOutlet weak var spaceOnDiskView: SpaceOnDiskView!
     @IBOutlet weak var isoConfigurationView: ISOConfigurationView!
@@ -55,13 +55,12 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var focusView: FocusView!
     @IBOutlet weak var focalLensSliderView: FocalLensSliderView!
     @IBOutlet weak var expositionModesView: ExpositionModesView!
+    @IBOutlet weak var zoomView: ZoomSliderView!
     
     //MARK: - UIView
-    @IBOutlet weak var zoomSliderContainer: UIView!
     @IBOutlet weak var upperContainerView: UIView!
     @IBOutlet weak var modeContainerView: UIView!
     @IBOutlet weak var recordAreaContainerView: UIView!
-    @IBOutlet weak var zoomContainerView: UIView!
     
     //MARK: - UILabel
     @IBOutlet weak var secondaryChronometerLabel: UILabel!
@@ -100,7 +99,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         rotateSlider()
         rotateFocalSlider()
         
-        zoomSlider.value = 0.0        
+        zoomView.setZoomSliderValue(0.0)
     }
     
     func configureTapDisplay(){
@@ -135,10 +134,6 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
     }
     
-    @IBAction func zoomSliderValueChanged(sender: AnyObject) {
-        eventHandler?.zoomValueChanged(zoomSlider.value)
-    }
-    
     func configureView() {
         self.navigationController?.navigationBarHidden = true
         self.forceLandsCapeOnInit()
@@ -148,7 +143,11 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     }
     
     func displayPinched(){
-        eventHandler!.displayHasPinched(pinchDisplay!)
+        guard let scale = pinchDisplay?.scale else{return}
+        guard let velocity = pinchDisplay?.velocity else{return}
+        
+        zoomView.setZoomWithPinchValues(scale,
+                                        velocity:velocity)
     }
     
     func displayTapped(){
@@ -247,14 +246,14 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     func roundBorderOfViews() {
         upperContainerView.layer.cornerRadius = 4
         modeContainerView.layer.cornerRadius = 4
-        zoomContainerView.layer.cornerRadius = 4
+        zoomView.layer.cornerRadius = 4
         batteryView.layer.cornerRadius = 4
         spaceOnDiskView.layer.cornerRadius = 4
     }
     
     func rotateSlider(){
         let trans = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
-        zoomSlider.transform = trans
+        zoomView.transform = trans
     }
     
     func rotateFocalSlider(){
@@ -447,17 +446,13 @@ extension RecordController:RecordPresenterDelegate {
     }
     
     func hideZoomView() {
-        fadeOutView([zoomContainerView])
+        fadeOutView([zoomView])
         zoomButton.selected = false
     }
     
     func showZoomView() {
-        fadeInView([zoomContainerView])
+        fadeInView([zoomView])
         zoomButton.selected = true
-    }
-    
-    func setSliderValue(value: Float) {
-        zoomSlider.value = value
     }
     
     func setBatteryIcon(image: UIImage) {

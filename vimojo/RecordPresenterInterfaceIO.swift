@@ -34,10 +34,8 @@ protocol RecordPresenterInterface{
     func pushCloseSpaceOnDiskButton()
     
     func resetRecorder()
-    func displayHasPinched(pinchGesture:UIPinchGestureRecognizer)
     func checkFlashAvaliable()
     
-    func zoomValueChanged(value:Float)
     func batteryValuesUpdate(value:Float)
     func audioLevelHasChanged(value:Float)
 }
@@ -75,7 +73,6 @@ protocol RecordPresenterDelegate {
     func hideZoomView()
     func showZoomView()
     
-    func setSliderValue(value:Float)
     func setBatteryIcon(image:UIImage)
     func setAudioColor(color:UIColor)
     
