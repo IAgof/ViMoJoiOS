@@ -35,7 +35,6 @@ class RecordPresenter: NSObject
     var spaceOnDiskIsShowed = false
     var isoConfigIsShowed = false
     var wbConfigIsShowed = false
-    var exposureConfigIsShowed = false
     var micViewIsShowed = false
     var focusViewIsShowed = false
     var exposureModesViewIsShowed = false
@@ -176,9 +175,11 @@ class RecordPresenter: NSObject
             pushZoom()
             break
         case .exposure:
-            pushExposureConfig()
+            pushExposureModes()
+            
             break
         case .focus:
+            pushFocus()
             
             break
         case .whiteBalance:
@@ -224,18 +225,6 @@ class RecordPresenter: NSObject
             delegate?.showWBConfigView()
             
             wbConfigIsShowed = true
-        }
-    }
-    
-    func pushExposureConfig() {
-        if exposureConfigIsShowed{
-            hideExposureConfigIfYouCan()
-        }else{
-            hideAllModeConfigsIfNeccesary()
-            
-            delegate?.showExposureConfigView()
-            
-            exposureConfigIsShowed = true
         }
     }
     
@@ -442,16 +431,7 @@ class RecordPresenter: NSObject
         
         wbConfigIsShowed = false
     }
-    
-    func hideExposureConfigIfYouCan(){
-        if !exposureConfigIsShowed {
-            return
-        }
-        delegate?.hideExposureConfigView()
         
-        exposureConfigIsShowed = false
-    }
-    
     func hideFocusIfYouCan(){
         if !focusViewIsShowed {
             return
@@ -473,7 +453,6 @@ class RecordPresenter: NSObject
     func hideAllModeConfigsIfNeccesary(){
         hideWBConfigIfYouCan()
         hideISOConfigIfYouCan()
-        hideExposureConfigIfYouCan()
         hideFocusIfYouCan()
         hideExposureModesIfYouCan()
         hideZoomViewIfYouCan()

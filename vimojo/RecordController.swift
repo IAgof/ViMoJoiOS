@@ -94,10 +94,12 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         spaceOnDiskView.delegate = self
         audioLevelView.delegate = self
         focusView.delegate = self
-
+        expositionModesView.delegate = self
+        
         roundBorderOfViews()
-        rotateSlider()
+        rotateZoomSlider()
         rotateFocalSlider()
+        rotateExposureSlider()
         
         zoomView.setZoomSliderValue(0.0)
     }
@@ -191,12 +193,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBAction func pushISO(sender: AnyObject) {
         eventHandler?.pushConfigMode(VideoModeConfigurations.iso)
     }
-    
-    
-    @IBAction func pushExposure(sender: AnyObject) {
-        eventHandler?.pushConfigMode(VideoModeConfigurations.exposure)
-    }
-    
+        
     
     @IBAction func pushMode(sender: AnyObject) {
         
@@ -209,12 +206,12 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     
     
     @IBAction func pushExposureModes(sender: AnyObject) {
-        eventHandler?.pushExposureModes()
+        eventHandler?.pushConfigMode(VideoModeConfigurations.exposure)
     }
     
     
     @IBAction func pushFocus(sender: AnyObject) {
-        eventHandler?.pushFocus()
+        eventHandler?.pushConfigMode(VideoModeConfigurations.focus)
     }
     
     
@@ -251,7 +248,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         spaceOnDiskView.layer.cornerRadius = 4
     }
     
-    func rotateSlider(){
+    func rotateZoomSlider(){
         let trans = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
         zoomView.transform = trans
     }
@@ -259,6 +256,11 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     func rotateFocalSlider(){
         let trans = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
         focalLensSliderView.transform = trans
+    }
+    
+    func rotateExposureSlider(){
+        let trans = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
+        exposureConfigurationView.transform = trans
     }
     
     //MARK: - Landscape Orientation
@@ -507,16 +509,6 @@ extension RecordController:RecordPresenterDelegate {
         whiteBalanceButton.selected = false
     }
     
-    func showExposureConfigView() {
-        fadeInView([exposureConfigurationView])
-        exposureButton.selected = true
-    }
-    
-    func hideExposureConfigView() {
-        fadeOutView([exposureConfigurationView])
-        exposureButton.selected = false
-    }
-    
     func getMicValues() {
         audioLevelView.getAudioLevel()
     }
@@ -548,13 +540,15 @@ extension RecordController:RecordPresenterDelegate {
     
     func showExposureModesView() {
         fadeInView([expositionModesView])
+        expositionModesView.checkIfExposureManualSliderIsEnabled()
         
         exposureModesButton.selected = true
     }
     
     func hideExposureModesView() {
         fadeOutView([expositionModesView])
-        
+        fadeOutView([exposureConfigurationView])
+
         exposureModesButton.selected = false
     }
 }
@@ -583,6 +577,16 @@ extension RecordController:AudioLevelBarDelegate {
     }
 }
 
+//MARK: - Focus delegate
+extension RecordController:ExpositionModesDelegate {
+    func showExpositionSlider() {
+        fadeInView([exposureConfigurationView])
+    }
+    
+    func hideExpositionSlider() {
+        fadeOutView([exposureConfigurationView])
+    }
+}
 
 //MARK: - Focus delegate
 extension RecordController: FocusDelegate{

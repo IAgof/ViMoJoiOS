@@ -88,9 +88,6 @@ protocol RecordPresenterDelegate {
     func showWBConfigView()
     func hideWBConfigView()
     
-    func showExposureConfigView()
-    func hideExposureConfigView()
-    
     func getMicValues()
     func showMicLevelView()
     func hideMicLevelView()
