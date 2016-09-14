@@ -131,6 +131,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3L-6v-7eH">
                                                         <rect key="frame" x="0.0" y="0.0" width="29" height="30"/>
                                                         <state key="normal" image="activity_record_icon_zoom"/>
+                                                        <state key="selected" image="activity_record_icon_zoom_pressed"/>
+                                                        <state key="highlighted" image="activity_record_icon_zoom_pressed"/>
                                                         <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
                                                             <rect key="frame" x="0.0" y="0.0" width="19" height="30"/>
                                                         </variation>
@@ -141,6 +143,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JwN-me-qb7">
                                                         <rect key="frame" x="59" y="0.0" width="30" height="30"/>
                                                         <state key="normal" image="activity_record_icon_iso"/>
+                                                        <state key="selected" image="activity_record_icon_iso_pressed"/>
+                                                        <state key="highlighted" image="activity_record_icon_iso_pressed"/>
                                                         <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
                                                             <rect key="frame" x="49" y="0.0" width="30" height="30"/>
                                                         </variation>
@@ -151,6 +155,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7j1-ue-IIf">
                                                         <rect key="frame" x="119" y="0.0" width="30" height="30"/>
                                                         <state key="normal" image="activity_record_icon_exposure"/>
+                                                        <state key="selected" image="activity_record_icon_exposure_pressed"/>
+                                                        <state key="highlighted" image="activity_record_icon_exposure_pressed"/>
                                                         <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
                                                             <rect key="frame" x="109" y="0.0" width="30" height="30"/>
                                                         </variation>
@@ -161,6 +167,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEC-ZY-02I">
                                                         <rect key="frame" x="179" y="0.0" width="30" height="30"/>
                                                         <state key="normal" image="activity_record_icon_mode"/>
+                                                        <state key="selected" image="activity_record_icon_mode_pressed"/>
+                                                        <state key="highlighted" image="activity_record_icon_mode_pressed"/>
                                                         <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
                                                             <rect key="frame" x="169" y="0.0" width="30" height="30"/>
                                                         </variation>
@@ -171,6 +179,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wb8-BD-zdl">
                                                         <rect key="frame" x="239" y="0.0" width="30" height="30"/>
                                                         <state key="normal" image="activity_record_white_balance"/>
+                                                        <state key="selected" image="activity_record_white_balance_pressed"/>
+                                                        <state key="highlighted" image="activity_record_white_balance_pressed"/>
                                                         <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
                                                             <rect key="frame" x="229" y="0.0" width="30" height="30"/>
                                                         </variation>
@@ -283,6 +293,7 @@
                                                 <rect key="frame" x="70" y="125" width="37" height="33"/>
                                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                                 <state key="normal" image="activity_record_gallery_normal"/>
+                                                <state key="selected" image="activity_record_gallery_normal_pressed"/>
                                                 <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                                     <rect key="frame" x="358" y="379" width="29" height="26"/>
                                                 </variation>
@@ -293,10 +304,11 @@
                                                     <rect key="frame" x="358" y="379" width="29" height="26"/>
                                                 </variation>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWd-SG-2Si">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWd-SG-2Si">
                                                 <rect key="frame" x="21" y="105" width="28" height="28"/>
                                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                                 <state key="normal" image="activity_record_icon_controls_normal"/>
+                                                <state key="selected" image="activity_record_icon_controls_pressed"/>
                                                 <state key="highlighted" image="activity_record_icon_controls_pressed"/>
                                                 <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
                                                     <rect key="frame" x="317" y="210" width="34" height="35"/>
@@ -424,7 +436,7 @@
                                             <constraint firstAttribute="width" constant="309" id="q9k-db-FcF"/>
                                         </constraints>
                                     </view>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zn6-dz-Qlw" customClass="FocusView" customModule="Focus">
+                                    <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zn6-dz-Qlw" customClass="FocusView" customModule="Focus">
                                         <rect key="frame" x="280" y="520" width="100" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -501,9 +513,9 @@
                                         <exclude reference="w36-Pu-rJH"/>
                                         <exclude reference="Fgb-Oh-80t"/>
                                         <exclude reference="w6E-Oo-QFd"/>
+                                        <exclude reference="PF5-XE-maO"/>
                                         <exclude reference="B7l-ZD-cib"/>
                                         <exclude reference="z7h-dG-YH5"/>
-                                        <exclude reference="PF5-XE-maO"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact">
@@ -511,9 +523,9 @@
                                         <include reference="2Jd-7d-AYh"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <include reference="PF5-XE-maO"/>
                                         <exclude reference="B7l-ZD-cib"/>
                                         <include reference="z7h-dG-YH5"/>
-                                        <include reference="PF5-XE-maO"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -541,13 +553,18 @@
                         <outlet property="cameraRotationButton" destination="lZi-UQ-LjO" id="QCl-eF-pNT"/>
                         <outlet property="cameraView" destination="9Kl-ym-3ZQ" id="nWg-AF-LrN"/>
                         <outlet property="chronometrer" destination="aut-g5-zjP" id="DNH-x9-fZr"/>
+                        <outlet property="configModesButton" destination="KWd-SG-2Si" id="GPd-0h-kuO"/>
                         <outlet property="expositionModesView" destination="2Jd-7d-AYh" id="LLJ-YU-pO9"/>
+                        <outlet property="exposureButton" destination="7j1-ue-IIf" id="JCM-7Y-Rnj"/>
                         <outlet property="exposureConfigurationView" destination="oH9-CD-BIP" id="kd9-ir-Caj"/>
+                        <outlet property="exposureModesButton" destination="p8l-9H-y4q" id="zr3-La-54y"/>
                         <outlet property="flashButton" destination="C5P-A2-uPz" id="1SC-dF-B2O"/>
                         <outlet property="focalLensSliderView" destination="EJu-rT-6M4" id="H7b-6M-qkU"/>
+                        <outlet property="focusButton" destination="KEC-ZY-02I" id="9bc-3R-xvj"/>
                         <outlet property="focusImageView" destination="THD-Xp-k6G" id="Rj2-Yj-CEJ"/>
                         <outlet property="focusView" destination="Zn6-dz-Qlw" id="h4H-LM-JAs"/>
                         <outlet property="hideAllButtonsButton" destination="zRf-8q-oTu" id="VGJ-Nx-BDq"/>
+                        <outlet property="isoButton" destination="JwN-me-qb7" id="G84-7L-PfD"/>
                         <outlet property="isoConfigurationView" destination="uHc-Xb-tvs" id="ylO-tt-7CD"/>
                         <outlet property="micButton" destination="lwy-pV-J8a" id="EwK-vA-2Wg"/>
                         <outlet property="modeContainerView" destination="7DH-Ci-Hyp" id="DI1-uf-SM0"/>
@@ -560,6 +577,8 @@
                         <outlet property="spaceOnDiskView" destination="7ig-Ws-YbI" id="WTY-mS-gj1"/>
                         <outlet property="upperContainerView" destination="CiJ-Ll-EF1" id="lOk-CH-s14"/>
                         <outlet property="wbConfigurationView" destination="QoG-NT-WY4" id="8bv-h9-kEl"/>
+                        <outlet property="whiteBalanceButton" destination="wb8-BD-zdl" id="Q3Q-t8-RGU"/>
+                        <outlet property="zoomButton" destination="X3L-6v-7eH" id="nh6-bu-Dw3"/>
                         <outlet property="zoomContainerView" destination="2JR-Xm-zWV" id="fpl-CA-rcv"/>
                         <outlet property="zoomSlider" destination="kVi-cV-0y9" id="jV1-xc-tTd"/>
                     </connections>
@@ -584,6 +603,7 @@
     </scenes>
     <resources>
         <image name="activity_record_gallery_normal" width="37" height="33"/>
+        <image name="activity_record_gallery_normal_pressed" width="42" height="42"/>
         <image name="activity_record_icon_battery_charged" width="24" height="16"/>
         <image name="activity_record_icon_change_camera_normal" width="31" height="29"/>
         <image name="activity_record_icon_change_camera_pressed" width="31" height="29"/>
@@ -591,16 +611,19 @@
         <image name="activity_record_icon_controls_normal" width="28" height="28"/>
         <image name="activity_record_icon_controls_pressed" width="28" height="28"/>
         <image name="activity_record_icon_exposure" width="30" height="30"/>
+        <image name="activity_record_icon_exposure_pressed" width="30" height="30"/>
         <image name="activity_record_icon_flash_normal" width="18" height="36"/>
         <image name="activity_record_icon_flash_pressed" width="18" height="36"/>
         <image name="activity_record_icon_focus_focused" width="68" height="68"/>
         <image name="activity_record_icon_geolocation_normal" width="14" height="21"/>
         <image name="activity_record_icon_iso" width="30" height="30"/>
+        <image name="activity_record_icon_iso_pressed" width="30" height="30"/>
         <image name="activity_record_icon_memory" width="16" height="20"/>
         <image name="activity_record_icon_metering_partial" width="30" height="30"/>
         <image name="activity_record_icon_microphone_normal" width="18" height="20"/>
         <image name="activity_record_icon_microphone_pressed" width="20" height="21"/>
         <image name="activity_record_icon_mode" width="30" height="30"/>
+        <image name="activity_record_icon_mode_pressed" width="30" height="30"/>
         <image name="activity_record_icon_rec" width="50" height="50"/>
         <image name="activity_record_icon_rec_area" width="112" height="171"/>
         <image name="activity_record_icon_recording" width="8" height="8"/>
@@ -608,7 +631,9 @@
         <image name="activity_record_icon_shrink" width="28" height="28"/>
         <image name="activity_record_icon_stop" width="50" height="51"/>
         <image name="activity_record_icon_zoom" width="29" height="30"/>
+        <image name="activity_record_icon_zoom_pressed" width="29" height="30"/>
         <image name="activity_record_white_balance" width="30" height="30"/>
+        <image name="activity_record_white_balance_pressed" width="30" height="30"/>
         <image name="overlay_clear_grid" width="552" height="311"/>
     </resources>
 </document>

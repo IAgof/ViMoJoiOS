@@ -46,6 +46,7 @@ protocol RecordPresenterDelegate {
     func configureView()
     func forceOrientation()
     func recordButtonEnable(state:Bool)
+    func configModesButtonSelected(state:Bool)
    
     func showFlashOn(on:Bool)
     func showRecordButton()

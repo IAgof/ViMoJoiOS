@@ -245,44 +245,6 @@ class CameraInteractor:CameraRecorderDelegate,
         self.isRecording = isRecording
     }
     
-    func cameraViewTapAction(tapDisplay:UIGestureRecognizer){
-        
-        if (tapDisplay.state == UIGestureRecognizerState.Recognized) {
-            var location = tapDisplay.locationInView(self.displayView)
-            
-            cameraDelegate.showFocus(location)
-            
-            let device = videoCamera.inputCamera
-            do {
-                try device.lockForConfiguration()
-                
-            }catch{
-                return
-            }
-            var pointOfInterest = CGPointMake(0.5, 0.5)
-            let frameSize = self.displayView.frame.size
-            
-            if (videoCamera.cameraPosition() == AVCaptureDevicePosition.Front) {
-                location.x = frameSize.width - location.x;
-            }
-            
-            pointOfInterest = CGPointMake(location.y / frameSize.height, 1.0 - (location.x / frameSize.width));
-            
-            
-            if (device.focusPointOfInterestSupported && device.isFocusModeSupported(AVCaptureFocusMode.AutoFocus)) {
-                device.focusPointOfInterest = pointOfInterest
-                device.focusMode = AVCaptureFocusMode.AutoFocus
-                
-                if device.exposurePointOfInterestSupported && device.isExposureModeSupported(AVCaptureExposureMode.ContinuousAutoExposure) {
-                    device.exposurePointOfInterest = pointOfInterest
-                    device.exposureMode = AVCaptureExposureMode.ContinuousAutoExposure
-                }
-                device.unlockForConfiguration()
-                
-            }
-        }
-    }
-    
     var maxZoomFactor = CGFloat(10)
     func zoom(pinch: UIPinchGestureRecognizer) {
         var device: AVCaptureDevice = self.videoCamera.inputCamera

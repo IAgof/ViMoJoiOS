@@ -25,14 +25,23 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     
     //MARK: Outlets
     //MARK: - UIButton
-    @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var cameraRotationButton: UIButton!
     @IBOutlet weak var flashButton: UIButton!
+    @IBOutlet weak var configModesButton: UIButton!
+    @IBOutlet weak var recordButton: UIButton!
+
     @IBOutlet weak var secondaryRecordButton: UIButton!
     @IBOutlet weak var hideAllButtonsButton: UIButton!
     @IBOutlet weak var batteryButton: UIButton!
     @IBOutlet weak var micButton: UIButton!
-    
+
+    @IBOutlet weak var zoomButton: UIButton!
+    @IBOutlet weak var isoButton: UIButton!
+    @IBOutlet weak var exposureButton: UIButton!
+    @IBOutlet weak var focusButton: UIButton!
+    @IBOutlet weak var whiteBalanceButton: UIButton!
+    @IBOutlet weak var exposureModesButton: UIButton!
+
     //MARK: - Custom
     @IBOutlet weak var cameraView: GPUImageView!
     @IBOutlet weak var zoomSlider: UISlider!
@@ -366,6 +375,10 @@ extension RecordController:RecordPresenterDelegate {
         self.secondaryRecordButton.enabled = state
     }
     
+    func configModesButtonSelected(state: Bool) {
+        configModesButton.selected = state
+    }
+    
     func updateChronometer(time: String) {
         self.chronometrer.text = time
         self.secondaryChronometerLabel.text = time
@@ -435,10 +448,12 @@ extension RecordController:RecordPresenterDelegate {
     
     func hideZoomView() {
         fadeOutView([zoomContainerView])
+        zoomButton.selected = false
     }
     
     func showZoomView() {
         fadeInView([zoomContainerView])
+        zoomButton.selected = true
     }
     
     func setSliderValue(value: Float) {
@@ -479,26 +494,32 @@ extension RecordController:RecordPresenterDelegate {
     
     func showISOConfigView() {
         fadeInView([isoConfigurationView])
+        isoButton.selected = true
     }
     
     func hideISOConfigView() {
         fadeOutView([isoConfigurationView])
+        isoButton.selected = false
     }
     
     func showWBConfigView() {
         fadeInView([wbConfigurationView])
+        whiteBalanceButton.selected = true
     }
     
     func hideWBConfigView() {
         fadeOutView([wbConfigurationView])
+        whiteBalanceButton.selected = false
     }
     
     func showExposureConfigView() {
         fadeInView([exposureConfigurationView])
+        exposureButton.selected = true
     }
     
     func hideExposureConfigView() {
         fadeOutView([exposureConfigurationView])
+        exposureButton.selected = false
     }
     
     func getMicValues() {
@@ -520,19 +541,26 @@ extension RecordController:RecordPresenterDelegate {
     func showFocusView() {
         fadeInView([focusView])
         focusView.checkIfFocalLensIsEnabled()
+        
+        focusButton.selected = true
     }
     
     func hideFocusView() {
         fadeOutView([focusView])
         fadeOutView([focalLensSliderView])
+        focusButton.selected = false
     }
     
     func showExposureModesView() {
         fadeInView([expositionModesView])
+        
+        exposureModesButton.selected = true
     }
     
     func hideExposureModesView() {
         fadeOutView([expositionModesView])
+        
+        exposureModesButton.selected = false
     }
 }
 

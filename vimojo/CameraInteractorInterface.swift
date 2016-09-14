@@ -18,7 +18,6 @@ protocol CameraInteractorInterface {
     func setIsRecording(isRecording:Bool)
     func startRecordVideo(completion:(String)->Void)
     func rotateCamera()
-    func cameraViewTapAction(tapDisplay:UIGestureRecognizer)
     func zoom(pinch: UIPinchGestureRecognizer)
     func zoom(value:Float)
     

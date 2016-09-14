@@ -97,10 +97,13 @@ class RecordPresenter: NSObject
             videoSettingsConfigViewIsShowing = false
             
             delegate?.hideVideoSettingsConfig()
+            hideAllModeConfigsIfNeccesary()
+            delegate?.configModesButtonSelected(false)
         }else{
             videoSettingsConfigViewIsShowing = true
             
             delegate?.showVideoSettingsConfig()
+            delegate?.configModesButtonSelected(true)
         }
     }
     
@@ -271,11 +274,7 @@ class RecordPresenter: NSObject
         
         interactor?.clearProject()
     }
-    
-    func displayHasTapped(tapGesture:UIGestureRecognizer){
-        cameraInteractor?.cameraViewTapAction(tapGesture)
-    }
-    
+        
     func displayHasPinched(pinchGesture: UIPinchGestureRecognizer) {
         cameraInteractor?.zoom(pinchGesture)
     }
