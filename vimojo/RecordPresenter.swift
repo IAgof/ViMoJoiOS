@@ -197,6 +197,8 @@ class RecordPresenter: NSObject
         if zoomIsShowed{
             hideZoomViewIfYouCan()
         }else{
+            hideAllModeConfigsIfNeccesary()
+
             showZoomView()
         }
     }
@@ -474,6 +476,7 @@ class RecordPresenter: NSObject
         hideExposureConfigIfYouCan()
         hideFocusIfYouCan()
         hideExposureModesIfYouCan()
+        hideZoomViewIfYouCan()
         
         hideMicViewIfYouCan()
     }
