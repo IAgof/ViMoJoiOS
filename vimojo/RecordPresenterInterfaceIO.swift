@@ -18,6 +18,7 @@ protocol RecordPresenterInterface{
     func pushFlash()
     func pushRotateCamera()
     func pushVideoSettingsConfig()
+    func pushFlyToEditor()
     
     func pushHideAllButtons()
     

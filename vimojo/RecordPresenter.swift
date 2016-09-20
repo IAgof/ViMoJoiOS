@@ -106,6 +106,10 @@ class RecordPresenter: NSObject
         }
     }
     
+    func pushFlyToEditor(){
+        recordWireframe?.presentEditorRoomInterface()
+    }
+    
     func pushHideAllButtons() {
         if secondaryViewIsShowing{
             delegate?.showPrincipalViews()

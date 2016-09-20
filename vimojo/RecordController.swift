@@ -30,6 +30,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var flashButton: UIButton!
     @IBOutlet weak var configModesButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var flyToEditorButton: UIButton!
 
     @IBOutlet weak var secondaryRecordButton: UIButton!
     @IBOutlet weak var hideAllButtonsButton: UIButton!
@@ -236,6 +237,10 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     
     @IBAction func pushMic(sender: AnyObject) {
         eventHandler?.pushMic()
+    }
+    
+    @IBAction func pushFlyToEditor(sender: AnyObject) {
+        eventHandler?.pushFlyToEditor()
     }
     
     //MARK : - Inner functions

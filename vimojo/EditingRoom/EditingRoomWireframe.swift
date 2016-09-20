@@ -18,8 +18,8 @@ class EditingRoomWireframe : NSObject {
     var editingRoomPresenter : EditingRoomPresenter?
     
     var editorWireframe: EditorWireframe?
-//    var musicWireframe: MusicWireframe?
-//    var shareWireframe: ShareWireframe?
+    var musicWireframe: MusicWireframe?
+    var shareWireframe: ShareWireframe?
 //    var settingsWireframe:SettingsWireframe?
     
     //MARK: - Variables
@@ -106,18 +106,18 @@ class EditingRoomWireframe : NSObject {
     }
     
     func showMusicInContainer(){
-//        let controller = musicWireframe?.musicViewControllerFromStoryboard()
-//   
-//        self.presentChildController(controller!)
+        let controller = musicWireframe?.musicViewControllerFromStoryboard()
+   
+        self.presentChildController(controller!)
     }
     
     func showShareInContainer(exportPath:String,
                               numberOfClips:Int){
-//        let controller = shareWireframe?.shareViewControllerFromStoryboard()
-//            controller?.exportPath = exportPath
-//            controller?.numberOfClips = numberOfClips
-//        
-//        self.presentChildController(controller!)
+        let controller = shareWireframe?.shareViewControllerFromStoryboard()
+            controller?.exportPath = exportPath
+            controller?.numberOfClips = numberOfClips
+        
+        self.presentChildController(controller!)
     }
     
     func presentChildController(controller:UIViewController){

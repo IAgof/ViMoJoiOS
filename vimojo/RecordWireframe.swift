@@ -16,6 +16,8 @@ class RecordWireframe : NSObject {
     var recordViewController : RecordController?
     var recordPresenter : RecordPresenter?
     
+    var editorRoomWireframe: EditingRoomWireframe?
+
     func presentRecordInterfaceFromWindow(window: UIWindow) {
         let viewController = RecordViewControllerFromStoryboard()
         
@@ -53,5 +55,13 @@ class RecordWireframe : NSObject {
     func mainStoryboard() -> UIStoryboard {
         let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         return storyboard
+    }
+    
+    func presentEditorRoomInterface(){
+        editorRoomWireframe?.presentEditingRoomInterfaceFromViewController(recordViewController!)
+    }
+    
+    func presentGalleryInsideEditorRoomInterface(){
+        editorRoomWireframe?.presentEditingRoomFromViewControllerShowGallery(recordViewController!)
     }
 }

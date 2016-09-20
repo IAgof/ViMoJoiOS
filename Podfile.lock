@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (3.5.0)
   - AudioLevelBar (0.0.1)
   - BatteryRemaining (1.0.0):
     - MBCircularProgressBar
@@ -7,8 +8,40 @@ PODS:
   - ExpositionModes (0.0.1)
   - Exposure (0.0.1)
   - Fabric (1.6.8)
+  - FirebaseAnalytics (3.4.2):
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
+    - GoogleUtilities (~> 1.2)
+  - FirebaseInstanceID (1.0.8)
   - FocalLensSlider (0.0.1)
   - Focus (0.0.1)
+  - Google/Analytics (3.0.3):
+    - Google/Core
+    - GoogleAnalytics (~> 3.12)
+  - Google/Core (3.0.3):
+    - FirebaseAnalytics (~> 3.2)
+  - Google/SignIn (3.0.3):
+    - Google/Core
+    - GoogleSignIn (~> 4.0)
+  - GoogleAnalytics (3.17.0)
+  - GoogleAppUtilities (1.1.1):
+    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleAuthUtilities (2.0.1):
+    - GoogleNetworkingUtilities (~> 1.0)
+    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleInterchangeUtilities (1.2.1):
+    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleNetworkingUtilities (1.2.1):
+    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleSignIn (4.0.0):
+    - GoogleAppUtilities (~> 1.1)
+    - GoogleAuthUtilities (~> 2.0)
+    - GoogleNetworkingUtilities (~> 1.2)
+    - GoogleUtilities (~> 1.3)
+  - GoogleSymbolUtilities (1.1.1)
+  - GoogleUtilities (1.3.1):
+    - GoogleSymbolUtilities (~> 1.0)
   - ISOConfiguration (1.0.0)
   - MBCircularProgressBar (0.3.4)
   - Mixpanel (3.0.3):
@@ -29,6 +62,7 @@ PODS:
   - ZoomCameraSlider (0.0.1)
 
 DEPENDENCIES:
+  - Alamofire (~> 3.3)
   - AudioLevelBar (from `/Users/Alejandro/Desktop/Repos/Videona_Pods/AudioLevelBar`)
   - BatteryRemaining (from `/Users/Alejandro/Desktop/Repos/Videona_Pods/BatteryRemaining`)
   - Crashlytics
@@ -37,6 +71,8 @@ DEPENDENCIES:
   - Fabric
   - FocalLensSlider (from `/Users/Alejandro/Desktop/Repos/Videona_Pods/FocalLensSlider`)
   - Focus (from `/Users/Alejandro/Desktop/Repos/Videona_Pods/Focus`)
+  - Google/Analytics
+  - Google/SignIn
   - ISOConfiguration (from `/Users/Alejandro/Desktop/Repos/Videona_Pods/ISOConfiguration`)
   - Mixpanel
   - NMRangeSlider (~> 1.2)
@@ -82,14 +118,26 @@ EXTERNAL SOURCES:
     :path: /Users/Alejandro/Desktop/Repos/Videona_Pods/ZoomCameraSlider
 
 SPEC CHECKSUMS:
+  Alamofire: b70a7352335f8ea5babd0a923eb7e8eacc67b877
   AudioLevelBar: c212ae1cf213387f8c882c1ea548b283a568b959
   BatteryRemaining: dbd106e4504fe03f4b3de7fc1953c31dfd266398
   Crashlytics: 4391d8df0b125345e9f209c5db6e7f40a6a8435d
   ExpositionModes: f9ca5035361c0b910dab20f561694b18fa6c51a6
   Exposure: 179801687c05c0a9ec3b9f3fc54e15059330b421
   Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
+  FirebaseAnalytics: 3f5358d9104adf159cc8d99b7b501e50099a39ad
+  FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   FocalLensSlider: 610c639ba312ecc012151335f8c476e06a988dd3
   Focus: 7727652112c68e419b0e70d0bbc6fd6d4e92014e
+  Google: 813c467362eabc11385f5a5cc9ad0cb651a58f4e
+  GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
+  GoogleAppUtilities: f1730f91f67767b453c289577040dd3f425ffdc7
+  GoogleAuthUtilities: d7a19615cd7627688afcf181737f1011ee8b5a23
+  GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
+  GoogleNetworkingUtilities: 3e83269048cfb498dc7ec83ab36813360965c74f
+  GoogleSignIn: 09036ed61f8e75f1424100d63f7719480b2428c3
+  GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
+  GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   ISOConfiguration: cda9ed5fcb0a6e323a6a9fe7adc345e6132fa0e0
   MBCircularProgressBar: ff3b8e2f441214d9ee122a24ba0d4d00cc7de881
   Mixpanel: 45867daeaa3c60f88072a3cb1b44e0b6c5cec009

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="klX-Sh-Q3d" customClass="ShareCell" customModule="Videona" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="klX-Sh-Q3d" id="B9e-d4-ZyJ">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCw-1l-S7R">
+                        <rect key="frame" x="51" y="8" width="261" height="27"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="highlightedColor" red="0.70196078429999997" green="0.76078431369999999" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                        </variation>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_record_icon_remove_filters_normal" translatesAutoresizingMaskIntoConstraints="NO" id="Utb-hj-8Dm">
+                        <rect key="frame" x="16" y="8" width="27" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Utb-hj-8Dm" secondAttribute="height" multiplier="1:1" id="gvP-dT-JXx"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="Utb-hj-8Dm" secondAttribute="bottom" id="0ks-EO-vDx"/>
+                    <constraint firstItem="JCw-1l-S7R" firstAttribute="top" secondItem="B9e-d4-ZyJ" secondAttribute="topMargin" id="QeB-nh-Hr8"/>
+                    <constraint firstItem="Utb-hj-8Dm" firstAttribute="leading" secondItem="B9e-d4-ZyJ" secondAttribute="leadingMargin" constant="8" id="Xd0-Sh-8oN"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="JCw-1l-S7R" secondAttribute="bottom" id="e0G-NE-2sq"/>
+                    <constraint firstItem="JCw-1l-S7R" firstAttribute="leading" secondItem="Utb-hj-8Dm" secondAttribute="trailing" constant="8" id="f1X-83-otk"/>
+                    <constraint firstItem="Utb-hj-8Dm" firstAttribute="top" secondItem="B9e-d4-ZyJ" secondAttribute="topMargin" id="nVV-Fr-jCC"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="JCw-1l-S7R" secondAttribute="trailing" id="zEA-g4-PkQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="shareImage" destination="Utb-hj-8Dm" id="jE2-XU-lz3"/>
+                <outlet property="shareTitle" destination="JCw-1l-S7R" id="OuM-zJ-fqs"/>
+            </connections>
+            <point key="canvasLocation" x="536" y="-11"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="activity_record_icon_remove_filters_normal" width="27" height="27"/>
+    </resources>
+</document>

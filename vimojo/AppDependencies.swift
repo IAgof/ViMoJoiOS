@@ -28,6 +28,9 @@ class AppDependencies {
     var duplicateWireframe = DuplicateWireframe()
     var splitWireframe = SplitWireframe()
     
+    var musicWireframe = MusicWireframe()
+    var shareWireframe = ShareWireframe()
+    
     init(){
         configureDependencies()
     }
@@ -42,6 +45,12 @@ class AppDependencies {
         let playerInteractor = PlayerInteractor()
         
         let fullScreenPlayerPresenter = FullScreenPlayerPresenter()
+        
+        let musicPresenter = MusicPresenter()
+        let musicInteractor = MusicInteractor()
+        
+        let sharePresenter = SharePresenter()
+        let shareInteractor = ShareInteractor()
         
         let editorRoomPresenter = EditingRoomPresenter()
         let editingRoomInteractor = EditingRoomInteractor(project: project)
@@ -65,6 +74,7 @@ class AppDependencies {
         
         recordWireframe.recordPresenter = recordPresenter
         recordWireframe.rootWireframe = rootWireframe
+        recordWireframe.editorRoomWireframe = editorRoomWireframe
         
         recordInteractor.project = project
         
@@ -82,8 +92,8 @@ class AppDependencies {
         editorRoomWireframe.editingRoomPresenter = editorRoomPresenter
         editorRoomWireframe.rootWireframe = rootWireframe
         editorRoomWireframe.editorWireframe = editorWireframe
-//        editorRoomWireframe.shareWireframe = shareWireframe
-//        editorRoomWireframe.musicWireframe = musicWireframe
+        editorRoomWireframe.shareWireframe = shareWireframe
+        editorRoomWireframe.musicWireframe = musicWireframe
 //        editorRoomWireframe.settingsWireframe = settingsWireframe
         
         //EDITOR MODULE
@@ -103,6 +113,34 @@ class AppDependencies {
         editorInteractor.delegate = editorPresenter
         editorInteractor.project = project
         
+        //SHARE MODULE
+        sharePresenter.wireframe = shareWireframe
+        sharePresenter.recordWireframe = recordWireframe
+        sharePresenter.fullScreenPlayerWireframe = fullScreenPlayerWireframe
+        sharePresenter.playerWireframe = playerWireframe
+        sharePresenter.interactor = shareInteractor
+        sharePresenter.playerPresenter = playerPresenter
+        
+        shareWireframe.sharePresenter = sharePresenter
+        shareWireframe.rootWireframe = rootWireframe
+        shareWireframe.playerWireframe = playerWireframe
+        
+        shareInteractor.project = project
+        
+        //MUSIC MODULE
+        musicPresenter.wireframe = musicWireframe
+        musicPresenter.interactor = musicInteractor
+        musicPresenter.playerPresenter = playerPresenter
+        musicPresenter.playerWireframe = playerWireframe
+        
+        musicInteractor.delegate = musicPresenter
+        musicInteractor.project = project
+        
+        musicWireframe.musicPresenter = musicPresenter
+        musicWireframe.rootWireframe = rootWireframe
+        musicWireframe.playerWireframe = playerWireframe
+        musicWireframe.fullScreenPlayerWireframe = fullScreenPlayerWireframe
+        musicWireframe.editorRoomWireframe = editorRoomWireframe
         
         //TRIM MODULE
         trimPresenter.interactor = trimInteractor
