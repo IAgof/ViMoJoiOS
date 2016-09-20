@@ -8,7 +8,7 @@
 
 import Foundation
 import AVFoundation
-import Project
+import VideonaProject
 
 class GetActualProjectAVCompositionUseCase: NSObject {
     static let sharedInstance = GetActualProjectAVCompositionUseCase()

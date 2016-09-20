@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Project
+import VideonaProject
 
 class RecorderInteractor: RecorderInteractorInterface {
     

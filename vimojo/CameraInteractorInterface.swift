@@ -8,7 +8,7 @@
 
 import Foundation
 import GPUImage
-import Project
+import VideonaProject
 
 protocol CameraInteractorInterface {
     init(display:GPUImageView,

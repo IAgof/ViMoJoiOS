@@ -9,7 +9,7 @@
 import Foundation
 import GPUImage
 import AVFoundation
-import Project
+import VideonaProject
 
 class CameraRecorderInteractor{
 

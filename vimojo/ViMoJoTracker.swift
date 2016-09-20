@@ -5,7 +5,7 @@
 
 import Foundation
 import Mixpanel
-import Project
+import VideonaProject
 
 class ViMoJoTracker {
     let mixpanel = Mixpanel.sharedInstanceWithToken(AnalyticsConstants().MIXPANEL_TOKEN)

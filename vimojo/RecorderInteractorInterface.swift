@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Project
+import VideonaProject
 
 public protocol RecorderInteractorInterface {
     func getNumberOfClipsInProject()->Int

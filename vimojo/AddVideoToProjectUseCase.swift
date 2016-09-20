@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import VideonaMedia
-import Project
+import VideonaProject
 
 class AddVideoToProjectUseCase: NSObject {
     

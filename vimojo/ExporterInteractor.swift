@@ -8,7 +8,7 @@
 
 import Foundation
 import AVFoundation
-import Project
+import VideonaProject
 
 class ExporterInteractor:NSObject{
     var clipDuration = 0.0
