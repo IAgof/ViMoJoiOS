@@ -66,6 +66,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLS-oa-Pa6">
                                                         <rect key="frame" x="0.0" y="0.0" width="24" height="22"/>
                                                         <state key="normal" image="activity_record_icon_battery_charged"/>
+                                                        <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="22"/>
+                                                        </variation>
                                                         <connections>
                                                             <action selector="pushBattery:" destination="31E-sq-qOD" eventType="touchUpInside" id="c6p-1u-kxc"/>
                                                         </connections>
@@ -73,6 +76,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYJ-QZ-tjN">
                                                         <rect key="frame" x="34" y="0.0" width="16" height="22"/>
                                                         <state key="normal" image="activity_record_icon_memory"/>
+                                                        <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                                            <rect key="frame" x="10" y="0.0" width="0.0" height="22"/>
+                                                        </variation>
                                                         <connections>
                                                             <action selector="pushMemory:" destination="31E-sq-qOD" eventType="touchUpInside" id="1QO-Et-FTZ"/>
                                                         </connections>
@@ -80,21 +86,33 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2j-0r-Ynx">
                                                         <rect key="frame" x="60" y="0.0" width="25" height="22"/>
                                                         <state key="normal" image="activity_record_icon_resolution_1080"/>
+                                                        <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                                            <rect key="frame" x="20" y="0.0" width="0.0" height="22"/>
+                                                        </variation>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dn-ri-8O1">
                                                         <rect key="frame" x="95" y="0.0" width="14" height="22"/>
                                                         <state key="normal" image="activity_record_icon_geolocation_normal"/>
+                                                        <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                                            <rect key="frame" x="30" y="0.0" width="0.0" height="22"/>
+                                                        </variation>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwy-pV-J8a">
                                                         <rect key="frame" x="119" y="0.0" width="20" height="22"/>
                                                         <state key="normal" image="activity_record_icon_microphone_pressed"/>
                                                         <state key="selected" image="activity_record_icon_microphone_normal"/>
+                                                        <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                                            <rect key="frame" x="40" y="0.0" width="0.0" height="22"/>
+                                                        </variation>
                                                         <connections>
                                                             <action selector="pushMic:" destination="31E-sq-qOD" eventType="touchUpInside" id="Shq-D1-NHs"/>
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_record_icon_recording" translatesAutoresizingMaskIntoConstraints="NO" id="Y9E-dj-M8I">
                                                         <rect key="frame" x="149" y="0.0" width="8" height="22"/>
+                                                        <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                                            <rect key="frame" x="50" y="0.0" width="0.0" height="22"/>
+                                                        </variation>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aut-g5-zjP">
                                                         <rect key="frame" x="167" y="0.0" width="60" height="22"/>
@@ -106,6 +124,9 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                                            <rect key="frame" x="60" y="0.0" width="7" height="22"/>
+                                                        </variation>
                                                         <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
                                                             <rect key="frame" x="317" y="8" width="75" height="21"/>
                                                         </variation>
@@ -137,6 +158,9 @@
                                                         <state key="normal" image="activity_record_icon_zoom"/>
                                                         <state key="selected" image="activity_record_icon_zoom_pressed"/>
                                                         <state key="highlighted" image="activity_record_icon_zoom_pressed"/>
+                                                        <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                                            <rect key="frame" x="0.0" y="0.0" width="15" height="30"/>
+                                                        </variation>
                                                         <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
                                                             <rect key="frame" x="0.0" y="0.0" width="19" height="30"/>
                                                         </variation>
@@ -149,6 +173,9 @@
                                                         <state key="normal" image="activity_record_icon_iso"/>
                                                         <state key="selected" image="activity_record_icon_iso_pressed"/>
                                                         <state key="highlighted" image="activity_record_icon_iso_pressed"/>
+                                                        <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                                            <rect key="frame" x="45" y="0.0" width="30" height="30"/>
+                                                        </variation>
                                                         <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
                                                             <rect key="frame" x="49" y="0.0" width="30" height="30"/>
                                                         </variation>
@@ -161,6 +188,9 @@
                                                         <state key="normal" image="activity_record_icon_mode"/>
                                                         <state key="selected" image="activity_record_icon_mode_pressed"/>
                                                         <state key="highlighted" image="activity_record_icon_mode_pressed"/>
+                                                        <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                                            <rect key="frame" x="105" y="0.0" width="30" height="30"/>
+                                                        </variation>
                                                         <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
                                                             <rect key="frame" x="169" y="0.0" width="30" height="30"/>
                                                         </variation>
@@ -173,6 +203,9 @@
                                                         <state key="normal" image="activity_record_white_balance"/>
                                                         <state key="selected" image="activity_record_white_balance_pressed"/>
                                                         <state key="highlighted" image="activity_record_white_balance_pressed"/>
+                                                        <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                                            <rect key="frame" x="165" y="0.0" width="30" height="30"/>
+                                                        </variation>
                                                         <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
                                                             <rect key="frame" x="229" y="0.0" width="30" height="30"/>
                                                         </variation>
@@ -257,7 +290,7 @@
                                                 <state key="normal" image="activity_record_icon_change_camera_normal"/>
                                                 <state key="selected" image="activity_record_icon_change_camera_pressed"/>
                                                 <state key="highlighted" image="activity_record_icon_change_camera_pressed"/>
-                                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                                <variation key="widthClass=compact" misplaced="YES">
                                                     <rect key="frame" x="357" y="272" width="32" height="34"/>
                                                 </variation>
                                                 <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
@@ -288,7 +321,7 @@
                                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                                 <state key="normal" image="activity_record_gallery_normal"/>
                                                 <state key="selected" image="activity_record_gallery_normal_pressed"/>
-                                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                                <variation key="widthClass=compact" misplaced="YES">
                                                     <rect key="frame" x="358" y="379" width="29" height="26"/>
                                                 </variation>
                                                 <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
@@ -428,6 +461,9 @@
                                             <userDefinedRuntimeAttribute type="image" keyPath="manualTapImageNormal" value="activity_record_icon_focus_manual"/>
                                             <userDefinedRuntimeAttribute type="image" keyPath="manualTapImageHighlightedAndPressed" value="activity_record_icon_focus_manual_pressed"/>
                                         </userDefinedRuntimeAttributes>
+                                        <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                            <rect key="frame" x="74" y="515" width="150" height="35"/>
+                                        </variation>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Jd-7d-AYh" customClass="ExpositionModesView" customModule="ExpositionModes">
                                         <rect key="frame" x="345" y="515" width="150" height="35"/>
@@ -453,7 +489,7 @@
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                         <state key="normal" image="activity_record_gallery_normal"/>
                                         <state key="selected" image="activity_record_gallery_normal_pressed"/>
-                                        <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                        <variation key="widthClass=compact" misplaced="YES">
                                             <rect key="frame" x="358" y="379" width="29" height="26"/>
                                         </variation>
                                         <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
@@ -655,6 +691,9 @@
                                     <constraint firstAttribute="width" secondItem="Ck2-bG-eRC" secondAttribute="height" multiplier="16:9" id="gZ7-IM-4CT"/>
                                     <constraint firstItem="hK2-dv-6yA" firstAttribute="top" secondItem="Ck2-bG-eRC" secondAttribute="top" constant="8" id="vuq-Sx-cze"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="common_icon_play"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SZn-wu-f2Y">
                                 <rect key="frame" x="0.0" y="388" width="600" height="473"/>
@@ -947,6 +986,9 @@
                                     <constraint firstAttribute="trailing" secondItem="9dY-Ww-aI4" secondAttribute="trailing" constant="8" id="WDh-2I-ZoI"/>
                                     <constraint firstItem="9dY-Ww-aI4" firstAttribute="top" secondItem="iTO-W9-5Kn" secondAttribute="top" constant="8" id="qx9-8z-dbw"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="common_icon_play"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ok1-JP-XtD">
                                 <rect key="frame" x="0.0" y="363" width="600" height="497"/>
@@ -1316,6 +1358,9 @@
                                     <constraint firstItem="Fd3-2Q-8bH" firstAttribute="top" secondItem="4wQ-2f-JFb" secondAttribute="top" constant="8" id="Dfl-My-sOw"/>
                                     <constraint firstAttribute="trailing" secondItem="Fd3-2Q-8bH" secondAttribute="trailing" constant="8" id="Kma-xx-j2z"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="common_icon_play"/>
+                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="4KQ-qc-gIK"/>
@@ -1769,6 +1814,9 @@
                                     <constraint firstItem="Riw-XD-juG" firstAttribute="top" secondItem="xwy-w8-Mu1" secondAttribute="top" constant="8" id="9Hj-5t-egZ"/>
                                     <constraint firstAttribute="width" secondItem="xwy-w8-Mu1" secondAttribute="height" multiplier="16:9" id="cH5-07-5Yw"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="common_icon_play"/>
+                                </userDefinedRuntimeAttributes>
                                 <variation key="heightClass=compact" misplaced="YES">
                                     <rect key="frame" x="8" y="8" width="346" height="194"/>
                                     <mask key="constraints">
@@ -2090,10 +2138,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AZp-0n-ctH" customClass="PlayerView" customModule="vimojo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AZp-0n-ctH" customClass="PlayerView" customModule="vimojo" customModuleProvider="target">
                                 <rect key="frame" x="20" y="8" width="560" height="316"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZG-9A-GDj">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZG-9A-GDj">
                                         <rect key="frame" x="208" y="8" width="24" height="24"/>
                                         <state key="normal" image="common_icon_expand"/>
                                         <connections>
@@ -2106,11 +2154,14 @@
                                     <constraint firstItem="UZG-9A-GDj" firstAttribute="top" secondItem="AZp-0n-ctH" secondAttribute="top" constant="8" id="FMj-Fv-h6Q"/>
                                     <constraint firstAttribute="trailing" secondItem="UZG-9A-GDj" secondAttribute="trailing" constant="8" id="PhR-Xq-Cym"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="common_icon_play"/>
+                                </userDefinedRuntimeAttributes>
                                 <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
                                     <rect key="frame" x="20" y="20" width="740" height="417"/>
                                 </variation>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Mo-ib-jhu">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Mo-ib-jhu">
                                 <rect key="frame" x="20" y="332" width="560" height="248"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -2144,7 +2195,7 @@
                                     <outlet property="delegate" destination="WLy-hp-6bY" id="mZS-tn-EtU"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9c-V0-LgJ">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9c-V0-LgJ">
                                 <rect key="frame" x="271" y="530" width="59" height="62"/>
                                 <state key="normal" image="button_edit_add_video">
                                     <color key="titleShadowColor" red="0.7843137255" green="0.85882352939999995" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -2206,47 +2257,47 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="vha-Zx-koA"/>
-                                <exclude reference="yZH-kC-EYs"/>
-                                <exclude reference="hML-uP-bEp"/>
-                                <exclude reference="aVU-Eo-sGw"/>
-                                <exclude reference="iXz-Gu-cpG"/>
                                 <exclude reference="2B9-eo-zH5"/>
                                 <exclude reference="KNk-dA-0tr"/>
                                 <exclude reference="KmB-pY-gdi"/>
-                                <exclude reference="rEN-WB-1nt"/>
-                                <exclude reference="olS-m2-8lJ"/>
+                                <exclude reference="aVU-Eo-sGw"/>
                                 <exclude reference="fw8-dD-fok"/>
-                                <exclude reference="vJu-cr-kGf"/>
-                                <exclude reference="iUA-F4-bR1"/>
+                                <exclude reference="hML-uP-bEp"/>
+                                <exclude reference="iXz-Gu-cpG"/>
+                                <exclude reference="olS-m2-8lJ"/>
+                                <exclude reference="rEN-WB-1nt"/>
+                                <exclude reference="vha-Zx-koA"/>
+                                <exclude reference="yZH-kC-EYs"/>
+                                <exclude reference="0EG-M1-Dby"/>
+                                <exclude reference="1Np-hr-uLQ"/>
                                 <exclude reference="6c6-vq-qUH"/>
+                                <exclude reference="BWl-YA-xNy"/>
+                                <exclude reference="Cs5-qI-P7U"/>
                                 <exclude reference="DQF-xp-Jao"/>
+                                <exclude reference="FJG-aM-fS1"/>
                                 <exclude reference="ZPn-7o-pSU"/>
+                                <exclude reference="iUA-F4-bR1"/>
+                                <exclude reference="vJu-cr-kGf"/>
                                 <exclude reference="wUg-yG-aOt"/>
                                 <exclude reference="zBv-6H-eDc"/>
-                                <exclude reference="0EG-M1-Dby"/>
-                                <exclude reference="BWl-YA-xNy"/>
-                                <exclude reference="FJG-aM-fS1"/>
-                                <exclude reference="1Np-hr-uLQ"/>
-                                <exclude reference="Cs5-qI-P7U"/>
-                                <exclude reference="gHe-0X-2Oh"/>
-                                <exclude reference="FbL-3g-gRE"/>
-                                <exclude reference="uS9-cl-0NK"/>
-                                <exclude reference="UZv-dy-ICD"/>
-                                <exclude reference="KVg-bP-CHZ"/>
                                 <exclude reference="URK-W5-rOd"/>
                                 <exclude reference="pfn-yh-Uq3"/>
                                 <exclude reference="xg7-k7-a8w"/>
+                                <exclude reference="FbL-3g-gRE"/>
+                                <exclude reference="KVg-bP-CHZ"/>
+                                <exclude reference="UZv-dy-ICD"/>
+                                <exclude reference="gHe-0X-2Oh"/>
+                                <exclude reference="uS9-cl-0NK"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
                                 <include reference="KmB-pY-gdi"/>
                                 <include reference="olS-m2-8lJ"/>
+                                <include reference="0EG-M1-Dby"/>
                                 <include reference="ZPn-7o-pSU"/>
                                 <include reference="wUg-yG-aOt"/>
                                 <include reference="zBv-6H-eDc"/>
-                                <include reference="0EG-M1-Dby"/>
                                 <include reference="gHe-0X-2Oh"/>
                                 <include reference="uS9-cl-0NK"/>
                             </mask>
@@ -2259,28 +2310,28 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
-                                <include reference="aVU-Eo-sGw"/>
                                 <include reference="2B9-eo-zH5"/>
+                                <include reference="aVU-Eo-sGw"/>
                                 <include reference="fw8-dD-fok"/>
+                                <include reference="1Np-hr-uLQ"/>
                                 <include reference="BWl-YA-xNy"/>
                                 <include reference="FJG-aM-fS1"/>
-                                <include reference="1Np-hr-uLQ"/>
-                                <include reference="FbL-3g-gRE"/>
                                 <include reference="pfn-yh-Uq3"/>
                                 <include reference="xg7-k7-a8w"/>
+                                <include reference="FbL-3g-gRE"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
                             <mask key="constraints">
+                                <include reference="KNk-dA-0tr"/>
                                 <include reference="vha-Zx-koA"/>
                                 <include reference="yZH-kC-EYs"/>
-                                <include reference="KNk-dA-0tr"/>
-                                <include reference="vJu-cr-kGf"/>
                                 <include reference="6c6-vq-qUH"/>
                                 <include reference="Cs5-qI-P7U"/>
-                                <include reference="UZv-dy-ICD"/>
-                                <include reference="KVg-bP-CHZ"/>
+                                <include reference="vJu-cr-kGf"/>
                                 <include reference="URK-W5-rOd"/>
+                                <include reference="KVg-bP-CHZ"/>
+                                <include reference="UZv-dy-ICD"/>
                             </mask>
                         </variation>
                     </view>
@@ -2308,10 +2359,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rFs-N4-jUE" customClass="PlayerView" customModule="vimojo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rFs-N4-jUE" customClass="PlayerView" customModule="vimojo" customModuleProvider="target">
                                 <rect key="frame" x="20" y="8" width="560" height="316"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teB-AJ-KXX">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teB-AJ-KXX">
                                         <rect key="frame" x="208" y="8" width="24" height="24"/>
                                         <state key="normal" image="common_icon_expand"/>
                                         <connections>
@@ -2324,11 +2375,14 @@
                                     <constraint firstItem="teB-AJ-KXX" firstAttribute="top" secondItem="rFs-N4-jUE" secondAttribute="top" constant="8" id="Ixo-70-HHe"/>
                                     <constraint firstAttribute="width" secondItem="rFs-N4-jUE" secondAttribute="height" multiplier="16:9" id="mhD-gR-zRV"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="common_icon_play"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UOU-PA-Gg0">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UOU-PA-Gg0">
                                 <rect key="frame" x="15" y="332" width="570" height="268"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vHt-ea-Uka">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vHt-ea-Uka">
                                         <rect key="frame" x="0.0" y="1" width="370" height="268"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -2336,14 +2390,17 @@
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="musicCell" rowHeight="80" id="UOr-Sw-Oz7" customClass="MusicCell" customModule="vimojo" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="240" height="80"/>
+                                                <rect key="frame" x="0.0" y="28" width="370" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UOr-Sw-Oz7" id="aNh-v5-Q7T">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="80"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="370" height="80"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="imagebutton_music_background_electronic" translatesAutoresizingMaskIntoConstraints="NO" id="xLp-6A-XTj">
                                                             <rect key="frame" x="8" y="8" width="224" height="64"/>
+                                                            <variation key="heightClass=compact" misplaced="YES">
+                                                                <rect key="frame" x="8" y="8" width="354" height="64"/>
+                                                            </variation>
                                                             <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                                                 <rect key="frame" x="8" y="8" width="344" height="64"/>
                                                             </variation>
@@ -2453,43 +2510,43 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="fp2-gB-fKH"/>
                                 <exclude reference="8Dp-4Z-Lgj"/>
-                                <exclude reference="DH2-Xa-Rhe"/>
-                                <exclude reference="Ur3-Hq-r7g"/>
                                 <exclude reference="9x5-Vk-cTe"/>
-                                <exclude reference="y61-42-7Sd"/>
-                                <exclude reference="ire-uq-OEW"/>
+                                <exclude reference="DH2-Xa-Rhe"/>
                                 <exclude reference="OSi-hW-ONR"/>
-                                <exclude reference="kgo-ru-Maz"/>
-                                <exclude reference="ZqL-zJ-skl"/>
-                                <exclude reference="LgO-zr-Sf3"/>
-                                <exclude reference="zLl-CY-P5c"/>
+                                <exclude reference="Ur3-Hq-r7g"/>
+                                <exclude reference="fp2-gB-fKH"/>
+                                <exclude reference="ire-uq-OEW"/>
+                                <exclude reference="y61-42-7Sd"/>
                                 <exclude reference="8iz-vI-92g"/>
-                                <exclude reference="Okr-fX-cLg"/>
-                                <exclude reference="iZs-w5-cGY"/>
-                                <exclude reference="RPb-Ud-S0x"/>
                                 <exclude reference="Ik1-MR-ZPT"/>
-                                <exclude reference="zBu-d7-rms"/>
+                                <exclude reference="LgO-zr-Sf3"/>
+                                <exclude reference="Okr-fX-cLg"/>
+                                <exclude reference="RPb-Ud-S0x"/>
+                                <exclude reference="ZqL-zJ-skl"/>
+                                <exclude reference="iZs-w5-cGY"/>
+                                <exclude reference="kgo-ru-Maz"/>
+                                <exclude reference="zLl-CY-P5c"/>
                                 <exclude reference="2YU-CR-sbA"/>
                                 <exclude reference="L3I-K2-pPH"/>
+                                <exclude reference="zBu-d7-rms"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
                                 <include reference="DH2-Xa-Rhe"/>
                                 <include reference="Ur3-Hq-r7g"/>
-                                <include reference="kgo-ru-Maz"/>
-                                <include reference="ZqL-zJ-skl"/>
                                 <include reference="Ik1-MR-ZPT"/>
+                                <include reference="ZqL-zJ-skl"/>
+                                <include reference="kgo-ru-Maz"/>
                                 <include reference="2YU-CR-sbA"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
                                 <include reference="8Dp-4Z-Lgj"/>
-                                <include reference="ire-uq-OEW"/>
                                 <include reference="OSi-hW-ONR"/>
+                                <include reference="ire-uq-OEW"/>
                                 <include reference="8iz-vI-92g"/>
                                 <include reference="Okr-fX-cLg"/>
                                 <include reference="iZs-w5-cGY"/>
@@ -2498,12 +2555,12 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
                             <mask key="constraints">
-                                <include reference="fp2-gB-fKH"/>
                                 <include reference="9x5-Vk-cTe"/>
+                                <include reference="fp2-gB-fKH"/>
                                 <include reference="y61-42-7Sd"/>
                                 <include reference="LgO-zr-Sf3"/>
-                                <include reference="zLl-CY-P5c"/>
                                 <include reference="RPb-Ud-S0x"/>
+                                <include reference="zLl-CY-P5c"/>
                                 <include reference="zBu-d7-rms"/>
                             </mask>
                         </variation>
@@ -2532,7 +2589,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYs-Km-pe6">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYs-Km-pe6">
                                 <rect key="frame" x="556" y="20" width="24" height="24"/>
                                 <state key="normal" image="common_icon_shrink"/>
                                 <connections>
@@ -2646,6 +2703,7 @@
         <image name="common_icon_edit_cancel_normal" width="24" height="24"/>
         <image name="common_icon_edit_cancel_pressed" width="24" height="24"/>
         <image name="common_icon_expand" width="24" height="24"/>
+        <image name="common_icon_play" width="34" height="34"/>
         <image name="common_icon_shrink" width="24" height="24"/>
         <image name="imagebutton_music_background_electronic" width="154" height="25"/>
         <image name="overlay_clear_grid" width="552" height="311"/>

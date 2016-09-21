@@ -154,15 +154,3 @@ class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDel
         self.playerView.addSubview(player)
     }
 }
-
-//Force Portrait to iPad
-extension SplitViewController{
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Pad
-        {
-            return UIInterfaceOrientationMask.Portrait
-        }else{
-            return UIInterfaceOrientationMask.All
-        }
-    }
-}

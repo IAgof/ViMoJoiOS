@@ -11,7 +11,7 @@ import UIKit
 import VideonaPlayer
 
 class MusicViewController: ViMoJoController,MusicViewInterface,MusicPresenterDelegate,MusicDetailViewDelegate,PlayerViewSetter,
-UITableViewDataSource,UITableViewDelegate{
+UITableViewDataSource,UITableViewDelegate,FullScreenWireframeDelegate{
     //MARK: - VIPER variables
     var eventHandler: MusicPresenterInterface?
     

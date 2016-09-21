@@ -13,7 +13,7 @@ import VideonaPlayer
 import AVFoundation
 import VideonaDuplicate
 
-class DuplicateViewController: ViMoJoController,DuplicateInterface,DuplicatePresenterDelegate,PlayerViewSetter {
+class DuplicateViewController: ViMoJoController,DuplicateInterface,DuplicatePresenterDelegate,PlayerViewSetter,FullScreenWireframeDelegate {
     //MARK: - VIPER variables
     var eventHandler: DuplicatePresenterInterface?
     var wireframe: DuplicateWireframe?

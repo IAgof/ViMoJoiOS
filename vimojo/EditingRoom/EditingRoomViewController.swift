@@ -28,6 +28,8 @@ class EditingRoomViewController: ViMoJoController,EditingRoomViewInterface,UIIma
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true
         
+        forcePortrait = true
+        
         eventHandler?.viewDidLoad()
     }
     
@@ -103,17 +105,5 @@ class EditingRoomViewController: ViMoJoController,EditingRoomViewInterface,UIIma
             print("can go to next screen")
             completion()
         })
-    }
-}
-
-//Force Portrait to iPad
-extension EditingRoomViewController{
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Pad
-        {
-          return UIInterfaceOrientationMask.Portrait
-        }else{
-            return UIInterfaceOrientationMask.All
-        }
     }
 }

@@ -10,5 +10,5 @@ import Foundation
 import VideonaPlayer
 
 protocol SplitViewInterface:ViMoJoInterface{
-    func cameFromFullScreenPlayer(playerView:PlayerView)
+
 }

@@ -26,6 +26,8 @@ class TimerInteractor: NSObject,TimerInteractorInterface {
     
     func stop(){
         timer.invalidate()
+        
+        delegate?.updateTimer("00:00")
     }
     
     func updateTime() {

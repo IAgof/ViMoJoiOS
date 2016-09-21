@@ -10,7 +10,7 @@ import Foundation
 import MobileCoreServices
 import VideonaPlayer
 
-class EditorViewController: ViMoJoController,EditorViewInterface,PlayerViewDelegate,PlayerViewSetter,
+class EditorViewController: ViMoJoController,EditorViewInterface,PlayerViewDelegate,PlayerViewSetter,FullScreenWireframeDelegate,
 UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     
     //MARK: - VIPER variables

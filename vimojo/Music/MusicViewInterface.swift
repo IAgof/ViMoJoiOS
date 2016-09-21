@@ -10,6 +10,6 @@ import Foundation
 import VideonaPlayer
 
 protocol MusicViewInterface:ViMoJoInterface {
-    func cameFromFullScreenPlayer(playerView:PlayerView)
+
     func bringToFrontExpandPlayerButton()
 }

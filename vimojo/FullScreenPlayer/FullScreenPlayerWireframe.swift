@@ -11,6 +11,10 @@ import VideonaPlayer
 
 let fullScreenPlayerViewControllerIdentifier = "FullScreenPlayerViewController"
 
+protocol FullScreenWireframeDelegate {
+    func cameFromFullScreenPlayer(playerView:PlayerView)
+}
+
 class FullScreenPlayerWireframe : NSObject {
     var rootWireframe : RootWireframe?
     var fullScreenPlayerViewController: FullScreenPlayerViewController?
@@ -44,22 +48,11 @@ class FullScreenPlayerWireframe : NSObject {
     }
 
     func goPrevController(playerView:PlayerView){
-        if prevController!.isKindOfClass(EditorViewController) {
-            let controller = prevController as! EditorViewController
-            controller.cameFromFullScreenPlayer(playerView)
-        }else if prevController!.isKindOfClass(MusicViewController) {
-            let controller = prevController as! MusicViewController
-            controller.cameFromFullScreenPlayer(playerView)
-        }else if prevController!.isKindOfClass(SplitViewController) {
-            let controller = prevController as! SplitViewController
-            controller.cameFromFullScreenPlayer(playerView)
-        }else if prevController!.isKindOfClass(TrimViewController) {
-            let controller = prevController as! TrimViewController
-            controller.cameFromFullScreenPlayer(playerView)
-        }else if prevController!.isKindOfClass(DuplicateViewController) {
-            let controller = prevController as! DuplicateViewController
+        
+        if let controller = prevController as? FullScreenWireframeDelegate{
             controller.cameFromFullScreenPlayer(playerView)
         }
+        
         fullScreenPlayerViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
 }

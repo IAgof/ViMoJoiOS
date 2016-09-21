@@ -608,4 +608,4 @@ class RecordPresenter: NSObject
         delegate?.updateChronometer(time)
     }
     
-    }
+}

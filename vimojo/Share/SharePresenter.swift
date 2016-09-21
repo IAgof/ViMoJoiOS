@@ -17,7 +17,8 @@ class SharePresenter:NSObject,SharePresenterInterface{
     var controller: ShareInterface?
     var interactor: ShareInteractorInterface?
     var playerPresenter: PlayerPresenterInterface?
-    
+    var delegate:SharePresenterDelegate?
+
     var wireframe: ShareWireframe?
     var playerWireframe: PlayerWireframe?
     var recordWireframe: RecordWireframe?
@@ -102,6 +103,10 @@ class SharePresenter:NSObject,SharePresenterInterface{
 
     func updatePlayerLayer() {
         playerPresenter!.layoutSubViews()
+    }
+    
+    func pushGenericShare() {
+        delegate?.showShareGeneric(videoPath)
     }
     
     //MARK: - Mixpanel Tracking

@@ -13,7 +13,7 @@ import VideonaPlayer
 import AVFoundation
 import VideonaTrim
 
-class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSetter{
+class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSetter,FullScreenWireframeDelegate{
     //MARK: - VIPER variables
     var eventHandler: TrimPresenterInterface?
     var wireframe: TrimWireframe?
@@ -80,8 +80,8 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
         trimRangeSlider.maximumValue = maximumValue
         trimRangeSlider.minimumValue = 0.0
         
-        trimRangeSlider.lowerValue = lowerValue
         trimRangeSlider.upperValue = upperValue
+        trimRangeSlider.lowerValue = lowerValue
         
         Utils.sharedInstance.debugLog("maximum value\(trimRangeSlider.maximumValue) \n upper value\(trimRangeSlider.upperValue)")
         Utils.sharedInstance.debugLog("maximum value\(trimRangeSlider.minimumValue) \nlower value\(trimRangeSlider.lowerValue)")
@@ -159,17 +159,5 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
     //MARK: - Player setter
     func addPlayerAsSubview(player: PlayerView) {
         self.playerView.addSubview(player)
-    }
-}
-
-//Force Portrait to iPad
-extension TrimViewController{
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Pad
-        {
-            return UIInterfaceOrientationMask.Portrait
-        }else{
-            return UIInterfaceOrientationMask.All
-        }
     }
 }

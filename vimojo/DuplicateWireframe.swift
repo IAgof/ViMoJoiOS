@@ -73,15 +73,3 @@ class DuplicateWireframe : NSObject {
         }
     }
 }
-
-//Force Portrait to iPad
-extension DuplicateViewController{
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Pad
-        {
-            return UIInterfaceOrientationMask.Portrait
-        }else{
-            return UIInterfaceOrientationMask.All
-        }
-    }
-}

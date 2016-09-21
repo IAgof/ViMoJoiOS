@@ -11,10 +11,10 @@ import Foundation
 import VideonaPlayer
 import GoogleSignIn
 
-class ShareViewController: ViMoJoController,ShareInterface ,PlayerViewSetter,
+class ShareViewController: ViMoJoController,ShareInterface ,PlayerViewSetter,SharePresenterDelegate,
 UINavigationBarDelegate ,
 UITableViewDelegate, UITableViewDataSource,
-GIDSignInUIDelegate,GIDSignInDelegate{
+GIDSignInUIDelegate,GIDSignInDelegate,FullScreenWireframeDelegate{
     
     //MARK: - VIPER
     var eventHandler: SharePresenterInterface?
@@ -47,7 +47,8 @@ GIDSignInUIDelegate,GIDSignInDelegate{
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var settingsNavBar: UINavigationItem!
     @IBOutlet weak var expandPlayerButton: UIButton!
-    
+    @IBOutlet weak var shareGenericButton: UIButton!
+
     
     override func viewDidLoad() {
 
@@ -103,6 +104,10 @@ GIDSignInUIDelegate,GIDSignInDelegate{
         eventHandler?.expandPlayer()
     }
 
+    @IBAction func pushGenericShare(sender: AnyObject) {
+        eventHandler?.pushGenericShare()
+    }
+    
     //MARK: - UITableView Datasource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
@@ -206,4 +211,33 @@ GIDSignInUIDelegate,GIDSignInDelegate{
     func addPlayerAsSubview(player: PlayerView) {
         self.playerView.addSubview(player)
     }
+    
+    //Presenter delegate
+    func showShareGeneric(moviePath:String) {
+        
+        let movie:NSURL = NSURL.fileURLWithPath(moviePath)
+        
+        let objectsToShare = [movie] //comment!, imageData!, myWebsite!]
+        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        
+        activityVC.setValue("Video", forKey: "subject")
+        
+        
+        //New Excluded Activities Code
+        if #available(iOS 9.0, *) {
+            activityVC.excludedActivityTypes = [UIActivityTypeAirDrop, UIActivityTypeAddToReadingList, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypeOpenInIBooks, UIActivityTypePostToTencentWeibo, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint]
+        } else {
+            // Fallback on earlier versions
+            activityVC.excludedActivityTypes = [UIActivityTypeAirDrop, UIActivityTypeAddToReadingList, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypePostToTencentWeibo, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint ]
+        }
+        
+        if (activityVC.popoverPresentationController != nil) {
+            activityVC.popoverPresentationController!.sourceView = shareGenericButton
+        }
+        
+        self.presentViewController(activityVC, animated: false, completion: nil)
+        
+        
+    }
+
 }

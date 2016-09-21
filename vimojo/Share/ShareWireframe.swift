@@ -48,7 +48,8 @@ class ShareWireframe : NSObject {
         viewController.eventHandler = sharePresenter
         shareViewController = viewController
         sharePresenter?.controller = viewController
-        
+        sharePresenter?.delegate = viewController
+
         return viewController
     }
     

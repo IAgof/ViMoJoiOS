@@ -17,10 +17,12 @@ class ViMoJoController: UIViewController,
 ViMoJoInterface {
 
     let tracker = ViMoJoTracker()
-    
+    var forcePortrait = false
+
     override func viewDidLoad() {
         print("View did load in \n \(self)")
         self.prefersStatusBarHidden()
+        
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: #selector(ViMoJoController.hideStatusBarAlways),
                                                          name: UIDeviceOrientationDidChangeNotification,
@@ -61,5 +63,19 @@ ViMoJoInterface {
     
     func getController() -> UIViewController {
         return self
+    }
+}
+
+
+//Force Portrait to iPad
+extension ViMoJoController{
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        if UIDevice.currentDevice().userInterfaceIdiom == .Pad
+        {
+            return UIInterfaceOrientationMask.Portrait
+        }else{
+            return UIInterfaceOrientationMask.All
+        }
     }
 }

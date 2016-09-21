@@ -88,6 +88,8 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         eventHandler?.viewDidLoad(cameraView)
         
         self.configureViews()
+        
+        configureRotationObserver()
     }
     
     func configureViews(){
@@ -115,10 +117,17 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         self.cameraView.addGestureRecognizer(pinchDisplay!)
     }
     
+    func configureRotationObserver(){
+                NSNotificationCenter.defaultCenter().addObserver(self,
+                                                                 selector: #selector(RecordController.checkOrientation),
+                                                                 name: UIDeviceOrientationDidChangeNotification,
+                                                                 object: nil)
+    }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         print("Recorder view will appear")
         eventHandler?.viewWillAppear()
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -130,6 +139,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     //MARK: - View Config
     func forceLandsCapeOnInit(){
         //Force landscape mode
@@ -269,10 +279,39 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     }
     
     //MARK: - Landscape Orientation
+    //MARK: - Landscape Orientation
+    func checkOrientation(){
+        var text=""
+        switch UIDevice.currentDevice().orientation{
+        case .Portrait:
+            text="Portrait"
+        case .PortraitUpsideDown:
+            text="PortraitUpsideDown"
+        case .LandscapeLeft:
+            text="LandscapeLeft"
+        case .LandscapeRight:
+            text="LandscapeRight"
+        default:
+            text="Another"
+        }
+        print("Orientation You have moved: \(text)")
+    }
+    
+    
     func forceOrientation(){
         switch UIDevice.currentDevice().orientation{
         case .Portrait,.PortraitUpsideDown:
             let value = UIInterfaceOrientation.LandscapeRight.rawValue
+            UIDevice.currentDevice().setValue(value, forKey: "orientation")
+            Utils.sharedInstance.debugLog("Force orientation to landscape right)")
+            break
+        case .LandscapeRight:
+            let value = UIInterfaceOrientation.LandscapeRight.rawValue
+            UIDevice.currentDevice().setValue(value, forKey: "orientation")
+            Utils.sharedInstance.debugLog("Force orientation to landscape right)")
+            break
+        case .LandscapeLeft:
+            let value = UIInterfaceOrientation.LandscapeLeft.rawValue
             UIDevice.currentDevice().setValue(value, forKey: "orientation")
             Utils.sharedInstance.debugLog("Force orientation to landscape right)")
             break
@@ -290,6 +329,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     }
     
 }
+
 extension UINavigationController {
     
     override public func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {

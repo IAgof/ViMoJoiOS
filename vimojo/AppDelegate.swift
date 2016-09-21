@@ -36,6 +36,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
         
         return true
     }
+    
+    func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> UIInterfaceOrientationMask {
+       return UIInterfaceOrientationMask.All
+    }
+    
     func configureGoogleSignIn() {
         // Initialize sign-in
         var configureError: NSError?
