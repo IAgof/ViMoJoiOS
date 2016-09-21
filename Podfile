@@ -8,8 +8,9 @@ pod 'Fabric'
 pod 'Crashlytics'
 pod 'Alamofire', '~> 3.3'
 pod 'Mixpanel'
+
 pod 'Google/SignIn'
-pod 'Google/Analytics'
+pod 'Google'
 
 pod 'SpaceOnDisk', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/SpaceOnDisk'
 pod 'BatteryRemaining', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/BatteryRemaining'

@@ -85,6 +85,12 @@ class AppDependencies {
         
         playerWireframe.playerPresenter = playerPresenter
         
+        //FILL SCREEN PLAYER MODULE
+        fullScreenPlayerPresenter.wireframe = fullScreenPlayerWireframe
+        
+        fullScreenPlayerWireframe.fullScreenPlayerPresenter = fullScreenPlayerPresenter
+        fullScreenPlayerWireframe.rootWireframe = rootWireframe
+        
         //EDITOR ROOM MODULE
         editorRoomPresenter.wireframe = editorRoomWireframe
         editorRoomPresenter.interactor = editingRoomInteractor
@@ -95,7 +101,8 @@ class AppDependencies {
         editorRoomWireframe.shareWireframe = shareWireframe
         editorRoomWireframe.musicWireframe = musicWireframe
 //        editorRoomWireframe.settingsWireframe = settingsWireframe
-        
+        editorWireframe.fullScreenPlayerWireframe = fullScreenPlayerWireframe
+
         //EDITOR MODULE
         editorPresenter.wireframe = editorWireframe
         editorPresenter.playerPresenter = playerPresenter
@@ -181,4 +188,7 @@ class AppDependencies {
         recordWireframe.presentRecordInterfaceFromWindow(window)
     }
   
+    func installEditorRoomToRootViewControllerIntoWindow(window: UIWindow){
+        editorRoomWireframe.presentEditingRoomInterfaceFromWindow(window)
+    }
 }

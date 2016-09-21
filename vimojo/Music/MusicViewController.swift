@@ -199,3 +199,4 @@ UITableViewDataSource,UITableViewDelegate{
         self.playerView.addSubview(player)
     }
 }
+
