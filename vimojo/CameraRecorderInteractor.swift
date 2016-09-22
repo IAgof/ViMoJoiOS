@@ -32,18 +32,19 @@ class CameraRecorderInteractor{
     
     func recordVideo(completion:(String)->Void){
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-        dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            let title = self.getNewTitle()
-            let clipPath = self.getNewClipPath(title)
-            self.clipsArray.append(clipPath)
-            
-            AddVideoToProjectUseCase.sharedInstance.add(clipPath,
-                                                        title: title,
-                                                        project: self.project!)
-            
-            print("Number of clips in project :\n \(self.project?.numberOfClips())")
-            
-            let clipURL = NSURL.init(fileURLWithPath: clipPath)
+        let title = self.getNewTitle()
+        let clipPath = self.getNewClipPath(title)
+        self.clipsArray.append(clipPath)
+        
+        AddVideoToProjectUseCase.sharedInstance.add(clipPath,
+                                                    title: title,
+                                                    project: self.project!)
+        
+        print("Number of clips in project :\n \(self.project?.numberOfClips())")
+        
+        let clipURL = NSURL.init(fileURLWithPath: clipPath)
+        
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
             
             Utils().debugLog("PathToMovie: \(clipPath)")
             self.movieWriter = GPUImageMovieWriter.init(movieURL: clipURL, size: CGSizeMake((self.resolutionSize?.width)!,(self.resolutionSize?.height)!))
@@ -55,7 +56,7 @@ class CameraRecorderInteractor{
             
             Utils().debugLog("Recording movie starts")
             self.filterToWriter?.addTarget(self.movieWriter)
-        }
+        })
         completion("Record Starts")
     }
     

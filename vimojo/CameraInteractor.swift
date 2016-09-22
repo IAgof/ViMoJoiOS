@@ -44,6 +44,13 @@ class CameraInteractor:CameraRecorderDelegate,
         }
     }
     
+    enum FiltersFlag{
+        case NoFilters
+        case WithFilters
+    }
+    
+    var filtersFlag:FiltersFlag = .NoFilters
+    
     //MARK: - Init
     required init(display:GPUImageView,
                   cameraDelegate: CameraInteractorDelegate,
@@ -62,7 +69,18 @@ class CameraInteractor:CameraRecorderDelegate,
         
         videoCamera.addTarget(filter)
         
-        self.addBlendFilterAtInit()
+        switch filtersFlag {
+        case .NoFilters:
+            filter.addTarget(maskFilterOutput)
+            
+            maskFilterOutput.addTarget(displayView)
+            break
+        case .WithFilters:
+            self.addBlendFilterAtInit()
+            break
+        }
+        
+        
         cameraRecorder = CameraRecorderInteractor(project: project)
         videoCamera.startCameraCapture()
         
@@ -143,6 +161,7 @@ class CameraInteractor:CameraRecorderDelegate,
         }
     }
     
+    
     func changeBlendImage(image:UIImage){
         imageView.image = image
     }
@@ -191,26 +210,34 @@ class CameraInteractor:CameraRecorderDelegate,
     }
 
     func setInputToWriter(){
-        
-        print("set Input To Writer")
-        
-        print("\n maskFilterOutput targets \n \(maskFilterOutput.targets())\n\n\n")
-        let blendFilter = GPUImageAlphaBlendFilter()
-        blendFilter.mix = 1
+        switch filtersFlag {
+        case .NoFilters:
+            maskFilterOutput.addTarget(maskFilterToRecord)
 
-        let image = UIImage.init(named: "water_mark")
-        
-        waterMark = GPUImagePicture.init(image: image)
-        
-        maskFilterOutput.addTarget(blendFilter)
-        waterMark.addTarget(blendFilter)
-        
-        waterMark.processImage()
-        
-        maskFilterToRecord = GPUImageFilter()
-        
-        blendFilter.addTarget(maskFilterToRecord)
-        blendFilter.useNextFrameForImageCapture()
+            break
+        case .WithFilters:
+            print("set Input To Writer")
+            
+            print("\n maskFilterOutput targets \n \(maskFilterOutput.targets())\n\n\n")
+            let blendFilter = GPUImageAlphaBlendFilter()
+            blendFilter.mix = 1
+            
+            let image = UIImage.init(named: "water_mark")
+            
+            waterMark = GPUImagePicture.init(image: image)
+            
+            maskFilterOutput.addTarget(blendFilter)
+            waterMark.addTarget(blendFilter)
+            
+            waterMark.processImage()
+            
+            maskFilterToRecord = GPUImageFilter()
+            
+            blendFilter.addTarget(maskFilterToRecord)
+            blendFilter.useNextFrameForImageCapture()
+            break
+        }
+
         
         cameraRecorder?.setInput(maskFilterToRecord)
     }

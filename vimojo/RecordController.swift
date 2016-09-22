@@ -469,11 +469,11 @@ extension RecordController:RecordPresenterDelegate {
     }
     
     func hidePrincipalViews() {
-        fadeOutView([modeContainerView,upperContainerView,recordAreaContainerView])
+        fadeOutView([modeContainerView,upperContainerView,recordAreaContainerView,flyToEditorButton])
     }
     
     func showPrincipalViews() {
-        fadeInView([upperContainerView,recordAreaContainerView])
+        fadeInView([upperContainerView,recordAreaContainerView,flyToEditorButton])
     }
     
     func hideSecondaryRecordViews() {
