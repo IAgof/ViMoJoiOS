@@ -77,7 +77,7 @@ class AppDependencies {
         recordWireframe.editorRoomWireframe = editorRoomWireframe
         
         recordInteractor.project = project
-        
+        recordInteractor.delegate = recordPresenter
         
         //PLAYER MODULE
         playerPresenter.wireframe = playerWireframe

@@ -11,6 +11,7 @@ pod 'Mixpanel'
 
 pod 'Google/SignIn'
 pod 'Google'
+pod 'NMRangeSlider', '~> 1.2'
 
 pod 'SpaceOnDisk', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/SpaceOnDisk'
 pod 'BatteryRemaining', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/BatteryRemaining'
@@ -22,7 +23,8 @@ pod 'Focus', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/Focus'
 pod 'FocalLensSlider', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/FocalLensSlider'
 pod 'ExpositionModes', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/ExpositionModes'
 pod 'ZoomCameraSlider', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/ZoomCameraSlider'
-pod 'NMRangeSlider', '~> 1.2'
+pod 'ResolutionSelector', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/ResolutionsSelector'
+
 
 pod 'VideonaProject', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaProject'
 

@@ -25,6 +25,8 @@ protocol RecordPresenterInterface{
     func pushZoom()
     func pushBattery()
     func pushSpaceOnDisk()
+    func pushResolution()
+    
     func pushMic()
     func pushFocus()
     func pushExposureModes()
@@ -39,6 +41,8 @@ protocol RecordPresenterInterface{
     
     func batteryValuesUpdate(value:Float)
     func audioLevelHasChanged(value:Float)
+    
+    func saveResolutionToDefaults(resolution:String)
 }
 
 protocol RecordPresenterDelegate {
@@ -97,6 +101,13 @@ protocol RecordPresenterDelegate {
     func showFocusView()
     func hideFocusView()
     
+    func showResolutionView()
+    func hideResolutionView()
+    
     func showExposureModesView()
     func hideExposureModesView()
+    
+    func setResolutionToView(resolution:String)
+    func setResolutionIconImage(image:UIImage)
+    func setResolutionIconImagePressed(image:UIImage)
 }

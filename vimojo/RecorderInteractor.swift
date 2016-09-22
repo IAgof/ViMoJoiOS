@@ -34,4 +34,16 @@ class RecorderInteractor: RecorderInteractorInterface {
     func getProject() ->Project{
         return project!
     }
+    
+    func getResolutionImage(resolution: String) {
+        let resolution = ResolutionImage(resolution: resolution)
+        
+        if let resImage = resolution.image{
+            delegate?.resolutionImageFound(resImage)
+        }
+        
+        if let resImagePressed = resolution.imagePressed{
+            delegate?.resolutionImagePressedFound(resImagePressed)
+        }
+    }
 }

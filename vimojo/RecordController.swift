@@ -18,6 +18,7 @@ import Focus
 import FocalLensSlider
 import ExpositionModes
 import ZoomCameraSlider
+import ResolutionSelector
 
 class RecordController: ViMoJoController,UINavigationControllerDelegate{
     
@@ -31,6 +32,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var configModesButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var flyToEditorButton: UIButton!
+    @IBOutlet weak var resolutionButton: UIButton!
 
     @IBOutlet weak var secondaryRecordButton: UIButton!
     @IBOutlet weak var hideAllButtonsButton: UIButton!
@@ -57,6 +59,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var focalLensSliderView: FocalLensSliderView!
     @IBOutlet weak var expositionModesView: ExpositionModesView!
     @IBOutlet weak var zoomView: ZoomSliderView!
+    @IBOutlet weak var resolutionsView: ResolutionsSelectorView!
     
     //MARK: - UIView
     @IBOutlet weak var upperContainerView: UIView!
@@ -98,6 +101,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         audioLevelView.delegate = self
         focusView.delegate = self
         expositionModesView.delegate = self
+        resolutionsView.delegate = self
         
         roundBorderOfViews()
         rotateZoomSlider()
@@ -237,7 +241,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     
     
     @IBAction func pushResolution(sender: AnyObject) {
-        
+        eventHandler?.pushResolution()
     }
     
     
@@ -583,6 +587,14 @@ extension RecordController:RecordPresenterDelegate {
         focusButton.selected = false
     }
     
+    func showResolutionView() {
+        fadeInView([resolutionsView])
+    }
+    
+    func hideResolutionView() {
+        fadeOutView([resolutionsView])
+    }
+    
     func showExposureModesView() {
         fadeInView([expositionModesView])
         expositionModesView.checkIfExposureManualSliderIsEnabled()
@@ -595,6 +607,18 @@ extension RecordController:RecordPresenterDelegate {
         fadeOutView([exposureConfigurationView])
 
         exposureModesButton.selected = false
+    }
+    
+    func setResolutionToView(resolution: String) {
+        resolutionsView.setResolutionAtInit(resolution)
+    }
+    
+    func setResolutionIconImage(image: UIImage) {
+        resolutionButton.setImage(image, forState: .Normal)
+    }
+    func setResolutionIconImagePressed(image: UIImage) {
+        resolutionButton.setImage(image, forState: .Highlighted)
+        resolutionButton.setImage(image, forState: .Selected)
     }
 }
 
@@ -641,5 +665,16 @@ extension RecordController: FocusDelegate{
     
     func hideFocusLens() {
         fadeOutView([focalLensSliderView])
+    }
+}
+
+//MARK: - Resolutions delegate
+extension RecordController: ResolutionsSelectorDelegate{
+    func resolutionToChangeReceived(resolution: String) {
+        eventHandler?.saveResolutionToDefaults(resolution)
+    }
+    
+    func removeResolutionsView() {
+        eventHandler?.pushResolution()
     }
 }

@@ -15,6 +15,7 @@ protocol CameraInteractorInterface {
          cameraDelegate: CameraInteractorDelegate,
          project:Project)
     func setResolution()
+    
     func setIsRecording(isRecording:Bool)
     func startRecordVideo(completion:(String)->Void)
     func rotateCamera()

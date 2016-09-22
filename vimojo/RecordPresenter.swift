@@ -33,6 +33,7 @@ class RecordPresenter: NSObject
     var zoomIsShowed = false
     var batteryIsShowed = false
     var spaceOnDiskIsShowed = false
+    var resolutionIsShowed = false
     var isoConfigIsShowed = false
     var wbConfigIsShowed = false
     var micViewIsShowed = false
@@ -67,10 +68,14 @@ class RecordPresenter: NSObject
     }
     
     func viewWillAppear() {
-        cameraInteractor!.setResolution()
+        cameraInteractor?.setResolution()
         cameraInteractor?.startCamera()
         
         delegate?.forceOrientation()
+        
+        if let getFromDefaultResolution = NSUserDefaults.standardUserDefaults().stringForKey(SettingsConstants().SETTINGS_RESOLUTION){
+            delegate?.setResolutionToView(getFromDefaultResolution)
+        }
     }
     
     func pushRecord() {
@@ -138,7 +143,8 @@ class RecordPresenter: NSObject
             hideBatteryViewIfYouCan()
         }else{
             hideSpaceOnDiskViewIfYouCan()
-            
+            hideResolutionViewIfYouCan()
+   
             delegate?.updateBatteryValues()
             delegate?.showBatteryRemaining()
             
@@ -151,11 +157,25 @@ class RecordPresenter: NSObject
             hideSpaceOnDiskViewIfYouCan()
         }else{
             hideBatteryViewIfYouCan()
-            
+            hideResolutionViewIfYouCan()
+
             delegate?.updateSpaceOnDiskValues()
             delegate?.showSpaceOnDisk()
             
             spaceOnDiskIsShowed = true
+        }
+    }
+    
+    func pushResolution() {
+        if resolutionIsShowed{
+            hideResolutionViewIfYouCan()
+        }else{
+            hideBatteryViewIfYouCan()
+            hideSpaceOnDiskViewIfYouCan()
+            
+            delegate?.showResolutionView()
+            
+            resolutionIsShowed = true
         }
     }
     
@@ -311,6 +331,16 @@ class RecordPresenter: NSObject
         delegate?.setAudioColor(getAudioLevelColor(value))
     }
     
+    func saveResolutionToDefaults(resolution:String) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+       
+        defaults.setObject(resolution, forKey: SettingsConstants().SETTINGS_RESOLUTION)
+        
+        cameraInteractor?.setResolution()
+        
+        interactor?.getResolutionImage(resolution)
+    }
+    
     //MARK: - Inner functions
     func getAudioLevelColor(value:Float)->UIColor{
         switch value {
@@ -398,6 +428,15 @@ class RecordPresenter: NSObject
         delegate?.hideBatteryView()
         
         batteryIsShowed = false
+    }
+    
+    func hideResolutionViewIfYouCan(){
+        if !resolutionIsShowed {
+            return
+        }
+        delegate?.hideResolutionView()
+        
+        resolutionIsShowed = false
     }
     
     func hideISOConfigIfYouCan(){
@@ -608,4 +647,14 @@ class RecordPresenter: NSObject
         delegate?.updateChronometer(time)
     }
     
+}
+
+extension RecordPresenter:RecorderInteractorDelegate{
+    func resolutionImageFound(image: UIImage) {
+        delegate?.setResolutionIconImage(image)
+    }
+    
+    func resolutionImagePressedFound(image: UIImage) {
+        delegate?.setResolutionIconImagePressed(image)
+    }
 }

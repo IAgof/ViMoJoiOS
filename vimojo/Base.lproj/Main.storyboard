@@ -10,7 +10,7 @@
         <!--Record Controller-->
         <scene sceneID="vP0-YV-lKK">
             <objects>
-                <viewController storyboardIdentifier="RecordViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="31E-sq-qOD" customClass="RecordController" customModule="vimojo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecordViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="31E-sq-qOD" customClass="RecordController" customModule="Hispanopost" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ori-Z0-WZf"/>
                         <viewControllerLayoutGuide type="bottom" id="iHv-Wl-fVq"/>
@@ -89,6 +89,9 @@
                                                         <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                                             <rect key="frame" x="20" y="0.0" width="0.0" height="22"/>
                                                         </variation>
+                                                        <connections>
+                                                            <action selector="pushResolution:" destination="31E-sq-qOD" eventType="touchUpInside" id="7YD-xf-ERu"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dn-ri-8O1">
                                                         <rect key="frame" x="95" y="0.0" width="14" height="22"/>
@@ -148,10 +151,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7DH-Ci-Hyp">
-                                        <rect key="frame" x="104" y="554" width="393" height="38"/>
+                                        <rect key="frame" x="162" y="554" width="277" height="38"/>
                                         <subviews>
                                             <stackView contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="IQg-o2-2nM">
-                                                <rect key="frame" x="4" y="4" width="385" height="30"/>
+                                                <rect key="frame" x="4" y="4" width="269" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3L-6v-7eH">
                                                         <rect key="frame" x="0.0" y="0.0" width="29" height="30"/>
@@ -214,7 +217,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8l-9H-y4q">
-                                                        <rect key="frame" x="239" y="0.0" width="146" height="30"/>
+                                                        <rect key="frame" x="239" y="0.0" width="30" height="30"/>
                                                         <state key="normal" image="activity_record_icon_metering_evaluative"/>
                                                         <state key="selected" image="activity_record_icon_metering_evaluative_pressed"/>
                                                         <state key="highlighted" image="activity_record_icon_metering_evaluative_pressed"/>
@@ -374,14 +377,6 @@
                                             <constraint firstAttribute="trailing" secondItem="yWo-rG-dBr" secondAttribute="trailing" id="vB2-AV-XXx"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRf-8q-oTu">
-                                        <rect key="frame" x="8" y="8" width="28" height="28"/>
-                                        <state key="normal" image="activity_record_icon_clear"/>
-                                        <state key="selected" image="activity_record_icon_shrink"/>
-                                        <connections>
-                                            <action selector="pushHideButtons:" destination="31E-sq-qOD" eventType="touchUpInside" id="ISg-Pn-iGF"/>
-                                        </connections>
-                                    </button>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EJu-rT-6M4" customClass="FocalLensSliderView" customModule="FocalLensSlider">
                                         <rect key="frame" x="-103" y="280" width="250" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
@@ -446,27 +441,8 @@
                                             <userDefinedRuntimeAttribute type="image" keyPath="tungstenImageHighlightedAndPressed" value="activity_record_icon_white_balance_tungsten_pressed"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zn6-dz-Qlw" customClass="FocusView" customModule="Focus">
-                                        <rect key="frame" x="167" y="515" width="150" height="35"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="BHN-Db-ORY"/>
-                                            <constraint firstAttribute="height" constant="35" id="RiR-3T-49e"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="autoImageNormal" value="activity_record_icon_mode_automatic"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="autoImageHighlightedAndPressed" value="activity_record_icon_mode_automatic_pressed"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="focalLensManualImageNormal" value="activity_record_icon_focus_mode_bar"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="focalLensManualImageHighlightedAndPressed" value="activity_record_icon_focus_mode_bar_pressed"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="manualTapImageNormal" value="activity_record_icon_focus_manual"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="manualTapImageHighlightedAndPressed" value="activity_record_icon_focus_manual_pressed"/>
-                                        </userDefinedRuntimeAttributes>
-                                        <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                            <rect key="frame" x="74" y="515" width="150" height="35"/>
-                                        </variation>
-                                    </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Jd-7d-AYh" customClass="ExpositionModesView" customModule="ExpositionModes">
-                                        <rect key="frame" x="345" y="515" width="150" height="35"/>
+                                        <rect key="frame" x="287" y="515" width="150" height="35"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -478,10 +454,10 @@
                                             <userDefinedRuntimeAttribute type="image" keyPath="autoImageHighlightedAndPressed" value="activity_record_icon_metering_automatic_pressed"/>
                                             <userDefinedRuntimeAttribute type="image" keyPath="centerImageNormal" value="activity_record_icon_metering_center"/>
                                             <userDefinedRuntimeAttribute type="image" keyPath="centerImageHighlightedAndPressed" value="activity_record_icon_metering_center_pressed"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="manualSliderImageNormal" value="activity_record_icon_metering_manual"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="manualSliderImageHighlightedAndPressed" value="activity_record_icon_metering_manual_pressed"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="manualImageNormal" value="activity_record_icon_metering_mode_bar"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="manualImageHighlightedAndPressed" value="activity_record_icon_metering_mode_bar_pressed"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="manualSliderImageNormal" value="activity_record_icon_metering_mode_bar"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="manualSliderImageHighlightedAndPressed" value="activity_record_icon_metering_mode_bar_pressed"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="manualImageNormal" value="activity_record_icon_metering_manual"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="manualImageHighlightedAndPressed" value="activity_record_icon_metering_manual_pressed"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXw-Te-6Ce">
@@ -502,6 +478,41 @@
                                             <action selector="pushFlyToEditor:" destination="31E-sq-qOD" eventType="touchUpInside" id="TQM-oi-lZb"/>
                                         </connections>
                                     </button>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zn6-dz-Qlw" customClass="FocusView" customModule="Focus">
+                                        <rect key="frame" x="225" y="515" width="150" height="35"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="BHN-Db-ORY"/>
+                                            <constraint firstAttribute="height" constant="35" id="RiR-3T-49e"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="autoImageNormal" value="activity_record_icon_mode_automatic"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="autoImageHighlightedAndPressed" value="activity_record_icon_mode_automatic_pressed"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="focalLensManualImageNormal" value="activity_record_icon_focus_mode_bar"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="focalLensManualImageHighlightedAndPressed" value="activity_record_icon_focus_mode_bar_pressed"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="manualTapImageNormal" value="activity_record_icon_focus_manual"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="manualTapImageHighlightedAndPressed" value="activity_record_icon_focus_manual_pressed"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                            <rect key="frame" x="74" y="515" width="150" height="35"/>
+                                        </variation>
+                                    </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hah-36-ual" customClass="ResolutionsSelectorView" customModule="ResolutionSelector">
+                                        <rect key="frame" x="175" y="175" width="250" height="250"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="Ab9-4z-rgK"/>
+                                            <constraint firstAttribute="width" constant="250" id="EgO-HQ-fr1"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRf-8q-oTu">
+                                        <rect key="frame" x="8" y="564" width="28" height="28"/>
+                                        <state key="normal" image="activity_record_icon_clear"/>
+                                        <state key="selected" image="activity_record_icon_shrink"/>
+                                        <connections>
+                                            <action selector="pushHideButtons:" destination="31E-sq-qOD" eventType="touchUpInside" id="ISg-Pn-iGF"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -511,15 +522,17 @@
                                         <variation key="heightClass=compact" constant="10"/>
                                     </constraint>
                                     <constraint firstItem="rX8-eJ-GlM" firstAttribute="centerY" secondItem="CiJ-Ll-EF1" secondAttribute="centerY" id="3jx-CW-0a9"/>
+                                    <constraint firstItem="hah-36-ual" firstAttribute="centerY" secondItem="9Kl-ym-3ZQ" secondAttribute="centerY" id="6qg-aA-9sC"/>
                                     <constraint firstItem="nt1-cO-8OT" firstAttribute="top" secondItem="mqP-WM-mhr" secondAttribute="bottom" constant="2" id="7ec-Qm-pQK"/>
                                     <constraint firstItem="7DH-Ci-Hyp" firstAttribute="top" secondItem="QoG-NT-WY4" secondAttribute="bottom" constant="4" id="7iU-M4-BA8"/>
+                                    <constraint firstItem="hah-36-ual" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="7kV-jg-M9u"/>
                                     <constraint firstItem="l5W-XL-ajn" firstAttribute="centerY" secondItem="mqP-WM-mhr" secondAttribute="centerY" id="8Wl-pK-drJ"/>
                                     <constraint firstItem="EJu-rT-6M4" firstAttribute="centerY" secondItem="9Kl-ym-3ZQ" secondAttribute="centerY" id="9iG-Z4-61o">
                                         <variation key="heightClass=compact" constant="10"/>
                                     </constraint>
-                                    <constraint firstItem="2Jd-7d-AYh" firstAttribute="centerX" secondItem="p8l-9H-y4q" secondAttribute="centerX" id="B7l-ZD-cib"/>
                                     <constraint firstItem="uHc-Xb-tvs" firstAttribute="centerX" secondItem="7DH-Ci-Hyp" secondAttribute="centerX" id="CX3-3Z-RXg"/>
                                     <constraint firstItem="IXw-Te-6Ce" firstAttribute="centerX" secondItem="LC6-Gc-POv" secondAttribute="centerX" id="DyY-sl-vn5"/>
+                                    <constraint firstAttribute="bottom" secondItem="zRf-8q-oTu" secondAttribute="bottom" constant="8" id="Fa6-Zv-QBN"/>
                                     <constraint firstItem="REF-Hb-DD3" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="GGD-A0-01S"/>
                                     <constraint firstItem="E5V-mU-ie5" firstAttribute="top" secondItem="IXw-Te-6Ce" secondAttribute="bottom" constant="30" id="Gtl-IH-RSv"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7DH-Ci-Hyp" secondAttribute="trailing" constant="10" id="Hx6-uJ-evI"/>
@@ -545,6 +558,7 @@
                                     <constraint firstItem="CiJ-Ll-EF1" firstAttribute="top" secondItem="9Kl-ym-3ZQ" secondAttribute="top" constant="8" id="nUu-Sf-laA"/>
                                     <constraint firstItem="rX8-eJ-GlM" firstAttribute="leading" secondItem="zRf-8q-oTu" secondAttribute="trailing" constant="16" id="nZj-vc-804"/>
                                     <constraint firstItem="CiJ-Ll-EF1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rX8-eJ-GlM" secondAttribute="trailing" constant="15" id="oAd-uh-Y9G"/>
+                                    <constraint firstItem="zRf-8q-oTu" firstAttribute="leading" secondItem="9Kl-ym-3ZQ" secondAttribute="leading" constant="8" id="qp4-5a-z6c"/>
                                     <constraint firstItem="mqP-WM-mhr" firstAttribute="leading" secondItem="l5W-XL-ajn" secondAttribute="trailing" constant="2" id="rxT-20-vp3">
                                         <variation key="widthClass=regular" constant="4"/>
                                     </constraint>
@@ -556,9 +570,10 @@
                                     <constraint firstAttribute="trailing" secondItem="nt1-cO-8OT" secondAttribute="trailing" constant="8" id="xX9-jE-utt"/>
                                     <constraint firstItem="2Jd-7d-AYh" firstAttribute="leading" secondItem="7DH-Ci-Hyp" secondAttribute="trailing" constant="-152" id="z7h-dG-YH5"/>
                                 </constraints>
-                                <variation key="heightClass=compact">
+                                <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="B7l-ZD-cib"/>
+                                        <exclude reference="1l4-ff-wyJ"/>
+                                        <exclude reference="PWG-Ec-Ta9"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -604,6 +619,8 @@
                         <outlet property="overlayClearGrid" destination="Usb-Qc-mHY" id="fwh-Pg-Vgo"/>
                         <outlet property="recordAreaContainerView" destination="E5V-mU-ie5" id="upI-1r-nbI"/>
                         <outlet property="recordButton" destination="LC6-Gc-POv" id="Ub9-X5-UC0"/>
+                        <outlet property="resolutionButton" destination="M2j-0r-Ynx" id="nGr-5Q-maF"/>
+                        <outlet property="resolutionsView" destination="hah-36-ual" id="fA3-ec-eD1"/>
                         <outlet property="secondaryChronometerLabel" destination="mqP-WM-mhr" id="Zlt-Ac-Q4D"/>
                         <outlet property="secondaryRecordButton" destination="nt1-cO-8OT" id="QK3-6r-tWD"/>
                         <outlet property="secondaryRecordingIndicator" destination="l5W-XL-ajn" id="cuT-cW-jHn"/>
@@ -635,7 +652,7 @@
         <!--Split View Controller-->
         <scene sceneID="tCG-Oh-yBg">
             <objects>
-                <viewController storyboardIdentifier="SplitViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="e1J-kO-AGR" customClass="SplitViewController" customModule="vimojo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SplitViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="e1J-kO-AGR" customClass="SplitViewController" customModule="Hispanopost" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JQN-Ky-Shc"/>
                         <viewControllerLayoutGuide type="bottom" id="FOT-i4-NCU"/>
@@ -674,7 +691,7 @@
                                     <action selector="pushAcceptButton:" destination="e1J-kO-AGR" eventType="touchUpInside" id="fOA-uh-LWT"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ck2-bG-eRC" customClass="PlayerView" customModule="vimojo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ck2-bG-eRC" customClass="PlayerView" customModule="Hispanopost" customModuleProvider="target">
                                 <rect key="frame" x="8" y="52" width="584" height="329"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hK2-dv-6yA">
@@ -719,9 +736,8 @@
                                         <variation key="heightClass=compact" misplaced="YES">
                                             <rect key="frame" x="41" y="46" width="169" height="21"/>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                        <variation key="heightClass=regular-widthClass=regular">
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                            <rect key="frame" x="234" y="61" width="293" height="36"/>
                                         </variation>
                                     </label>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ede-G3-Wep" customClass="NMRangeSlider">
@@ -735,6 +751,9 @@
                                         </constraints>
                                         <variation key="heightClass=compact" misplaced="YES">
                                             <rect key="frame" x="10" y="107" width="230" height="85"/>
+                                        </variation>
+                                        <variation key="widthClass=regular" ambiguous="YES" misplaced="YES">
+                                            <rect key="frame" x="10" y="212" width="580" height="51"/>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
@@ -930,7 +949,7 @@
         <!--Duplicate View Controller-->
         <scene sceneID="0Du-ex-IvO">
             <objects>
-                <viewController storyboardIdentifier="DuplicateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="T1O-e5-pi3" customClass="DuplicateViewController" customModule="vimojo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DuplicateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="T1O-e5-pi3" customClass="DuplicateViewController" customModule="Hispanopost" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YiW-x0-HZ6"/>
                         <viewControllerLayoutGuide type="bottom" id="y6Q-xE-Vlo"/>
@@ -969,7 +988,7 @@
                                     <action selector="pushCancelButton:" destination="T1O-e5-pi3" eventType="touchUpInside" id="Ho9-P3-pEd"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iTO-W9-5Kn" customClass="PlayerView" customModule="vimojo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iTO-W9-5Kn" customClass="PlayerView" customModule="Hispanopost" customModuleProvider="target">
                                 <rect key="frame" x="8" y="52" width="584" height="312"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9dY-Ww-aI4">
@@ -1077,6 +1096,9 @@
                                         </variation>
                                         <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="217" y="170" width="19" height="22"/>
+                                        </variation>
+                                        <variation key="widthClass=regular" ambiguous="YES" misplaced="YES">
+                                            <rect key="frame" x="291" y="238" width="19" height="22"/>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
                                             <fontDescription key="fontDescription" type="system" pointSize="35"/>
@@ -1298,7 +1320,7 @@
         <!--Trim View Controller-->
         <scene sceneID="NxK-X6-2Hm">
             <objects>
-                <viewController storyboardIdentifier="TrimViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8SH-hk-FrO" customClass="TrimViewController" customModule="vimojo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TrimViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8SH-hk-FrO" customClass="TrimViewController" customModule="Hispanopost" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Vs-XF-vIM"/>
                         <viewControllerLayoutGuide type="bottom" id="gcq-km-lJG"/>
@@ -1340,7 +1362,7 @@
                                     <action selector="pushAcceptButton:" destination="8SH-hk-FrO" eventType="touchUpInside" id="MJT-6m-B1y"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4wQ-2f-JFb" customClass="PlayerView" customModule="vimojo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4wQ-2f-JFb" customClass="PlayerView" customModule="Hispanopost" customModuleProvider="target">
                                 <rect key="frame" x="8" y="52" width="584" height="329"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fd3-2Q-8bH">
@@ -1426,9 +1448,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                        <variation key="heightClass=regular-widthClass=regular">
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                            <rect key="frame" x="224" y="53" width="313" height="36"/>
                                         </variation>
                                     </label>
                                 </subviews>
@@ -1653,7 +1674,7 @@
         <!--Editor View Controller-->
         <scene sceneID="iHB-R8-PCf">
             <objects>
-                <viewController storyboardIdentifier="EditorViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bat-IU-WKm" customClass="EditorViewController" customModule="vimojo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditorViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bat-IU-WKm" customClass="EditorViewController" customModule="Hispanopost" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g5m-ay-ci1"/>
                         <viewControllerLayoutGuide type="bottom" id="r6L-ku-SHM"/>
@@ -1713,7 +1734,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="editorCollectionViewCell" id="4dJ-Hl-5yi" customClass="EditorClipsCell" customModule="vimojo" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="editorCollectionViewCell" id="4dJ-Hl-5yi" customClass="EditorClipsCell" customModule="Hispanopost" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1798,7 +1819,7 @@
                                     <outlet property="delegate" destination="bat-IU-WKm" id="66c-xT-OrU"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xwy-w8-Mu1" customClass="PlayerView" customModule="vimojo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xwy-w8-Mu1" customClass="PlayerView" customModule="Hispanopost" customModuleProvider="target">
                                 <rect key="frame" x="8" y="8" width="584" height="329"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Riw-XD-juG">
@@ -2006,7 +2027,7 @@
         <!--Editing Room View Controller-->
         <scene sceneID="n27-7Y-kE1">
             <objects>
-                <viewController storyboardIdentifier="EditingRoomViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UqO-dW-VLz" customClass="EditingRoomViewController" customModule="vimojo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditingRoomViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UqO-dW-VLz" customClass="EditingRoomViewController" customModule="Hispanopost" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yvd-9s-yRg"/>
                         <viewControllerLayoutGuide type="bottom" id="uBU-Ns-K9c"/>
@@ -2129,7 +2150,7 @@
         <!--Share View Controller-->
         <scene sceneID="OqX-xJ-4nB">
             <objects>
-                <viewController storyboardIdentifier="ShareViewController" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WLy-hp-6bY" customClass="ShareViewController" customModule="vimojo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShareViewController" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WLy-hp-6bY" customClass="ShareViewController" customModule="Hispanopost" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GUn-yU-HMb"/>
                         <viewControllerLayoutGuide type="bottom" id="4sh-Gn-UNB"/>
@@ -2138,7 +2159,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AZp-0n-ctH" customClass="PlayerView" customModule="vimojo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AZp-0n-ctH" customClass="PlayerView" customModule="Hispanopost" customModuleProvider="target">
                                 <rect key="frame" x="20" y="8" width="560" height="316"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZG-9A-GDj">
@@ -2351,7 +2372,7 @@
         <!--Music View Controller-->
         <scene sceneID="qtv-Pv-Ces">
             <objects>
-                <viewController storyboardIdentifier="MusicViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vud-U7-Ryt" customClass="MusicViewController" customModule="vimojo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MusicViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vud-U7-Ryt" customClass="MusicViewController" customModule="Hispanopost" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qXE-rR-2iY"/>
                         <viewControllerLayoutGuide type="bottom" id="2nm-13-Qpx"/>
@@ -2360,7 +2381,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rFs-N4-jUE" customClass="PlayerView" customModule="vimojo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rFs-N4-jUE" customClass="PlayerView" customModule="Hispanopost" customModuleProvider="target">
                                 <rect key="frame" x="20" y="8" width="560" height="316"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teB-AJ-KXX">
@@ -2390,7 +2411,7 @@
                                             <constraint firstAttribute="width" constant="240" id="zcU-X9-kdg"/>
                                         </constraints>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="musicCell" rowHeight="80" id="UOr-Sw-Oz7" customClass="MusicCell" customModule="vimojo" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="musicCell" rowHeight="80" id="UOr-Sw-Oz7" customClass="MusicCell" customModule="Hispanopost" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="370" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UOr-Sw-Oz7" id="aNh-v5-Q7T">
@@ -2581,7 +2602,7 @@
         <!--Full Screen Player View Controller-->
         <scene sceneID="IOX-Gs-MBy">
             <objects>
-                <viewController storyboardIdentifier="FullScreenPlayerViewController" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="psq-it-PQj" customClass="FullScreenPlayerViewController" customModule="vimojo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FullScreenPlayerViewController" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="psq-it-PQj" customClass="FullScreenPlayerViewController" customModule="Hispanopost" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7a2-uc-Qb1"/>
                         <viewControllerLayoutGuide type="bottom" id="5Rn-dJ-FwJ"/>
