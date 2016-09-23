@@ -9,6 +9,7 @@
 import UIKit
 import Mixpanel
 import GoogleSignIn
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
@@ -177,6 +178,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
         let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.setObject(Utils().getStringByKeyFromSettings("high_quality_name"), forKey: SettingsConstants().SETTINGS_QUALITY)
+        
+        defaults.setObject(Utils().getStringByKeyFromSettings(AVCaptureSessionPreset1280x720), forKey: SettingsConstants().SETTINGS_RESOLUTION)
     }
     
     //MARK: - Mixpanel

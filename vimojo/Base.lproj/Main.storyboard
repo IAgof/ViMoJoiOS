@@ -501,9 +501,15 @@
                                         <rect key="frame" x="175" y="175" width="250" height="250"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="250" id="Ab9-4z-rgK"/>
-                                            <constraint firstAttribute="width" constant="250" id="EgO-HQ-fr1"/>
+                                            <constraint firstAttribute="height" priority="500" constant="250" id="Ab9-4z-rgK"/>
+                                            <constraint firstAttribute="width" priority="500" constant="250" id="EgO-HQ-fr1"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="validateImageNormal" value="common_icon_edit_accept_normal"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="validateImageHighlightedAndPressed" value="common_icon_edit_accept_pressed"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="cancelImageNormal" value="common_icon_edit_cancel_normal"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="cancelImageHighlightedAndPressed" value="common_icon_edit_cancel_pressed"/>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRf-8q-oTu">
                                         <rect key="frame" x="8" y="564" width="28" height="28"/>
@@ -542,6 +548,7 @@
                                     <constraint firstItem="mqP-WM-mhr" firstAttribute="centerX" secondItem="nt1-cO-8OT" secondAttribute="centerX" id="LRu-i1-PZb"/>
                                     <constraint firstItem="p8l-9H-y4q" firstAttribute="top" secondItem="2Jd-7d-AYh" secondAttribute="bottom" constant="8" id="PF5-XE-maO"/>
                                     <constraint firstItem="zRf-8q-oTu" firstAttribute="leading" secondItem="9Kl-ym-3ZQ" secondAttribute="leading" constant="8" id="PWG-Ec-Ta9"/>
+                                    <constraint firstItem="7DH-Ci-Hyp" firstAttribute="top" relation="greaterThanOrEqual" secondItem="hah-36-ual" secondAttribute="bottom" constant="8" id="Q69-M7-O75"/>
                                     <constraint firstItem="BC4-E6-c0I" firstAttribute="centerY" secondItem="9Kl-ym-3ZQ" secondAttribute="centerY" id="RDg-ip-E3M">
                                         <variation key="heightClass=compact" constant="10"/>
                                     </constraint>
@@ -558,6 +565,7 @@
                                     <constraint firstItem="CiJ-Ll-EF1" firstAttribute="top" secondItem="9Kl-ym-3ZQ" secondAttribute="top" constant="8" id="nUu-Sf-laA"/>
                                     <constraint firstItem="rX8-eJ-GlM" firstAttribute="leading" secondItem="zRf-8q-oTu" secondAttribute="trailing" constant="16" id="nZj-vc-804"/>
                                     <constraint firstItem="CiJ-Ll-EF1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rX8-eJ-GlM" secondAttribute="trailing" constant="15" id="oAd-uh-Y9G"/>
+                                    <constraint firstItem="hah-36-ual" firstAttribute="top" relation="greaterThanOrEqual" secondItem="CiJ-Ll-EF1" secondAttribute="bottom" constant="8" id="qNh-Cx-QoY"/>
                                     <constraint firstItem="zRf-8q-oTu" firstAttribute="leading" secondItem="9Kl-ym-3ZQ" secondAttribute="leading" constant="8" id="qp4-5a-z6c"/>
                                     <constraint firstItem="mqP-WM-mhr" firstAttribute="leading" secondItem="l5W-XL-ajn" secondAttribute="trailing" constant="2" id="rxT-20-vp3">
                                         <variation key="widthClass=regular" constant="4"/>
