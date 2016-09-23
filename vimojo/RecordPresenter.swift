@@ -24,10 +24,11 @@ class RecordPresenter: NSObject
     var thumbnailInteractor:ThumbnailInteractor?
     var interactor:RecorderInteractorInterface?
     
-    //MARK: - Constants
+    //MARK: - Variables
     var isRecording = false
     var secondaryViewIsShowing = false
     var videoSettingsConfigViewIsShowing = true
+    var lastOrientationEnabled:Int?
     
     //MARK: - Showing controllers
     var zoomIsShowed = false
@@ -55,6 +56,8 @@ class RecordPresenter: NSObject
     }
     
     func viewWillDisappear() {
+        lastOrientationEnabled = UIDevice.currentDevice().orientation.rawValue
+        
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             if self.isRecording{
                 self.stopRecord()
@@ -71,10 +74,30 @@ class RecordPresenter: NSObject
         cameraInteractor?.setResolution()
         cameraInteractor?.startCamera()
         
-        delegate?.forceOrientation()
+        self.setUpOrientationToForce()
         
         if let getFromDefaultResolution = NSUserDefaults.standardUserDefaults().stringForKey(SettingsConstants().SETTINGS_RESOLUTION){
             delegate?.setResolutionToView(getFromDefaultResolution)
+        }
+    }
+    
+    func setUpOrientationToForce(){
+        switch UIDevice.currentDevice().orientation{
+        case .Portrait,.PortraitUpsideDown,.LandscapeRight,.LandscapeLeft:
+            if (lastOrientationEnabled != UIDeviceOrientation.Portrait.rawValue) &&
+            (lastOrientationEnabled != UIDeviceOrientation.PortraitUpsideDown.rawValue){
+                
+                if let value = lastOrientationEnabled{
+                    delegate?.forceOrientation(value)
+                }else{
+                    delegate?.forceOrientation(UIInterfaceOrientation.LandscapeRight.rawValue)
+                }
+            }else{
+                delegate?.forceOrientation(UIInterfaceOrientation.LandscapeRight.rawValue)
+            }
+            break
+        default:
+            break
         }
     }
     

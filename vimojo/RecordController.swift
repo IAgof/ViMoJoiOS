@@ -127,6 +127,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
                                                                  name: UIDeviceOrientationDidChangeNotification,
                                                                  object: nil)
     }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         print("Recorder view will appear")
@@ -301,28 +302,8 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         print("Orientation You have moved: \(text)")
     }
     
-    
-    func forceOrientation(){
-        switch UIDevice.currentDevice().orientation{
-        case .Portrait,.PortraitUpsideDown:
-            let value = UIInterfaceOrientation.LandscapeRight.rawValue
-            UIDevice.currentDevice().setValue(value, forKey: "orientation")
-            Utils.sharedInstance.debugLog("Force orientation to landscape right)")
-            break
-        case .LandscapeRight:
-            let value = UIInterfaceOrientation.LandscapeRight.rawValue
-            UIDevice.currentDevice().setValue(value, forKey: "orientation")
-            Utils.sharedInstance.debugLog("Force orientation to landscape right)")
-            break
-        case .LandscapeLeft:
-            let value = UIInterfaceOrientation.LandscapeLeft.rawValue
-            UIDevice.currentDevice().setValue(value, forKey: "orientation")
-            Utils.sharedInstance.debugLog("Force orientation to landscape right)")
-            break
-        default:
-            break
-        }
-        
+    func forceOrientation(orientationValue: Int) {
+        UIDevice.currentDevice().setValue(orientationValue, forKey: "orientation")
     }
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {

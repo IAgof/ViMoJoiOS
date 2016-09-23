@@ -47,7 +47,7 @@ protocol RecordPresenterInterface{
 
 protocol RecordPresenterDelegate {
     func configureView()
-    func forceOrientation()
+    func forceOrientation(orientationValue:Int)
     func recordButtonEnable(state:Bool)
     func configModesButtonSelected(state:Bool)
    
