@@ -79,6 +79,8 @@ class RecordPresenter: NSObject
         if let getFromDefaultResolution = NSUserDefaults.standardUserDefaults().stringForKey(SettingsConstants().SETTINGS_RESOLUTION){
             delegate?.setResolutionToView(getFromDefaultResolution)
         }
+        
+        self.updateThumbnail()
     }
     
     func setUpOrientationToForce(){
@@ -132,10 +134,6 @@ class RecordPresenter: NSObject
             delegate?.showVideoSettingsConfig()
             delegate?.configModesButtonSelected(true)
         }
-    }
-    
-    func pushFlyToEditor(){
-        recordWireframe?.presentEditorRoomInterface()
     }
     
     func pushHideAllButtons() {
@@ -309,6 +307,7 @@ class RecordPresenter: NSObject
     
     func resetRecorder() {
         cameraInteractor?.removeFilters()
+        delegate?.hideRecordedVideoThumb()
         
         interactor?.clearProject()
     }
@@ -411,6 +410,7 @@ class RecordPresenter: NSObject
             // do some task
             self.cameraInteractor?.setIsRecording(false)
             
+            self.updateThumbnail()
             dispatch_async(dispatch_get_main_queue(), {
                 self.delegate?.showStopButton()
             });
@@ -423,9 +423,9 @@ class RecordPresenter: NSObject
         let nClips = interactor?.getNumberOfClipsInProject()
         
         if nClips > 0{
-
+            recordWireframe?.presentEditorRoomInterface()
         }else{
-
+            recordWireframe?.presentGalleryInsideEditorRoomInterface()
         }
     }
 
@@ -564,6 +564,23 @@ class RecordPresenter: NSObject
         }
     }
     
+    func updateThumbnail() {
+        let nClips = interactor?.getNumberOfClipsInProject()
+        
+        if nClips > 0{
+            let videoPath = interactor?.getMediaPathInPosition(nClips! - 1)
+            
+            thumbnailInteractor = ThumbnailInteractor.init(videoPath: videoPath!,
+                                                           diameter: (self.delegate?.getThumbnailSize())!)
+            if thumbnailInteractor != nil {
+                thumbnailInteractor?.delegate = self
+                thumbnailInteractor?.getthumbnailImage()
+            }
+        }else{
+            self.delegate?.hideRecordedVideoThumb()
+        }
+    }
+    
     //MARK: - Track Events
     func trackFlash(flashState:Bool){
         let tracker = ViMoJoTracker.sharedInstance
@@ -679,5 +696,16 @@ extension RecordPresenter:RecorderInteractorDelegate{
     
     func resolutionImagePressedFound(image: UIImage) {
         delegate?.setResolutionIconImagePressed(image)
+    }
+}
+//MARK: - Thumb delegate
+extension RecordPresenter:ThumbnailDelegate{
+    func setThumbToView(image: UIImage) {
+        // update some UI
+        dispatch_async(dispatch_get_main_queue(), {
+            self.delegate?.showRecordedVideoThumb(image)
+            
+            self.delegate?.showNumberVideos((self.interactor?.getNumberOfClipsInProject())!)
+        });
     }
 }

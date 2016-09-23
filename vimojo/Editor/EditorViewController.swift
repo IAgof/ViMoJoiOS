@@ -236,6 +236,7 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     func dissmissAlertController(){
         alertController?.dismissViewControllerAnimated(true, completion: {})
     }
+    
     func bringToFrontExpandPlayerButton(){
         self.playerView.bringSubviewToFront(expandPlayerButton)
     }

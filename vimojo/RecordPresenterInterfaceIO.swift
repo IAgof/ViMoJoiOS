@@ -18,7 +18,7 @@ protocol RecordPresenterInterface{
     func pushFlash()
     func pushRotateCamera()
     func pushVideoSettingsConfig()
-    func pushFlyToEditor()
+    func thumbnailHasTapped()
     
     func pushHideAllButtons()
     
@@ -66,6 +66,11 @@ protocol RecordPresenterDelegate {
     func getControllerName()->String
     func updateChronometer(time:String)
     
+    func showRecordedVideoThumb(image: UIImage)
+    func hideRecordedVideoThumb()
+    func getThumbnailSize()->CGFloat
+    func showNumberVideos(nClips:Int)
+
     func hidePrincipalViews()
     func showPrincipalViews()
     

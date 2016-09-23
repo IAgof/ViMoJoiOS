@@ -31,7 +31,6 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var flashButton: UIButton!
     @IBOutlet weak var configModesButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
-    @IBOutlet weak var flyToEditorButton: UIButton!
     @IBOutlet weak var resolutionButton: UIButton!
 
     @IBOutlet weak var secondaryRecordButton: UIButton!
@@ -65,6 +64,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var upperContainerView: UIView!
     @IBOutlet weak var modeContainerView: UIView!
     @IBOutlet weak var recordAreaContainerView: UIView!
+    @IBOutlet weak var thumbnailView: UIImageView!
     
     //MARK: - UILabel
     @IBOutlet weak var secondaryChronometerLabel: UILabel!
@@ -72,7 +72,9 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     
     @IBOutlet weak var secondaryRecordingIndicator: UIImageView!
     @IBOutlet weak var focusImageView: UIImageView!
-    
+    @IBOutlet weak var thumbnailNumberClips: UILabel!
+
+    //MARK: - Variables
     var alertController:UIAlertController?
     var tapDisplay:UIGestureRecognizer?
     var pinchDisplay:UIPinchGestureRecognizer?
@@ -109,6 +111,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         rotateExposureSlider()
         
         zoomView.setZoomSliderValue(0.0)
+        self.thumbnailNumberClips.adjustsFontSizeToFitWidth = true
     }
     
     func configureTapDisplay(){
@@ -119,6 +122,18 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     func configurePinchDisplay(){
         pinchDisplay = UIPinchGestureRecognizer(target: self, action: #selector(RecordController.displayPinched))
         self.cameraView.addGestureRecognizer(pinchDisplay!)
+    }
+    
+    func configureThumbnailTapObserver(){
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(self.thumbnailTapped))
+        thumbnailView.userInteractionEnabled = true
+        thumbnailView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    func thumbnailTapped(){
+        Utils.sharedInstance.debugLog("Thumbnail has tapped")
+        
+        eventHandler?.thumbnailHasTapped()
     }
     
     func configureRotationObserver(){
@@ -158,6 +173,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         
         configureTapDisplay()
         configurePinchDisplay()
+        configureThumbnailTapObserver()
     }
     
     func displayPinched(){
@@ -254,10 +270,6 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         eventHandler?.pushMic()
     }
     
-    @IBAction func pushFlyToEditor(sender: AnyObject) {
-        eventHandler?.pushFlyToEditor()
-    }
-    
     //MARK : - Inner functions
     
     func roundBorderOfViews() {
@@ -352,8 +364,7 @@ extension UIButton {
     }
 }
 
-//MARK: - Animations
-//Animation for transitions fadeIn and fadeOut
+//MARK: - Inner functions
 extension RecordController{
     func fadeInView(views:[UIView]){
         for view in views{
@@ -386,6 +397,33 @@ extension RecordController{
                 }
         })
     }
+    
+    func setCornerToThumbnail(){
+        let diameter = thumbnailView.frame.height/2
+        
+        thumbnailView.layer.cornerRadius = diameter
+        thumbnailView.clipsToBounds = true
+    }
+    
+    func setBorderToThumb(){
+        let borderLayer = self.getBorderLayer()
+        thumbnailView.layer.addSublayer(borderLayer)
+    }
+    
+    func getBorderLayer() -> CALayer{
+        let diameter = thumbnailView.frame.width/2
+        let borderLayer = CALayer.init()
+        let borderFrame = CGRectMake(0,0,thumbnailView.frame.height, thumbnailView.frame.height)
+        
+        //Set properties border layer
+        borderLayer.backgroundColor = UIColor.clearColor().CGColor
+        borderLayer.frame = borderFrame
+        borderLayer.cornerRadius = diameter
+        borderLayer.borderWidth = 3
+        borderLayer.borderColor = UIColor.whiteColor().CGColor
+        
+        return borderLayer
+    }
 }
 
 //MARK: - Presenter delegate
@@ -413,6 +451,34 @@ extension RecordController:RecordPresenterDelegate {
     func updateChronometer(time: String) {
         self.chronometrer.text = time
         self.secondaryChronometerLabel.text = time
+    }
+    
+    func showRecordedVideoThumb(image: UIImage) {
+        thumbnailView.image = image
+        
+        setCornerToThumbnail()
+        setBorderToThumb()
+    }
+    
+    func hideRecordedVideoThumb(){
+        thumbnailView.image = defaultThumbImage
+        thumbnailNumberClips.text = ""
+        
+        guard let sublayers = thumbnailView.layer.sublayers else{
+            return
+        }
+        for layer in sublayers{
+            layer.removeFromSuperlayer()
+        }
+    }
+    
+    func getThumbnailSize()->CGFloat{
+        return self.thumbnailView.frame.size.height
+    }
+    
+    func showNumberVideos(nClips:Int){
+        thumbnailNumberClips.text = "\(nClips)"
+        thumbnailNumberClips.adjustsFontSizeToFitWidth = true
     }
     
     func showFlashOn(on:Bool){
@@ -454,11 +520,18 @@ extension RecordController:RecordPresenterDelegate {
     }
     
     func hidePrincipalViews() {
-        fadeOutView([modeContainerView,upperContainerView,recordAreaContainerView,flyToEditorButton])
+        fadeOutView([modeContainerView,
+            upperContainerView,
+            recordAreaContainerView,
+            thumbnailView,
+            thumbnailNumberClips])
     }
     
     func showPrincipalViews() {
-        fadeInView([upperContainerView,recordAreaContainerView,flyToEditorButton])
+        fadeInView([upperContainerView,
+            recordAreaContainerView,
+            thumbnailView,
+            thumbnailNumberClips])
     }
     
     func hideSecondaryRecordViews() {
