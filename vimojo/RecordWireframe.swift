@@ -17,7 +17,8 @@ class RecordWireframe : NSObject {
     var recordPresenter : RecordPresenter?
     
     var editorRoomWireframe: EditingRoomWireframe?
-
+    var settingsWireframe : SettingsWireframe?
+    
     func presentRecordInterfaceFromWindow(window: UIWindow) {
         let viewController = RecordViewControllerFromStoryboard()
         
@@ -64,7 +65,12 @@ class RecordWireframe : NSObject {
     func presentGalleryInsideEditorRoomInterface(){
         editorRoomWireframe?.presentEditingRoomFromViewControllerShowGallery(recordViewController!)
     }
+    
     func presentShareInterfaceInsideEditorRoom(){
         editorRoomWireframe?.presentEditingRoomFromViewControllerAndExportVideo(recordViewController!)
+    }
+    
+    func presentSettingsInterface(){
+        settingsWireframe?.presentSettingsInterfaceFromViewController(recordViewController!)
     }
 }

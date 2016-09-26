@@ -20,6 +20,7 @@ protocol RecordPresenterInterface{
     func pushVideoSettingsConfig()
     func thumbnailHasTapped()
     func pushShare()
+    func pushSettings()
     
     func pushHideAllButtons()
     

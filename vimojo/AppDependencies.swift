@@ -32,6 +32,9 @@ class AppDependencies {
     var musicWireframe = MusicWireframe()
     var shareWireframe = ShareWireframe()
     
+    var settingsWireframe = SettingsWireframe()
+    var detailTextWireframe = DetailTextWireframe()
+
     init(){
         configureDependencies()
     }
@@ -68,6 +71,11 @@ class AppDependencies {
         let splitPresenter = SplitPresenter()
         let splitInteractor = SplitInteractor(project: project)
         
+        let settingsPresenter = SettingsPresenter()
+        let settingsInteractor = SettingsInteractor()
+        
+        let detailTextPresenter = DetailTextPresenter()
+        let detailTextInteractor = DetailTextInteractor()
         
         //RECORD MODULE
         recordPresenter.recordWireframe = recordWireframe
@@ -76,6 +84,7 @@ class AppDependencies {
         recordWireframe.recordPresenter = recordPresenter
         recordWireframe.rootWireframe = rootWireframe
         recordWireframe.editorRoomWireframe = editorRoomWireframe
+        recordWireframe.settingsWireframe = settingsWireframe
         
         recordInteractor.project = project
         recordInteractor.delegate = recordPresenter
@@ -183,6 +192,23 @@ class AppDependencies {
         splitInteractor.delegate = splitPresenter
         splitInteractor.project = project
         
+        //SETTINGS MODULE
+        settingsPresenter.wireframe = settingsWireframe
+        settingsPresenter.recordWireframe = recordWireframe
+        settingsPresenter.interactor = settingsInteractor
+        settingsPresenter.detailTextWireframe = detailTextWireframe
+        
+        settingsWireframe.settingsPresenter = settingsPresenter
+        settingsWireframe.rootWireframe = rootWireframe
+        
+        settingsInteractor.presenter = settingsPresenter
+    
+        //DETAIL TEXT MODULE
+        detailTextPresenter.wireframe = detailTextWireframe
+        detailTextPresenter.interactor = detailTextInteractor
+        
+        detailTextWireframe.detailTextPresenter = detailTextPresenter
+        detailTextWireframe.rootWireframe = rootWireframe
     }
         
     func installRecordToRootViewControllerIntoWindow(window: UIWindow){

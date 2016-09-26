@@ -270,6 +270,14 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         eventHandler?.pushMic()
     }
     
+    @IBAction func pushShareButton(sender: AnyObject) {
+        eventHandler?.pushShare()
+    }
+    
+    @IBAction func pushSettingsButton(sender: AnyObject) {
+        eventHandler?.pushSettings()
+    }
+    
     //MARK : - Inner functions
     
     func roundBorderOfViews() {
@@ -293,10 +301,6 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     func rotateExposureSlider(){
         let trans = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
         exposureConfigurationView.transform = trans
-    }
-    
-    @IBAction func pushShareButton(sender: AnyObject) {
-        eventHandler?.pushShare()
     }
     
     //MARK: - Landscape Orientation

@@ -31,7 +31,6 @@ class CameraRecorderInteractor{
     }
     
     func recordVideo(completion:(String)->Void){
-        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         let title = self.getNewTitle()
         let clipPath = self.getNewClipPath(title)
         self.clipsArray.append(clipPath)

@@ -433,6 +433,12 @@ class RecordPresenter: NSObject
         recordWireframe?.presentShareInterfaceInsideEditorRoom()
     }
     
+    func pushSettings() {
+        print("Record presenter pushSettings")
+        self.trackSettingsPushed()
+        recordWireframe?.presentSettingsInterface()
+    }
+    
     func showZoomView(){
         delegate?.showZoomView()
         
