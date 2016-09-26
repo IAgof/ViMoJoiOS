@@ -22,7 +22,7 @@ class ExporterInteractor:NSObject{
     }
 
     func initQuality()->String{
-        var quality = AVAssetExportPresetMediumQuality
+        var quality = AVAssetExportPresetHighestQuality
         //Get resolution
         if let getFromDefaultQuality = NSUserDefaults.standardUserDefaults().stringForKey(SettingsConstants().SETTINGS_QUALITY){
             quality = AVQualityParse().parseResolutionsToInteractor(getFromDefaultQuality)
@@ -49,6 +49,7 @@ class ExporterInteractor:NSObject{
         let url = NSURL(fileURLWithPath: exportPath)
         
         // 5 - Create Exporter
+        
         let exporter = AVAssetExportSession(asset: mixComposition, presetName: exportedPresetQuality)
         exporter!.outputURL = url
         exporter!.outputFileType = AVFileTypeQuickTimeMovie

@@ -14,6 +14,7 @@ import VideonaDuplicate
 import VideonaProject
 import VideonaPlayer
 
+
 class AppDependencies {
     var project = Project()
     

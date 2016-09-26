@@ -1138,6 +1138,8 @@
 				A93BCE311D7D593600421BD0 /* CopyFiles */,
 				7A49D9DA4E3723AD1FF02C11 /* Embed Pods Frameworks */,
 				2DFAC9DF682CA12F9BA6504C /* Copy Pods Resources */,
+				A9439BFA1D954EC100C27CF9 /* ShellScript */,
+				A9439BFB1D954ED300C27CF9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1182,6 +1184,7 @@
 				A9C167D21D92AB1C007EE697 /* CopyFiles */,
 				A9C167D41D92AB1C007EE697 /* Embed Pods Frameworks */,
 				A9C167D51D92AB1C007EE697 /* Copy Pods Resources */,
+				A9439BF91D954EB200C27CF9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1205,6 +1208,8 @@
 				A9C168641D92C667007EE697 /* CopyFiles */,
 				A9C168661D92C667007EE697 /* Embed Pods Frameworks */,
 				A9C168671D92C667007EE697 /* Copy Pods Resources */,
+				A9439BF51D954B5B00C27CF9 /* ShellScript */,
+				A9439BF81D954CF100C27CF9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1424,6 +1429,71 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		A9439BF51D954B5B00C27CF9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/Fabric/run 245a1998989c434deb37967cfa33882e5f169410 a4aace077e673d7b8bbb959e93125b49664db2b0da0cfb30de69381be101c379\n";
+		};
+		A9439BF81D954CF100C27CF9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+		A9439BF91D954EB200C27CF9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+		A9439BFA1D954EC100C27CF9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+		A9439BFB1D954ED300C27CF9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/Fabric/run 245a1998989c434deb37967cfa33882e5f169410 a4aace077e673d7b8bbb959e93125b49664db2b0da0cfb30de69381be101c379";
 		};
 		A9C1675A1D92AB1C007EE697 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

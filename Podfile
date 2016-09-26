@@ -8,6 +8,8 @@ pod 'Fabric'
 pod 'Crashlytics'
 pod 'Alamofire', '~> 3.3'
 pod 'Mixpanel'
+pod 'Fabric'
+pod 'Crashlytics'
 
 pod 'Google/SignIn'
 pod 'Google'

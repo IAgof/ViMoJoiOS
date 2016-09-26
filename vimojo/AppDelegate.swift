@@ -10,6 +10,8 @@ import UIKit
 import Mixpanel
 import GoogleSignIn
 import AVFoundation
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
@@ -32,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
 //        gai.trackUncaughtExceptions = true  // report uncaught exceptions
 //        gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
 //        
+        //CRASHLYTICS
+        Fabric.with([Crashlytics.self])
         
         self.setupStartApp()
         
