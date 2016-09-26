@@ -295,7 +295,10 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         exposureConfigurationView.transform = trans
     }
     
-    //MARK: - Landscape Orientation
+    @IBAction func pushShareButton(sender: AnyObject) {
+        eventHandler?.pushShare()
+    }
+    
     //MARK: - Landscape Orientation
     func checkOrientation(){
         var text=""

@@ -312,7 +312,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5P-A2-uPz">
-                                                <rect key="frame" x="26" y="35" width="18" height="36"/>
+                                                <rect key="frame" x="35" y="28" width="18" height="36"/>
                                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                                 <state key="normal" image="activity_record_icon_flash_normal"/>
                                                 <state key="selected" image="activity_record_icon_flash_pressed"/>
@@ -340,7 +340,7 @@
                                                 </variation>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWd-SG-2Si">
-                                                <rect key="frame" x="21" y="105" width="28" height="28"/>
+                                                <rect key="frame" x="30" y="112" width="28" height="28"/>
                                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                                 <state key="normal" image="activity_record_icon_controls_normal"/>
                                                 <state key="selected" image="activity_record_icon_controls_pressed"/>
@@ -355,10 +355,19 @@
                                                     <action selector="pushVideoSettingsConfig:" destination="31E-sq-qOD" eventType="touchUpInside" id="L1j-Qs-7tg"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eef-bm-okO">
+                                                <rect key="frame" x="15" y="71" width="27" height="30"/>
+                                                <state key="normal" image="activity_record_icon__share_normal"/>
+                                                <state key="selected" image="activity_record_icon__share_pressed"/>
+                                                <state key="highlighted" image="activity_record_icon__share_pressed"/>
+                                                <connections>
+                                                    <action selector="pushShareButton:" destination="31E-sq-qOD" eventType="touchUpInside" id="lpW-vW-VnB"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="C5P-A2-uPz" firstAttribute="centerY" secondItem="LC6-Gc-POv" secondAttribute="centerY" constant="-33" id="3Jq-dn-JbK">
+                                            <constraint firstItem="C5P-A2-uPz" firstAttribute="centerY" secondItem="LC6-Gc-POv" secondAttribute="centerY" constant="-40" id="3Jq-dn-JbK">
                                                 <variation key="widthClass=regular" constant="-50"/>
                                             </constraint>
                                             <constraint firstItem="C5P-A2-uPz" firstAttribute="centerX" secondItem="KWd-SG-2Si" secondAttribute="centerX" id="3ND-jT-xzP"/>
@@ -369,16 +378,18 @@
                                             <constraint firstItem="0zK-cN-5V1" firstAttribute="top" secondItem="LC6-Gc-POv" secondAttribute="bottom" constant="14" id="BdQ-9Y-TgI">
                                                 <variation key="widthClass=regular" constant="22"/>
                                             </constraint>
-                                            <constraint firstItem="KWd-SG-2Si" firstAttribute="centerY" secondItem="LC6-Gc-POv" secondAttribute="centerY" constant="33" id="Ils-ML-aAh">
+                                            <constraint firstItem="KWd-SG-2Si" firstAttribute="centerY" secondItem="LC6-Gc-POv" secondAttribute="centerY" constant="40" id="Ils-ML-aAh">
                                                 <variation key="widthClass=regular" constant="50"/>
                                             </constraint>
                                             <constraint firstAttribute="bottom" secondItem="yWo-rG-dBr" secondAttribute="bottom" id="Jfk-0W-TdL"/>
-                                            <constraint firstItem="LC6-Gc-POv" firstAttribute="leading" secondItem="KWd-SG-2Si" secondAttribute="trailing" constant="9" id="LXj-a8-o8w"/>
+                                            <constraint firstItem="LC6-Gc-POv" firstAttribute="leading" secondItem="eef-bm-okO" secondAttribute="trailing" constant="16" id="KL4-aU-kpG"/>
+                                            <constraint firstItem="LC6-Gc-POv" firstAttribute="leading" secondItem="KWd-SG-2Si" secondAttribute="trailing" id="LXj-a8-o8w"/>
                                             <constraint firstItem="yWo-rG-dBr" firstAttribute="top" secondItem="E5V-mU-ie5" secondAttribute="top" id="TY6-hX-Fxm"/>
                                             <constraint firstItem="lZi-UQ-LjO" firstAttribute="centerX" secondItem="LC6-Gc-POv" secondAttribute="centerX" constant="6" id="aNB-Nl-Mgr"/>
                                             <constraint firstAttribute="trailing" secondItem="LC6-Gc-POv" secondAttribute="trailing" constant="4" id="f7Q-fr-1W4"/>
                                             <constraint firstItem="yWo-rG-dBr" firstAttribute="leading" secondItem="E5V-mU-ie5" secondAttribute="leading" id="h0r-BT-R3c"/>
                                             <constraint firstItem="0zK-cN-5V1" firstAttribute="centerX" secondItem="LC6-Gc-POv" secondAttribute="centerX" constant="6" id="hTC-6c-y8b"/>
+                                            <constraint firstItem="eef-bm-okO" firstAttribute="centerY" secondItem="LC6-Gc-POv" secondAttribute="centerY" id="kNJ-hz-nNm"/>
                                             <constraint firstAttribute="trailing" secondItem="yWo-rG-dBr" secondAttribute="trailing" id="vB2-AV-XXx"/>
                                         </constraints>
                                     </view>
@@ -2669,6 +2680,8 @@
         <image name="activity_edit_share_pressed" width="27" height="30"/>
         <image name="activity_record_gallery_normal" width="42" height="42"/>
         <image name="activity_record_gallery_normal_pressed" width="42" height="42"/>
+        <image name="activity_record_icon__share_normal" width="29" height="31"/>
+        <image name="activity_record_icon__share_pressed" width="29" height="31"/>
         <image name="activity_record_icon_battery_charged" width="24" height="16"/>
         <image name="activity_record_icon_change_camera_normal" width="31" height="29"/>
         <image name="activity_record_icon_change_camera_pressed" width="31" height="29"/>

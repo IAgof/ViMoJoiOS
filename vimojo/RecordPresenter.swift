@@ -429,6 +429,10 @@ class RecordPresenter: NSObject
         }
     }
 
+    func pushShare() {
+        recordWireframe?.presentShareInterfaceInsideEditorRoom()
+    }
+    
     func showZoomView(){
         delegate?.showZoomView()
         

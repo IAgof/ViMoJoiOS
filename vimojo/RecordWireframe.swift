@@ -64,4 +64,7 @@ class RecordWireframe : NSObject {
     func presentGalleryInsideEditorRoomInterface(){
         editorRoomWireframe?.presentEditingRoomFromViewControllerShowGallery(recordViewController!)
     }
+    func presentShareInterfaceInsideEditorRoom(){
+        editorRoomWireframe?.presentEditingRoomFromViewControllerAndExportVideo(recordViewController!)
+    }
 }
