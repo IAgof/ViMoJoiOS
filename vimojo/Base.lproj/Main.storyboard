@@ -169,9 +169,6 @@
                                                         <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                                             <rect key="frame" x="0.0" y="0.0" width="15" height="30"/>
                                                         </variation>
-                                                        <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
-                                                            <rect key="frame" x="0.0" y="0.0" width="19" height="30"/>
-                                                        </variation>
                                                         <connections>
                                                             <action selector="pushZoom:" destination="31E-sq-qOD" eventType="touchUpInside" id="Rc9-CC-k6H"/>
                                                         </connections>
@@ -183,9 +180,6 @@
                                                         <state key="highlighted" image="activity_record_icon_iso_pressed"/>
                                                         <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                                             <rect key="frame" x="45" y="0.0" width="30" height="30"/>
-                                                        </variation>
-                                                        <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
-                                                            <rect key="frame" x="49" y="0.0" width="30" height="30"/>
                                                         </variation>
                                                         <connections>
                                                             <action selector="pushISO:" destination="31E-sq-qOD" eventType="touchUpInside" id="gaA-qg-mne"/>
@@ -199,9 +193,6 @@
                                                         <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                                             <rect key="frame" x="105" y="0.0" width="30" height="30"/>
                                                         </variation>
-                                                        <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
-                                                            <rect key="frame" x="169" y="0.0" width="30" height="30"/>
-                                                        </variation>
                                                         <connections>
                                                             <action selector="pushFocus:" destination="31E-sq-qOD" eventType="touchUpInside" id="Thp-Qj-Ky9"/>
                                                         </connections>
@@ -214,9 +205,6 @@
                                                         <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                                             <rect key="frame" x="165" y="0.0" width="30" height="30"/>
                                                         </variation>
-                                                        <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
-                                                            <rect key="frame" x="229" y="0.0" width="30" height="30"/>
-                                                        </variation>
                                                         <connections>
                                                             <action selector="pushWhiteBalance:" destination="31E-sq-qOD" eventType="touchUpInside" id="2zP-Fn-74p"/>
                                                         </connections>
@@ -226,9 +214,6 @@
                                                         <state key="normal" image="activity_record_icon_metering_evaluative"/>
                                                         <state key="selected" image="activity_record_icon_metering_evaluative_pressed"/>
                                                         <state key="highlighted" image="activity_record_icon_metering_evaluative_pressed"/>
-                                                        <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
-                                                            <rect key="frame" x="349" y="0.0" width="30" height="30"/>
-                                                        </variation>
                                                         <connections>
                                                             <action selector="pushExposureModes:" destination="31E-sq-qOD" eventType="touchUpInside" id="MoR-cC-nTN"/>
                                                         </connections>
@@ -2220,7 +2205,7 @@
                                         <rect key="frame" x="0.0" y="28" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DPs-gQ-AyU" id="ZOf-bf-9kz">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -2667,7 +2652,7 @@
         <!--Detail Text Controller-->
         <scene sceneID="5aC-VA-sLm">
             <objects>
-                <viewController storyboardIdentifier="DetailTextController" id="o4V-kr-ep4" customClass="DetailTextController" customModule="Videona" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailTextController" id="o4V-kr-ep4" customClass="DetailTextController" customModule="Hispanopost" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="llk-92-7iL"/>
                         <viewControllerLayoutGuide type="bottom" id="O9E-hI-jrI"/>
@@ -2726,7 +2711,7 @@
         <!--Settings View Controller-->
         <scene sceneID="1Us-pJ-pz6">
             <objects>
-                <viewController storyboardIdentifier="SettingsViewController" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vlW-GP-NjF" customClass="SettingsViewController" customModule="Videona" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vlW-GP-NjF" customClass="SettingsViewController" customModule="Hispanopost" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dYj-1U-Cmn"/>
                         <viewControllerLayoutGuide type="bottom" id="5WC-0z-X30"/>
@@ -2759,11 +2744,11 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ucA-Hr-aMl" id="atU-ds-XNM">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="thx-qg-ycN">
-                                                    <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                                    <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2773,7 +2758,7 @@
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mWX-bJ-Zmx">
-                                                    <rect key="frame" x="541" y="11" width="44" height="21"/>
+                                                    <rect key="frame" x="541" y="12" width="44" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>

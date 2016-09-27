@@ -24,7 +24,7 @@ protocol EditorViewInterface:ViMoJoInterface {
                          message:String,
                          yesString:String)
     
-    func createAlertWaitToImport()
+    func createAlertWaitToImport(completion: (() -> Void)?)
     func dissmissAlertController()
     func bringToFrontExpandPlayerButton()
     func cameFromFullScreenPlayer(playerView:PlayerView)
