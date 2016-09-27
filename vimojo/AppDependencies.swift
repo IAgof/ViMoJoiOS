@@ -28,6 +28,7 @@ class AppDependencies {
     var trimWireframe = TrimWireframe()
     var duplicateWireframe = DuplicateWireframe()
     var splitWireframe = SplitWireframe()
+    var addTextWireframe = AddTextWireframe()
     
     var musicWireframe = MusicWireframe()
     var shareWireframe = ShareWireframe()
@@ -71,6 +72,9 @@ class AppDependencies {
         let splitPresenter = SplitPresenter()
         let splitInteractor = SplitInteractor(project: project)
         
+        let addTextPresenter = AddTextPresenter()
+        let addTextInteractor = AddTextInteractor(project: project)
+        
         let settingsPresenter = SettingsPresenter()
         let settingsInteractor = SettingsInteractor()
         
@@ -110,7 +114,7 @@ class AppDependencies {
         editorRoomWireframe.editorWireframe = editorWireframe
         editorRoomWireframe.shareWireframe = shareWireframe
         editorRoomWireframe.musicWireframe = musicWireframe
-//        editorRoomWireframe.settingsWireframe = settingsWireframe
+        editorRoomWireframe.settingsWireframe = settingsWireframe
         editorWireframe.fullScreenPlayerWireframe = fullScreenPlayerWireframe
 
         //EDITOR MODULE
@@ -126,6 +130,7 @@ class AppDependencies {
         editorWireframe.duplicateWireframe = duplicateWireframe
         editorWireframe.splitWireframe = splitWireframe
         editorWireframe.fullScreenPlayerWireframe = fullScreenPlayerWireframe
+        editorWireframe.addTextWireframe = addTextWireframe
         
         editorInteractor.delegate = editorPresenter
         editorInteractor.project = project
@@ -191,6 +196,18 @@ class AppDependencies {
         
         splitInteractor.delegate = splitPresenter
         splitInteractor.project = project
+        
+        //ADD TEXT  MODULE
+        addTextPresenter.interactor = addTextInteractor
+        
+        addTextWireframe.playerWireframe = playerWireframe
+        addTextWireframe.rootWireframe = rootWireframe
+        addTextWireframe.addTextPresenter = addTextPresenter
+        addTextWireframe.fullScreenPlayerWireframe = fullScreenPlayerWireframe
+        
+        addTextInteractor.delegate = addTextPresenter
+        addTextInteractor.project = project
+        
         
         //SETTINGS MODULE
         settingsPresenter.wireframe = settingsWireframe

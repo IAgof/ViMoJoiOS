@@ -7,11 +7,24 @@
 //
 
 import Foundation
+import AVFoundation
 
 protocol AddTextPresenterInterface {
-    
+    func viewDidLoad()
+    func viewWillDissappear()
+    func pushCancelHandler()
+    func pushAcceptHandler()
+    func pushBack()
+    func expandPlayer()
+
 }
 
 protocol AddTextPresenterDelegate {
+    func bringToFrontExpandPlayerButton()
     
+    func acceptFinished()
+    func pushBackFinished()
+    func expandPlayerToView()
+    func setStopToVideo()
+    func updatePlayerOnView(composition:AVMutableComposition)
 }

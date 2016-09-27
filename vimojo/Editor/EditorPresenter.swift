@@ -120,6 +120,12 @@ class EditorPresenter: NSObject,EditorPresenterInterface,EditorInteractorDelegat
         }
     }
     
+    func pushAddTextHandler() {
+        if checkIfSelectedCellExits() && canGoToAnyEditorAction(){
+            wireframe?.presentAddTextController(selectedCellIndexPath.item)
+        }
+    }
+    
     func canGoToAnyEditorAction() -> Bool {
         let nClips = interactor?.getNumberOfClips()
         

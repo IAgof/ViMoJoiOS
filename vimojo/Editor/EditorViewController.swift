@@ -145,6 +145,9 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         eventHandler?.expandPlayer()
     }
     
+    @IBAction func pushAddTextButton(sender: AnyObject) {
+        eventHandler?.pushAddTextHandler()
+    }
     //MARK: - Interface
     func deselectCell(indexPath:NSIndexPath) {
         if (thumbnailClipsCollectionView.cellForItemAtIndexPath(indexPath) != nil){

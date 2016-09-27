@@ -23,6 +23,8 @@ protocol EditorPresenterInterface {
     func pushTrimHandler()
     func pushDuplicateHandler()
     func pushSplitHandler()
+    func pushAddTextHandler()
+    
     func seekBarUpdateHandler(value: Float)
     func pushAddVideoHandler()
     func saveVideoToDocuments(url:NSURL)
@@ -31,5 +33,4 @@ protocol EditorPresenterInterface {
    
     func expandPlayer()
     func updatePlayerLayer()
-
 }

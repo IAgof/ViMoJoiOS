@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import AVFoundation
 
 protocol AddTextInteractorInterface {
-    
+    func setVideoPosition(position: Int) 
+    func setUpComposition(completion:(AVMutableComposition)->Void)
 }
 
 protocol AddTextInteractorDelegate {

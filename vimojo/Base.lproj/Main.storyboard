@@ -1698,7 +1698,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Wiy-cp-fwD">
                                 <rect key="frame" x="20" y="352" width="616" height="42"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="op2-Pk-4Gw">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="op2-Pk-4Gw">
                                         <rect key="frame" x="0.0" y="0.0" width="154" height="42"/>
                                         <state key="normal" image="activity_edit_clip_duplicate_normal"/>
                                         <state key="selected" image="activity_edit_clip_duplicate_pressed"/>
@@ -1707,7 +1707,7 @@
                                             <action selector="pushDuplicateClip:" destination="bat-IU-WKm" eventType="touchUpInside" id="q02-RB-sqo"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UO2-4G-3jD">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UO2-4G-3jD">
                                         <rect key="frame" x="154" y="0.0" width="154" height="42"/>
                                         <state key="normal" image="activity_edit_clip_trim_normal"/>
                                         <state key="selected" image="activity_edit_clip_trim_pressed"/>
@@ -1716,7 +1716,7 @@
                                             <action selector="pushTrimClip:" destination="bat-IU-WKm" eventType="touchUpInside" id="tOU-7d-puc"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCN-Jc-j0s">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCN-Jc-j0s">
                                         <rect key="frame" x="308" y="0.0" width="154" height="42"/>
                                         <state key="normal" image="activity_edit_clip_divide_normal"/>
                                         <state key="selected" image="activity_edit_clip_divide_pressed"/>
@@ -1725,11 +1725,14 @@
                                             <action selector="pushDivideClip:" destination="bat-IU-WKm" eventType="touchUpInside" id="iXa-8p-BQ2"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zuh-bb-8Ig">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zuh-bb-8Ig">
                                         <rect key="frame" x="462" y="0.0" width="154" height="42"/>
                                         <state key="normal" image="activity_edit_clip_text_normal"/>
                                         <state key="selected" image="activity_edit_clip_text_pressed"/>
                                         <state key="highlighted" image="activity_edit_clip_text_pressed"/>
+                                        <connections>
+                                            <action selector="pushAddTextButton:" destination="bat-IU-WKm" eventType="touchUpInside" id="q4l-fc-l03"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <variation key="heightClass=compact" misplaced="YES">
@@ -2836,7 +2839,7 @@
                                     <action selector="cancelButtonPushed:" destination="ek1-S7-ZLf" eventType="touchUpInside" id="uzc-bv-RUb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWH-Hy-ccB">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWH-Hy-ccB">
                                 <rect key="frame" x="561" y="558" width="19" height="22"/>
                                 <state key="normal" image="common_icon_edit_accept_normal"/>
                                 <state key="highlighted" image="common_icon_edit_accept_pressed"/>
@@ -2847,51 +2850,27 @@
                                     <action selector="acceptButtonPushed:" destination="ek1-S7-ZLf" eventType="touchUpInside" id="Zyy-hy-OAl"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UBs-9W-cHA" customClass="PlayerView" customModule="Hispanopost" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UBs-9W-cHA" customClass="PlayerView" customModule="Hispanopost" customModuleProvider="target">
                                 <rect key="frame" x="8" y="52" width="584" height="329"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lh-nM-ufb">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lh-nM-ufb">
                                         <rect key="frame" x="232" y="8" width="24" height="24"/>
                                         <state key="normal" image="common_icon_expand"/>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hV-1u-rwK">
-                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="Label">
-                                                <attributes>
-                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="5hV-1u-rwK" firstAttribute="top" secondItem="UBs-9W-cHA" secondAttribute="top" id="4qg-5G-qYa"/>
                                     <constraint firstAttribute="width" secondItem="UBs-9W-cHA" secondAttribute="height" multiplier="16:9" id="Cww-fW-DkA"/>
                                     <constraint firstAttribute="trailing" secondItem="8lh-nM-ufb" secondAttribute="trailing" constant="8" id="DiS-Qm-kZ3"/>
-                                    <constraint firstAttribute="bottom" secondItem="5hV-1u-rwK" secondAttribute="bottom" id="afc-4p-4aQ"/>
                                     <constraint firstItem="8lh-nM-ufb" firstAttribute="top" secondItem="UBs-9W-cHA" secondAttribute="top" constant="8" id="gYQ-CT-PsD"/>
                                     <constraint firstAttribute="width" secondItem="UBs-9W-cHA" secondAttribute="height" multiplier="16:9" id="oXD-jM-MXq"/>
-                                    <constraint firstAttribute="trailing" secondItem="5hV-1u-rwK" secondAttribute="trailing" id="or8-l8-Lo0"/>
-                                    <constraint firstItem="5hV-1u-rwK" firstAttribute="leading" secondItem="UBs-9W-cHA" secondAttribute="leading" id="tAa-Hf-fEU"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="common_icon_play"/>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="5hV-1u-rwK"/>
-                                    </mask>
                                     <mask key="constraints">
                                         <exclude reference="oXD-jM-MXq"/>
-                                        <exclude reference="4qg-5G-qYa"/>
-                                        <exclude reference="afc-4p-4aQ"/>
-                                        <exclude reference="or8-l8-Lo0"/>
-                                        <exclude reference="tAa-Hf-fEU"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact">
@@ -2900,25 +2879,14 @@
                                         <include reference="oXD-jM-MXq"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="subviews">
-                                        <include reference="5hV-1u-rwK"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <include reference="4qg-5G-qYa"/>
-                                        <include reference="afc-4p-4aQ"/>
-                                        <include reference="or8-l8-Lo0"/>
-                                        <include reference="tAa-Hf-fEU"/>
-                                    </mask>
-                                </variation>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3jY-dS-Shj">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jY-dS-Shj">
                                 <rect key="frame" x="8" y="388" width="584" height="167"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="g49-N2-10X">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="g49-N2-10X">
                                         <rect key="frame" x="181" y="8" width="462" height="25"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5i-JK-nfg">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5i-JK-nfg">
                                                 <rect key="frame" x="0.0" y="0.0" width="154" height="25"/>
                                                 <state key="normal" image="activity_text_top_normal"/>
                                                 <state key="selected" image="activity_text_top_pressed"/>
@@ -2930,7 +2898,7 @@
                                                     <action selector="topTextButtonPushed:" destination="ek1-S7-ZLf" eventType="touchUpInside" id="Ft7-nc-5Do"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxU-RS-elC">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxU-RS-elC">
                                                 <rect key="frame" x="154" y="0.0" width="154" height="25"/>
                                                 <state key="normal" image="activity_text_center_normal"/>
                                                 <state key="selected" image="activity_text_center_pressed"/>
@@ -2938,8 +2906,11 @@
                                                 <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
                                                     <rect key="frame" x="104" y="0.0" width="536" height="30"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="midTextButtonPushed:" destination="ek1-S7-ZLf" eventType="touchUpInside" id="dOR-D5-hsS"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UkS-bh-xDv">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UkS-bh-xDv">
                                                 <rect key="frame" x="308" y="0.0" width="154" height="25"/>
                                                 <state key="normal" image="activity_text_lower_normal"/>
                                                 <state key="selected" image="activity_text_lower_pressed"/>
@@ -2947,10 +2918,13 @@
                                                 <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
                                                     <rect key="frame" x="640" y="0.0" width="104" height="30"/>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="bottomTextButtonPushed:" destination="ek1-S7-ZLf" eventType="touchUpInside" id="Irh-HW-zwA"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Escribe aqui tu texto" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j2y-jC-Ei3">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Escribe aqui tu texto" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j2y-jC-Ei3">
                                         <rect key="frame" x="233" y="81" width="97" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="5LX-fB-28k"/>
@@ -3110,6 +3084,10 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="AddTextTextField" destination="j2y-jC-Ei3" id="nzb-uG-aZj"/>
+                        <outlet property="bottomTextConfigButton" destination="UkS-bh-xDv" id="2dx-BM-9Cb"/>
+                        <outlet property="expandPlayerButton" destination="8lh-nM-ufb" id="f5z-2r-1JO"/>
+                        <outlet property="midTextConfigButton" destination="bxU-RS-elC" id="cgY-Pn-gtR"/>
+                        <outlet property="playerView" destination="UBs-9W-cHA" id="6YA-9t-Sjq"/>
                         <outlet property="topTextConfigButton" destination="X5i-JK-nfg" id="xUF-zP-RsG"/>
                     </connections>
                 </viewController>

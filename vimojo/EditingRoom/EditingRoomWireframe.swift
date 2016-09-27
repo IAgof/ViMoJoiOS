@@ -20,7 +20,7 @@ class EditingRoomWireframe : NSObject {
     var editorWireframe: EditorWireframe?
     var musicWireframe: MusicWireframe?
     var shareWireframe: ShareWireframe?
-//    var settingsWireframe:SettingsWireframe?
+    var settingsWireframe:SettingsWireframe?
     
     //MARK: - Variables
     weak var currentViewController: UIViewController?
@@ -169,6 +169,6 @@ class EditingRoomWireframe : NSObject {
     }
     
     func presentSettingsInterface(){
-//        settingsWireframe?.presentSettingsInterfaceFromViewController(editingRoomViewController!)
+        settingsWireframe?.presentSettingsInterfaceFromViewController(editingRoomViewController!)
     }
 }

@@ -10,6 +10,7 @@ import Foundation
 
 import Foundation
 import UIKit
+import VideonaPlayer
 
 let addTextViewControllerIdentifier = "AddTextViewController"
 
@@ -18,19 +19,18 @@ class AddTextWireframe : NSObject {
     var rootWireframe : RootWireframe?
     var addTextViewController : AddTextViewController?
     var addTextPresenter : AddTextPresenter?
-    
+    var playerWireframe: PlayerWireframe?
+    var fullScreenPlayerWireframe: FullScreenPlayerWireframe?
+
     var prevController:UIViewController?
     
-    func presentShareInterfaceFromWindow(window: UIWindow) {
-        let viewController = addTextViewControllerFromStoryboard()
-        
-        rootWireframe?.showRootViewController(viewController, inWindow: window)
-    }
-    
-    func presentShareInterfaceFromViewController(prevController:UIViewController,textRef:String) {
+    func presentAddTextInterfaceFromViewController(prevController:UIViewController,
+                                                   videoSelected:Int)
+    {
         let viewController = addTextViewControllerFromStoryboard()
         
         self.prevController = prevController
+        addTextPresenter?.videoSelectedIndex = videoSelected
         
         prevController.showViewController(viewController, sender: nil)
     }
@@ -42,7 +42,9 @@ class AddTextWireframe : NSObject {
         viewController.eventHandler = addTextPresenter
         addTextViewController = viewController
         addTextPresenter?.delegate = viewController
-        
+        viewController.wireframe = self
+        viewController.playerHandler = playerWireframe?.getPlayerPresenter()
+
         return viewController
     }
     
@@ -51,7 +53,21 @@ class AddTextWireframe : NSObject {
         return storyboard
     }
     
+    func presentExpandPlayer(){
+        if let controller = addTextViewController{
+            if let player = playerWireframe?.presentedView{
+                fullScreenPlayerWireframe?.presentFullScreenPlayerFromViewController(controller,
+                                                                                     playerView:player)
+            }
+        }
+    }
+    
+    func presentPlayerInterface() {
+        playerWireframe?.presentPlayerInterfaceFromViewController(addTextViewController!)
+    }
+    
     func goPrevController(){
-        addTextViewController?.navigationController?.popToViewController(prevController!, animated: true)
+        addTextViewController?.dismissViewControllerAnimated(true, completion: nil)
+//        addTextViewController?.navigationController?.popToViewController(prevController!, animated: true)
     }
 }
