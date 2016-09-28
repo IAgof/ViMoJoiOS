@@ -15,10 +15,12 @@ class AddTextViewController: ViMoJoController {
     var wireframe:AddTextWireframe?
     var playerHandler: PlayerPresenterInterface?
 
+    let limitLength = 60
+    
     @IBOutlet weak var topTextConfigButton: UIButton!
     @IBOutlet weak var midTextConfigButton: UIButton!
     @IBOutlet weak var bottomTextConfigButton: UIButton!
-    @IBOutlet weak var AddTextTextField: UITextField!
+    @IBOutlet weak var addTextTextField: UITextField!
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var expandPlayerButton: UIButton!
 
@@ -36,7 +38,8 @@ class AddTextViewController: ViMoJoController {
     }
     
     @IBAction func addTextTextfieldChanged(sender: AnyObject) {
-    
+
+        print("El texto introducido es: \(addTextTextField)")
     }
     
     @IBAction func cancelButtonPushed(sender: AnyObject) {
@@ -50,6 +53,8 @@ class AddTextViewController: ViMoJoController {
     override func viewDidLoad() {
         eventHandler?.viewDidLoad()
         wireframe?.presentPlayerInterface()
+        
+        addTextTextField.delegate = self
     }
     
     
@@ -95,5 +100,13 @@ extension AddTextViewController:PlayerViewSetter{
     //MARK: - Player setter
     func addPlayerAsSubview(player: PlayerView) {
         self.playerView.addSubview(player)
+    }
+}
+
+extension AddTextViewController:UITextFieldDelegate{
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        guard let text = addTextTextField.text else { return true }
+        let newLength = text.characters.count + string.characters.count - range.length
+        return newLength <= limitLength
     }
 }
