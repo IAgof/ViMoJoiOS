@@ -42,6 +42,10 @@ class AddTextViewController: ViMoJoController {
         print("El texto introducido es: \(addTextTextField)")
     }
     
+    @IBAction func addTextTouchOutside(sender: AnyObject) {
+        addTextTextField.resignFirstResponder()
+    }
+    
     @IBAction func cancelButtonPushed(sender: AnyObject) {
         eventHandler?.pushCancelHandler()
     }
@@ -55,8 +59,23 @@ class AddTextViewController: ViMoJoController {
         wireframe?.presentPlayerInterface()
         
         addTextTextField.delegate = self
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AddTextViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
+        addObserverToShowAndHideKeyboard()
     }
     
+    func addObserverToShowAndHideKeyboard(){
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AddTextViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AddTextViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     
 }
 
@@ -104,9 +123,26 @@ extension AddTextViewController:PlayerViewSetter{
 }
 
 extension AddTextViewController:UITextFieldDelegate{
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        guard let text = addTextTextField.text else { return true }
-        let newLength = text.characters.count + string.characters.count - range.length
-        return newLength <= limitLength
+    //    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    //        guard let text = addTextTextField.text else { return true }
+    //        let newLength = text.characters.count + string.characters.count - range.length
+    //        return newLength <= limitLength
+    //    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
+}
+
+//MARK: Keyboard handler
+extension AddTextViewController{
+    func keyboardWillShow(notification: NSNotification) {
+        self.view.frame.origin.y -= addTextTextField.frame.height
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        self.view.frame.origin.y += addTextTextField.frame.height
+    }
+
 }
