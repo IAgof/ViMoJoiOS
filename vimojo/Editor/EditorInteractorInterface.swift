@@ -20,6 +20,7 @@ protocol EditorInteractorInterface {
                             destionationPosition:Int)
     func getNumberOfClips()->Int
     func getProject()->Project
+    func getVideoTextInPosition(position:Int)
 }
 
 protocol EditorInteractorDelegate {
@@ -28,4 +29,7 @@ protocol EditorInteractorDelegate {
     func setStopTimeList(list:[Double])
     func updateViewList()
     func seekToTimeOfVideoSelectedReceiver(time:Float)
+    
+    func setVideoTextToPlayer(text:String,
+                              position:Int)
 }

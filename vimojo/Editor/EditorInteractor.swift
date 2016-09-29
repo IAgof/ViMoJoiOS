@@ -333,4 +333,23 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         guard let numberOfClips = project?.numberOfClips() else {return 0}
         return numberOfClips
     }
+    
+    func getVideoTextInPosition(position: Int) {
+        guard let videoList = project?.getVideoList() else {return}
+        
+        let video = videoList[position]
+        
+        guard let text = video.textToVideo else{
+            delegate?.setVideoTextToPlayer("", position: 0)
+            return
+        }
+        
+        guard let textPosition = video.textPositionToVideo else{
+            delegate?.setVideoTextToPlayer("", position: 0)
+            return
+        }
+        
+        delegate?.setVideoTextToPlayer(text,
+                                 position: textPosition)
+    }
 }

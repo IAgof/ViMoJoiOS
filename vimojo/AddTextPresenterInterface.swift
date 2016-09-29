@@ -36,6 +36,7 @@ protocol AddTextPresenterDelegate {
     func updatePlayerOnView(composition:AVMutableComposition)
     
     func setTextToPlayer(text:String)
+    func setTextToEditTextField(text:String)
     func setTextAlignment(alignment:VerticalAlignment)
     
     func setSelectedTopButton(state:Bool)

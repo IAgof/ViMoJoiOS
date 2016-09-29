@@ -75,6 +75,7 @@ class EditorPresenter: NSObject,EditorPresenterInterface,EditorInteractorDelegat
     
     func seekToSelectedItem(videoPosition:Int){
         interactor?.seekToSelectedItemHandler(videoPosition)
+        interactor?.getVideoTextInPosition(videoPosition)
     }
     
     func cellForItemAtIndexPath(indexPath: NSIndexPath) {
@@ -102,6 +103,7 @@ class EditorPresenter: NSObject,EditorPresenterInterface,EditorInteractorDelegat
         
         ViMoJoTracker.sharedInstance.trackClipsReordered()
     }
+    
     func pushDuplicateHandler() {
         if checkIfSelectedCellExits() && canGoToAnyEditorAction(){
             wireframe?.presentDuplicateController(selectedCellIndexPath.item)
@@ -170,7 +172,7 @@ class EditorPresenter: NSObject,EditorPresenterInterface,EditorInteractorDelegat
                     return
                 }else{
                     updateSelectedCellUI(NSIndexPath(forItem: cellPosition, inSection: 0))
-                    
+                    interactor?.getVideoTextInPosition(cellPosition)
                     return
                 }
             }
@@ -264,5 +266,11 @@ class EditorPresenter: NSObject,EditorPresenterInterface,EditorInteractorDelegat
     
     func seekToTimeOfVideoSelectedReceiver(time:Float){
         playerPresenter?.seekToTime(time)
+    }
+    
+    func setVideoTextToPlayer(text: String,
+                              position: Int) {
+        playerPresenter?.setLabelText(text)
+        playerPresenter?.setTextAlignment(VerticalAlignment(rawValue: position)!)
     }
 }

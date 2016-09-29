@@ -12,8 +12,13 @@ import AVFoundation
 protocol AddTextInteractorInterface {
     func setVideoPosition(position: Int) 
     func setUpComposition(completion:(AVMutableComposition)->Void)
+    
+    func getVideoParams()
+    func setParametersToVideo(text:String,
+                              position:Int)
 }
 
 protocol AddTextInteractorDelegate {
-    
+    func setVideoParams(text:String,
+                        position:Int)
 }

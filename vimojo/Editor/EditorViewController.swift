@@ -85,6 +85,7 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
 
         return cell
     }
+    
     //MARK: - UICollectionViewDelegateFlowLayout
     func collectionView(collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -148,6 +149,7 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     @IBAction func pushAddTextButton(sender: AnyObject) {
         eventHandler?.pushAddTextHandler()
     }
+    
     //MARK: - Interface
     func deselectCell(indexPath:NSIndexPath) {
         if (thumbnailClipsCollectionView.cellForItemAtIndexPath(indexPath) != nil){

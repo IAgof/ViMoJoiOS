@@ -117,6 +117,10 @@ extension AddTextViewController:AddTextPresenterDelegate{
         self.playerHandler?.setLabelText(text)
     }
     
+    func setTextToEditTextField(text: String) {
+        self.addTextTextField.text = text
+    }
+    
     func setTextAlignment(alignment: VerticalAlignment) {
         self.playerHandler?.setTextAlignment(alignment)
     }

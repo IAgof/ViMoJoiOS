@@ -19,6 +19,36 @@ class AddTextInteractor: AddTextInteractorInterface {
         self.project = project
     }
     
+    func getVideoParams() {
+        guard let position = videoPosition else{return}
+        guard let video = project?.getVideoList()[position]else {return}
+        
+        guard let text = video.textToVideo else{
+            delegate?.setVideoParams("", position: 0)
+            return
+        }
+
+        guard let textPosition = video.textPositionToVideo else{
+            delegate?.setVideoParams("", position: 0)
+            return
+        }
+        
+        delegate?.setVideoParams(text,
+                                 position: textPosition)
+    }
+    
+    func setParametersToVideo(text: String,
+                              position: Int) {
+        guard let videoList = project?.getVideoList() else {return}
+        
+        guard let vidPosition = videoPosition else{return}
+        
+        videoList[vidPosition].textToVideo = text
+        videoList[vidPosition].textPositionToVideo = position
+        
+        project?.setVideoList(videoList)
+    }
+    
     func setVideoPosition(position: Int) {
         self.videoPosition = position
     }

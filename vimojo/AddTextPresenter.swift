@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import VideonaPlayer
 
 class AddTextPresenter{
     var interactor:AddTextInteractorInterface?
@@ -18,15 +19,17 @@ class AddTextPresenter{
             interactor?.setVideoPosition(videoSelectedIndex)
         }
     }
-    enum AlignmentButtonPresset {
-        case Top
-        case Mid
-        case Bottom
+    enum AlignmentButtonPresset:Int {
+        case Top = 0
+        case Mid = 1
+        case Bottom = 2
     }
     
     var lastButtonPushed:AlignmentButtonPresset = .Top
     
     var isGoingToExpandPlayer = false
+    
+    var textOnLabel:String = ""
 }
 
 //MARK: - Presenter interface
@@ -34,6 +37,7 @@ extension AddTextPresenter:AddTextPresenterInterface{
     func viewDidLoad() {
         
         delegate?.bringToFrontExpandPlayerButton()
+        interactor?.getVideoParams()
         
         interactor?.setUpComposition({composition in
             self.delegate?.updatePlayerOnView(composition)
@@ -48,9 +52,8 @@ extension AddTextPresenter:AddTextPresenterInterface{
     }
     
     func pushAcceptHandler() {
-        //        interactor?.setParametersOnVideoSelectedOnProjectList(lowerValue,
-        //                                                              stopTime: upperValue)
-        
+        interactor?.setParametersToVideo(textOnLabel,
+                                         position: lastButtonPushed.rawValue)
         delegate?.acceptFinished()
     }
     
@@ -63,7 +66,7 @@ extension AddTextPresenter:AddTextPresenterInterface{
     }
     
     func topButtonPushed() {
-        deselectLastButtonPushed()
+        deselectLastButtonPushed(lastButtonPushed)
         
         delegate?.setTextAlignment(.VerticalAlignmentTop)
         delegate?.setSelectedTopButton(true)
@@ -72,7 +75,7 @@ extension AddTextPresenter:AddTextPresenterInterface{
     }
     
     func midButtonPushed() {
-        deselectLastButtonPushed()
+        deselectLastButtonPushed(lastButtonPushed)
 
         delegate?.setTextAlignment(.VerticalAlignmentMiddle)
         delegate?.setSelectedMidButton(true)
@@ -81,7 +84,7 @@ extension AddTextPresenter:AddTextPresenterInterface{
     }
     
     func bottomButtonPushed() {
-        deselectLastButtonPushed()
+        deselectLastButtonPushed(lastButtonPushed)
 
         delegate?.setTextAlignment(.VerticalAlignmentBottom)
         delegate?.setSelectedBottomButton(true)
@@ -89,8 +92,8 @@ extension AddTextPresenter:AddTextPresenterInterface{
         lastButtonPushed = .Bottom
     }
     
-    func deselectLastButtonPushed(){
-        switch lastButtonPushed {
+    func deselectLastButtonPushed(button:AlignmentButtonPresset){
+        switch button {
         case .Top:
             delegate?.setSelectedTopButton(false)
         case .Mid:
@@ -100,6 +103,16 @@ extension AddTextPresenter:AddTextPresenterInterface{
         }
     }
     
+    func selectButtonPushed(button:AlignmentButtonPresset){
+        switch button {
+        case .Top:
+            delegate?.setSelectedTopButton(true)
+        case .Mid:
+            delegate?.setSelectedMidButton(true)
+        case .Bottom:
+            delegate?.setSelectedBottomButton(true)
+        }
+    }
     func expandPlayer() {
         isGoingToExpandPlayer = true
         
@@ -107,13 +120,27 @@ extension AddTextPresenter:AddTextPresenterInterface{
     }
     
     func textHasChanged(text: String) {
-        delegate?.setTextToPlayer(addLineBreakIfNeccesary(text))
+        textOnLabel = addLineBreakIfNeccesary(text)
+        
+        delegate?.setTextToPlayer(textOnLabel)
     }
 }
 
 //MARK: - Interactor delegate
 extension AddTextPresenter:AddTextInteractorDelegate{
-    
+    func setVideoParams(text: String, position: Int) {
+        textOnLabel = text
+        
+        deselectLastButtonPushed(lastButtonPushed)
+        
+        lastButtonPushed = AlignmentButtonPresset(rawValue: position)!
+        
+        selectButtonPushed(lastButtonPushed)
+        
+        delegate?.setTextToPlayer(text)
+        delegate?.setTextToEditTextField(text)
+        delegate?.setTextAlignment(VerticalAlignment(rawValue: position)!)
+    }
 }
 
 //MARK: - Inner functions
