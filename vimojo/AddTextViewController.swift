@@ -26,15 +26,15 @@ class AddTextViewController: ViMoJoController {
 
     
     @IBAction func topTextButtonPushed(sender: AnyObject) {
-        
+        eventHandler?.topButtonPushed()
     }
     
     @IBAction func midTextButtonPushed(sender: AnyObject) {
-        
+        eventHandler?.midButtonPushed()
     }
     
     @IBAction func bottomTextButtonPushed(sender: AnyObject) {
-        
+        eventHandler?.bottomButtonPushed()
     }
     
     @IBAction func addTextTextfieldChanged(sender: AnyObject) {
@@ -116,6 +116,22 @@ extension AddTextViewController:AddTextPresenterDelegate{
     func setTextToPlayer(text: String) {
         self.playerHandler?.setLabelText(text)
     }
+    
+    func setTextAlignment(alignment: VerticalAlignment) {
+        self.playerHandler?.setTextAlignment(alignment)
+    }
+    
+    func setSelectedTopButton(state: Bool) {
+        topTextConfigButton.selected = state
+    }
+    
+    func setSelectedMidButton(state: Bool) {
+        midTextConfigButton.selected = state
+    }
+    
+    func setSelectedBottomButton(state: Bool) {
+        bottomTextConfigButton.selected = state
+    }
 }
 extension AddTextViewController:PlayerViewSetter{
     //MARK: - Player setter
@@ -136,6 +152,7 @@ extension AddTextViewController:UITextFieldDelegate{
             currentString.stringByReplacingCharactersInRange(range, withString: replaceString)
         return newString.length <= maxLength
     }
+    
     func addLineBreakIfNeccesary(text:String)->String{
         let maxCharForLine = 30
         if text.characters.count > maxCharForLine {

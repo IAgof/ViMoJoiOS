@@ -8,6 +8,7 @@
 
 import Foundation
 import AVFoundation
+import VideonaPlayer
 
 protocol AddTextPresenterInterface {
     func viewDidLoad()
@@ -16,6 +17,10 @@ protocol AddTextPresenterInterface {
     func pushAcceptHandler()
     func pushBack()
     func expandPlayer()
+    
+    func topButtonPushed()
+    func midButtonPushed()
+    func bottomButtonPushed()
     
     func textHasChanged(text:String)
 
@@ -31,4 +36,9 @@ protocol AddTextPresenterDelegate {
     func updatePlayerOnView(composition:AVMutableComposition)
     
     func setTextToPlayer(text:String)
+    func setTextAlignment(alignment:VerticalAlignment)
+    
+    func setSelectedTopButton(state:Bool)
+    func setSelectedMidButton(state:Bool)
+    func setSelectedBottomButton(state:Bool)
 }

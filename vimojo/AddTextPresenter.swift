@@ -18,10 +18,15 @@ class AddTextPresenter{
             interactor?.setVideoPosition(videoSelectedIndex)
         }
     }
+    enum AlignmentButtonPresset {
+        case Top
+        case Mid
+        case Bottom
+    }
+    
+    var lastButtonPushed:AlignmentButtonPresset = .Top
     
     var isGoingToExpandPlayer = false
-
-
 }
 
 //MARK: - Presenter interface
@@ -55,6 +60,44 @@ extension AddTextPresenter:AddTextPresenterInterface{
     
     func pushBack() {
         delegate?.pushBackFinished()
+    }
+    
+    func topButtonPushed() {
+        deselectLastButtonPushed()
+        
+        delegate?.setTextAlignment(.VerticalAlignmentTop)
+        delegate?.setSelectedTopButton(true)
+        
+        lastButtonPushed = .Top
+    }
+    
+    func midButtonPushed() {
+        deselectLastButtonPushed()
+
+        delegate?.setTextAlignment(.VerticalAlignmentMiddle)
+        delegate?.setSelectedMidButton(true)
+        
+        lastButtonPushed = .Mid
+    }
+    
+    func bottomButtonPushed() {
+        deselectLastButtonPushed()
+
+        delegate?.setTextAlignment(.VerticalAlignmentBottom)
+        delegate?.setSelectedBottomButton(true)
+        
+        lastButtonPushed = .Bottom
+    }
+    
+    func deselectLastButtonPushed(){
+        switch lastButtonPushed {
+        case .Top:
+            delegate?.setSelectedTopButton(false)
+        case .Mid:
+            delegate?.setSelectedMidButton(false)
+        case .Bottom:
+            delegate?.setSelectedBottomButton(false)
+        }
     }
     
     func expandPlayer() {
