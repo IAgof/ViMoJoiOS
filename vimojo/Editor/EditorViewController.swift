@@ -208,16 +208,20 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
                                       style: .Default,
                                       handler: {alert -> Void in
             self.eventHandler?.removeVideoClipAfterConfirmation()
+                                        self.alertController = nil
         })
         
-        let noAction = UIAlertAction(title: "No", style: .Default, handler: nil)
+        let noAction = UIAlertAction(title: "No", style: .Default, handler: {
+            void in
+            self.alertController = nil
+        })
         
         alertController.addAction(noAction)
         alertController.addAction(yesAction)
         self.presentViewController(alertController, animated: false, completion:{})
     }
     
-    func createAlertWaitToImport(){
+    func createAlertWaitToImport(completion: (() -> Void)?){
         let title = Utils().getStringByKeyFromEditor(EditorTextConstants.IMPORT_VIDEO_FROM_PHOTO_LIBRARY_TITLE)
         let message = Utils().getStringByKeyFromEditor(EditorTextConstants.IMPORT_VIDEO_FROM_PHOTO_LIBRARY_MESSAGE)
         
@@ -230,11 +234,14 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         activityIndicator.startAnimating()
         
         alertController?.view.addSubview(activityIndicator)
-        self.presentViewController(alertController!, animated: false, completion:{})
+        self.presentViewController(alertController!, animated: false, completion:{
+            presented in
+            completion!(presented)
+        })
     }
     
     func dissmissAlertController(){
-        alertController?.dismissViewControllerAnimated(true, completion: {})
+        alertController!.dismissViewControllerAnimated(true, completion: {})
     }
     
     func bringToFrontExpandPlayerButton(){
@@ -295,14 +302,13 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
                     let urlOfVideo = info[UIImagePickerControllerMediaURL] as? NSURL
                     if let url = urlOfVideo {
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            self.createAlertWaitToImport()
+                            self.createAlertWaitToImport({
+                                void in
+                                self.eventHandler?.saveVideoToDocuments(url)
+                            })
                         })
-
-                        eventHandler?.saveVideoToDocuments(url)
-
                     }
                 }
-                
             }
         }
         
