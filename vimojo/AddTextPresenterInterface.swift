@@ -16,6 +16,8 @@ protocol AddTextPresenterInterface {
     func pushAcceptHandler()
     func pushBack()
     func expandPlayer()
+    
+    func textHasChanged(text:String)
 
 }
 
@@ -27,4 +29,6 @@ protocol AddTextPresenterDelegate {
     func expandPlayerToView()
     func setStopToVideo()
     func updatePlayerOnView(composition:AVMutableComposition)
+    
+    func setTextToPlayer(text:String)
 }

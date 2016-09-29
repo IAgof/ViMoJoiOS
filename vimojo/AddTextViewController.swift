@@ -38,8 +38,8 @@ class AddTextViewController: ViMoJoController {
     }
     
     @IBAction func addTextTextfieldChanged(sender: AnyObject) {
-
-        print("El texto introducido es: \(addTextTextField)")
+        guard let text = addTextTextField.text else{return}
+        eventHandler?.textHasChanged(text)
     }
     
     @IBAction func addTextTouchOutside(sender: AnyObject) {
@@ -76,7 +76,6 @@ class AddTextViewController: ViMoJoController {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-    
 }
 
 extension AddTextViewController:AddTextPresenterDelegate{
@@ -114,6 +113,9 @@ extension AddTextViewController:AddTextPresenterDelegate{
         self.playerHandler?.createVideoPlayer(composition)
     }
     
+    func setTextToPlayer(text: String) {
+        self.playerHandler?.setLabelText(text)
+    }
 }
 extension AddTextViewController:PlayerViewSetter{
     //MARK: - Player setter
@@ -123,11 +125,31 @@ extension AddTextViewController:PlayerViewSetter{
 }
 
 extension AddTextViewController:UITextFieldDelegate{
-    //    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-    //        guard let text = addTextTextField.text else { return true }
-    //        let newLength = text.characters.count + string.characters.count - range.length
-    //        return newLength <= limitLength
-    //    }
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange,
+                   replacementString string: String) -> Bool
+    {
+        let maxLength = 60
+        let currentString: NSString = textField.text!
+        let replaceString = addLineBreakIfNeccesary(string)
+        
+        let newString: NSString =
+            currentString.stringByReplacingCharactersInRange(range, withString: replaceString)
+        return newString.length <= maxLength
+    }
+    func addLineBreakIfNeccesary(text:String)->String{
+        let maxCharForLine = 30
+        if text.characters.count > maxCharForLine {
+            let nextLine = "\n"
+            
+            let preText = text.substringWithRange(Range<String.Index>(start: text.startIndex, end: text.startIndex.advancedBy(maxCharForLine)))
+            let postText = text.substringWithRange(Range<String.Index>(start: text.startIndex.advancedBy(maxCharForLine), end: text.endIndex))
+            
+            let finalText = preText + nextLine + postText
+            
+            return finalText
+        }
+        return text
+    }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
@@ -138,11 +160,15 @@ extension AddTextViewController:UITextFieldDelegate{
 //MARK: Keyboard handler
 extension AddTextViewController{
     func keyboardWillShow(notification: NSNotification) {
-        self.view.frame.origin.y -= addTextTextField.frame.height
+        if self.view.frame.origin.y == 0{
+            self.view.frame.origin.y -= addTextTextField.frame.height
+        }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        self.view.frame.origin.y += addTextTextField.frame.height
+        if self.view.frame.origin.y == (-addTextTextField.frame.height){
+            self.view.frame.origin.y += addTextTextField.frame.height
+        }
     }
 
 }

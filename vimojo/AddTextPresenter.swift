@@ -8,10 +8,11 @@
 
 import Foundation
 
-class AddTextPresenter: AddTextPresenterInterface,AddTextInteractorDelegate {
+class AddTextPresenter{
     var interactor:AddTextInteractorInterface?
     var delegate:AddTextPresenterDelegate?
     
+    var maxCharForLine = 30
     var videoSelectedIndex:Int!{
         didSet{
             interactor?.setVideoPosition(videoSelectedIndex)
@@ -20,6 +21,11 @@ class AddTextPresenter: AddTextPresenterInterface,AddTextInteractorDelegate {
     
     var isGoingToExpandPlayer = false
 
+
+}
+
+//MARK: - Presenter interface
+extension AddTextPresenter:AddTextPresenterInterface{
     func viewDidLoad() {
         
         delegate?.bringToFrontExpandPlayerButton()
@@ -37,8 +43,8 @@ class AddTextPresenter: AddTextPresenterInterface,AddTextInteractorDelegate {
     }
     
     func pushAcceptHandler() {
-//        interactor?.setParametersOnVideoSelectedOnProjectList(lowerValue,
-//                                                              stopTime: upperValue)
+        //        interactor?.setParametersOnVideoSelectedOnProjectList(lowerValue,
+        //                                                              stopTime: upperValue)
         
         delegate?.acceptFinished()
     }
@@ -55,5 +61,31 @@ class AddTextPresenter: AddTextPresenterInterface,AddTextInteractorDelegate {
         isGoingToExpandPlayer = true
         
         delegate?.expandPlayerToView()
+    }
+    
+    func textHasChanged(text: String) {
+        delegate?.setTextToPlayer(addLineBreakIfNeccesary(text))
+    }
+}
+
+//MARK: - Interactor delegate
+extension AddTextPresenter:AddTextInteractorDelegate{
+    
+}
+
+//MARK: - Inner functions
+extension AddTextPresenter{
+    func addLineBreakIfNeccesary(text:String)->String{
+        if text.characters.count > maxCharForLine {
+            let nextLine = "\n"
+
+            let preText = text.substringWithRange(Range<String.Index>(start: text.startIndex, end: text.startIndex.advancedBy(maxCharForLine)))
+            let postText = text.substringWithRange(Range<String.Index>(start: text.startIndex.advancedBy(maxCharForLine), end: text.endIndex))
+            
+            let finalText = preText + nextLine + postText
+            
+            return finalText
+        }
+        return text
     }
 }
