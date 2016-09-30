@@ -18,6 +18,7 @@ class EditorClipsCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         positionNumberLabel.adjustsFontSizeToFitWidth = true
+        removeClipButton.hidden = true
     }
     
     var isClipSelected: Bool = false{
@@ -26,6 +27,8 @@ class EditorClipsCell: UICollectionViewCell {
             self.layer.borderColor = (isClipSelected ? cellColor.CGColor : UIColor.clearColor().CGColor)
             
             self.removeClipButton.backgroundColor = (isClipSelected ? cellColor : UIColor.clearColor())
+            
+            removeClipButton.hidden = !isClipSelected
         }
     }
     
