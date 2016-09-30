@@ -96,6 +96,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         self.configureViews()
         
         configureRotationObserver()
+        UIApplication.sharedApplication().idleTimerDisabled = true
     }
     
     func configureViews(){

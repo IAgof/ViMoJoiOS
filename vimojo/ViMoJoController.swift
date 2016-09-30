@@ -37,6 +37,7 @@ ViMoJoInterface {
         tracker.startTimeInActivityEvent()
 
 //        tracker.sendControllerGAITracker(getControllerName())
+        UIApplication.sharedApplication().idleTimerDisabled = false
     }
     
     override func viewWillDisappear(animated: Bool) {
