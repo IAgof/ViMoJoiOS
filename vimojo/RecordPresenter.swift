@@ -308,6 +308,7 @@ class RecordPresenter: NSObject
     func resetRecorder() {
         cameraInteractor?.removeFilters()
         delegate?.hideRecordedVideoThumb()
+        delegate?.disableShareButton()
         
         interactor?.clearProject()
     }
@@ -394,6 +395,7 @@ class RecordPresenter: NSObject
             })
             // update some UI
             self.delegate?.showRecordButton()
+            self.delegate?.disableShareButton()
         })
         
         isRecording = true
@@ -413,6 +415,7 @@ class RecordPresenter: NSObject
             self.updateThumbnail()
             dispatch_async(dispatch_get_main_queue(), {
                 self.delegate?.showStopButton()
+                self.delegate?.enableShareButton()
             });
         });
         
@@ -588,6 +591,7 @@ class RecordPresenter: NSObject
             }
         }else{
             self.delegate?.hideRecordedVideoThumb()
+            self.delegate?.disableShareButton()
         }
     }
     

@@ -117,4 +117,7 @@ protocol RecordPresenterDelegate {
     func setResolutionToView(resolution:String)
     func setResolutionIconImage(image:UIImage)
     func setResolutionIconImagePressed(image:UIImage)
+    
+    func enableShareButton()
+    func disableShareButton()
 }

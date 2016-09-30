@@ -32,6 +32,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var configModesButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var resolutionButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
 
     @IBOutlet weak var secondaryRecordButton: UIButton!
     @IBOutlet weak var hideAllButtonsButton: UIButton!
@@ -680,6 +681,14 @@ extension RecordController:RecordPresenterDelegate {
     func setResolutionIconImagePressed(image: UIImage) {
         resolutionButton.setImage(image, forState: .Highlighted)
         resolutionButton.setImage(image, forState: .Selected)
+    }
+    
+    func enableShareButton() {
+        shareButton.enabled = true
+    }
+    
+    func disableShareButton() {
+        shareButton.enabled = false
     }
 }
 
