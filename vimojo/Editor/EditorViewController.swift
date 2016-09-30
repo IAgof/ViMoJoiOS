@@ -51,6 +51,8 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         super.viewWillAppear(animated)
 
         eventHandler?.viewWillAppear()
+        
+        playerView.layoutSubviews()
     }
     
     override func viewWillDisappear(animated: Bool) {
