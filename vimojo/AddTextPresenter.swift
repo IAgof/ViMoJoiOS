@@ -54,6 +54,8 @@ extension AddTextPresenter:AddTextPresenterInterface{
     func pushAcceptHandler() {
         interactor?.setParametersToVideo(textOnLabel,
                                          position: lastButtonPushed.rawValue)
+        interactor?.exportVideoWithText(textOnLabel)
+
         delegate?.acceptFinished()
     }
     
@@ -140,6 +142,10 @@ extension AddTextPresenter:AddTextInteractorDelegate{
         delegate?.setTextToPlayer(text)
         delegate?.setTextToEditTextField(text)
         delegate?.setTextAlignment(VerticalAlignment(rawValue: position)!)
+    }
+    
+    func updateVideoList() {
+        interactor?.getVideoParams()
     }
 }
 

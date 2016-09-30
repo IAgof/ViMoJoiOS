@@ -16,9 +16,12 @@ protocol AddTextInteractorInterface {
     func getVideoParams()
     func setParametersToVideo(text:String,
                               position:Int)
+    func exportVideoWithText(text:String)
 }
 
 protocol AddTextInteractorDelegate {
     func setVideoParams(text:String,
                         position:Int)
+    
+    func updateVideoList()
 }
