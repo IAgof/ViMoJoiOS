@@ -120,4 +120,7 @@ protocol RecordPresenterDelegate {
     
     func enableShareButton()
     func disableShareButton()
+    
+    func hideThumbnailButtonAndLabel()
+    func showThumbnailButtonAndLabel()
 }

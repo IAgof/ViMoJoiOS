@@ -690,6 +690,15 @@ extension RecordController:RecordPresenterDelegate {
     func disableShareButton() {
         shareButton.enabled = false
     }
+    
+    func hideThumbnailButtonAndLabel() {
+        fadeOutView([thumbnailView,thumbnailNumberClips])
+
+    }
+    
+    func showThumbnailButtonAndLabel() {
+        fadeInView([thumbnailView,thumbnailNumberClips])
+    }
 }
 
 //MARK: - BatteryRemaining delegate

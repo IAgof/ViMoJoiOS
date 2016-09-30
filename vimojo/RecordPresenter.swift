@@ -396,6 +396,7 @@ class RecordPresenter: NSObject
             // update some UI
             self.delegate?.showRecordButton()
             self.delegate?.disableShareButton()
+            self.delegate?.hideThumbnailButtonAndLabel()
         })
         
         isRecording = true
@@ -416,6 +417,7 @@ class RecordPresenter: NSObject
             dispatch_async(dispatch_get_main_queue(), {
                 self.delegate?.showStopButton()
                 self.delegate?.enableShareButton()
+                self.delegate?.showThumbnailButtonAndLabel()
             });
         });
         
