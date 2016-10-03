@@ -610,6 +610,7 @@ class RecordPresenter: NSObject
             if port.portType == AVAudioSessionPortHeadphones {
                 // Headphones located
                 setMicButtonState(true)
+                pushMic()
             }else{
                 setMicButtonState(false)
             }
@@ -632,9 +633,11 @@ class RecordPresenter: NSObject
         case AVAudioSessionRouteChangeReason.NewDeviceAvailable.rawValue:
             print("headphone plugged in")
             setMicButtonState(true)
+            pushMic()
         case AVAudioSessionRouteChangeReason.OldDeviceUnavailable.rawValue:
             print("headphone pulled out")
             setMicButtonState(false)
+            pushMic()
         default:
             break
         }

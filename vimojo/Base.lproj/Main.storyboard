@@ -51,22 +51,11 @@
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_record_icon_focus_focused" translatesAutoresizingMaskIntoConstraints="NO" id="THD-Xp-k6G">
                                         <rect key="frame" x="266" y="266" width="68" height="68"/>
                                     </imageView>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rX8-eJ-GlM" customClass="AudioLevelBarView" customModule="AudioLevelBar">
-                                        <rect key="frame" x="8" y="8" width="250" height="30"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="2GW-QI-VtX"/>
-                                            <constraint firstAttribute="width" constant="250" id="zkF-r4-Gkh"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="picometerImage" value="activity_record_icon_peak_meter"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CiJ-Ll-EF1">
-                                        <rect key="frame" x="469" y="8" width="123" height="30"/>
+                                        <rect key="frame" x="499" y="8" width="93" height="30"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YN4-JO-VO2">
-                                                <rect key="frame" x="4" y="4" width="115" height="22"/>
+                                                <rect key="frame" x="4" y="4" width="85" height="22"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLS-oa-Pa6">
                                                         <rect key="frame" x="0.0" y="0.0" width="24" height="22"/>
@@ -96,17 +85,6 @@
                                                         </variation>
                                                         <connections>
                                                             <action selector="pushResolution:" destination="31E-sq-qOD" eventType="touchUpInside" id="7YD-xf-ERu"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwy-pV-J8a">
-                                                        <rect key="frame" x="95" y="0.0" width="20" height="22"/>
-                                                        <state key="normal" image="activity_record_icon_microphone_pressed"/>
-                                                        <state key="selected" image="activity_record_icon_microphone_normal"/>
-                                                        <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                                            <rect key="frame" x="40" y="0.0" width="0.0" height="22"/>
-                                                        </variation>
-                                                        <connections>
-                                                            <action selector="pushMic:" destination="31E-sq-qOD" eventType="touchUpInside" id="Shq-D1-NHs"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -336,7 +314,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GRR-7i-oFq">
-                                        <rect key="frame" x="260" y="8" width="80" height="29"/>
+                                        <rect key="frame" x="291" y="8" width="80" height="29"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Pdi-1Y-Py7">
                                                 <rect key="frame" x="4" y="4" width="72" height="21"/>
@@ -540,16 +518,63 @@
                                             </mask>
                                         </variation>
                                     </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mbM-wP-T1n">
+                                        <rect key="frame" x="8" y="8" width="275" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwy-pV-J8a">
+                                                <rect key="frame" x="8" y="19" width="20" height="22"/>
+                                                <state key="normal" image="activity_record_icon_microphone_pressed"/>
+                                                <state key="selected" image="activity_record_icon_microphone_normal"/>
+                                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                                    <rect key="frame" x="40" y="0.0" width="0.0" height="22"/>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="pushMic:" destination="31E-sq-qOD" eventType="touchUpInside" id="Shq-D1-NHs"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rX8-eJ-GlM" customClass="AudioLevelBarView" customModule="AudioLevelBar">
+                                                <rect key="frame" x="32" y="0.0" width="243" height="60"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="2GW-QI-VtX"/>
+                                                    <constraint firstAttribute="height" constant="60" id="jAy-ll-3C1"/>
+                                                    <constraint firstAttribute="width" constant="243" id="ufo-Tr-Yne"/>
+                                                    <constraint firstAttribute="width" constant="250" id="zkF-r4-Gkh"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="picometerImage" value="activity_record_icon_peak_meter"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="backColor">
+                                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="2GW-QI-VtX"/>
+                                                        <exclude reference="zkF-r4-Gkh"/>
+                                                    </mask>
+                                                </variation>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="lwy-pV-J8a" firstAttribute="centerY" secondItem="mbM-wP-T1n" secondAttribute="centerY" id="0Um-ep-3ci"/>
+                                            <constraint firstAttribute="trailing" secondItem="rX8-eJ-GlM" secondAttribute="trailing" id="HvE-Kz-swE"/>
+                                            <constraint firstAttribute="bottom" secondItem="rX8-eJ-GlM" secondAttribute="bottom" id="Mak-Qa-VUL"/>
+                                            <constraint firstItem="rX8-eJ-GlM" firstAttribute="top" secondItem="mbM-wP-T1n" secondAttribute="top" id="dXE-LI-cSb"/>
+                                            <constraint firstItem="rX8-eJ-GlM" firstAttribute="leading" secondItem="lwy-pV-J8a" secondAttribute="trailing" constant="4" id="gCi-BU-bHn"/>
+                                            <constraint firstItem="lwy-pV-J8a" firstAttribute="leading" secondItem="mbM-wP-T1n" secondAttribute="leading" constant="8" id="koj-VZ-fvc"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="GRR-7i-oFq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rX8-eJ-GlM" secondAttribute="trailing" constant="8" id="14b-Pu-oYo"/>
                                     <constraint firstItem="7DH-Ci-Hyp" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="1Bx-DJ-dsM"/>
                                     <constraint firstItem="Tj8-Fr-CPj" firstAttribute="centerY" secondItem="oky-R4-rAY" secondAttribute="centerY" id="1w2-1a-3d1"/>
                                     <constraint firstItem="gGv-vB-9p1" firstAttribute="centerY" secondItem="9Kl-ym-3ZQ" secondAttribute="centerY" id="23S-rj-aL7">
                                         <variation key="heightClass=compact" constant="-10"/>
                                     </constraint>
                                     <constraint firstItem="pim-Bp-HAd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="E5V-mU-ie5" secondAttribute="bottom" constant="10" id="3Fp-Eo-QhV"/>
-                                    <constraint firstItem="rX8-eJ-GlM" firstAttribute="centerY" secondItem="CiJ-Ll-EF1" secondAttribute="centerY" id="3jx-CW-0a9"/>
                                     <constraint firstAttribute="trailing" secondItem="pim-Bp-HAd" secondAttribute="trailing" constant="16" id="6ON-A5-jmv"/>
                                     <constraint firstItem="Tj8-Fr-CPj" firstAttribute="centerX" secondItem="oky-R4-rAY" secondAttribute="centerX" id="6RY-DY-dPd"/>
                                     <constraint firstItem="hah-36-ual" firstAttribute="centerY" secondItem="9Kl-ym-3ZQ" secondAttribute="centerY" id="6qg-aA-9sC"/>
@@ -561,6 +586,7 @@
                                     <constraint firstItem="Df5-CU-hT4" firstAttribute="centerY" secondItem="KsY-3z-Du9" secondAttribute="centerY" id="A6b-Ia-XKY"/>
                                     <constraint firstItem="KsY-3z-Du9" firstAttribute="bottom" secondItem="E5V-mU-ie5" secondAttribute="bottom" id="BrZ-78-2mg"/>
                                     <constraint firstItem="uHc-Xb-tvs" firstAttribute="centerX" secondItem="7DH-Ci-Hyp" secondAttribute="centerX" id="CX3-3Z-RXg"/>
+                                    <constraint firstItem="mbM-wP-T1n" firstAttribute="leading" secondItem="9Kl-ym-3ZQ" secondAttribute="leading" constant="8" id="EX6-NZ-YA4"/>
                                     <constraint firstAttribute="bottom" secondItem="zRf-8q-oTu" secondAttribute="bottom" constant="8" id="Fa6-Zv-QBN"/>
                                     <constraint firstItem="REF-Hb-DD3" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="GGD-A0-01S"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7DH-Ci-Hyp" secondAttribute="trailing" constant="10" id="Hx6-uJ-evI"/>
@@ -581,14 +607,14 @@
                                     <constraint firstItem="KsY-3z-Du9" firstAttribute="centerX" secondItem="E5V-mU-ie5" secondAttribute="centerX" id="TJr-3q-hsk"/>
                                     <constraint firstItem="THD-Xp-k6G" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="UcJ-5Z-t8q"/>
                                     <constraint firstItem="oky-R4-rAY" firstAttribute="top" secondItem="CiJ-Ll-EF1" secondAttribute="bottom" constant="4" id="VbP-cp-Kzk"/>
-                                    <constraint firstItem="rX8-eJ-GlM" firstAttribute="leading" secondItem="9Kl-ym-3ZQ" secondAttribute="leading" constant="8" id="WWI-Sw-EMr"/>
                                     <constraint firstItem="QoG-NT-WY4" firstAttribute="centerX" secondItem="7DH-Ci-Hyp" secondAttribute="centerX" id="Xb6-PN-cOm"/>
                                     <constraint firstItem="7ig-Ws-YbI" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="YS0-Y7-l7Z"/>
                                     <constraint firstItem="REF-Hb-DD3" firstAttribute="centerY" secondItem="9Kl-ym-3ZQ" secondAttribute="centerY" id="ZT3-qF-IdD"/>
                                     <constraint firstItem="BC4-E6-c0I" firstAttribute="centerX" secondItem="zRf-8q-oTu" secondAttribute="centerX" id="c4b-hp-83I"/>
                                     <constraint firstItem="KsY-3z-Du9" firstAttribute="top" secondItem="E5V-mU-ie5" secondAttribute="bottom" constant="-27" id="cU0-Y5-CHB"/>
-                                    <constraint firstItem="GRR-7i-oFq" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="cu9-Uq-i7C"/>
+                                    <constraint firstItem="GRR-7i-oFq" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" priority="250" id="cu9-Uq-i7C"/>
                                     <constraint firstItem="7DH-Ci-Hyp" firstAttribute="top" secondItem="uHc-Xb-tvs" secondAttribute="bottom" constant="4" id="cwv-NB-WaJ"/>
+                                    <constraint firstItem="mbM-wP-T1n" firstAttribute="top" secondItem="9Kl-ym-3ZQ" secondAttribute="top" constant="8" id="erX-a7-kPN"/>
                                     <constraint firstItem="zRf-8q-oTu" firstAttribute="top" relation="greaterThanOrEqual" secondItem="gGv-vB-9p1" secondAttribute="bottom" constant="8" id="fJq-Za-YND"/>
                                     <constraint firstItem="E5V-mU-ie5" firstAttribute="centerX" secondItem="pim-Bp-HAd" secondAttribute="centerX" id="fzi-qc-GUf"/>
                                     <constraint firstItem="Tj8-Fr-CPj" firstAttribute="height" secondItem="oky-R4-rAY" secondAttribute="height" id="g63-oh-2cY"/>
@@ -598,7 +624,6 @@
                                     <constraint firstItem="zRf-8q-oTu" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BC4-E6-c0I" secondAttribute="bottom" constant="8" id="iw6-cf-R4K"/>
                                     <constraint firstItem="pim-Bp-HAd" firstAttribute="top" secondItem="JF0-nK-Ivn" secondAttribute="bottom" constant="8" id="n11-VZ-ru0"/>
                                     <constraint firstItem="CiJ-Ll-EF1" firstAttribute="top" secondItem="9Kl-ym-3ZQ" secondAttribute="top" constant="8" id="nUu-Sf-laA"/>
-                                    <constraint firstItem="CiJ-Ll-EF1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rX8-eJ-GlM" secondAttribute="trailing" constant="15" id="oAd-uh-Y9G"/>
                                     <constraint firstItem="hah-36-ual" firstAttribute="top" relation="greaterThanOrEqual" secondItem="CiJ-Ll-EF1" secondAttribute="bottom" constant="8" id="qNh-Cx-QoY"/>
                                     <constraint firstItem="zRf-8q-oTu" firstAttribute="leading" secondItem="9Kl-ym-3ZQ" secondAttribute="leading" constant="8" id="qp4-5a-z6c"/>
                                     <constraint firstItem="Zn6-dz-Qlw" firstAttribute="centerX" secondItem="KEC-ZY-02I" secondAttribute="centerX" id="tm3-69-JhM"/>
@@ -656,6 +681,7 @@
                         <outlet property="isoButton" destination="JwN-me-qb7" id="G84-7L-PfD"/>
                         <outlet property="isoConfigurationView" destination="uHc-Xb-tvs" id="ylO-tt-7CD"/>
                         <outlet property="micButton" destination="lwy-pV-J8a" id="EwK-vA-2Wg"/>
+                        <outlet property="micContainerView" destination="mbM-wP-T1n" id="2NJ-XF-P85"/>
                         <outlet property="modeContainerView" destination="7DH-Ci-Hyp" id="DI1-uf-SM0"/>
                         <outlet property="overlayClearGrid" destination="Usb-Qc-mHY" id="fwh-Pg-Vgo"/>
                         <outlet property="recordAreaContainerView" destination="E5V-mU-ie5" id="upI-1r-nbI"/>
