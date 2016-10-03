@@ -119,11 +119,7 @@ class MusicPresenter: MusicPresenterInterface,MusicInteractorDelegate {
     }
     
     //MARK: - Interactor delegate
-    func setTextList(titleList: [String]) {
-        delegate?.setTextList(titleList)
-    }
-    
-    func setImageList(imageList: [UIImage]) {
-        delegate?.setMusicImageList(imageList)
+    func setMusicModelList(list: [MusicViewModel]) {
+        delegate?.setMusicList(list)
     }
 }

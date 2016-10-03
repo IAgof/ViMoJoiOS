@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import VideonaProject
 
+
 class MusicInteractor: MusicInteractorInterface {
     
     //MARK: - VIPER Variables
@@ -23,8 +24,7 @@ class MusicInteractor: MusicInteractorInterface {
     func getMusicList(){
         musicList = MusicProvider.sharedInstance.retrieveLocalMusic()
         
-        delegate?.setTextList(getTitleList(musicList))
-        delegate?.setImageList(getMusicBackgroundImageList(musicList))
+        delegate?.setMusicModelList(getMusicViewModelList(musicList))
     }
     
     func getTitleFromIndexPath(index: Int) -> String {
@@ -85,14 +85,17 @@ class MusicInteractor: MusicInteractorInterface {
     }
     
     //MARK: - Inner functions
-    func getTitleList(list:[Music]) -> [String] {
-        var titleList:[String] = []
-        
+    func getMusicViewModelList(list:[Music]) -> [MusicViewModel] {
+        var musicViewList:[MusicViewModel] = []
+
         for music in list{
-            titleList.append(music.getMusicTitle())
+            guard let iconImage = UIImage(named: music.getIconResourceId()) else{return []}
+            let newMusic = MusicViewModel(image: iconImage, title: music.getTitle(), author: music.getAuthor())
+
+            musicViewList.append(newMusic)
         }
         
-        return titleList
+        return musicViewList
     }
     
     func getMusicBackgroundImageList(list:[Music]) -> [UIImage] {

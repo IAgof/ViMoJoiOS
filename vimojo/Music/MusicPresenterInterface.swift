@@ -26,8 +26,7 @@ protocol MusicPresenterInterface {
 }
 
 protocol MusicPresenterDelegate {
-    func setTextList(titleList:[String])
-    func setMusicImageList(imageList:[UIImage])
+    func setMusicList(list:[MusicViewModel])
     
     func animateToShowDetail(title:String,
                              author:String,

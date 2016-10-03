@@ -22,6 +22,5 @@ protocol MusicInteractorInterface {
 }
 
 protocol MusicInteractorDelegate {
-    func setTextList(titleList:[String])
-    func setImageList(imageList:[UIImage])
+    func setMusicModelList(list:[MusicViewModel])
 }

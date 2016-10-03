@@ -107,6 +107,7 @@
 		A95BE9981D990C4100602DCD /* DetailTextPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9911D990C4100602DCD /* DetailTextPresenter.swift */; };
 		A95BE9991D990C4100602DCD /* DetailTextPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9921D990C4100602DCD /* DetailTextPresenterInterface.swift */; };
 		A95BE99A1D990C4100602DCD /* DetailTextWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9931D990C4100602DCD /* DetailTextWireframe.swift */; };
+		A96E15F01DA257A400CF81E8 /* MusicModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96E15EF1DA257A400CF81E8 /* MusicModels.swift */; };
 		A9B385EA1D7D51380065D3EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B385E91D7D51380065D3EC /* AppDelegate.swift */; };
 		A9B385EF1D7D51380065D3EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B385ED1D7D51380065D3EC /* Main.storyboard */; };
 		A9B385F11D7D51380065D3EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9B385F01D7D51380065D3EC /* Assets.xcassets */; };
@@ -605,6 +606,7 @@
 		A95BE9931D990C4100602DCD /* DetailTextWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailTextWireframe.swift; path = DetailText/DetailTextWireframe.swift; sourceTree = "<group>"; };
 		A96734F91D7FFBA300441872 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		A96734FA1D7FFBA300441872 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		A96E15EF1DA257A400CF81E8 /* MusicModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicModels.swift; sourceTree = "<group>"; };
 		A9B385E61D7D51380065D3EC /* vimojo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vimojo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B385E91D7D51380065D3EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9B385EE1D7D51380065D3EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -842,17 +844,8 @@
 		A91760FB1D916F3F008915DA /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				A91761251D916F53008915DA /* MusicCell.swift */,
-				A91761261D916F53008915DA /* MusicDetailView.swift */,
-				A91761271D916F53008915DA /* MusicDetailView.xib */,
-				A91761281D916F53008915DA /* MusicInteractor.swift */,
-				A91761291D916F53008915DA /* MusicInteractorInterface.swift */,
-				A917612A1D916F53008915DA /* MusicPresenter.swift */,
-				A917612B1D916F53008915DA /* MusicPresenterInterface.swift */,
-				A917612C1D916F53008915DA /* MusicProvider.swift */,
-				A917612D1D916F53008915DA /* MusicViewController.swift */,
-				A917612E1D916F53008915DA /* MusicViewInterface.swift */,
-				A917612F1D916F53008915DA /* MusicWireframe.swift */,
+				A9C6959C1DA246E500597646 /* App Logic */,
+				A9C6959A1DA246AC00597646 /* User Interface */,
 			);
 			name = Music;
 			sourceTree = "<group>";
@@ -1230,6 +1223,80 @@
 				A9C695911DA2411400597646 /* WE_BEAT_AS_ONE.mp3 */,
 			);
 			name = Res;
+			sourceTree = "<group>";
+		};
+		A9C695961DA2466D00597646 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A91761251D916F53008915DA /* MusicCell.swift */,
+				A917612D1D916F53008915DA /* MusicViewController.swift */,
+				A917612E1D916F53008915DA /* MusicViewInterface.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A9C695971DA2467300597646 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A917612A1D916F53008915DA /* MusicPresenter.swift */,
+				A917612B1D916F53008915DA /* MusicPresenterInterface.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		A9C695981DA2468000597646 /* MusicDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				A91761261D916F53008915DA /* MusicDetailView.swift */,
+				A91761271D916F53008915DA /* MusicDetailView.xib */,
+			);
+			name = MusicDetailView;
+			sourceTree = "<group>";
+		};
+		A9C695991DA2469B00597646 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				A917612F1D916F53008915DA /* MusicWireframe.swift */,
+			);
+			name = Wireframe;
+			sourceTree = "<group>";
+		};
+		A9C6959A1DA246AC00597646 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				A9C695981DA2468000597646 /* MusicDetailView */,
+				A9C695971DA2467300597646 /* Presenter */,
+				A9C695961DA2466D00597646 /* View */,
+				A9C695991DA2469B00597646 /* Wireframe */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
+		A9C6959B1DA246DE00597646 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				A91761281D916F53008915DA /* MusicInteractor.swift */,
+				A91761291D916F53008915DA /* MusicInteractorInterface.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		A9C6959C1DA246E500597646 /* App Logic */ = {
+			isa = PBXGroup;
+			children = (
+				A9C6959B1DA246DE00597646 /* Interactor */,
+				A9C6959D1DA246F000597646 /* Model */,
+			);
+			name = "App Logic";
+			sourceTree = "<group>";
+		};
+		A9C6959D1DA246F000597646 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A917612C1D916F53008915DA /* MusicProvider.swift */,
+				A96E15EF1DA257A400CF81E8 /* MusicModels.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1750,6 +1817,7 @@
 				A917611A1D916F48008915DA /* SharePresenter.swift in Sources */,
 				A91760E51D914835008915DA /* DuplicateViewController.swift in Sources */,
 				A9B386331D7D53230065D3EC /* CameraInteractorInterface.swift in Sources */,
+				A96E15F01DA257A400CF81E8 /* MusicModels.swift in Sources */,
 				A91760C01D9146BF008915DA /* EditorViewInterface.swift in Sources */,
 				A9B386581D7D551A0065D3EC /* Utils.swift in Sources */,
 				A9B386291D7D52F40065D3EC /* RecordWireframe.swift in Sources */,

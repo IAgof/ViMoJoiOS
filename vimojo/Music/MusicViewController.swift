@@ -24,9 +24,7 @@ UITableViewDataSource,UITableViewDelegate,FullScreenWireframeDelegate{
     //MARK: - Variables and constants
     let cellIdentifier = "musicCell"
     
-    var titleList:[String] = []
-    
-    var imageList:[UIImage] = []{
+    var musicViewModelList:[MusicViewModel] = []{
         didSet{
             musicTableView.reloadData()
         }
@@ -85,41 +83,35 @@ UITableViewDataSource,UITableViewDelegate,FullScreenWireframeDelegate{
     
     //MARK: - Tableview dataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titleList.count
+        return musicViewModelList.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! MusicCell
         
-        if imageList.indices.contains(indexPath.item) && !imageList.isEmpty{
-           let image = imageList[indexPath.item]
-            cell.musicImage.image = image
+        if musicViewModelList.indices.contains(indexPath.item) && !musicViewModelList.isEmpty{
+            let music = musicViewModelList[indexPath.item]
+           
+            cell.musicImage.image = music.image
+            cell.titleLabel.text = music.title
+            cell.authorLabel.text = music.author
         }
         
-        if titleList.indices.contains(indexPath.item){
-            let text = titleList[indexPath.item]
-            cell.titleLabel.text = " \(text) "
-        }
-                
         return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        if imageList.indices.contains(indexPath.item) {
-            return imageList[indexPath.row].size.height
+        if musicViewModelList.indices.contains(indexPath.item) {
+            return musicViewModelList[indexPath.row].image.size.height
         }else{
             return 80
         }
     }
     
     //MARK: - Presenter delegate
-    func setTextList(titleList: [String]) {
-        self.titleList = titleList
-    }
-    
-    func setMusicImageList(imageList: [UIImage]) {
-        self.imageList = imageList
+    func setMusicList(list: [MusicViewModel]) {
+        self.musicViewModelList = list
     }
     
     //MARK: - Music Detail Delegate
