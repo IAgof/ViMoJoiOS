@@ -262,12 +262,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBAction func pushResolution(sender: AnyObject) {
         eventHandler?.pushResolution()
     }
-    
-    
-    @IBAction func pushGeolocalication(sender: AnyObject) {
         
-    }
-    
     @IBAction func pushMic(sender: AnyObject) {
         eventHandler?.pushMic()
     }
