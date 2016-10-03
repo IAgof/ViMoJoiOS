@@ -23,13 +23,9 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
 
     let reuseIdentifierCell = "editorCollectionViewCell"
     
-    var videoPositionList: [Int] = []
-
-    var videoImageList: [UIImage] = []{
+    var videoList: [EditorViewModel] = []{
         didSet {
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.thumbnailClipsCollectionView.reloadData()
-            })
         }
     }
     
@@ -67,16 +63,17 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     
     // MARK: - UICollectionViewDataSource protocol
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return videoPositionList.count
+        return videoList.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifierCell, forIndexPath: indexPath) as! EditorClipsCell
         
-        cell.positionNumberLabel.text = "\(videoPositionList[indexPath.item])"
         
-        if  videoImageList.indices.contains(indexPath.item){
-            cell.thumbnailImageView.image = videoImageList[indexPath.item]
+        if  videoList.indices.contains(indexPath.item){
+            cell.thumbnailImageView.image = videoList[indexPath.item].image
+            cell.timeLabel.text = videoList[indexPath.item].timeText
+            cell.positionNumberLabel.text = videoList[indexPath.item].positionText
         }
         
         eventHandler?.cellForItemAtIndexPath(indexPath)
@@ -168,12 +165,8 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         thumbnailClipsCollectionView.reloadData()
     }
     
-    func setPositionList(list: [Int]) {
-        self.videoPositionList = list
-    }
-    
-    func setVideoImagesList(list: [UIImage]) {
-        self.videoImageList = list
+    func setVideoList(list: [EditorViewModel]) {
+        self.videoList = list
     }
     
     func setUpGestureRecognizer(){
@@ -243,7 +236,7 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     }
     
     func dissmissAlertController(){
-        alertController!.dismissViewControllerAnimated(true, completion: {})
+        alertController?.dismissViewControllerAnimated(true, completion: {})
     }
     
     func bringToFrontExpandPlayerButton(){

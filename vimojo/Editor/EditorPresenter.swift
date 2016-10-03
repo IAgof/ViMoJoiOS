@@ -236,13 +236,8 @@ class EditorPresenter: NSObject,EditorPresenterInterface,EditorInteractorDelegat
     }
     
     //MARK: - Interactor delegate
-    func setPositionList(list: [Int]) {
-        controller?.setPositionList(list)
-        self.setVideoDataToView()
-    }
-    
-    func setVideoImagesList(list: [UIImage]) {
-        self.controller?.setVideoImagesList(list)
+    func setVideoList(list: [EditorViewModel]) {
+        controller?.setVideoList(list)
         self.setVideoDataToView()
     }
     

@@ -12,6 +12,7 @@ class EditorClipsCell: UICollectionViewCell {
 
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var positionNumberLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var removeClipButton: UIButton!
     
     let cellColor = VIMOJO_GREEN_UICOLOR

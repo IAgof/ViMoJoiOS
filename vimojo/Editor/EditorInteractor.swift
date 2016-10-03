@@ -11,6 +11,7 @@ import AssetsLibrary
 import AVFoundation
 import VideonaProject
 
+
 class EditorInteractor: NSObject,EditorInteractorInterface {
     
     //MARK: - Variables VIPER
@@ -30,22 +31,45 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         
         self.videosList = videosList
         
-        self.getPositionList()
-        self.getImageList()
+        self.getVideoList()
         self.getStopTimeList()
     }
     
-    func getPositionList(){
-        var positionList:[Int] = []
+    func getVideoList(){
+        var videoList:[EditorViewModel] = []
         
-        for video in videosList{
-            positionList.append(video.getPosition())
+        for video in self.videosList{
+
+            ThumbnailListInteractor(videoPath: video.getMediaPath(),
+                diameter: Utils.sharedInstance.thumbnailEditorListDiameter).getThumbnailImage({
+                    thumb in
+                    
+                    let timeToString = self.hourToString(video.getStopTime() - video.getStartTime())
+                    let newVideo = EditorViewModel(
+                        image: thumb,
+                        timeText: timeToString,
+                        positionText: "\(video.getPosition())")
+                    videoList.append(newVideo)
+                })
         }
-        
-        delegate?.setPositionList(positionList)
+        delegate?.setVideoList(videoList)
     }
-    
-    
+    func hourToString(time:Double) -> String {
+        let hours = Int(floor(time/3600))
+        let mins = Int(floor(time % 3600) / 60)
+        let secs = Int(floor(time % 3600) % 60)
+        
+        let x:Double = (time % 3600) % 60
+        let numberOfPlaces:Double = 4.0
+        let powerOfTen:Double = pow(10.0, numberOfPlaces)
+        let targetedDecimalPlaces:Double = round((x % 1.0) * powerOfTen) / powerOfTen
+        
+        let decimals = Int(targetedDecimalPlaces * 1000)
+        
+        //        return String(format:"%d:%02d:%02d,%02d", hours, mins, secs,decimals)
+        //        return String(format:"%02d:%02d:%02d", mins, secs,decimals)
+                return String(format:"%02d:%02d", mins, secs)
+    }
     func getStopTimeList(){
         var stopTimeList:[Double] = []
         
@@ -56,19 +80,6 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         }
         
         delegate?.setStopTimeList(stopTimeList)
-    }
-    
-    func getImageList(){
-        var imageList:[UIImage] = []
-        
-        for video in self.videosList{
-            ThumbnailListInteractor(videoPath: video.getMediaPath(),
-                diameter: Utils.sharedInstance.thumbnailEditorListDiameter).getThumbnailImage({
-                    thumb in
-                    imageList.append(thumb)
-                })
-        }
-        delegate?.setVideoImagesList(imageList)
     }
     
     func saveVideoToDocuments(url:NSURL) {

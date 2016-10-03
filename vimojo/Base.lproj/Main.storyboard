@@ -782,7 +782,7 @@
                                     <constraint firstItem="hK2-dv-6yA" firstAttribute="top" secondItem="Ck2-bG-eRC" secondAttribute="top" constant="8" id="vuq-Sx-cze"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="common_icon_play"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="activity_record_icon_white_balance_fluorescent_pressed"/>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="heightClass=compact" misplaced="YES">
                                     <rect key="frame" x="8" y="52" width="334" height="189"/>
@@ -1821,6 +1821,12 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QE9-Jg-t3j">
                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWv-Ox-lg2">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3I-7X-nSO">
                                                     <rect key="frame" x="59" y="0.0" width="19" height="26"/>
                                                     <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
@@ -1853,8 +1859,10 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="lWv-Ox-lg2" secondAttribute="trailing" constant="-4" id="BOl-cZ-Ey1"/>
                                             <constraint firstItem="P3I-7X-nSO" firstAttribute="top" secondItem="4dJ-Hl-5yi" secondAttribute="topMargin" constant="-8" id="D0J-WL-pbM"/>
                                             <constraint firstItem="QE9-Jg-t3j" firstAttribute="leading" secondItem="4dJ-Hl-5yi" secondAttribute="leadingMargin" constant="-8" id="PAt-Vx-jbx"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="lWv-Ox-lg2" secondAttribute="bottom" constant="-4" id="aa7-Sd-xnM"/>
                                             <constraint firstItem="foH-A6-sKE" firstAttribute="leading" secondItem="4dJ-Hl-5yi" secondAttribute="leadingMargin" constant="-4" id="cQG-DF-fO6"/>
                                             <constraint firstItem="QE9-Jg-t3j" firstAttribute="top" secondItem="4dJ-Hl-5yi" secondAttribute="topMargin" constant="-8" id="caX-KN-HMI"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="QE9-Jg-t3j" secondAttribute="bottom" constant="-8" id="hFT-RF-BJG"/>
@@ -1867,6 +1875,7 @@
                                             <outlet property="positionNumberLabel" destination="foH-A6-sKE" id="u2a-dH-0uG"/>
                                             <outlet property="removeClipButton" destination="P3I-7X-nSO" id="Hs6-v0-9a3"/>
                                             <outlet property="thumbnailImageView" destination="QE9-Jg-t3j" id="Rz5-Ig-iBk"/>
+                                            <outlet property="timeLabel" destination="lWv-Ox-lg2" id="T0s-eO-t1d"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
