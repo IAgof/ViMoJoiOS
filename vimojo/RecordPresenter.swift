@@ -140,14 +140,21 @@ class RecordPresenter: NSObject
         if secondaryViewIsShowing{
             delegate?.showPrincipalViews()
             
+            if isRecording {
+                delegate?.showRecordChronometerContainer()
+            }
+            
             if videoSettingsConfigViewIsShowing {
                 delegate?.showVideoSettingsConfig()
             }
+            
             delegate?.hideSecondaryRecordViews()
             
             delegate?.showAllButtonsButtonImage()
             secondaryViewIsShowing = false
         }else{
+            delegate?.hideRecordChronometerContainer()
+            
             delegate?.showSecondaryRecordViews()
             delegate?.hidePrincipalViews()
             
@@ -308,7 +315,7 @@ class RecordPresenter: NSObject
     func resetRecorder() {
         cameraInteractor?.removeFilters()
         delegate?.hideRecordedVideoThumb()
-        delegate?.disableShareButton()
+//        delegate?.disableShareButton()
         
         interactor?.clearProject()
     }
@@ -383,6 +390,7 @@ class RecordPresenter: NSObject
         self.trackStartRecord()
         
         delegate?.recordButtonEnable(false)
+        delegate?.showRecordChronometerContainer()
         
         dispatch_async(dispatch_get_main_queue(), {
             self.cameraInteractor?.setIsRecording(true)
@@ -395,7 +403,7 @@ class RecordPresenter: NSObject
             })
             // update some UI
             self.delegate?.showRecordButton()
-            self.delegate?.disableShareButton()
+//            self.delegate?.disableShareButton()
             self.delegate?.hideThumbnailButtonAndLabel()
         })
         
@@ -416,8 +424,9 @@ class RecordPresenter: NSObject
             self.updateThumbnail()
             dispatch_async(dispatch_get_main_queue(), {
                 self.delegate?.showStopButton()
-                self.delegate?.enableShareButton()
+//                self.delegate?.enableShareButton()
                 self.delegate?.showThumbnailButtonAndLabel()
+                self.delegate?.hideRecordChronometerContainer()
             });
         });
         
@@ -593,7 +602,7 @@ class RecordPresenter: NSObject
             }
         }else{
             self.delegate?.hideRecordedVideoThumb()
-            self.delegate?.disableShareButton()
+//            self.delegate?.disableShareButton()
         }
     }
     

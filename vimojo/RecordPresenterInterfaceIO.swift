@@ -118,9 +118,12 @@ protocol RecordPresenterDelegate {
     func setResolutionIconImage(image:UIImage)
     func setResolutionIconImagePressed(image:UIImage)
     
-    func enableShareButton()
-    func disableShareButton()
+//    func enableShareButton()
+//    func disableShareButton()
     
     func hideThumbnailButtonAndLabel()
     func showThumbnailButtonAndLabel()
+    
+    func showRecordChronometerContainer()
+    func hideRecordChronometerContainer()
 }
