@@ -110,7 +110,7 @@ class AppDependencies {
         editorRoomWireframe.editorWireframe = editorWireframe
         editorRoomWireframe.shareWireframe = shareWireframe
         editorRoomWireframe.musicWireframe = musicWireframe
-//        editorRoomWireframe.settingsWireframe = settingsWireframe
+        editorRoomWireframe.settingsWireframe = settingsWireframe
         editorWireframe.fullScreenPlayerWireframe = fullScreenPlayerWireframe
 
         //EDITOR MODULE

@@ -410,6 +410,9 @@
                                         <rect key="frame" x="501" y="381" width="31" height="31"/>
                                         <state key="normal" image="activity_record_icon_show_menu_normal"/>
                                         <state key="highlighted" image="activity_record_icon_show_menu_pressed"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="301" y="482" width="31" height="31"/>
+                                        </variation>
                                         <connections>
                                             <action selector="pushHideMode:" destination="31E-sq-qOD" eventType="touchUpInside" id="BCS-10-JQU"/>
                                         </connections>
@@ -418,6 +421,9 @@
                                         <rect key="frame" x="544" y="381" width="31" height="31"/>
                                         <state key="normal" image="activity_record_icon_hide_menu_normal"/>
                                         <state key="highlighted" image="activity_record_icon_hide_menu_pressed"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="344" y="482" width="31" height="31"/>
+                                        </variation>
                                         <connections>
                                             <action selector="pushShowMode:" destination="31E-sq-qOD" eventType="touchUpInside" id="P6M-ut-BBb"/>
                                         </connections>
@@ -439,9 +445,6 @@
                                                         </variation>
                                                         <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
                                                             <rect key="frame" x="356" y="138" width="32" height="34"/>
-                                                        </variation>
-                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                            <rect key="frame" x="357" y="272" width="32" height="34"/>
                                                         </variation>
                                                         <connections>
                                                             <action selector="pushRotateCamera:" destination="31E-sq-qOD" eventType="touchUpInside" id="Gzk-Ft-jJN"/>
@@ -472,9 +475,6 @@
                                                         <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
                                                             <rect key="frame" x="357" y="249" width="29" height="26"/>
                                                         </variation>
-                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                            <rect key="frame" x="358" y="379" width="29" height="26"/>
-                                                        </variation>
                                                         <connections>
                                                             <action selector="pushSettingsButton:" destination="31E-sq-qOD" eventType="touchUpInside" id="lkw-Jd-93A"/>
                                                         </connections>
@@ -488,14 +488,14 @@
                                                         <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
                                                             <rect key="frame" x="317" y="210" width="34" height="35"/>
                                                         </variation>
-                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                            <rect key="frame" x="519" y="464" width="34" height="35"/>
-                                                        </variation>
                                                         <connections>
                                                             <action selector="pushVideoSettingsConfig:" destination="31E-sq-qOD" eventType="touchUpInside" id="L1j-Qs-7tg"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
+                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="4" y="5" width="31" height="132"/>
+                                                </variation>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -516,6 +516,9 @@
                                                 <exclude reference="nyO-V2-pK3"/>
                                                 <exclude reference="ysV-N8-kjI"/>
                                             </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="340" y="373" width="39" height="140"/>
                                         </variation>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mbM-wP-T1n">
