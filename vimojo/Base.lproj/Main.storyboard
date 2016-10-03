@@ -724,6 +724,9 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="common_icon_play"/>
                                 </userDefinedRuntimeAttributes>
+                                <variation key="heightClass=compact" misplaced="YES">
+                                    <rect key="frame" x="8" y="52" width="334" height="189"/>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SZn-wu-f2Y">
                                 <rect key="frame" x="0.0" y="388" width="600" height="473"/>
@@ -1401,7 +1404,8 @@
                                         <exclude reference="4KQ-qc-gIK"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=compact">
+                                <variation key="heightClass=compact" misplaced="YES">
+                                    <rect key="frame" x="8" y="52" width="334" height="189"/>
                                     <mask key="constraints">
                                         <include reference="4KQ-qc-gIK"/>
                                         <exclude reference="CoG-92-tdh"/>
@@ -1728,7 +1732,7 @@
                                     </button>
                                 </subviews>
                                 <variation key="heightClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="206" width="316" height="210"/>
+                                    <rect key="frame" x="0.0" y="191" width="316" height="210"/>
                                 </variation>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jKA-Xj-Z0M">
@@ -1852,7 +1856,7 @@
                                     <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="common_icon_play"/>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="heightClass=compact" misplaced="YES">
-                                    <rect key="frame" x="8" y="8" width="346" height="194"/>
+                                    <rect key="frame" x="8" y="8" width="316" height="179"/>
                                     <mask key="constraints">
                                         <exclude reference="cH5-07-5Yw"/>
                                     </mask>
@@ -2206,7 +2210,7 @@
                                         <rect key="frame" x="0.0" y="28" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DPs-gQ-AyU" id="ZOf-bf-9kz">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -2433,8 +2437,18 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="imagebutton_music_background_electronic" translatesAutoresizingMaskIntoConstraints="NO" id="xLp-6A-XTj">
                                                             <rect key="frame" x="8" y="8" width="224" height="64"/>
-                                                            <variation key="heightClass=compact" misplaced="YES">
-                                                                <rect key="frame" x="8" y="8" width="354" height="64"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="xLp-6A-XTj" secondAttribute="height" multiplier="1:1" id="2Ax-O7-m6a"/>
+                                                            </constraints>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="2Ax-O7-m6a"/>
+                                                                </mask>
+                                                            </variation>
+                                                            <variation key="heightClass=compact">
+                                                                <mask key="constraints">
+                                                                    <include reference="2Ax-O7-m6a"/>
+                                                                </mask>
                                                             </variation>
                                                             <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                                                 <rect key="frame" x="8" y="8" width="344" height="64"/>
@@ -2452,14 +2466,25 @@
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="0w8-3h-SqQ" secondAttribute="trailing" constant="10" id="2JQ-zy-lpp"/>
-                                                        <constraint firstItem="0w8-3h-SqQ" firstAttribute="leading" secondItem="aNh-v5-Q7T" secondAttribute="leadingMargin" constant="10" id="JRG-ij-lDz"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="0w8-3h-SqQ" secondAttribute="trailing" constant="10" id="2JQ-zy-lpp"/>
                                                         <constraint firstItem="0w8-3h-SqQ" firstAttribute="centerY" secondItem="aNh-v5-Q7T" secondAttribute="centerY" id="L00-23-KuH"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="xLp-6A-XTj" secondAttribute="trailing" id="m0T-EN-GHz"/>
                                                         <constraint firstItem="xLp-6A-XTj" firstAttribute="top" secondItem="aNh-v5-Q7T" secondAttribute="topMargin" id="wUM-9p-yk3"/>
                                                         <constraint firstItem="xLp-6A-XTj" firstAttribute="leading" secondItem="aNh-v5-Q7T" secondAttribute="leadingMargin" id="wui-Yc-Ei9"/>
+                                                        <constraint firstItem="0w8-3h-SqQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xLp-6A-XTj" secondAttribute="trailing" constant="8" id="yQn-lK-eZA"/>
                                                         <constraint firstAttribute="bottomMargin" secondItem="xLp-6A-XTj" secondAttribute="bottom" id="yso-uv-e0M"/>
                                                     </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="yQn-lK-eZA"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=compact">
+                                                        <mask key="constraints">
+                                                            <exclude reference="m0T-EN-GHz"/>
+                                                            <include reference="yQn-lK-eZA"/>
+                                                        </mask>
+                                                    </variation>
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="musicImage" destination="xLp-6A-XTj" id="2yq-Ws-zd1"/>
@@ -2745,11 +2770,11 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ucA-Hr-aMl" id="atU-ds-XNM">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="thx-qg-ycN">
-                                                    <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                                    <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2759,7 +2784,7 @@
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mWX-bJ-Zmx">
-                                                    <rect key="frame" x="541" y="11" width="44" height="21"/>
+                                                    <rect key="frame" x="541" y="12" width="44" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>

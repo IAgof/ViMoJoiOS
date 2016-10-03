@@ -68,7 +68,7 @@ class GetActualProjectAVCompositionUseCase: NSObject {
             if isMusicSet{
                 // 3.2 - Audio track
                 // Get Audio asset
-                let audioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(project.getMusic().getMusicResourceId(), ofType: "m4a")!)
+                let audioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(project.getMusic().getMusicResourceId(), ofType: "mp3")!)
                 let audioAsset = AVAsset.init(URL: audioURL)
                 
                 audioTrack = mixComposition.addMutableTrackWithMediaType(AVMediaTypeAudio, preferredTrackID: 0)

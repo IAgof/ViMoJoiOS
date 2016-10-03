@@ -372,6 +372,10 @@
 		A9C168651D92C667007EE697 /* GPUImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A93BCE0C1D7D577300421BD0 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9C168731D92CD42007EE697 /* shoulderpodLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9C168711D92CD20007EE697 /* shoulderpodLaunch.storyboard */; };
 		A9C168741D92D0C3007EE697 /* shoulderpod.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9C1686E1D92C6F7007EE697 /* shoulderpod.xcassets */; };
+		A9C695921DA2411400597646 /* FREE_THE_COLD_WIND.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A9C6958E1DA2411400597646 /* FREE_THE_COLD_WIND.mp3 */; };
+		A9C695931DA2411400597646 /* GALLOPING.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A9C6958F1DA2411400597646 /* GALLOPING.mp3 */; };
+		A9C695941DA2411400597646 /* SORROW_AND_SADNESS.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A9C695901DA2411400597646 /* SORROW_AND_SADNESS.mp3 */; };
+		A9C695951DA2411400597646 /* WE_BEAT_AS_ONE.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A9C695911DA2411400597646 /* WE_BEAT_AS_ONE.mp3 */; };
 		A9CFA5E61D991DBE0037B1F5 /* VideonaFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CFA5E51D991DBE0037B1F5 /* VideonaFooterView.xib */; };
 		A9ED00501D9178CB00969F31 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED004F1D9178CB00969F31 /* Alamofire.framework */; };
 		A9ED005A1D917B7200969F31 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00571D917B7200969F31 /* FBSDKCoreKit.framework */; };
@@ -644,6 +648,10 @@
 		A9C1686C1D92C667007EE697 /* Hispanopost copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Hispanopost copy-Info.plist"; path = "/Users/Alejandro/Desktop/Repos/Vimojo_second/Hispanopost copy-Info.plist"; sourceTree = "<absolute>"; };
 		A9C1686E1D92C6F7007EE697 /* shoulderpod.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = shoulderpod.xcassets; sourceTree = "<group>"; };
 		A9C168711D92CD20007EE697 /* shoulderpodLaunch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = shoulderpodLaunch.storyboard; sourceTree = "<group>"; };
+		A9C6958E1DA2411400597646 /* FREE_THE_COLD_WIND.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = FREE_THE_COLD_WIND.mp3; path = MusicResources/FREE_THE_COLD_WIND.mp3; sourceTree = "<group>"; };
+		A9C6958F1DA2411400597646 /* GALLOPING.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = GALLOPING.mp3; path = MusicResources/GALLOPING.mp3; sourceTree = "<group>"; };
+		A9C695901DA2411400597646 /* SORROW_AND_SADNESS.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = SORROW_AND_SADNESS.mp3; path = MusicResources/SORROW_AND_SADNESS.mp3; sourceTree = "<group>"; };
+		A9C695911DA2411400597646 /* WE_BEAT_AS_ONE.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = WE_BEAT_AS_ONE.mp3; path = MusicResources/WE_BEAT_AS_ONE.mp3; sourceTree = "<group>"; };
 		A9CFA5E51D991DBE0037B1F5 /* VideonaFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideonaFooterView.xib; sourceTree = "<group>"; };
 		A9ED004F1D9178CB00969F31 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		A9ED00571D917B7200969F31 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -1176,6 +1184,7 @@
 			isa = PBXGroup;
 			children = (
 				A9CFA5E51D991DBE0037B1F5 /* VideonaFooterView.xib */,
+				A9C695831DA23AEE00597646 /* Res */,
 				A93BCE591D7D7A0700421BD0 /* NSLocale */,
 				A93BCE541D7D792300421BD0 /* Use case */,
 				A93BCE491D7D5C6B00421BD0 /* Constants */,
@@ -1210,6 +1219,17 @@
 				A9C168711D92CD20007EE697 /* shoulderpodLaunch.storyboard */,
 			);
 			name = Shoulderpod;
+			sourceTree = "<group>";
+		};
+		A9C695831DA23AEE00597646 /* Res */ = {
+			isa = PBXGroup;
+			children = (
+				A9C6958E1DA2411400597646 /* FREE_THE_COLD_WIND.mp3 */,
+				A9C6958F1DA2411400597646 /* GALLOPING.mp3 */,
+				A9C695901DA2411400597646 /* SORROW_AND_SADNESS.mp3 */,
+				A9C695911DA2411400597646 /* WE_BEAT_AS_ONE.mp3 */,
+			);
+			name = Res;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1386,11 +1406,15 @@
 				A93BCE5E1D7D7A1300421BD0 /* iso639_2.bundle in Resources */,
 				A9B385F11D7D51380065D3EC /* Assets.xcassets in Resources */,
 				A95BE97F1D990A4A00602DCD /* Settings.strings in Resources */,
+				A9C695941DA2411400597646 /* SORROW_AND_SADNESS.mp3 in Resources */,
 				A91761131D916F48008915DA /* ShareCell.xib in Resources */,
+				A9C695931DA2411400597646 /* GALLOPING.mp3 in Resources */,
 				A91760901D9143D1008915DA /* Editor.strings in Resources */,
 				A9B385EF1D7D51380065D3EC /* Main.storyboard in Resources */,
 				A9CFA5E61D991DBE0037B1F5 /* VideonaFooterView.xib in Resources */,
+				A9C695921DA2411400597646 /* FREE_THE_COLD_WIND.mp3 in Resources */,
 				A91761321D916F53008915DA /* MusicDetailView.xib in Resources */,
+				A9C695951DA2411400597646 /* WE_BEAT_AS_ONE.mp3 in Resources */,
 				A91761111D916F48008915DA /* Share.strings in Resources */,
 				A93BCE761D7D92C300421BD0 /* filter_free.png in Resources */,
 			);
@@ -2184,9 +2208,9 @@
 				);
 				INFOPLIST_FILE = vimojo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.vimojo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ae7fd6c6-c09d-404b-b619-00ce6a083c75";
+				PROVISIONING_PROFILE = "7e48b631-fc14-47b3-9a12-94d329dad075";
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2215,9 +2239,9 @@
 				);
 				INFOPLIST_FILE = vimojo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.vimojo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ae7fd6c6-c09d-404b-b619-00ce6a083c75";
+				PROVISIONING_PROFILE = "7e48b631-fc14-47b3-9a12-94d329dad075";
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

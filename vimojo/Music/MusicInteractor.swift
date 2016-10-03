@@ -38,7 +38,7 @@ class MusicInteractor: MusicInteractorInterface {
     }
     
     func getImageFromIndexPath(index: Int) -> UIImage {
-        if let image = UIImage(named: musicList[index].getIconResourceId()){
+        if let image = UIImage(named: musicList[index].musicSelectedResourceId){
             return image
         }else{
             return UIImage()
@@ -46,14 +46,18 @@ class MusicInteractor: MusicInteractorInterface {
     }
     
     func setMusicToProject(index: Int) {
-        let music = Music(title: "",
+        var music = Music(title: "",
                           author: "",
                           iconResourceId: "",
-                          musicResourceId: "")
+                          musicResourceId: "",
+                          musicSelectedResourceId: "")
         if index == -1 {
             project?.setMusic(music)
             project?.isMusicSet = false
+            
         }else{
+            music = musicList[index]
+            
             project?.setMusic(music)
             project?.isMusicSet = true
         }
@@ -70,7 +74,8 @@ class MusicInteractor: MusicInteractorInterface {
         guard let music = project?.getMusic() else {return  Music(title: "",
                                                                   author: "",
                                                                   iconResourceId: "",
-                                                                  musicResourceId: "")
+                                                                  musicResourceId: "",
+                                                                  musicSelectedResourceId: "")
         }
         return music
     }
