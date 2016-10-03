@@ -41,6 +41,7 @@ class RecordPresenter: NSObject
     var focusViewIsShowed = false
     var exposureModesViewIsShowed = false
     var micIsEnabled = false
+    var modeViewIsShowed = false
     
     //MARK: - Event handler
     func viewDidLoad(displayView:GPUImageView){
@@ -139,10 +140,10 @@ class RecordPresenter: NSObject
     func pushHideAllButtons() {
         if secondaryViewIsShowing{
             delegate?.showPrincipalViews()
+            self.showModeView()
             
-            if isRecording {
-                delegate?.showRecordChronometerContainer()
-            }
+            switchChronometerIfNeccesary()
+
             
             if videoSettingsConfigViewIsShowing {
                 delegate?.showVideoSettingsConfig()
@@ -153,7 +154,9 @@ class RecordPresenter: NSObject
             delegate?.showAllButtonsButtonImage()
             secondaryViewIsShowing = false
         }else{
-            delegate?.hideRecordChronometerContainer()
+            switchChronometerIfNeccesary()
+            
+            self.hideModeView()
             
             delegate?.showSecondaryRecordViews()
             delegate?.hidePrincipalViews()
@@ -165,7 +168,19 @@ class RecordPresenter: NSObject
             secondaryViewIsShowing = true
         }
     }
-    
+    func switchChronometerIfNeccesary(){
+        if isRecording {
+            if secondaryViewIsShowing {
+                delegate?.showRecordChronometerContainer()
+                
+                delegate?.hideSecondaryRecordChronometerContainer()
+            }else{
+                delegate?.showSecondaryRecordChronometerContainer()
+                
+                delegate?.hideRecordChronometerContainer()
+            }
+        }
+    }
     func pushBattery() {
         if batteryIsShowed{
             hideBatteryViewIfYouCan()
@@ -390,7 +405,11 @@ class RecordPresenter: NSObject
         self.trackStartRecord()
         
         delegate?.recordButtonEnable(false)
-        delegate?.showRecordChronometerContainer()
+        if secondaryViewIsShowing {
+            delegate?.showSecondaryRecordChronometerContainer()
+        }else{
+            delegate?.showRecordChronometerContainer()
+        }
         
         dispatch_async(dispatch_get_main_queue(), {
             self.cameraInteractor?.setIsRecording(true)
@@ -426,7 +445,11 @@ class RecordPresenter: NSObject
                 self.delegate?.showStopButton()
 //                self.delegate?.enableShareButton()
                 self.delegate?.showThumbnailButtonAndLabel()
-                self.delegate?.hideRecordChronometerContainer()
+                if self.secondaryViewIsShowing {
+                    self.delegate?.hideSecondaryRecordChronometerContainer()
+                }else{
+                    self.delegate?.hideRecordChronometerContainer()
+                }
             });
         });
         
@@ -451,6 +474,20 @@ class RecordPresenter: NSObject
         print("Record presenter pushSettings")
         self.trackSettingsPushed()
         recordWireframe?.presentSettingsInterface()
+    }
+    
+    func pushShowMode() {
+        delegate?.hideModeViewAndButtonStateDisabled()
+        delegate?.showModeViewAndButtonStateEnabled()
+        
+        modeViewIsShowed = true
+    }
+    
+    func pushHideMode() {
+        delegate?.hideModeViewAndButtonStateEnabled()
+        delegate?.showModeViewAndButtonStateDisabled()
+        
+        modeViewIsShowed = false
     }
     
     func showZoomView(){
@@ -550,6 +587,21 @@ class RecordPresenter: NSObject
         hideMicViewIfYouCan()
     }
     
+    func hideModeView(){
+        if modeViewIsShowed {
+            delegate?.hideModeViewAndButtonStateEnabled()
+        }else{
+            delegate?.hideModeViewAndButtonStateDisabled()
+        }
+    }
+    
+    func showModeView(){
+        if modeViewIsShowed {
+            delegate?.showModeViewAndButtonStateEnabled()
+        }else{
+            delegate?.showModeViewAndButtonStateDisabled()
+        }
+    }
     
     func checkIfMicIsAvailable(){
         let route = AVAudioSession.sharedInstance().currentRoute

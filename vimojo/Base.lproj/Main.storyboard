@@ -428,17 +428,23 @@
                                             <action selector="pushRecord:" destination="31E-sq-qOD" eventType="touchUpInside" id="xGD-eA-VdB"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Df5-CU-hT4">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Df5-CU-hT4">
                                         <rect key="frame" x="501" y="381" width="31" height="31"/>
                                         <state key="normal" image="activity_record_icon_show_menu_normal"/>
                                         <state key="highlighted" image="activity_record_icon_show_menu_pressed"/>
+                                        <connections>
+                                            <action selector="pushHideMode:" destination="31E-sq-qOD" eventType="touchUpInside" id="BCS-10-JQU"/>
+                                        </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KsY-3z-Du9">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KsY-3z-Du9">
                                         <rect key="frame" x="544" y="381" width="31" height="31"/>
                                         <state key="normal" image="activity_record_icon_hide_menu_normal"/>
                                         <state key="highlighted" image="activity_record_icon_hide_menu_pressed"/>
+                                        <connections>
+                                            <action selector="pushShowMode:" destination="31E-sq-qOD" eventType="touchUpInside" id="P6M-ut-BBb"/>
+                                        </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5V-mU-ie5">
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5V-mU-ie5">
                                         <rect key="frame" x="540" y="272" width="39" height="140"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="s5i-Nl-bJF">
@@ -646,7 +652,7 @@
                         <outlet property="focusImageView" destination="THD-Xp-k6G" id="Rj2-Yj-CEJ"/>
                         <outlet property="focusView" destination="Zn6-dz-Qlw" id="h4H-LM-JAs"/>
                         <outlet property="hideAllButtonsButton" destination="zRf-8q-oTu" id="VGJ-Nx-BDq"/>
-                        <outlet property="hideMenuButton" destination="Df5-CU-hT4" id="b5s-TU-cUi"/>
+                        <outlet property="hideModeViewButton" destination="Df5-CU-hT4" id="R2y-Cc-2p1"/>
                         <outlet property="isoButton" destination="JwN-me-qb7" id="G84-7L-PfD"/>
                         <outlet property="isoConfigurationView" destination="uHc-Xb-tvs" id="ylO-tt-7CD"/>
                         <outlet property="micButton" destination="lwy-pV-J8a" id="EwK-vA-2Wg"/>
@@ -656,10 +662,10 @@
                         <outlet property="recordButton" destination="pim-Bp-HAd" id="1zs-4h-9N9"/>
                         <outlet property="resolutionButton" destination="M2j-0r-Ynx" id="nGr-5Q-maF"/>
                         <outlet property="resolutionsView" destination="hah-36-ual" id="fA3-ec-eD1"/>
+                        <outlet property="secondaryChronometerContainer" destination="JF0-nK-Ivn" id="yM2-kt-A4K"/>
                         <outlet property="secondaryChronometerLabel" destination="Avi-Xg-vwt" id="U0e-bo-jnW"/>
                         <outlet property="secondaryRecordingIndicator" destination="Wdc-X9-Dgr" id="cxd-Z6-Mlv"/>
-                        <outlet property="secondaryViewsContainer" destination="JF0-nK-Ivn" id="yM2-kt-A4K"/>
-                        <outlet property="showMenuButton" destination="KsY-3z-Du9" id="Fyv-PV-nns"/>
+                        <outlet property="showModeViewButton" destination="KsY-3z-Du9" id="wlO-NI-aU9"/>
                         <outlet property="spaceOnDiskView" destination="7ig-Ws-YbI" id="WTY-mS-gj1"/>
                         <outlet property="thumbnailNumberClips" destination="Tj8-Fr-CPj" id="T5s-Gr-pJ7"/>
                         <outlet property="thumbnailView" destination="oky-R4-rAY" id="zzR-8a-6y5"/>

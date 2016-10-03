@@ -22,6 +22,9 @@ protocol RecordPresenterInterface{
     func pushShare()
     func pushSettings()
     
+    func pushShowMode()
+    func pushHideMode()
+    
     func pushHideAllButtons()
     
     func pushZoom()
@@ -126,4 +129,12 @@ protocol RecordPresenterDelegate {
     
     func showRecordChronometerContainer()
     func hideRecordChronometerContainer()
+    
+    func showModeViewAndButtonStateEnabled()
+    func hideModeViewAndButtonStateEnabled()
+    func showModeViewAndButtonStateDisabled()
+    func hideModeViewAndButtonStateDisabled()
+    
+    func showSecondaryRecordChronometerContainer()
+    func hideSecondaryRecordChronometerContainer()
 }
