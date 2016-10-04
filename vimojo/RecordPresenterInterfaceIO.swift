@@ -88,7 +88,9 @@ protocol RecordPresenterDelegate {
     func hideZoomView()
     func showZoomView()
     
-    func setBatteryIcon(image:UIImage)
+    func setBatteryIcon(images:BatteryIconImage)
+    func setBatteryIconPressed(image:UIImage)
+    
     func setAudioColor(color:UIColor)
     
     func updateBatteryValues()

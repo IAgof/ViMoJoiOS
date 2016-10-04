@@ -9,12 +9,16 @@
 import Foundation
 import GPUImage
 
+struct BatteryIconImage {
+    var normal : UIImage!
+    var pressed : UIImage!
+}
+
 class RecordPresenter: NSObject
     , RecordPresenterInterface
     ,CameraInteractorDelegate
 ,TimerInteractorDelegate
 {
-    
     //MARK: - Variables VIPER
     var delegate: RecordPresenterDelegate?
     var cameraInteractor: CameraInteractorInterface?
@@ -351,20 +355,34 @@ class RecordPresenter: NSObject
         case empty = "activity_record_icon_battery_empty"
     }
     
-    func getBatteryIcon(value:Float)->UIImage {
+    enum batteryImagesPressed:String{
+        case charged = "activity_record_icon_battery_charged_pressed"
+        case seventyFivePercent = "activity_record_icon_battery_75_pressed"
+        case fiftyPercent = "activity_record_icon_battery_50_pressed"
+        case twentyFivePercent = "activity_record_icon_battery_25_pressed"
+        case empty = "activity_record_icon_battery_empty_pressed"
+    }
+    
+    func getBatteryIcon(value:Float)->BatteryIconImage {
         switch value {
         case 0...10:
-            return UIImage(named: batteryImages.empty.rawValue)!
+           return BatteryIconImage(normal: UIImage(named: batteryImages.empty.rawValue)!,
+                             pressed: UIImage(named: batteryImagesPressed.empty.rawValue)!)
         case 11...25:
-            return UIImage(named: batteryImages.twentyFivePercent.rawValue)!
+            return BatteryIconImage(normal: UIImage(named: batteryImages.twentyFivePercent.rawValue)!,
+                                    pressed: UIImage(named: batteryImagesPressed.twentyFivePercent.rawValue)!)
         case 26...50:
-            return UIImage(named: batteryImages.fiftyPercent.rawValue)!
+            return BatteryIconImage(normal: UIImage(named: batteryImages.fiftyPercent.rawValue)!,
+                                    pressed: UIImage(named: batteryImagesPressed.fiftyPercent.rawValue)!)
         case 51...75:
-            return UIImage(named: batteryImages.seventyFivePercent.rawValue)!
+            return BatteryIconImage(normal: UIImage(named: batteryImages.seventyFivePercent.rawValue)!,
+                                    pressed: UIImage(named: batteryImagesPressed.seventyFivePercent.rawValue)!)
         case 76...100:
-            return UIImage(named: batteryImages.charged.rawValue)!
+            return BatteryIconImage(normal: UIImage(named: batteryImages.charged.rawValue)!,
+                                    pressed: UIImage(named: batteryImagesPressed.charged.rawValue)!)
         default:
-            return UIImage(named: batteryImages.fiftyPercent.rawValue)!
+            return BatteryIconImage(normal: UIImage(named: batteryImages.fiftyPercent.rawValue)!,
+                                    pressed: UIImage(named: batteryImagesPressed.fiftyPercent.rawValue)!)
         }
     }
     
@@ -778,6 +796,7 @@ extension RecordPresenter:RecorderInteractorDelegate{
         delegate?.setResolutionIconImagePressed(image)
     }
 }
+
 //MARK: - Thumb delegate
 extension RecordPresenter:ThumbnailDelegate{
     func setThumbToView(image: UIImage) {

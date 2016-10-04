@@ -29,7 +29,7 @@
                                 <subviews>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ig-Ws-YbI" customClass="SpaceOnDiskView" customModule="SpaceOnDisk">
                                         <rect key="frame" x="180" y="236" width="240" height="128"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="WNh-gO-d27"/>
                                             <constraint firstAttribute="width" constant="240" id="tg4-ug-1Gv"/>
@@ -37,7 +37,7 @@
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="REF-Hb-DD3" customClass="BatteryRemainingView" customModule="BatteryRemaining">
                                         <rect key="frame" x="180" y="236" width="240" height="128"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="5RR-U1-7v1"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="9ds-Ap-oRa"/>
@@ -67,6 +67,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYJ-QZ-tjN">
                                                         <rect key="frame" x="34" y="0.0" width="16" height="22"/>
                                                         <state key="normal" image="activity_record_icon_memory"/>
+                                                        <state key="selected" image="activity_record_icon_memory_pressed"/>
+                                                        <state key="highlighted" image="activity_record_icon_memory_pressed"/>
                                                         <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                                             <rect key="frame" x="10" y="0.0" width="0.0" height="22"/>
                                                         </variation>
@@ -573,7 +575,7 @@
                                     <constraint firstItem="7DH-Ci-Hyp" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="1Bx-DJ-dsM"/>
                                     <constraint firstItem="Tj8-Fr-CPj" firstAttribute="centerY" secondItem="oky-R4-rAY" secondAttribute="centerY" id="1w2-1a-3d1"/>
                                     <constraint firstItem="gGv-vB-9p1" firstAttribute="centerY" secondItem="9Kl-ym-3ZQ" secondAttribute="centerY" id="23S-rj-aL7">
-                                        <variation key="heightClass=compact" constant="-10"/>
+                                        <variation key="heightClass=compact" constant="0.0"/>
                                     </constraint>
                                     <constraint firstItem="pim-Bp-HAd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="E5V-mU-ie5" secondAttribute="bottom" constant="10" id="3Fp-Eo-QhV"/>
                                     <constraint firstAttribute="trailing" secondItem="pim-Bp-HAd" secondAttribute="trailing" constant="16" id="6ON-A5-jmv"/>
@@ -582,7 +584,7 @@
                                     <constraint firstItem="7DH-Ci-Hyp" firstAttribute="top" secondItem="QoG-NT-WY4" secondAttribute="bottom" constant="4" id="7iU-M4-BA8"/>
                                     <constraint firstItem="hah-36-ual" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="7kV-jg-M9u"/>
                                     <constraint firstItem="EJu-rT-6M4" firstAttribute="centerY" secondItem="9Kl-ym-3ZQ" secondAttribute="centerY" id="9iG-Z4-61o">
-                                        <variation key="heightClass=compact" constant="-10"/>
+                                        <variation key="heightClass=compact" constant="0.0"/>
                                     </constraint>
                                     <constraint firstItem="Df5-CU-hT4" firstAttribute="centerY" secondItem="KsY-3z-Du9" secondAttribute="centerY" id="A6b-Ia-XKY"/>
                                     <constraint firstItem="KsY-3z-Du9" firstAttribute="bottom" secondItem="E5V-mU-ie5" secondAttribute="bottom" id="BrZ-78-2mg"/>
@@ -603,7 +605,7 @@
                                     <constraint firstItem="E5V-mU-ie5" firstAttribute="top" secondItem="oky-R4-rAY" secondAttribute="bottom" constant="8" id="Qmv-i1-RDm"/>
                                     <constraint firstAttribute="bottom" secondItem="pim-Bp-HAd" secondAttribute="bottom" constant="8" id="QpQ-ZV-gCB"/>
                                     <constraint firstItem="BC4-E6-c0I" firstAttribute="centerY" secondItem="9Kl-ym-3ZQ" secondAttribute="centerY" id="RDg-ip-E3M">
-                                        <variation key="heightClass=compact" constant="-10"/>
+                                        <variation key="heightClass=compact" constant="0.0"/>
                                     </constraint>
                                     <constraint firstItem="KsY-3z-Du9" firstAttribute="centerX" secondItem="E5V-mU-ie5" secondAttribute="centerX" id="TJr-3q-hsk"/>
                                     <constraint firstItem="THD-Xp-k6G" firstAttribute="centerX" secondItem="9Kl-ym-3ZQ" secondAttribute="centerX" id="UcJ-5Z-t8q"/>
@@ -697,6 +699,7 @@
                         <outlet property="secondaryRecordingIndicator" destination="Wdc-X9-Dgr" id="cxd-Z6-Mlv"/>
                         <outlet property="showModeViewButton" destination="KsY-3z-Du9" id="wlO-NI-aU9"/>
                         <outlet property="spaceOnDiskView" destination="7ig-Ws-YbI" id="WTY-mS-gj1"/>
+                        <outlet property="storageButton" destination="HYJ-QZ-tjN" id="wio-ob-woQ"/>
                         <outlet property="thumbnailNumberClips" destination="Tj8-Fr-CPj" id="T5s-Gr-pJ7"/>
                         <outlet property="thumbnailView" destination="oky-R4-rAY" id="zzR-8a-6y5"/>
                         <outlet property="upperContainerView" destination="CiJ-Ll-EF1" id="lOk-CH-s14"/>
@@ -2890,6 +2893,7 @@
         <image name="activity_record_icon_iso" width="30" height="30"/>
         <image name="activity_record_icon_iso_pressed" width="30" height="30"/>
         <image name="activity_record_icon_memory" width="16" height="20"/>
+        <image name="activity_record_icon_memory_pressed" width="16" height="20"/>
         <image name="activity_record_icon_metering_automatic" width="30" height="30"/>
         <image name="activity_record_icon_metering_automatic_pressed" width="30" height="30"/>
         <image name="activity_record_icon_metering_center" width="30" height="30"/>

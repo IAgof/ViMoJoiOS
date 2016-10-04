@@ -21,7 +21,6 @@ import ZoomCameraSlider
 import ResolutionSelector
 
 class RecordController: ViMoJoController,UINavigationControllerDelegate{
-    
     //MARK: - Variables VIPER
     var eventHandler: RecordPresenterInterface?
     
@@ -39,6 +38,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var hideAllButtonsButton: UIButton!
     @IBOutlet weak var batteryButton: UIButton!
     @IBOutlet weak var micButton: UIButton!
+    @IBOutlet weak var storageButton: UIButton!
 
     @IBOutlet weak var zoomButton: UIButton!
     @IBOutlet weak var isoButton: UIButton!
@@ -588,20 +588,25 @@ extension RecordController:RecordPresenterDelegate {
         zoomButton.selected = true
     }
     
-    func setBatteryIcon(image: UIImage) {
-        batteryButton.setImage(image, forState: .Normal)
+    func setBatteryIcon(images: BatteryIconImage) {
+        batteryButton.setImage(images.normal, forState: .Normal)
+        batteryButton.setImage(images.pressed, forState: .Selected)
+    }
+    
+    func setBatteryIconPressed(image: UIImage) {
+        batteryButton.setImage(image, forState: .Selected)
     }
     
     func setAudioColor(color: UIColor) {
         audioLevelView.setBarColor(color)
     }
-    
+
+
     func showBatteryRemaining() {
+        self.cameraView.bringSubviewToFront(batteryView)
+        
         fadeInView([batteryView])
-    }
-    
-    func showSpaceOnDisk() {
-        fadeInView([spaceOnDiskView])
+        batteryButton.selected = true
     }
     
     func updateBatteryValues() {
@@ -610,14 +615,21 @@ extension RecordController:RecordPresenterDelegate {
     
     func hideBatteryView() {
         fadeOutView([batteryView])
+        batteryButton.selected = false
     }
     
     func updateSpaceOnDiskValues() {
         spaceOnDiskView.updateValues()
     }
     
+    func showSpaceOnDisk() {
+        fadeInView([spaceOnDiskView])
+        storageButton.selected = true
+    }
+    
     func hideSpaceOnDiskView() {
         fadeOutView([spaceOnDiskView])
+        storageButton.selected = false
     }
     
     func showISOConfigView() {
@@ -671,10 +683,12 @@ extension RecordController:RecordPresenterDelegate {
     
     func showResolutionView() {
         fadeInView([resolutionsView])
+        resolutionButton.selected = true
     }
     
     func hideResolutionView() {
         fadeOutView([resolutionsView])
+        resolutionButton.selected = false
     }
     
     func showExposureModesView() {
