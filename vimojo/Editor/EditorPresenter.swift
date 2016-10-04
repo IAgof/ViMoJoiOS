@@ -223,8 +223,10 @@ class EditorPresenter: NSObject,EditorPresenterInterface,EditorInteractorDelegat
     }
     
     func getCompositionDuration()->Double{
-        
-        return stopList.last!
+        guard let duration = stopList.last else{
+            return 0
+        }
+        return duration
     }
     
     func updateSelectedCellUI(indexPath:NSIndexPath){

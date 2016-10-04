@@ -30,6 +30,7 @@ class EditorClipsCell: UICollectionViewCell {
             self.removeClipButton.backgroundColor = (isClipSelected ? cellColor : UIColor.clearColor())
             
             removeClipButton.hidden = !isClipSelected
+            removeClipButton.enabled = isClipSelected
         }
     }
     

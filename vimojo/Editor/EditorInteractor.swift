@@ -54,6 +54,7 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         }
         delegate?.setVideoList(videoList)
     }
+    
     func hourToString(time:Double) -> String {
         let hours = Int(floor(time/3600))
         let mins = Int(floor(time % 3600) / 60)
@@ -190,8 +191,8 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
                 totalTimeComposition += duration
             }
             timeFloat = timeFloat/totalTimeComposition
-            let timeOffSet = 0.1
-            timeFloat = ((round(100*timeFloat)/100) + timeOffSet)
+            let timeOffSet = 0.001
+            timeFloat = ((round(10000*timeFloat)/10000) + timeOffSet)
         }
 
         return Float(timeFloat)

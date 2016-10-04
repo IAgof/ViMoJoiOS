@@ -29,7 +29,7 @@ class ThumbnailListInteractor: NSObject {
         
         var cgImage:CGImage?
         do {
-            cgImage =  try imgGenerator.copyCGImageAtTime(CMTime.init(value: 1, timescale: 10), actualTime: nil)
+            cgImage =  try imgGenerator.copyCGImageAtTime(CMTime.init(value: 10, timescale: 10), actualTime: nil)
             print("Thumbnail image gets okay")
             
             // !! check the error before proceeding

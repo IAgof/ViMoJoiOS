@@ -121,22 +121,22 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         eventHandler?.removeVideoClip(sender.tag)
     }
     
-    @IBAction func pushTrimClip(sender:UIButton){
+    @IBAction func pushTrimClip(sender:AnyObject){
         
         eventHandler?.pushTrimHandler()
     }
     
-    @IBAction func pushDuplicateClip(sender:UIButton){
+    @IBAction func pushDuplicateClip(sender:AnyObject){
         
         eventHandler?.pushDuplicateHandler()
     }
     
-    @IBAction func pushDivideClip(sender:UIButton){
+    @IBAction func pushDivideClip(sender:AnyObject){
         
         eventHandler?.pushSplitHandler()
     }
     
-    @IBAction func pushAddVideo(sender:UIButton){
+    @IBAction func pushAddVideo(sender:AnyObject){
         eventHandler?.pushAddVideoHandler()
     }
     
@@ -260,7 +260,10 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
             }
             thumbnailClipsCollectionView.beginInteractiveMovementForItemAtIndexPath(selectedIndexPath)
             
-            let cell = thumbnailClipsCollectionView.cellForItemAtIndexPath(selectedIndexPath) as! EditorClipsCell
+            guard let cell = thumbnailClipsCollectionView.cellForItemAtIndexPath(selectedIndexPath) as? EditorClipsCell else{
+                print("error UIGestureRecognizerState. beginInteractiveMovementForItemAtIndexPath")
+                return
+            }
             cell.isMoving = true
         
         case UIGestureRecognizerState.Changed:
@@ -272,7 +275,9 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
             guard let selectedIndexPath = self.thumbnailClipsCollectionView.indexPathForItemAtPoint(gesture.locationInView(self.thumbnailClipsCollectionView)) else {
                 break
             }
-            let cell = thumbnailClipsCollectionView.cellForItemAtIndexPath(selectedIndexPath) as! EditorClipsCell
+            guard let cell = thumbnailClipsCollectionView.cellForItemAtIndexPath(selectedIndexPath) as? EditorClipsCell else{
+                print("error UIGestureRecognizerState. Ended")
+                return}
             cell.isMoving = false
         default:
             thumbnailClipsCollectionView.cancelInteractiveMovement()
