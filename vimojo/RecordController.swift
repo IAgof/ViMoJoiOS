@@ -69,7 +69,6 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var modeContainerView: UIView!
     @IBOutlet weak var chronometerContainerView: UIView!
     @IBOutlet weak var recordAreaContainerView: UIView!
-    @IBOutlet weak var micContainerView: UIView!
     @IBOutlet weak var thumbnailView: UIImageView!
     @IBOutlet weak var chronometerImageView: UIImageView!
     
@@ -301,7 +300,6 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         spaceOnDiskView.layer.cornerRadius = cornerRadius
         chronometerContainerView.layer.cornerRadius = cornerRadius
         recordAreaContainerView.layer.cornerRadius = cornerRadius
-        micContainerView.layer.cornerRadius = cornerRadius
         secondaryChronometerContainer.layer.cornerRadius = cornerRadius
         
         isoConfigurationView.layer.cornerRadius = cornerRadius
@@ -657,14 +655,15 @@ extension RecordController:RecordPresenterDelegate {
     }
     
     func showMicLevelView() {
-        fadeInView([micContainerView])
+        fadeInView([audioLevelView])
     }
     
     func hideMicLevelView() {
-        fadeOutView([micContainerView])
+        fadeOutView([audioLevelView])
     }
     
     func setSelectedMicButton(state: Bool) {
+        micButton.hidden = !state
         micButton.selected = state
     }
     

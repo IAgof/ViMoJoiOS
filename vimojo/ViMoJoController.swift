@@ -12,6 +12,7 @@ import Mixpanel
 
 
 let VIMOJO_GREEN_UICOLOR = UIColor.init(red: 0.2431, green: 0.9764, blue: 0.8039, alpha: 1.0)
+let VIMOJO_RED_UICOLOR = UIColor.init(red: 0.9450, green: 0.2941, blue: 0.3176, alpha: 1.0)
 
 class ViMoJoController: UIViewController,
 ViMoJoInterface {

@@ -628,7 +628,6 @@ class RecordPresenter: NSObject
             if port.portType == AVAudioSessionPortHeadphones {
                 // Headphones located
                 setMicButtonState(true)
-                pushMic()
             }else{
                 setMicButtonState(false)
             }

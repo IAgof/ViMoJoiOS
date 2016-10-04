@@ -67,7 +67,21 @@ class SettingsViewController: ViMoJoController,SettingsInterface ,
     
     //MARK: - UITableview datasource
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        tableView.sectionIndexColor = UIColor.redColor()
+        
         return self.section[section]
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let returnedView = UIView(frame: CGRectMake(0, 0, tableView.bounds.size.width, 30)) //set these values as necessary
+        returnedView.backgroundColor = UIColor.whiteColor()
+        
+        let label = UILabel(frame: CGRectMake(8, 0, tableView.bounds.size.width, 30))
+        label.text = self.section[section]
+        label.textColor = VIMOJO_RED_UICOLOR
+        returnedView.addSubview(label)
+        
+        return returnedView
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
