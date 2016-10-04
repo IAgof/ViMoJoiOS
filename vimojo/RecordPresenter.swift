@@ -227,16 +227,12 @@ class RecordPresenter: NSObject
     }
     
     func pushMic() {
-        if micIsEnabled{
-            if micViewIsShowed{
-                hideMicViewIfYouCan()
-            }else{
-                
-                delegate?.getMicValues()
-                delegate?.showMicLevelView()
-                
-                micViewIsShowed = true
-            }
+        if micViewIsShowed {
+            hideMicViewIfYouCan()
+        }else{
+            delegate?.showMicLevelView()
+
+            micViewIsShowed = true
         }
     }
     
@@ -640,6 +636,11 @@ class RecordPresenter: NSObject
         
         if !state {
             hideMicViewIfYouCan()
+        }else{
+            delegate?.getMicValues()
+            delegate?.showMicLevelView()
+            
+            micViewIsShowed = true
         }
     }
     
@@ -650,11 +651,9 @@ class RecordPresenter: NSObject
         case AVAudioSessionRouteChangeReason.NewDeviceAvailable.rawValue:
             print("headphone plugged in")
             setMicButtonState(true)
-            pushMic()
         case AVAudioSessionRouteChangeReason.OldDeviceUnavailable.rawValue:
             print("headphone pulled out")
             setMicButtonState(false)
-            pushMic()
         default:
             break
         }

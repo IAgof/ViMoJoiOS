@@ -655,11 +655,11 @@ extension RecordController:RecordPresenterDelegate {
     }
     
     func showMicLevelView() {
-        fadeInView([audioLevelView])
+        audioLevelView.hidden = false
     }
     
     func hideMicLevelView() {
-        fadeOutView([audioLevelView])
+        audioLevelView.hidden = true
     }
     
     func setSelectedMicButton(state: Bool) {

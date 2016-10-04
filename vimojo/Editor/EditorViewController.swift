@@ -258,6 +258,8 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
             guard let selectedIndexPath = self.thumbnailClipsCollectionView.indexPathForItemAtPoint(gesture.locationInView(self.thumbnailClipsCollectionView)) else {
                 break
             }
+            eventHandler?.didSelectItemAtIndexPath(selectedIndexPath)
+
             thumbnailClipsCollectionView.beginInteractiveMovementForItemAtIndexPath(selectedIndexPath)
             
             guard let cell = thumbnailClipsCollectionView.cellForItemAtIndexPath(selectedIndexPath) as? EditorClipsCell else{
