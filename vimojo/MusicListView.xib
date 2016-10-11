@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MusicListView" customModule="vimojo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="271" height="287"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zxd-Ck-R4s">
+                    <rect key="frame" x="0.0" y="0.0" width="271" height="287"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="separatorColor" red="0.89544918929999995" green="0.19499027399999999" blue="0.32265884709999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="vLb-Q7-qnR"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="GjY-Ux-jSq"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="zxd-Ck-R4s" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Gob-IY-8IP"/>
+                <constraint firstAttribute="bottom" secondItem="zxd-Ck-R4s" secondAttribute="bottom" id="Xh4-3o-6Bu"/>
+                <constraint firstItem="zxd-Ck-R4s" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Zt6-b3-Epp"/>
+                <constraint firstAttribute="trailing" secondItem="zxd-Ck-R4s" secondAttribute="trailing" id="aeh-3d-Fxh"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="musicTableView" destination="zxd-Ck-R4s" id="kMF-lE-9Ti"/>
+            </connections>
+            <point key="canvasLocation" x="69.5" y="241.5"/>
+        </view>
+    </objects>
+</document>

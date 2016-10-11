@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -18,28 +18,6 @@
                         <constraint firstAttribute="width" secondItem="84S-zW-oLf" secondAttribute="height" multiplier="20:15" priority="750" id="UaJ-Cx-Gf0"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fkh-td-DDL">
-                    <rect key="frame" x="8" y="300" width="24" height="24"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="Fkh-td-DDL" secondAttribute="height" multiplier="1:1" id="hVY-UB-kFS"/>
-                    </constraints>
-                    <state key="normal" image="common_icon_edit_cancel_normal"/>
-                    <state key="highlighted" image="common_icon_edit_cancel_pressed"/>
-                    <connections>
-                        <action selector="pushCancelButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="gZk-Nb-6Fq"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JuB-TN-Waf">
-                    <rect key="frame" x="265" y="301" width="27" height="23"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="JuB-TN-Waf" secondAttribute="height" multiplier="27:23" id="Uun-vd-0Ad"/>
-                    </constraints>
-                    <state key="normal" image="common_icon_edit_accept_normal"/>
-                    <state key="highlighted" image="common_icon_edit_accept_pressed"/>
-                    <connections>
-                        <action selector="pushAcceptButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="s2D-J0-TGZ"/>
-                    </connections>
-                </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiH-7b-pqe">
                     <rect key="frame" x="135" y="300" width="32" height="32"/>
                     <state key="normal" image="activity_edit_clip_delete_music_normal">
@@ -78,6 +56,28 @@
                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                     </variation>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fkh-td-DDL">
+                    <rect key="frame" x="8" y="300" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Fkh-td-DDL" secondAttribute="height" multiplier="1:1" id="hVY-UB-kFS"/>
+                    </constraints>
+                    <state key="normal" image="common_icon_edit_cancel_normal"/>
+                    <state key="highlighted" image="common_icon_edit_cancel_pressed"/>
+                    <connections>
+                        <action selector="pushCancelButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="gZk-Nb-6Fq"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JuB-TN-Waf">
+                    <rect key="frame" x="265" y="301" width="27" height="23"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="JuB-TN-Waf" secondAttribute="height" multiplier="27:23" id="Uun-vd-0Ad"/>
+                    </constraints>
+                    <state key="normal" image="common_icon_edit_accept_normal"/>
+                    <state key="highlighted" image="common_icon_edit_accept_pressed"/>
+                    <connections>
+                        <action selector="pushAcceptButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="s2D-J0-TGZ"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>

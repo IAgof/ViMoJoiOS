@@ -35,6 +35,8 @@ class AppDependencies {
     var settingsWireframe = SettingsWireframe()
     var detailTextWireframe = DetailTextWireframe()
 
+    var musicListWireframe = MusicListWireframe()
+    
     init(){
         configureDependencies()
     }
@@ -76,6 +78,9 @@ class AppDependencies {
         
         let detailTextPresenter = DetailTextPresenter()
         let detailTextInteractor = DetailTextInteractor()
+        
+        let musicListPresenter = MusicListPresenter()
+        let musicListInteractor = MusicListInteractor()
         
         //RECORD MODULE
         recordPresenter.recordWireframe = recordWireframe
@@ -158,6 +163,21 @@ class AppDependencies {
         musicWireframe.playerWireframe = playerWireframe
         musicWireframe.fullScreenPlayerWireframe = fullScreenPlayerWireframe
         musicWireframe.editorRoomWireframe = editorRoomWireframe
+        musicWireframe.musicListWireframe = musicListWireframe
+        
+        //MUSIC LIST MODULE
+        musicListPresenter.wireframe = musicListWireframe
+        musicListPresenter.interactor = musicListInteractor
+        musicListPresenter.playerPresenter = playerPresenter
+        
+        musicListInteractor.delegate = musicListPresenter
+        musicListInteractor.project = project
+        
+        
+        musicListWireframe.musicListPresenter = musicListPresenter
+        musicListWireframe.rootWireframe = rootWireframe
+        musicListWireframe.playerWireframe = playerWireframe
+        musicListWireframe.editorRoomWireframe = editorRoomWireframe
         
         //TRIM MODULE
         trimPresenter.interactor = trimInteractor

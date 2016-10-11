@@ -23,13 +23,37 @@ protocol MusicPresenterInterface {
     
     func expandPlayer()
     func updatePlayerLayer()
+    
+    func pushMusicHandler()
+    func pushMicHandler()
+    func getMusicList()
+    
+    func getMicRecorderViewValues()
+    
+    func startLongPress()
+    func pauseLongPress()
+    func acceptMicRecord()
+    func cancelMicRecord()
+    func updateActualTime(time:Float)
 }
 
 protocol MusicPresenterDelegate {
     func setMusicList(list:[MusicViewModel])
     
-    func animateToShowDetail(title:String,
-                             author:String,
-                             image:UIImage)
-    func animateToShowTable()
+    func showTableView()
+    func hideTableView()
+    
+    func showDetailView(title:String,
+                        author:String,
+                        image:UIImage)
+    func hideDetailView()
+    
+    func showMicRecordView(micRecorderViewModel:MicRecorderViewModel)
+    func hideMicRecordView()
+    
+    func setMicRecorderButtonState(state:Bool)
+    func setMicRecorderButtonEnabled(state:Bool)
+    
+    func showMicRecorderAcceptCancelButton()
+    func updateRecordMicActualTime(time:String)
 }

@@ -20,6 +20,8 @@ class MusicWireframe : NSObject {
     var fullScreenPlayerWireframe: FullScreenPlayerWireframe?
     var editorRoomWireframe:EditingRoomWireframe?
     
+    var musicListWireframe:MusicListWireframe?
+    
     var prevController:UIViewController?
     
     func presentMusicInterfaceFromWindow(window: UIWindow) {
@@ -71,5 +73,12 @@ class MusicWireframe : NSObject {
             return
         }
         wireframe.editingRoomViewController?.eventHandler?.pushEditor()
+    }
+    
+    func presenterMusicListView(){
+        guard let wireframe = musicListWireframe else{
+            return
+        }
+        wireframe.presentMusicListInterface()
     }
 }
