@@ -120,6 +120,12 @@
 		A988DEF41DACEFA40030E285 /* MusicListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DEF31DACEFA40030E285 /* MusicListPresenter.swift */; };
 		A988DEF61DACEFAE0030E285 /* MusicListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DEF51DACEFAE0030E285 /* MusicListWireframe.swift */; };
 		A988DEFA1DACF35D0030E285 /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DEF91DACF35D0030E285 /* MusicListViewController.swift */; };
+		A988DF021DAD1DFC0030E285 /* MicRecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DF011DAD1DFC0030E285 /* MicRecorderViewController.swift */; };
+		A988DF041DAD1E090030E285 /* MicRecorderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DF031DAD1E090030E285 /* MicRecorderPresenter.swift */; };
+		A988DF061DAD1E110030E285 /* MicRecorderPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DF051DAD1E110030E285 /* MicRecorderPresenterInterface.swift */; };
+		A988DF081DAD1E1C0030E285 /* MicRecorderInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DF071DAD1E1C0030E285 /* MicRecorderInteractorInterface.swift */; };
+		A988DF0A1DAD1E230030E285 /* MicRecorderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DF091DAD1E230030E285 /* MicRecorderInteractor.swift */; };
+		A988DF0C1DAD1E2B0030E285 /* MicRecorderWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DF0B1DAD1E2B0030E285 /* MicRecorderWireframe.swift */; };
 		A9B385EA1D7D51380065D3EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B385E91D7D51380065D3EC /* AppDelegate.swift */; };
 		A9B385EF1D7D51380065D3EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B385ED1D7D51380065D3EC /* Main.storyboard */; };
 		A9B385F11D7D51380065D3EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9B385F01D7D51380065D3EC /* Assets.xcassets */; };
@@ -632,6 +638,12 @@
 		A988DEF31DACEFA40030E285 /* MusicListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicListPresenter.swift; sourceTree = "<group>"; };
 		A988DEF51DACEFAE0030E285 /* MusicListWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicListWireframe.swift; sourceTree = "<group>"; };
 		A988DEF91DACF35D0030E285 /* MusicListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
+		A988DF011DAD1DFC0030E285 /* MicRecorderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicRecorderViewController.swift; sourceTree = "<group>"; };
+		A988DF031DAD1E090030E285 /* MicRecorderPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicRecorderPresenter.swift; sourceTree = "<group>"; };
+		A988DF051DAD1E110030E285 /* MicRecorderPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicRecorderPresenterInterface.swift; sourceTree = "<group>"; };
+		A988DF071DAD1E1C0030E285 /* MicRecorderInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicRecorderInteractorInterface.swift; sourceTree = "<group>"; };
+		A988DF091DAD1E230030E285 /* MicRecorderInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicRecorderInteractor.swift; sourceTree = "<group>"; };
+		A988DF0B1DAD1E2B0030E285 /* MicRecorderWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicRecorderWireframe.swift; sourceTree = "<group>"; };
 		A9B385E61D7D51380065D3EC /* vimojo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vimojo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B385E91D7D51380065D3EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9B385EE1D7D51380065D3EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -1071,6 +1083,36 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		A988DF001DAD1DE40030E285 /* Music Mic recorder */ = {
+			isa = PBXGroup;
+			children = (
+				A988DF0D1DAD24450030E285 /* App Logic */,
+				A988DF0E1DAD244D0030E285 /* User Interface */,
+			);
+			name = "Music Mic recorder";
+			sourceTree = "<group>";
+		};
+		A988DF0D1DAD24450030E285 /* App Logic */ = {
+			isa = PBXGroup;
+			children = (
+				A988DF071DAD1E1C0030E285 /* MicRecorderInteractorInterface.swift */,
+				A988DF091DAD1E230030E285 /* MicRecorderInteractor.swift */,
+			);
+			name = "App Logic";
+			sourceTree = "<group>";
+		};
+		A988DF0E1DAD244D0030E285 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				A9334EF41DAB6E8300762D8A /* MicRecorderView */,
+				A988DF011DAD1DFC0030E285 /* MicRecorderViewController.swift */,
+				A988DF031DAD1E090030E285 /* MicRecorderPresenter.swift */,
+				A988DF051DAD1E110030E285 /* MicRecorderPresenterInterface.swift */,
+				A988DF0B1DAD1E2B0030E285 /* MicRecorderWireframe.swift */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
 		A9B385DD1D7D51380065D3EC = {
 			isa = PBXGroup;
 			children = (
@@ -1147,6 +1189,7 @@
 				A9058DCC1D9035C80048F484 /* Editor */,
 				A91760D01D9146F4008915DA /* FullScreenPlayer */,
 				A988DEEC1DACEF6E0030E285 /* Music List */,
+				A988DF001DAD1DE40030E285 /* Music Mic recorder */,
 				A91760FB1D916F3F008915DA /* Music Selector */,
 				A93BCE401D7D598600421BD0 /* Recorder */,
 				A95BE96D1D9909F100602DCD /* Settings */,
@@ -1381,7 +1424,6 @@
 		A9C6959A1DA246AC00597646 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
-				A9334EF41DAB6E8300762D8A /* MicRecorderView */,
 				A9C695971DA2467300597646 /* Presenter */,
 				A9C695961DA2466D00597646 /* View */,
 				A9C695991DA2469B00597646 /* Wireframe */,
@@ -1911,6 +1953,7 @@
 			files = (
 				A91761341D916F53008915DA /* MusicInteractorInterface.swift in Sources */,
 				A94E11F61D941C84004A0E96 /* ResolutionsImages.swift in Sources */,
+				A988DF0A1DAD1E230030E285 /* MicRecorderInteractor.swift in Sources */,
 				A91760DA1D9146FE008915DA /* FullScreenPlayerWireframe.swift in Sources */,
 				A91760BE1D9146BF008915DA /* EditorTextConstants.swift in Sources */,
 				A95BE99A1D990C4100602DCD /* DetailTextWireframe.swift in Sources */,
@@ -1922,6 +1965,7 @@
 				A91761311D916F53008915DA /* MusicDetailView.swift in Sources */,
 				A9334EF11DAAB97C00762D8A /* MusicListView.swift in Sources */,
 				A93BCE511D7D77FF00421BD0 /* CompatibleResolutionsInteractor.swift in Sources */,
+				A988DF0C1DAD1E2B0030E285 /* MicRecorderWireframe.swift in Sources */,
 				A91760AA1D9146B5008915DA /* EditingRoomPresenter.swift in Sources */,
 				A95BE9951D990C4100602DCD /* DetailTextInteractor.swift in Sources */,
 				A91760B91D9146BF008915DA /* EditorClipsCell.swift in Sources */,
@@ -1935,9 +1979,11 @@
 				A917611F1D916F48008915DA /* ShareWhatsappInteractor.swift in Sources */,
 				A93BCE571D7D792B00421BD0 /* AddVideoToProjectUseCase.swift in Sources */,
 				A955D6341D9A88EB00604567 /* AddWatermarkUseCase.swift in Sources */,
+				A988DF081DAD1E1C0030E285 /* MicRecorderInteractorInterface.swift in Sources */,
 				A917611A1D916F48008915DA /* SharePresenter.swift in Sources */,
 				A91760E51D914835008915DA /* DuplicateViewController.swift in Sources */,
 				A9B386331D7D53230065D3EC /* CameraInteractorInterface.swift in Sources */,
+				A988DF061DAD1E110030E285 /* MicRecorderPresenterInterface.swift in Sources */,
 				A96E15F01DA257A400CF81E8 /* MusicModels.swift in Sources */,
 				A91760C01D9146BF008915DA /* EditorViewInterface.swift in Sources */,
 				A9B386581D7D551A0065D3EC /* Utils.swift in Sources */,
@@ -1962,6 +2008,7 @@
 				A9B3862B1D7D531B0065D3EC /* RecorderConstants.swift in Sources */,
 				A91760D81D9146FE008915DA /* FullScreenPlayerPresenterInterface.swift in Sources */,
 				A91760BD1D9146BF008915DA /* EditorPresenterInterface.swift in Sources */,
+				A988DF021DAD1DFC0030E285 /* MicRecorderViewController.swift in Sources */,
 				A91761121D916F48008915DA /* ShareCell.swift in Sources */,
 				A93BCE5F1D7D7A1300421BD0 /* NSLocale+ISO639_2.m in Sources */,
 				A95BE9821D990A4A00602DCD /* SettingsInteractor.swift in Sources */,
@@ -1990,6 +2037,7 @@
 				A9B386561D7D54CF0065D3EC /* AppDependencies.swift in Sources */,
 				A988DEF21DACEF9B0030E285 /* MusicListPresenterInterface.swift in Sources */,
 				A91761171D916F48008915DA /* ShareInteractor.swift in Sources */,
+				A988DF041DAD1E090030E285 /* MicRecorderPresenter.swift in Sources */,
 				A91760AC1D9146B5008915DA /* EditingRoomViewController.swift in Sources */,
 				A91760ED1D914840008915DA /* SplitWireframe.swift in Sources */,
 				A91760E11D914827008915DA /* TrimWireframe.swift in Sources */,

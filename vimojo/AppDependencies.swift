@@ -36,6 +36,7 @@ class AppDependencies {
     var detailTextWireframe = DetailTextWireframe()
 
     var musicListWireframe = MusicListWireframe()
+    var micRecorderWireframe = MicRecorderWireframe()
     
     init(){
         configureDependencies()
@@ -81,6 +82,9 @@ class AppDependencies {
         
         let musicListPresenter = MusicListPresenter()
         let musicListInteractor = MusicListInteractor()
+        
+        let micRecorderPresenter = MicRecorderPresenter()
+        let micRecorderInteractor = MicRecorderInteractor()
         
         //RECORD MODULE
         recordPresenter.recordWireframe = recordWireframe
@@ -164,6 +168,7 @@ class AppDependencies {
         musicWireframe.fullScreenPlayerWireframe = fullScreenPlayerWireframe
         musicWireframe.editorRoomWireframe = editorRoomWireframe
         musicWireframe.musicListWireframe = musicListWireframe
+        musicWireframe.micRecorderWireframe = micRecorderWireframe
         
         //MUSIC LIST MODULE
         musicListPresenter.wireframe = musicListWireframe
@@ -178,6 +183,20 @@ class AppDependencies {
         musicListWireframe.rootWireframe = rootWireframe
         musicListWireframe.playerWireframe = playerWireframe
         musicListWireframe.editorRoomWireframe = editorRoomWireframe
+        
+        //MIC RECORDER MODULE
+        micRecorderPresenter.wireframe = micRecorderWireframe
+        micRecorderPresenter.interactor = micRecorderInteractor
+        micRecorderPresenter.playerPresenter = playerPresenter
+        
+        micRecorderInteractor.delegate = micRecorderPresenter
+        micRecorderInteractor.project = project
+        
+        
+        micRecorderWireframe.micRecorderPresenter = micRecorderPresenter
+        micRecorderWireframe.rootWireframe = rootWireframe
+        micRecorderWireframe.playerWireframe = playerWireframe
+        micRecorderWireframe.editorRoomWireframe = editorRoomWireframe
         
         //TRIM MODULE
         trimPresenter.interactor = trimInteractor

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import VideonaPlayer
 
-class MusicViewController: ViMoJoController,MusicViewInterface,MusicPresenterDelegate,MusicDetailViewDelegate,PlayerViewSetter,FullScreenWireframeDelegate{
+class MusicViewController: ViMoJoController,MusicViewInterface,MusicPresenterDelegate,PlayerViewSetter,FullScreenWireframeDelegate{
     //MARK: - VIPER variables
     var eventHandler: MusicPresenterInterface?
     
@@ -78,147 +78,8 @@ class MusicViewController: ViMoJoController,MusicViewInterface,MusicPresenterDel
         eventHandler?.updatePlayerLayer()
     }
     
-    //MARK: - Presenter delegate
-    func setMusicList(list: [MusicViewModel]) {
-        self.musicListView?.musicViewModelList = list
-    }
-    
-    func showDetailView(title:String,
-                        author:String,
-                        image:UIImage){
-        self.setUpDetailView(title, author: author, image: image)
-    }
-    
-    func hideDetailView(){
-        detailMusicView?.removeFromSuperview()
-    }
-    
-    func showTableView() {
-        let view = MusicListView.instanceFromNib()
-        musicListView = view as? MusicListView
-        musicListView?.delegate = self
-        
-        musicContainer.addSubview(musicListView!)
-        musicListView?.setViewFrame(musicContainer.frame)
-        
-        eventHandler?.getMusicList()
-    }
-    
-    func hideTableView() {
-        musicListView?.removeFromSuperview()
-    }
-    
-    func showMicRecordView(micRecorderViewModel: MicRecorderViewModel) {
-        let view = MicRecorderView.instanceFromNib() as? MicRecorderView
-        micRecorderView = view
-        view?.delegate = self
-        
-        musicContainer.addSubview(view!)
-        view?.setViewFrame(musicContainer.frame)
-        
-        micRecorderView?.setLowValueLabelString(micRecorderViewModel.lowValue)
-        micRecorderView?.setHighValueLabelString(micRecorderViewModel.highValue)
-        micRecorderView?.setActualValueLabelString(micRecorderViewModel.actualValue)
-        micRecorderView?.configureRangeSlider()
-    }
-    
-    func hideMicRecordView() {
-        micRecorderView?.removeView()
-    }
-    
-    func showMicRecorderAcceptCancelButton() {
-        micRecorderView?.showButtons()
-    }
-    
-    //MARK: - Music Detail Delegate
-    func acceptButtonPushed() {
-        eventHandler?.acceptDetailButtonPushed()
-    }
-    func cancelButtonPushed() {
-        eventHandler?.cancelDetailButtonPushed()
-    }
-    func removeDetailButtonPushed() {
-        eventHandler?.removeDetailButtonPushed()
-    }
-    
-    //MARK: - Change views
-    func removeDetailFromView() {
-        detailMusicView?.removeFromSuperview()
-    }
-    
-    func setDetailToView() {
-        musicContainer.addSubview(detailMusicView!)
-    }
-    
-    func setUpDetailView(title:String,
-                         author:String,
-                         image:UIImage){
-        
-        let view = MusicDetailView.instanceFromNib()
-        
-        detailMusicView = view as? MusicDetailView
-                
-        eventHandler?.setMusicDetailInterface(detailMusicView!)
-
-        detailMusicView?.delegate = self
-        
-        detailMusicView?.initParams(title,
-                                    author: author,
-                                    image: image,
-                                    frame: musicContainer.frame)
-        
-        musicContainer.addSubview(detailMusicView!)
-    }
-    
-    func setMicRecorderButtonState(state: Bool) {
-        micRecorderView?.setRecordButtonSelectedState(state)
-    }
-    
-    func setMicRecorderButtonEnabled(state: Bool) {
-        micRecorderView?.setRecordButtonEnable(state)
-    }
-    
     //MARK: - Player setter
     func addPlayerAsSubview(player: PlayerView) {
         self.playerView.addSubview(player)
-    }
-}
-
-extension MusicViewController:MusicListViewDelegate{
-    func didSelectMusicAtIndexPath(indexPath:NSIndexPath){
-        eventHandler?.didSelectMusicAtIndexPath(indexPath)
-    }
-    
-    func cancelMusicListButtonPushed(){
-        self.hideTableView()
-    }
-}
-
-extension MusicViewController:MicRecorderViewDelegate{
-    func micRecorderLongPressStart(){
-        eventHandler?.startLongPress()
-    }
-    
-    func micRecorderLongPressFinished(){
-        eventHandler?.pauseLongPress()
-    }
-    
-    func micRecorderAcceptButtonPushed(){
-        eventHandler?.acceptMicRecord()
-    }
-    
-    func micRecorderCancelButtonPushed(){
-        eventHandler?.cancelMicRecord()
-    }
-    
-    func updateRecordMicActualTime(time: String) {
-        micRecorderView?.setActualValueLabelString(time)
-    }
-}
-
-extension MusicViewController:PlayerViewDelegate{
-    func seekBarUpdate(value: Float) {
-        micRecorderView?.updateSliderTo(value)
-        eventHandler?.updateActualTime(value)
     }
 }

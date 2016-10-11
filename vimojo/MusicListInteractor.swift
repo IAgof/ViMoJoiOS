@@ -95,20 +95,6 @@ class MusicListInteractor: MusicListInteractorInterface {
         return musicSet
     }
     
-    func getMusic() -> Music {
-        guard let music = project?.getMusic() else {return  Music(title: "",
-                                                                  author: "",
-                                                                  iconResourceId: "",
-                                                                  musicResourceId: "",
-                                                                  musicSelectedResourceId: "")
-        }
-        return music
-    }
-    
-    func getProject()->Project{
-        return project!
-    }
-    
     func getVideoComposition() {
         if project != nil{
             actualComposition = GetActualProjectAVCompositionUseCase.sharedInstance.getComposition(project!)

@@ -21,6 +21,7 @@ class MusicWireframe : NSObject {
     var editorRoomWireframe:EditingRoomWireframe?
     
     var musicListWireframe:MusicListWireframe?
+    var micRecorderWireframe:MicRecorderWireframe?
     
     var prevController:UIViewController?
     
@@ -80,5 +81,12 @@ class MusicWireframe : NSObject {
             return
         }
         wireframe.presentMusicListInterface()
+    }
+    
+    func presenterMicRecorderView(){
+        guard let wireframe = micRecorderWireframe else{
+            return
+        }
+        wireframe.presentMicRecorderInterface()
     }
 }

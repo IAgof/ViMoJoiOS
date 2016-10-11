@@ -27,6 +27,7 @@ protocol MicRecorderViewInterface {
     func updateSliderTo(value:Float)
     func removeView()
     func showButtons()
+    func hideButtons()
 }
 
 class MicRecorderView: UIView,MicRecorderViewInterface{
@@ -141,6 +142,11 @@ class MicRecorderView: UIView,MicRecorderViewInterface{
     func showButtons(){
         acceptButton.hidden = false
         cancelButton.hidden = false
+    }
+
+    func hideButtons() {
+        acceptButton.hidden = true
+        cancelButton.hidden = true
     }
     
     func updateSliderTo(value: Float) {
