@@ -101,6 +101,11 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
     
     func acceptMicRecord() {
         interactor?.stopRecordMic()
+        
+        delegate?.showMixAudioView()
+        
+        playerPresenter?.enablePlayerInteraction()
+        playerPresenter?.setPlayerMuted(false)
     }
     
     func cancelMicRecord() {

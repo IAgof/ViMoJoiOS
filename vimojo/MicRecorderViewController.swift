@@ -20,6 +20,7 @@ class MicRecorderViewController: ViMoJoController,MicRecorderPresenterDelegate,P
     
     //MARK: - Variables and constants
     var micRecorderView:MicRecorderViewInterface?
+    var mixAudioView:MixAudioViewInterface?
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -72,6 +73,19 @@ class MicRecorderViewController: ViMoJoController,MicRecorderPresenterDelegate,P
         micRecorderView?.removeView()
     }
     
+    func showMixAudioView() {
+        let view = MixAudioView.instanceFromNib() as? MixAudioView
+        mixAudioView = view
+        view?.delegate = self
+        
+        musicContainer.addSubview(view!)
+        view?.setViewFrame(musicContainer.frame)
+    }
+    
+    func hideMixAudioView() {
+        mixAudioView?.removeView()
+    }
+
     func showAcceptCancelButton() {
         micRecorderView?.showButtons()
     }
@@ -114,6 +128,15 @@ extension MicRecorderViewController:MicRecorderViewDelegate{
     
     func updateRecordMicActualTime(time: String) {
         micRecorderView?.setActualValueLabelString(time)
+    }
+}
+
+extension MicRecorderViewController:MixAudioViewDelegate{
+    func mixAudioAcceptButtonPushed(){
+        
+    }
+    func mixAudioCancelButtonPushed(){
+        
     }
 }
 

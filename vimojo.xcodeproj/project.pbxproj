@@ -401,6 +401,8 @@
 		A9ED005B1D917B7200969F31 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00581D917B7200969F31 /* FBSDKLoginKit.framework */; };
 		A9ED005C1D917B7200969F31 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00591D917B7200969F31 /* FBSDKShareKit.framework */; };
 		A9ED005E1D9185BB00969F31 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9ED005D1D9185BB00969F31 /* GoogleService-Info.plist */; };
+		A9FDD8BB1DAD3D5300AB0930 /* MixAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FDD8BA1DAD3D5300AB0930 /* MixAudioView.swift */; };
+		A9FDD8BD1DAD3D5F00AB0930 /* MixAudioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9FDD8BC1DAD3D5F00AB0930 /* MixAudioView.xib */; };
 		FBD16405E041F315ED5A8513 /* Pods_vimojo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5669AADF4B95AD1E3054D77E /* Pods_vimojo.framework */; };
 /* End PBXBuildFile section */
 
@@ -697,6 +699,8 @@
 		A9ED00581D917B7200969F31 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		A9ED00591D917B7200969F31 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		A9ED005D1D9185BB00969F31 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A9FDD8BA1DAD3D5300AB0930 /* MixAudioView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixAudioView.swift; sourceTree = "<group>"; };
+		A9FDD8BC1DAD3D5F00AB0930 /* MixAudioView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MixAudioView.xib; sourceTree = "<group>"; };
 		D59F69C32D555170322AC7C3 /* Pods-vimojoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vimojoTests/Pods-vimojoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EF602602B6EC5129C4287C5B /* Pods-vimojoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-vimojoTests/Pods-vimojoTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1104,6 +1108,7 @@
 		A988DF0E1DAD244D0030E285 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				A9FDD8B71DAD3D4100AB0930 /* Mic mixAudio */,
 				A9334EF41DAB6E8300762D8A /* MicRecorderView */,
 				A988DF011DAD1DFC0030E285 /* MicRecorderViewController.swift */,
 				A988DF031DAD1E090030E285 /* MicRecorderPresenter.swift */,
@@ -1458,6 +1463,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		A9FDD8B71DAD3D4100AB0930 /* Mic mixAudio */ = {
+			isa = PBXGroup;
+			children = (
+				A9FDD8BA1DAD3D5300AB0930 /* MixAudioView.swift */,
+				A9FDD8BC1DAD3D5F00AB0930 /* MixAudioView.xib */,
+			);
+			name = "Mic mixAudio";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1637,6 +1651,7 @@
 				A9334EF31DAABBFC00762D8A /* MusicListCell.xib in Resources */,
 				A9334EF61DAB6E9600762D8A /* MicRecorderView.xib in Resources */,
 				A9C695931DA2411400597646 /* GALLOPING.mp3 in Resources */,
+				A9FDD8BD1DAD3D5F00AB0930 /* MixAudioView.xib in Resources */,
 				A96441111DA3E59700CAD950 /* Settings.strings in Resources */,
 				A91760901D9143D1008915DA /* Editor.strings in Resources */,
 				A9B385EF1D7D51380065D3EC /* Main.storyboard in Resources */,
@@ -2028,6 +2043,7 @@
 				A91760C21D9146BF008915DA /* ThumbnailListInteractor.swift in Sources */,
 				A91761361D916F53008915DA /* MusicPresenterInterface.swift in Sources */,
 				A91760EB1D914840008915DA /* SplitViewInterface.swift in Sources */,
+				A9FDD8BB1DAD3D5300AB0930 /* MixAudioView.swift in Sources */,
 				A9B3865F1D7D55660065D3EC /* ViMoJoController.swift in Sources */,
 				A9B386541D7D53D10065D3EC /* CameraRecorderInterface.swift in Sources */,
 				A93BCE4C1D7D5C7400421BD0 /* ConfigPreferences.swift in Sources */,

@@ -33,6 +33,9 @@ protocol MicRecorderPresenterDelegate {
     func showMicRecordView(micRecorderViewModel:MicRecorderViewModel)
     func hideMicRecordView()
     
+    func showMixAudioView()
+    func hideMixAudioView()
+    
     func setMicRecorderButtonState(state:Bool)
     func setMicRecorderButtonEnabled(state:Bool)
     
