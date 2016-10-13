@@ -9,6 +9,7 @@
 import Foundation
 import VideonaPlayer
 import AVFoundation
+import VideonaProject
 
 class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorDelegate {
     //MARK: - Variables VIPER
@@ -26,6 +27,9 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
     var isGoingToExpandPlayer = false
     var recordMicViewActualTime = 0.0
     var recordMicViewTotalTime = 0.0
+    var isPlayingMedia = false
+    var videoVolume:Float = 1.0
+    var audioVolume:Float = 1.0
     
     //MARK: - Constants
     let NO_MUSIC_SELECTED = -1
@@ -37,7 +41,6 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
         interactor?.getVideoComposition()
         interactor?.initAudioSession()
         interactor?.getMicRecorderValues()
-        
     }
     
     func viewWillAppear() {
@@ -104,12 +107,17 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
         
         delegate?.showMixAudioView()
         
+        interactor?.getActualAudioRecorded()
+
         playerPresenter?.enablePlayerInteraction()
         playerPresenter?.setPlayerMuted(false)
+        playerPresenter?.seekToTime(0.0)
     }
     
     func cancelMicRecord() {
         interactor?.stopRecordMic()
+        
+        delegate?.removeAudioPlayer()
         
         playerPresenter?.seekToTime(0.0)
         resetRecord()
@@ -140,8 +148,57 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
         return String(format:"%02d:%02d", mins, secs)
     }
     
+    func acceptMixAudio() {
+        interactor?.setVoiceOverToProject(videoVolume,audioVolume: audioVolume)
+    }
+    
+    func cancelMixAudio() {
+        delegate?.hideMixAudioView()
+        
+        interactor?.getMicRecorderValues()
+    }
+
+    func videoPlayerPlay() {
+        isPlayingMedia = true
+        
+        delegate?.playAudioPlayer()
+    }
+    
+    func videoPlayerPause() {
+        isPlayingMedia = false
+        
+        delegate?.pauseAudioPlayer()
+    }
+    
+    func videoPlayerSeeksTo(value: Float) {
+        delegate?.seekAudioPlayerTo(value)
+        
+        if isPlayingMedia{
+            delegate?.playAudioPlayer()
+        }
+    }
+    
+    func mixVolumeUpdate(value: Float) {
+        videoVolume = 2 * value
+        if videoVolume >= 1 {
+            videoVolume = 1
+        }
+        audioVolume = 2 * ( 1 - value)
+        if audioVolume >= 1 {
+            audioVolume = 1
+        }
+        
+        print("Slider value = \(value)")
+        print("Audio Volume = \(audioVolume)")
+        print("Video Volume = \(videoVolume)")
+        
+        delegate?.changeAudioPlayerVolume(audioVolume)
+        
+        playerPresenter?.setPlayerVolume(videoVolume)
+    }
+    
     //MARK: - Interactor delegate
-    func setVideoComposition(composition: AVMutableComposition) {
+    func setVideoComposition(composition: VideoComposition) {
         playerPresenter?.createVideoPlayer(composition)
         
     }
@@ -150,5 +207,9 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
         recordMicViewTotalTime = value.sliderRange
         
         delegate?.showMicRecordView(value)
+    }
+    
+    func setActualAudioRecorded(url: NSURL) {
+        delegate?.createAudioPlayer(url)
     }
 }

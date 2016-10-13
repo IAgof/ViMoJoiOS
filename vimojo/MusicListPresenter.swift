@@ -9,6 +9,7 @@
 import Foundation
 import VideonaPlayer
 import AVFoundation
+import VideonaProject
 
 class MusicListPresenter:MusicListPresenterInterface{
     //MARK: - Variables VIPER
@@ -141,7 +142,7 @@ extension MusicListPresenter:MusicListInteractorDelegate{
         delegate?.showDetailView(title, author: author, image: image)
     }
     
-    func setVideoComposition(composition: AVMutableComposition) {
+    func setVideoComposition(composition: VideoComposition) {
         playerPresenter?.createVideoPlayer(composition)
     }
     

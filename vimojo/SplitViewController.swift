@@ -12,6 +12,7 @@ import NMRangeSlider
 import VideonaPlayer
 import AVFoundation
 import VideonaSplit
+import VideonaProject
 
 class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDelegate,PlayerViewDelegate,PlayerViewSetter {
     //MARK: - VIPER variables
@@ -136,7 +137,7 @@ class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDel
         playerHandler?.onVideoStops()
     }
     
-    func updatePlayerOnView(composition: AVMutableComposition) {
+    func updatePlayerOnView(composition: VideoComposition) {
         self.playerHandler?.createVideoPlayer(composition)
     }
     

@@ -8,7 +8,7 @@
 
 import Foundation
 import AVFoundation
-
+import VideonaProject
 
 protocol MusicListInteractorInterface {
     func getMusicList()
@@ -26,5 +26,5 @@ protocol MusicListInteractorDelegate {
     func setMusicDetailParams(title:String,
                               author:String,
                               image:UIImage)
-    func setVideoComposition(composition:AVMutableComposition)
+    func setVideoComposition(composition: VideoComposition)
 }

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import VideonaPlayer
+import AVFoundation
 
 class MicRecorderViewController: ViMoJoController,MicRecorderPresenterDelegate,PlayerViewSetter{
     //MARK: - VIPER variables
@@ -21,6 +22,7 @@ class MicRecorderViewController: ViMoJoController,MicRecorderPresenterDelegate,P
     //MARK: - Variables and constants
     var micRecorderView:MicRecorderViewInterface?
     var mixAudioView:MixAudioViewInterface?
+    var audioPlayer:AVAudioPlayer?
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -94,6 +96,34 @@ class MicRecorderViewController: ViMoJoController,MicRecorderPresenterDelegate,P
         micRecorderView?.hideButtons()
     }
     
+    func changeAudioPlayerVolume(value: Float) {
+        audioPlayer?.volume = value
+    }
+    
+    func createAudioPlayer(url: NSURL) {
+        do{
+            try audioPlayer = AVAudioPlayer(contentsOfURL: url)
+        }catch{
+            print("Error creating audioplayer")
+        }
+    }
+    
+    func removeAudioPlayer() {
+        audioPlayer = nil
+    }
+    
+    func playAudioPlayer(){
+        audioPlayer?.play()
+    }
+    
+    func pauseAudioPlayer(){
+        audioPlayer?.pause()
+    }
+    
+    func seekAudioPlayerTo(value:Float) {
+        audioPlayer?.currentTime = NSTimeInterval.init(value)
+    }
+    
     //MARK: - Change views
     func setMicRecorderButtonState(state: Bool) {
         micRecorderView?.setRecordButtonSelectedState(state)
@@ -133,10 +163,14 @@ extension MicRecorderViewController:MicRecorderViewDelegate{
 
 extension MicRecorderViewController:MixAudioViewDelegate{
     func mixAudioAcceptButtonPushed(){
-        
+        eventHandler?.acceptMixAudio()
     }
     func mixAudioCancelButtonPushed(){
-        
+        eventHandler?.cancelMixAudio()
+    }
+    
+    func mixVolumeValueChanged(value: Float) {
+        eventHandler?.mixVolumeUpdate(value)
     }
 }
 
@@ -150,5 +184,17 @@ extension MicRecorderViewController:PlayerViewDelegate{
 extension MicRecorderViewController:PlayerViewFinishedDelegate{
     func playerHasLoaded() {
         eventHandler?.playerHasLoaded()
+    }
+    
+    func playerStartsToPlay() {
+        eventHandler?.videoPlayerPlay()
+    }
+    
+    func playerPause() {
+        eventHandler?.videoPlayerPause()
+    }
+    
+    func playerSeeksTo(value: Float) {
+        eventHandler?.videoPlayerSeeksTo(value)
     }
 }

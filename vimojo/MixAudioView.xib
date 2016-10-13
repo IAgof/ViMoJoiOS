@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6X0-V6-TNj">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6X0-V6-TNj">
                     <rect key="frame" x="565" y="569" width="27" height="23"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="6X0-V6-TNj" secondAttribute="height" multiplier="27:23" id="M3z-79-Kw3"/>
@@ -21,17 +21,6 @@
                     <state key="highlighted" image="common_icon_edit_accept_pressed"/>
                     <connections>
                         <action selector="acceptButtonPushed:" destination="iN0-l3-epB" eventType="touchUpInside" id="yCF-Ag-GbV"/>
-                    </connections>
-                </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqI-WQ-naU">
-                    <rect key="frame" x="8" y="568" width="24" height="24"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="kqI-WQ-naU" secondAttribute="height" multiplier="1:1" id="0iW-o8-7Sc"/>
-                    </constraints>
-                    <state key="normal" image="common_icon_edit_cancel_normal"/>
-                    <state key="highlighted" image="common_icon_edit_cancel_pressed"/>
-                    <connections>
-                        <action selector="cancelButtonPushed:" destination="iN0-l3-epB" eventType="touchUpInside" id="B3L-38-Bdd"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9vJ-tN-9h6">
@@ -46,8 +35,19 @@
                         <action selector="mixAudioValueChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="aVd-ph-XhG"/>
                     </connections>
                 </slider>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqI-WQ-naU">
+                    <rect key="frame" x="8" y="568" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="kqI-WQ-naU" secondAttribute="height" multiplier="1:1" id="0iW-o8-7Sc"/>
+                    </constraints>
+                    <state key="normal" image="common_icon_edit_cancel_normal"/>
+                    <state key="highlighted" image="common_icon_edit_cancel_pressed"/>
+                    <connections>
+                        <action selector="cancelButtonPushed:" destination="iN0-l3-epB" eventType="touchUpInside" id="B3L-38-Bdd"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="sen-ph-Ggl" secondAttribute="trailing" constant="16" id="1IV-FZ-SgK"/>
                 <constraint firstItem="kqI-WQ-naU" firstAttribute="width" secondItem="kqI-WQ-naU" secondAttribute="height" multiplier="1:1" id="3Cj-C2-ohb"/>

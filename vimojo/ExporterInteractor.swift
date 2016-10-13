@@ -43,7 +43,7 @@ class ExporterInteractor:NSObject{
         
         guard let exportPath = project?.getExportedPath() else {return}
         
-        let mixComposition = GetActualProjectAVCompositionUseCase().getComposition(project!)
+        guard let mixComposition = GetActualProjectAVCompositionUseCase().getComposition(project!).mutableComposition else {return}
       
         // 4 - Get path
         let url = NSURL(fileURLWithPath: exportPath)

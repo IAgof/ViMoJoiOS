@@ -14,6 +14,7 @@ import NMRangeSlider
 protocol MixAudioViewDelegate {
     func mixAudioAcceptButtonPushed()
     func mixAudioCancelButtonPushed()
+    func mixVolumeValueChanged(value:Float)
 }
 
 protocol MixAudioViewInterface {
@@ -29,7 +30,7 @@ class MixAudioView: UIView,MixAudioViewInterface{
     @IBOutlet weak var mixAudioSlider: UISlider!
     
     //MARK: - Variables
-    var delegate:MicRecorderViewDelegate?
+    var delegate:MixAudioViewDelegate?
     
     //MARK: - Init
     class func instanceFromNib() -> UIView {
@@ -50,15 +51,16 @@ class MixAudioView: UIView,MixAudioViewInterface{
     
     //MARK: - Actions
     @IBAction func acceptButtonPushed(sender: AnyObject) {
-        delegate?.micRecorderAcceptButtonPushed()
+        delegate?.mixAudioAcceptButtonPushed()
     }
     
     @IBAction func cancelButtonPushed(sender: AnyObject) {
-        delegate?.micRecorderCancelButtonPushed()
+        delegate?.mixAudioCancelButtonPushed()
     }
     
     @IBAction func mixAudioValueChanged(sender: AnyObject) {
         sliderValueLabel.text = "\(Int(mixAudioSlider.value * 100))%"
+        delegate?.mixVolumeValueChanged(mixAudioSlider.value)
     }
     
     //MARK: - Interface

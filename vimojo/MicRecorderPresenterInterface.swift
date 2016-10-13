@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 protocol MicRecorderPresenterInterface {
     func viewDidLoad()
@@ -27,6 +28,14 @@ protocol MicRecorderPresenterInterface {
     func acceptMicRecord()
     func cancelMicRecord()
     func updateActualTime(time:Float)
+    
+    func acceptMixAudio()
+    func cancelMixAudio()
+    func mixVolumeUpdate(value:Float)
+    
+    func videoPlayerPlay()
+    func videoPlayerPause()
+    func videoPlayerSeeksTo(value:Float)
 }
 
 protocol MicRecorderPresenterDelegate {
@@ -43,4 +52,11 @@ protocol MicRecorderPresenterDelegate {
     func hideAcceptCancelButton()
     
     func updateRecordMicActualTime(time:String)
+    
+    func changeAudioPlayerVolume(value:Float)
+    func createAudioPlayer(url: NSURL)
+    func removeAudioPlayer()
+    func playAudioPlayer()
+    func pauseAudioPlayer()
+    func seekAudioPlayerTo(value:Float)
 }

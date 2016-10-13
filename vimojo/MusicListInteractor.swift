@@ -18,7 +18,7 @@ class MusicListInteractor: MusicListInteractorInterface {
     //MARK: - Variables
     var musicList:[Music] = []
     var project: Project?
-    var actualComposition:AVMutableComposition?
+    var actualComposition:VideoComposition?
     
     //MARK: - Interface
     func getMusicList(){

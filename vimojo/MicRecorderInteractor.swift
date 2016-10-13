@@ -25,7 +25,7 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
     //MARK: - Variables
     var musicList:[Music] = []
     var project: Project?
-    var actualComposition:AVMutableComposition?
+    var actualComposition:VideoComposition?
     var audioRecorder:AVAudioRecorder!
     
     let recordSettings = [AVSampleRateKey : NSNumber(float: Float(44100.0)),
@@ -61,7 +61,7 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
     func getMicRecorderValues() {
         let lowValue = "00:00"
         let actualValue = "00:00"
-        guard let composition = actualComposition else{
+        guard let composition = actualComposition?.mutableComposition else{
             return
         }
         let highValue = Utils().hourToString(composition.duration.seconds)
@@ -71,6 +71,33 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
         )
         
         delegate?.setMicRecorderValues(micValues)
+    }
+    
+    func getActualAudioRecorded() {
+        guard let path = audioStringPath else {
+            print("No audio string path" )
+            return}
+        guard var url = NSURL(string: path) else {
+            print("No audio url path" )
+            return}
+        
+//        print("Set music in debug")
+//        url = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("GALLOPING", ofType: "mp3")!)
+//        
+        delegate?.setActualAudioRecorded(url)
+    }
+    
+    func setVoiceOverToProject(videoVolume: Float, audioVolume: Float) {
+        guard let path = audioStringPath else {
+            print("No audio string path" )
+            return}
+        
+        let voiceOver = Audio(title: "Vimojo VoiceOver", mediaPath: path)
+        voiceOver.audioLevel = audioVolume
+        project?.projectOutputAudioLevel = videoVolume
+        
+        project?.isVoiceOverSet = true
+        project?.voiceOver = voiceOver
     }
     
     //MARK: - Mic actions

@@ -19,9 +19,15 @@ protocol MicRecorderInteractorInterface {
     func startRecordMic()
     func pauseRecordMic()
     func stopRecordMic()
+    
+    func getActualAudioRecorded()
+    
+    func setVoiceOverToProject(videoVolume:Float,
+                               audioVolume:Float)
 }
 
 protocol MicRecorderInteractorDelegate {
-    func setVideoComposition(composition:AVMutableComposition)
+    func setVideoComposition(composition:VideoComposition)
     func setMicRecorderValues(value:MicRecorderViewModel)
+    func setActualAudioRecorded(url:NSURL)
 }
