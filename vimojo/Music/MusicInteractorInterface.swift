@@ -12,9 +12,10 @@ import VideonaProject
 import AVFoundation
 
 protocol MusicInteractorInterface {    
+    func getVideoComposition()
 
 }
 
 protocol MusicInteractorDelegate {
-
+    func setVideoComposition(composition: VideoComposition)
 }

@@ -61,7 +61,15 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
     }
     
     func viewWillDisappear() {
-        interactor?.stopRecordMic()
+
+    }
+    
+    func playerHasLoaded() {
+        playerPresenter?.setPlayerMuted(true)
+        playerPresenter?.disablePlayerInteraction()
+    }
+    
+    func pushBackButton() {
         playerPresenter?.setPlayerMuted(false)
         playerPresenter?.enablePlayerInteraction()
         
@@ -71,14 +79,8 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
         if !isGoingToExpandPlayer{
             playerPresenter?.onVideoStops()
         }
-    }
-    
-    func playerHasLoaded() {
-        playerPresenter?.setPlayerMuted(true)
-        playerPresenter?.disablePlayerInteraction()
-    }
-    
-    func pushBackButton() {
+        interactor?.stopRecordMic()
+
         wireframe?.removeController()
     }
     

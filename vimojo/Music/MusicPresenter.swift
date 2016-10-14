@@ -9,6 +9,7 @@
 import Foundation
 import VideonaPlayer
 import AVFoundation
+import VideonaProject
 
 class MusicPresenter: MusicPresenterInterface,MusicInteractorDelegate {
     //MARK: - Variables VIPER
@@ -34,11 +35,13 @@ class MusicPresenter: MusicPresenterInterface,MusicInteractorDelegate {
     
     //MARK: - Interface
     func viewDidLoad() {
-        wireframe?.presentPlayerInterface()
     }
     
     func viewWillAppear() {
+        wireframe?.presentPlayerInterface()
+
         controller?.bringToFrontExpandPlayerButton()
+        interactor?.getVideoComposition()
     }
     
     func viewDidAppear() {
@@ -68,5 +71,10 @@ class MusicPresenter: MusicPresenterInterface,MusicInteractorDelegate {
     
     func pushMicHandler() {
         wireframe?.presenterMicRecorderView()
+    }
+    
+    //MARK: - Interactor delegate
+    func setVideoComposition(composition: VideoComposition) {
+        playerPresenter?.createVideoPlayer(composition)
     }
 }

@@ -13,7 +13,7 @@
             <rect key="frame" x="0.0" y="0.0" width="240" height="80"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9GD-TL-dK0" id="JuG-TI-MLG">
-                <rect key="frame" x="0.0" y="0.0" width="240" height="79"/>
+                <rect key="frame" x="0.0" y="0.0" width="240" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagebutton_music_background_electronic" translatesAutoresizingMaskIntoConstraints="NO" id="e1e-fy-RKY">
@@ -26,34 +26,34 @@
                         </variation>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOy-Pc-kB9">
-                        <rect key="frame" x="143" y="8" width="79" height="21"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65000000000000002" colorSpace="calibratedRGB"/>
+                        <rect key="frame" x="79" y="16" width="78.5" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                         <variation key="heightClass=compact" misplaced="YES">
                             <rect key="frame" x="273" y="8" width="79" height="21"/>
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqY-vB-h6W">
-                        <rect key="frame" x="170" y="40" width="52" height="21"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65000000000000002" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <rect key="frame" x="79" y="41" width="43" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                         <variation key="heightClass=compact" misplaced="YES">
                             <rect key="frame" x="300" y="40" width="52" height="21"/>
                         </variation>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="e1e-fy-RKY" secondAttribute="bottom" id="6zb-m2-ykR"/>
-                    <constraint firstItem="rOy-Pc-kB9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="e1e-fy-RKY" secondAttribute="trailing" constant="8" id="7yx-Qp-5tY"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="rOy-Pc-kB9" secondAttribute="trailing" constant="10" id="I1I-CS-3n5"/>
+                    <constraint firstItem="rOy-Pc-kB9" firstAttribute="leading" secondItem="e1e-fy-RKY" secondAttribute="trailing" constant="8" id="7yx-Qp-5tY"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="rOy-Pc-kB9" secondAttribute="trailing" constant="10" id="I1I-CS-3n5"/>
                     <constraint firstItem="e1e-fy-RKY" firstAttribute="top" secondItem="JuG-TI-MLG" secondAttribute="topMargin" id="JXK-WZ-XVW"/>
-                    <constraint firstItem="hqY-vB-h6W" firstAttribute="top" secondItem="rOy-Pc-kB9" secondAttribute="bottom" constant="11" id="Vg1-TZ-Uc0"/>
-                    <constraint firstItem="rOy-Pc-kB9" firstAttribute="top" secondItem="e1e-fy-RKY" secondAttribute="top" id="fbx-Qd-a3p"/>
-                    <constraint firstItem="hqY-vB-h6W" firstAttribute="trailing" secondItem="rOy-Pc-kB9" secondAttribute="trailing" id="rPX-zA-KL5"/>
+                    <constraint firstItem="hqY-vB-h6W" firstAttribute="leading" secondItem="rOy-Pc-kB9" secondAttribute="leading" id="Rp7-3T-6nY"/>
+                    <constraint firstItem="hqY-vB-h6W" firstAttribute="top" secondItem="rOy-Pc-kB9" secondAttribute="bottom" constant="4" id="Vg1-TZ-Uc0"/>
+                    <constraint firstItem="rOy-Pc-kB9" firstAttribute="top" secondItem="e1e-fy-RKY" secondAttribute="top" constant="8" id="fbx-Qd-a3p"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="hqY-vB-h6W" secondAttribute="trailing" constant="8" id="twM-3D-1xA"/>
                     <constraint firstItem="e1e-fy-RKY" firstAttribute="leading" secondItem="JuG-TI-MLG" secondAttribute="leadingMargin" id="xeK-FE-xBv"/>
                 </constraints>
             </tableViewCellContentView>

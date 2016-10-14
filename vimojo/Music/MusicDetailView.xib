@@ -12,14 +12,14 @@
             <rect key="frame" x="0.0" y="0.0" width="300" height="340"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="84S-zW-oLf">
-                    <rect key="frame" x="8" y="37" width="284" height="213"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_edit_music_selected_freethecoldwind" translatesAutoresizingMaskIntoConstraints="NO" id="84S-zW-oLf">
+                    <rect key="frame" x="8" y="40" width="118" height="118"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="84S-zW-oLf" secondAttribute="height" multiplier="20:15" priority="750" id="UaJ-Cx-Gf0"/>
+                        <constraint firstAttribute="width" secondItem="84S-zW-oLf" secondAttribute="height" multiplier="1:1" id="FdV-pv-x6X"/>
                     </constraints>
                 </imageView>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiH-7b-pqe">
-                    <rect key="frame" x="135" y="300" width="32" height="32"/>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiH-7b-pqe">
+                    <rect key="frame" x="134" y="300" width="32" height="32"/>
                     <state key="normal" image="activity_edit_clip_delete_music_normal">
                         <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -37,23 +37,12 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Long title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6La-Tv-Yr1">
-                    <rect key="frame" x="15" y="55" width="71" height="21"/>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65000000000000002" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="138" y="40" width="71" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                     <variation key="heightClass=regular-widthClass=regular">
                         <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                    </variation>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eED-nV-dui">
-                    <rect key="frame" x="15" y="84" width="52" height="21"/>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65000000000000002" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="heightClass=regular-widthClass=regular">
-                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                     </variation>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fkh-td-DDL">
@@ -78,40 +67,39 @@
                         <action selector="pushAcceptButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="s2D-J0-TGZ"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eED-nV-dui">
+                    <rect key="frame" x="138" y="76" width="51" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                    </variation>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="84S-zW-oLf" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" priority="250" constant="-20" id="1EC-g6-uJ5"/>
-                <constraint firstItem="eED-nV-dui" firstAttribute="top" secondItem="6La-Tv-Yr1" secondAttribute="bottom" constant="8" id="AWf-0M-edC"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eED-nV-dui" secondAttribute="trailing" constant="8" id="39q-ga-sNC"/>
                 <constraint firstItem="Fkh-td-DDL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Akw-qV-hu7">
                     <variation key="heightClass=regular-widthClass=regular" constant="40"/>
                 </constraint>
-                <constraint firstItem="84S-zW-oLf" firstAttribute="top" secondItem="6La-Tv-Yr1" secondAttribute="bottom" constant="-39" id="Grq-Kn-grS"/>
-                <constraint firstItem="eED-nV-dui" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="Jjf-Xa-MAs">
-                    <variation key="heightClass=regular-widthClass=regular" constant="60"/>
-                </constraint>
-                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eED-nV-dui" secondAttribute="trailing" constant="15" id="KId-GR-2GD"/>
                 <constraint firstAttribute="trailing" secondItem="JuB-TN-Waf" secondAttribute="trailing" constant="8" id="KXS-kA-hsm">
                     <variation key="heightClass=regular-widthClass=regular" constant="40"/>
                 </constraint>
                 <constraint firstItem="PiH-7b-pqe" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="MCG-4l-g5n"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6La-Tv-Yr1" secondAttribute="trailing" constant="8" id="Vc0-iE-vIb"/>
                 <constraint firstAttribute="bottom" secondItem="JuB-TN-Waf" secondAttribute="bottom" constant="16" id="WVl-Lu-Ca1"/>
                 <constraint firstAttribute="bottom" secondItem="Fkh-td-DDL" secondAttribute="bottom" constant="16" id="b4M-Wx-l5j"/>
-                <constraint firstItem="6La-Tv-Yr1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="blP-hQ-Rpw">
-                    <variation key="heightClass=regular-widthClass=regular" constant="60"/>
-                </constraint>
-                <constraint firstAttribute="trailing" secondItem="84S-zW-oLf" secondAttribute="trailing" constant="8" id="dds-IZ-C8b">
-                    <variation key="heightClass=regular-widthClass=regular" constant="45"/>
-                </constraint>
-                <constraint firstItem="84S-zW-oLf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="f8Y-gj-zeM"/>
+                <constraint firstItem="eED-nV-dui" firstAttribute="leading" secondItem="6La-Tv-Yr1" secondAttribute="leading" id="cS3-tw-xMD"/>
+                <constraint firstItem="84S-zW-oLf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="hXD-mk-ScU"/>
+                <constraint firstItem="6La-Tv-Yr1" firstAttribute="leading" secondItem="84S-zW-oLf" secondAttribute="trailing" constant="12" id="i3a-gB-iUJ"/>
                 <constraint firstItem="eED-nV-dui" firstAttribute="top" secondItem="6La-Tv-Yr1" secondAttribute="bottom" constant="7" id="mP1-GQ-oXk"/>
-                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6La-Tv-Yr1" secondAttribute="trailing" constant="15" id="qbP-Nf-FHJ"/>
-                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="84S-zW-oLf" secondAttribute="bottom" constant="90" id="tI1-95-dlJ"/>
+                <constraint firstItem="eED-nV-dui" firstAttribute="top" secondItem="6La-Tv-Yr1" secondAttribute="bottom" constant="15" id="ndS-Ex-48r"/>
+                <constraint firstItem="PiH-7b-pqe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="84S-zW-oLf" secondAttribute="bottom" constant="8" id="pOM-6C-6Bm"/>
+                <constraint firstItem="84S-zW-oLf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" priority="300" constant="40" id="pnw-6d-6UK"/>
                 <constraint firstItem="JuB-TN-Waf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="84S-zW-oLf" secondAttribute="bottom" constant="25" id="vm3-sV-MhC"/>
                 <constraint firstAttribute="bottom" secondItem="PiH-7b-pqe" secondAttribute="bottom" constant="8" id="voO-EZ-fck"/>
-                <constraint firstItem="84S-zW-oLf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="wUH-Oz-efV">
-                    <variation key="heightClass=regular-widthClass=regular" constant="45"/>
-                </constraint>
+                <constraint firstItem="6La-Tv-Yr1" firstAttribute="top" secondItem="84S-zW-oLf" secondAttribute="top" id="xwW-D6-lft"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -140,6 +128,7 @@
     <resources>
         <image name="activity_edit_clip_delete_music_normal" width="32" height="32"/>
         <image name="activity_edit_clip_delete_music_pressed" width="32" height="32"/>
+        <image name="activity_edit_music_selected_freethecoldwind" width="118" height="118"/>
         <image name="common_icon_edit_accept_normal" width="27" height="23"/>
         <image name="common_icon_edit_accept_pressed" width="27" height="23"/>
         <image name="common_icon_edit_cancel_normal" width="24" height="24"/>

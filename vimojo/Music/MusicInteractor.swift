@@ -14,4 +14,14 @@ import AVFoundation
 class MusicInteractor: MusicInteractorInterface {
     var delegate:MusicInteractorDelegate?
     var project:Project?
+    var actualComposition:VideoComposition?
+    
+    func getVideoComposition() {
+        if project != nil{
+            actualComposition = GetActualProjectAVCompositionUseCase.sharedInstance.getComposition(project!)
+            if actualComposition != nil {
+                delegate?.setVideoComposition(actualComposition!)
+            }
+        }
+    }
 }
