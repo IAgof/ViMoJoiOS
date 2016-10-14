@@ -20,17 +20,18 @@ protocol MicRecorderPresenterInterface {
 //    func expandPlayer()
     func updatePlayerLayer()
     func pushBackButton()
-
+    func cancelPushed()
+    func cancelConfirmed()
+    
     func getMicRecorderViewValues()
     
     func startLongPress()
     func pauseLongPress()
     func acceptMicRecord()
-    func cancelMicRecord()
+
     func updateActualTime(time:Float)
     
     func acceptMixAudio()
-    func cancelMixAudio()
     func mixVolumeUpdate(value:Float)
     
     func videoPlayerPlay()
@@ -59,4 +60,8 @@ protocol MicRecorderPresenterDelegate {
     func playAudioPlayer()
     func pauseAudioPlayer()
     func seekAudioPlayerTo(value:Float)
+    
+    func showAlertDiscardRecord(title:String,
+                                message:String,
+                                yesString:String)
 }

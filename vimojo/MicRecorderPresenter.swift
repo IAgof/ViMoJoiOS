@@ -31,13 +31,22 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
     var videoVolume:Float = 1.0
     var audioVolume:Float = 1.0
     
+    enum MicViewShowed {
+        case MicRecord
+        case AudioMix
+    }
+    
+    var viewShowing:MicViewShowed = .MicRecord
+    
     //MARK: - Constants
     let NO_MUSIC_SELECTED = -1
     
     //MARK: - Interface
     func viewDidLoad() {
         wireframe?.presentPlayerInterface()
-        
+
+        interactor?.removeVoiceOverFromProject()
+
         interactor?.getVideoComposition()
         interactor?.initAudioSession()
         interactor?.getMicRecorderValues()
@@ -56,6 +65,9 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
         playerPresenter?.setPlayerMuted(false)
         playerPresenter?.enablePlayerInteraction()
         
+        playerPresenter?.pauseVideo()
+        delegate?.removeAudioPlayer()
+        
         if !isGoingToExpandPlayer{
             playerPresenter?.onVideoStops()
         }
@@ -68,6 +80,28 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
     
     func pushBackButton() {
         wireframe?.removeController()
+    }
+    
+    func cancelPushed() {
+        guard let title = interactor?.getStringByKey(MicRecorderConstants.DISCARD_RECORDER_TITLE) else{return}
+        guard let message = interactor?.getStringByKey(MicRecorderConstants.DISCARD_RECORDER_MESSAGE)else{return}
+        guard let yes = interactor?.getStringByKey(MicRecorderConstants.YES_ACTION)
+            else{return}
+        
+        delegate?.showAlertDiscardRecord(title,
+                                         message: message,
+                                         yesString: yes)
+    }
+    
+    func cancelConfirmed() {
+        switch viewShowing {
+        case .MicRecord:
+            cancelMicRecord()
+            break
+        case .AudioMix:
+            cancelMixAudio()
+            break
+        }
     }
     
     func updatePlayerLayer() {
@@ -106,9 +140,10 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
         interactor?.stopRecordMic()
         
         delegate?.showMixAudioView()
+        viewShowing = .AudioMix
         
         interactor?.getActualAudioRecorded()
-
+        
         playerPresenter?.enablePlayerInteraction()
         playerPresenter?.setPlayerMuted(false)
         playerPresenter?.seekToTime(0.0)
@@ -124,7 +159,15 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
     }
     
     func resetRecord() {
+        
+        playerPresenter?.pauseVideo()
+        playerPresenter?.seekToTime(0.0)
+        
         interactor?.initAudioSession()
+        
+        playerPresenter?.setPlayerMuted(true)
+        playerPresenter?.disablePlayerInteraction()
+
         
         delegate?.hideAcceptCancelButton()
         delegate?.setMicRecorderButtonState(true)
@@ -150,10 +193,19 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
     
     func acceptMixAudio() {
         interactor?.setVoiceOverToProject(videoVolume,audioVolume: audioVolume)
+        
+        wireframe?.presentEditor()
     }
     
     func cancelMixAudio() {
         delegate?.hideMixAudioView()
+        viewShowing = .MicRecord
+        
+        delegate?.removeAudioPlayer()
+        
+        resetRecord()
+        
+        interactor?.removeVoiceOverFromProject()
         
         interactor?.getMicRecorderValues()
     }
@@ -200,7 +252,6 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
     //MARK: - Interactor delegate
     func setVideoComposition(composition: VideoComposition) {
         playerPresenter?.createVideoPlayer(composition)
-        
     }
     
     func setMicRecorderValues(value: MicRecorderViewModel) {

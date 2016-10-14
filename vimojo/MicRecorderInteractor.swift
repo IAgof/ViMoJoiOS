@@ -100,6 +100,15 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
         project?.voiceOver = voiceOver
     }
     
+    func removeVoiceOverFromProject(){
+        project?.isVoiceOverSet = false
+        project?.projectOutputAudioLevel = 1.0
+    }
+    
+    func getStringByKey(key:String) -> String {
+        return NSBundle.mainBundle().localizedStringForKey(key,value: "",table: "MicRecorder")
+    }
+    
     //MARK: - Mic actions
     func startRecordMic() {
         let audioSession = AVAudioSession.sharedInstance()

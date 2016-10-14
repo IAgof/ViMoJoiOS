@@ -24,6 +24,8 @@ protocol MicRecorderInteractorInterface {
     
     func setVoiceOverToProject(videoVolume:Float,
                                audioVolume:Float)
+    func removeVoiceOverFromProject()
+    func getStringByKey(key:String) -> String 
 }
 
 protocol MicRecorderInteractorDelegate {

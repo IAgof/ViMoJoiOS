@@ -123,7 +123,27 @@ class MicRecorderViewController: ViMoJoController,MicRecorderPresenterDelegate,P
     func seekAudioPlayerTo(value:Float) {
         audioPlayer?.currentTime = NSTimeInterval.init(value)
     }
-    
+    func showAlertDiscardRecord(title:String,
+                                message:String,
+                                yesString:String) {
+        
+        let alertController = UIAlertController(title:title,
+                                                message:message,
+                                                preferredStyle: .Alert)
+        alertController.view.tintColor = VIMOJO_GREEN_UICOLOR
+        
+        let yesAction = UIAlertAction(title: yesString,
+                                      style: .Default,
+                                      handler: {alert -> Void in
+                                        self.eventHandler?.cancelConfirmed()
+        })
+        
+        let noAction = UIAlertAction(title: "No", style: .Default, handler: nil)
+        
+        alertController.addAction(noAction)
+        alertController.addAction(yesAction)
+        self.presentViewController(alertController, animated: false, completion:{})
+    }
     //MARK: - Change views
     func setMicRecorderButtonState(state: Bool) {
         micRecorderView?.setRecordButtonSelectedState(state)
@@ -153,7 +173,7 @@ extension MicRecorderViewController:MicRecorderViewDelegate{
     }
     
     func micRecorderCancelButtonPushed(){
-        eventHandler?.cancelMicRecord()
+        eventHandler?.cancelPushed()
     }
     
     func updateRecordMicActualTime(time: String) {
@@ -166,9 +186,8 @@ extension MicRecorderViewController:MixAudioViewDelegate{
         eventHandler?.acceptMixAudio()
     }
     func mixAudioCancelButtonPushed(){
-        eventHandler?.cancelMixAudio()
+        eventHandler?.cancelPushed()
     }
-    
     func mixVolumeValueChanged(value: Float) {
         eventHandler?.mixVolumeUpdate(value)
     }

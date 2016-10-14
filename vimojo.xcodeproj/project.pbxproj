@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		37B0E05FB42EBAC14FB65AB6 /* Pods_vimojoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52096C0BD62E16E8E40041F /* Pods_vimojoTests.framework */; };
+		A906CCDB1DB0D03700AC8FFB /* MicRecorder.strings in Resources */ = {isa = PBXBuildFile; fileRef = A906CCDD1DB0D03700AC8FFB /* MicRecorder.strings */; };
+		A906CCE01DB0D06B00AC8FFB /* MicRecorderConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A906CCDF1DB0D06B00AC8FFB /* MicRecorderConstants.swift */; };
 		A91760901D9143D1008915DA /* Editor.strings in Resources */ = {isa = PBXBuildFile; fileRef = A917608F1D9143D1008915DA /* Editor.strings */; };
 		A91760A81D9146B5008915DA /* EditingRoomInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A11D9146B5008915DA /* EditingRoomInteractor.swift */; };
 		A91760A91D9146B5008915DA /* EditingRoomInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A21D9146B5008915DA /* EditingRoomInteractorInterface.swift */; };
@@ -522,7 +524,10 @@
 		6E783A889228FB8752389F73 /* Pods-vimojo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojo.release.xcconfig"; path = "Pods/Target Support Files/Pods-vimojo/Pods-vimojo.release.xcconfig"; sourceTree = "<group>"; };
 		70605131D71C674A720143E6 /* Pods-vimojo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vimojo/Pods-vimojo.debug.xcconfig"; sourceTree = "<group>"; };
 		A52096C0BD62E16E8E40041F /* Pods_vimojoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vimojoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A905C02E1D8050C2001B4F25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		A906CCDC1DB0D03700AC8FFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/MicRecorder.strings; sourceTree = "<group>"; };
+		A906CCDE1DB0D03900AC8FFB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MicRecorder.strings; sourceTree = "<group>"; };
+		A906CCDF1DB0D06B00AC8FFB /* MicRecorderConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicRecorderConstants.swift; sourceTree = "<group>"; };
+		A906CCE41DB0D76C00AC8FFB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		A917608F1D9143D1008915DA /* Editor.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Editor.strings; path = Editor/Editor.strings; sourceTree = "<group>"; };
 		A91760A11D9146B5008915DA /* EditingRoomInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditingRoomInteractor.swift; path = EditingRoom/EditingRoomInteractor.swift; sourceTree = "<group>"; };
 		A91760A21D9146B5008915DA /* EditingRoomInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditingRoomInteractorInterface.swift; path = EditingRoom/EditingRoomInteractorInterface.swift; sourceTree = "<group>"; };
@@ -631,7 +636,6 @@
 		A964410C1DA3015B00CAD950 /* EditorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorModel.swift; sourceTree = "<group>"; };
 		A96441121DA3E59700CAD950 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Settings.strings; sourceTree = "<group>"; };
 		A96441141DA3E59A00CAD950 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Settings.strings; sourceTree = "<group>"; };
-		A96734F91D7FFBA300441872 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		A96734FA1D7FFBA300441872 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A96E15EF1DA257A400CF81E8 /* MusicModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicModels.swift; sourceTree = "<group>"; };
 		A988DEED1DACEF800030E285 /* MusicListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicListInteractor.swift; sourceTree = "<group>"; };
@@ -802,6 +806,15 @@
 				A964410B1DA3013B00CAD950 /* User interface */,
 			);
 			name = Editor;
+			sourceTree = "<group>";
+		};
+		A906CCD61DB0D01B00AC8FFB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A906CCDD1DB0D03700AC8FFB /* MicRecorder.strings */,
+				A906CCDF1DB0D06B00AC8FFB /* MicRecorderConstants.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		A91760D01D9146F4008915DA /* FullScreenPlayer */ = {
@@ -1091,6 +1104,7 @@
 		A988DF001DAD1DE40030E285 /* Music Mic recorder */ = {
 			isa = PBXGroup;
 			children = (
+				A906CCD61DB0D01B00AC8FFB /* Model */,
 				A988DF0D1DAD24450030E285 /* App Logic */,
 				A988DF0E1DAD244D0030E285 /* User Interface */,
 			);
@@ -1640,6 +1654,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A93BCE741D7D88EE00421BD0 /* activity_record_rec_circle.png in Resources */,
+				A906CCDB1DB0D03700AC8FFB /* MicRecorder.strings in Resources */,
 				A9B385F41D7D51380065D3EC /* LaunchScreen.storyboard in Resources */,
 				A9ED005E1D9185BB00969F31 /* GoogleService-Info.plist in Resources */,
 				A93BCE781D7D93B700421BD0 /* water_mark.png in Resources */,
@@ -1983,6 +1998,7 @@
 				A988DF0C1DAD1E2B0030E285 /* MicRecorderWireframe.swift in Sources */,
 				A91760AA1D9146B5008915DA /* EditingRoomPresenter.swift in Sources */,
 				A95BE9951D990C4100602DCD /* DetailTextInteractor.swift in Sources */,
+				A906CCE01DB0D06B00AC8FFB /* MicRecorderConstants.swift in Sources */,
 				A91760B91D9146BF008915DA /* EditorClipsCell.swift in Sources */,
 				A91760BC1D9146BF008915DA /* EditorPresenter.swift in Sources */,
 				A91760BF1D9146BF008915DA /* EditorViewController.swift in Sources */,
@@ -2340,6 +2356,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A906CCDD1DB0D03700AC8FFB /* MicRecorder.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A906CCDC1DB0D03700AC8FFB /* Base */,
+				A906CCDE1DB0D03900AC8FFB /* es */,
+			);
+			name = MicRecorder.strings;
+			sourceTree = "<group>";
+		};
 		A96441131DA3E59700CAD950 /* Settings.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2353,8 +2378,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A9B385EE1D7D51380065D3EC /* Base */,
-				A96734F91D7FFBA300441872 /* es */,
-				A905C02E1D8050C2001B4F25 /* en */,
+				A906CCE41DB0D76C00AC8FFB /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
