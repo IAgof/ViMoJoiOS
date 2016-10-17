@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MixAudioView" customModule="vimojo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6X0-V6-TNj">
+                    <rect key="frame" x="565" y="569" width="27" height="23"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="6X0-V6-TNj" secondAttribute="height" multiplier="27:23" id="M3z-79-Kw3"/>
+                    </constraints>
+                    <state key="normal" image="common_icon_edit_accept_normal"/>
+                    <state key="highlighted" image="common_icon_edit_accept_pressed"/>
+                    <connections>
+                        <action selector="acceptButtonPushed:" destination="iN0-l3-epB" eventType="touchUpInside" id="yCF-Ag-GbV"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9vJ-tN-9h6">
+                    <rect key="frame" x="283" y="248" width="34" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="activity_edit_sound_music_balance" maximumValueImage="activity_edit_sound_micro_balance" translatesAutoresizingMaskIntoConstraints="NO" id="sen-ph-Ggl">
+                    <rect key="frame" x="14" y="285" width="572" height="31"/>
+                    <connections>
+                        <action selector="mixAudioValueChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="aVd-ph-XhG"/>
+                    </connections>
+                </slider>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqI-WQ-naU">
+                    <rect key="frame" x="8" y="568" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="kqI-WQ-naU" secondAttribute="height" multiplier="1:1" id="0iW-o8-7Sc"/>
+                    </constraints>
+                    <state key="normal" image="common_icon_edit_cancel_normal"/>
+                    <state key="highlighted" image="common_icon_edit_cancel_pressed"/>
+                    <connections>
+                        <action selector="cancelButtonPushed:" destination="iN0-l3-epB" eventType="touchUpInside" id="B3L-38-Bdd"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="sen-ph-Ggl" secondAttribute="trailing" constant="16" id="1IV-FZ-SgK"/>
+                <constraint firstItem="kqI-WQ-naU" firstAttribute="width" secondItem="kqI-WQ-naU" secondAttribute="height" multiplier="1:1" id="3Cj-C2-ohb"/>
+                <constraint firstItem="sen-ph-Ggl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="5i3-SH-PZ0"/>
+                <constraint firstItem="sen-ph-Ggl" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ES2-wd-5Tx"/>
+                <constraint firstItem="kqI-WQ-naU" firstAttribute="width" secondItem="kqI-WQ-naU" secondAttribute="height" multiplier="1:1" id="GOI-TS-w0N"/>
+                <constraint firstItem="sen-ph-Ggl" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="RZe-XS-WlN"/>
+                <constraint firstAttribute="bottom" secondItem="kqI-WQ-naU" secondAttribute="bottom" constant="8" id="Stx-dJ-Fyq"/>
+                <constraint firstItem="sen-ph-Ggl" firstAttribute="top" secondItem="9vJ-tN-9h6" secondAttribute="bottom" constant="16" id="WOR-05-N4V"/>
+                <constraint firstAttribute="trailing" secondItem="6X0-V6-TNj" secondAttribute="trailing" constant="8" id="cv8-C5-Tyi"/>
+                <constraint firstItem="kqI-WQ-naU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="hLs-56-4wN"/>
+                <constraint firstAttribute="bottom" secondItem="6X0-V6-TNj" secondAttribute="bottom" constant="8" id="n11-yL-dOj"/>
+                <constraint firstItem="9vJ-tN-9h6" firstAttribute="centerX" secondItem="sen-ph-Ggl" secondAttribute="centerX" id="nN0-hb-0eV"/>
+                <constraint firstItem="6X0-V6-TNj" firstAttribute="width" secondItem="6X0-V6-TNj" secondAttribute="height" multiplier="27:23" id="w0r-0b-eoq"/>
+                <constraint firstItem="6X0-V6-TNj" firstAttribute="width" secondItem="6X0-V6-TNj" secondAttribute="height" multiplier="27:23" id="zMV-qz-VjE"/>
+            </constraints>
+            <connections>
+                <outlet property="acceptButton" destination="6X0-V6-TNj" id="2m2-yn-oK3"/>
+                <outlet property="cancelButton" destination="kqI-WQ-naU" id="PnQ-CN-Xyr"/>
+                <outlet property="mixAudioSlider" destination="sen-ph-Ggl" id="ivW-2X-mfw"/>
+                <outlet property="sliderValueLabel" destination="9vJ-tN-9h6" id="vJ8-pN-RPG"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="activity_edit_sound_micro_balance" width="11" height="20"/>
+        <image name="activity_edit_sound_music_balance" width="18" height="19"/>
+        <image name="common_icon_edit_accept_normal" width="27" height="23"/>
+        <image name="common_icon_edit_accept_pressed" width="27" height="23"/>
+        <image name="common_icon_edit_cancel_normal" width="24" height="24"/>
+        <image name="common_icon_edit_cancel_pressed" width="24" height="24"/>
+    </resources>
+</document>

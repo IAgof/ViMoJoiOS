@@ -59,6 +59,9 @@ class CameraInteractor:CameraRecorderDelegate,
         self.project = project
         
         videoCamera = GPUImageVideoCamera(sessionPreset: cameraResolution.rearCameraResolution, cameraPosition: .Back)
+        
+        videoCamera.frameRate = 25
+        
         videoCamera.outputImageOrientation = .LandscapeLeft
         displayView = display
         imageView = UIImageView.init(frame: displayView.frame)

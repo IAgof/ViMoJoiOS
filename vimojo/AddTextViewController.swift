@@ -9,6 +9,7 @@
 import Foundation
 import VideonaPlayer
 import AVFoundation
+import VideonaProject
 
 class AddTextViewController: ViMoJoController {
     var eventHandler: AddTextPresenterInterface?
@@ -109,7 +110,7 @@ extension AddTextViewController:AddTextPresenterDelegate{
         playerHandler?.onVideoStops()
     }
     
-    func updatePlayerOnView(composition: AVMutableComposition) {
+    func updatePlayerOnView(composition: VideoComposition) {
         self.playerHandler?.createVideoPlayer(composition)
     }
     

@@ -231,8 +231,10 @@ class EditorPresenter: NSObject,EditorPresenterInterface,EditorInteractorDelegat
     }
     
     func getCompositionDuration()->Double{
-        
-        return stopList.last!
+        guard let duration = stopList.last else{
+            return 0
+        }
+        return duration
     }
     
     func updateSelectedCellUI(indexPath:NSIndexPath){
@@ -244,13 +246,8 @@ class EditorPresenter: NSObject,EditorPresenterInterface,EditorInteractorDelegat
     }
     
     //MARK: - Interactor delegate
-    func setPositionList(list: [Int]) {
-        controller?.setPositionList(list)
-        self.setVideoDataToView()
-    }
-    
-    func setVideoImagesList(list: [UIImage]) {
-        self.controller?.setVideoImagesList(list)
+    func setVideoList(list: [EditorViewModel]) {
+        controller?.setVideoList(list)
         self.setVideoDataToView()
     }
     

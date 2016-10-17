@@ -50,9 +50,9 @@ struct CameraResolution {
     init(AVResolution:String){
         
         switch AVResolution {
-        case AVCaptureSessionPreset640x480:
-            frontCameraResolution = AVCaptureSessionPreset640x480
-            rearCameraResolution = AVCaptureSessionPreset640x480
+        case AVCaptureSessionPreset3840x2160:
+            frontCameraResolution = AVCaptureSessionPreset1280x720
+            rearCameraResolution = AVCaptureSessionPreset3840x2160
             break
         case AVCaptureSessionPreset1280x720:
             frontCameraResolution = AVCaptureSessionPreset1280x720
@@ -94,11 +94,11 @@ class AVResolutionParse: NSObject {
     
     func parseResolutionToView(resolution:String) -> String {
         switch resolution {
-        case AVCaptureSessionPreset1920x1080:
+        case AVCaptureSessionPreset3840x2160:
             return goodResolution
-        case AVCaptureSessionPreset1280x720:
+        case AVCaptureSessionPreset1920x1080:
             return mediumResolution
-        case AVCaptureSessionPreset640x480:
+        case AVCaptureSessionPreset1280x720:
             return regularResolution
         default:
             return "Media (720)"
@@ -108,11 +108,11 @@ class AVResolutionParse: NSObject {
     func parseResolutionsToInteractor(textResolution:String) -> String {
         switch textResolution {
         case goodResolution:
-            return AVCaptureSessionPreset1920x1080
+            return AVCaptureSessionPreset3840x2160
         case mediumResolution :
-            return AVCaptureSessionPreset1280x720
+            return AVCaptureSessionPreset1920x1080
         case regularResolution :
-            return AVCaptureSessionPreset640x480
+            return AVCaptureSessionPreset1280x720
         default:
             return AVCaptureSessionPreset1280x720
         }

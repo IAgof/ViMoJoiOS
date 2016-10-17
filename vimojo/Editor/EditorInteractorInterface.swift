@@ -24,8 +24,7 @@ protocol EditorInteractorInterface {
 }
 
 protocol EditorInteractorDelegate {
-    func setPositionList(list:[Int])
-    func setVideoImagesList(list:[UIImage])
+    func setVideoList(list:[EditorViewModel])
     func setStopTimeList(list:[Double])
     func updateViewList()
     func seekToTimeOfVideoSelectedReceiver(time:Float)

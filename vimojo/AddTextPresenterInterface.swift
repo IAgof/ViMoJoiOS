@@ -9,6 +9,7 @@
 import Foundation
 import AVFoundation
 import VideonaPlayer
+import VideonaProject
 
 protocol AddTextPresenterInterface {
     func viewDidLoad()
@@ -33,7 +34,7 @@ protocol AddTextPresenterDelegate {
     func pushBackFinished()
     func expandPlayerToView()
     func setStopToVideo()
-    func updatePlayerOnView(composition:AVMutableComposition)
+    func updatePlayerOnView(composition:VideoComposition)
     
     func setTextToPlayer(text:String)
     func setTextToEditTextField(text:String)

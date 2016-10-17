@@ -14,23 +14,14 @@ protocol MusicPresenterInterface {
     func viewWillDisappear()
     func viewWillAppear()
     func viewDidAppear()
-    func didSelectMusicAtIndexPath(indexPath:NSIndexPath)
-    func cancelDetailButtonPushed()
-    func acceptDetailButtonPushed()
-    func removeDetailButtonPushed()
-    
-    func setMusicDetailInterface(eventHandler:MusicDetailInterface)
     
     func expandPlayer()
     func updatePlayerLayer()
+    
+    func pushMusicHandler()
+    func pushMicHandler()
 }
 
 protocol MusicPresenterDelegate {
-    func setTextList(titleList:[String])
-    func setMusicImageList(imageList:[UIImage])
-    
-    func animateToShowDetail(title:String,
-                             author:String,
-                             image:UIImage)
-    func animateToShowTable()
+
 }

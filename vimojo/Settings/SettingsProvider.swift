@@ -71,15 +71,15 @@ class SettingsProvider:NSObject{
         let camera = cameraSettings()
         
         //MARK: - ADVANCED_SECTION
-        settings.append( SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().DONWLOAD_KAMARADA)
-            ,section: Utils().getStringByKeyFromSettings(SettingsConstants().ADVANCED_SECTION)
-            ,priority: 0))
-        settings.append( SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().SHARE_VIDEONA_TITLE)
-            ,section: Utils().getStringByKeyFromSettings(SettingsConstants().ADVANCED_SECTION)
-            ,priority: 0))
-        settings.append( SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().FOLLOW_US_ON_TWITTER_TITLE)
-            ,section: Utils().getStringByKeyFromSettings(SettingsConstants().ADVANCED_SECTION)
-            ,priority: 0))
+//        settings.append( SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().DONWLOAD_KAMARADA)
+//            ,section: Utils().getStringByKeyFromSettings(SettingsConstants().ADVANCED_SECTION)
+//            ,priority: 0))
+//        settings.append( SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().SHARE_VIDEONA_TITLE)
+//            ,section: Utils().getStringByKeyFromSettings(SettingsConstants().ADVANCED_SECTION)
+//            ,priority: 0))
+//        settings.append( SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().FOLLOW_US_ON_TWITTER_TITLE)
+//            ,section: Utils().getStringByKeyFromSettings(SettingsConstants().ADVANCED_SECTION)
+//            ,priority: 0))
 
         //MARK: - MY_ACCOUNT_SECTION
         settings.append( SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().NAME)
@@ -133,9 +133,9 @@ class SettingsProvider:NSObject{
             ,priority: 3))
         
         //MARK: - ACCOUNT_ACTIONS_SECTION
-        settings.append( SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().EXIT)
-            ,section: Utils().getStringByKeyFromSettings(SettingsConstants().ACCOUNT_ACTIONS_SECTION)
-            ,priority: 4))
+//        settings.append( SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().EXIT)
+//            ,section: Utils().getStringByKeyFromSettings(SettingsConstants().ACCOUNT_ACTIONS_SECTION)
+//            ,priority: 4))
 
         return settings
     }

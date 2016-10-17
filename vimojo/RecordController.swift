@@ -21,7 +21,6 @@ import ZoomCameraSlider
 import ResolutionSelector
 
 class RecordController: ViMoJoController,UINavigationControllerDelegate{
-    
     //MARK: - Variables VIPER
     var eventHandler: RecordPresenterInterface?
     
@@ -32,11 +31,14 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var configModesButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var resolutionButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var showModeViewButton: UIButton!
+    @IBOutlet weak var hideModeViewButton: UIButton!
 
-    @IBOutlet weak var secondaryRecordButton: UIButton!
     @IBOutlet weak var hideAllButtonsButton: UIButton!
     @IBOutlet weak var batteryButton: UIButton!
     @IBOutlet weak var micButton: UIButton!
+    @IBOutlet weak var storageButton: UIButton!
 
     @IBOutlet weak var zoomButton: UIButton!
     @IBOutlet weak var isoButton: UIButton!
@@ -44,6 +46,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var focusButton: UIButton!
     @IBOutlet weak var whiteBalanceButton: UIButton!
     @IBOutlet weak var exposureModesButton: UIButton!
+
 
     //MARK: - Custom
     @IBOutlet weak var cameraView: GPUImageView!
@@ -62,9 +65,12 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     
     //MARK: - UIView
     @IBOutlet weak var upperContainerView: UIView!
+    @IBOutlet weak var secondaryChronometerContainer: UIView!
     @IBOutlet weak var modeContainerView: UIView!
+    @IBOutlet weak var chronometerContainerView: UIView!
     @IBOutlet weak var recordAreaContainerView: UIView!
     @IBOutlet weak var thumbnailView: UIImageView!
+    @IBOutlet weak var chronometerImageView: UIImageView!
     
     //MARK: - UILabel
     @IBOutlet weak var secondaryChronometerLabel: UILabel!
@@ -86,6 +92,9 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         return image
     }
     
+    //MARK: - Constants
+    let cornerRadius = CGFloat(4)
+
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,6 +104,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         self.configureViews()
         
         configureRotationObserver()
+        UIApplication.sharedApplication().idleTimerDisabled = true
     }
     
     func configureViews(){
@@ -213,6 +223,14 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         eventHandler?.pushVideoSettingsConfig()
     }
     
+    @IBAction func pushShowMode(sender: AnyObject) {
+        eventHandler?.pushShowMode()
+    }
+    
+    @IBAction func pushHideMode(sender: AnyObject) {
+        eventHandler?.pushHideMode()
+    }
+    
     @IBAction func pushHideButtons(sender: AnyObject) {
         eventHandler?.pushHideAllButtons()
     }
@@ -256,16 +274,10 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         eventHandler?.pushSpaceOnDisk()
     }
     
-    
     @IBAction func pushResolution(sender: AnyObject) {
         eventHandler?.pushResolution()
     }
-    
-    
-    @IBAction func pushGeolocalication(sender: AnyObject) {
         
-    }
-    
     @IBAction func pushMic(sender: AnyObject) {
         eventHandler?.pushMic()
     }
@@ -281,11 +293,23 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     //MARK : - Inner functions
     
     func roundBorderOfViews() {
-        upperContainerView.layer.cornerRadius = 4
-        modeContainerView.layer.cornerRadius = 4
-        zoomView.layer.cornerRadius = 4
-        batteryView.layer.cornerRadius = 4
-        spaceOnDiskView.layer.cornerRadius = 4
+        upperContainerView.layer.cornerRadius = cornerRadius
+        modeContainerView.layer.cornerRadius = cornerRadius
+        zoomView.layer.cornerRadius = cornerRadius
+        batteryView.layer.cornerRadius = cornerRadius
+        spaceOnDiskView.layer.cornerRadius = cornerRadius
+        chronometerContainerView.layer.cornerRadius = cornerRadius
+        recordAreaContainerView.layer.cornerRadius = cornerRadius
+        secondaryChronometerContainer.layer.cornerRadius = cornerRadius
+        
+        isoConfigurationView.layer.cornerRadius = cornerRadius
+        focusView.layer.cornerRadius = cornerRadius
+        wbConfigurationView.layer.cornerRadius = cornerRadius
+        expositionModesView.layer.cornerRadius = cornerRadius
+        
+        zoomView.layer.cornerRadius = cornerRadius
+        exposureConfigurationView.layer.cornerRadius = cornerRadius
+        focalLensSliderView.layer.cornerRadius = cornerRadius
     }
     
     func rotateZoomSlider(){
@@ -438,17 +462,14 @@ extension RecordController:RecordPresenterDelegate {
     //MARK: - Delegate Interface
     func showRecordButton(){
         self.recordButton.selected = true
-        self.secondaryRecordButton.selected = true
     }
     
     func showStopButton(){
         self.recordButton.selected = false
-        self.secondaryRecordButton.selected = false
     }
     
     func recordButtonEnable(state: Bool) {
         self.recordButton.enabled = state
-        self.secondaryRecordButton.enabled = state
     }
     
     func configModesButtonSelected(state: Bool) {
@@ -529,24 +550,22 @@ extension RecordController:RecordPresenterDelegate {
     func hidePrincipalViews() {
         fadeOutView([modeContainerView,
             upperContainerView,
-            recordAreaContainerView,
             thumbnailView,
             thumbnailNumberClips])
     }
     
     func showPrincipalViews() {
         fadeInView([upperContainerView,
-            recordAreaContainerView,
             thumbnailView,
             thumbnailNumberClips])
     }
     
     func hideSecondaryRecordViews() {
-        fadeOutView([secondaryRecordButton,secondaryChronometerLabel,secondaryRecordingIndicator,overlayClearGrid])
+        fadeOutView([overlayClearGrid])
     }
     
     func showSecondaryRecordViews() {
-        fadeInView([secondaryRecordButton,secondaryChronometerLabel,secondaryRecordingIndicator,overlayClearGrid])
+        fadeInView([overlayClearGrid])
     }
     
     func showVideoSettingsConfig() {
@@ -567,20 +586,25 @@ extension RecordController:RecordPresenterDelegate {
         zoomButton.selected = true
     }
     
-    func setBatteryIcon(image: UIImage) {
-        batteryButton.setImage(image, forState: .Normal)
+    func setBatteryIcon(images: BatteryIconImage) {
+        batteryButton.setImage(images.normal, forState: .Normal)
+        batteryButton.setImage(images.pressed, forState: .Selected)
+    }
+    
+    func setBatteryIconPressed(image: UIImage) {
+        batteryButton.setImage(image, forState: .Selected)
     }
     
     func setAudioColor(color: UIColor) {
         audioLevelView.setBarColor(color)
     }
-    
+
+
     func showBatteryRemaining() {
+        self.cameraView.bringSubviewToFront(batteryView)
+        
         fadeInView([batteryView])
-    }
-    
-    func showSpaceOnDisk() {
-        fadeInView([spaceOnDiskView])
+        batteryButton.selected = true
     }
     
     func updateBatteryValues() {
@@ -589,14 +613,21 @@ extension RecordController:RecordPresenterDelegate {
     
     func hideBatteryView() {
         fadeOutView([batteryView])
+        batteryButton.selected = false
     }
     
     func updateSpaceOnDiskValues() {
         spaceOnDiskView.updateValues()
     }
     
+    func showSpaceOnDisk() {
+        fadeInView([spaceOnDiskView])
+        storageButton.selected = true
+    }
+    
     func hideSpaceOnDiskView() {
         fadeOutView([spaceOnDiskView])
+        storageButton.selected = false
     }
     
     func showISOConfigView() {
@@ -624,14 +655,15 @@ extension RecordController:RecordPresenterDelegate {
     }
     
     func showMicLevelView() {
-        fadeInView([audioLevelView])
+        audioLevelView.hidden = false
     }
     
     func hideMicLevelView() {
-        fadeOutView([audioLevelView])
+        audioLevelView.hidden = true
     }
     
     func setSelectedMicButton(state: Bool) {
+        micButton.hidden = !state
         micButton.selected = state
     }
     
@@ -650,10 +682,12 @@ extension RecordController:RecordPresenterDelegate {
     
     func showResolutionView() {
         fadeInView([resolutionsView])
+        resolutionButton.selected = true
     }
     
     func hideResolutionView() {
         fadeOutView([resolutionsView])
+        resolutionButton.selected = false
     }
     
     func showExposureModesView() {
@@ -680,6 +714,55 @@ extension RecordController:RecordPresenterDelegate {
     func setResolutionIconImagePressed(image: UIImage) {
         resolutionButton.setImage(image, forState: .Highlighted)
         resolutionButton.setImage(image, forState: .Selected)
+    }
+    
+//    func enableShareButton() {
+//        shareButton.enabled = true
+//    }
+//    
+//    func disableShareButton() {
+////        shareButton.enabled = false
+//    }
+    
+    func hideThumbnailButtonAndLabel() {
+        fadeOutView([thumbnailView,thumbnailNumberClips])
+
+    }
+    
+    func showThumbnailButtonAndLabel() {
+        fadeInView([thumbnailView,thumbnailNumberClips])
+    }
+    
+    func showRecordChronometerContainer() {
+        fadeInView([chronometerContainerView])
+    }
+    
+    func hideRecordChronometerContainer() {
+        fadeOutView([chronometerContainerView])
+    }
+    
+    func showModeViewAndButtonStateEnabled() {
+        fadeInView([recordAreaContainerView,hideModeViewButton])
+    }
+    
+    func hideModeViewAndButtonStateEnabled() {
+        fadeOutView([recordAreaContainerView,hideModeViewButton])
+    }
+    
+    func showModeViewAndButtonStateDisabled() {
+        fadeInView([showModeViewButton])
+    }
+    
+    func hideModeViewAndButtonStateDisabled() {
+        fadeOutView([showModeViewButton])
+    }
+    
+    func showSecondaryRecordChronometerContainer() {
+        fadeInView([secondaryChronometerContainer])
+    }
+    
+    func hideSecondaryRecordChronometerContainer() {
+        fadeOutView([secondaryChronometerContainer])
     }
 }
 

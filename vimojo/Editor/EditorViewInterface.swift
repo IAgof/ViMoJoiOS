@@ -15,8 +15,7 @@ protocol EditorViewInterface:ViMoJoInterface {
     func selectCell(indexPath:NSIndexPath)
     func deselectCell(indexPath:NSIndexPath)
     func reloadCollectionViewData()
-    func setPositionList(list:[Int])
-    func setVideoImagesList(list: [UIImage])
+    func setVideoList(list:[EditorViewModel])
     func numberOfCellsInCollectionView()->Int
     func configurePickerController()
     func presentPickerController()
@@ -24,9 +23,8 @@ protocol EditorViewInterface:ViMoJoInterface {
                          message:String,
                          yesString:String)
     
-    func createAlertWaitToImport()
+    func createAlertWaitToImport(completion: (() -> Void)?)
     func dissmissAlertController()
     func bringToFrontExpandPlayerButton()
     func cameFromFullScreenPlayer(playerView:PlayerView)
-
 }

@@ -11,19 +11,13 @@ import AssetsLibrary
 import AVFoundation
 import VideonaProject
 
+
 class EditorInteractor: NSObject,EditorInteractorInterface {
     
     //MARK: - Variables VIPER
     var delegate:EditorInteractorDelegate?
     var project:Project?
     
-    enum QUWatermarkPosition {
-        case TopLeft
-        case TopRight
-        case BottomLeft
-        case BottomRight
-        case Default
-    }
     var videosList:[Video] = []
 
     override init() {
@@ -37,22 +31,46 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         
         self.videosList = videosList
         
-        self.getPositionList()
-        self.getImageList()
+        self.getVideoList()
         self.getStopTimeList()
     }
     
-    func getPositionList(){
-        var positionList:[Int] = []
+    func getVideoList(){
+        var videoList:[EditorViewModel] = []
         
-        for video in videosList{
-            positionList.append(video.getPosition())
+        for video in self.videosList{
+
+            ThumbnailListInteractor(videoPath: video.getMediaPath(),
+                diameter: Utils.sharedInstance.thumbnailEditorListDiameter).getThumbnailImage({
+                    thumb in
+                    
+                    let timeToString = self.hourToString(video.getStopTime() - video.getStartTime())
+                    let newVideo = EditorViewModel(
+                        image: thumb,
+                        timeText: timeToString,
+                        positionText: "\(video.getPosition())")
+                    videoList.append(newVideo)
+                })
         }
-        
-        delegate?.setPositionList(positionList)
+        delegate?.setVideoList(videoList)
     }
     
-    
+    func hourToString(time:Double) -> String {
+        let hours = Int(floor(time/3600))
+        let mins = Int(floor(time % 3600) / 60)
+        let secs = Int(floor(time % 3600) % 60)
+        
+        let x:Double = (time % 3600) % 60
+        let numberOfPlaces:Double = 4.0
+        let powerOfTen:Double = pow(10.0, numberOfPlaces)
+        let targetedDecimalPlaces:Double = round((x % 1.0) * powerOfTen) / powerOfTen
+        
+        let decimals = Int(targetedDecimalPlaces * 1000)
+        
+        //        return String(format:"%d:%02d:%02d,%02d", hours, mins, secs,decimals)
+        //        return String(format:"%02d:%02d:%02d", mins, secs,decimals)
+                return String(format:"%02d:%02d", mins, secs)
+    }
     func getStopTimeList(){
         var stopTimeList:[Double] = []
         
@@ -65,31 +83,16 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         delegate?.setStopTimeList(stopTimeList)
     }
     
-    func getImageList(){
-        var imageList:[UIImage] = []
-        
-        for video in self.videosList{
-            ThumbnailListInteractor(videoPath: video.getMediaPath(),
-                diameter: Utils.sharedInstance.thumbnailEditorListDiameter).getThumbnailImage({
-                    thumb in
-                    imageList.append(thumb)
-                })
-        }
-        delegate?.setVideoImagesList(imageList)
-    }
-    
     func saveVideoToDocuments(url:NSURL) {
-        let asset = AVAsset(URL: url)
-        self.addWatermark(video: asset, watermarkText: nil, imageName: "water_mark", saveToLibrary: false, watermarkPosition: .TopLeft, completion: {
-            status,session,path in
+        self.exportWithoutWaterMark(url, completionHandler: {
+            path in
             
             AddVideoToProjectUseCase.sharedInstance.add(path,
                 title: "Video from library",
-            project: self.project!)
+                project: self.project!)
             
             self.updateNewVideoValues()
         })
-
     }
     
     func updateNewVideoValues(){
@@ -110,158 +113,59 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         return path
     }
     
-    func addWatermark(video videoAsset:AVAsset,
-                                    watermarkText text : String!,
-                                                  imageName name : String!,
-                                                            saveToLibrary flag : Bool,
-                                                                          watermarkPosition position : QUWatermarkPosition,
-                                                                                            completion : ((status : AVAssetExportSessionStatus!,session: AVAssetExportSession!,savePath:String!) -> ())?) {
+    func exportWithoutWaterMark(urlPath:NSURL, completionHandler:(String)->Void){
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
-            // 1 - Create AVMutableComposition object. This object will hold your AVMutableCompositionTrack instances.
-            let mixComposition = AVMutableComposition()
+        // - Create AVMutableComposition object. This object will hold your AVMutableCompositionTrack instances.
+        let mixComposition = AVMutableComposition()
+        
+        let videoTrack = mixComposition.addMutableTrackWithMediaType(AVMediaTypeVideo,
+                                                                     preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
+        let audioTrack = mixComposition.addMutableTrackWithMediaType(AVMediaTypeAudio,
+                                                                     preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
+        
+        // - Add assets to the composition
+        
+        // 2 - Get Video asset
+        let videoURL: NSURL = urlPath
+        let videoAsset = AVAsset.init(URL: videoURL)
+        
+        do {
+            let startTime = kCMTimeZero
             
-            // 2 - Create video tracks
-            let compositionVideoTrack = mixComposition.addMutableTrackWithMediaType(AVMediaTypeVideo, preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
-            let clipVideoTrack = videoAsset.tracksWithMediaType(AVMediaTypeVideo)[0]
-            do{
-                try compositionVideoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, videoAsset.duration), ofTrack: clipVideoTrack, atTime: kCMTimeZero)
-            }catch{
-                
-            }
-            clipVideoTrack.preferredTransform
+            let stopTime = videoAsset.duration
             
-            // Video size
-            let videoSize = clipVideoTrack.naturalSize
+            try videoTrack.insertTimeRange(CMTimeRangeMake(startTime,  stopTime),
+                                           ofTrack: videoAsset.tracksWithMediaType(AVMediaTypeVideo)[0] ,
+                                           atTime: kCMTimeZero)
             
-            // sorts the layer in proper order and add title layer
-            let parentLayer = CALayer()
-            let videoLayer = CALayer()
-            parentLayer.frame = CGRectMake(0, 0, videoSize.width, videoSize.height)
-            videoLayer.frame = CGRectMake(0, 0, videoSize.width, videoSize.height)
-            parentLayer.addSublayer(videoLayer)
+            try audioTrack.insertTimeRange(CMTimeRangeMake(startTime, stopTime),
+                                           ofTrack: videoAsset.tracksWithMediaType(AVMediaTypeAudio)[0] ,
+                                           atTime: kCMTimeZero)
             
-            if text != nil {
-                // Adding watermark text
-                let titleLayer = CATextLayer()
-                titleLayer.backgroundColor = UIColor.redColor().CGColor
-                titleLayer.string = text
-                titleLayer.font = "Helvetica"
-                titleLayer.fontSize = 15
-                titleLayer.alignmentMode = kCAAlignmentCenter
-                titleLayer.bounds = CGRectMake(0, 0, videoSize.width, videoSize.height)
-                parentLayer.addSublayer(titleLayer)
-                
-                print("\(videoSize.width)")
-                print("\(videoSize.height)")
-            } else if name != nil {
-                // Adding image
-                let watermarkImage = UIImage(named: name)
-                let imageLayer = CALayer()
-                imageLayer.contents = watermarkImage?.CGImage
-                
-                var xPosition : CGFloat = 0.0
-                var yPosition : CGFloat = 0.0
-                let imageSize = videoSize.width
-                
-                switch (position) {
-                case .TopLeft:
-                    xPosition = 0
-                    yPosition = 0
-                    break
-                case .TopRight:
-                    xPosition = videoSize.width - imageSize
-                    yPosition = 0
-                    break
-                case .BottomLeft:
-                    xPosition = 0
-                    yPosition = videoSize.height - imageSize
-                    break
-                case .BottomRight, .Default:
-                    xPosition = videoSize.width - imageSize
-                    yPosition = videoSize.height - imageSize
-                    break
-                }
-                
-                print("\(xPosition)")
-                print("\(yPosition)")
-                
-                imageLayer.frame = CGRectMake(xPosition, yPosition, videoSize.width,videoSize.height)
-                imageLayer.opacity = 0.65
-                parentLayer.addSublayer(imageLayer)
-            }
-            
-            let videoComp = AVMutableVideoComposition()
-            videoComp.renderSize = videoSize
-            videoComp.frameDuration = CMTimeMake(1, 30)
-            videoComp.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, inLayer: parentLayer)
-            
-            /// instruction
-            let instruction = AVMutableVideoCompositionInstruction()
-            instruction.timeRange = CMTimeRangeMake(kCMTimeZero, mixComposition.duration)
-            
-            let videoTrack = mixComposition.tracksWithMediaType(AVMediaTypeVideo)[0] as AVAssetTrack
-            
-            let audioTrack = mixComposition.addMutableTrackWithMediaType(AVMediaTypeAudio,
-                preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
-            
-            do {
-                try audioTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero,videoAsset.duration),
-                    ofTrack: videoAsset.tracksWithMediaType(AVMediaTypeAudio)[0] ,
-                    atTime: kCMTimeZero)
-            }catch{
-                print("error introducing audiotrack")
-            }
-            
-            //            let layerInstruction = self.videoCompositionInstructionForTrack(compositionVideoTrack, asset: videoAsset)
-            
-            let layerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: videoTrack)
-            
-            instruction.layerInstructions = [layerInstruction]
-            videoComp.instructions = [instruction]
-            
-            // 4 - Get path
-            let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateStyle = .LongStyle
-            dateFormatter.timeStyle = .ShortStyle
-            let savePath = (documentDirectory as NSString).stringByAppendingPathComponent("\(Utils().giveMeTimeNow())videonaClip.m4v")
-            
-            let url = NSURL(fileURLWithPath: savePath)
-            
-            // 5 - Create Exporter
-            let exporter = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetHighestQuality)
-            exporter!.outputURL = url
-            exporter!.outputFileType = AVFileTypeQuickTimeMovie
-            exporter!.shouldOptimizeForNetworkUse = true
-            exporter!.videoComposition = videoComp
-            
-            // 6 - Perform the Export
-            exporter!.exportAsynchronouslyWithCompletionHandler() {
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    if exporter!.status == AVAssetExportSessionStatus.Completed {
-                        let outputURL = exporter!.outputURL
-                        if flag {
-                            // Save to library
-                            let library = ALAssetsLibrary()
-                            if library.videoAtPathIsCompatibleWithSavedPhotosAlbum(outputURL) {
-                                library.writeVideoAtPathToSavedPhotosAlbum(outputURL,
-                                    completionBlock: { (assetURL:NSURL!, error:NSError!) -> Void in
-                                        completion!(status: AVAssetExportSessionStatus.Completed, session: exporter,savePath:savePath)
-                                })
-                            }
-                        } else {
-                            // Dont svae to library
-                            completion!(status: AVAssetExportSessionStatus.Completed, session: exporter,savePath:savePath)
-                        }
-                        
-                    } else {
-                        // Error
-                        completion!(status: exporter!.status, session: exporter,savePath:nil)
-                    }
-                })
-            }
-        })
+        } catch _ {
+            Utils().debugLog("Error trying to create videoTrack")
+            //                completionHandler("Error trying to create videoTrack",0.0)
+        }
+        ////////////////////////////////////////////////////////////////
+        
+        // 5 - Create Exporter
+        let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        let savePath = (documentDirectory as NSString).stringByAppendingPathComponent("\(Utils().giveMeTimeNow())videonaClip.m4v")
+        
+        let url = NSURL(fileURLWithPath: savePath)
+        
+        let exporter = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetHighestQuality)
+        exporter!.outputURL = url
+        exporter!.outputFileType = AVFileTypeQuickTimeMovie
+        exporter!.shouldOptimizeForNetworkUse = true
+        
+        // 6 - Perform the Export
+        exporter!.exportAsynchronouslyWithCompletionHandler() {
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        
+                completionHandler(savePath)
+            })
+        }
     }
     
     func seekToSelectedItemHandler(videoPosition: Int) {
@@ -287,8 +191,8 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
                 totalTimeComposition += duration
             }
             timeFloat = timeFloat/totalTimeComposition
-            let timeOffSet = 0.1
-            timeFloat = ((round(100*timeFloat)/100) + timeOffSet)
+            let timeOffSet = 0.001
+            timeFloat = ((round(10000*timeFloat)/10000) + timeOffSet)
         }
 
         return Float(timeFloat)
@@ -337,19 +241,22 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
     func getVideoTextInPosition(position: Int) {
         guard let videoList = project?.getVideoList() else {return}
         
-        let video = videoList[position]
-        
-        guard let text = video.textToVideo else{
-            delegate?.setVideoTextToPlayer("", position: 0)
-            return
+        if videoList.indices.contains(position)
+        {
+            let video = videoList[position]
+            
+            guard let text = video.textToVideo else{
+                delegate?.setVideoTextToPlayer("", position: 0)
+                return
+            }
+            
+            guard let textPosition = video.textPositionToVideo else{
+                delegate?.setVideoTextToPlayer("", position: 0)
+                return
+            }
+            
+            delegate?.setVideoTextToPlayer(text,
+                                           position: textPosition)
         }
-        
-        guard let textPosition = video.textPositionToVideo else{
-            delegate?.setVideoTextToPlayer("", position: 0)
-            return
-        }
-        
-        delegate?.setVideoTextToPlayer(text,
-                                 position: textPosition)
     }
 }

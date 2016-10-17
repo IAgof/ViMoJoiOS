@@ -12,6 +12,7 @@ import NMRangeSlider
 import VideonaPlayer
 import AVFoundation
 import VideonaDuplicate
+import VideonaProject
 
 class DuplicateViewController: ViMoJoController,DuplicateInterface,DuplicatePresenterDelegate,PlayerViewSetter,FullScreenWireframeDelegate {
     //MARK: - VIPER variables
@@ -129,7 +130,7 @@ class DuplicateViewController: ViMoJoController,DuplicateInterface,DuplicatePres
         playerHandler?.onVideoStops()
     }
     
-    func updatePlayerOnView(composition: AVMutableComposition) {
+    func updatePlayerOnView(composition: VideoComposition) {
         self.playerHandler?.createVideoPlayer(composition)
     }
     

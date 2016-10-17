@@ -12,6 +12,7 @@ import NMRangeSlider
 import VideonaPlayer
 import AVFoundation
 import VideonaTrim
+import VideonaProject
 
 class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSetter,FullScreenWireframeDelegate{
     //MARK: - VIPER variables
@@ -144,7 +145,7 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
         playerHandler?.onVideoStops()
     }
     
-    func updatePlayerOnView(composition: AVMutableComposition) {
+    func updatePlayerOnView(composition: VideoComposition) {
         self.playerHandler?.createVideoPlayer(composition)
     }
     

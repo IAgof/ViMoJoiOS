@@ -183,7 +183,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
         
         defaults.setObject(Utils().getStringByKeyFromSettings("high_quality_name"), forKey: SettingsConstants().SETTINGS_QUALITY)
         
-        defaults.setObject(Utils().getStringByKeyFromSettings(AVCaptureSessionPreset1280x720), forKey: SettingsConstants().SETTINGS_RESOLUTION)
+        defaults.setObject(Utils().getStringByKeyFromSettings(AVCaptureSessionPreset1920x1080), forKey: SettingsConstants().SETTINGS_RESOLUTION)
     }
     
     //MARK: - Mixpanel

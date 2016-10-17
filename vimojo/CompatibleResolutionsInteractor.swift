@@ -14,9 +14,9 @@ class CompatibleResolutionsInteractor: NSObject {
     func getCompatibleResolutions() -> Array<String> {
         var compatibleResolutions = Array<String>()
         
+        compatibleResolutions.append(AVCaptureSessionPreset3840x2160)
         compatibleResolutions.append(AVCaptureSessionPreset1920x1080)
         compatibleResolutions.append(AVCaptureSessionPreset1280x720)
-        compatibleResolutions.append(AVCaptureSessionPreset640x480)
 
         return compatibleResolutions
     }

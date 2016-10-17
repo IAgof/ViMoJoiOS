@@ -24,31 +24,32 @@ class MusicProvider: NSObject {
     }
     
     func populateLocalMusic() {
-//        localMusic.append(Music(title: "Vadodora",
-//            author: "Kevin Macleod",
-//            iconResourceId: "imagebutton_music_background_bollywood",
-//            musicResourceId: "audio_bollywood"))
-//        
-//        localMusic.append(Music(title: "Airplane Mod Instrumental",
-//            author: "James Woodward",
-//            iconResourceId: "imagebutton_music_background_rock",
-//            musicResourceId: "audio_rock"))
-//        
-//        localMusic.append(Music(title: "Impact Prelude",
-//            author: "Kevin Macleod",
-//            iconResourceId: "imagebutton_music_background_ambient",
-//            musicResourceId: "audio_ambiental"))
-//        
-//        localMusic.append(Music(title: "Monkeys Spinning Monkeys",
-//            author: "Kevin Macleod",
-//            iconResourceId: "imagebutton_music_background_jazz",
-//            musicResourceId: "audio_clasica_flauta"))
-//        
-//        localMusic.append(Music(title: "Don't Close Your Eyes",
-//            author: "Josh Woodward",
-//            iconResourceId: "imagebutton_music_background_folk",
-//            musicResourceId: "audio_folk"))
-//        
+        localMusic.append(Music(title: "Free the cold wind",
+            author: "George Stephenson",
+            iconResourceId: "activity_edit_music_list_freethecoldwind",
+            musicResourceId: "FREE_THE_COLD_WIND",
+            musicSelectedResourceId: "activity_edit_music_selected_freethecoldwind"))
+        
+        localMusic.append(Music(title: "Galloping",
+            author: "A. Stuart Roslyn",
+            iconResourceId: "activity_edit_music_list_galloping",
+            musicResourceId: "GALLOPING",
+            musicSelectedResourceId: "activity_edit_music_selected_galloping"))
+
+        
+        localMusic.append(Music(title: "Sorrow and sandness",
+            author: "David John",
+            iconResourceId: "activity_edit_music_list_sorrowandsadness",
+        musicResourceId: "SORROW_AND_SADNESS",
+        musicSelectedResourceId: "activity_edit_music_selected_sorrowandsadness"))
+
+        localMusic.append(Music(title: "We beat as one",
+            author: "Harlin James",
+            iconResourceId: "activity_edit_music_list_webeatasone",
+            musicResourceId: "WE_BEAT_AS_ONE",
+            musicSelectedResourceId: "activity_edit_music_selected_webeatasone"))
+
+//
 //        localMusic.append(Music(title: "Super Psyched for Your Birthday",
 //            author: "The Danimals",
 //            iconResourceId: "imagebutton_music_background_birthday",

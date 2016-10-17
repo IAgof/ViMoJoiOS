@@ -9,12 +9,16 @@
 import Foundation
 import GPUImage
 
+struct BatteryIconImage {
+    var normal : UIImage!
+    var pressed : UIImage!
+}
+
 class RecordPresenter: NSObject
     , RecordPresenterInterface
     ,CameraInteractorDelegate
 ,TimerInteractorDelegate
 {
-    
     //MARK: - Variables VIPER
     var delegate: RecordPresenterDelegate?
     var cameraInteractor: CameraInteractorInterface?
@@ -41,6 +45,7 @@ class RecordPresenter: NSObject
     var focusViewIsShowed = false
     var exposureModesViewIsShowed = false
     var micIsEnabled = false
+    var modeViewIsShowed = false
     
     //MARK: - Event handler
     func viewDidLoad(displayView:GPUImageView){
@@ -139,15 +144,24 @@ class RecordPresenter: NSObject
     func pushHideAllButtons() {
         if secondaryViewIsShowing{
             delegate?.showPrincipalViews()
+            self.showModeView()
+            
+            switchChronometerIfNeccesary()
+
             
             if videoSettingsConfigViewIsShowing {
                 delegate?.showVideoSettingsConfig()
             }
+            
             delegate?.hideSecondaryRecordViews()
             
             delegate?.showAllButtonsButtonImage()
             secondaryViewIsShowing = false
         }else{
+            switchChronometerIfNeccesary()
+            
+            self.hideModeView()
+            
             delegate?.showSecondaryRecordViews()
             delegate?.hidePrincipalViews()
             
@@ -158,7 +172,19 @@ class RecordPresenter: NSObject
             secondaryViewIsShowing = true
         }
     }
-    
+    func switchChronometerIfNeccesary(){
+        if isRecording {
+            if secondaryViewIsShowing {
+                delegate?.showRecordChronometerContainer()
+                
+                delegate?.hideSecondaryRecordChronometerContainer()
+            }else{
+                delegate?.showSecondaryRecordChronometerContainer()
+                
+                delegate?.hideRecordChronometerContainer()
+            }
+        }
+    }
     func pushBattery() {
         if batteryIsShowed{
             hideBatteryViewIfYouCan()
@@ -201,16 +227,12 @@ class RecordPresenter: NSObject
     }
     
     func pushMic() {
-        if micIsEnabled{
-            if micViewIsShowed{
-                hideMicViewIfYouCan()
-            }else{
-                
-                delegate?.getMicValues()
-                delegate?.showMicLevelView()
-                
-                micViewIsShowed = true
-            }
+        if micViewIsShowed {
+            hideMicViewIfYouCan()
+        }else{
+            delegate?.showMicLevelView()
+
+            micViewIsShowed = true
         }
     }
     
@@ -308,6 +330,7 @@ class RecordPresenter: NSObject
     func resetRecorder() {
         cameraInteractor?.removeFilters()
         delegate?.hideRecordedVideoThumb()
+//        delegate?.disableShareButton()
         
         interactor?.clearProject()
     }
@@ -328,20 +351,34 @@ class RecordPresenter: NSObject
         case empty = "activity_record_icon_battery_empty"
     }
     
-    func getBatteryIcon(value:Float)->UIImage {
+    enum batteryImagesPressed:String{
+        case charged = "activity_record_icon_battery_charged_pressed"
+        case seventyFivePercent = "activity_record_icon_battery_75_pressed"
+        case fiftyPercent = "activity_record_icon_battery_50_pressed"
+        case twentyFivePercent = "activity_record_icon_battery_25_pressed"
+        case empty = "activity_record_icon_battery_empty_pressed"
+    }
+    
+    func getBatteryIcon(value:Float)->BatteryIconImage {
         switch value {
         case 0...10:
-            return UIImage(named: batteryImages.empty.rawValue)!
+           return BatteryIconImage(normal: UIImage(named: batteryImages.empty.rawValue)!,
+                             pressed: UIImage(named: batteryImagesPressed.empty.rawValue)!)
         case 11...25:
-            return UIImage(named: batteryImages.twentyFivePercent.rawValue)!
+            return BatteryIconImage(normal: UIImage(named: batteryImages.twentyFivePercent.rawValue)!,
+                                    pressed: UIImage(named: batteryImagesPressed.twentyFivePercent.rawValue)!)
         case 26...50:
-            return UIImage(named: batteryImages.fiftyPercent.rawValue)!
+            return BatteryIconImage(normal: UIImage(named: batteryImages.fiftyPercent.rawValue)!,
+                                    pressed: UIImage(named: batteryImagesPressed.fiftyPercent.rawValue)!)
         case 51...75:
-            return UIImage(named: batteryImages.seventyFivePercent.rawValue)!
+            return BatteryIconImage(normal: UIImage(named: batteryImages.seventyFivePercent.rawValue)!,
+                                    pressed: UIImage(named: batteryImagesPressed.seventyFivePercent.rawValue)!)
         case 76...100:
-            return UIImage(named: batteryImages.charged.rawValue)!
+            return BatteryIconImage(normal: UIImage(named: batteryImages.charged.rawValue)!,
+                                    pressed: UIImage(named: batteryImagesPressed.charged.rawValue)!)
         default:
-            return UIImage(named: batteryImages.fiftyPercent.rawValue)!
+            return BatteryIconImage(normal: UIImage(named: batteryImages.fiftyPercent.rawValue)!,
+                                    pressed: UIImage(named: batteryImagesPressed.fiftyPercent.rawValue)!)
         }
     }
     
@@ -382,6 +419,11 @@ class RecordPresenter: NSObject
         self.trackStartRecord()
         
         delegate?.recordButtonEnable(false)
+        if secondaryViewIsShowing {
+            delegate?.showSecondaryRecordChronometerContainer()
+        }else{
+            delegate?.showRecordChronometerContainer()
+        }
         
         dispatch_async(dispatch_get_main_queue(), {
             self.cameraInteractor?.setIsRecording(true)
@@ -394,6 +436,8 @@ class RecordPresenter: NSObject
             })
             // update some UI
             self.delegate?.showRecordButton()
+//            self.delegate?.disableShareButton()
+            self.delegate?.hideThumbnailButtonAndLabel()
         })
         
         isRecording = true
@@ -413,6 +457,13 @@ class RecordPresenter: NSObject
             self.updateThumbnail()
             dispatch_async(dispatch_get_main_queue(), {
                 self.delegate?.showStopButton()
+//                self.delegate?.enableShareButton()
+                self.delegate?.showThumbnailButtonAndLabel()
+                if self.secondaryViewIsShowing {
+                    self.delegate?.hideSecondaryRecordChronometerContainer()
+                }else{
+                    self.delegate?.hideRecordChronometerContainer()
+                }
             });
         });
         
@@ -437,6 +488,20 @@ class RecordPresenter: NSObject
         print("Record presenter pushSettings")
         self.trackSettingsPushed()
         recordWireframe?.presentSettingsInterface()
+    }
+    
+    func pushShowMode() {
+        delegate?.hideModeViewAndButtonStateDisabled()
+        delegate?.showModeViewAndButtonStateEnabled()
+        
+        modeViewIsShowed = true
+    }
+    
+    func pushHideMode() {
+        delegate?.hideModeViewAndButtonStateEnabled()
+        delegate?.showModeViewAndButtonStateDisabled()
+        
+        modeViewIsShowed = false
     }
     
     func showZoomView(){
@@ -536,6 +601,21 @@ class RecordPresenter: NSObject
         hideMicViewIfYouCan()
     }
     
+    func hideModeView(){
+        if modeViewIsShowed {
+            delegate?.hideModeViewAndButtonStateEnabled()
+        }else{
+            delegate?.hideModeViewAndButtonStateDisabled()
+        }
+    }
+    
+    func showModeView(){
+        if modeViewIsShowed {
+            delegate?.showModeViewAndButtonStateEnabled()
+        }else{
+            delegate?.showModeViewAndButtonStateDisabled()
+        }
+    }
     
     func checkIfMicIsAvailable(){
         let route = AVAudioSession.sharedInstance().currentRoute
@@ -556,6 +636,11 @@ class RecordPresenter: NSObject
         
         if !state {
             hideMicViewIfYouCan()
+        }else{
+            delegate?.getMicValues()
+            delegate?.showMicLevelView()
+            
+            micViewIsShowed = true
         }
     }
     
@@ -588,6 +673,7 @@ class RecordPresenter: NSObject
             }
         }else{
             self.delegate?.hideRecordedVideoThumb()
+//            self.delegate?.disableShareButton()
         }
     }
     
@@ -708,6 +794,7 @@ extension RecordPresenter:RecorderInteractorDelegate{
         delegate?.setResolutionIconImagePressed(image)
     }
 }
+
 //MARK: - Thumb delegate
 extension RecordPresenter:ThumbnailDelegate{
     func setThumbToView(image: UIImage) {

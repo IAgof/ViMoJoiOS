@@ -8,10 +8,11 @@
 
 import Foundation
 import AVFoundation
+import VideonaProject
 
 protocol AddTextInteractorInterface {
     func setVideoPosition(position: Int) 
-    func setUpComposition(completion:(AVMutableComposition)->Void)
+    func setUpComposition(completion:(VideoComposition)->Void)
     
     func getVideoParams()
     func setParametersToVideo(text:String,

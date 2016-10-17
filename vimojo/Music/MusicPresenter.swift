@@ -8,6 +8,8 @@
 
 import Foundation
 import VideonaPlayer
+import AVFoundation
+import VideonaProject
 
 class MusicPresenter: MusicPresenterInterface,MusicInteractorDelegate {
     //MARK: - Variables VIPER
@@ -25,87 +27,31 @@ class MusicPresenter: MusicPresenterInterface,MusicInteractorDelegate {
     var lastMusicSelected:Int = -1
     var isMusicSet:Bool = false
     var isGoingToExpandPlayer = false
+    var recordMicViewActualTime = 0.0
+    var recordMicViewTotalTime = 0.0
     
     //MARK: - Constants
     let NO_MUSIC_SELECTED = -1
     
     //MARK: - Interface
     func viewDidLoad() {
-        interactor?.getMusicList()
-        
-        wireframe?.presentPlayerInterface()
-        playerPresenter?.createVideoPlayer(GetActualProjectAVCompositionUseCase.sharedInstance.getComposition((interactor?.getProject())!))
     }
     
     func viewWillAppear() {
+        wireframe?.presentPlayerInterface()
+
         controller?.bringToFrontExpandPlayerButton()
+        interactor?.getVideoComposition()
     }
     
     func viewDidAppear() {
-        self.checkIfHasMusicSelected()
-    }
-    
-    func checkIfHasMusicSelected(){
-        if (interactor?.hasMusicSelectedInProject())! {
-            guard let music = interactor?.getMusic() else {return}
-            
-            delegate?.animateToShowDetail(" \(music.getTitle()) ",
-                                          author: " \(music.getAuthor()) ",
-                                          image: UIImage(named: music.getIconResourceId())!)
-            
-            detailEventHandler?.showRemoveButton()
-        }
+
     }
     
     func viewWillDisappear() {
         if !isGoingToExpandPlayer{
             playerPresenter?.onVideoStops()
         }
-        
-        if !isMusicSet {
-            interactor?.setMusicToProject(NO_MUSIC_SELECTED)
-        }
-    }
-    
-    func setMusicDetailInterface(eventHandler: MusicDetailInterface) {
-        self.detailEventHandler = eventHandler
-    }
-    
-    func didSelectMusicAtIndexPath(indexPath: NSIndexPath) {
-        lastMusicSelected = indexPath.item
-        
-        delegate?.animateToShowDetail(" \((interactor?.getTitleFromIndexPath(lastMusicSelected))!) ",
-                                      author: " \((interactor?.getAuthorFromIndexPath(lastMusicSelected))!) ",
-                                      image: (interactor?.getImageFromIndexPath(lastMusicSelected))!)
-        
-        interactor?.setMusicToProject(lastMusicSelected)
-        
-        
-        playerPresenter?.createVideoPlayer(GetActualProjectAVCompositionUseCase.sharedInstance.getComposition((interactor?.getProject())!))
-    }
-    
-    func cancelDetailButtonPushed() {
-        self.removeDetailButtonPushed()
-    }
-    
-    func acceptDetailButtonPushed() {
-        detailEventHandler?.showRemoveButton()
-        isMusicSet = true
-        
-        ViMoJoTracker.sharedInstance.trackMusicSet()
-        
-        wireframe?.presentEditor()
-    }
-    
-    func removeDetailButtonPushed() {
-        delegate?.animateToShowTable()
-        interactor?.setMusicToProject(NO_MUSIC_SELECTED)
-        
-        playerPresenter?.createVideoPlayer(GetActualProjectAVCompositionUseCase.sharedInstance.getComposition((interactor?.getProject())!))
-        
-        isMusicSet = false
-        
-        ViMoJoTracker.sharedInstance.trackMusicSet()
     }
     
     func expandPlayer() {
@@ -118,12 +64,17 @@ class MusicPresenter: MusicPresenterInterface,MusicInteractorDelegate {
         playerPresenter!.layoutSubViews()
     }
     
-    //MARK: - Interactor delegate
-    func setTextList(titleList: [String]) {
-        delegate?.setTextList(titleList)
+    
+    func pushMusicHandler() {
+        wireframe?.presenterMusicListView()
     }
     
-    func setImageList(imageList: [UIImage]) {
-        delegate?.setMusicImageList(imageList)
+    func pushMicHandler() {
+        wireframe?.presenterMicRecorderView()
+    }
+    
+    //MARK: - Interactor delegate
+    func setVideoComposition(composition: VideoComposition) {
+        playerPresenter?.createVideoPlayer(composition)
     }
 }

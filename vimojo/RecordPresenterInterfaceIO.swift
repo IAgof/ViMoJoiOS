@@ -22,6 +22,9 @@ protocol RecordPresenterInterface{
     func pushShare()
     func pushSettings()
     
+    func pushShowMode()
+    func pushHideMode()
+    
     func pushHideAllButtons()
     
     func pushZoom()
@@ -85,7 +88,9 @@ protocol RecordPresenterDelegate {
     func hideZoomView()
     func showZoomView()
     
-    func setBatteryIcon(image:UIImage)
+    func setBatteryIcon(images:BatteryIconImage)
+    func setBatteryIconPressed(image:UIImage)
+    
     func setAudioColor(color:UIColor)
     
     func updateBatteryValues()
@@ -117,4 +122,21 @@ protocol RecordPresenterDelegate {
     func setResolutionToView(resolution:String)
     func setResolutionIconImage(image:UIImage)
     func setResolutionIconImagePressed(image:UIImage)
+    
+//    func enableShareButton()
+//    func disableShareButton()
+    
+    func hideThumbnailButtonAndLabel()
+    func showThumbnailButtonAndLabel()
+    
+    func showRecordChronometerContainer()
+    func hideRecordChronometerContainer()
+    
+    func showModeViewAndButtonStateEnabled()
+    func hideModeViewAndButtonStateEnabled()
+    func showModeViewAndButtonStateDisabled()
+    func hideModeViewAndButtonStateDisabled()
+    
+    func showSecondaryRecordChronometerContainer()
+    func hideSecondaryRecordChronometerContainer()
 }

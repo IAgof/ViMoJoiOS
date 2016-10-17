@@ -55,7 +55,7 @@ class AddTextInteractor: AddTextInteractorInterface {
         self.videoPosition = position
     }
     
-    func setUpComposition(completion:(AVMutableComposition)->Void) {
+    func setUpComposition(completion:(VideoComposition)->Void) {
         var videoTotalTime:CMTime = kCMTimeZero
         
         guard let videoPos = videoPosition else {
@@ -96,7 +96,7 @@ class AddTextInteractor: AddTextInteractorInterface {
             //                completionHandler("Error trying to create videoTrack",0.0)
         }
         
-        completion(mixComposition)
+        completion(VideoComposition(mutableComposition: mixComposition))
     }
     
     
@@ -107,13 +107,14 @@ class AddTextInteractor: AddTextInteractorInterface {
     
     func exportVideoWithText(text:String){
         self.setUpComposition({composition in
-            let videoComposition = AVMutableVideoComposition(propertiesOfAsset: composition)
+            guard let mutableComposition = composition.mutableComposition else{return}
+            let videoComposition = AVMutableVideoComposition(propertiesOfAsset: mutableComposition)
             self.applyVideoOverlayAnimation(videoComposition,
-                mutableComposition: composition,
+                mutableComposition: mutableComposition,
                 size: videoComposition.renderSize,
                 text: text)
             
-            self.exportComposition(composition,videoComposition: videoComposition)
+            self.exportComposition(mutableComposition,videoComposition: videoComposition)
         })
     }
     
@@ -168,6 +169,7 @@ class AddTextInteractor: AddTextInteractorInterface {
         
         return textLayer
     }
+    
     func exportComposition(composition:AVMutableComposition,
                            videoComposition:AVMutableVideoComposition){
         var exportPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]

@@ -23,13 +23,9 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
 
     let reuseIdentifierCell = "editorCollectionViewCell"
     
-    var videoPositionList: [Int] = []
-
-    var videoImageList: [UIImage] = []{
+    var videoList: [EditorViewModel] = []{
         didSet {
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.thumbnailClipsCollectionView.reloadData()
-            })
         }
     }
     
@@ -51,6 +47,8 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         super.viewWillAppear(animated)
 
         eventHandler?.viewWillAppear()
+        
+        playerView.layoutSubviews()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -65,16 +63,17 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     
     // MARK: - UICollectionViewDataSource protocol
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return videoPositionList.count
+        return videoList.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifierCell, forIndexPath: indexPath) as! EditorClipsCell
         
-        cell.positionNumberLabel.text = "\(videoPositionList[indexPath.item])"
         
-        if  videoImageList.indices.contains(indexPath.item){
-            cell.thumbnailImageView.image = videoImageList[indexPath.item]
+        if  videoList.indices.contains(indexPath.item){
+            cell.thumbnailImageView.image = videoList[indexPath.item].image
+            cell.timeLabel.text = videoList[indexPath.item].timeText
+            cell.positionNumberLabel.text = videoList[indexPath.item].positionText
         }
         
         eventHandler?.cellForItemAtIndexPath(indexPath)
@@ -123,22 +122,22 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         eventHandler?.removeVideoClip(sender.tag)
     }
     
-    @IBAction func pushTrimClip(sender:UIButton){
+    @IBAction func pushTrimClip(sender:AnyObject){
         
         eventHandler?.pushTrimHandler()
     }
     
-    @IBAction func pushDuplicateClip(sender:UIButton){
+    @IBAction func pushDuplicateClip(sender:AnyObject){
         
         eventHandler?.pushDuplicateHandler()
     }
     
-    @IBAction func pushDivideClip(sender:UIButton){
+    @IBAction func pushDivideClip(sender:AnyObject){
         
         eventHandler?.pushSplitHandler()
     }
     
-    @IBAction func pushAddVideo(sender:UIButton){
+    @IBAction func pushAddVideo(sender:AnyObject){
         eventHandler?.pushAddVideoHandler()
     }
     
@@ -171,12 +170,8 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         thumbnailClipsCollectionView.reloadData()
     }
     
-    func setPositionList(list: [Int]) {
-        self.videoPositionList = list
-    }
-    
-    func setVideoImagesList(list: [UIImage]) {
-        self.videoImageList = list
+    func setVideoList(list: [EditorViewModel]) {
+        self.videoList = list
     }
     
     func setUpGestureRecognizer(){
@@ -213,16 +208,20 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
                                       style: .Default,
                                       handler: {alert -> Void in
             self.eventHandler?.removeVideoClipAfterConfirmation()
+                                        self.alertController = nil
         })
         
-        let noAction = UIAlertAction(title: "No", style: .Default, handler: nil)
+        let noAction = UIAlertAction(title: "No", style: .Default, handler: {
+            void in
+            self.alertController = nil
+        })
         
         alertController.addAction(noAction)
         alertController.addAction(yesAction)
         self.presentViewController(alertController, animated: false, completion:{})
     }
     
-    func createAlertWaitToImport(){
+    func createAlertWaitToImport(completion: (() -> Void)?){
         let title = Utils().getStringByKeyFromEditor(EditorTextConstants.IMPORT_VIDEO_FROM_PHOTO_LIBRARY_TITLE)
         let message = Utils().getStringByKeyFromEditor(EditorTextConstants.IMPORT_VIDEO_FROM_PHOTO_LIBRARY_MESSAGE)
         
@@ -235,7 +234,10 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         activityIndicator.startAnimating()
         
         alertController?.view.addSubview(activityIndicator)
-        self.presentViewController(alertController!, animated: false, completion:{})
+        self.presentViewController(alertController!, animated: false, completion:{
+            presented in
+            completion!(presented)
+        })
     }
     
     func dissmissAlertController(){
@@ -261,9 +263,14 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
             guard let selectedIndexPath = self.thumbnailClipsCollectionView.indexPathForItemAtPoint(gesture.locationInView(self.thumbnailClipsCollectionView)) else {
                 break
             }
+            eventHandler?.didSelectItemAtIndexPath(selectedIndexPath)
+
             thumbnailClipsCollectionView.beginInteractiveMovementForItemAtIndexPath(selectedIndexPath)
             
-            let cell = thumbnailClipsCollectionView.cellForItemAtIndexPath(selectedIndexPath) as! EditorClipsCell
+            guard let cell = thumbnailClipsCollectionView.cellForItemAtIndexPath(selectedIndexPath) as? EditorClipsCell else{
+                print("error UIGestureRecognizerState. beginInteractiveMovementForItemAtIndexPath")
+                return
+            }
             cell.isMoving = true
         
         case UIGestureRecognizerState.Changed:
@@ -275,7 +282,9 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
             guard let selectedIndexPath = self.thumbnailClipsCollectionView.indexPathForItemAtPoint(gesture.locationInView(self.thumbnailClipsCollectionView)) else {
                 break
             }
-            let cell = thumbnailClipsCollectionView.cellForItemAtIndexPath(selectedIndexPath) as! EditorClipsCell
+            guard let cell = thumbnailClipsCollectionView.cellForItemAtIndexPath(selectedIndexPath) as? EditorClipsCell else{
+                print("error UIGestureRecognizerState. Ended")
+                return}
             cell.isMoving = false
         default:
             thumbnailClipsCollectionView.cancelInteractiveMovement()
@@ -300,14 +309,13 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
                     let urlOfVideo = info[UIImagePickerControllerMediaURL] as? NSURL
                     if let url = urlOfVideo {
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            self.createAlertWaitToImport()
+                            self.createAlertWaitToImport({
+                                void in
+                                self.eventHandler?.saveVideoToDocuments(url)
+                            })
                         })
-
-                        eventHandler?.saveVideoToDocuments(url)
-
                     }
                 }
-                
             }
         }
         

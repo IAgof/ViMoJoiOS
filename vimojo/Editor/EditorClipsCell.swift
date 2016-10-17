@@ -12,12 +12,14 @@ class EditorClipsCell: UICollectionViewCell {
 
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var positionNumberLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var removeClipButton: UIButton!
     
     let cellColor = VIMOJO_GREEN_UICOLOR
     
     override func awakeFromNib() {
         positionNumberLabel.adjustsFontSizeToFitWidth = true
+        removeClipButton.hidden = true
     }
     
     var isClipSelected: Bool = false{
@@ -26,6 +28,9 @@ class EditorClipsCell: UICollectionViewCell {
             self.layer.borderColor = (isClipSelected ? cellColor.CGColor : UIColor.clearColor().CGColor)
             
             self.removeClipButton.backgroundColor = (isClipSelected ? cellColor : UIColor.clearColor())
+            
+            removeClipButton.hidden = !isClipSelected
+            removeClipButton.enabled = isClipSelected
         }
     }
     
