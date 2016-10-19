@@ -54,7 +54,6 @@ extension AddTextPresenter:AddTextPresenterInterface{
     func pushAcceptHandler() {
         interactor?.setParametersToVideo(textOnLabel,
                                          position: lastButtonPushed.rawValue)
-        interactor?.exportVideoWithText(textOnLabel)
 
         delegate?.acceptFinished()
     }
@@ -70,17 +69,20 @@ extension AddTextPresenter:AddTextPresenterInterface{
     func topButtonPushed() {
         deselectLastButtonPushed(lastButtonPushed)
         
-        delegate?.setTextAlignment(.VerticalAlignmentTop)
         delegate?.setSelectedTopButton(true)
         
+        interactor?.setAlignment(.top,
+                                 text: textOnLabel)
         lastButtonPushed = .Top
     }
     
     func midButtonPushed() {
         deselectLastButtonPushed(lastButtonPushed)
 
-        delegate?.setTextAlignment(.VerticalAlignmentMiddle)
         delegate?.setSelectedMidButton(true)
+        
+        interactor?.setAlignment(.mid,
+                                 text: textOnLabel)
         
         lastButtonPushed = .Mid
     }
@@ -88,8 +90,10 @@ extension AddTextPresenter:AddTextPresenterInterface{
     func bottomButtonPushed() {
         deselectLastButtonPushed(lastButtonPushed)
 
-        delegate?.setTextAlignment(.VerticalAlignmentBottom)
         delegate?.setSelectedBottomButton(true)
+        
+        interactor?.setAlignment(.bottom,
+                                 text: textOnLabel)
         
         lastButtonPushed = .Bottom
     }
@@ -123,8 +127,8 @@ extension AddTextPresenter:AddTextPresenterInterface{
     
     func textHasChanged(text: String) {
         textOnLabel = addLineBreakIfNeccesary(text)
-        
-        delegate?.setTextToPlayer(textOnLabel)
+
+        interactor?.getTextImage(text)
     }
 }
 
@@ -139,13 +143,16 @@ extension AddTextPresenter:AddTextInteractorDelegate{
         
         selectButtonPushed(lastButtonPushed)
         
-        delegate?.setTextToPlayer(text)
+        interactor?.getTextImage(text)
         delegate?.setTextToEditTextField(text)
-        delegate?.setTextAlignment(VerticalAlignment(rawValue: position)!)
     }
     
     func updateVideoList() {
         interactor?.getVideoParams()
+    }
+    
+    func setTextImageToPlayer(image: UIImage) {
+        delegate?.setImageTextToPlayer(image)
     }
 }
 

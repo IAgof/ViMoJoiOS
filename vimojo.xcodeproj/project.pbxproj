@@ -115,6 +115,9 @@
 		A95BE99A1D990C4100602DCD /* DetailTextWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9931D990C4100602DCD /* DetailTextWireframe.swift */; };
 		A964410D1DA3015B00CAD950 /* EditorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A964410C1DA3015B00CAD950 /* EditorModel.swift */; };
 		A96441111DA3E59700CAD950 /* Settings.strings in Resources */ = {isa = PBXBuildFile; fileRef = A96441131DA3E59700CAD950 /* Settings.strings */; };
+		A9693B761DB7C14A00B00DD1 /* GetImageByTextUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9693B751DB7C14A00B00DD1 /* GetImageByTextUseCase.swift */; };
+		A9693B7A1DB7C1C800B00DD1 /* CATextLayerAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9693B791DB7C1C800B00DD1 /* CATextLayerAttributes.swift */; };
+		A9693B7D1DB7C8CD00B00DD1 /* AddTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9693B7C1DB7C8CD00B00DD1 /* AddTextModel.swift */; };
 		A96E15F01DA257A400CF81E8 /* MusicModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96E15EF1DA257A400CF81E8 /* MusicModels.swift */; };
 		A988DEEE1DACEF800030E285 /* MusicListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DEED1DACEF800030E285 /* MusicListInteractor.swift */; };
 		A988DEF01DACEF8E0030E285 /* MusicListInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DEEF1DACEF8E0030E285 /* MusicListInteractorInterface.swift */; };
@@ -128,6 +131,7 @@
 		A988DF081DAD1E1C0030E285 /* MicRecorderInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DF071DAD1E1C0030E285 /* MicRecorderInteractorInterface.swift */; };
 		A988DF0A1DAD1E230030E285 /* MicRecorderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DF091DAD1E230030E285 /* MicRecorderInteractor.swift */; };
 		A988DF0C1DAD1E2B0030E285 /* MicRecorderWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DF0B1DAD1E2B0030E285 /* MicRecorderWireframe.swift */; };
+		A9A1E5B61DB636DC003BF354 /* ApplyTextOverlayToVideoCompositionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1E5B51DB636DC003BF354 /* ApplyTextOverlayToVideoCompositionUseCase.swift */; };
 		A9A419151DB5110C00FB642E /* AddTextWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A4190F1DB5110C00FB642E /* AddTextWireframe.swift */; };
 		A9A419161DB5110C00FB642E /* AddTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A419101DB5110C00FB642E /* AddTextViewController.swift */; };
 		A9A419171DB5110C00FB642E /* AddTextPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A419111DB5110C00FB642E /* AddTextPresenterInterface.swift */; };
@@ -643,6 +647,9 @@
 		A96441121DA3E59700CAD950 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Settings.strings; sourceTree = "<group>"; };
 		A96441141DA3E59A00CAD950 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Settings.strings; sourceTree = "<group>"; };
 		A96734FA1D7FFBA300441872 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		A9693B751DB7C14A00B00DD1 /* GetImageByTextUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetImageByTextUseCase.swift; sourceTree = "<group>"; };
+		A9693B791DB7C1C800B00DD1 /* CATextLayerAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CATextLayerAttributes.swift; sourceTree = "<group>"; };
+		A9693B7C1DB7C8CD00B00DD1 /* AddTextModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTextModel.swift; sourceTree = "<group>"; };
 		A96E15EF1DA257A400CF81E8 /* MusicModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicModels.swift; sourceTree = "<group>"; };
 		A988DEED1DACEF800030E285 /* MusicListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicListInteractor.swift; sourceTree = "<group>"; };
 		A988DEEF1DACEF8E0030E285 /* MusicListInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicListInteractorInterface.swift; sourceTree = "<group>"; };
@@ -656,6 +663,7 @@
 		A988DF071DAD1E1C0030E285 /* MicRecorderInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicRecorderInteractorInterface.swift; sourceTree = "<group>"; };
 		A988DF091DAD1E230030E285 /* MicRecorderInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicRecorderInteractor.swift; sourceTree = "<group>"; };
 		A988DF0B1DAD1E2B0030E285 /* MicRecorderWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicRecorderWireframe.swift; sourceTree = "<group>"; };
+		A9A1E5B51DB636DC003BF354 /* ApplyTextOverlayToVideoCompositionUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyTextOverlayToVideoCompositionUseCase.swift; sourceTree = "<group>"; };
 		A9A4190F1DB5110C00FB642E /* AddTextWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTextWireframe.swift; sourceTree = "<group>"; };
 		A9A419101DB5110C00FB642E /* AddTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTextViewController.swift; sourceTree = "<group>"; };
 		A9A419111DB5110C00FB642E /* AddTextPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTextPresenterInterface.swift; sourceTree = "<group>"; };
@@ -967,6 +975,8 @@
 			isa = PBXGroup;
 			children = (
 				A93BCE621D7D7A7200421BD0 /* CompatibleQualityInteractor.swift */,
+				A9693B751DB7C14A00B00DD1 /* GetImageByTextUseCase.swift */,
+				A9693B791DB7C1C800B00DD1 /* CATextLayerAttributes.swift */,
 				A93BCE601D7D7A5A00421BD0 /* AVQualityParse.swift */,
 				A93BCE551D7D792B00421BD0 /* AddVideoToProjectUseCase.swift */,
 				A93BCE561D7D792B00421BD0 /* GetActualProjectAVCompositionUseCase.swift */,
@@ -1148,6 +1158,7 @@
 		A9A4190C1DB510C300FB642E /* AddText */ = {
 			isa = PBXGroup;
 			children = (
+				A9693B7C1DB7C8CD00B00DD1 /* AddTextModel.swift */,
 				A9A4190F1DB5110C00FB642E /* AddTextWireframe.swift */,
 				A9A419101DB5110C00FB642E /* AddTextViewController.swift */,
 				A9A419111DB5110C00FB642E /* AddTextPresenterInterface.swift */,
@@ -1366,6 +1377,7 @@
 			isa = PBXGroup;
 			children = (
 				A9B386481D7D53B20065D3EC /* ExporterInteractor.swift */,
+				A9A1E5B51DB636DC003BF354 /* ApplyTextOverlayToVideoCompositionUseCase.swift */,
 				A955D6331D9A88EB00604567 /* AddWatermarkUseCase.swift */,
 			);
 			name = "Exporter interactor";
@@ -2016,6 +2028,7 @@
 				A95BE99A1D990C4100602DCD /* DetailTextWireframe.swift in Sources */,
 				A91760E71D914835008915DA /* DuplicateWireframe.swift in Sources */,
 				A91761221D916F48008915DA /* SocialNetwork.swift in Sources */,
+				A9693B7D1DB7C8CD00B00DD1 /* AddTextModel.swift in Sources */,
 				A93BCE4F1D7D77B300421BD0 /* AVResolutionParse.swift in Sources */,
 				A91761201D916F48008915DA /* ShareWireframe.swift in Sources */,
 				A9B3864F1D7D53BA0065D3EC /* ChangeFilterInteractor.swift in Sources */,
@@ -2042,6 +2055,7 @@
 				A917611A1D916F48008915DA /* SharePresenter.swift in Sources */,
 				A91760E51D914835008915DA /* DuplicateViewController.swift in Sources */,
 				A9B386331D7D53230065D3EC /* CameraInteractorInterface.swift in Sources */,
+				A9693B7A1DB7C1C800B00DD1 /* CATextLayerAttributes.swift in Sources */,
 				A988DF061DAD1E110030E285 /* MicRecorderPresenterInterface.swift in Sources */,
 				A96E15F01DA257A400CF81E8 /* MusicModels.swift in Sources */,
 				A91760C01D9146BF008915DA /* EditorViewInterface.swift in Sources */,
@@ -2086,6 +2100,7 @@
 				A9B386411D7D53880065D3EC /* TimerInteractor.swift in Sources */,
 				A91761141D916F48008915DA /* ShareConstants.swift in Sources */,
 				A9A4191A1DB5110C00FB642E /* AddTextInteractor.swift in Sources */,
+				A9A1E5B61DB636DC003BF354 /* ApplyTextOverlayToVideoCompositionUseCase.swift in Sources */,
 				A93BCE4D1D7D5C7400421BD0 /* AnalitycsConstants.swift in Sources */,
 				A91760C21D9146BF008915DA /* ThumbnailListInteractor.swift in Sources */,
 				A91761361D916F53008915DA /* MusicPresenterInterface.swift in Sources */,
@@ -2113,6 +2128,7 @@
 				A91761231D916F48008915DA /* SocialNetworkProvider.swift in Sources */,
 				A964410D1DA3015B00CAD950 /* EditorModel.swift in Sources */,
 				A91760A81D9146B5008915DA /* EditingRoomInteractor.swift in Sources */,
+				A9693B761DB7C14A00B00DD1 /* GetImageByTextUseCase.swift in Sources */,
 				A93BCE431D7D599900421BD0 /* ViMoJoTracker.swift in Sources */,
 				A917611D1D916F48008915DA /* ShareTwitterInteractor.swift in Sources */,
 				A91760C11D9146BF008915DA /* EditorWireframe.swift in Sources */,

@@ -10,6 +10,7 @@ import Foundation
 import VideonaProject
 import AVFoundation
 
+
 class AddTextInteractor: AddTextInteractorInterface {
     var delegate:AddTextInteractorDelegate?
     var project:Project?
@@ -21,22 +22,52 @@ class AddTextInteractor: AddTextInteractorInterface {
         self.project = project
     }
     
+    var alignmentType:CATextLayerAttributes.VerticalAlignment = .top
+    
+    func getAlignmentAttributesByType(type:AlignmentTypes)->CATextLayerAttributes{
+        switch type {
+        case .Top:
+           return CATextLayerAttributes(horizontalAlignment: .left,
+                                  verticalAlignment: .top,
+                                  font: .bold,
+                                  fontSize: .medium)
+        case .Mid:
+           return CATextLayerAttributes(horizontalAlignment: .center,
+                                  verticalAlignment: .mid,
+                                  font: .bold,
+                                  fontSize: .medium)
+        case .Bottom:
+          return  CATextLayerAttributes(horizontalAlignment: .left,
+                                  verticalAlignment: .bottom,
+                                  font: .light,
+                                  fontSize: .medium)
+        }
+    }
+    
+    func setAlignment(alignment:CATextLayerAttributes.VerticalAlignment,
+                      text:String){
+        alignmentType = alignment
+        
+        getTextImage(text)
+    }
+    
     func getVideoParams() {
         guard let position = videoPosition else{return}
         guard let video = project?.getVideoList()[position]else {return}
         
-        guard let text = video.textToVideo else{
-            delegate?.setVideoParams("", position: 0)
-            return
-        }
-
-        guard let textPosition = video.textPositionToVideo else{
-            delegate?.setVideoParams("", position: 0)
-            return
-        }
+        let text = video.textToVideo
+        let textPosition = video.textPositionToVideo 
         
         delegate?.setVideoParams(text,
                                  position: textPosition)
+    }
+    
+    func getTextImage(text: String) {
+        let alignmentAttributes = CATextLayerAttributes().getAlignmentAttributesByType(alignmentType)
+        
+        let image = GetImageByTextUseCase().getTextImage(text, attributes: alignmentAttributes)
+        
+        delegate?.setTextImageToPlayer(image)
     }
     
     func setParametersToVideo(text: String,
@@ -99,12 +130,6 @@ class AddTextInteractor: AddTextInteractorInterface {
         completion(VideoComposition(mutableComposition: mixComposition))
     }
     
-    
-    
-    
-    
-    
-    
     func exportVideoWithText(text:String){
         self.setUpComposition({composition in
             guard let mutableComposition = composition.mutableComposition else{return}
@@ -144,6 +169,8 @@ class AddTextInteractor: AddTextInteractorInterface {
         parentLayer.frame = CGRectMake(0, 0, size.width, size.height)
         parentLayer.addSublayer(videoLayer)
         parentLayer.addSublayer(overlayLayer)
+        
+        let animation = CAAnimation()
         
         composition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, inLayer: parentLayer)
     }

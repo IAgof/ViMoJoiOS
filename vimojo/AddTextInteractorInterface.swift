@@ -18,6 +18,10 @@ protocol AddTextInteractorInterface {
     func setParametersToVideo(text:String,
                               position:Int)
     func exportVideoWithText(text:String)
+    
+    func getTextImage(text:String)
+    func setAlignment(alignment:CATextLayerAttributes.VerticalAlignment,
+                      text:String)
 }
 
 protocol AddTextInteractorDelegate {
@@ -25,4 +29,5 @@ protocol AddTextInteractorDelegate {
                         position:Int)
     
     func updateVideoList()
+    func setTextImageToPlayer(image:UIImage)
 }

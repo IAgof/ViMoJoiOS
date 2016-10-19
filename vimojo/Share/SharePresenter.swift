@@ -36,7 +36,7 @@ class SharePresenter:NSObject,SharePresenterInterface{
         
         wireframe?.presentPlayerInterface()
         
-        playerPresenter?.createVideoPlayer(GetActualProjectAVCompositionUseCase.sharedInstance.getComposition((interactor?.getProject())!))
+        playerPresenter?.createVideoPlayer(videoPath)
         self.getListData()
         
         controller?.bringToFrontExpandPlayerButton()

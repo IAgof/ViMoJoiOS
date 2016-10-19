@@ -36,9 +36,8 @@ protocol AddTextPresenterDelegate {
     func setStopToVideo()
     func updatePlayerOnView(composition:VideoComposition)
     
-    func setTextToPlayer(text:String)
     func setTextToEditTextField(text:String)
-    func setTextAlignment(alignment:VerticalAlignment)
+    func setImageTextToPlayer(image:UIImage)
     
     func setSelectedTopButton(state:Bool)
     func setSelectedMidButton(state:Bool)

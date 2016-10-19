@@ -114,16 +114,12 @@ extension AddTextViewController:AddTextPresenterDelegate{
         self.playerHandler?.createVideoPlayer(composition)
     }
     
-    func setTextToPlayer(text: String) {
-        self.playerHandler?.setLabelText(text)
-    }
-    
     func setTextToEditTextField(text: String) {
         self.addTextTextField.text = text
     }
     
-    func setTextAlignment(alignment: VerticalAlignment) {
-        self.playerHandler?.setTextAlignment(alignment)
+    func setImageTextToPlayer(image: UIImage) {
+        playerHandler?.setTextImage(image)
     }
     
     func setSelectedTopButton(state: Bool) {

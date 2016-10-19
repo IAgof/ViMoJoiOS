@@ -29,6 +29,5 @@ protocol EditorInteractorDelegate {
     func updateViewList()
     func seekToTimeOfVideoSelectedReceiver(time:Float)
     
-    func setVideoTextToPlayer(text:String,
-                              position:Int)
+    func setVideoTextImageToPlayer(image:UIImage)
 }

@@ -245,18 +245,16 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         {
             let video = videoList[position]
             
-            guard let text = video.textToVideo else{
-                delegate?.setVideoTextToPlayer("", position: 0)
-                return
-            }
+            let text = video.textToVideo
             
-            guard let textPosition = video.textPositionToVideo else{
-                delegate?.setVideoTextToPlayer("", position: 0)
-                return
-            }
+            //TODO:
+            guard let textPosition =  CATextLayerAttributes.VerticalAlignment(rawValue: video.textPositionToVideo) else {
+                print("Not valid position")
+                return}
             
-            delegate?.setVideoTextToPlayer(text,
-                                           position: textPosition)
+            let image = GetImageByTextUseCase().getTextImage(text,
+                                                             attributes:CATextLayerAttributes().getAlignmentAttributesByType(textPosition))
+            delegate?.setVideoTextImageToPlayer(image)
         }
     }
 }

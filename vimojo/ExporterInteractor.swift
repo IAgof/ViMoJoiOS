@@ -9,6 +9,7 @@
 import Foundation
 import AVFoundation
 import VideonaProject
+import VideonaPlayer
 
 class ExporterInteractor:NSObject{
     var clipDuration = 0.0
@@ -44,16 +45,21 @@ class ExporterInteractor:NSObject{
         guard let exportPath = project?.getExportedPath() else {return}
         
         guard let mixComposition = GetActualProjectAVCompositionUseCase().getComposition(project!).mutableComposition else {return}
-      
+        let videoComposition = AVMutableVideoComposition(propertiesOfAsset: mixComposition)
+
         // 4 - Get path
         let url = NSURL(fileURLWithPath: exportPath)
         
         // 5 - Create Exporter
+        ApplyTextOverlayToVideoCompositionUseCase(project: project!).applyVideoOverlayAnimation(videoComposition,
+                                                                                                mutableComposition: mixComposition,
+                                                                                                size: videoComposition.renderSize)
         
         let exporter = AVAssetExportSession(asset: mixComposition, presetName: exportedPresetQuality)
         exporter!.outputURL = url
         exporter!.outputFileType = AVFileTypeQuickTimeMovie
         exporter!.shouldOptimizeForNetworkUse = true
+        exporter!.videoComposition = videoComposition
         
         // 6 - Perform the Export
         exporter!.exportAsynchronouslyWithCompletionHandler() {
@@ -67,4 +73,6 @@ class ExporterInteractor:NSObject{
             })
         }
     }
+    
+
 }

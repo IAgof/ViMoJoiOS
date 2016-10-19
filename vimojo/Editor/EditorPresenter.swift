@@ -265,9 +265,7 @@ class EditorPresenter: NSObject,EditorPresenterInterface,EditorInteractorDelegat
         playerPresenter?.seekToTime(time)
     }
     
-    func setVideoTextToPlayer(text: String,
-                              position: Int) {
-        playerPresenter?.setLabelText(text)
-        playerPresenter?.setTextAlignment(VerticalAlignment(rawValue: position)!)
+    func setVideoTextImageToPlayer(image: UIImage) {
+        playerPresenter?.setTextImage(image)
     }
 }
