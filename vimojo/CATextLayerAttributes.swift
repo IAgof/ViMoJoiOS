@@ -23,7 +23,7 @@ struct CATextLayerAttributes {
     
     enum FontSize:CGFloat {
         case small = 75
-        case medium = 150
+        case medium = 100
         case big = 250
     }
     
@@ -57,11 +57,24 @@ struct CATextLayerAttributes {
     
     func getFrameForString(frame:CGRect)->CGRect{
         let vertical = CGFloat(verticalAlignment.rawValue)
-        let yPosition = max(0, ((frame.height/2*vertical) - fontSize))
+        let height = fontSize * 2 + 30
         
-        let newFrame = CGRectMake(0, yPosition, frame.width, fontSize * 2)
+        let xPositionOffset :CGFloat = 20.0
+        let yPositionOffset :CGFloat = height/2
         
-        return newFrame
+        switch verticalAlignment {
+        case .top:
+            return CGRectMake(xPositionOffset, 10, frame.width, height)
+        case .mid:
+            let yPosition = max(0, ((frame.height/2*vertical) - yPositionOffset))
+
+            return CGRectMake(xPositionOffset, yPosition, frame.width, height)
+        case .bottom:
+            let yPosition = max(0, ((frame.height/2*vertical) - yPositionOffset*2))
+
+            return  CGRectMake(xPositionOffset, yPosition, frame.width, height)
+
+        }
     }
     
     func getAlignmentAttributesByType(type:VerticalAlignment)->CATextLayerAttributes{

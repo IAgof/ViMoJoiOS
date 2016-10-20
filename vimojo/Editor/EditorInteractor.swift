@@ -35,6 +35,15 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         self.getStopTimeList()
     }
     
+    func getComposition() {
+        guard let actualProject = project else{return}
+
+        delegate?.setComposition(GetActualProjectAVCompositionUseCase.sharedInstance.getComposition(actualProject))
+        
+        let layer = GetActualProjectTextCALayerAnimationUseCase().getCALayerAnimation(actualProject)
+        delegate?.setTextLayersAnimatedToPlayer(layer)
+    }
+    
     func getVideoList(){
         var videoList:[EditorViewModel] = []
         
@@ -236,25 +245,5 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
     func getNumberOfClips() -> Int {
         guard let numberOfClips = project?.numberOfClips() else {return 0}
         return numberOfClips
-    }
-    
-    func getVideoTextInPosition(position: Int) {
-        guard let videoList = project?.getVideoList() else {return}
-        
-        if videoList.indices.contains(position)
-        {
-            let video = videoList[position]
-            
-            let text = video.textToVideo
-            
-            //TODO:
-            guard let textPosition =  CATextLayerAttributes.VerticalAlignment(rawValue: video.textPositionToVideo) else {
-                print("Not valid position")
-                return}
-            
-            let image = GetImageByTextUseCase().getTextImage(text,
-                                                             attributes:CATextLayerAttributes().getAlignmentAttributesByType(textPosition))
-            delegate?.setVideoTextImageToPlayer(image)
-        }
     }
 }

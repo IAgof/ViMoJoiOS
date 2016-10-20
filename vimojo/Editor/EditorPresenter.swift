@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import AVFoundation
 import VideonaPlayer
+import VideonaProject
 
 class EditorPresenter: NSObject,EditorPresenterInterface,EditorInteractorDelegate {
     //MARK: - Variables VIPER
@@ -75,7 +76,6 @@ class EditorPresenter: NSObject,EditorPresenterInterface,EditorInteractorDelegat
     
     func seekToSelectedItem(videoPosition:Int){
         interactor?.seekToSelectedItemHandler(videoPosition)
-        interactor?.getVideoTextInPosition(videoPosition)
     }
     
     func cellForItemAtIndexPath(indexPath: NSIndexPath) {
@@ -172,7 +172,6 @@ class EditorPresenter: NSObject,EditorPresenterInterface,EditorInteractorDelegat
                     return
                 }else{
                     updateSelectedCellUI(NSIndexPath(forItem: cellPosition, inSection: 0))
-                    interactor?.getVideoTextInPosition(cellPosition)
                     return
                 }
             }
@@ -224,10 +223,7 @@ class EditorPresenter: NSObject,EditorPresenterInterface,EditorInteractorDelegat
     func loadVideoListFromProject() {
         interactor?.getListData()
         
-        guard let project = interactor?.getProject() else{
-            return
-        }
-        playerPresenter?.createVideoPlayer(GetActualProjectAVCompositionUseCase.sharedInstance.getComposition(project))
+        interactor?.getComposition()
     }
     
     func getCompositionDuration()->Double{
@@ -265,7 +261,11 @@ class EditorPresenter: NSObject,EditorPresenterInterface,EditorInteractorDelegat
         playerPresenter?.seekToTime(time)
     }
     
-    func setVideoTextImageToPlayer(image: UIImage) {
-        playerPresenter?.setTextImage(image)
+    func setComposition(composition: VideoComposition) {
+        playerPresenter?.createVideoPlayer(composition)
+    }
+    
+    func setTextLayersAnimatedToPlayer(layer: CALayer) {
+        playerPresenter?.setAVSyncLayer(layer)
     }
 }

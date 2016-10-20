@@ -11,6 +11,7 @@ import AVFoundation
 import VideonaProject
 
 protocol EditorInteractorInterface {
+    func getComposition()
     func getListData()
     func saveVideoToDocuments(url:NSURL)
     func seekToSelectedItemHandler(videoPosition:Int)
@@ -20,7 +21,6 @@ protocol EditorInteractorInterface {
                             destionationPosition:Int)
     func getNumberOfClips()->Int
     func getProject()->Project
-    func getVideoTextInPosition(position:Int)
 }
 
 protocol EditorInteractorDelegate {
@@ -29,5 +29,6 @@ protocol EditorInteractorDelegate {
     func updateViewList()
     func seekToTimeOfVideoSelectedReceiver(time:Float)
     
-    func setVideoTextImageToPlayer(image:UIImage)
+    func setComposition(composition:VideoComposition)
+    func setTextLayersAnimatedToPlayer(layer:CALayer)
 }

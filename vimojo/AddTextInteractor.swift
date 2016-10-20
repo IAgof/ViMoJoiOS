@@ -66,8 +66,20 @@ class AddTextInteractor: AddTextInteractorInterface {
         let alignmentAttributes = CATextLayerAttributes().getAlignmentAttributesByType(alignmentType)
         
         let image = GetImageByTextUseCase().getTextImage(text, attributes: alignmentAttributes)
+                
+        getAVSyncLayerToPlayer(text)
+    }
+    
+    func getAVSyncLayerToPlayer(text: String){
+        let alignmentAttributes = CATextLayerAttributes().getAlignmentAttributesByType(alignmentType)
+
+        let image = GetImageByTextUseCase().getTextImage(text, attributes: alignmentAttributes)
+        let textImageLayer = CALayer()
+        textImageLayer.contents = image.CGImage
+        textImageLayer.frame = CGRectMake(0, 0, image.size.width, image.size.height)
+        textImageLayer.contentsScale = UIScreen.mainScreen().scale
         
-        delegate?.setTextImageToPlayer(image)
+        delegate?.setAVSyncLayerToPlayer(textImageLayer)
     }
     
     func setParametersToVideo(text: String,
@@ -129,98 +141,7 @@ class AddTextInteractor: AddTextInteractorInterface {
         
         completion(VideoComposition(mutableComposition: mixComposition))
     }
-    
-    func exportVideoWithText(text:String){
-        self.setUpComposition({composition in
-            guard let mutableComposition = composition.mutableComposition else{return}
-            let videoComposition = AVMutableVideoComposition(propertiesOfAsset: mutableComposition)
-            self.applyVideoOverlayAnimation(videoComposition,
-                mutableComposition: mutableComposition,
-                size: videoComposition.renderSize,
-                text: text)
-            
-            self.exportComposition(mutableComposition,videoComposition: videoComposition)
-        })
-    }
-    
-    
-    func applyVideoOverlayAnimation(composition:AVMutableVideoComposition,
-                                    mutableComposition:AVMutableComposition,
-                                    size:CGSize,
-                                    text:String){
         
-        print("vodeo size: \(size)")
-        
-        let overlaySize = CGSize(width: size.width, height: size.height/3)
-        let overlayFrame = CGRect(origin: CGPointZero, size: overlaySize)
-        
-        let overlayLayer = getTextLayer(text, frame: overlayFrame)
-        
-        let overlayPosition = CGPoint(x: 0, y: size.height*2/3)
-        
-        overlayLayer.frame = CGRect(origin: overlayPosition, size: overlaySize)
-        
-        let videoLayer = CALayer()
-        videoLayer.frame = CGRectMake(0, 0, size.width, size.height)
-        videoLayer.masksToBounds = true
-        
-        
-        let parentLayer = CALayer()
-        parentLayer.frame = CGRectMake(0, 0, size.width, size.height)
-        parentLayer.addSublayer(videoLayer)
-        parentLayer.addSublayer(overlayLayer)
-        
-        let animation = CAAnimation()
-        
-        composition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, inLayer: parentLayer)
-    }
-    
-    func getTextLayer(text:String,
-                      frame:CGRect)->CATextLayer{
-        // 1
-        let textLayer = CATextLayer()
-        textLayer.frame = frame
-        textLayer.string = text
-        
-        // 3
-        let fontName: CFStringRef = "Helvetica"
-        textLayer.font = CTFontCreateWithName(fontName, 80, nil)
-
-        textLayer.fontSize = fontSize
-        
-        // 4
-        textLayer.foregroundColor = UIColor.whiteColor().CGColor
-        textLayer.wrapped = true
-        textLayer.alignmentMode = kCAAlignmentLeft
-        textLayer.contentsScale = UIScreen.mainScreen().scale
-        
-        return textLayer
-    }
-    
-    func exportComposition(composition:AVMutableComposition,
-                           videoComposition:AVMutableVideoComposition){
-        var exportPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-        exportPath = "\(exportPath)/videoWithText\(Utils().giveMeTimeNow()).m4v"
-        
-        // 4 - Get path
-        let url = NSURL(fileURLWithPath: exportPath)
-        
-        // 5 - Create Exporter
-        
-        guard let exporter = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetHighestQuality) else{return}
-        exporter.videoComposition = videoComposition
-        exporter.outputURL = url
-        exporter.outputFileType = AVFileTypeMPEG4
-        exporter.shouldOptimizeForNetworkUse = true
-        
-        // 6 - Perform the Export
-        exporter.exportAsynchronouslyWithCompletionHandler() {
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.addVideoWithTextToProject(exportPath)
-            })
-        }
-    }
-    
     func addVideoWithTextToProject(exportPath:String){
         guard let videoList = project?.getVideoList() else {return}
         

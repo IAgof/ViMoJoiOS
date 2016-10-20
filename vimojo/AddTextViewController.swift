@@ -117,9 +117,9 @@ extension AddTextViewController:AddTextPresenterDelegate{
     func setTextToEditTextField(text: String) {
         self.addTextTextField.text = text
     }
-    
-    func setImageTextToPlayer(image: UIImage) {
-        playerHandler?.setTextImage(image)
+        
+    func setSyncLayerToPlayer(layer: CALayer) {
+        playerHandler?.setAVSyncLayer(layer)
     }
     
     func setSelectedTopButton(state: Bool) {

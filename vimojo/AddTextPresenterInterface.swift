@@ -24,7 +24,6 @@ protocol AddTextPresenterInterface {
     func bottomButtonPushed()
     
     func textHasChanged(text:String)
-
 }
 
 protocol AddTextPresenterDelegate {
@@ -37,7 +36,7 @@ protocol AddTextPresenterDelegate {
     func updatePlayerOnView(composition:VideoComposition)
     
     func setTextToEditTextField(text:String)
-    func setImageTextToPlayer(image:UIImage)
+    func setSyncLayerToPlayer(layer:CALayer)
     
     func setSelectedTopButton(state:Bool)
     func setSelectedMidButton(state:Bool)

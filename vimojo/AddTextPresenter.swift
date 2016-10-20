@@ -8,6 +8,7 @@
 
 import Foundation
 import VideonaPlayer
+import AVFoundation
 
 class AddTextPresenter{
     var interactor:AddTextInteractorInterface?
@@ -37,11 +38,10 @@ extension AddTextPresenter:AddTextPresenterInterface{
     func viewDidLoad() {
         
         delegate?.bringToFrontExpandPlayerButton()
-        interactor?.getVideoParams()
-        
         interactor?.setUpComposition({composition in
             self.delegate?.updatePlayerOnView(composition)
         })
+        interactor?.getVideoParams()
     }
     
     func viewWillDissappear() {
@@ -150,9 +150,9 @@ extension AddTextPresenter:AddTextInteractorDelegate{
     func updateVideoList() {
         interactor?.getVideoParams()
     }
-    
-    func setTextImageToPlayer(image: UIImage) {
-        delegate?.setImageTextToPlayer(image)
+        
+    func setAVSyncLayerToPlayer(layer: CALayer) {
+        delegate?.setSyncLayerToPlayer(layer)
     }
 }
 

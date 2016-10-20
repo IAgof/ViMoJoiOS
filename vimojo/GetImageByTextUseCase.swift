@@ -14,18 +14,23 @@ class GetImageByTextUseCase {
     func getTextImage(text:String,
                       attributes:CATextLayerAttributes)->UIImage{
         
-        let horizontalOffset :CGFloat = 10.0
-        let frame = CGRectMake(horizontalOffset, 0, 1920, 1080)
+        let frame = CGRectMake(0, 0, 1920, 1080)
         
         let parentLayer = CALayer()
         parentLayer.frame = frame
         
         let textLayer = CATextLayer()
+        var originalString: String = text
+        let myString: NSString = originalString as NSString
+        let size: CGSize = myString.sizeWithAttributes([NSFontAttributeName: attributes.font])
+        
         textLayer.string = text
         textLayer.font = attributes.font
         textLayer.fontSize = attributes.fontSize
         
         textLayer.alignmentMode = attributes.horizontalAlignment.rawValue
+        textLayer.wrapped = true
+        textLayer.truncationMode = "middle"
         
         textLayer.frame = attributes.getFrameForString(frame)
         
