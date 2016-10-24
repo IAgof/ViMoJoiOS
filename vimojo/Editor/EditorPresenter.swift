@@ -264,8 +264,4 @@ class EditorPresenter: NSObject,EditorPresenterInterface,EditorInteractorDelegat
     func setComposition(composition: VideoComposition) {
         playerPresenter?.createVideoPlayer(composition)
     }
-    
-    func setTextLayersAnimatedToPlayer(layer: CALayer) {
-        playerPresenter?.setAVSyncLayer(layer)
-    }
 }

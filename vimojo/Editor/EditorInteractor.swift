@@ -38,10 +38,12 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
     func getComposition() {
         guard let actualProject = project else{return}
 
-        delegate?.setComposition(GetActualProjectAVCompositionUseCase.sharedInstance.getComposition(actualProject))
+        var videonaComposition = GetActualProjectAVCompositionUseCase().getComposition(actualProject)
         
         let layer = GetActualProjectTextCALayerAnimationUseCase().getCALayerAnimation(actualProject)
-        delegate?.setTextLayersAnimatedToPlayer(layer)
+        videonaComposition.layerAnimation = layer
+        
+        delegate?.setComposition(videonaComposition)
     }
     
     func getVideoList(){
@@ -96,7 +98,7 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         self.exportWithoutWaterMark(url, completionHandler: {
             path in
             
-            AddVideoToProjectUseCase.sharedInstance.add(path,
+            AddVideoToProjectUseCase().add(path,
                 title: "Video from library",
                 project: self.project!)
             

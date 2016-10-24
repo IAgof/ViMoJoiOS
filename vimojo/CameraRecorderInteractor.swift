@@ -35,7 +35,7 @@ class CameraRecorderInteractor{
         let clipPath = self.getNewClipPath(title)
         self.clipsArray.append(clipPath)
         
-        AddVideoToProjectUseCase.sharedInstance.add(clipPath,
+        AddVideoToProjectUseCase().add(clipPath,
                                                     title: title,
                                                     project: self.project!)
         
@@ -75,7 +75,7 @@ class CameraRecorderInteractor{
 
                 Utils().debugLog("Stop recording video")
                 
-                AddVideoToProjectUseCase.sharedInstance.updateVideoParams(self.project!)
+                AddVideoToProjectUseCase().updateVideoParams(self.project!)
                 ClipsAlbum.sharedInstance.saveVideo(clipURL)
                 
                 self.movieWriter!.endProcessing()

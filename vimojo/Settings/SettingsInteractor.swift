@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import AVFoundation
+import VideonaProject
 
 class SettingsInteractor: NSObject,SettingsInteractorInterface {
     

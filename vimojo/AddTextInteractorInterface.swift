@@ -18,8 +18,7 @@ protocol AddTextInteractorInterface {
     func setParametersToVideo(text:String,
                               position:Int)
     
-    func getTextImage(text:String)
-    func getAVSyncLayerToPlayer(text: String)
+    func getLayerToPlayer(text: String)
     func setAlignment(alignment:CATextLayerAttributes.VerticalAlignment,
                       text:String)
 }

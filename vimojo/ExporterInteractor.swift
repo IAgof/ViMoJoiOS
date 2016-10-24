@@ -64,7 +64,7 @@ class ExporterInteractor:NSObject{
         // 6 - Perform the Export
         exporter!.exportAsynchronouslyWithCompletionHandler() {
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.clipDuration = GetActualProjectAVCompositionUseCase.sharedInstance.compositionInSeconds
+                self.clipDuration = GetActualProjectAVCompositionUseCase().compositionInSeconds
                 
                 Utils().debugLog("la duracion del clip es \(self.clipDuration)")
                 completionHandler(exportPath,self.clipDuration)

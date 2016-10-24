@@ -97,8 +97,10 @@ class MusicListInteractor: MusicListInteractorInterface {
     
     func getVideoComposition() {
         if project != nil{
-            actualComposition = GetActualProjectAVCompositionUseCase.sharedInstance.getComposition(project!)
+            actualComposition = GetActualProjectAVCompositionUseCase().getComposition(project!)
             if actualComposition != nil {
+                let layer = GetActualProjectTextCALayerAnimationUseCase().getCALayerAnimation(project!)
+                actualComposition?.layerAnimation = layer
                 delegate?.setVideoComposition(actualComposition!)
             }
         }

@@ -10,7 +10,6 @@ import Foundation
 import VideonaProject
 import AVFoundation
 
-
 class AddTextInteractor: AddTextInteractorInterface {
     var delegate:AddTextInteractorDelegate?
     var project:Project?
@@ -48,7 +47,7 @@ class AddTextInteractor: AddTextInteractorInterface {
                       text:String){
         alignmentType = alignment
         
-        getTextImage(text)
+        getLayerToPlayer(text)
     }
     
     func getVideoParams() {
@@ -62,15 +61,7 @@ class AddTextInteractor: AddTextInteractorInterface {
                                  position: textPosition)
     }
     
-    func getTextImage(text: String) {
-        let alignmentAttributes = CATextLayerAttributes().getAlignmentAttributesByType(alignmentType)
-        
-        let image = GetImageByTextUseCase().getTextImage(text, attributes: alignmentAttributes)
-                
-        getAVSyncLayerToPlayer(text)
-    }
-    
-    func getAVSyncLayerToPlayer(text: String){
+    func getLayerToPlayer(text: String){
         let alignmentAttributes = CATextLayerAttributes().getAlignmentAttributesByType(alignmentType)
 
         let image = GetImageByTextUseCase().getTextImage(text, attributes: alignmentAttributes)

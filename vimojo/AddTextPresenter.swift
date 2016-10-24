@@ -128,7 +128,8 @@ extension AddTextPresenter:AddTextPresenterInterface{
     func textHasChanged(text: String) {
         textOnLabel = addLineBreakIfNeccesary(text)
 
-        interactor?.getTextImage(text)
+        interactor?.getLayerToPlayer(textOnLabel)
+        delegate?.setTextToEditTextField(textOnLabel)
     }
 }
 
@@ -143,7 +144,7 @@ extension AddTextPresenter:AddTextInteractorDelegate{
         
         selectButtonPushed(lastButtonPushed)
         
-        interactor?.getTextImage(text)
+        interactor?.getLayerToPlayer(text)
         delegate?.setTextToEditTextField(text)
     }
     

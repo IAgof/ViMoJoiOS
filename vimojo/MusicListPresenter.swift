@@ -145,5 +145,4 @@ extension MusicListPresenter:MusicListInteractorDelegate{
     func setVideoComposition(composition: VideoComposition) {
         playerPresenter?.createVideoPlayer(composition)
     }
-    
 }

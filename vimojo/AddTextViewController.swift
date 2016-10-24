@@ -17,11 +17,12 @@ class AddTextViewController: ViMoJoController {
     var playerHandler: PlayerPresenterInterface?
 
     let limitLength = 60
+    let MAX_LINES = 2
     
     @IBOutlet weak var topTextConfigButton: UIButton!
     @IBOutlet weak var midTextConfigButton: UIButton!
     @IBOutlet weak var bottomTextConfigButton: UIButton!
-    @IBOutlet weak var addTextTextField: UITextField!
+    @IBOutlet weak var addTextTextView: UITextView!
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var expandPlayerButton: UIButton!
 
@@ -37,16 +38,7 @@ class AddTextViewController: ViMoJoController {
     @IBAction func bottomTextButtonPushed(sender: AnyObject) {
         eventHandler?.bottomButtonPushed()
     }
-    
-    @IBAction func addTextTextfieldChanged(sender: AnyObject) {
-        guard let text = addTextTextField.text else{return}
-        eventHandler?.textHasChanged(text)
-    }
-    
-    @IBAction func addTextTouchOutside(sender: AnyObject) {
-        addTextTextField.resignFirstResponder()
-    }
-    
+        
     @IBAction func cancelButtonPushed(sender: AnyObject) {
         eventHandler?.pushCancelHandler()
     }
@@ -59,7 +51,10 @@ class AddTextViewController: ViMoJoController {
         eventHandler?.viewDidLoad()
         wireframe?.presentPlayerInterface()
         
-        addTextTextField.delegate = self
+        addTextTextView.textContainer.maximumNumberOfLines = MAX_LINES
+        addTextTextView.textContainer.lineBreakMode = .ByWordWrapping
+        
+        addTextTextView.delegate = self
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AddTextViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -115,7 +110,7 @@ extension AddTextViewController:AddTextPresenterDelegate{
     }
     
     func setTextToEditTextField(text: String) {
-        self.addTextTextField.text = text
+        self.addTextTextView.text = text
     }
         
     func setSyncLayerToPlayer(layer: CALayer) {
@@ -141,16 +136,20 @@ extension AddTextViewController:PlayerViewSetter{
     }
 }
 
-extension AddTextViewController:UITextFieldDelegate{
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange,
-                   replacementString string: String) -> Bool
-    {
+extension AddTextViewController:UITextViewDelegate{
+    func textViewDidChange(textView: UITextView) {
+        guard let text = addTextTextView.text else{return}
+        eventHandler?.textHasChanged(text)
+    }
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         let maxLength = 60
-        let currentString: NSString = textField.text!
-        let replaceString = addLineBreakIfNeccesary(string)
+        let currentString: NSString = textView.text!
+        let replaceString = addLineBreakIfNeccesary(text)
         
         let newString: NSString =
             currentString.stringByReplacingCharactersInRange(range, withString: replaceString)
+        
         return newString.length <= maxLength
     }
     
@@ -168,24 +167,19 @@ extension AddTextViewController:UITextFieldDelegate{
         }
         return text
     }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
 }
 
 //MARK: Keyboard handler
 extension AddTextViewController{
     func keyboardWillShow(notification: NSNotification) {
         if self.view.frame.origin.y == 0{
-            self.view.frame.origin.y -= addTextTextField.frame.height
+            self.view.frame.origin.y -= addTextTextView.frame.height
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y == (-addTextTextField.frame.height){
-            self.view.frame.origin.y += addTextTextField.frame.height
+        if self.view.frame.origin.y == (-addTextTextView.frame.height){
+            self.view.frame.origin.y += addTextTextView.frame.height
         }
     }
 

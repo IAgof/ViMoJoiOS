@@ -30,5 +30,4 @@ protocol EditorInteractorDelegate {
     func seekToTimeOfVideoSelectedReceiver(time:Float)
     
     func setComposition(composition:VideoComposition)
-    func setTextLayersAnimatedToPlayer(layer:CALayer)
 }
