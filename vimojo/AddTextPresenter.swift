@@ -14,7 +14,6 @@ class AddTextPresenter{
     var interactor:AddTextInteractorInterface?
     var delegate:AddTextPresenterDelegate?
     
-    var maxCharForLine = 30
     var videoSelectedIndex:Int!{
         didSet{
             interactor?.setVideoPosition(videoSelectedIndex)
@@ -126,7 +125,7 @@ extension AddTextPresenter:AddTextPresenterInterface{
     }
     
     func textHasChanged(text: String) {
-        textOnLabel = addLineBreakIfNeccesary(text)
+        textOnLabel = text
 
         interactor?.getLayerToPlayer(textOnLabel)
         delegate?.setTextToEditTextField(textOnLabel)
@@ -154,22 +153,5 @@ extension AddTextPresenter:AddTextInteractorDelegate{
         
     func setAVSyncLayerToPlayer(layer: CALayer) {
         delegate?.setSyncLayerToPlayer(layer)
-    }
-}
-
-//MARK: - Inner functions
-extension AddTextPresenter{
-    func addLineBreakIfNeccesary(text:String)->String{
-        if text.characters.count > maxCharForLine {
-            let nextLine = "\n"
-
-            let preText = text.substringWithRange(Range<String.Index>(start: text.startIndex, end: text.startIndex.advancedBy(maxCharForLine)))
-            let postText = text.substringWithRange(Range<String.Index>(start: text.startIndex.advancedBy(maxCharForLine), end: text.endIndex))
-            
-            let finalText = preText + nextLine + postText
-            
-            return finalText
-        }
-        return text
     }
 }
