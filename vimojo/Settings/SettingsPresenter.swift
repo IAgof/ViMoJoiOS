@@ -117,7 +117,33 @@ class SettingsPresenter:NSObject,SettingsPresenterInterface{
                                                                          textRef: Utils().getStringByKeyFromSettings(SettingsConstants().ABOUT_US_CONTENT))
 
             break
+           
+        case SettingsProvider().getStringForType(SettingsType.AboutUs):
+            detailTextWireframe?.presentShareInterfaceFromViewController((delegate?.getController())!,
+                                                                         textRef: Utils().getStringByKeyFromSettings(SettingsConstants().ABOUT_US_CONTENT))
             
+            break
+       //FTP
+        case SettingsProvider().getStringForType(SettingsType.HostFTP):
+            delegate?.createAlertViewWithInputText(SettingsConstants().HOST_FTP)
+   
+            break
+        case SettingsProvider().getStringForType(SettingsType.UsernameFTP):
+            delegate?.createAlertViewWithInputText(SettingsConstants().FTP_USERNAME)
+  
+            break
+        case SettingsProvider().getStringForType(SettingsType.PasswordFTP):
+            delegate?.createAlertViewWithInputText(SettingsConstants().PASSWORD_FTP)
+  
+            break
+        case SettingsProvider().getStringForType(SettingsType.EditedFTP):
+            delegate?.createAlertViewWithInputText(SettingsConstants().ENTER_EDITED_VIDEO_DESTINATION)
+            
+            break
+        case SettingsProvider().getStringForType(SettingsType.UneditedFTP):
+            delegate?.createAlertViewWithInputText(SettingsConstants().ENTER_UNEDITED_VIDEO_DESTINATION)
+            
+            break
         case SettingsProvider().getStringForType(SettingsType.Exit):
             delegate?.createAlertExit()
             break

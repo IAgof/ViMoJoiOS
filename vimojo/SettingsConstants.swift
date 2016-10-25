@@ -87,4 +87,24 @@ class SettingsConstants: NSObject {
     //MARK: - MORE CONSTANTS TO ORDER
     let VIDEONA_WEB = "videona_web"
     let MADE_IN = "madeIn"
+    
+    //MARK: - FTP SECTION
+    let FTP1_SECTION_TITLE = "title_FTP1_Section"
+    let FTP2_SECTION_TITLE = "title_FTP2_Section"
+    let HOST_FTP = "host_FTP"
+    let REMOVE_HOST = "removeHost"
+    let ENTER_HOST = "enterHost"
+    let FTP_USERNAME = "username_FTP"
+    let ENTER_USERNAME_FTP = "enterUsername_FTP"
+    let REMOVE_USERNAME_FTP = "removeUsername_FTP"
+    let PASSWORD_FTP = "password_FTP"
+    let ENTER_PASSWORD_FTP = "enterPassword_FTP"
+    let REMOVE_PASSWORD_FTP = "removePassword_FTP"
+    let EDITED_VIDEO_DESTINATION = "edited_video_destination"
+    let ENTER_EDITED_VIDEO_DESTINATION = "enterEditedVideoDestination_FTP"
+    let REMOVE_EDITED_VIDEO_DESTINATION = "removeEditedVideoDestination_FTP"
+    let UNEDITED_VIDEO_DESTINATION = "unedited_video_destination"
+    let ENTER_UNEDITED_VIDEO_DESTINATION = "enterUneditedVideoDestination_FTP"
+    let REMOVE_UNEDITED_VIDEO_DESTINATION = "removeUneditedVideoDestination_FTP"
+    let SAVE_FTP = "save_FTP"
 }

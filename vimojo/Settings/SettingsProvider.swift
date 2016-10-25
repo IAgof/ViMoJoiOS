@@ -10,61 +10,7 @@ import Foundation
 import AVFoundation
 
 class SettingsProvider:NSObject{
-
-    struct userInfo {
-        var name:String
-        var userName:String
-        var email:String
-        init(){
-            let defaults = NSUserDefaults.standardUserDefaults()
-
-            let nameSaved = defaults.stringForKey(SettingsConstants().SETTINGS_NAME)
-            if (nameSaved != nil){
-                name = nameSaved!
-            }else{
-                name = ""
-            }
-            
-            let userNameSaved = defaults.stringForKey(SettingsConstants().SETTINGS_USERNAME)
-            if (userNameSaved != nil){
-                userName = userNameSaved!
-            }else{
-                userName = ""
-            }
-            
-            let emailSaved = defaults.stringForKey(SettingsConstants().SETTINGS_MAIL)
-            if (emailSaved != nil){
-                email = emailSaved!
-            }else{
-                email = ""
-            }
-        }
-    }
     
-    struct cameraSettings {
-        var resolution:String
-        var quality:String
-        
-        init(){
-            let defaults = NSUserDefaults.standardUserDefaults()
-
-            let resolutionSaved = defaults.stringForKey(SettingsConstants().SETTINGS_RESOLUTION)
-            
-            if (resolutionSaved != nil){
-                resolution = AVResolutionParse().parseResolutionToView(resolutionSaved!)
-
-            }else{
-                resolution = AVResolutionParse().parseResolutionToView(AVCaptureSessionPreset1280x720)
-            }
-            
-            let qualitySaved = defaults.stringForKey(SettingsConstants().SETTINGS_QUALITY)
-            if (qualitySaved != nil){
-                quality = qualitySaved!
-            }else{
-                quality = ""
-            }
-        }
-    }
     func getSettings() ->Array<SettingsContent>{
         var settings = Array<SettingsContent>()
         let user = userInfo()
@@ -173,25 +119,4 @@ class SettingsProvider:NSObject{
             return Utils().getStringByKeyFromSettings(SettingsConstants().EXIT)
         }
     }
-}
-
-enum SettingsType {
-    case DownloadKamarada
-    case ShareVideona
-    case FollowUsOnTwitter
-
-    case NameAccount
-    case UserNameAccount
-    case emailAccount
-    
-    case Resolution
-    case Quality
-    
-    case AboutUs
-    case PrivacyPolicy
-    case TermsOfService
-    case Licenses
-    case LegalAdvice
-    
-    case Exit
 }

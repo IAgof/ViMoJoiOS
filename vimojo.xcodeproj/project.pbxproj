@@ -163,6 +163,10 @@
 		A9B3865A1D7D55340065D3EC /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386591D7D55340065D3EC /* RootWireframe.swift */; };
 		A9B3865F1D7D55660065D3EC /* ViMoJoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3865D1D7D55660065D3EC /* ViMoJoController.swift */; };
 		A9B386601D7D55660065D3EC /* ViMoJoInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3865E1D7D55660065D3EC /* ViMoJoInterface.swift */; };
+		A9B7F8DE1DBE509300F24E78 /* SettingsTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7F8DD1DBE509300F24E78 /* SettingsTypes.swift */; };
+		A9B7F8E01DBE56D300F24E78 /* SettingsUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7F8DF1DBE56D300F24E78 /* SettingsUserInfo.swift */; };
+		A9B7F8E21DBE56EE00F24E78 /* SettingsCameraSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7F8E11DBE56EE00F24E78 /* SettingsCameraSettings.swift */; };
+		A9B7F8E41DBE570400F24E78 /* SettingsFTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7F8E31DBE570400F24E78 /* SettingsFTP.swift */; };
 		A9C1675C1D92AB1C007EE697 /* MusicInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761291D916F53008915DA /* MusicInteractorInterface.swift */; };
 		A9C1675D1D92AB1C007EE697 /* FullScreenPlayerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760D51D9146FE008915DA /* FullScreenPlayerWireframe.swift */; };
 		A9C1675E1D92AB1C007EE697 /* EditorTextConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B41D9146BF008915DA /* EditorTextConstants.swift */; };
@@ -685,6 +689,10 @@
 		A9B386591D7D55340065D3EC /* RootWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootWireframe.swift; sourceTree = "<group>"; };
 		A9B3865D1D7D55660065D3EC /* ViMoJoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViMoJoController.swift; sourceTree = "<group>"; };
 		A9B3865E1D7D55660065D3EC /* ViMoJoInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViMoJoInterface.swift; sourceTree = "<group>"; };
+		A9B7F8DD1DBE509300F24E78 /* SettingsTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTypes.swift; sourceTree = "<group>"; };
+		A9B7F8DF1DBE56D300F24E78 /* SettingsUserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsUserInfo.swift; sourceTree = "<group>"; };
+		A9B7F8E11DBE56EE00F24E78 /* SettingsCameraSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCameraSettings.swift; sourceTree = "<group>"; };
+		A9B7F8E31DBE570400F24E78 /* SettingsFTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsFTP.swift; sourceTree = "<group>"; };
 		A9C167D91D92AB1C007EE697 /* Hispanopost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hispanopost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C167DA1D92AB1C007EE697 /* vimojo copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "vimojo copy-Info.plist"; path = "/Users/Alejandro/Desktop/Repos/Vimojo_second/vimojo copy-Info.plist"; sourceTree = "<absolute>"; };
 		A9C167DC1D92AF86007EE697 /* Hispanopost.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Hispanopost.xcassets; sourceTree = "<group>"; };
@@ -944,7 +952,6 @@
 		A93BCE491D7D5C6B00421BD0 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				A93BCE521D7D785100421BD0 /* SettingsConstants.swift */,
 				A93BCE4A1D7D5C7400421BD0 /* ConfigPreferences.swift */,
 				A93BCE4B1D7D5C7400421BD0 /* AnalitycsConstants.swift */,
 			);
@@ -993,9 +1000,10 @@
 			isa = PBXGroup;
 			children = (
 				A96441131DA3E59700CAD950 /* Settings.strings */,
-				A95BE9741D990A4A00602DCD /* SettingsContent.swift */,
+				A9B7F8DA1DBE508400F24E78 /* Model */,
 				A95BE9751D990A4A00602DCD /* SettingsInteractor.swift */,
 				A95BE9761D990A4A00602DCD /* SettingsInteractorInterface.swift */,
+				A93BCE521D7D785100421BD0 /* SettingsConstants.swift */,
 				A95BE97A1D990A4A00602DCD /* SettingsProvider.swift */,
 			);
 			name = AppLogic;
@@ -1387,6 +1395,18 @@
 				A9B386591D7D55340065D3EC /* RootWireframe.swift */,
 			);
 			name = "ViMoJo as Module";
+			sourceTree = "<group>";
+		};
+		A9B7F8DA1DBE508400F24E78 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A95BE9741D990A4A00602DCD /* SettingsContent.swift */,
+				A9B7F8DF1DBE56D300F24E78 /* SettingsUserInfo.swift */,
+				A9B7F8DD1DBE509300F24E78 /* SettingsTypes.swift */,
+				A9B7F8E11DBE56EE00F24E78 /* SettingsCameraSettings.swift */,
+				A9B7F8E31DBE570400F24E78 /* SettingsFTP.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		A9C167DE1D92AF86007EE697 /* HispanopostVariants */ = {
@@ -1997,6 +2017,7 @@
 				A91761341D916F53008915DA /* MusicInteractorInterface.swift in Sources */,
 				A94E11F61D941C84004A0E96 /* ResolutionsImages.swift in Sources */,
 				A988DF0A1DAD1E230030E285 /* MicRecorderInteractor.swift in Sources */,
+				A9B7F8E41DBE570400F24E78 /* SettingsFTP.swift in Sources */,
 				A91760DA1D9146FE008915DA /* FullScreenPlayerWireframe.swift in Sources */,
 				A91760BE1D9146BF008915DA /* EditorTextConstants.swift in Sources */,
 				A95BE99A1D990C4100602DCD /* DetailTextWireframe.swift in Sources */,
@@ -2053,6 +2074,7 @@
 				A9B3862B1D7D531B0065D3EC /* RecorderConstants.swift in Sources */,
 				A91760D81D9146FE008915DA /* FullScreenPlayerPresenterInterface.swift in Sources */,
 				A91760BD1D9146BF008915DA /* EditorPresenterInterface.swift in Sources */,
+				A9B7F8E01DBE56D300F24E78 /* SettingsUserInfo.swift in Sources */,
 				A988DF021DAD1DFC0030E285 /* MicRecorderViewController.swift in Sources */,
 				A9A419161DB5110C00FB642E /* AddTextViewController.swift in Sources */,
 				A91761121D916F48008915DA /* ShareCell.swift in Sources */,
@@ -2094,6 +2116,7 @@
 				A91761391D916F53008915DA /* MusicViewInterface.swift in Sources */,
 				A91761161D916F48008915DA /* ShareInstagramInteractor.swift in Sources */,
 				A95BE9941D990C4100602DCD /* DetailTextController.swift in Sources */,
+				A9B7F8DE1DBE509300F24E78 /* SettingsTypes.swift in Sources */,
 				A91761151D916F48008915DA /* ShareFacebookInteractor.swift in Sources */,
 				A9B3865A1D7D55340065D3EC /* RootWireframe.swift in Sources */,
 				A91761231D916F48008915DA /* SocialNetworkProvider.swift in Sources */,
@@ -2104,6 +2127,7 @@
 				A91760C11D9146BF008915DA /* EditorWireframe.swift in Sources */,
 				A95BE9831D990A4A00602DCD /* SettingsInteractorInterface.swift in Sources */,
 				A9B3863D1D7D53740065D3EC /* ThumbnailInteractor.swift in Sources */,
+				A9B7F8E21DBE56EE00F24E78 /* SettingsCameraSettings.swift in Sources */,
 				A988DEF01DACEF8E0030E285 /* MusicListInteractorInterface.swift in Sources */,
 				A9B3864E1D7D53BA0065D3EC /* RemoveFilterInteractor.swift in Sources */,
 				A9A419151DB5110C00FB642E /* AddTextWireframe.swift in Sources */,

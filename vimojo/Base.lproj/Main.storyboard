@@ -3151,7 +3151,7 @@
                                     <action selector="cancelButtonPushed:" destination="WAi-KM-zkg" eventType="touchUpInside" id="7Fq-nD-TSE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfI-Y3-JHt">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfI-Y3-JHt">
                                 <rect key="frame" x="561" y="558" width="19" height="22"/>
                                 <state key="normal" image="common_icon_edit_accept_normal"/>
                                 <state key="highlighted" image="common_icon_edit_accept_pressed"/>
@@ -3162,10 +3162,10 @@
                                     <action selector="acceptButtonPushed:" destination="WAi-KM-zkg" eventType="touchUpInside" id="vO3-r3-grc"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nNu-1f-FYH" customClass="PlayerView" customModule="Hispanopost" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nNu-1f-FYH" customClass="PlayerView" customModule="Hispanopost" customModuleProvider="target">
                                 <rect key="frame" x="8" y="52" width="584" height="329"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eE-Cq-Gw0">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eE-Cq-Gw0">
                                         <rect key="frame" x="232" y="8" width="24" height="24"/>
                                         <state key="normal" image="common_icon_expand"/>
                                     </button>
@@ -3180,13 +3180,13 @@
                                     <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="common_icon_play"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xTC-kA-uQv">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xTC-kA-uQv">
                                 <rect key="frame" x="8" y="388" width="584" height="167"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="fll-vH-1Ny">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="fll-vH-1Ny">
                                         <rect key="frame" x="8" y="8" width="111" height="27"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odN-af-dnm">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odN-af-dnm">
                                                 <rect key="frame" x="0.0" y="0.0" width="37" height="27"/>
                                                 <state key="normal" image="activity_text_top_normal"/>
                                                 <state key="selected" image="activity_text_top_pressed"/>
@@ -3198,7 +3198,7 @@
                                                     <action selector="topTextButtonPushed:" destination="WAi-KM-zkg" eventType="touchUpInside" id="nVF-SE-2Ni"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Gf-nI-phS">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Gf-nI-phS">
                                                 <rect key="frame" x="37" y="0.0" width="37" height="27"/>
                                                 <state key="normal" image="activity_text_center_normal"/>
                                                 <state key="selected" image="activity_text_center_pressed"/>
@@ -3210,7 +3210,7 @@
                                                     <action selector="midTextButtonPushed:" destination="WAi-KM-zkg" eventType="touchUpInside" id="1fv-ec-9Nm"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PvM-J9-yBn">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PvM-J9-yBn">
                                                 <rect key="frame" x="74" y="0.0" width="37" height="27"/>
                                                 <state key="normal" image="activity_text_lower_normal"/>
                                                 <state key="selected" image="activity_text_lower_pressed"/>
@@ -3224,7 +3224,7 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="w8y-LI-XhH">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="w8y-LI-XhH">
                                         <rect key="frame" x="8" y="51" width="576" height="53"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
