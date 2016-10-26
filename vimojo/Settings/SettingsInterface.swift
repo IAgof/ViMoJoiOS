@@ -9,19 +9,8 @@
 import Foundation
 import UIKit
 
-protocol SettingsInterface :ViMoJoInterface{
+protocol SettingsInterface {
     
     
-    func setListTitleAndSubtitleData(titleList: Array<Array<Array<String>>>)
-    func setSectionList(section: Array<String>)
-    func registerClass()
-    func reloadTableData()
-    func createAlertExit()
-    func removeSeparatorTable() 
-    func setNavBarTitle(title:String)
-    func createActiviyVCShareVideona(text:String)
-    func createAlertViewWithInputText(title:String)
-    func createActionSheetWithOptions(title:String,options:Array<String>,index:NSIndexPath)
-    func createAlertViewError(buttonText:String,message:String,title:String)
-    func addFooter()
+
 }

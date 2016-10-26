@@ -70,11 +70,6 @@ struct CameraResolution {
     }    
 }
 
-protocol AVResolutionParseInterface {
-    func resolutionsToView() -> Array<String>
-    func parseResolutionsToInteractor(textResolution:String) -> String
-}
-
 class AVResolutionParse: NSObject {
     var regularResolution = Utils().getStringByKeyFromSettings("regular_resolution_name")
     var mediumResolution =  Utils().getStringByKeyFromSettings("medium_resolution_name")

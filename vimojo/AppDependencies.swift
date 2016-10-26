@@ -257,7 +257,7 @@ class AppDependencies {
         settingsWireframe.settingsPresenter = settingsPresenter
         settingsWireframe.rootWireframe = rootWireframe
         
-        settingsInteractor.presenter = settingsPresenter
+        settingsInteractor.delegate = settingsPresenter
     
         //DETAIL TEXT MODULE
         detailTextPresenter.wireframe = detailTextWireframe
@@ -273,5 +273,9 @@ class AppDependencies {
   
     func installEditorRoomToRootViewControllerIntoWindow(window: UIWindow){
         editorRoomWireframe.presentEditingRoomInterfaceFromWindow(window)
+    }
+    
+    func installSettingsToRootViewControllerIntoWindow(window: UIWindow){
+        settingsWireframe.presentSettingsInterfaceFromWindow(window)
     }
 }

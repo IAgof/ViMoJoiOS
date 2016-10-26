@@ -12,21 +12,16 @@ protocol SettingsPresenterInterface {
     
     func pushBack()
     func viewDidLoad()
-    func itemListSelected(itemTitle:String,index:NSIndexPath)
-    func getInputFromAlert(settingsTitle:String,input:String)
+    func itemListSelected(index:NSIndexPath)
 }
 
 protocol SettingsPresenterDelegate{
-    func setListTitleAndSubtitleData(titleList: Array<Array<Array<String>>>)
-    func setSectionList(section: Array<String>)
     func registerClass()
     func reloadTableData()
-    func createAlertExit()
     func removeSeparatorTable()
     func setNavBarTitle(title:String)
-    func createActiviyVCShareVideona(text:String)
-    func createAlertViewWithInputText(title:String)
-    func createActionSheetWithOptions(title:String,options:Array<String>,index:NSIndexPath)
-    func createAlertViewError(buttonText:String,message:String,title:String)
     func addFooter()
+    
+    func setSectionsArray(sections:[String])
+    func setItems(items:[[SettingsViewModel]])
 }

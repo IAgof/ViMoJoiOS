@@ -8,54 +8,28 @@
 
 import Foundation
 
-class SettingsContent:NSObject{
-    var section:String = ""
+struct SettingsContent{
     var title:String = ""
     var subTitle:String = ""
     var detailText:String = ""
-    var priority:Int = 0
+    var action:SettingsActionInterface?
     
-    init(title:String, subTitle:String,section:String,priority:Int) {
+    init(title:String, subTitle:String,action:SettingsActionInterface) {
         self.title = title
         self.subTitle = subTitle
-        self.section = section
-        self.priority = priority
+        self.action = action
     }
     
-    init(title:String, section:String,priority:Int) {
+    init(title:String,action:SettingsActionInterface) {
         self.title = title
         self.subTitle = ""
-        self.section = section
-        self.priority = priority
+        self.action = action
     }
     
-    init(title:String, content:String,section:String,priority:Int) {
+    init(title:String, content:String,action:SettingsActionInterface) {
         self.title = title
         self.detailText = content
-        self.section = section
-        self.priority = priority
+        self.action = action
     }
     
-    func getSettingsTitle()->String{
-        return self.title
-    }
-    
-    func setSettingsTitle(title:String){
-        self.title = title
-    }
-    
-    func getSettingsSubtitle()->String{
-        return self.subTitle
-    }
-    
-    func setSettingsSubtitle(subTitle:String){
-        self.subTitle = subTitle
-    }
-    
-    func getSection()->String{
-        return section
-    }
-    func getPriority()->Int{
-        return priority
-    }
 }
