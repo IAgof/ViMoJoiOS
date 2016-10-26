@@ -16,26 +16,24 @@ class SettingsEmailAction: SettingsActionInterface {
         self.delegate = delegate
     }
     
-    func executeSettingsAction() {
-        let saveString = "Save"
+    func executeSettingsAction(index:NSIndexPath) {
+
         let title =  Utils().getStringByKeyFromSettings(SettingsConstants().ENTER_MAIL)
-        let message = Utils().getStringByKeyFromSettings(SettingsConstants().ENTER_MAIL)
         
         let alertController = SettingsUtils().createAlertViewWithInputText(title,
-                                                                           message: message,
-                                                                           buttonText: saveString,
+                                                                           message: "",
                                                                            completion: {
                                                                             text in
                                                                             
                                                                             if self.isValidEmail(text){
-                                                                                self.saveEmailOnDefaults(text)
+                                                                                self.saveOnDefaults(text)
                                                                             }else{
                                                                                 //TODO: Crear la alerta de email no vali
                                                                             }
         })
         
         let controller = UIApplication.topViewController()
-        if let settingsController = controller as? SettingsViewController {
+        if let settingsController = controller as? SettingsViewController {            
             settingsController.presentViewController(alertController, animated: true, completion: nil)
         }
     }
@@ -48,9 +46,8 @@ class SettingsEmailAction: SettingsActionInterface {
         return emailTest.evaluateWithObject(testStr)
     }
     
-    func saveEmailOnDefaults(saveString:String){ 
+    func saveOnDefaults(saveString:String){
         defaults.setObject(saveString, forKey: SettingsConstants().SETTINGS_MAIL)
-        let response = SettingsActionUpdateTableResponse()
-        delegate.executeFinished(response)
+        delegate.executeFinished()
     }
 }

@@ -10,24 +10,31 @@ import Foundation
 
 class SocialNetworkProvider:NSObject{
     
-    func getSocialNetworks() ->Array<SocialNetwork>{
+    func getSocialNetworks(delegate:ShareActionDelegate) ->Array<SocialNetwork>{
         var socialNetworks = Array<SocialNetwork>()
+        
         
         socialNetworks.append( SocialNetwork(iconId: "share_icon_facebook_normal",
             iconIdPressed: "share_icon_facebook_pressed",
-            title: "Facebook"))
+            title: "Facebook",
+            action: ShareFacebookInteractor(delegate: delegate)))
+        
         socialNetworks.append( SocialNetwork(iconId: "share_icon_instagram_normal",
             iconIdPressed: "share_icon_instagram_pressed",
-            title: "Instagram"))
+            title: "Instagram",
+            action: ShareInstagramInteractor(delegate: delegate)))
         socialNetworks.append(SocialNetwork(iconId: "share_icon_twitter_norma",
             iconIdPressed: "share_icon_twitter_pressed",
-            title: "Twitter"))
+            title: "Twitter",
+            action: ShareTwitterInteractor(delegate: delegate)))
         socialNetworks.append(SocialNetwork(iconId: "share_icon_whatsapp_normal",
             iconIdPressed: "share_icon_whatsapp_pressed",
-            title: "Whatsapp"))
+            title: "Whatsapp",
+            action: ShareWhatsappInteractor(delegate: delegate)))
         socialNetworks.append(SocialNetwork(iconId: "share_icon_youtube_normal",
             iconIdPressed: "share_icon_youtube_pressed",
-            title: "Youtube"))
+            title: "Youtube",
+            action: ShareYoutubeInteractor(delegate: delegate)))
         
         return socialNetworks
     }

@@ -10,23 +10,25 @@ import Foundation
 import UIKit
 
 class SocialNetwork:NSObject{
-    var iconId:String?
-    var iconIdPressed:String?
-    var title:String?
-    
-    init(iconId:String,iconIdPressed:String, title: String) {
+    var iconId:String
+    var iconIdPressed:String
+    var title:String
+    var action:ShareActionInterface
+
+    init(iconId:String,iconIdPressed:String, title: String,action:ShareActionInterface) {
         self.iconId = iconId
         self.title = title
         self.iconIdPressed = iconIdPressed
+        self.action = action
     }
     
     func getIconId()->String{
-        return iconId!
+        return iconId
     }
     func getIconIdPressed()->String{
-        return iconIdPressed!
+        return iconIdPressed
     }
     func getTitle()->String{
-        return title!
+        return title
     }
 }

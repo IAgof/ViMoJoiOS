@@ -14,7 +14,6 @@ class SettingsPresenter:NSObject,SettingsPresenterInterface{
     var interactor: SettingsInteractorInterface?
 
     var wireframe: SettingsWireframe?
-    var detailTextWireframe: DetailTextWireframe?
     var recordWireframe: RecordWireframe?
 
     let kamaradaAppleStoreURL = Utils().getStringByKeyFromSettings(SettingsConstants().KAMARADA_ITUNES_LINK)
@@ -53,5 +52,9 @@ extension SettingsPresenter:SettingsInteractorDelegate{
     
     func setSectionsToView(sections: [String]) {
         delegate?.setSectionsArray(sections)
+    }
+    
+    func goToDetailTextController(text:String){
+        wireframe?.presentDetailTextController(text)
     }
 }

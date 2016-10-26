@@ -11,9 +11,13 @@ import UIKit
 import VideonaProject
 
 protocol ShareInteractorInterface {
-    func findSocialNetworks()->(socialNetworkTitleArray:Array<String>, socialNetworkImageArray:Array<UIImage>,socialNetworkImagePressedArray:Array<UIImage>)
-    func shareVideo(socialNetworkTitle:String, videoPath:String)
+    func findSocialNetworks()
+    func shareVideo(indexPath:NSIndexPath, videoPath:String)
     func setShareMoviePath(moviePath:String)
     func postToYoutube(token:String)
     func getProject()->Project
+}
+
+protocol ShareInteractorDelegate{
+    func setShareObjectsToView(viewObjects:[ShareViewModel])
 }

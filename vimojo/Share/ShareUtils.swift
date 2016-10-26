@@ -10,40 +10,20 @@ import Foundation
 import Photos
 import VideonaProject
 
-class ShareSocialNetworkInteractor:NSObject{
-    var moviePath:String = ""
-    var socialName:String = ""
-    var alertController:UIAlertController?
-    var project:Project?
+class ShareUtils{
     
-    init(socialName:String){
-        if let path = project?.getExportedPath() {
-            self.moviePath = path
-        }
-        self.socialName = socialName
-    }
-    
-    func setShareMoviePath(moviePath:String){
-        self.moviePath = moviePath
-    }
-    
-    func getShareMovieURL()->NSURL{
-        return NSURL.init(fileURLWithPath: self.moviePath)
-    }
-    
-    func setAlertVideoUploadWaiting(){
+    func setAlertCompletionMessageOnTopView(socialName socialName:String,
+                                            message:String){
+        let alertController = UIAlertController(title: socialName, message: message, preferredStyle: .Alert)
         
-    }
-    func setAlertCompletionMessageOnTopView(message:String){
-        // create the alert
-        alertController = UIAlertController(title: socialName, message: message, preferredStyle: .Alert)
-        
-        // add the actions (buttons)
-        alertController!.addAction(UIAlertAction(title: Utils().getStringByKeyFromShare(ShareConstants().OK),
+        alertController.addAction(UIAlertAction(title: Utils().getStringByKeyFromShare(ShareConstants().OK),
             style: .Default, handler: nil))
         
-        // show the alert
-        self.getViewControllerOnTop().presentViewController(alertController!, animated: false, completion:{})
+        let controller = UIApplication.topViewController()
+        if let shareController = controller as? EditingRoomViewController {
+            shareController.presentViewController(alertController, animated: true, completion: nil)
+        }
+        
     }
     
     func getViewOnTop()->UIView{
@@ -55,22 +35,11 @@ class ShareSocialNetworkInteractor:NSObject{
             // topController should now be your topmost view controller
         }else{
             return (UIApplication.sharedApplication().keyWindow?.rootViewController)!.view
-        }    }
-    
-    func getViewControllerOnTop()->UIViewController{
-        if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
-            while let presentedViewController = topController.presentedViewController {
-                topController = presentedViewController
-            }
-            return topController
-            // topController should now be your topmost view controller
-        }else{
-            return (UIApplication.sharedApplication().keyWindow?.rootViewController)!
         }
     }
     
     func createAlertWaitToExport(){
-        alertController = UIAlertController(title: Utils().getStringByKeyFromShare(ShareConstants().UPLOADING_VIDEO),
+        let alertController = UIAlertController(title: Utils().getStringByKeyFromShare(ShareConstants().UPLOADING_VIDEO),
                                             message: Utils().getStringByKeyFromShare(ShareConstants().PLEASE_WAIT),
                                             preferredStyle: .Alert)
         
@@ -79,15 +48,19 @@ class ShareSocialNetworkInteractor:NSObject{
         activityIndicator.center = CGPointMake(130.5, 75.5);
         activityIndicator.startAnimating()
         
-        alertController?.view.addSubview(activityIndicator)
-        self.getViewControllerOnTop().presentViewController(alertController!, animated: false, completion:{})
+        alertController.view.addSubview(activityIndicator)
+        
+        let controller = UIApplication.topViewController()
+        if let shareController = controller as? EditingRoomViewController {
+            shareController.presentViewController(alertController, animated: true, completion: nil)
+        }
     }
     
     func dissmissAlertWaitToExport(completion:()->Void){
-        alertController?.dismissViewControllerAnimated(true, completion: {
-            print("can go to next screen")
-            completion()
-        })
+//        alertController?.dismissViewControllerAnimated(true, completion: {
+//            print("can go to next screen")
+//            completion()
+//        })
     }
     
     func getLastAsset() -> PHAsset

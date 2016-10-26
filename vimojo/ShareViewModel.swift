@@ -1,5 +1,5 @@
 //
-//  SettingsActionUpdateTableResponse.swift
+//  ShareViewModel.swift
 //  vimojo
 //
 //  Created by Alejandro Arjonilla Garcia on 26/10/16.
@@ -8,6 +8,8 @@
 
 import Foundation
 
-class SettingsActionUpdateTableResponse:SettingsActionResponse {
-    
+struct ShareViewModel {
+    let icon:UIImage
+    let iconPressed:UIImage
+    let title:String
 }

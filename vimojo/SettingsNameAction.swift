@@ -16,17 +16,14 @@ class SettingsNameAction: SettingsActionInterface {
         self.delegate = delegate
     }
     
-    func executeSettingsAction() {
-        let saveString = "Save"
+    func executeSettingsAction(index:NSIndexPath) {
         let title =  Utils().getStringByKeyFromSettings(SettingsConstants().ENTER_NAME)
-        let message = Utils().getStringByKeyFromSettings(SettingsConstants().ENTER_NAME)
         
         let alertController = SettingsUtils().createAlertViewWithInputText(title,
-                                                                           message: message,
-                                                                           buttonText: saveString,
+                                                                           message: "",
                                                                            completion: {
                                                                             text in
-                                                                            self.saveNameOnDefaults(text)
+                                                                            self.saveOnDefaults(text)
         })
         
         let controller = UIApplication.topViewController()
@@ -35,9 +32,8 @@ class SettingsNameAction: SettingsActionInterface {
         }
     }
         
-    func saveNameOnDefaults(saveString:String){ 
+    func saveOnDefaults(saveString:String){ 
         defaults.setObject(saveString, forKey: SettingsConstants().SETTINGS_NAME)
-        let response = SettingsActionUpdateTableResponse()
-        delegate.executeFinished(response)
+        delegate.executeFinished()
     }
 }

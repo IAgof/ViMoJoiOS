@@ -95,9 +95,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
             sourceApplication: sourceApplication,
             annotation: annotation)
         
-        return GIDSignIn.sharedInstance().handleURL(url,
-                                                    sourceApplication: sourceApplication,
-                                                    annotation: annotation)
+//        return GIDSignIn.sharedInstance().handleURL(url,
+//                                                    sourceApplication: sourceApplication,
+//                                                    annotation: annotation)
     }
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
                 withError error: NSError!) {
@@ -155,12 +155,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
             
             trackAppStartupProperties(false);
             
-//            appDependencies.installRecordToRootViewControllerIntoWindow(window!)
+            appDependencies.installRecordToRootViewControllerIntoWindow(window!)
             
             //            Test other views on root
             //            appDependencies.installIntroToRootViewControllerIntoWindow(window!)
-            appDependencies.installSettingsToRootViewControllerIntoWindow(window!)
-            //            appDependencies.installShareToRootViewControllerIntoWindow(window!)
+//            appDependencies.installSettingsToRootViewControllerIntoWindow(window!)
+//                        appDependencies.installShareToRootViewControllerIntoWindow(window!)
 //                        appDependencies.installEditorRoomToRootViewControllerIntoWindow(window!)
             //            appDependencies.installDuplicateRoomToRootViewControllerIntoWindow(window!)
             //            appDependencies.installSplitRoomToRootViewControllerIntoWindow(window!)

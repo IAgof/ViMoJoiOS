@@ -11,10 +11,10 @@ import Foundation
 import VideonaPlayer
 import GoogleSignIn
 
-class ShareViewController: ViMoJoController,ShareInterface ,PlayerViewSetter,SharePresenterDelegate,
+class ShareViewController: ViMoJoController,PlayerViewSetter,
 UINavigationBarDelegate ,
-UITableViewDelegate, UITableViewDataSource,
-GIDSignInUIDelegate,GIDSignInDelegate,FullScreenWireframeDelegate{
+UITableViewDelegate, UITableViewDataSource
+,FullScreenWireframeDelegate{
     
     //MARK: - VIPER
     var eventHandler: SharePresenterInterface?
@@ -25,9 +25,7 @@ GIDSignInUIDelegate,GIDSignInDelegate,FullScreenWireframeDelegate{
     
     let reuseIdentifierCell = "shareCell"
     let shareNibName = "ShareCell"
-    var listImages = Array<UIImage>()
-    var listImagesPressed = Array<UIImage>()
-    var listTitles = Array<String>()
+    var displayShareObjects:[ShareViewModel] = []
     var token:String!
 
     var exportPath: String? {
@@ -82,17 +80,6 @@ GIDSignInUIDelegate,GIDSignInDelegate,FullScreenWireframeDelegate{
         //        settingsNavBar.title = title
     }
     
-    func setTitleList(titleList: Array<String>) {
-        self.listTitles = titleList
-    }
-    
-    func setImageList(imageList: Array<UIImage>) {
-        self.listImages = imageList
-    }
-    func setImagePressedList(imageList: Array<UIImage>) {
-        self.listImagesPressed = imageList
-    }
-    
     func removeSeparatorTable() {
         shareTableView.separatorStyle = .None
     }
@@ -111,15 +98,15 @@ GIDSignInUIDelegate,GIDSignInDelegate,FullScreenWireframeDelegate{
     //MARK: - UITableView Datasource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
-        return listTitles.count
+        return displayShareObjects.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // get a reference to our storyboard cell
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifierCell) as! ShareCell
         
-        cell.shareTitle!.text = listTitles[indexPath.item]
-        cell.shareImage!.image = listImages[indexPath.item]
+        cell.shareTitle!.text = displayShareObjects[indexPath.item].title
+        cell.shareImage!.image = displayShareObjects[indexPath.item].icon
         
         return cell
     }
@@ -128,19 +115,19 @@ GIDSignInUIDelegate,GIDSignInDelegate,FullScreenWireframeDelegate{
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! ShareCell
         
         cell.shareTitle!.textColor = VIMOJO_GREEN_UICOLOR
-        cell.shareImage!.image = listImagesPressed[indexPath.item]
+        cell.shareImage!.image = displayShareObjects[indexPath.item].iconPressed
     }
     
     func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! ShareCell
         
         cell.shareTitle!.textColor = UIColor.darkGrayColor()
-        cell.shareImage!.image = listImages[indexPath.item]
+        cell.shareImage!.image = displayShareObjects[indexPath.item].icon
         
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let height = listImages[indexPath.item].size.height
+        let height = displayShareObjects[indexPath.item].icon.size.height
         Utils.sharedInstance.debugLog("Height for social = \(height)")
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad
         {
@@ -153,54 +140,12 @@ GIDSignInUIDelegate,GIDSignInDelegate,FullScreenWireframeDelegate{
     //MARK: - UITableView Delegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        print(self.playerView.subviews)
+        print("You selected in position #\(indexPath.item)\n filter name: \(displayShareObjects[indexPath.item])")
         
-        print("You selected in position #\(indexPath.item)\n filter name: \(listTitles[indexPath.item])")
         tableView.cellForRowAtIndexPath(indexPath)?.selected = false
-        eventHandler?.pushShare(listTitles[indexPath.item])
+        eventHandler?.pushShare(indexPath)
     }
     
-    //MARK: - Google methods
-    
-    // Stop the UIActivityIndicatorView animation that was started when the user
-    // pressed the Sign In button
-    func signInWillDispatch(signIn: GIDSignIn!, error: NSError!) {
-        //        myActivityIndicator.stopAnimating()
-    }
-    
-    // Present a view that prompts the user to sign in with Google
-    func signIn(signIn: GIDSignIn!,
-                presentViewController viewController: UIViewController!) {
-        
-        self.presentViewController(viewController, animated: false, completion: nil)
-        
-        Utils().debugLog("SignIn")
-    }
-    
-    // Dismiss the "Sign in with Google" view
-    func signIn(signIn: GIDSignIn!,
-                dismissViewController viewController: UIViewController!) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-        
-        Utils().debugLog("SignIn Dissmiss")
-        
-    }
-    
-    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
-        Utils().debugLog("Google Sign In get user token")
-        
-        //Error control
-        if (error == nil) {
-            token = user.authentication.accessToken
-            
-            Utils().debugLog("Google Sign In get user token: \(token))")
-            
-            eventHandler!.postToYoutube(token)
-        } else {
-            Utils().debugLog("\(error.localizedDescription)")
-        }
-    }
-
     func cameFromFullScreenPlayer(playerView:PlayerView){
         self.playerView.addSubview(playerView)
         self.playerView.bringSubviewToFront(expandPlayerButton)
@@ -211,7 +156,9 @@ GIDSignInUIDelegate,GIDSignInDelegate,FullScreenWireframeDelegate{
     func addPlayerAsSubview(player: PlayerView) {
         self.playerView.addSubview(player)
     }
-    
+}
+
+extension ShareViewController:SharePresenterDelegate{
     //Presenter delegate
     func showShareGeneric(moviePath:String) {
         
@@ -222,22 +169,18 @@ GIDSignInUIDelegate,GIDSignInDelegate,FullScreenWireframeDelegate{
         
         activityVC.setValue("Video", forKey: "subject")
         
+        activityVC.excludedActivityTypes = [UIActivityTypeAirDrop, UIActivityTypeAddToReadingList, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypeOpenInIBooks, UIActivityTypePostToTencentWeibo, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint]
         
-        //New Excluded Activities Code
-        if #available(iOS 9.0, *) {
-            activityVC.excludedActivityTypes = [UIActivityTypeAirDrop, UIActivityTypeAddToReadingList, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypeOpenInIBooks, UIActivityTypePostToTencentWeibo, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint]
-        } else {
-            // Fallback on earlier versions
-            activityVC.excludedActivityTypes = [UIActivityTypeAirDrop, UIActivityTypeAddToReadingList, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypePostToTencentWeibo, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint ]
-        }
         
         if (activityVC.popoverPresentationController != nil) {
             activityVC.popoverPresentationController!.sourceView = shareGenericButton
         }
         
         self.presentViewController(activityVC, animated: false, completion: nil)
-        
-        
     }
-
+    
+    func setShareViewObjectsList(viewObjects: [ShareViewModel]){
+        self.displayShareObjects = viewObjects
+        shareTableView.reloadData()
+    }
 }

@@ -14,16 +14,11 @@ import VideonaProject
 
 class SharePresenter:NSObject,SharePresenterInterface{
     
-    var controller: ShareInterface?
     var interactor: ShareInteractorInterface?
     var playerPresenter: PlayerPresenterInterface?
     var delegate:SharePresenterDelegate?
 
     var wireframe: ShareWireframe?
-    var playerWireframe: PlayerWireframe?
-    var recordWireframe: RecordWireframe?
-
-    var fullScreenPlayerWireframe: FullScreenPlayerWireframe?
     
     var videoPath = ""
     var numberOfClips = 0
@@ -31,16 +26,16 @@ class SharePresenter:NSObject,SharePresenterInterface{
 
     //LifeCicle
     func viewDidLoad() {
-        controller!.createShareInterface()
-        controller?.setNavBarTitle(Utils().getStringByKeyFromShare(ShareConstants().SHARE_YOUR_VIDEO))
+        delegate!.createShareInterface()
+        delegate?.setNavBarTitle(Utils().getStringByKeyFromShare(ShareConstants().SHARE_YOUR_VIDEO))
         
         wireframe?.presentPlayerInterface()
         
         playerPresenter?.createVideoPlayer(videoPath)
-        self.getListData()
+        interactor?.findSocialNetworks()
         
-        controller?.bringToFrontExpandPlayerButton()
-        controller?.removeSeparatorTable()
+        delegate?.bringToFrontExpandPlayerButton()
+        delegate?.removeSeparatorTable()
     }
     
     func viewWillDisappear() {
@@ -68,33 +63,15 @@ class SharePresenter:NSObject,SharePresenterInterface{
     }
     
     func expandPlayer(){
-        fullScreenPlayerWireframe?.presentFullScreenPlayerFromViewController((controller?.getController())!,playerView: (playerWireframe?.presentedView)!)
+        wireframe?.presentExpandPlayer()
         isGoingToExpandPlayer = true
     }
     
-    func getListData (){
-       let socialNetworks = interactor?.findSocialNetworks()
+    func pushShare(indexPath:NSIndexPath){
+        interactor?.shareVideo(indexPath, videoPath: videoPath)
         
-        self.setListImageData((socialNetworks?.socialNetworkImageArray)!)
-        self.setListTitleData((socialNetworks?.socialNetworkTitleArray)!)
-        self.setListImagePressedData((socialNetworks?.socialNetworkImagePressedArray)!)
-    }
-    
-    func setListTitleData(titleArray:Array<String>){
-        controller?.setTitleList(titleArray)
-    }
-    
-    func setListImageData(imageArray:Array<UIImage>){
-        controller?.setImageList(imageArray)
-    }
-    
-    func setListImagePressedData(imageArray:Array<UIImage>){
-        controller?.setImagePressedList(imageArray)
-    }
-    func pushShare(socialNetwork: String) {
-        interactor?.shareVideo(socialNetwork, videoPath: videoPath)
-        
-        trackVideoShared(socialNetwork)
+        //TODO: Hacer algo con el interactor delegate para hacerle el tracking
+        //        trackVideoShared(socialNetwork)
     }
     
     func postToYoutube(token:String){
@@ -116,5 +93,11 @@ class SharePresenter:NSObject,SharePresenterInterface{
         ViMoJoTracker.sharedInstance.trackVideoShared(socialNetworkName,
                                                         videoDuration: duration,
                                                         numberOfClips: numberOfClips)
+    }
+}
+
+extension SharePresenter:ShareInteractorDelegate{
+    func setShareObjectsToView(viewObjects: [ShareViewModel]){
+        delegate?.setShareViewObjectsList(viewObjects)
     }
 }

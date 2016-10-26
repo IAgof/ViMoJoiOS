@@ -16,4 +16,5 @@ protocol SettingsInteractorInterface {
 protocol SettingsInteractorDelegate {
     func setSectionsToView(sections:[String])
     func setSettingsItemsView(items:[[SettingsViewModel]])
+    func goToDetailTextController(text:String)
 }

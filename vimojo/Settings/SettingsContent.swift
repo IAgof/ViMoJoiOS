@@ -11,7 +11,6 @@ import Foundation
 struct SettingsContent{
     var title:String = ""
     var subTitle:String = ""
-    var detailText:String = ""
     var action:SettingsActionInterface?
     
     init(title:String, subTitle:String,action:SettingsActionInterface) {
@@ -25,11 +24,4 @@ struct SettingsContent{
         self.subTitle = ""
         self.action = action
     }
-    
-    init(title:String, content:String,action:SettingsActionInterface) {
-        self.title = title
-        self.detailText = content
-        self.action = action
-    }
-    
 }

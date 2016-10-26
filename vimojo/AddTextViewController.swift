@@ -208,10 +208,10 @@ extension AddTextViewController:UITextViewDelegate{
         let nextLine = "\n"
         
         let preText = text.substringWithRange(Range<String.Index>(start: text.startIndex, end: linebreakPosition.startIndex))
-        var postText = text.substringWithRange(Range<String.Index>(start: linebreakPosition.endIndex, end: text.endIndex))
+        let postText = text.substringWithRange(Range<String.Index>(start: linebreakPosition.endIndex, end: text.endIndex))
         
         if postText.characters.count >  maxCharForLine{
-            var postText = postText.substringWithRange(Range<String.Index>(start: postText.startIndex, end: postText.startIndex.advancedBy(maxCharForLine)))
+            let postText = postText.substringWithRange(Range<String.Index>(start: postText.startIndex, end: postText.startIndex.advancedBy(maxCharForLine)))
             
             return (preText + nextLine + postText)
         }

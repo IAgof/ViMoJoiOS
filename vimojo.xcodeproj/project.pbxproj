@@ -49,10 +49,9 @@
 		A91761161D916F48008915DA /* ShareInstagramInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761011D916F48008915DA /* ShareInstagramInteractor.swift */; };
 		A91761171D916F48008915DA /* ShareInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761021D916F48008915DA /* ShareInteractor.swift */; };
 		A91761181D916F48008915DA /* ShareInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761031D916F48008915DA /* ShareInteractorInterface.swift */; };
-		A91761191D916F48008915DA /* ShareInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761041D916F48008915DA /* ShareInterface.swift */; };
 		A917611A1D916F48008915DA /* SharePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761051D916F48008915DA /* SharePresenter.swift */; };
 		A917611B1D916F48008915DA /* SharePresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761061D916F48008915DA /* SharePresenterInterface.swift */; };
-		A917611C1D916F48008915DA /* ShareSocialNetworkInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761071D916F48008915DA /* ShareSocialNetworkInteractor.swift */; };
+		A917611C1D916F48008915DA /* ShareUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761071D916F48008915DA /* ShareUtils.swift */; };
 		A917611D1D916F48008915DA /* ShareTwitterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761081D916F48008915DA /* ShareTwitterInteractor.swift */; };
 		A917611E1D916F48008915DA /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761091D916F48008915DA /* ShareViewController.swift */; };
 		A917611F1D916F48008915DA /* ShareWhatsappInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917610A1D916F48008915DA /* ShareWhatsappInteractor.swift */; };
@@ -111,15 +110,22 @@
 		A95BE99A1D990C4100602DCD /* DetailTextWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9931D990C4100602DCD /* DetailTextWireframe.swift */; };
 		A964410D1DA3015B00CAD950 /* EditorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A964410C1DA3015B00CAD950 /* EditorModel.swift */; };
 		A96441111DA3E59700CAD950 /* Settings.strings in Resources */ = {isa = PBXBuildFile; fileRef = A96441131DA3E59700CAD950 /* Settings.strings */; };
+		A9645EA21DC0D27D000944CB /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9645EA11DC0D27D000944CB /* SettingsModel.swift */; };
+		A9645EA41DC0D298000944CB /* ShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9645EA31DC0D298000944CB /* ShareViewModel.swift */; };
 		A9693B7D1DB7C8CD00B00DD1 /* AddTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9693B7C1DB7C8CD00B00DD1 /* AddTextModel.swift */; };
 		A96E15F01DA257A400CF81E8 /* MusicModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96E15EF1DA257A400CF81E8 /* MusicModels.swift */; };
 		A97F0F1B1DC08E0400907196 /* SettingsProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F1A1DC08E0400907196 /* SettingsProviderTests.swift */; };
-		A97F0F211DC0919800907196 /* SettingsActionUpdateTableResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F201DC0919800907196 /* SettingsActionUpdateTableResponse.swift */; };
 		A97F0F231DC092A100907196 /* UIApplicationExtensionGetTopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F221DC092A100907196 /* UIApplicationExtensionGetTopController.swift */; };
 		A97F0F251DC092C800907196 /* SettingsNameAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F241DC092C800907196 /* SettingsNameAction.swift */; };
 		A97F0F281DC0937300907196 /* SettingsEmailAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F271DC0937300907196 /* SettingsEmailAction.swift */; };
 		A97F0F2D1DC099BE00907196 /* SettingsQualityAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F2C1DC099BE00907196 /* SettingsQualityAction.swift */; };
-		A97F0F2F1DC0A6B700907196 /* SaveResolutionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F2E1DC0A6B700907196 /* SaveResolutionAction.swift */; };
+		A97F0F2F1DC0A6B700907196 /* SettingsResolutionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F2E1DC0A6B700907196 /* SettingsResolutionAction.swift */; };
+		A97F0F311DC0AD5A00907196 /* SettingsDetailTextAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F301DC0AD5A00907196 /* SettingsDetailTextAction.swift */; };
+		A97F0F351DC0B77500907196 /* SettingsFTPHostAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F341DC0B77500907196 /* SettingsFTPHostAction.swift */; };
+		A97F0F371DC0BDF600907196 /* SettingsFTPUsernameAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F361DC0BDF600907196 /* SettingsFTPUsernameAction.swift */; };
+		A97F0F3B1DC0BE8000907196 /* SettingsFTPPasswordAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F3A1DC0BE8000907196 /* SettingsFTPPasswordAction.swift */; };
+		A97F0F3D1DC0BEBF00907196 /* SettingsFTPEditedDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F3C1DC0BEBF00907196 /* SettingsFTPEditedDestination.swift */; };
+		A97F0F3F1DC0BEEF00907196 /* SettingsFTPUneditedDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F3E1DC0BEEF00907196 /* SettingsFTPUneditedDestination.swift */; };
 		A988DEEE1DACEF800030E285 /* MusicListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DEED1DACEF800030E285 /* MusicListInteractor.swift */; };
 		A988DEF01DACEF8E0030E285 /* MusicListInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DEEF1DACEF8E0030E285 /* MusicListInteractorInterface.swift */; };
 		A988DEF21DACEF9B0030E285 /* MusicListPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DEF11DACEF9B0030E285 /* MusicListPresenterInterface.swift */; };
@@ -139,6 +145,7 @@
 		A9A419181DB5110C00FB642E /* AddTextPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A419121DB5110C00FB642E /* AddTextPresenter.swift */; };
 		A9A419191DB5110C00FB642E /* AddTextInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A419131DB5110C00FB642E /* AddTextInteractorInterface.swift */; };
 		A9A4191A1DB5110C00FB642E /* AddTextInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A419141DB5110C00FB642E /* AddTextInteractor.swift */; };
+		A9AE3A4F1DC0CFA300A5A878 /* ShareActionInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AE3A4E1DC0CFA300A5A878 /* ShareActionInterface.swift */; };
 		A9B385EA1D7D51380065D3EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B385E91D7D51380065D3EC /* AppDelegate.swift */; };
 		A9B385EF1D7D51380065D3EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B385ED1D7D51380065D3EC /* Main.storyboard */; };
 		A9B385F11D7D51380065D3EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9B385F01D7D51380065D3EC /* Assets.xcassets */; };
@@ -170,7 +177,6 @@
 		A9B3865A1D7D55340065D3EC /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386591D7D55340065D3EC /* RootWireframe.swift */; };
 		A9B3865F1D7D55660065D3EC /* ViMoJoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3865D1D7D55660065D3EC /* ViMoJoController.swift */; };
 		A9B386601D7D55660065D3EC /* ViMoJoInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3865E1D7D55660065D3EC /* ViMoJoInterface.swift */; };
-		A9B7F8DE1DBE509300F24E78 /* SettingsTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7F8DD1DBE509300F24E78 /* SettingsTypes.swift */; };
 		A9B7F8E01DBE56D300F24E78 /* SettingsUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7F8DF1DBE56D300F24E78 /* SettingsUserInfo.swift */; };
 		A9B7F8E21DBE56EE00F24E78 /* SettingsCameraSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7F8E11DBE56EE00F24E78 /* SettingsCameraSettings.swift */; };
 		A9B7F8E41DBE570400F24E78 /* SettingsFTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7F8E31DBE570400F24E78 /* SettingsFTP.swift */; };
@@ -221,7 +227,6 @@
 		A9C1678A1D92AB1C007EE697 /* ShareYoutubeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917610C1D916F48008915DA /* ShareYoutubeInteractor.swift */; };
 		A9C1678B1D92AB1C007EE697 /* EditingRoomInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A21D9146B5008915DA /* EditingRoomInteractorInterface.swift */; };
 		A9C1678C1D92AB1C007EE697 /* CameraRecorderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386511D7D53D10065D3EC /* CameraRecorderInteractor.swift */; };
-		A9C1678D1D92AB1C007EE697 /* ShareInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761041D916F48008915DA /* ShareInterface.swift */; };
 		A9C1678E1D92AB1C007EE697 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B385E91D7D51380065D3EC /* AppDelegate.swift */; };
 		A9C1678F1D92AB1C007EE697 /* TimerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3863F1D7D53880065D3EC /* TimerInteractor.swift */; };
 		A9C167901D92AB1C007EE697 /* ShareConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760FF1D916F48008915DA /* ShareConstants.swift */; };
@@ -261,7 +266,7 @@
 		A9C167B21D92AB1C007EE697 /* AddFilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3864A1D7D53BA0065D3EC /* AddFilterInteractor.swift */; };
 		A9C167B31D92AB1C007EE697 /* TimerInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386401D7D53880065D3EC /* TimerInteractorInterface.swift */; };
 		A9C167B41D92AB1C007EE697 /* FullScreenPlayerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760D11D9146FE008915DA /* FullScreenPlayerInterface.swift */; };
-		A9C167B61D92AB1C007EE697 /* ShareSocialNetworkInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761071D916F48008915DA /* ShareSocialNetworkInteractor.swift */; };
+		A9C167B61D92AB1C007EE697 /* ShareUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761071D916F48008915DA /* ShareUtils.swift */; };
 		A9C167B71D92AB1C007EE697 /* TwitterVideoUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = A91761101D916F48008915DA /* TwitterVideoUpload.m */; };
 		A9C167B81D92AB1C007EE697 /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917612D1D916F53008915DA /* MusicViewController.swift */; };
 		A9C167B91D92AB1C007EE697 /* EditorInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B11D9146BF008915DA /* EditorInteractorInterface.swift */; };
@@ -334,7 +339,6 @@
 		A9C1681B1D92C667007EE697 /* ShareYoutubeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917610C1D916F48008915DA /* ShareYoutubeInteractor.swift */; };
 		A9C1681C1D92C667007EE697 /* EditingRoomInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A21D9146B5008915DA /* EditingRoomInteractorInterface.swift */; };
 		A9C1681D1D92C667007EE697 /* CameraRecorderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386511D7D53D10065D3EC /* CameraRecorderInteractor.swift */; };
-		A9C1681E1D92C667007EE697 /* ShareInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761041D916F48008915DA /* ShareInterface.swift */; };
 		A9C1681F1D92C667007EE697 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B385E91D7D51380065D3EC /* AppDelegate.swift */; };
 		A9C168201D92C667007EE697 /* TimerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3863F1D7D53880065D3EC /* TimerInteractor.swift */; };
 		A9C168211D92C667007EE697 /* ShareConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760FF1D916F48008915DA /* ShareConstants.swift */; };
@@ -374,7 +378,7 @@
 		A9C168431D92C667007EE697 /* AddFilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3864A1D7D53BA0065D3EC /* AddFilterInteractor.swift */; };
 		A9C168441D92C667007EE697 /* TimerInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386401D7D53880065D3EC /* TimerInteractorInterface.swift */; };
 		A9C168451D92C667007EE697 /* FullScreenPlayerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760D11D9146FE008915DA /* FullScreenPlayerInterface.swift */; };
-		A9C168471D92C667007EE697 /* ShareSocialNetworkInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761071D916F48008915DA /* ShareSocialNetworkInteractor.swift */; };
+		A9C168471D92C667007EE697 /* ShareUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761071D916F48008915DA /* ShareUtils.swift */; };
 		A9C168481D92C667007EE697 /* TwitterVideoUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = A91761101D916F48008915DA /* TwitterVideoUpload.m */; };
 		A9C168491D92C667007EE697 /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917612D1D916F53008915DA /* MusicViewController.swift */; };
 		A9C1684A1D92C667007EE697 /* EditorInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B11D9146BF008915DA /* EditorInteractorInterface.swift */; };
@@ -414,7 +418,6 @@
 		A9FDD8BD1DAD3D5F00AB0930 /* MixAudioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9FDD8BC1DAD3D5F00AB0930 /* MixAudioView.xib */; };
 		A9FEF9781DBF8B0A00A56611 /* SettingsActionInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FEF9771DBF8B0A00A56611 /* SettingsActionInterface.swift */; };
 		A9FEF97C1DBF8B3A00A56611 /* SettingsUsernameAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FEF97B1DBF8B3A00A56611 /* SettingsUsernameAction.swift */; };
-		A9FEF97E1DBF99EF00A56611 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FEF97D1DBF99EF00A56611 /* SettingsViewModel.swift */; };
 		A9FEF9801DBF9CB400A56611 /* SettingsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FEF97F1DBF9CB400A56611 /* SettingsUtils.swift */; };
 		FBD16405E041F315ED5A8513 /* Pods_vimojo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5669AADF4B95AD1E3054D77E /* Pods_vimojo.framework */; };
 /* End PBXBuildFile section */
@@ -578,10 +581,9 @@
 		A91761011D916F48008915DA /* ShareInstagramInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareInstagramInteractor.swift; path = Share/ShareInstagramInteractor.swift; sourceTree = "<group>"; };
 		A91761021D916F48008915DA /* ShareInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareInteractor.swift; path = Share/ShareInteractor.swift; sourceTree = "<group>"; };
 		A91761031D916F48008915DA /* ShareInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareInteractorInterface.swift; path = Share/ShareInteractorInterface.swift; sourceTree = "<group>"; };
-		A91761041D916F48008915DA /* ShareInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareInterface.swift; path = Share/ShareInterface.swift; sourceTree = "<group>"; };
 		A91761051D916F48008915DA /* SharePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharePresenter.swift; path = Share/SharePresenter.swift; sourceTree = "<group>"; };
 		A91761061D916F48008915DA /* SharePresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharePresenterInterface.swift; path = Share/SharePresenterInterface.swift; sourceTree = "<group>"; };
-		A91761071D916F48008915DA /* ShareSocialNetworkInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareSocialNetworkInteractor.swift; path = Share/ShareSocialNetworkInteractor.swift; sourceTree = "<group>"; };
+		A91761071D916F48008915DA /* ShareUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareUtils.swift; path = Share/ShareUtils.swift; sourceTree = "<group>"; };
 		A91761081D916F48008915DA /* ShareTwitterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareTwitterInteractor.swift; path = Share/ShareTwitterInteractor.swift; sourceTree = "<group>"; };
 		A91761091D916F48008915DA /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareViewController.swift; path = Share/ShareViewController.swift; sourceTree = "<group>"; };
 		A917610A1D916F48008915DA /* ShareWhatsappInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareWhatsappInteractor.swift; path = Share/ShareWhatsappInteractor.swift; sourceTree = "<group>"; };
@@ -643,16 +645,23 @@
 		A964410C1DA3015B00CAD950 /* EditorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorModel.swift; sourceTree = "<group>"; };
 		A96441121DA3E59700CAD950 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Settings.strings; sourceTree = "<group>"; };
 		A96441141DA3E59A00CAD950 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Settings.strings; sourceTree = "<group>"; };
+		A9645EA11DC0D27D000944CB /* SettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		A9645EA31DC0D298000944CB /* ShareViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewModel.swift; sourceTree = "<group>"; };
 		A96734FA1D7FFBA300441872 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A9693B7C1DB7C8CD00B00DD1 /* AddTextModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTextModel.swift; sourceTree = "<group>"; };
 		A96E15EF1DA257A400CF81E8 /* MusicModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicModels.swift; sourceTree = "<group>"; };
 		A97F0F1A1DC08E0400907196 /* SettingsProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsProviderTests.swift; sourceTree = "<group>"; };
-		A97F0F201DC0919800907196 /* SettingsActionUpdateTableResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsActionUpdateTableResponse.swift; sourceTree = "<group>"; };
 		A97F0F221DC092A100907196 /* UIApplicationExtensionGetTopController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensionGetTopController.swift; sourceTree = "<group>"; };
 		A97F0F241DC092C800907196 /* SettingsNameAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsNameAction.swift; sourceTree = "<group>"; };
 		A97F0F271DC0937300907196 /* SettingsEmailAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsEmailAction.swift; sourceTree = "<group>"; };
 		A97F0F2C1DC099BE00907196 /* SettingsQualityAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsQualityAction.swift; sourceTree = "<group>"; };
-		A97F0F2E1DC0A6B700907196 /* SaveResolutionAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveResolutionAction.swift; sourceTree = "<group>"; };
+		A97F0F2E1DC0A6B700907196 /* SettingsResolutionAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsResolutionAction.swift; sourceTree = "<group>"; };
+		A97F0F301DC0AD5A00907196 /* SettingsDetailTextAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsDetailTextAction.swift; sourceTree = "<group>"; };
+		A97F0F341DC0B77500907196 /* SettingsFTPHostAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsFTPHostAction.swift; sourceTree = "<group>"; };
+		A97F0F361DC0BDF600907196 /* SettingsFTPUsernameAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsFTPUsernameAction.swift; sourceTree = "<group>"; };
+		A97F0F3A1DC0BE8000907196 /* SettingsFTPPasswordAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsFTPPasswordAction.swift; sourceTree = "<group>"; };
+		A97F0F3C1DC0BEBF00907196 /* SettingsFTPEditedDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsFTPEditedDestination.swift; sourceTree = "<group>"; };
+		A97F0F3E1DC0BEEF00907196 /* SettingsFTPUneditedDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsFTPUneditedDestination.swift; sourceTree = "<group>"; };
 		A988DEED1DACEF800030E285 /* MusicListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicListInteractor.swift; sourceTree = "<group>"; };
 		A988DEEF1DACEF8E0030E285 /* MusicListInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicListInteractorInterface.swift; sourceTree = "<group>"; };
 		A988DEF11DACEF9B0030E285 /* MusicListPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicListPresenterInterface.swift; sourceTree = "<group>"; };
@@ -672,6 +681,7 @@
 		A9A419121DB5110C00FB642E /* AddTextPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTextPresenter.swift; sourceTree = "<group>"; };
 		A9A419131DB5110C00FB642E /* AddTextInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTextInteractorInterface.swift; sourceTree = "<group>"; };
 		A9A419141DB5110C00FB642E /* AddTextInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTextInteractor.swift; sourceTree = "<group>"; };
+		A9AE3A4E1DC0CFA300A5A878 /* ShareActionInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareActionInterface.swift; sourceTree = "<group>"; };
 		A9B385E61D7D51380065D3EC /* vimojo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vimojo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B385E91D7D51380065D3EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9B385EE1D7D51380065D3EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -707,7 +717,6 @@
 		A9B386591D7D55340065D3EC /* RootWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootWireframe.swift; sourceTree = "<group>"; };
 		A9B3865D1D7D55660065D3EC /* ViMoJoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViMoJoController.swift; sourceTree = "<group>"; };
 		A9B3865E1D7D55660065D3EC /* ViMoJoInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViMoJoInterface.swift; sourceTree = "<group>"; };
-		A9B7F8DD1DBE509300F24E78 /* SettingsTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTypes.swift; sourceTree = "<group>"; };
 		A9B7F8DF1DBE56D300F24E78 /* SettingsUserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsUserInfo.swift; sourceTree = "<group>"; };
 		A9B7F8E11DBE56EE00F24E78 /* SettingsCameraSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCameraSettings.swift; sourceTree = "<group>"; };
 		A9B7F8E31DBE570400F24E78 /* SettingsFTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsFTP.swift; sourceTree = "<group>"; };
@@ -733,7 +742,6 @@
 		A9FDD8BC1DAD3D5F00AB0930 /* MixAudioView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MixAudioView.xib; sourceTree = "<group>"; };
 		A9FEF9771DBF8B0A00A56611 /* SettingsActionInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsActionInterface.swift; sourceTree = "<group>"; };
 		A9FEF97B1DBF8B3A00A56611 /* SettingsUsernameAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsUsernameAction.swift; sourceTree = "<group>"; };
-		A9FEF97D1DBF99EF00A56611 /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		A9FEF97F1DBF9CB400A56611 /* SettingsUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsUtils.swift; sourceTree = "<group>"; };
 		D59F69C32D555170322AC7C3 /* Pods-vimojoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vimojoTests/Pods-vimojoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EF602602B6EC5129C4287C5B /* Pods-vimojoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-vimojoTests/Pods-vimojoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -891,27 +899,8 @@
 		A91760F81D916F3B008915DA /* Share */ = {
 			isa = PBXGroup;
 			children = (
-				A91760FC1D916F48008915DA /* Share.strings */,
-				A91760FD1D916F48008915DA /* ShareCell.swift */,
-				A91760FE1D916F48008915DA /* ShareCell.xib */,
-				A91760FF1D916F48008915DA /* ShareConstants.swift */,
-				A91761001D916F48008915DA /* ShareFacebookInteractor.swift */,
-				A91761011D916F48008915DA /* ShareInstagramInteractor.swift */,
-				A91761021D916F48008915DA /* ShareInteractor.swift */,
-				A91761031D916F48008915DA /* ShareInteractorInterface.swift */,
-				A91761041D916F48008915DA /* ShareInterface.swift */,
-				A91761051D916F48008915DA /* SharePresenter.swift */,
-				A91761061D916F48008915DA /* SharePresenterInterface.swift */,
-				A91761071D916F48008915DA /* ShareSocialNetworkInteractor.swift */,
-				A91761081D916F48008915DA /* ShareTwitterInteractor.swift */,
-				A91761091D916F48008915DA /* ShareViewController.swift */,
-				A917610A1D916F48008915DA /* ShareWhatsappInteractor.swift */,
-				A917610B1D916F48008915DA /* ShareWireframe.swift */,
-				A917610C1D916F48008915DA /* ShareYoutubeInteractor.swift */,
-				A917610D1D916F48008915DA /* SocialNetwork.swift */,
-				A917610E1D916F48008915DA /* SocialNetworkProvider.swift */,
-				A917610F1D916F48008915DA /* TwitterVideoUpload.h */,
-				A91761101D916F48008915DA /* TwitterVideoUpload.m */,
+				A97F0F411DC0C62E00907196 /* App Logic */,
+				A97F0F401DC0C61E00907196 /* User Interface */,
 			);
 			name = Share;
 			sourceTree = "<group>";
@@ -1023,7 +1012,6 @@
 			children = (
 				A96441131DA3E59700CAD950 /* Settings.strings */,
 				A9B7F8DA1DBE508400F24E78 /* Model */,
-				A9FEF9771DBF8B0A00A56611 /* SettingsActionInterface.swift */,
 				A97F0F261DC0936100907196 /* Actions */,
 				A9FEF97F1DBF9CB400A56611 /* SettingsUtils.swift */,
 				A95BE9751D990A4A00602DCD /* SettingsInteractor.swift */,
@@ -1077,13 +1065,88 @@
 		A97F0F261DC0936100907196 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
-				A9FEF97B1DBF8B3A00A56611 /* SettingsUsernameAction.swift */,
-				A97F0F241DC092C800907196 /* SettingsNameAction.swift */,
+				A9FEF9771DBF8B0A00A56611 /* SettingsActionInterface.swift */,
+				A97F0F301DC0AD5A00907196 /* SettingsDetailTextAction.swift */,
 				A97F0F271DC0937300907196 /* SettingsEmailAction.swift */,
+				A97F0F3C1DC0BEBF00907196 /* SettingsFTPEditedDestination.swift */,
+				A97F0F341DC0B77500907196 /* SettingsFTPHostAction.swift */,
+				A97F0F3A1DC0BE8000907196 /* SettingsFTPPasswordAction.swift */,
+				A97F0F3E1DC0BEEF00907196 /* SettingsFTPUneditedDestination.swift */,
+				A97F0F361DC0BDF600907196 /* SettingsFTPUsernameAction.swift */,
+				A97F0F241DC092C800907196 /* SettingsNameAction.swift */,
 				A97F0F2C1DC099BE00907196 /* SettingsQualityAction.swift */,
-				A97F0F2E1DC0A6B700907196 /* SaveResolutionAction.swift */,
+				A97F0F2E1DC0A6B700907196 /* SettingsResolutionAction.swift */,
+				A9FEF97B1DBF8B3A00A56611 /* SettingsUsernameAction.swift */,
 			);
 			name = Actions;
+			sourceTree = "<group>";
+		};
+		A97F0F401DC0C61E00907196 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				A97F0F441DC0C9A300907196 /* ShareCell */,
+				A917610B1D916F48008915DA /* ShareWireframe.swift */,
+				A91761051D916F48008915DA /* SharePresenter.swift */,
+				A91761061D916F48008915DA /* SharePresenterInterface.swift */,
+				A91761091D916F48008915DA /* ShareViewController.swift */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
+		A97F0F411DC0C62E00907196 /* App Logic */ = {
+			isa = PBXGroup;
+			children = (
+				A97F0F431DC0C96500907196 /* TwitterUpload */,
+				A97F0F421DC0C8E200907196 /* ShareInteractorUseCases */,
+				A97F0F451DC0C9AF00907196 /* Model */,
+				A91761021D916F48008915DA /* ShareInteractor.swift */,
+				A9AE3A4E1DC0CFA300A5A878 /* ShareActionInterface.swift */,
+				A91761031D916F48008915DA /* ShareInteractorInterface.swift */,
+				A917610E1D916F48008915DA /* SocialNetworkProvider.swift */,
+			);
+			name = "App Logic";
+			sourceTree = "<group>";
+		};
+		A97F0F421DC0C8E200907196 /* ShareInteractorUseCases */ = {
+			isa = PBXGroup;
+			children = (
+				A91761071D916F48008915DA /* ShareUtils.swift */,
+				A91761001D916F48008915DA /* ShareFacebookInteractor.swift */,
+				A91761011D916F48008915DA /* ShareInstagramInteractor.swift */,
+				A91761081D916F48008915DA /* ShareTwitterInteractor.swift */,
+				A917610A1D916F48008915DA /* ShareWhatsappInteractor.swift */,
+				A917610C1D916F48008915DA /* ShareYoutubeInteractor.swift */,
+			);
+			name = ShareInteractorUseCases;
+			sourceTree = "<group>";
+		};
+		A97F0F431DC0C96500907196 /* TwitterUpload */ = {
+			isa = PBXGroup;
+			children = (
+				A917610F1D916F48008915DA /* TwitterVideoUpload.h */,
+				A91761101D916F48008915DA /* TwitterVideoUpload.m */,
+			);
+			name = TwitterUpload;
+			sourceTree = "<group>";
+		};
+		A97F0F441DC0C9A300907196 /* ShareCell */ = {
+			isa = PBXGroup;
+			children = (
+				A91760FD1D916F48008915DA /* ShareCell.swift */,
+				A91760FE1D916F48008915DA /* ShareCell.xib */,
+			);
+			name = ShareCell;
+			sourceTree = "<group>";
+		};
+		A97F0F451DC0C9AF00907196 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A917610D1D916F48008915DA /* SocialNetwork.swift */,
+				A9645EA31DC0D298000944CB /* ShareViewModel.swift */,
+				A91760FC1D916F48008915DA /* Share.strings */,
+				A91760FF1D916F48008915DA /* ShareConstants.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		A988DEEC1DACEF6E0030E285 /* Music List */ = {
@@ -1439,13 +1502,11 @@
 		A9B7F8DA1DBE508400F24E78 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A95BE9741D990A4A00602DCD /* SettingsContent.swift */,
-				A9FEF97D1DBF99EF00A56611 /* SettingsViewModel.swift */,
-				A9B7F8DF1DBE56D300F24E78 /* SettingsUserInfo.swift */,
-				A97F0F201DC0919800907196 /* SettingsActionUpdateTableResponse.swift */,
-				A9B7F8DD1DBE509300F24E78 /* SettingsTypes.swift */,
 				A9B7F8E11DBE56EE00F24E78 /* SettingsCameraSettings.swift */,
+				A95BE9741D990A4A00602DCD /* SettingsContent.swift */,
+				A9645EA11DC0D27D000944CB /* SettingsModel.swift */,
 				A9B7F8E31DBE570400F24E78 /* SettingsFTP.swift */,
+				A9B7F8DF1DBE56D300F24E78 /* SettingsUserInfo.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2055,6 +2116,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A97F0F351DC0B77500907196 /* SettingsFTPHostAction.swift in Sources */,
 				A91761341D916F53008915DA /* MusicInteractorInterface.swift in Sources */,
 				A94E11F61D941C84004A0E96 /* ResolutionsImages.swift in Sources */,
 				A988DF0A1DAD1E230030E285 /* MicRecorderInteractor.swift in Sources */,
@@ -2063,7 +2125,6 @@
 				A91760BE1D9146BF008915DA /* EditorTextConstants.swift in Sources */,
 				A95BE99A1D990C4100602DCD /* DetailTextWireframe.swift in Sources */,
 				A91760E71D914835008915DA /* DuplicateWireframe.swift in Sources */,
-				A9FEF97E1DBF99EF00A56611 /* SettingsViewModel.swift in Sources */,
 				A91761221D916F48008915DA /* SocialNetwork.swift in Sources */,
 				A9693B7D1DB7C8CD00B00DD1 /* AddTextModel.swift in Sources */,
 				A93BCE4F1D7D77B300421BD0 /* AVResolutionParse.swift in Sources */,
@@ -2077,7 +2138,7 @@
 				A91760AA1D9146B5008915DA /* EditingRoomPresenter.swift in Sources */,
 				A95BE9951D990C4100602DCD /* DetailTextInteractor.swift in Sources */,
 				A906CCE01DB0D06B00AC8FFB /* MicRecorderConstants.swift in Sources */,
-				A97F0F2F1DC0A6B700907196 /* SaveResolutionAction.swift in Sources */,
+				A97F0F2F1DC0A6B700907196 /* SettingsResolutionAction.swift in Sources */,
 				A91760B91D9146BF008915DA /* EditorClipsCell.swift in Sources */,
 				A91760BC1D9146BF008915DA /* EditorPresenter.swift in Sources */,
 				A91760BF1D9146BF008915DA /* EditorViewController.swift in Sources */,
@@ -2092,6 +2153,7 @@
 				A917611A1D916F48008915DA /* SharePresenter.swift in Sources */,
 				A91760E51D914835008915DA /* DuplicateViewController.swift in Sources */,
 				A9B386331D7D53230065D3EC /* CameraInteractorInterface.swift in Sources */,
+				A97F0F3B1DC0BE8000907196 /* SettingsFTPPasswordAction.swift in Sources */,
 				A988DF061DAD1E110030E285 /* MicRecorderPresenterInterface.swift in Sources */,
 				A96E15F01DA257A400CF81E8 /* MusicModels.swift in Sources */,
 				A91760C01D9146BF008915DA /* EditorViewInterface.swift in Sources */,
@@ -2102,6 +2164,7 @@
 				A988DEFA1DACF35D0030E285 /* MusicListViewController.swift in Sources */,
 				A917611E1D916F48008915DA /* ShareViewController.swift in Sources */,
 				A9334EF81DAB6EA100762D8A /* MicRecorderView.swift in Sources */,
+				A9645EA41DC0D298000944CB /* ShareViewModel.swift in Sources */,
 				A93BCE531D7D785100421BD0 /* SettingsConstants.swift in Sources */,
 				A9B386321D7D53230065D3EC /* CameraInteractor.swift in Sources */,
 				A95BE9811D990A4A00602DCD /* SettingsContent.swift in Sources */,
@@ -2111,6 +2174,7 @@
 				A95BE9961D990C4100602DCD /* DetailTextInteractorInterface.swift in Sources */,
 				A95BE9861D990A4A00602DCD /* SettingsPresenterInterface.swift in Sources */,
 				A91760EC1D914840008915DA /* SplitViewController.swift in Sources */,
+				A97F0F371DC0BDF600907196 /* SettingsFTPUsernameAction.swift in Sources */,
 				A91761351D916F53008915DA /* MusicPresenter.swift in Sources */,
 				A9A419181DB5110C00FB642E /* AddTextPresenter.swift in Sources */,
 				A91760E01D914827008915DA /* TrimViewController.swift in Sources */,
@@ -2119,19 +2183,21 @@
 				A91760BD1D9146BF008915DA /* EditorPresenterInterface.swift in Sources */,
 				A9B7F8E01DBE56D300F24E78 /* SettingsUserInfo.swift in Sources */,
 				A988DF021DAD1DFC0030E285 /* MicRecorderViewController.swift in Sources */,
+				A97F0F311DC0AD5A00907196 /* SettingsDetailTextAction.swift in Sources */,
 				A9A419161DB5110C00FB642E /* AddTextViewController.swift in Sources */,
 				A91761121D916F48008915DA /* ShareCell.swift in Sources */,
 				A93BCE5F1D7D7A1300421BD0 /* NSLocale+ISO639_2.m in Sources */,
 				A95BE9821D990A4A00602DCD /* SettingsInteractor.swift in Sources */,
 				A91761331D916F53008915DA /* MusicInteractor.swift in Sources */,
+				A97F0F3D1DC0BEBF00907196 /* SettingsFTPEditedDestination.swift in Sources */,
 				A917611B1D916F48008915DA /* SharePresenterInterface.swift in Sources */,
 				A988DEEE1DACEF800030E285 /* MusicListInteractor.swift in Sources */,
+				A9645EA21DC0D27D000944CB /* SettingsModel.swift in Sources */,
 				A91760E61D914835008915DA /* DuplicateInterface.swift in Sources */,
 				A91761211D916F48008915DA /* ShareYoutubeInteractor.swift in Sources */,
 				A988DEF41DACEFA40030E285 /* MusicListPresenter.swift in Sources */,
 				A91760A91D9146B5008915DA /* EditingRoomInteractorInterface.swift in Sources */,
 				A9B386531D7D53D10065D3EC /* CameraRecorderInteractor.swift in Sources */,
-				A91761191D916F48008915DA /* ShareInterface.swift in Sources */,
 				A9B385EA1D7D51380065D3EC /* AppDelegate.swift in Sources */,
 				A9B386411D7D53880065D3EC /* TimerInteractor.swift in Sources */,
 				A91761141D916F48008915DA /* ShareConstants.swift in Sources */,
@@ -2162,7 +2228,6 @@
 				A91761161D916F48008915DA /* ShareInstagramInteractor.swift in Sources */,
 				A95BE9941D990C4100602DCD /* DetailTextController.swift in Sources */,
 				A97F0F231DC092A100907196 /* UIApplicationExtensionGetTopController.swift in Sources */,
-				A9B7F8DE1DBE509300F24E78 /* SettingsTypes.swift in Sources */,
 				A97F0F281DC0937300907196 /* SettingsEmailAction.swift in Sources */,
 				A91761151D916F48008915DA /* ShareFacebookInteractor.swift in Sources */,
 				A9B3865A1D7D55340065D3EC /* RootWireframe.swift in Sources */,
@@ -2176,6 +2241,7 @@
 				A95BE9831D990A4A00602DCD /* SettingsInteractorInterface.swift in Sources */,
 				A9B3863D1D7D53740065D3EC /* ThumbnailInteractor.swift in Sources */,
 				A9B7F8E21DBE56EE00F24E78 /* SettingsCameraSettings.swift in Sources */,
+				A9AE3A4F1DC0CFA300A5A878 /* ShareActionInterface.swift in Sources */,
 				A988DEF01DACEF8E0030E285 /* MusicListInteractorInterface.swift in Sources */,
 				A9B3864E1D7D53BA0065D3EC /* RemoveFilterInteractor.swift in Sources */,
 				A9A419151DB5110C00FB642E /* AddTextWireframe.swift in Sources */,
@@ -2183,6 +2249,7 @@
 				A9B386451D7D53960065D3EC /* FlashInteractor.swift in Sources */,
 				A91761301D916F53008915DA /* MusicCell.swift in Sources */,
 				A917613A1D916F53008915DA /* MusicWireframe.swift in Sources */,
+				A97F0F3F1DC0BEEF00907196 /* SettingsFTPUneditedDestination.swift in Sources */,
 				A95BE9871D990A4A00602DCD /* SettingsProvider.swift in Sources */,
 				A9B386601D7D55660065D3EC /* ViMoJoInterface.swift in Sources */,
 				A9B386381D7D53450065D3EC /* ClipsAlbum.swift in Sources */,
@@ -2195,7 +2262,7 @@
 				A9B386421D7D53880065D3EC /* TimerInteractorInterface.swift in Sources */,
 				A91760D61D9146FE008915DA /* FullScreenPlayerInterface.swift in Sources */,
 				A95BE9991D990C4100602DCD /* DetailTextPresenterInterface.swift in Sources */,
-				A917611C1D916F48008915DA /* ShareSocialNetworkInteractor.swift in Sources */,
+				A917611C1D916F48008915DA /* ShareUtils.swift in Sources */,
 				A91761241D916F48008915DA /* TwitterVideoUpload.m in Sources */,
 				A91761381D916F53008915DA /* MusicViewController.swift in Sources */,
 				A91760BB1D9146BF008915DA /* EditorInteractorInterface.swift in Sources */,
@@ -2204,7 +2271,6 @@
 				A95BE9881D990A4A00602DCD /* SettingsViewController.swift in Sources */,
 				A97F0F2D1DC099BE00907196 /* SettingsQualityAction.swift in Sources */,
 				A95BE9981D990C4100602DCD /* DetailTextPresenter.swift in Sources */,
-				A97F0F211DC0919800907196 /* SettingsActionUpdateTableResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2268,7 +2334,6 @@
 				A9C1678A1D92AB1C007EE697 /* ShareYoutubeInteractor.swift in Sources */,
 				A9C1678B1D92AB1C007EE697 /* EditingRoomInteractorInterface.swift in Sources */,
 				A9C1678C1D92AB1C007EE697 /* CameraRecorderInteractor.swift in Sources */,
-				A9C1678D1D92AB1C007EE697 /* ShareInterface.swift in Sources */,
 				A9C1678E1D92AB1C007EE697 /* AppDelegate.swift in Sources */,
 				A9C1678F1D92AB1C007EE697 /* TimerInteractor.swift in Sources */,
 				A9C167901D92AB1C007EE697 /* ShareConstants.swift in Sources */,
@@ -2308,7 +2373,7 @@
 				A9C167B21D92AB1C007EE697 /* AddFilterInteractor.swift in Sources */,
 				A9C167B31D92AB1C007EE697 /* TimerInteractorInterface.swift in Sources */,
 				A9C167B41D92AB1C007EE697 /* FullScreenPlayerInterface.swift in Sources */,
-				A9C167B61D92AB1C007EE697 /* ShareSocialNetworkInteractor.swift in Sources */,
+				A9C167B61D92AB1C007EE697 /* ShareUtils.swift in Sources */,
 				A9C167B71D92AB1C007EE697 /* TwitterVideoUpload.m in Sources */,
 				A9C167B81D92AB1C007EE697 /* MusicViewController.swift in Sources */,
 				A9C167B91D92AB1C007EE697 /* EditorInteractorInterface.swift in Sources */,
@@ -2367,7 +2432,6 @@
 				A9C1681B1D92C667007EE697 /* ShareYoutubeInteractor.swift in Sources */,
 				A9C1681C1D92C667007EE697 /* EditingRoomInteractorInterface.swift in Sources */,
 				A9C1681D1D92C667007EE697 /* CameraRecorderInteractor.swift in Sources */,
-				A9C1681E1D92C667007EE697 /* ShareInterface.swift in Sources */,
 				A9C1681F1D92C667007EE697 /* AppDelegate.swift in Sources */,
 				A9C168201D92C667007EE697 /* TimerInteractor.swift in Sources */,
 				A9C168211D92C667007EE697 /* ShareConstants.swift in Sources */,
@@ -2407,7 +2471,7 @@
 				A9C168431D92C667007EE697 /* AddFilterInteractor.swift in Sources */,
 				A9C168441D92C667007EE697 /* TimerInteractorInterface.swift in Sources */,
 				A9C168451D92C667007EE697 /* FullScreenPlayerInterface.swift in Sources */,
-				A9C168471D92C667007EE697 /* ShareSocialNetworkInteractor.swift in Sources */,
+				A9C168471D92C667007EE697 /* ShareUtils.swift in Sources */,
 				A9C168481D92C667007EE697 /* TwitterVideoUpload.m in Sources */,
 				A9C168491D92C667007EE697 /* MusicViewController.swift in Sources */,
 				A9C1684A1D92C667007EE697 /* EditorInteractorInterface.swift in Sources */,

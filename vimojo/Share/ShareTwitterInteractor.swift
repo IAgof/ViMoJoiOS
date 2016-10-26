@@ -10,17 +10,23 @@ import Foundation
 import Accounts
 import AVFoundation
 
-class ShareTwitterInteractor: ShareSocialNetworkInteractor {
+class ShareTwitterInteractor: ShareActionInterface {
+    var delegate:ShareActionDelegate
+
+    init(delegate:ShareActionDelegate){
+        self.delegate = delegate
+    }
     
-    func share() {
-        let videoURL = self.getShareMovieURL()
+    func share(path:String){
+        let videoURL = ShareUtils().getLastAssetURL()
         let accountStore:ACAccountStore = ACAccountStore.init()
         let accountType:ACAccountType = accountStore.accountTypeWithAccountTypeIdentifier(ACAccountTypeIdentifierTwitter)
         accountStore.requestAccessToAccountsWithType(accountType, options: nil) { (let granted, let error) in
             guard let accounts = accountStore.accountsWithAccountType(accountType) else{
                 let message = Utils().getStringByKeyFromShare(ShareConstants().NO_TWITTER_ACCESS)
                 Utils().debugLog(message)
-                self.setAlertCompletionMessageOnTopView(message)
+                ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Twitter",
+                                                                message: message)
                 return
             }
             if accounts.count > 0 {//HAS ACCESS TO TWITTER
@@ -54,7 +60,8 @@ class ShareTwitterInteractor: ShareSocialNetworkInteractor {
             }else{
                 let message = Utils().getStringByKeyFromShare(ShareConstants().NO_TWITTER_ACCESS)
                 Utils().debugLog(message)
-                self.setAlertCompletionMessageOnTopView(message)
+                ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Twitter",
+                                                                message: message)
                 
             }
         }
@@ -63,7 +70,8 @@ class ShareTwitterInteractor: ShareSocialNetworkInteractor {
 
     func createAlert(message:String){
         Utils().debugLog(message)
-        self.setAlertCompletionMessageOnTopView(message)
+        ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Twitter",
+                                                        message: message)
     }
     
     func canUploadVideoToTwitter(movieURL:NSURL)->Bool{

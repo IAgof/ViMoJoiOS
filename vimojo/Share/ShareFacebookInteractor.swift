@@ -9,13 +9,17 @@
 import Foundation
 import AVFoundation
 
-class ShareFacebookInteractor: ShareSocialNetworkInteractor,FBSDKLoginButtonDelegate,FBSDKSharingDelegate {
-    
+class ShareFacebookInteractor:NSObject, ShareActionInterface{
+    var delegate:ShareActionDelegate
+
     // Facebook Delegate Methods
+    init(delegate:ShareActionDelegate){
+        self.delegate = delegate
+    }
     
-    func share(){
+    func share(path:String){
         
-        let url = getLastAssetURL()
+        let url = ShareUtils().getLastAssetURL()
         
         let video: FBSDKShareVideo = FBSDKShareVideo()
         
@@ -29,7 +33,9 @@ class ShareFacebookInteractor: ShareSocialNetworkInteractor,FBSDKLoginButtonDele
         if UIApplication.sharedApplication().canOpenURL(NSURL.init(string:"fbauth2:/")!){
             dialog.mode = .Native
         }else{
-            self.setAlertCompletionMessageOnTopView(Utils().getStringByKeyFromSettings(ShareConstants().NO_FACEBOOK_INSTALLED))
+            let message = Utils().getStringByKeyFromSettings(ShareConstants().NO_FACEBOOK_INSTALLED)
+            ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Facebook",
+                                                            message: message)
         }
         dialog.shareContent = content
         dialog.delegate = self
@@ -37,6 +43,9 @@ class ShareFacebookInteractor: ShareSocialNetworkInteractor,FBSDKLoginButtonDele
         
     }
     
+}
+
+extension ShareFacebookInteractor:FBSDKLoginButtonDelegate{
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         print("User Logged In")
         
@@ -60,19 +69,22 @@ class ShareFacebookInteractor: ShareSocialNetworkInteractor,FBSDKLoginButtonDele
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         print("loginButtonDidLogOut")
     }
-    
+}
+
+
+extension ShareFacebookInteractor:FBSDKSharingDelegate{
     func sharerDidCancel(sharer: FBSDKSharing!) {
         print("sharerDidCancel")
-
+        
     }
     
     func sharer(sharer: FBSDKSharing!, didFailWithError error: NSError!) {
         print("sharerDidCancel\(error)")
-
+        
     }
     
     func sharer(sharer: FBSDKSharing!, didCompleteWithResults results: [NSObject : AnyObject]!) {
         print("didCompleteWithResults")
-
+        
     }
 }

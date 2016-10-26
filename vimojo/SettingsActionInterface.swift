@@ -9,14 +9,23 @@
 import Foundation
 
 protocol SettingsActionInterface {
-    func executeSettingsAction()
+    func executeSettingsAction(index:NSIndexPath)
     var delegate:SettingsActionDelegate {get set}
 }
 
 protocol SettingsActionDelegate {
-    func executeFinished(response:SettingsActionResponse)
+    func executeFinished()
+}
+
+protocol SettingsActionDetailTextDelegate:SettingsActionDelegate {
+    func setTextToDetailView(response:SettingsActionDetailTextResponse)
 }
 
 protocol SettingsActionResponse {
-    
+
 }
+
+struct SettingsActionDetailTextResponse:SettingsActionResponse {
+    var text:String
+}
+

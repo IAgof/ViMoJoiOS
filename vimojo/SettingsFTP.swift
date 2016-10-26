@@ -26,7 +26,11 @@ struct SettinsFTP {
         }
         
         if let passwordSaved = defaults.stringForKey(SettingsConstants().PASSWORD_FTP){
-            password = passwordSaved
+            if passwordSaved == ""{
+                password = passwordSaved
+            }else{
+                password = "********"
+            }
         }
         
         if let editedVideoPathSaved = defaults.stringForKey(SettingsConstants().EDITED_VIDEO_DESTINATION){

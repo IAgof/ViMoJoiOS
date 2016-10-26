@@ -47,10 +47,18 @@ class ShareWireframe : NSObject {
         
         viewController.eventHandler = sharePresenter
         shareViewController = viewController
-        sharePresenter?.controller = viewController
         sharePresenter?.delegate = viewController
 
         return viewController
+    }
+    
+    func presentExpandPlayer(){
+        if let controller = shareViewController{
+            if let player = playerWireframe?.presentedView{
+                fullScreenPlayerWireframe?.presentFullScreenPlayerFromViewController(controller,
+                                                                                     playerView:player)
+            }
+        }
     }
     
     func mainStoryboard() -> UIStoryboard {

@@ -1,14 +1,14 @@
 //
-//  SettingsUsernameAction.swift
+//  SettingsFTPUsernameAction.swift
 //  vimojo
 //
-//  Created by Alejandro Arjonilla Garcia on 25/10/16.
+//  Created by Alejandro Arjonilla Garcia on 26/10/16.
 //  Copyright © 2016 Videona. All rights reserved.
 //
 
 import Foundation
 
-class SettingsUsernameAction: SettingsActionInterface {
+class SettingsFTPUsernameAction: SettingsActionInterface {
     let defaults = NSUserDefaults.standardUserDefaults()
     var delegate: SettingsActionDelegate
     
@@ -17,7 +17,7 @@ class SettingsUsernameAction: SettingsActionInterface {
     }
     
     func executeSettingsAction(index:NSIndexPath) {
-        let title =  Utils().getStringByKeyFromSettings(SettingsConstants().ENTER_USER_NAME)
+        let title =  Utils().getStringByKeyFromSettings(SettingsConstants().ENTER_USERNAME_FTP)
         
         let alertController = SettingsUtils().createAlertViewWithInputText(title,
                                                                            message: "",
@@ -32,8 +32,8 @@ class SettingsUsernameAction: SettingsActionInterface {
         }
     }
     
-    func saveOnDefaults(saveString:String){ 
-        defaults.setObject(saveString, forKey: SettingsConstants().SETTINGS_USERNAME)
+    func saveOnDefaults(saveString:String){
+        defaults.setObject(saveString, forKey: SettingsConstants().FTP_USERNAME)
         delegate.executeFinished()
     }
 }

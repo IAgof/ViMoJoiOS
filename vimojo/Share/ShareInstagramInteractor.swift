@@ -9,15 +9,22 @@
 import Foundation
 import Photos
 
-class ShareInstagramInteractor:ShareSocialNetworkInteractor{
-   
-    func share(){
+class ShareInstagramInteractor:ShareActionInterface{
+    var delegate:ShareActionDelegate
+    
+    init(delegate:ShareActionDelegate){
+        self.delegate = delegate
+    }
+    
+    func share(path:String){
         //Share to instagram
-        let instagramURL = NSURL.init(string: "instagram://library?LocalIdentifier=\(self.getLastAssetString())")!
+        let instagramURL = NSURL.init(string: "instagram://library?LocalIdentifier=\(ShareUtils().getLastAssetString())")!
         if UIApplication.sharedApplication().canOpenURL(instagramURL) {
             UIApplication.sharedApplication().openURL(instagramURL)
         }else{
-            self.setAlertCompletionMessageOnTopView(Utils().getStringByKeyFromSettings(ShareConstants().NO_ISTAGRAM_INSTALLED))
+            let message = Utils().getStringByKeyFromSettings(ShareConstants().NO_ISTAGRAM_INSTALLED)
+            ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Instagram",
+                                                            message: message)
         }
     }
 }

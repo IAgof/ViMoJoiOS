@@ -9,11 +9,16 @@
 import Foundation
 import Social
 
-class ShareWhatsappInteractor: ShareSocialNetworkInteractor {
-    
+class ShareWhatsappInteractor: ShareActionInterface {
+    var delegate:ShareActionDelegate
+
     var documentationInteractionController:UIDocumentInteractionController!
     
-    func share(){
+    init(delegate:ShareActionDelegate){
+        self.delegate = delegate
+    }
+    
+    func share(path:String){
         var debug = false
         #if DEBUG
             debug = true
@@ -21,37 +26,36 @@ class ShareWhatsappInteractor: ShareSocialNetworkInteractor {
         //NSURL(string: urlString!) {
         if (UIApplication.sharedApplication().canOpenURL(NSURL(string: "whatsapp://app")!)) || debug {
             
-            let movie:NSURL = NSURL.fileURLWithPath(moviePath)
+            let movie:NSURL = NSURL.fileURLWithPath(path)
+            guard let viewController = UIApplication.topViewController() else{return}
             
-            //            documentationInteractionController = UIDocumentInteractionController.init(URL: movie)
-            //
-            //            documentationInteractionController.UTI = "public.movie"
-            //
-            //            documentationInteractionController.presentOpenInMenuFromRect(CGRectZero, inView: self.getViewOnTop(), animated: true)
+            documentationInteractionController = UIDocumentInteractionController.init(URL: movie)
+            
+            documentationInteractionController.UTI = "public.movie"
+            
+            documentationInteractionController.presentOpenInMenuFromRect(CGRectZero, inView: viewController.view, animated: true)
             
             let objectsToShare = [movie] //comment!, imageData!, myWebsite!]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
             
             activityVC.setValue("Video", forKey: "subject")
             
-            
-            //New Excluded Activities Code
-            if #available(iOS 9.0, *) {
-                activityVC.excludedActivityTypes = [UIActivityTypeAirDrop, UIActivityTypeAddToReadingList, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypeOpenInIBooks, UIActivityTypePostToTencentWeibo, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint]
-            } else {
-                // Fallback on earlier versions
-                activityVC.excludedActivityTypes = [UIActivityTypeAirDrop, UIActivityTypeAddToReadingList, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypePostToTencentWeibo, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint ]
-            }
+            activityVC.excludedActivityTypes = [UIActivityTypeAirDrop, UIActivityTypeAddToReadingList, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypeOpenInIBooks, UIActivityTypePostToTencentWeibo, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint]
+
             
             if (activityVC.popoverPresentationController != nil) {
-                activityVC.popoverPresentationController!.sourceView = self.getViewOnTop()
+                let view = viewController.view
+                
+                activityVC.popoverPresentationController!.sourceView = view
             }
             
-            self.getViewControllerOnTop().presentViewController(activityVC, animated: false, completion: nil)
+            viewController.presentViewController(activityVC, animated: false, completion: nil)
             
             
         }else{
-            self.setAlertCompletionMessageOnTopView(Utils().getStringByKeyFromSettings(ShareConstants().NO_WHATSAPP_INSTALLED))
+            let message = Utils().getStringByKeyFromSettings(ShareConstants().NO_WHATSAPP_INSTALLED)
+            ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Whatsapp",
+                                                            message: message)
         }
     }
 }

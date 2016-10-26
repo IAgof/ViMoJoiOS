@@ -52,11 +52,8 @@ class SettingsInteractor: NSObject,SettingsInteractorInterface {
     }
     
     func executeSettingAtIndexPath(index: NSIndexPath) {
-        print("\nIndex section =\(index.section) ")
-        print("Index item =\(index.item) ")
         guard let setting = settings?[index.section][index.item] else { return}
-        setting.action?.executeSettingsAction()
-        
+        setting.action?.executeSettingsAction(index)
     }
     
     //MARK: - AVResolution posible inputs
@@ -72,9 +69,14 @@ class SettingsInteractor: NSObject,SettingsInteractorInterface {
 }
 
 extension SettingsInteractor:SettingsActionDelegate{
-    func executeFinished(response:SettingsActionResponse) {
-        if response is SettingsActionUpdateTableResponse{
-            self.findSettings()
-        }
+    func executeFinished() {
+        self.findSettings()
+    }
+}
+
+extension SettingsInteractor:SettingsActionDetailTextDelegate{
+    func setTextToDetailView(response: SettingsActionDetailTextResponse) {
+
+        delegate?.goToDetailTextController(response.text)
     }
 }

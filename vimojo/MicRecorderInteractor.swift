@@ -80,7 +80,7 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
         guard let path = audioStringPath else {
             print("No audio string path" )
             return}
-        guard var url = NSURL(string: path) else {
+        guard let url = NSURL(string: path) else {
             print("No audio url path" )
             return}
         

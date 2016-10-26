@@ -15,7 +15,8 @@ class SettingsWireframe : NSObject {
     var rootWireframe : RootWireframe?
     var settingsViewController : SettingsViewController?
     var settingsPresenter : SettingsPresenter?
-
+    var detailTextWireframe : DetailTextWireframe?
+    
     var prevController:UIViewController?
 
     func presentSettingsInterfaceFromWindow(window: UIWindow) {
@@ -52,6 +53,11 @@ class SettingsWireframe : NSObject {
     func mainStoryboard() -> UIStoryboard {
         let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         return storyboard
+    }
+    
+    func presentDetailTextController(textViewText:String){
+        detailTextWireframe?.presentShareInterfaceFromViewController(settingsViewController!,
+                                                                     textRef: textViewText)
     }
     
     func goPrevController(){
