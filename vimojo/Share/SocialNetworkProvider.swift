@@ -35,7 +35,12 @@ class SocialNetworkProvider:NSObject{
             iconIdPressed: "share_icon_youtube_pressed",
             title: "Youtube",
             action: ShareYoutubeInteractor(delegate: delegate)))
+        socialNetworks.append(SocialNetwork(iconId: "activity_edit_clip_text_normal",
+            iconIdPressed: "activity_edit_clip_text_pressed",
+            title: "FTP",
+            action: ShareYoutubeInteractor(delegate: delegate)))
         
         return socialNetworks
     }
 }
+
