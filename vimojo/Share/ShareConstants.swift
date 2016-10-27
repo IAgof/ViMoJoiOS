@@ -25,4 +25,12 @@ class ShareConstants: NSObject {
     let TWITTER_MAX_SIZE = "twitterMaxSize"
     let INSTAGRAM_MAX_LENGHT = "instagramMaxLenght"
     let SHARE_YOUR_VIDEO = "shareYourVideo"
+    let FTP_ERROR_UNAUTHORIZED = "ftpErrorUnauthorized"
+    let FTP_ERROR_HOST_UNREACHABLE = "ftpErrorUnauthorized"
+    let FTP_ERROR_FILE_NOT_FOUND = "ftpErrorFileNotFound"
+    
+    let FTP_INPUT_FILENAME_PLACEHOLDER = "ftpInputFilenamePlaceholder"
+    let FTP_INPUT_FILENAME_TITLE = "ftpInputFilenameTitle"
+    let FTP_INPUT_FILENAME_SAVE = "ftpInputFilenameSave"
+    let FTP_INPUT_FILENAME_CANCEL = "ftpInputFilenameCancel"
 }
