@@ -33,7 +33,7 @@ class SettingsFTPEditedDestination: SettingsActionInterface {
     }
     
     func saveOnDefaults(saveString:String){
-        defaults.setObject(saveString, forKey: SettingsConstants().EDITED_VIDEO_DESTINATION)
+        defaults.setObject(saveString, forKey: SettingsConstants().SETTINGS_EDITED_DEST_FTP)
         delegate.executeFinished()
     }
 }

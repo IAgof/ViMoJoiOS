@@ -1,14 +1,14 @@
 //
-//  SettingsFTPUsernameAction.swift
+//  SettingsFTPBreakingNewsUsernameAction.swift
 //  vimojo
 //
-//  Created by Alejandro Arjonilla Garcia on 26/10/16.
+//  Created by Alejandro Arjonilla Garcia on 28/10/16.
 //  Copyright © 2016 Videona. All rights reserved.
 //
 
 import Foundation
 
-class SettingsFTPUsernameAction: SettingsActionInterface {
+class SettingsFTPBreakingNewsUsernameAction: SettingsActionInterface {
     let defaults = NSUserDefaults.standardUserDefaults()
     var delegate: SettingsActionDelegate
     
@@ -33,7 +33,7 @@ class SettingsFTPUsernameAction: SettingsActionInterface {
     }
     
     func saveOnDefaults(saveString:String){
-        defaults.setObject(saveString, forKey: SettingsConstants().SETTINGS_USERNAME_FTP)
+        defaults.setObject(saveString, forKey: SettingsConstants().SETTINGS_USERNAME_FTP_BN)
         delegate.executeFinished()
     }
 }

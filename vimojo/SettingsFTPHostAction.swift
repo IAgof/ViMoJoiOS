@@ -33,7 +33,7 @@ class SettingsFTPHostAction: SettingsActionInterface {
     }
     
     func saveOnDefaults(saveString:String){
-        defaults.setObject(saveString, forKey: SettingsConstants().HOST_FTP)
+        defaults.setObject(saveString, forKey: SettingsConstants().SETTINGS_HOST_FTP)
         delegate.executeFinished()
     }
 }

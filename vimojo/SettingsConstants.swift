@@ -63,6 +63,18 @@ class SettingsConstants: NSObject {
     let SETTINGS_RESOLUTION = "settingsResolution"
     let SETTINGS_QUALITY = "settingsQuality"
     
+    let SETTINGS_HOST_FTP = "settingHostFTP"
+    let SETTINGS_USERNAME_FTP = "settingsUsernameFTP"
+    let SETTINGS_PASSWORD_FTP = "settingsPasswordFTP"
+    let SETTINGS_EDITED_DEST_FTP = "settingsEditedDestFTP"
+    let SETTINGS_UNEDITED_DEST_HOST_FTP = "settingsUneditedHostFTP"
+
+    let SETTINGS_HOST_FTP_BN = "settingHostFTPBN"
+    let SETTINGS_USERNAME_FTP_BN = "settingsUsernameFTPBN"
+    let SETTINGS_PASSWORD_FTP_BN = "settingsPasswordFTPBN"
+    let SETTINGS_EDITED_DEST_FTP_BN = "settingsEditedDestFTPBN"
+    let SETTINGS_UNEDITED_DEST_HOST_FTP_BN = "settingsUneditedHostFTPBN"
+
     //MARK: - MORE_INFO_SECTION
     let MORE_INFO_SECTION = "moreInformation"
 

@@ -10,78 +10,11 @@ import Foundation
 import AVFoundation
 
 class SettingsProvider:NSObject{
-    
-//    func getSettings() ->Array<SettingsContent>{
-//        var settings = Array<SettingsContent>()
-//        let user = userInfo()
-//        let camera = cameraSettings()
-//        
-//        //MARK: - MY_ACCOUNT_SECTION
-//        settings.append( SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().NAME)
-//            ,subTitle: user.name
-//            ,section: Utils().getStringByKeyFromSettings(SettingsConstants().MY_ACCOUNT_SECTION)
-//            ,priority: 1,
-//            action: SettingsUsernameAction()))
-//        
-//        settings.append( SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().USER_NAME)
-//            ,subTitle: user.userName
-//            ,section: Utils().getStringByKeyFromSettings(SettingsConstants().MY_ACCOUNT_SECTION)
-//            ,priority: 1,
-//            action: SettingsUsernameAction()))
-//        settings.append( SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().EMAIL_PREFERENCE)
-//            ,subTitle: user.email
-//            ,section: Utils().getStringByKeyFromSettings(SettingsConstants().MY_ACCOUNT_SECTION)
-//            ,priority: 1,
-//            action: SettingsUsernameAction()))
-//        
-//        //MARK: - CAMERA_SECTION
-//        settings.append( SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().RESOLUTION)
-//            ,subTitle: camera.resolution
-//            ,section: Utils().getStringByKeyFromSettings(SettingsConstants().CAMERA_SECTION)
-//            ,priority: 2,
-//            action: SettingsUsernameAction()))
-//        
-//        settings.append( SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().QUALITY)
-//            ,subTitle: camera.quality
-//            ,section: Utils().getStringByKeyFromSettings(SettingsConstants().CAMERA_SECTION)
-//            ,priority: 2,
-//            action: SettingsUsernameAction()))
-//        
-//        //MARK: - MORE_INFO_SECTION
-//        settings.append( SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().ABOUT_US_TITLE)
-//            ,content: Utils().getStringByKeyFromSettings(SettingsConstants().ABOUT_US_CONTENT)
-//            ,section: Utils().getStringByKeyFromSettings(SettingsConstants().MORE_INFO_SECTION)
-//            ,priority: 3,
-//            action: SettingsUsernameAction()))
-//        
-//        settings.append( SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().PRIVACY_POLICY_TITLE)
-//            ,content: Utils().getStringByKeyFromSettings(SettingsConstants().PRIVACY_POLICY_CONTENT)
-//            ,section: Utils().getStringByKeyFromSettings(SettingsConstants().MORE_INFO_SECTION)
-//            ,priority: 3))
-//        
-//        settings.append( SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().TERMS_OF_SERVICE_TITLE)
-//            ,content: Utils().getStringByKeyFromSettings(SettingsConstants().TERMS_OF_SERVICE_CONTENT)
-//            ,section: Utils().getStringByKeyFromSettings(SettingsConstants().MORE_INFO_SECTION)
-//            ,priority: 3))
-//        
-//        settings.append( SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().LICENSES_TITLE)
-//            ,content: Utils().getStringByKeyFromSettings(SettingsConstants().LICENSES_CONTENT)
-//            ,section: Utils().getStringByKeyFromSettings(SettingsConstants().MORE_INFO_SECTION)
-//            ,priority: 3))
-//        
-//        settings.append( SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().LEGAL_ADVICE_TITLE)
-//            ,content: Utils().getStringByKeyFromSettings(SettingsConstants().LEGAL_ADVICE_CONTENT)
-//            ,section: Utils().getStringByKeyFromSettings(SettingsConstants().MORE_INFO_SECTION)
-//            ,priority: 3))
-//
-//        return settings
-//    }
-    
-    
     func getSettings(delegate:SettingsActionDelegate)->[[SettingsContent]]{
         let user = userInfo()
         let camera = cameraSettings()
         let ftpConfiguration = SettinsFTP()
+        let ftpConfigurationBN = SettingsFTPBreakingNews()
         
         //MARK: - MY_ACCOUNT_SECTION
         let nameSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().NAME),
@@ -145,10 +78,32 @@ class SettingsProvider:NSObject{
                                              subTitle: ftpConfiguration.uneditedVideoPath,
                                              action: SettingsFTPUneditedDestination(delegate: delegate))
         
+        //MARK: - FTP BREAKING NEWS SECTION
+        let ftpBNHostSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().HOST_FTP),
+                                             subTitle: ftpConfigurationBN.host,
+                                             action: SettingsFTPBreakignNewsHostAction(delegate: delegate))
+        
+        let ftpBNUserNameSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().FTP_USERNAME),
+                                                 subTitle: ftpConfigurationBN.username,
+                                                 action: SettingsFTPBreakingNewsUsernameAction(delegate: delegate))
+        
+        let ftpBNPasswordSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().PASSWORD_FTP),
+                                                 subTitle: ftpConfigurationBN.password,
+                                                 action: SettingsFTPBreakignNewsPasswordAction(delegate: delegate))
+        
+        let ftpBNEditedDestinationSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().EDITED_VIDEO_DESTINATION),
+                                                          subTitle: ftpConfigurationBN.editedVideoPath,
+                                                          action: SettingsFTPBreakingNewsEditedDestination(delegate: delegate))
+        
+        let ftpBNUneditedDestinationSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().UNEDITED_VIDEO_DESTINATION),
+                                                            subTitle: ftpConfigurationBN.uneditedVideoPath,
+                                                            action: SettingsFTPBreakingNewsUneditedDestination(delegate: delegate))
+        
         let settings = [[nameSetting,userNameSetting,emailSetting],
                         [resolutionSetting,qualitySetting],
                         [AboutUsSetting,privacyPolicySetting,termsOfServiceSetting,licensesSetting,legalAdviceSetting],
-                        [ftpHostSetting,ftpUserNameSetting,ftpPasswordSetting,ftpEditedDestinationSetting,ftpUneditedDestinationSetting]]
+                        [ftpHostSetting,ftpUserNameSetting,ftpPasswordSetting,ftpEditedDestinationSetting,ftpUneditedDestinationSetting],
+                        [ftpBNHostSetting,ftpBNUserNameSetting,ftpBNPasswordSetting,ftpBNEditedDestinationSetting,ftpBNUneditedDestinationSetting]]
         
         return settings
     }
@@ -158,7 +113,8 @@ class SettingsProvider:NSObject{
             Utils().getStringByKeyFromSettings(SettingsConstants().MY_ACCOUNT_SECTION),
             Utils().getStringByKeyFromSettings(SettingsConstants().CAMERA_SECTION),
             Utils().getStringByKeyFromSettings(SettingsConstants().MORE_INFO_SECTION),
-            Utils().getStringByKeyFromSettings(SettingsConstants().FTP1_SECTION_TITLE)
+            Utils().getStringByKeyFromSettings(SettingsConstants().FTP1_SECTION_TITLE),
+            Utils().getStringByKeyFromSettings(SettingsConstants().FTP2_SECTION_TITLE)
         ]
     }
 }

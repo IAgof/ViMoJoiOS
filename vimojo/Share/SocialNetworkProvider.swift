@@ -18,6 +18,11 @@ class SocialNetworkProvider:NSObject{
             title: "FTP",
             action: ShareFTPInteractor(delegate: delegate)))
         
+        socialNetworks.append(SocialNetwork(iconId: "activity_share_icon_ftp_red",
+            iconIdPressed: "activity_share_icon_ftp_red",
+            title: "Breaking News",
+            action: ShareFTPBreakingNewsInteractor(delegate: delegate)))
+        
         socialNetworks.append( SocialNetwork(iconId: "share_icon_facebook_normal",
             iconIdPressed: "share_icon_facebook_pressed",
             title: "Facebook",
@@ -42,7 +47,6 @@ class SocialNetworkProvider:NSObject{
             iconIdPressed: "share_icon_youtube_pressed",
             title: "Youtube",
             action: ShareYoutubeInteractor(delegate: delegate)))
-
         
         return socialNetworks
     }

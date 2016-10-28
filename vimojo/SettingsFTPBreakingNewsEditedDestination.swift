@@ -1,14 +1,14 @@
 //
-//  SettingsFTPUsernameAction.swift
+//  SettingsFTPBreakingNewsEditedDestination.swift
 //  vimojo
 //
-//  Created by Alejandro Arjonilla Garcia on 26/10/16.
+//  Created by Alejandro Arjonilla Garcia on 28/10/16.
 //  Copyright © 2016 Videona. All rights reserved.
 //
 
 import Foundation
 
-class SettingsFTPUsernameAction: SettingsActionInterface {
+class SettingsFTPBreakingNewsEditedDestination: SettingsActionInterface {
     let defaults = NSUserDefaults.standardUserDefaults()
     var delegate: SettingsActionDelegate
     
@@ -17,7 +17,7 @@ class SettingsFTPUsernameAction: SettingsActionInterface {
     }
     
     func executeSettingsAction(index:NSIndexPath) {
-        let title =  Utils().getStringByKeyFromSettings(SettingsConstants().ENTER_USERNAME_FTP)
+        let title =  Utils().getStringByKeyFromSettings(SettingsConstants().ENTER_EDITED_VIDEO_DESTINATION)
         
         let alertController = SettingsUtils().createAlertViewWithInputText(title,
                                                                            message: "",
@@ -33,7 +33,7 @@ class SettingsFTPUsernameAction: SettingsActionInterface {
     }
     
     func saveOnDefaults(saveString:String){
-        defaults.setObject(saveString, forKey: SettingsConstants().SETTINGS_USERNAME_FTP)
+        defaults.setObject(saveString, forKey: SettingsConstants().SETTINGS_EDITED_DEST_FTP_BN)
         delegate.executeFinished()
     }
 }
