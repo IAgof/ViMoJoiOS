@@ -9,15 +9,6 @@
 import Foundation
 import RebekkaTouch
 
-enum FTPErrorType:Int {
-    case FTP_ERROR_HOST_UNREACHABLE = 60
-    case FTP_ERROR_UNAUTHORIZED = 200
-    case FTP_ERROR_NO_DOMAIN = 12
-    case FTP_ERROR_FILE_NOT_FOUND = 2
-    case FTP_ERROR_IO = 50
-}
-
-
 class ShareFTPInteractor: ShareActionInterface {
     struct FTPfileData {
         let name:String
@@ -36,7 +27,7 @@ class ShareFTPInteractor: ShareActionInterface {
         let alertController = ShareUtils().createAlertViewWithInputText(title, message: message, completion: {
             filename in
             
-            let fileData = FTPfileData(name: filename.stringByAppendingString("m4v"), path: path)
+            let fileData = FTPfileData(name: filename.stringByAppendingString(".m4v"), path: path)
             self.createFTPUpload(fileData)
         })
         
@@ -92,16 +83,14 @@ class ShareFTPInteractor: ShareActionInterface {
             }
             var message = ""
             switch ftpErrorType{
-            case .FTP_ERROR_HOST_UNREACHABLE,.FTP_ERROR_NO_DOMAIN:
+            case .FTP_ERROR_HOST_UNREACHABLE,
+                 .FTP_ERROR_NO_DOMAIN,
+                 .FTP_ERROR_FILE_NOT_FOUND:
                 message = Utils().getStringByKeyFromShare(ShareConstants().FTP_ERROR_HOST_UNREACHABLE)
                 
                 break
             case .FTP_ERROR_UNAUTHORIZED:
                 message = Utils().getStringByKeyFromShare(ShareConstants().FTP_ERROR_UNAUTHORIZED)
-                
-                break
-            case .FTP_ERROR_FILE_NOT_FOUND:
-                message = Utils().getStringByKeyFromShare(ShareConstants().FTP_ERROR_FILE_NOT_FOUND)
                 
                 break
             case .FTP_ERROR_IO:

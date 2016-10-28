@@ -26,7 +26,7 @@ struct SettinsFTP {
         }
         
         if let passwordSaved = defaults.stringForKey(SettingsConstants().PASSWORD_FTP){
-            if passwordSaved == ""{
+            if passwordSaved != ""{
                 password = passwordSaved
             }else{
                 password = "********"
