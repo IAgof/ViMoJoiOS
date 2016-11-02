@@ -51,7 +51,7 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         
         for video in self.videosList{
 
-            ThumbnailListInteractor(videoPath: video.getMediaPath(),
+            ThumbnailListInteractor(videoURL: video.videoURL,
                 diameter: Utils.sharedInstance.thumbnailEditorListDiameter).getThumbnailImage({
                     thumb in
                     

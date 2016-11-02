@@ -12,11 +12,11 @@ import AVFoundation
 
 class ThumbnailListInteractor: NSObject {
     var thumbnailImageView: UIImageView!
-    var videoPath:String!
+    var videoURL:NSURL
     var diameter:CGFloat = 40.0
     
-    init(videoPath:String,diameter:Int) {
-        self.videoPath = videoPath
+    init(videoURL:NSURL,diameter:Int) {
+        self.videoURL = videoURL
         
         let newDiameter = CGFloat.init(diameter)
         self.thumbnailImageView = UIImageView.init(frame: CGRectMake(0, 0, newDiameter, newDiameter))
@@ -24,7 +24,7 @@ class ThumbnailListInteractor: NSObject {
     }
     
     func getThumbnailImage(completion:(UIImage)->Void){
-        let asset = AVURLAsset(URL: NSURL(fileURLWithPath: videoPath), options: nil)
+        let asset = AVURLAsset(URL: videoURL, options: nil)
         let imgGenerator = AVAssetImageGenerator(asset: asset)
         
         var cgImage:CGImage?

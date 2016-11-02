@@ -15,19 +15,19 @@ protocol ThumbnailDelegate {
 }
 
 class ThumbnailInteractor: NSObject {
-    var videoPath:String!
+    var videoURL:NSURL
     var diameter:CGFloat = 40.0
     var delegate:ThumbnailDelegate?
     
-    init(videoPath:String,diameter:CGFloat) {
-        self.videoPath = videoPath
+    init(videoURL:NSURL,diameter:CGFloat) {
+        self.videoURL = videoURL
         self.diameter = diameter
     }
     
     func getthumbnailImage(){
         var thumbnailImage = UIImage()
         
-        let asset = AVURLAsset(URL: NSURL(fileURLWithPath: videoPath), options: nil)
+        let asset = AVURLAsset(URL: videoURL, options: nil)
         let imgGenerator = AVAssetImageGenerator(asset: asset)
         
         var cgImage:CGImage?

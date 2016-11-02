@@ -75,8 +75,10 @@ class CameraRecorderInteractor{
 
                 Utils().debugLog("Stop recording video")
                 
-                AddVideoToProjectUseCase().updateVideoParams(self.project!)
-                ClipsAlbum.sharedInstance.saveVideo(clipURL)
+                guard let actualProject = self.project else{return}
+                AddVideoToProjectUseCase().updateVideoParams(actualProject)
+               
+                ClipsAlbum.sharedInstance.saveVideo(clipURL,project: actualProject)
                 
                 self.movieWriter!.endProcessing()
                 self.movieWriter = nil

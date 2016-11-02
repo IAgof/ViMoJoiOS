@@ -56,7 +56,7 @@ class SettingsWireframe : NSObject {
     }
     
     func presentDetailTextController(textViewText:String){
-        detailTextWireframe?.presentShareInterfaceFromViewController(settingsViewController!,
+        detailTextWireframe?.presentDetailTextInterfaceFromViewController(settingsViewController!,
                                                                      textRef: textViewText)
     }
     

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import VideonaProject
 import Photos
 
 class ClipsAlbum: NSObject {
@@ -70,16 +70,47 @@ class ClipsAlbum: NSObject {
         return nil
     }
     
-    func saveVideo(clipPath:NSURL) {
+    var savedLocalIdentifier:String?
+    
+    func saveVideo(clipPath:NSURL,project:Project) {
         if assetCollection == nil {
-            return                          // if there was an error upstream, skip the save
+            return
         }
         
         PHPhotoLibrary.sharedPhotoLibrary().performChanges({
-            let assetChangeRequest = PHAssetChangeRequest.creationRequestForAssetFromVideoAtFileURL(clipPath)
-            let assetPlaceHolder = assetChangeRequest!.placeholderForCreatedAsset
+            
+            guard let assetChangeRequest = PHAssetChangeRequest.creationRequestForAssetFromVideoAtFileURL(clipPath) else {return}
+            guard let assetPlaceHolder = assetChangeRequest.placeholderForCreatedAsset  else {return}
+            
+            self.savedLocalIdentifier = assetPlaceHolder.localIdentifier
+            
             let albumChangeRequest = PHAssetCollectionChangeRequest(forAssetCollection: self.assetCollection)
-            albumChangeRequest!.addAssets([assetPlaceHolder!])
-            }, completionHandler: nil)
+            albumChangeRequest!.addAssets([assetPlaceHolder])
+           
+            }, completionHandler: {
+                saved, error in
+                
+                if saved{
+                    if let localIdentifier = self.savedLocalIdentifier{
+                        self.setVideoUrlParameters(localIdentifier,
+                            project: project)
+                    }
+                }
+        })
+    }
+    
+    func setVideoUrlParameters(localIdentifier:String,
+                               project:Project){
+        
+        if let video = project.getVideoList().last{
+            let phFetchAsset = PHAsset.fetchAssetsWithLocalIdentifiers([localIdentifier], options: nil)
+            let phAsset = phFetchAsset[0] as! PHAsset
+            PHImageManager.defaultManager().requestAVAssetForVideo(phAsset, options: nil, resultHandler: {
+                avasset,audiomix,info in
+                if let asset = avasset as? AVURLAsset{
+                    video.videoURL = asset.URL
+                }
+            })
+        }
     }
 }
