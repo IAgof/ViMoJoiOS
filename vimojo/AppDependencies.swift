@@ -39,6 +39,8 @@ class AppDependencies {
     var musicListWireframe = MusicListWireframe()
     var micRecorderWireframe = MicRecorderWireframe()
     
+    var galleryWireframe = GalleryWireframe()
+    
     init(){
         configureDependencies()
     }
@@ -90,6 +92,8 @@ class AppDependencies {
         let micRecorderPresenter = MicRecorderPresenter()
         let micRecorderInteractor = MicRecorderInteractor()
         
+        let gallerySaveVideosInteractor = SaveVideosFromGalleryInteractor(project: project)
+        
         //RECORD MODULE
         recordPresenter.recordWireframe = recordWireframe
         recordPresenter.interactor = recordInteractor
@@ -140,6 +144,7 @@ class AppDependencies {
         editorWireframe.splitWireframe = splitWireframe
         editorWireframe.fullScreenPlayerWireframe = fullScreenPlayerWireframe
         editorWireframe.addTextWireframe = addTextWireframe
+        editorWireframe.galleryWireframe = galleryWireframe
         
         editorInteractor.delegate = editorPresenter
         editorInteractor.project = project
@@ -264,6 +269,10 @@ class AppDependencies {
         
         detailTextWireframe.detailTextPresenter = detailTextPresenter
         detailTextWireframe.rootWireframe = rootWireframe
+        
+        //GALLERY MODULE
+        galleryWireframe.rootWireframe = rootWireframe
+        galleryWireframe.interactor = gallerySaveVideosInteractor
     }
         
     func installRecordToRootViewControllerIntoWindow(window: UIWindow){

@@ -139,7 +139,9 @@ class EditorPresenter: NSObject,EditorPresenterInterface,EditorInteractorDelegat
     }
     
     func pushAddVideoHandler() {        
-        controller?.presentPickerController()
+//        controller?.presentPickerController()
+        
+        wireframe?.presentGallery()
     }
     
     func expandPlayer() {
