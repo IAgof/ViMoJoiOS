@@ -85,18 +85,6 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         delegate?.setStopTimeList(stopTimeList)
     }
     
-    func saveVideoToDocuments(url:NSURL) {
-        self.exportWithoutWaterMark(url, completionHandler: {
-            path in
-            
-            AddVideoToProjectUseCase().add(path,
-                title: "Video from library",
-                project: self.project!)
-            
-            self.updateNewVideoValues()
-        })
-    }
-    
     func updateNewVideoValues(){
         guard let videoList = project?.getVideoList() else{return}
         

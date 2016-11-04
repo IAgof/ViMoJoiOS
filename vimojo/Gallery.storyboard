@@ -68,7 +68,7 @@
                                 <action selector="cancelButtonPushed:" destination="XPu-N1-91P" id="4g6-0l-NKJ"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="znY-Rt-a5f">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="znY-Rt-a5f">
                             <connections>
                                 <action selector="saveButtonPushed:" destination="XPu-N1-91P" id="SLM-A2-mIt"/>
                             </connections>
@@ -163,7 +163,7 @@
                                 <action selector="cancelButtonPushed:" destination="BV8-2G-Uwe" id="4WZ-Ly-FL0"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="vcq-h3-j0R">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="vcq-h3-j0R">
                             <connections>
                                 <action selector="saveButtonPushed:" destination="BV8-2G-Uwe" id="8Ye-pE-gCE"/>
                             </connections>
@@ -240,7 +240,7 @@
                                 <action selector="cancelButtonPushed:" destination="Cy9-0N-BbX" id="X5u-ri-zu3"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="nzd-q5-jfT">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="nzd-q5-jfT">
                             <connections>
                                 <action selector="saveButtonPushed:" destination="Cy9-0N-BbX" id="2zc-tl-G3D"/>
                             </connections>
@@ -254,11 +254,11 @@
             </objects>
             <point key="canvasLocation" x="586" y="1242"/>
         </scene>
-        <!--All Videos-->
+        <!--All-->
         <scene sceneID="yex-IS-Gct">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ljy-nI-TqT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="All Videos" id="TFz-IG-Bj4"/>
+                    <tabBarItem key="tabBarItem" title="All" image="activity_gallery_all_normal" id="TFz-IG-Bj4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="F12-CU-7p9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -273,11 +273,11 @@
             </objects>
             <point key="canvasLocation" x="-226" y="528"/>
         </scene>
-        <!--ViMoJo Exported-->
+        <!--Edited-->
         <scene sceneID="nUo-6N-sN3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="upQ-tj-Jr2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ViMoJo Exported" id="LXW-Ke-aqE"/>
+                    <tabBarItem key="tabBarItem" title="Edited" image="activity_gallery_edited_normal" id="LXW-Ke-aqE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hXI-Nr-XFG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -292,11 +292,11 @@
             </objects>
             <point key="canvasLocation" x="-226" y="1242"/>
         </scene>
-        <!--ViMoJo Clips-->
+        <!--Clips-->
         <scene sceneID="CR7-qd-n9u">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M7s-cR-vC0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ViMoJo Clips" id="ZSr-jX-aG6"/>
+                    <tabBarItem key="tabBarItem" title="Clips" image="activity_gallery_edited_normal" id="ZSr-jX-aG6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZRY-11-SkX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -312,4 +312,8 @@
             <point key="canvasLocation" x="-226" y="1945"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="activity_gallery_all_normal" width="33" height="30"/>
+        <image name="activity_gallery_edited_normal" width="33" height="30"/>
+    </resources>
 </document>

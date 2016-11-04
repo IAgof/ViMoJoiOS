@@ -20,6 +20,8 @@ class GalleryViewController: UITabBarController {
         self.navigationController?.navigationBarHidden = false
         interactor?.setDelegate(self)
         
+        self.tabBar.tintColor = VIMOJO_RED_UICOLOR
+        
         for controller in self.viewControllers!{
             if let galleryController = controller.childViewControllers[0] as? VideosGalleryViewController{
                 galleryController.delegate = self

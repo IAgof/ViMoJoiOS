@@ -31,8 +31,6 @@ class EditorPresenter: NSObject,EditorPresenterInterface,EditorInteractorDelegat
     
     //MARK: - Interface
     func viewDidLoad() {
-        controller?.configurePickerController()
-        
         self.reloadPositionNumberAfterMovement()
         
         //Auto select first item on first load
@@ -138,9 +136,7 @@ class EditorPresenter: NSObject,EditorPresenterInterface,EditorInteractorDelegat
         }
     }
     
-    func pushAddVideoHandler() {        
-//        controller?.presentPickerController()
-        
+    func pushAddVideoHandler() {
         wireframe?.presentGallery()
     }
     
@@ -181,12 +177,6 @@ class EditorPresenter: NSObject,EditorPresenterInterface,EditorInteractorDelegat
         }
     }
     
-
-    
-    func saveVideoToDocuments(url: NSURL) {
-        interactor?.saveVideoToDocuments(url)
-    }
-    
     func removeVideoClip(position: Int) {
         videoToRemove = position
         
@@ -199,10 +189,6 @@ class EditorPresenter: NSObject,EditorPresenterInterface,EditorInteractorDelegat
         interactor?.removeVideo(videoToRemove)
         
         self.reloadPositionNumberAfterMovement()
-    }
-    
-    func pickerControllerDidCancel() {
-        controller?.dissmissAlertController()
     }
     
     //MARK: - Inner functions
