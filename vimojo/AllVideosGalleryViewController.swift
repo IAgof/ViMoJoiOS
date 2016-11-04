@@ -14,7 +14,7 @@ class AllVideosGalleryViewController: VideosGalleryViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        cellColor = VIMOJO_GREEN_UICOLOR
+        cellColor = VIMOJO_RED_UICOLOR
     }
     
     override func fetchVideos() {
