@@ -11,7 +11,7 @@ import MobileCoreServices
 import VideonaPlayer
 
 class EditorViewController: ViMoJoController,EditorViewInterface,PlayerViewDelegate,PlayerViewSetter,FullScreenWireframeDelegate,
-UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UINavigationControllerDelegate{
     
     //MARK: - VIPER variables
     var eventHandler: EditorPresenterInterface?
@@ -183,18 +183,6 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         return self.thumbnailClipsCollectionView.numberOfItemsInSection(0)
     }
     
-    func configurePickerController() {
-        imagePicker.delegate = self
-    }
-    
-    func presentPickerController() {
-        // Display Photo Library
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        imagePicker.mediaTypes = [kUTTypeMovie as String]
-        
-        presentViewController(imagePicker, animated: true, completion: nil)
-    }
-    
     func showAlertRemove(title:String,
                          message:String,
                          yesString:String) {
@@ -294,39 +282,6 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     //MARK: Player view delegate
     func seekBarUpdate(value: Float) {
         eventHandler?.seekBarUpdateHandler(value)
-    }
-    
-    // MARK: - UIImagePickerControllerDelegate Methods
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: AnyObject]) {
-        
-        // 1
-        let mediaType:AnyObject? = info[UIImagePickerControllerMediaType]
-        
-        if let type:AnyObject = mediaType {
-            if type is String {
-                let stringType = type as! String
-                if stringType == kUTTypeMovie as String {
-                    let urlOfVideo = info[UIImagePickerControllerMediaURL] as? NSURL
-                    if let url = urlOfVideo {
-                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            self.createAlertWaitToImport({
-                                void in
-                                self.eventHandler?.saveVideoToDocuments(url)
-                            })
-                        })
-                    }
-                }
-            }
-        }
-        
-        // 3
-        picker.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        picker.dismissViewControllerAnimated(true, completion: nil)
-        
-        eventHandler?.pickerControllerDidCancel()
     }
     
     func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {

@@ -26,6 +26,7 @@ pod 'FocalLensSlider', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/Foc
 pod 'ExpositionModes', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/ExpositionModes'
 pod 'ZoomCameraSlider', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/ZoomCameraSlider'
 pod 'ResolutionSelector', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/ResolutionsSelector'
+pod 'VideoGallery', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideoGallery'
 
 
 pod 'VideonaProject', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaProject'

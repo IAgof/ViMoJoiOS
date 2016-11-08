@@ -77,6 +77,12 @@
 		A91761381D916F53008915DA /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917612D1D916F53008915DA /* MusicViewController.swift */; };
 		A91761391D916F53008915DA /* MusicViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917612E1D916F53008915DA /* MusicViewInterface.swift */; };
 		A917613A1D916F53008915DA /* MusicWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917612F1D916F53008915DA /* MusicWireframe.swift */; };
+		A91C694A1DCB59A000AF2576 /* AllVideosGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C69471DCB59A000AF2576 /* AllVideosGalleryViewController.swift */; };
+		A91C694B1DCB59A000AF2576 /* CustomExportedVideosGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C69481DCB59A000AF2576 /* CustomExportedVideosGalleryViewController.swift */; };
+		A91C694C1DCB59A000AF2576 /* CustomClipsGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C69491DCB59A000AF2576 /* CustomClipsGalleryViewController.swift */; };
+		A91C694E1DCB59AA00AF2576 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C694D1DCB59AA00AF2576 /* GalleryViewController.swift */; };
+		A91C69501DCB59BE00AF2576 /* Gallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91C694F1DCB59BE00AF2576 /* Gallery.storyboard */; };
+		A91C69521DCB59D200AF2576 /* GalleryWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C69511DCB59D200AF2576 /* GalleryWireframe.swift */; };
 		A921D9711DC1DED2003631E8 /* RebekkaTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A921D9701DC1DEA9003631E8 /* RebekkaTouch.framework */; };
 		A921D9721DC1DED2003631E8 /* RebekkaTouch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A921D9701DC1DEA9003631E8 /* RebekkaTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A921D9761DC1DF04003631E8 /* RebekkaTouch.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A921D9701DC1DEA9003631E8 /* RebekkaTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -421,6 +427,8 @@
 		A9C695941DA2411400597646 /* SORROW_AND_SADNESS.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A9C695901DA2411400597646 /* SORROW_AND_SADNESS.mp3 */; };
 		A9C695951DA2411400597646 /* WE_BEAT_AS_ONE.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A9C695911DA2411400597646 /* WE_BEAT_AS_ONE.mp3 */; };
 		A9CFA5E61D991DBE0037B1F5 /* VideonaFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CFA5E51D991DBE0037B1F5 /* VideonaFooterView.xib */; };
+		A9E611711DCB6D8600F221AB /* SaveVideosFromGalleryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E611701DCB6D8600F221AB /* SaveVideosFromGalleryInteractor.swift */; };
+		A9E611761DCB6DCE00F221AB /* SaveVideosFromGalleryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E611751DCB6DCE00F221AB /* SaveVideosFromGalleryInterface.swift */; };
 		A9ED00501D9178CB00969F31 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED004F1D9178CB00969F31 /* Alamofire.framework */; };
 		A9ED005A1D917B7200969F31 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00571D917B7200969F31 /* FBSDKCoreKit.framework */; };
 		A9ED005B1D917B7200969F31 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00581D917B7200969F31 /* FBSDKLoginKit.framework */; };
@@ -655,6 +663,12 @@
 		A917612E1D916F53008915DA /* MusicViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusicViewInterface.swift; path = Music/MusicViewInterface.swift; sourceTree = "<group>"; };
 		A917612F1D916F53008915DA /* MusicWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusicWireframe.swift; path = Music/MusicWireframe.swift; sourceTree = "<group>"; };
 		A917614B1D917176008915DA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
+		A91C69471DCB59A000AF2576 /* AllVideosGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllVideosGalleryViewController.swift; sourceTree = "<group>"; };
+		A91C69481DCB59A000AF2576 /* CustomExportedVideosGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomExportedVideosGalleryViewController.swift; sourceTree = "<group>"; };
+		A91C69491DCB59A000AF2576 /* CustomClipsGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomClipsGalleryViewController.swift; sourceTree = "<group>"; };
+		A91C694D1DCB59AA00AF2576 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		A91C694F1DCB59BE00AF2576 /* Gallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Gallery.storyboard; sourceTree = "<group>"; };
+		A91C69511DCB59D200AF2576 /* GalleryWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryWireframe.swift; sourceTree = "<group>"; };
 		A921D9661DC1DEA9003631E8 /* Rebekka.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rebekka.xcodeproj; path = "../FTP_Client_Rebekka/rebekka-source/Rebekka.xcodeproj"; sourceTree = "<group>"; };
 		A9334EEE1DAAB96A00762D8A /* MusicListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicListView.xib; sourceTree = "<group>"; };
 		A9334EF01DAAB97C00762D8A /* MusicListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicListView.swift; sourceTree = "<group>"; };
@@ -789,6 +803,8 @@
 		A9C695901DA2411400597646 /* SORROW_AND_SADNESS.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = SORROW_AND_SADNESS.mp3; path = MusicResources/SORROW_AND_SADNESS.mp3; sourceTree = "<group>"; };
 		A9C695911DA2411400597646 /* WE_BEAT_AS_ONE.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = WE_BEAT_AS_ONE.mp3; path = MusicResources/WE_BEAT_AS_ONE.mp3; sourceTree = "<group>"; };
 		A9CFA5E51D991DBE0037B1F5 /* VideonaFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideonaFooterView.xib; sourceTree = "<group>"; };
+		A9E611701DCB6D8600F221AB /* SaveVideosFromGalleryInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveVideosFromGalleryInteractor.swift; sourceTree = "<group>"; };
+		A9E611751DCB6DCE00F221AB /* SaveVideosFromGalleryInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveVideosFromGalleryInterface.swift; sourceTree = "<group>"; };
 		A9ED004F1D9178CB00969F31 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		A9ED00571D917B7200969F31 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		A9ED00581D917B7200969F31 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -993,6 +1009,28 @@
 				A9C6959A1DA246AC00597646 /* User Interface */,
 			);
 			name = "Music Selector";
+			sourceTree = "<group>";
+		};
+		A91C693D1DCB596900AF2576 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				A91C69411DCB597200AF2576 /* GalleryControllers */,
+				A91C694F1DCB59BE00AF2576 /* Gallery.storyboard */,
+				A91C694D1DCB59AA00AF2576 /* GalleryViewController.swift */,
+				A9E611771DCB6DD200F221AB /* Interactor */,
+				A91C69511DCB59D200AF2576 /* GalleryWireframe.swift */,
+			);
+			name = Gallery;
+			sourceTree = "<group>";
+		};
+		A91C69411DCB597200AF2576 /* GalleryControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A91C69471DCB59A000AF2576 /* AllVideosGalleryViewController.swift */,
+				A91C69481DCB59A000AF2576 /* CustomExportedVideosGalleryViewController.swift */,
+				A91C69491DCB59A000AF2576 /* CustomClipsGalleryViewController.swift */,
+			);
+			name = GalleryControllers;
 			sourceTree = "<group>";
 		};
 		A921D9671DC1DEA9003631E8 /* Products */ = {
@@ -1419,6 +1457,7 @@
 				A9058DBE1D90357A0048F484 /* EditingRoom */,
 				A9058DCC1D9035C80048F484 /* Editor */,
 				A91760D01D9146F4008915DA /* FullScreenPlayer */,
+				A91C693D1DCB596900AF2576 /* Gallery */,
 				A988DEEC1DACEF6E0030E285 /* Music List */,
 				A988DF001DAD1DE40030E285 /* Music Mic recorder */,
 				A91760FB1D916F3F008915DA /* Music Selector */,
@@ -1703,6 +1742,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		A9E611771DCB6DD200F221AB /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				A9E611701DCB6D8600F221AB /* SaveVideosFromGalleryInteractor.swift */,
+				A9E611751DCB6DCE00F221AB /* SaveVideosFromGalleryInterface.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
 		A9FDD8B71DAD3D4100AB0930 /* Mic mixAudio */ = {
 			isa = PBXGroup;
 			children = (
@@ -1903,6 +1951,7 @@
 				A93BCE741D7D88EE00421BD0 /* activity_record_rec_circle.png in Resources */,
 				A906CCDB1DB0D03700AC8FFB /* MicRecorder.strings in Resources */,
 				A9B385F41D7D51380065D3EC /* LaunchScreen.storyboard in Resources */,
+				A91C69501DCB59BE00AF2576 /* Gallery.storyboard in Resources */,
 				A9ED005E1D9185BB00969F31 /* GoogleService-Info.plist in Resources */,
 				A93BCE781D7D93B700421BD0 /* water_mark.png in Resources */,
 				A93BCE5E1D7D7A1300421BD0 /* iso639_2.bundle in Resources */,
@@ -2296,7 +2345,9 @@
 				A91761351D916F53008915DA /* MusicPresenter.swift in Sources */,
 				A9A419181DB5110C00FB642E /* AddTextPresenter.swift in Sources */,
 				A91760E01D914827008915DA /* TrimViewController.swift in Sources */,
+				A9E611711DCB6D8600F221AB /* SaveVideosFromGalleryInteractor.swift in Sources */,
 				A9B3862B1D7D531B0065D3EC /* RecorderConstants.swift in Sources */,
+				A91C694B1DCB59A000AF2576 /* CustomExportedVideosGalleryViewController.swift in Sources */,
 				A91760D81D9146FE008915DA /* FullScreenPlayerPresenterInterface.swift in Sources */,
 				A91760BD1D9146BF008915DA /* EditorPresenterInterface.swift in Sources */,
 				A9B7F8E01DBE56D300F24E78 /* SettingsUserInfo.swift in Sources */,
@@ -2324,10 +2375,12 @@
 				A9A1E5B61DB636DC003BF354 /* ApplyTextOverlayToVideoCompositionUseCase.swift in Sources */,
 				A93BCE4D1D7D5C7400421BD0 /* AnalitycsConstants.swift in Sources */,
 				A91760C21D9146BF008915DA /* ThumbnailListInteractor.swift in Sources */,
+				A91C694C1DCB59A000AF2576 /* CustomClipsGalleryViewController.swift in Sources */,
 				A91761361D916F53008915DA /* MusicPresenterInterface.swift in Sources */,
 				A9FEF9781DBF8B0A00A56611 /* SettingsActionInterface.swift in Sources */,
 				A91760EB1D914840008915DA /* SplitViewInterface.swift in Sources */,
 				A9FDD8BB1DAD3D5300AB0930 /* MixAudioView.swift in Sources */,
+				A91C694A1DCB59A000AF2576 /* AllVideosGalleryViewController.swift in Sources */,
 				A9FEF97C1DBF8B3A00A56611 /* SettingsUsernameAction.swift in Sources */,
 				A9B3865F1D7D55660065D3EC /* ViMoJoController.swift in Sources */,
 				A9B386541D7D53D10065D3EC /* CameraRecorderInterface.swift in Sources */,
@@ -2342,11 +2395,14 @@
 				A988DF041DAD1E090030E285 /* MicRecorderPresenter.swift in Sources */,
 				A91760AC1D9146B5008915DA /* EditingRoomViewController.swift in Sources */,
 				A91760ED1D914840008915DA /* SplitWireframe.swift in Sources */,
+				A91C69521DCB59D200AF2576 /* GalleryWireframe.swift in Sources */,
 				A91760E11D914827008915DA /* TrimWireframe.swift in Sources */,
 				A91761391D916F53008915DA /* MusicViewInterface.swift in Sources */,
+				A9E611761DCB6DCE00F221AB /* SaveVideosFromGalleryInterface.swift in Sources */,
 				A91761161D916F48008915DA /* ShareInstagramInteractor.swift in Sources */,
 				A95BE9941D990C4100602DCD /* DetailTextController.swift in Sources */,
 				A97F0F231DC092A100907196 /* UIApplicationExtensionGetTopController.swift in Sources */,
+				A91C694E1DCB59AA00AF2576 /* GalleryViewController.swift in Sources */,
 				A900C74E1DC35CBD00A65730 /* SettingsFTPBreakingNewsEditedDestination.swift in Sources */,
 				A97F0F281DC0937300907196 /* SettingsEmailAction.swift in Sources */,
 				A91761151D916F48008915DA /* ShareFacebookInteractor.swift in Sources */,

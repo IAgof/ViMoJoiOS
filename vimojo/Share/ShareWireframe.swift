@@ -28,19 +28,6 @@ class ShareWireframe : NSObject {
         rootWireframe?.showRootViewController(viewController, inWindow: window)
     }
     
-    func presentShareInterfaceFromViewController(prevController:UIViewController,
-                                                 videoPath:String,
-                                                 numberOfClips:Int) {
-        let viewController = shareViewControllerFromStoryboard()
-        
-        viewController.exportPath = videoPath
-        viewController.numberOfClips = numberOfClips
-        
-        self.prevController = prevController
-
-        prevController.showViewController(viewController, sender: nil)
-    }
-    
     func shareViewControllerFromStoryboard() -> ShareViewController {
         let storyboard = mainStoryboard()
         let viewController = storyboard.instantiateViewControllerWithIdentifier(shareViewControllerIdentifier) as! ShareViewController
@@ -65,6 +52,7 @@ class ShareWireframe : NSObject {
         let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         return storyboard
     }
+    
     func presentPlayerInterface() {
         playerWireframe?.presentPlayerInterfaceFromViewController(shareViewController!)
     }

@@ -51,7 +51,7 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         
         for video in self.videosList{
 
-            ThumbnailListInteractor(videoPath: video.getMediaPath(),
+            ThumbnailListInteractor(videoURL: video.videoURL,
                 diameter: Utils.sharedInstance.thumbnailEditorListDiameter).getThumbnailImage({
                     thumb in
                     
@@ -83,18 +83,6 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         }
         
         delegate?.setStopTimeList(stopTimeList)
-    }
-    
-    func saveVideoToDocuments(url:NSURL) {
-        self.exportWithoutWaterMark(url, completionHandler: {
-            path in
-            
-            AddVideoToProjectUseCase().add(path,
-                title: "Video from library",
-                project: self.project!)
-            
-            self.updateNewVideoValues()
-        })
     }
     
     func updateNewVideoValues(){

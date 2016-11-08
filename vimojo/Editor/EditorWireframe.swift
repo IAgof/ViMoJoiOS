@@ -23,7 +23,8 @@ class EditorWireframe : NSObject {
     var duplicateWireframe:DuplicateWireframe?
     var splitWireframe:SplitWireframe?
     var addTextWireframe:AddTextWireframe?
-
+    var galleryWireframe:GalleryWireframe?
+    
     func presentEditorInterfaceFromWindow(window: UIWindow) {
         let viewController = editorViewControllerFromStoryboard()
         
@@ -84,6 +85,12 @@ class EditorWireframe : NSObject {
                 fullScreenPlayerWireframe?.presentFullScreenPlayerFromViewController(controller,
                                                                                      playerView:player)
             }
+        }
+    }
+    
+    func presentGallery(){
+        if let controller = editorViewController{
+            galleryWireframe?.presentGalleryFromViewController(controller)
         }
     }
 }

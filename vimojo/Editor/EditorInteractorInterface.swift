@@ -13,7 +13,6 @@ import VideonaProject
 protocol EditorInteractorInterface {
     func getComposition()
     func getListData()
-    func saveVideoToDocuments(url:NSURL)
     func seekToSelectedItemHandler(videoPosition:Int)
     func reloadPositionNumberAfterMovement()
     func removeVideo(index:Int)

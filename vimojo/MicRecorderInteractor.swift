@@ -31,7 +31,7 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
     let recordSettings = [AVSampleRateKey : NSNumber(float: Float(44100.0)),
                           AVFormatIDKey : NSNumber(int: Int32(kAudioFormatMPEG4AAC)),
                           AVNumberOfChannelsKey : NSNumber(int: 1),
-                          AVEncoderAudioQualityKey : NSNumber(int: Int32(AVAudioQuality.Medium.rawValue))]
+                          AVEncoderAudioQualityKey : NSNumber(int: Int32(AVAudioQuality.High.rawValue))]
     var audioStringPath:String?
     
     func initAudioSession(){

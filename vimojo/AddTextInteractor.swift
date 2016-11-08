@@ -106,7 +106,7 @@ class AddTextInteractor: AddTextInteractorInterface {
                                                                      preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
         
         // 2 - Get Video asset
-        let videoURL: NSURL = NSURL.init(fileURLWithPath: video.getMediaPath())
+        let videoURL: NSURL = video.videoURL
         let videoAsset = AVAsset.init(URL: videoURL)
         
         do {
@@ -122,6 +122,7 @@ class AddTextInteractor: AddTextInteractorInterface {
             try audioTrack.insertTimeRange(timeRangeInsert,
                                            ofTrack: videoAsset.tracksWithMediaType(AVMediaTypeAudio)[0] ,
                                            atTime: kCMTimeZero)
+            
             videoTotalTime = CMTimeAdd(videoTotalTime, (stopTime - startTime))
             
             mixComposition.removeTimeRange(CMTimeRangeMake((videoTotalTime), (stopTime + videoTotalTime)))
@@ -131,16 +132,5 @@ class AddTextInteractor: AddTextInteractorInterface {
         }
         
         completion(VideoComposition(mutableComposition: mixComposition))
-    }
-        
-    func addVideoWithTextToProject(exportPath:String){
-        guard let videoList = project?.getVideoList() else {return}
-        
-        let video = Video.init(title: "Text", mediaPath: exportPath)
-        
-        AddVideoToProjectUseCase().add(video,
-                                       position: videoList.count,
-                                       project: project!)
-        video.mediaRecordedFinished()
     }
 }

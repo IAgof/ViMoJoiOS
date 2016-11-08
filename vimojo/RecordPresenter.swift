@@ -454,7 +454,6 @@ class RecordPresenter: NSObject
             // do some task
             self.cameraInteractor?.setIsRecording(false)
             
-            self.updateThumbnail()
             dispatch_async(dispatch_get_main_queue(), {
                 self.delegate?.showStopButton()
 //                self.delegate?.enableShareButton()
@@ -663,10 +662,11 @@ class RecordPresenter: NSObject
         let nClips = interactor?.getNumberOfClipsInProject()
         
         if nClips > 0{
-            let videoPath = interactor?.getMediaPathInPosition(nClips! - 1)
+            if let videoURL = interactor?.getVideoURLInPosition(nClips! - 1){
+                thumbnailInteractor = ThumbnailInteractor.init(videoURL: videoURL,
+                                                               diameter: (self.delegate?.getThumbnailSize())!)
+            }
             
-            thumbnailInteractor = ThumbnailInteractor.init(videoPath: videoPath!,
-                                                           diameter: (self.delegate?.getThumbnailSize())!)
             if thumbnailInteractor != nil {
                 thumbnailInteractor?.delegate = self
                 thumbnailInteractor?.getthumbnailImage()

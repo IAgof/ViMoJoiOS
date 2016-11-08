@@ -20,11 +20,12 @@ class RecorderInteractor: RecorderInteractorInterface {
         return numberOfClips
     }
     
-    func getMediaPathInPosition(position: Int) -> String {
-        guard let mediaPath = project?.getVideoList()[position].getMediaPath() else{
-        return ""}
+    func getVideoURLInPosition(position: Int) -> NSURL {
+        guard let videoURL = project?.getVideoList()[position].videoURL else{
+            return NSURL()
+        }
         
-        return mediaPath
+        return videoURL
     }
     
     func clearProject() {
