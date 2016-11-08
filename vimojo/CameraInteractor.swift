@@ -267,6 +267,7 @@ class CameraInteractor:CameraRecorderDelegate,
         cameraRecorder?.stopRecordVideo({duration in
             Utils().debugLog("Answer from record interactor:  duration-\(duration)")
             self.cameraDelegate.trackVideoRecorded(duration)
+            self.cameraDelegate.updateThumbnail()
         })
     }
     

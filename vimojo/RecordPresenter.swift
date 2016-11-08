@@ -454,7 +454,6 @@ class RecordPresenter: NSObject
             // do some task
             self.cameraInteractor?.setIsRecording(false)
             
-            self.updateThumbnail()
             dispatch_async(dispatch_get_main_queue(), {
                 self.delegate?.showStopButton()
 //                self.delegate?.enableShareButton()

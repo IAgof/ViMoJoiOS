@@ -44,23 +44,29 @@ class ExporterInteractor:NSObject{
         
         guard let exportPath = project?.getExportedPath() else {return}
         
-        guard let mixComposition = GetActualProjectAVCompositionUseCase().getComposition(project!).mutableComposition else {return}
-        let videoComposition = AVMutableVideoComposition(propertiesOfAsset: mixComposition)
-
+        let videonaComposition = GetActualProjectAVCompositionUseCase().getComposition(project!)
+        var videoComposition = videonaComposition.videoComposition
+        guard let mutableComposition = videonaComposition.mutableComposition else {return}
+        
         // 4 - Get path
         let url = NSURL(fileURLWithPath: exportPath)
         
         // 5 - Create Exporter
-        ApplyTextOverlayToVideoCompositionUseCase(project: project!).applyVideoOverlayAnimation(videoComposition,
-                                                                                                mutableComposition: mixComposition,
-                                                                                                size: videoComposition.renderSize)
+        if (videoComposition == nil){
+            videoComposition = AVMutableVideoComposition(propertiesOfAsset: mutableComposition)
+        }
         
-        let exporter = AVAssetExportSession(asset: mixComposition, presetName: exportedPresetQuality)
+        ApplyTextOverlayToVideoCompositionUseCase(project: project!).applyVideoOverlayAnimation(videoComposition!,
+                                                                                                mutableComposition: mutableComposition,
+                                                                                                size: videoComposition!.renderSize)
+        
+        let exporter = AVAssetExportSession(asset: mutableComposition, presetName: exportedPresetQuality)
         exporter!.outputURL = url
         exporter!.outputFileType = AVFileTypeQuickTimeMovie
         exporter!.shouldOptimizeForNetworkUse = true
-        exporter!.videoComposition = videoComposition
-        
+        if (videoComposition != nil){
+            exporter!.videoComposition = videoComposition
+        }
         // 6 - Perform the Export
         exporter!.exportAsynchronouslyWithCompletionHandler() {
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -68,7 +74,7 @@ class ExporterInteractor:NSObject{
                 
                 Utils().debugLog("la duracion del clip es \(self.clipDuration)")
                 completionHandler(exportPath,self.clipDuration)
-
+                
                 ExportedAlbum.sharedInstance.saveVideo(NSURL.init(fileURLWithPath: exportPath))
             })
         }

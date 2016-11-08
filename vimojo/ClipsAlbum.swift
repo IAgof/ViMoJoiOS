@@ -72,7 +72,7 @@ class ClipsAlbum: NSObject {
     
     var savedLocalIdentifier:String?
     
-    func saveVideo(clipPath:NSURL,project:Project) {
+    func saveVideo(clipPath:NSURL,project:Project,completion:(Bool)->Void) {
         if assetCollection == nil {
             return
         }
@@ -94,7 +94,10 @@ class ClipsAlbum: NSObject {
                     if let localIdentifier = self.savedLocalIdentifier{
                         self.setVideoUrlParameters(localIdentifier,
                             project: project)
+                        completion(true)
                     }
+                }else{
+                    completion(false)
                 }
         })
     }
@@ -109,6 +112,7 @@ class ClipsAlbum: NSObject {
                 avasset,audiomix,info in
                 if let asset = avasset as? AVURLAsset{
                     video.videoURL = asset.URL
+                    video.mediaRecordedFinished()
                 }
             })
         }
