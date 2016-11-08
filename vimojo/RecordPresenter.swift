@@ -46,6 +46,7 @@ class RecordPresenter: NSObject
     var exposureModesViewIsShowed = false
     var micIsEnabled = false
     var modeViewIsShowed = false
+    var inputGainViewIsShowed = false
     
     //MARK: - Event handler
     func viewDidLoad(displayView:GPUImageView){
@@ -229,10 +230,15 @@ class RecordPresenter: NSObject
     func pushMic() {
         if micViewIsShowed {
             hideMicViewIfYouCan()
+            hideInputGainIfYouCan()
         }else{
+            hideAllModeConfigsIfNeccesary()
+            
+            delegate?.showInputGainSliderView()
             delegate?.showMicLevelView()
-
+            
             micViewIsShowed = true
+            inputGainViewIsShowed = true
         }
     }
     
@@ -590,6 +596,15 @@ class RecordPresenter: NSObject
         exposureModesViewIsShowed = false
     }
     
+    func hideInputGainIfYouCan(){
+        if !inputGainViewIsShowed{
+            return
+        }
+        
+        delegate?.hideInputGainSliderView()
+        inputGainViewIsShowed = false
+    }
+    
     func hideAllModeConfigsIfNeccesary(){
         hideWBConfigIfYouCan()
         hideISOConfigIfYouCan()
@@ -597,7 +612,7 @@ class RecordPresenter: NSObject
         hideExposureModesIfYouCan()
         hideZoomViewIfYouCan()
         
-        hideMicViewIfYouCan()
+        hideInputGainIfYouCan()
     }
     
     func hideModeView(){
@@ -635,10 +650,16 @@ class RecordPresenter: NSObject
         
         if !state {
             hideMicViewIfYouCan()
+            hideInputGainIfYouCan()
         }else{
             delegate?.getMicValues()
             delegate?.showMicLevelView()
             
+            hideAllModeConfigsIfNeccesary()
+            
+            delegate?.showInputGainSliderView()
+            inputGainViewIsShowed = true
+
             micViewIsShowed = true
         }
     }
