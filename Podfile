@@ -17,6 +17,7 @@ pod 'NMRangeSlider', '~> 1.2'
 
 pod 'SpaceOnDisk', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/SpaceOnDisk'
 pod 'BatteryRemaining', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/BatteryRemaining'
+
 pod 'ISOConfiguration', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/ISOConfiguration'
 pod 'WhiteBalance', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/WhiteBalance'
 pod 'Exposure', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/Exposure'
@@ -27,7 +28,8 @@ pod 'ExpositionModes', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/Exp
 pod 'ZoomCameraSlider', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/ZoomCameraSlider'
 pod 'ResolutionSelector', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/ResolutionsSelector'
 pod 'VideoGallery', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideoGallery'
-
+pod 'VideoGallery', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideoGallery'
+pod 'InputSoundGainControl', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/InputSoundGainControl'
 
 pod 'VideonaProject', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaProject'
 
@@ -37,6 +39,7 @@ pod 'VideonaDuplicate', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/Vi
 pod 'VideonaSplit', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaSplit'
 pod 'VideonaTrim', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaTrim'
 pod 'VideonaPlayer', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaPlayer'
+
 end
 
 target 'vimojoTests' do

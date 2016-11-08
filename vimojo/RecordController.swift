@@ -19,6 +19,7 @@ import FocalLensSlider
 import ExpositionModes
 import ZoomCameraSlider
 import ResolutionSelector
+import InputSoundGainControl
 
 class RecordController: ViMoJoController,UINavigationControllerDelegate{
     //MARK: - Variables VIPER
@@ -62,6 +63,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var expositionModesView: ExpositionModesView!
     @IBOutlet weak var zoomView: ZoomSliderView!
     @IBOutlet weak var resolutionsView: ResolutionsSelectorView!
+    @IBOutlet weak var inputGainSlider: InputSoundGainControlView!
     
     //MARK: - UIView
     @IBOutlet weak var upperContainerView: UIView!
@@ -119,6 +121,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         rotateZoomSlider()
         rotateFocalSlider()
         rotateExposureSlider()
+        rotateInputGainSlider()
         
         zoomView.setZoomSliderValue(0.0)
         self.thumbnailNumberClips.adjustsFontSizeToFitWidth = true
@@ -293,23 +296,24 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     //MARK : - Inner functions
     
     func roundBorderOfViews() {
-        upperContainerView.layer.cornerRadius = cornerRadius
-        modeContainerView.layer.cornerRadius = cornerRadius
-        zoomView.layer.cornerRadius = cornerRadius
-        batteryView.layer.cornerRadius = cornerRadius
-        spaceOnDiskView.layer.cornerRadius = cornerRadius
-        chronometerContainerView.layer.cornerRadius = cornerRadius
-        recordAreaContainerView.layer.cornerRadius = cornerRadius
-        secondaryChronometerContainer.layer.cornerRadius = cornerRadius
+        let viewsToBorder = [upperContainerView,
+                     modeContainerView,
+                     zoomView,
+                     batteryView,
+                    spaceOnDiskView,
+                    chronometerContainerView,
+                    recordAreaContainerView,
+                    secondaryChronometerLabel,
+                    isoConfigurationView,
+                    focusView,
+                    wbConfigurationView,
+                    expositionModesView,
+                    focalLensSliderView,
+                    inputGainSlider]
         
-        isoConfigurationView.layer.cornerRadius = cornerRadius
-        focusView.layer.cornerRadius = cornerRadius
-        wbConfigurationView.layer.cornerRadius = cornerRadius
-        expositionModesView.layer.cornerRadius = cornerRadius
-        
-        zoomView.layer.cornerRadius = cornerRadius
-        exposureConfigurationView.layer.cornerRadius = cornerRadius
-        focalLensSliderView.layer.cornerRadius = cornerRadius
+        for view in viewsToBorder{
+            view.layer.cornerRadius = cornerRadius
+        }
     }
     
     func rotateZoomSlider(){
@@ -325,6 +329,11 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     func rotateExposureSlider(){
         let trans = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
         exposureConfigurationView.transform = trans
+    }
+    
+    func rotateInputGainSlider(){
+        let trans = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
+        inputGainSlider.transform = trans
     }
     
     //MARK: - Landscape Orientation

@@ -54,7 +54,7 @@ class RecordWireframe : NSObject {
     }
     
     func mainStoryboard() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let storyboard = UIStoryboard(name: "Record", bundle: NSBundle.mainBundle())
         return storyboard
     }
     
