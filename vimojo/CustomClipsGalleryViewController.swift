@@ -31,7 +31,8 @@ class CustomClipsGalleryViewController: VideosGalleryViewController {
             //found the album
             assetCollection = first_Obj as! PHAssetCollection
             
-            self.videosAsset = PHAsset.fetchAssetsInAssetCollection(assetCollection, options: nil)
+            let videoFetchOptions = GalleryFetchOptions().orderByCreationDate()
+            self.videosAsset = PHAsset.fetchAssetsInAssetCollection(assetCollection, options: videoFetchOptions)
             
             
             if let photoCnt = self.videosAsset?.count{
