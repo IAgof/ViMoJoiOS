@@ -20,6 +20,7 @@ class AllVideosGalleryViewController: VideosGalleryViewController {
     override func fetchVideos() {
         //fetch the photos from collection
         self.navigationController?.hidesBarsOnTap = false
-        self.videosAsset = PHAsset.fetchAssetsWithMediaType(.Video, options: nil)
+        let fetchOptions = GalleryFetchOptions().orderByCreationDate()
+        self.videosAsset = PHAsset.fetchAssetsWithMediaType(.Video, options: fetchOptions)
     }
 }
