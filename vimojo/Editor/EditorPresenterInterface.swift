@@ -30,8 +30,16 @@ protocol EditorPresenterInterface {
        
     func expandPlayer()
     func updatePlayerLayer()
+    func playerHasLoaded()
     
     func rangeMiddleValueChanged(value:Double)
+    func rangeSliderUpperOrLowerValueChanged(value:Double)
+
+    func rangeSliderUpperOrLowerValueStartToChange()
+    func rangeSliderLowerValueStopToChange(startTime:Double,
+                                                  stopTime:Double)
+    func rangeSliderUpperValueStopToChange(startTime:Double,
+                                           stopTime:Double)
 }
 
 protocol EditorPresenterDelegate:ViMoJoInterface {

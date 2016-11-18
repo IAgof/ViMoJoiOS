@@ -26,6 +26,12 @@ protocol EditorInteractorInterface {
     func setRangeSliderMiddleValueUpdateWith(actualVideoNumber videoNumber:Int,
                                                                seekBarValue:Float)
     func setRangeSliderViewValues(actualVideoNumber videoNumber: Int)
+    
+    func getCompositionForVideo(videoPosition:Int)
+    
+    func setTrimParametersToProject(startTime:Double,
+                                    stopTime:Double,
+                                    videoPosition:Int)
 }
 
 protocol EditorInteractorDelegate {

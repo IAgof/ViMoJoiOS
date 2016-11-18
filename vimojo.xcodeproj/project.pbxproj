@@ -83,6 +83,9 @@
 		A91C694E1DCB59AA00AF2576 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C694D1DCB59AA00AF2576 /* GalleryViewController.swift */; };
 		A91C69501DCB59BE00AF2576 /* Gallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91C694F1DCB59BE00AF2576 /* Gallery.storyboard */; };
 		A91C69521DCB59D200AF2576 /* GalleryWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C69511DCB59D200AF2576 /* GalleryWireframe.swift */; };
+		A91D63041DDF1F3A00D226B8 /* GetCompositionForVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91D63031DDF1F3A00D226B8 /* GetCompositionForVideo.swift */; };
+		A91D63061DDF22F600D226B8 /* SetTrimParametersToVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91D63051DDF22F600D226B8 /* SetTrimParametersToVideo.swift */; };
+		A91D63081DDF234C00D226B8 /* TrimParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91D63071DDF234C00D226B8 /* TrimParameters.swift */; };
 		A921D9711DC1DED2003631E8 /* RebekkaTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A921D9701DC1DEA9003631E8 /* RebekkaTouch.framework */; };
 		A921D9721DC1DED2003631E8 /* RebekkaTouch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A921D9701DC1DEA9003631E8 /* RebekkaTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A921D9761DC1DF04003631E8 /* RebekkaTouch.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A921D9701DC1DEA9003631E8 /* RebekkaTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -668,6 +671,9 @@
 		A91C694D1DCB59AA00AF2576 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		A91C694F1DCB59BE00AF2576 /* Gallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Gallery.storyboard; sourceTree = "<group>"; };
 		A91C69511DCB59D200AF2576 /* GalleryWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryWireframe.swift; sourceTree = "<group>"; };
+		A91D63031DDF1F3A00D226B8 /* GetCompositionForVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCompositionForVideo.swift; sourceTree = "<group>"; };
+		A91D63051DDF22F600D226B8 /* SetTrimParametersToVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTrimParametersToVideo.swift; sourceTree = "<group>"; };
+		A91D63071DDF234C00D226B8 /* TrimParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrimParameters.swift; sourceTree = "<group>"; };
 		A921D9661DC1DEA9003631E8 /* Rebekka.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rebekka.xcodeproj; path = "../FTP_Client_Rebekka/rebekka-source/Rebekka.xcodeproj"; sourceTree = "<group>"; };
 		A9334EEE1DAAB96A00762D8A /* MusicListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicListView.xib; sourceTree = "<group>"; };
 		A9334EF01DAAB97C00762D8A /* MusicListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicListView.swift; sourceTree = "<group>"; };
@@ -1766,6 +1772,7 @@
 			children = (
 				A91760B41D9146BF008915DA /* EditorTextConstants.swift */,
 				A964410C1DA3015B00CAD950 /* EditorModel.swift */,
+				A91D63071DDF234C00D226B8 /* TrimParameters.swift */,
 				A9CDB9BE1DDDCDEF000313DE /* TrimRangeBarViewModel.swift */,
 			);
 			name = Model;
@@ -1775,7 +1782,9 @@
 			isa = PBXGroup;
 			children = (
 				A9CDB9C11DDDCF1A000313DE /*  GetSeekTimeFromValueOnVideo.swift */,
+				A91D63031DDF1F3A00D226B8 /* GetCompositionForVideo.swift */,
 				A9CDB9C31DDDD63B000313DE /* GetMiddleRangeSliderValueWorker.swift */,
+				A91D63051DDF22F600D226B8 /* SetTrimParametersToVideo.swift */,
 			);
 			name = Workers;
 			sourceTree = "<group>";
@@ -2273,6 +2282,7 @@
 				A900C7461DC3575700A65730 /* FTPErrorType.swift in Sources */,
 				A91760E51D914835008915DA /* DuplicateViewController.swift in Sources */,
 				A9B386331D7D53230065D3EC /* CameraInteractorInterface.swift in Sources */,
+				A91D63041DDF1F3A00D226B8 /* GetCompositionForVideo.swift in Sources */,
 				A97F0F3B1DC0BE8000907196 /* SettingsFTPPasswordAction.swift in Sources */,
 				A988DF061DAD1E110030E285 /* MicRecorderPresenterInterface.swift in Sources */,
 				A96E15F01DA257A400CF81E8 /* MusicModels.swift in Sources */,
@@ -2294,6 +2304,7 @@
 				A91760D91D9146FE008915DA /* FullScreenPlayerViewController.swift in Sources */,
 				A900C7531DC35D6900A65730 /* SettingsFTPBreakingNewsPasswordAction.swift in Sources */,
 				A95BE9961D990C4100602DCD /* DetailTextInteractorInterface.swift in Sources */,
+				A91D63061DDF22F600D226B8 /* SetTrimParametersToVideo.swift in Sources */,
 				A95BE9861D990A4A00602DCD /* SettingsPresenterInterface.swift in Sources */,
 				A91760EC1D914840008915DA /* SplitViewController.swift in Sources */,
 				A97F0F371DC0BDF600907196 /* SettingsFTPUsernameAction.swift in Sources */,
@@ -2308,6 +2319,7 @@
 				A9B7F8E01DBE56D300F24E78 /* SettingsUserInfo.swift in Sources */,
 				A988DF021DAD1DFC0030E285 /* MicRecorderViewController.swift in Sources */,
 				A97F0F311DC0AD5A00907196 /* SettingsDetailTextAction.swift in Sources */,
+				A91D63081DDF234C00D226B8 /* TrimParameters.swift in Sources */,
 				A9A419161DB5110C00FB642E /* AddTextViewController.swift in Sources */,
 				A91761121D916F48008915DA /* ShareCell.swift in Sources */,
 				A93BCE5F1D7D7A1300421BD0 /* NSLocale+ISO639_2.m in Sources */,

@@ -317,17 +317,33 @@ extension EditorViewController:PlayerViewSetter{
     }
 }
 
+extension EditorViewController:PlayerViewFinishedDelegate{
+    func playerHasLoaded(){
+        eventHandler?.playerHasLoaded()
+    }
+    func playerStartsToPlay(){
+        
+    }
+    func playerPause(){
+        
+    }
+    
+    func playerSeeksTo(value:Float){
+        
+    }
+}
 extension EditorViewController:VideonaRangeSliderDelegate{
     func rangeSliderLowerValueStartToChange() {
-        
+        eventHandler?.rangeSliderUpperOrLowerValueStartToChange()
     }
     
     func rangeSliderLowerThumbValueChanged() {
-        
+        eventHandler?.rangeSliderUpperOrLowerValueChanged(rangeTrimSlider.lowerValue)
     }
     
     func rangeSliderLowerValueStopToChange() {
-        
+        eventHandler?.rangeSliderLowerValueStopToChange(rangeTrimSlider.lowerValue,
+                                                               stopTime: rangeTrimSlider.upperValue)
     }
     
     func rangeSliderMiddleThumbValueChanged() {
@@ -337,14 +353,15 @@ extension EditorViewController:VideonaRangeSliderDelegate{
     }
     
     func rangeSliderUpperValueStartToChange() {
-        
+        eventHandler?.rangeSliderUpperOrLowerValueStartToChange()
     }
     
     func rangeSliderUpperThumbValueChanged() {
-        
+        eventHandler?.rangeSliderUpperOrLowerValueChanged(rangeTrimSlider.upperValue)
     }
     
     func rangeSliderUpperValueStopToChange() {
-        
+        eventHandler?.rangeSliderUpperValueStopToChange(rangeTrimSlider.lowerValue,
+                                                               stopTime: rangeTrimSlider.upperValue)
     }
 }

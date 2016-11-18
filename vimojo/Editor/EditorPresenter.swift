@@ -210,7 +210,7 @@ extension EditorPresenter:EditorPresenterInterface{
                                                         seekBarValue: value)
         
         for time in stopList{
-            if (seekBarValue < time){
+            if (seekBarValue < (time)){
                 if cellPosition == selectedCellIndexPath.item {
                     return
                 }else{
@@ -241,6 +241,45 @@ extension EditorPresenter:EditorPresenterInterface{
         interactor?.updateSeekOnVideoTo(value,
                                         videoNumber: selectedCellIndexPath.item)
     }
+    
+    func rangeSliderUpperOrLowerValueChanged(value: Double) {
+        playerPresenter?.seekToTime(Float(value))
+    }
+    
+    func rangeSliderUpperOrLowerValueStartToChange() {
+        interactor?.getCompositionForVideo(selectedCellIndexPath.item)
+        
+        playerPresenter?.pauseVideo()
+    }
+    
+    func rangeSliderLowerValueStopToChange(startTime: Double, stopTime: Double) {
+        rangeSliderStopToChange(startTime, stopTime: stopTime)
+        
+        interactor?.updateSeekOnVideoTo(startTime,
+                                        videoNumber: selectedCellIndexPath.item)
+    }
+    
+    func rangeSliderUpperValueStopToChange(startTime: Double, stopTime: Double) {
+        rangeSliderStopToChange(startTime, stopTime: stopTime)
+
+        interactor?.updateSeekOnVideoTo(stopTime,
+                                        videoNumber: selectedCellIndexPath.item)
+
+    }
+    
+    func rangeSliderStopToChange(startTime:Double,
+                                                  stopTime:Double) {
+        interactor?.setTrimParametersToProject(startTime,
+                                               stopTime: stopTime,
+                                               videoPosition: selectedCellIndexPath.item)
+        interactor?.getComposition()
+        
+        interactor?.getListData()
+    }
+    
+    func playerHasLoaded() {
+        seekToSelectedItem(selectedCellIndexPath.item)
+    }
 }
 
 extension EditorPresenter:EditorInteractorDelegate{
@@ -248,6 +287,8 @@ extension EditorPresenter:EditorInteractorDelegate{
     func setVideoList(list: [EditorViewModel]) {
         delegate?.setVideoList(list)
         self.setVideoDataToView()
+        
+        updateSelectedCellUI(selectedCellIndexPath)
     }
     
     func setStopTimeList(list: [Double]) {

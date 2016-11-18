@@ -22,12 +22,12 @@ class GetMiddleRangeSliderValueWorker: NSObject {
                 if totalTime > 0{
                     rangeSliderValue =   value - totalTime + video.getStartTime()
                 }else{
-                    rangeSliderValue =  value
+                    rangeSliderValue =  value + video.getStartTime()
                 }
                 
                 return rangeSliderValue
             }
-            totalTime += video.getDuration() - project.transitionTime
+            totalTime += video.getDuration() //- project.transitionTime
         }
         return 0
     }

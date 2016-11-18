@@ -256,4 +256,27 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
             delegate?.setTrimRangeSliderViewModel(rangeSliderViewModel)
         }
     }
+    
+    func getCompositionForVideo(videoPosition: Int) {
+        guard let actualProject = project else{return}
+
+        GetCompositionForVideoWorker().getComposition(videoPosition,
+                                                      project: actualProject,
+                                                      completion: {
+                                                        videoComposition in
+                                                        self.delegate?.setComposition(videoComposition)
+        })
+    }
+    
+    func setTrimParametersToProject(startTime:Double,
+                                    stopTime:Double,
+                                    videoPosition:Int){
+        guard let actualProject = project else{return}
+        let trimParams = TrimParameters(startTime: startTime,
+                                        stopTime: stopTime)
+       
+        SetTrimParametersToVideoWorker().setParameters(trimParams,
+                                                       project: actualProject,
+                                                       videoPosition: videoPosition)
+    }
 }
