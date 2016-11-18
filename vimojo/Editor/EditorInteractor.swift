@@ -167,7 +167,6 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
     func getSeekTimePercentForSelectedVideo(videoPosition:Int) -> Float {
         guard let videoList = project?.getVideoList() else{return 0.0}
         
-        var timeFloat = 0.0
         var totalTimeComposition = 0.0
         
         if (videoPosition <= (videoList.count - 1)) && videoPosition != 0{
@@ -175,17 +174,11 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
                 let video = videoList[count]
                 let duration = video.getDuration()
                 if(count < videoPosition){
-                    print("duration of seek video:\(duration)")
-                    timeFloat += duration
+                    totalTimeComposition += duration
                 }
-                totalTimeComposition += duration
             }
-            timeFloat = timeFloat/totalTimeComposition
-            let timeOffSet = 0.001
-            timeFloat = ((round(10000*timeFloat)/10000) + timeOffSet)
         }
-
-        return Float(timeFloat)
+        return Float(totalTimeComposition)
     }
     
     func reloadPositionNumberAfterMovement() {
@@ -226,5 +219,41 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
     func getNumberOfClips() -> Int {
         guard let numberOfClips = project?.numberOfClips() else {return 0}
         return numberOfClips
+    }
+
+    
+    func setRangeSliderMiddleValueUpdateWith(actualVideoNumber videoNumber: Int, seekBarValue: Float) {
+        guard let actualProject = project else{return}
+
+        let middleRangeValue = GetMiddleRangeSliderValueWorker().getValue(Double(seekBarValue),
+                                                                          project: actualProject,
+                                                                          videoNumber: videoNumber)
+        delegate?.setTrimMiddleValue(middleRangeValue)
+        
+    }
+    
+    func updateSeekOnVideoTo(value: Double, videoNumber: Int) {
+        guard let actualProject = project else{return}
+
+        let seekTime = GetSeekTimeFromValueOnVideoWorker().getSeekTime(value,
+                                                                     project: actualProject,
+                                                                     numberOfVideo: videoNumber)
+        
+        delegate?.seekToTimeOfVideoSelectedReceiver(Float(seekTime))
+    }
+    
+    func setRangeSliderViewValues(actualVideoNumber videoNumber: Int){
+        guard let videoList = project?.getVideoList() else{return}
+        
+        if videoList.indices.contains(videoNumber){
+            let video = videoList[videoNumber]
+            
+            let rangeSliderViewModel = TrimRangeBarViewModel(totalRangeTime: video.getFileStopTime(),
+                                                             startTrimTime: video.getStartTime(),
+                                                             finalTrimTime: video.getStopTime(),
+                                                             inserctionPointTime: video.getStartTime())
+            
+            delegate?.setTrimRangeSliderViewModel(rangeSliderViewModel)
+        }
     }
 }

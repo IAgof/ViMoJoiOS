@@ -20,6 +20,12 @@ protocol EditorInteractorInterface {
                             destionationPosition:Int)
     func getNumberOfClips()->Int
     func getProject()->Project
+    
+    func updateSeekOnVideoTo(value:Double,
+                             videoNumber:Int)
+    func setRangeSliderMiddleValueUpdateWith(actualVideoNumber videoNumber:Int,
+                                                               seekBarValue:Float)
+    func setRangeSliderViewValues(actualVideoNumber videoNumber: Int)
 }
 
 protocol EditorInteractorDelegate {
@@ -29,4 +35,7 @@ protocol EditorInteractorDelegate {
     func seekToTimeOfVideoSelectedReceiver(time:Float)
     
     func setComposition(composition:VideoComposition)
+    
+    func setTrimRangeSliderViewModel(viewModel:TrimRangeBarViewModel)
+    func setTrimMiddleValue(value:Double)
 }

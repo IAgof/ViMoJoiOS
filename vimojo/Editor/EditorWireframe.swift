@@ -45,7 +45,7 @@ class EditorWireframe : NSObject {
         
         viewController.eventHandler = editorPresenter
         editorViewController = viewController
-        editorPresenter?.controller = viewController
+        editorPresenter?.delegate = viewController
         
         return viewController
     }
@@ -55,7 +55,7 @@ class EditorWireframe : NSObject {
     }
     
     func mainStoryboard() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let storyboard = UIStoryboard(name: "Editor", bundle: NSBundle.mainBundle())
         return storyboard
     }
     
