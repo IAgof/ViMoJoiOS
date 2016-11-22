@@ -13,23 +13,23 @@ struct userInfo {
     var userName:String
     var email:String
     init(){
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         
-        let nameSaved = defaults.stringForKey(SettingsConstants().SETTINGS_NAME)
+        let nameSaved = defaults.string(forKey: SettingsConstants().SETTINGS_NAME)
         if (nameSaved != nil){
             name = nameSaved!
         }else{
             name = ""
         }
         
-        let userNameSaved = defaults.stringForKey(SettingsConstants().SETTINGS_USERNAME)
+        let userNameSaved = defaults.string(forKey: SettingsConstants().SETTINGS_USERNAME)
         if (userNameSaved != nil){
             userName = userNameSaved!
         }else{
             userName = ""
         }
         
-        let emailSaved = defaults.stringForKey(SettingsConstants().SETTINGS_MAIL)
+        let emailSaved = defaults.string(forKey: SettingsConstants().SETTINGS_MAIL)
         if (emailSaved != nil){
             email = emailSaved!
         }else{

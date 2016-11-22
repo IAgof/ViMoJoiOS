@@ -10,24 +10,24 @@ import Foundation
 
 
 class SettingsUtils {
-    func createAlertViewWithInputText(title:String,
+    func createAlertViewWithInputText(_ title:String,
                                       message:String,
-                                      completion: String -> Void)-> UIAlertController{
+                                      completion: @escaping (String) -> Void)-> UIAlertController{
         let saveString = Utils().getStringByKeyFromSettings(SettingsConstants().SAVE)
         let cancelString = Utils().getStringByKeyFromSettings(SettingsConstants().CANCEL_SETTINGS_CAMERA)
         
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        alertController.addTextFieldWithConfigurationHandler { (textField : UITextField!) -> Void in
+        alertController.addTextField { (textField : UITextField!) -> Void in
             textField.placeholder = title
         }
         
-        let saveAction = UIAlertAction(title: saveString, style: .Default, handler: {alert -> Void in
+        let saveAction = UIAlertAction(title: saveString, style: .default, handler: {alert -> Void in
             guard let firstTextFieldText = (alertController.textFields![0] as UITextField).text else{return}
             completion(firstTextFieldText)
         })
         
-        let cancelAction = UIAlertAction(title: cancelString, style: .Cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: cancelString, style: .cancel, handler: nil)
         
         alertController.addAction(saveAction)
         alertController.addAction(cancelAction)
@@ -35,25 +35,25 @@ class SettingsUtils {
         return alertController
     }
     
-    func createAlertViewWithInputTextSecure(title:String,
+    func createAlertViewWithInputTextSecure(_ title:String,
                                       message:String,
-                                      completion: String -> Void)-> UIAlertController{
+                                      completion: @escaping (String) -> Void)-> UIAlertController{
         let saveString = Utils().getStringByKeyFromSettings(SettingsConstants().SAVE)
         let cancelString = Utils().getStringByKeyFromSettings(SettingsConstants().CANCEL_SETTINGS_CAMERA)
         
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        alertController.addTextFieldWithConfigurationHandler { (textField : UITextField!) -> Void in
+        alertController.addTextField { (textField : UITextField!) -> Void in
             textField.placeholder = title
-            textField.secureTextEntry = true
+            textField.isSecureTextEntry = true
         }
         
-        let saveAction = UIAlertAction(title: saveString, style: .Default, handler: {alert -> Void in
+        let saveAction = UIAlertAction(title: saveString, style: .default, handler: {alert -> Void in
             guard let firstTextFieldText = (alertController.textFields![0] as UITextField).text else{return}
             completion(firstTextFieldText)
         })
         
-        let cancelAction = UIAlertAction(title: cancelString, style: .Cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: cancelString, style: .cancel, handler: nil)
         
         alertController.addAction(saveAction)
         alertController.addAction(cancelAction)
@@ -61,16 +61,16 @@ class SettingsUtils {
         return alertController
     }
     
-    func createActionSheetWithOptions(title: String,
+    func createActionSheetWithOptions(_ title: String,
                                       options: Array<String>,
-                                      completion: String -> Void)-> UIAlertController {
+                                      completion: @escaping (String) -> Void)-> UIAlertController {
         let title = title
         let cancelString = Utils().getStringByKeyFromSettings(SettingsConstants().CANCEL_SETTINGS_CAMERA)
 
-        let alertController = UIAlertController(title: title, message: nil, preferredStyle: .ActionSheet)
+        let alertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
         
         for option in options {
-            let optionAction = UIAlertAction(title: option, style: .Default, handler: {alert -> Void in
+            let optionAction = UIAlertAction(title: option, style: .default, handler: {alert -> Void in
 
                 print("El \(title) introducido para mandar al presenter es: \(option)")
                 completion(option)
@@ -79,7 +79,7 @@ class SettingsUtils {
         }
         
         let optionAction = UIAlertAction(title: cancelString,
-                                         style: .Cancel,
+                                         style: .cancel,
                                          handler: nil)
         
         alertController.addAction(optionAction)

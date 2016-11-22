@@ -10,7 +10,7 @@ import Foundation
 import VideonaProject
 
 class GetMiddleRangeSliderValueWorker: NSObject {
-    func getValue(value:Double,
+    func getValue(_ value:Double,
                   project:Project,
                   videoNumber:Int) -> Double{
         var totalTime:Double = 0

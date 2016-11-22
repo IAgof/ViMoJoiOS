@@ -18,7 +18,7 @@ class DetailTextPresenter: NSObject,DetailTextPresenterInterface {
         wireframe?.goPrevController()
     }
     
-    func setTextOnView(text:String) {
+    func setTextOnView(_ text:String) {
         let textToView = interactor?.getTextFromInternalMemory(text)
         controller?.setTextToTextView(textToView!)
     }

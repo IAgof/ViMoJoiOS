@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol MusicListViewDelegate {
-    func didSelectMusicAtIndexPath(indexPath:NSIndexPath)
+    func didSelectMusicAtIndexPath(_ indexPath:IndexPath)
 }
 
 protocol MusicListViewInterface {
@@ -34,7 +34,7 @@ UITableViewDelegate,UITableViewDataSource{
 
     //MARK: - Init
     class func instanceFromNib() -> UIView {
-        return UINib(nibName: "MusicListView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! UIView
+        return UINib(nibName: "MusicListView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -43,29 +43,29 @@ UITableViewDelegate,UITableViewDataSource{
     
     func registerCell(){
         let nib = UINib(nibName: "MusicListCell", bundle: nil)
-        musicTableView.registerNib(nib, forCellReuseIdentifier: cellIdentifier)
+        musicTableView.register(nib, forCellReuseIdentifier: cellIdentifier)
     }
     
     override func awakeFromNib() {
         registerCell()
     }
     
-    func setViewFrame(frame:CGRect){
-        self.frame = CGRectMake(0, 0, frame.width, frame.height)
+    func setViewFrame(_ frame:CGRect){
+        self.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
     }
     
     //MARK: - Tableview delegate
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.didSelectMusicAtIndexPath(indexPath)
     }
     
     //MARK: - Tableview dataSource
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return musicViewModelList.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! MusicCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! MusicCell
         if musicViewModelList.indices.contains(indexPath.item) && !musicViewModelList.isEmpty{
             let music = musicViewModelList[indexPath.item]
             
@@ -77,7 +77,7 @@ UITableViewDelegate,UITableViewDataSource{
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if musicViewModelList.indices.contains(indexPath.item) {
             return musicViewModelList[indexPath.row].image.size.height

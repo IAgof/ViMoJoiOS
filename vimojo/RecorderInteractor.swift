@@ -20,9 +20,9 @@ class RecorderInteractor: RecorderInteractorInterface {
         return numberOfClips
     }
     
-    func getVideoURLInPosition(position: Int) -> NSURL {
+    func getVideoURLInPosition(_ position: Int) -> URL {
         guard let videoURL = project?.getVideoList()[position].videoURL else{
-            return NSURL()
+            return URL(fileURLWithPath: "", isDirectory: false)
         }
         
         return videoURL
@@ -36,7 +36,7 @@ class RecorderInteractor: RecorderInteractorInterface {
         return project!
     }
     
-    func getResolutionImage(resolution: String) {
+    func getResolutionImage(_ resolution: String) {
         let resolution = ResolutionImage(resolution: resolution)
         
         if let resImage = resolution.image{

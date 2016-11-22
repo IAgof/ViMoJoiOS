@@ -30,23 +30,22 @@ class CameraRecorderInteractor{
         self.project = project
     }
     
-    func recordVideo(completion:(String)->Void){
+    func recordVideo(_ completion:(String)->Void){
         let title = self.getNewTitle()
         let clipPath = self.getNewClipPath(title)
         self.clipsArray.append(clipPath)
         
-        AddVideoToProjectUseCase().add(clipPath,
-                                                    title: title,
-                                                    project: self.project!)
-        
+        AddVideoToProjectUseCase().add(videoPath: clipPath,
+                                       title: title,
+                                       project: self.project!)
         print("Number of clips in project :\n \(self.project?.numberOfClips())")
         
-        let clipURL = NSURL.init(fileURLWithPath: clipPath)
+        let clipURL = URL.init(fileURLWithPath: clipPath)
         
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        DispatchQueue.main.async(execute: { () -> Void in
             
             Utils().debugLog("PathToMovie: \(clipPath)")
-            self.movieWriter = GPUImageMovieWriter.init(movieURL: clipURL, size: CGSizeMake((self.resolutionSize?.width)!,(self.resolutionSize?.height)!))
+            self.movieWriter = GPUImageMovieWriter.init(movieURL: clipURL, size: CGSize(width: (self.resolutionSize?.width)!,height: (self.resolutionSize?.height)!))
             
             self.movieWriter!.encodingLiveVideo = true
             self.videoCamera?.audioEncodingTarget = self.movieWriter
@@ -59,24 +58,23 @@ class CameraRecorderInteractor{
         completion("Record Starts")
     }
     
-    func stopRecordVideo(completion:(Double)->Void){ //Stop Recording
+    func stopRecordVideo(_ completion:@escaping (Double)->Void){ //Stop Recording
         
-        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+        DispatchQueue.global().async {
             // do some task
             Utils().debugLog("Starting to stop record video")
             
             self.filterToWriter!.removeAllTargets()
             
-//            self.videoCamera.audioEncodingTarget = nil
+            //            self.videoCamera.audioEncodingTarget = nil
             
-            self.movieWriter!.finishRecordingWithCompletionHandler{ () -> Void in
-                let clipURL = NSURL.init(fileURLWithPath: self.clipsArray[(self.clipsArray.count - 1) ])
-
+            self.movieWriter!.finishRecording{ () -> Void in
+                let clipURL = URL.init(fileURLWithPath: self.clipsArray[(self.clipsArray.count - 1) ])
+                
                 Utils().debugLog("Stop recording video")
                 
                 guard let actualProject = self.project else{return}
-               
+                
                 ClipsAlbum.sharedInstance.saveVideo(clipURL,project: actualProject,completion: {
                     saved in
                     if saved{
@@ -85,27 +83,27 @@ class CameraRecorderInteractor{
                 })
                 
                 self.movieWriter!.endProcessing()
-                self.movieWriter = nil                
+                self.movieWriter = nil
             }
         }
     }
     
-    func getVideoLenght(url:NSURL) -> Double {
-        let asset = AVAsset.init(URL: url)
+    func getVideoLenght(_ url:URL) -> Double {
+        let asset = AVAsset.init(url: url)
         return asset.duration.seconds
     }
-    func setInput(input: GPUImageInput){
+    func setInput(_ input: GPUImageInput){
         self.filterToWriter = input as? GPUImageFilter
         if movieWriter != nil{
             filterToWriter?.addTarget(movieWriter)
         }
     }
     
-    func setVideoCamera(videoCamera: GPUImageVideoCamera){
+    func setVideoCamera(_ videoCamera: GPUImageVideoCamera){
         self.videoCamera = videoCamera
     }
     
-    func setResolution(resolution:String){
+    func setResolution(_ resolution:String){
         self.resolution = resolution
     }
     
@@ -113,8 +111,8 @@ class CameraRecorderInteractor{
         return "\(Utils().giveMeTimeNow())videonaClip.m4v"
     }
     
-    func getNewClipPath(title:String)->String{
-        var path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+    func getNewClipPath(_ title:String)->String{
+        var path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         path =  path + "/\(title)"
         return path
     }

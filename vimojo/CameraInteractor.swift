@@ -45,11 +45,11 @@ class CameraInteractor:CameraRecorderDelegate,
     }
     
     enum FiltersFlag{
-        case NoFilters
-        case WithFilters
+        case noFilters
+        case withFilters
     }
     
-    var filtersFlag:FiltersFlag = .NoFilters
+    var filtersFlag:FiltersFlag = .noFilters
     
     //MARK: - Init
     required init(display:GPUImageView,
@@ -58,11 +58,11 @@ class CameraInteractor:CameraRecorderDelegate,
         self.cameraDelegate = cameraDelegate
         self.project = project
         
-        videoCamera = GPUImageVideoCamera(sessionPreset: cameraResolution.rearCameraResolution, cameraPosition: .Back)
+        videoCamera = GPUImageVideoCamera(sessionPreset: cameraResolution.rearCameraResolution, cameraPosition: .back)
         
         videoCamera.frameRate = 25
         
-        videoCamera.outputImageOrientation = .LandscapeLeft
+        videoCamera.outputImageOrientation = .landscapeLeft
         displayView = display
         imageView = UIImageView.init(frame: displayView.frame)
         
@@ -73,45 +73,45 @@ class CameraInteractor:CameraRecorderDelegate,
         videoCamera.addTarget(filter)
         
         switch filtersFlag {
-        case .NoFilters:
+        case .noFilters:
             filter.addTarget(maskFilterOutput)
             
             maskFilterOutput.addTarget(displayView)
             break
-        case .WithFilters:
+        case .withFilters:
             self.addBlendFilterAtInit()
             break
         }
         
         
         cameraRecorder = CameraRecorderInteractor(project: project)
-        videoCamera.startCameraCapture()
+        videoCamera.startCapture()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CameraInteractor.checkOrientation), name: UIDeviceOrientationDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CameraInteractor.checkOrientation), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         
         
     }
     
     func startCamera() {
-        videoCamera.startCameraCapture()
+        videoCamera.startCapture()
     }
     
     func stopCamera() {
         Utils.sharedInstance.debugLog("Stop camera capture")
-        videoCamera.stopCameraCapture()
+        videoCamera.stopCapture()
     }
     
     //MARK: - Orientation
     @objc func checkOrientation(){
         if !isRecording {
-            switch UIDevice.currentDevice().orientation{
-            case .Portrait,.PortraitUpsideDown:
-                print("Check Orientation: \(UIDevice.currentDevice().orientation)")
-            case .LandscapeLeft:
-                videoCamera.outputImageOrientation = .LandscapeRight
+            switch UIDevice.current.orientation{
+            case .portrait,.portraitUpsideDown:
+                print("Check Orientation: \(UIDevice.current.orientation)")
+            case .landscapeLeft:
+                videoCamera.outputImageOrientation = .landscapeRight
                 break
-            case .LandscapeRight:
-                videoCamera.outputImageOrientation = .LandscapeLeft
+            case .landscapeRight:
+                videoCamera.outputImageOrientation = .landscapeLeft
                 break
             default:
                 break
@@ -165,11 +165,11 @@ class CameraInteractor:CameraRecorderDelegate,
     }
     
     
-    func changeBlendImage(image:UIImage){
+    func changeBlendImage(_ image:UIImage){
         imageView.image = image
     }
     
-    func changeFilter(newFilter:GPUImageFilter){
+    func changeFilter(_ newFilter:GPUImageFilter){
         ChangeFilterInteractor().changeFilter(maskFilterInput, newFilter: newFilter, display: displayView)
         
         maskFilterOutput = newFilter
@@ -178,7 +178,7 @@ class CameraInteractor:CameraRecorderDelegate,
         }
     }
     
-    func addFilter(newFilter:GPUImageFilter){
+    func addFilter(_ newFilter:GPUImageFilter){
         AddFilterInteractor().addFilter(maskFilterInput, newFilter: newFilter, display: displayView)
         
         maskFilterOutput = newFilter
@@ -214,11 +214,11 @@ class CameraInteractor:CameraRecorderDelegate,
 
     func setInputToWriter(){
         switch filtersFlag {
-        case .NoFilters:
+        case .noFilters:
             maskFilterOutput.addTarget(maskFilterToRecord)
 
             break
-        case .WithFilters:
+        case .withFilters:
             print("set Input To Writer")
             
             print("\n maskFilterOutput targets \n \(maskFilterOutput.targets())\n\n\n")
@@ -246,7 +246,7 @@ class CameraInteractor:CameraRecorderDelegate,
     }
     
     //MARK: - Recorder delegate
-    func startRecordVideo(completion:(String)->Void){
+    func startRecordVideo(_ completion:@escaping (String)->Void){
         print("Start record video")
         
         cameraRecorder?.setVideoCamera(videoCamera)
@@ -260,7 +260,7 @@ class CameraInteractor:CameraRecorderDelegate,
     
     func stopRecordVideo() {
         for maskFilter in maskFilterOutput.targets(){
-            if maskFilter.isKindOfClass(GPUImageFilter){
+            if maskFilter is GPUImageFilter {
                 maskFilterOutput.removeTarget(maskFilter as! GPUImageInput)
             }
         }
@@ -272,13 +272,13 @@ class CameraInteractor:CameraRecorderDelegate,
     }
     
     //MARK: - Event handler
-    func setIsRecording(isRecording:Bool){
+    func setIsRecording(_ isRecording:Bool){
         self.isRecording = isRecording
     }
     
     func setResolution(){
         //Get resolution
-        if let getFromDefaultResolution = NSUserDefaults.standardUserDefaults().stringForKey(SettingsConstants().SETTINGS_RESOLUTION){
+        if let getFromDefaultResolution = UserDefaults.standard.string(forKey: SettingsConstants().SETTINGS_RESOLUTION){
             cameraResolution = CameraResolution.init(AVResolution: getFromDefaultResolution)
         }else{
             cameraResolution = CameraResolution.init(AVResolution: "")
@@ -286,7 +286,7 @@ class CameraInteractor:CameraRecorderDelegate,
         
         //Set resolution
         if isFrontCamera {
-            if UIDevice.currentDevice().model == "iPhone4,1" {
+            if UIDevice.current.model == "iPhone4,1" {
                 
             }else{
                 videoCamera.captureSessionPreset = cameraResolution.frontCameraResolution

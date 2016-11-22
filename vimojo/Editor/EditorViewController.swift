@@ -19,7 +19,7 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     
     //MARK: - Variables
     var longPressGesture: UILongPressGestureRecognizer?
-    var currentDragAndDropIndexPath: NSIndexPath?
+    var currentDragAndDropIndexPath: IndexPath?
     let imagePicker = UIImagePickerController()
 
     let reuseIdentifierCell = "editorCollectionViewCell"
@@ -46,7 +46,7 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         eventHandler?.viewDidLoad()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         eventHandler?.viewWillAppear()
@@ -54,7 +54,7 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         playerView.layoutSubviews()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         eventHandler?.viewWillDisappear()
     }
@@ -65,12 +65,12 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     }
     
     // MARK: - UICollectionViewDataSource protocol
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return videoList.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifierCell, forIndexPath: indexPath) as! EditorClipsCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifierCell, for: indexPath) as! EditorClipsCell
         
         
         if  videoList.indices.contains(indexPath.item){
@@ -83,15 +83,15 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     
         cell.removeClipButton.tag = indexPath.row
         
-        cell.removeClipButton.addTarget(self, action: #selector(EditorViewController.pushRemoveVideoClip(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.removeClipButton.addTarget(self, action: #selector(EditorViewController.pushRemoveVideoClip(_:)), for: UIControlEvents.touchUpInside)
 
         return cell
     }
     
     //MARK: - UICollectionViewDelegateFlowLayout
-    func collectionView(collectionView: UICollectionView,
+    func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
-                               sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+                               sizeForItemAt indexPath: IndexPath) -> CGSize {
        
         let size = Utils.sharedInstance.thumbnailEditorListDiameter
         
@@ -100,16 +100,16 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     }
     
     // MARK: - UICollectionViewDelegate protocol
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         
         eventHandler?.didSelectItemAtIndexPath(indexPath)
     }
     
     //MARK: - Moving Items
-    func collectionView(collectionView: UICollectionView,
-                        moveItemAtIndexPath sourceIndexPath: NSIndexPath,
-                                            toIndexPath destinationIndexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView,
+                        moveItemAt sourceIndexPath: IndexPath,
+                                            to destinationIndexPath: IndexPath) {
         // move your data order
         
         //        Utils.sharedInstance.debugLog("Move item at index \n sourceIndexPath: \(sourceIndexPath.item) \n destinationIndexPath \(destinationIndexPath.item)")
@@ -120,49 +120,49 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     }
     
     //MARK: - Actions
-    @IBAction func pushRemoveVideoClip(sender:UIButton){
+    @IBAction func pushRemoveVideoClip(_ sender:UIButton){
         
         eventHandler?.removeVideoClip(sender.tag)
     }
     
-    @IBAction func pushTrimClip(sender:AnyObject){
+    @IBAction func pushTrimClip(_ sender:AnyObject){
         
         eventHandler?.pushTrimHandler()
     }
     
-    @IBAction func pushDuplicateClip(sender:AnyObject){
+    @IBAction func pushDuplicateClip(_ sender:AnyObject){
         
         eventHandler?.pushDuplicateHandler()
     }
     
-    @IBAction func pushDivideClip(sender:AnyObject){
+    @IBAction func pushDivideClip(_ sender:AnyObject){
         
         eventHandler?.pushSplitHandler()
     }
     
-    @IBAction func pushAddVideo(sender:AnyObject){
+    @IBAction func pushAddVideo(_ sender:AnyObject){
         eventHandler?.pushAddVideoHandler()
     }
     
-    @IBAction func pushExpandButton(sender: AnyObject) {
+    @IBAction func pushExpandButton(_ sender: AnyObject) {
         eventHandler?.expandPlayer()
     }
     
-    @IBAction func pushAddTextButton(sender: AnyObject) {
+    @IBAction func pushAddTextButton(_ sender: AnyObject) {
         eventHandler?.pushAddTextHandler()
     }
     
     //MARK: - Interface
-    func deselectCell(indexPath:NSIndexPath) {
-        if (thumbnailClipsCollectionView.cellForItemAtIndexPath(indexPath) != nil){
-            let lastCell = thumbnailClipsCollectionView.cellForItemAtIndexPath(indexPath) as! EditorClipsCell
+    func deselectCell(_ indexPath:IndexPath) {
+        if (thumbnailClipsCollectionView.cellForItem(at: indexPath) != nil){
+            let lastCell = thumbnailClipsCollectionView.cellForItem(at: indexPath) as! EditorClipsCell
             lastCell.isClipSelected = false
         }
     }
     
-    func selectCell(indexPath:NSIndexPath) {
+    func selectCell(_ indexPath:IndexPath) {
         // Select cell
-        if let cell = (thumbnailClipsCollectionView.cellForItemAtIndexPath(indexPath)){
+        if let cell = (thumbnailClipsCollectionView.cellForItem(at: indexPath)){
             let editorCell = cell as! EditorClipsCell
             
             editorCell.isClipSelected = true
@@ -173,7 +173,7 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         thumbnailClipsCollectionView.reloadData()
     }
     
-    func setVideoList(list: [EditorViewModel]) {
+    func setVideoList(_ list: [EditorViewModel]) {
         self.videoList = list
     }
     
@@ -183,69 +183,69 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     }
     
     func numberOfCellsInCollectionView() -> Int {
-        return self.thumbnailClipsCollectionView.numberOfItemsInSection(0)
+        return self.thumbnailClipsCollectionView.numberOfItems(inSection: 0)
     }
     
-    func showAlertRemove(title:String,
+    func showAlertRemove(_ title:String,
                          message:String,
                          yesString:String) {
        
         let alertController = UIAlertController(title:title,
                                                 message:message,
-                                                preferredStyle: .Alert)
+                                                preferredStyle: .alert)
         alertController.view.tintColor = VIMOJO_GREEN_UICOLOR
 
         let yesAction = UIAlertAction(title: yesString,
-                                      style: .Default,
+                                      style: .default,
                                       handler: {alert -> Void in
             self.eventHandler?.removeVideoClipAfterConfirmation()
                                         self.alertController = nil
         })
         
-        let noAction = UIAlertAction(title: "No", style: .Default, handler: {
+        let noAction = UIAlertAction(title: "No", style: .default, handler: {
             void in
             self.alertController = nil
         })
         
         alertController.addAction(noAction)
         alertController.addAction(yesAction)
-        self.presentViewController(alertController, animated: false, completion:{})
+        self.present(alertController, animated: false, completion:{})
     }
     
-    func createAlertWaitToImport(completion: (() -> Void)?){
+    func createAlertWaitToImport(_ completion: @escaping (() -> Void)){
         let title = Utils().getStringByKeyFromEditor(EditorTextConstants.IMPORT_VIDEO_FROM_PHOTO_LIBRARY_TITLE)
         let message = Utils().getStringByKeyFromEditor(EditorTextConstants.IMPORT_VIDEO_FROM_PHOTO_LIBRARY_MESSAGE)
         
-        alertController = UIAlertController(title:title,message:message,preferredStyle: .Alert)
+        alertController = UIAlertController(title:title,message:message,preferredStyle: .alert)
         
-        let activityIndicator = UIActivityIndicatorView.init(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
+        let activityIndicator = UIActivityIndicatorView.init(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
         
         
-        activityIndicator.center = CGPointMake(130.5, 70.0);
+        activityIndicator.center = CGPoint(x: 130.5, y: 70.0);
         activityIndicator.startAnimating()
         
         alertController?.view.addSubview(activityIndicator)
-        self.presentViewController(alertController!, animated: false, completion:{
+        self.present(alertController!, animated: false, completion:{
             presented in
-            completion!(presented)
+            completion()
         })
     }
     
     func dissmissAlertController(){
-        alertController?.dismissViewControllerAnimated(true, completion: {})
+        alertController?.dismiss(animated: true, completion: {})
     }
     
     func bringToFrontExpandPlayerButton(){
-        self.playerView.bringSubviewToFront(expandPlayerButton)
+        self.playerView.bringSubview(toFront: expandPlayerButton)
     }
     
-    func cameFromFullScreenPlayer(playerView:PlayerView){
+    func cameFromFullScreenPlayer(_ playerView:PlayerView){
         self.playerView.addSubview(playerView)
-        self.playerView.bringSubviewToFront(expandPlayerButton)
+        self.playerView.bringSubview(toFront: expandPlayerButton)
         eventHandler?.updatePlayerLayer()
     }
     
-    func setTrimViewModel(viewModel: TrimRangeBarViewModel) {
+    func setTrimViewModel(_ viewModel: TrimRangeBarViewModel) {
         rangeTrimSlider.maximumValue = viewModel.totalRangeTime
         rangeTrimSlider.lowerValue = viewModel.startTrimTime
         rangeTrimSlider.upperValue = viewModel.finalTrimTime
@@ -253,39 +253,39 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         rangeTrimSlider.minimumValue = viewModel.startTime
     }
     
-    func setTrimMiddleValueToView(value: Double) {
+    func setTrimMiddleValueToView(_ value: Double) {
         rangeTrimSlider.middleValue = value
     }
     
     //MARK: - Drag and Drop handler
-    func handleLongGesture(gesture: UILongPressGestureRecognizer) {
+    func handleLongGesture(_ gesture: UILongPressGestureRecognizer) {
         
         switch(gesture.state) {
             
-        case UIGestureRecognizerState.Began:
-            guard let selectedIndexPath = self.thumbnailClipsCollectionView.indexPathForItemAtPoint(gesture.locationInView(self.thumbnailClipsCollectionView)) else {
+        case UIGestureRecognizerState.began:
+            guard let selectedIndexPath = self.thumbnailClipsCollectionView.indexPathForItem(at: gesture.location(in: self.thumbnailClipsCollectionView)) else {
                 break
             }
             eventHandler?.didSelectItemAtIndexPath(selectedIndexPath)
 
-            thumbnailClipsCollectionView.beginInteractiveMovementForItemAtIndexPath(selectedIndexPath)
+            thumbnailClipsCollectionView.beginInteractiveMovementForItem(at: selectedIndexPath)
             
-            guard let cell = thumbnailClipsCollectionView.cellForItemAtIndexPath(selectedIndexPath) as? EditorClipsCell else{
+            guard let cell = thumbnailClipsCollectionView.cellForItem(at: selectedIndexPath) as? EditorClipsCell else{
                 print("error UIGestureRecognizerState. beginInteractiveMovementForItemAtIndexPath")
                 return
             }
             cell.isMoving = true
         
-        case UIGestureRecognizerState.Changed:
-            thumbnailClipsCollectionView.updateInteractiveMovementTargetPosition(gesture.locationInView(gesture.view!))
+        case UIGestureRecognizerState.changed:
+            thumbnailClipsCollectionView.updateInteractiveMovementTargetPosition(gesture.location(in: gesture.view!))
                      
-        case UIGestureRecognizerState.Ended:
+        case UIGestureRecognizerState.ended:
             thumbnailClipsCollectionView.endInteractiveMovement()
            
-            guard let selectedIndexPath = self.thumbnailClipsCollectionView.indexPathForItemAtPoint(gesture.locationInView(self.thumbnailClipsCollectionView)) else {
+            guard let selectedIndexPath = self.thumbnailClipsCollectionView.indexPathForItem(at: gesture.location(in: self.thumbnailClipsCollectionView)) else {
                 break
             }
-            guard let cell = thumbnailClipsCollectionView.cellForItemAtIndexPath(selectedIndexPath) as? EditorClipsCell else{
+            guard let cell = thumbnailClipsCollectionView.cellForItem(at: selectedIndexPath) as? EditorClipsCell else{
                 print("error UIGestureRecognizerState. Ended")
                 return}
             cell.isMoving = false
@@ -297,22 +297,22 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
 
 extension EditorViewController:PlayerViewDelegate{
     //MARK: Player view delegate
-    func seekBarUpdate(value: Float) {
+    func seekBarUpdate(_ value: Float) {
         eventHandler?.seekBarUpdateHandler(value)
     }
     
-    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         print("navigationController willShowViewController ")
     }
     
-    func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) {
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         print("navigationController didShowViewController ")
     }
 }
 
 extension EditorViewController:PlayerViewSetter{
     //MARK: - Player setter
-    func addPlayerAsSubview(player: PlayerView) {
+    func addPlayerAsSubview(_ player: PlayerView) {
         self.playerView.addSubview(player)
     }
 }
@@ -328,7 +328,7 @@ extension EditorViewController:PlayerViewFinishedDelegate{
         
     }
     
-    func playerSeeksTo(value:Float){
+    func playerSeeksTo(_ value:Float){
         
     }
 }

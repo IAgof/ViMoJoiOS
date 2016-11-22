@@ -12,7 +12,7 @@ import VideonaPlayer
 let fullScreenPlayerViewControllerIdentifier = "FullScreenPlayerViewController"
 
 protocol FullScreenWireframeDelegate {
-    func cameFromFullScreenPlayer(playerView:PlayerView)
+    func cameFromFullScreenPlayer(_ playerView:PlayerView)
 }
 
 class FullScreenPlayerWireframe : NSObject {
@@ -22,18 +22,18 @@ class FullScreenPlayerWireframe : NSObject {
 
     var prevController:UIViewController?
 
-    func presentFullScreenPlayerFromViewController(prevController:UIViewController, playerView:PlayerView) {
+    func presentFullScreenPlayerFromViewController(_ prevController:UIViewController, playerView:PlayerView) {
         let viewController = fullScreenPlayerViewControllerFromStoryboard()
 
         viewController.playerView = playerView
         self.prevController = prevController
 
-        prevController.showViewController(viewController, sender: nil)
+        prevController.show(viewController, sender: nil)
     }
 
     func fullScreenPlayerViewControllerFromStoryboard() -> FullScreenPlayerViewController {
         let storyboard = mainStoryboard()
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(fullScreenPlayerViewControllerIdentifier) as! FullScreenPlayerViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: fullScreenPlayerViewControllerIdentifier) as! FullScreenPlayerViewController
 
         viewController.eventHandler = fullScreenPlayerPresenter
         fullScreenPlayerViewController = viewController
@@ -43,16 +43,16 @@ class FullScreenPlayerWireframe : NSObject {
     }
 
     func mainStoryboard() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         return storyboard
     }
 
-    func goPrevController(playerView:PlayerView){
+    func goPrevController(_ playerView:PlayerView){
         
         if let controller = prevController as? FullScreenWireframeDelegate{
             controller.cameFromFullScreenPlayer(playerView)
         }
         
-        fullScreenPlayerViewController?.dismissViewControllerAnimated(true, completion: nil)
+        fullScreenPlayerViewController?.dismiss(animated: true, completion: nil)
     }
 }

@@ -20,11 +20,11 @@ class FullScreenPlayerViewController: ViMoJoController ,FullScreenPlayerInterfac
     var playerView:PlayerView?{
         didSet {
             self.view.addSubview(playerView!)
-            self.view.bringSubviewToFront(shrinkButton)
+            self.view.bringSubview(toFront: shrinkButton)
         }
     }
 
-    @IBAction func pushShrinkButton(sender: AnyObject) {
+    @IBAction func pushShrinkButton(_ sender: AnyObject) {
         eventHandler?.onPushShrinkButton()
     }
 

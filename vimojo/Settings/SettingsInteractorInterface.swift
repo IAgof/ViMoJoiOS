@@ -10,11 +10,11 @@ import Foundation
 
 protocol SettingsInteractorInterface {
     func findSettings()
-    func executeSettingAtIndexPath(index:NSIndexPath)
+    func executeSettingAtIndexPath(_ index:IndexPath)
 }
 
 protocol SettingsInteractorDelegate {
-    func setSectionsToView(sections:[String])
-    func setSettingsItemsView(items:[[SettingsViewModel]])
-    func goToDetailTextController(text:String)
+    func setSectionsToView(_ sections:[String])
+    func setSettingsItemsView(_ items:[[SettingsViewModel]])
+    func goToDetailTextController(_ text:String)
 }

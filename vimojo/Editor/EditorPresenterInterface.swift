@@ -13,11 +13,11 @@ protocol EditorPresenterInterface {
     func viewDidLoad()
     func viewWillDisappear()
     func viewWillAppear()
-    func didSelectItemAtIndexPath(indexPath:NSIndexPath)
-    func cellForItemAtIndexPath(indexPath:NSIndexPath)
-    func moveItemAtIndexPath(sourceIndexPath: NSIndexPath,
-                             toIndexPath destinationIndexPath: NSIndexPath)
-    func removeVideoClip(position:Int)
+    func didSelectItemAtIndexPath(_ indexPath:IndexPath)
+    func cellForItemAtIndexPath(_ indexPath:IndexPath)
+    func moveItemAtIndexPath(_ sourceIndexPath: IndexPath,
+                             toIndexPath destinationIndexPath: IndexPath)
+    func removeVideoClip(_ position:Int)
     func removeVideoClipAfterConfirmation()
     
     func pushTrimHandler()
@@ -25,39 +25,39 @@ protocol EditorPresenterInterface {
     func pushSplitHandler()
     func pushAddTextHandler()
     
-    func seekBarUpdateHandler(value: Float)
+    func seekBarUpdateHandler(_ value: Float)
     func pushAddVideoHandler()
        
     func expandPlayer()
     func updatePlayerLayer()
     func playerHasLoaded()
     
-    func rangeMiddleValueChanged(value:Double)
-    func rangeSliderUpperOrLowerValueChanged(value:Double)
+    func rangeMiddleValueChanged(_ value:Double)
+    func rangeSliderUpperOrLowerValueChanged(_ value:Double)
 
     func rangeSliderUpperOrLowerValueStartToChange()
-    func rangeSliderLowerValueStopToChange(startTime:Double,
+    func rangeSliderLowerValueStopToChange(_ startTime:Double,
                                                   stopTime:Double)
-    func rangeSliderUpperValueStopToChange(startTime:Double,
+    func rangeSliderUpperValueStopToChange(_ startTime:Double,
                                            stopTime:Double)
 }
 
 protocol EditorPresenterDelegate:ViMoJoInterface {
     func setUpGestureRecognizer()
-    func selectCell(indexPath:NSIndexPath)
-    func deselectCell(indexPath:NSIndexPath)
+    func selectCell(_ indexPath:IndexPath)
+    func deselectCell(_ indexPath:IndexPath)
     func reloadCollectionViewData()
-    func setVideoList(list:[EditorViewModel])
+    func setVideoList(_ list:[EditorViewModel])
     func numberOfCellsInCollectionView()->Int
-    func showAlertRemove(title:String,
+    func showAlertRemove(_ title:String,
                          message:String,
                          yesString:String)
     
-    func createAlertWaitToImport(completion: (() -> Void)?)
+    func createAlertWaitToImport(_ completion: @escaping (() -> Void))
     func dissmissAlertController()
     func bringToFrontExpandPlayerButton()
-    func cameFromFullScreenPlayer(playerView:PlayerView)
+    func cameFromFullScreenPlayer(_ playerView:PlayerView)
     
-    func setTrimViewModel(viewModel:TrimRangeBarViewModel)
-    func setTrimMiddleValueToView(value:Double)
+    func setTrimViewModel(_ viewModel:TrimRangeBarViewModel)
+    func setTrimMiddleValueToView(_ value:Double)
 }

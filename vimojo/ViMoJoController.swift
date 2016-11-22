@@ -22,15 +22,15 @@ ViMoJoInterface {
 
     override func viewDidLoad() {
         print("View did load in \n \(self)")
-        self.prefersStatusBarHidden()
+        self.prefersStatusBarHidden
         
-        NSNotificationCenter.defaultCenter().addObserver(self,
+        NotificationCenter.default.addObserver(self,
                                                          selector: #selector(ViMoJoController.hideStatusBarAlways),
-                                                         name: UIDeviceOrientationDidChangeNotification,
+                                                         name: NSNotification.Name.UIDeviceOrientationDidChange,
                                                          object: nil)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         print("View will dissappear in \n \(self)")
 
         tracker.identifyMixpanel()
@@ -38,25 +38,25 @@ ViMoJoInterface {
         tracker.startTimeInActivityEvent()
 
 //        tracker.sendControllerGAITracker(getControllerName())
-        UIApplication.sharedApplication().idleTimerDisabled = false
+        UIApplication.shared.isIdleTimerDisabled = false
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         print("View will dissappear in \n \(self)")
 
         tracker.sendTimeInActivity(getControllerName())
     }
 
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
     
     func hideStatusBarAlways(){
-        self.prefersStatusBarHidden()
+        self.prefersStatusBarHidden
     }
 
     func getControllerName()->String{
-        return String(object_getClass(self))
+        return String(describing: object_getClass(self))
     }
     
     func getTrackerObject() -> ViMoJoTracker {
@@ -72,12 +72,12 @@ ViMoJoInterface {
 //Force Portrait to iPad
 extension ViMoJoController{
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Pad
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .pad
         {
-            return UIInterfaceOrientationMask.Portrait
+            return UIInterfaceOrientationMask.portrait
         }else{
-            return UIInterfaceOrientationMask.All
+            return UIInterfaceOrientationMask.all
         }
     }
 }

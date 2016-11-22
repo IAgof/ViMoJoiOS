@@ -14,9 +14,9 @@ struct cameraSettings {
     var quality:String
     
     init(){
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         
-        let resolutionSaved = defaults.stringForKey(SettingsConstants().SETTINGS_RESOLUTION)
+        let resolutionSaved = defaults.string(forKey: SettingsConstants().SETTINGS_RESOLUTION)
         
         if (resolutionSaved != nil){
             resolution = AVResolutionParse().parseResolutionToView(resolutionSaved!)
@@ -25,7 +25,7 @@ struct cameraSettings {
             resolution = AVResolutionParse().parseResolutionToView(AVCaptureSessionPreset1280x720)
         }
         
-        let qualitySaved = defaults.stringForKey(SettingsConstants().SETTINGS_QUALITY)
+        let qualitySaved = defaults.string(forKey: SettingsConstants().SETTINGS_QUALITY)
         if (qualitySaved != nil){
             quality = qualitySaved!
         }else{

@@ -24,21 +24,21 @@ class ClipsAlbum: NSObject {
             return
         }
         
-        if PHPhotoLibrary.authorizationStatus() != PHAuthorizationStatus.Authorized {
+        if PHPhotoLibrary.authorizationStatus() != PHAuthorizationStatus.authorized {
             PHPhotoLibrary.requestAuthorization({ (status: PHAuthorizationStatus) -> Void in
                 status
             })
         }
         
-        if PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.Authorized {
+        if PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.authorized {
             self.createAlbum()
         } else {
             PHPhotoLibrary.requestAuthorization(requestAuthorizationHandler)
         }
     }
     
-    func requestAuthorizationHandler(status: PHAuthorizationStatus) {
-        if PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.Authorized {
+    func requestAuthorizationHandler(_ status: PHAuthorizationStatus) {
+        if PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.authorized {
             // ideally this ensures the creation of the photo album even if authorization wasn't prompted till after init was done
             print("trying again to create the album")
             self.createAlbum()
@@ -48,8 +48,8 @@ class ClipsAlbum: NSObject {
     }
     
     func createAlbum() {
-        PHPhotoLibrary.sharedPhotoLibrary().performChanges({
-            PHAssetCollectionChangeRequest.creationRequestForAssetCollectionWithTitle(ClipsAlbum.albumName)   // create an asset collection with the album name
+        PHPhotoLibrary.shared().performChanges({
+            PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: ClipsAlbum.albumName)   // create an asset collection with the album name
         }) { success, error in
             if success {
                 self.assetCollection = self.fetchAssetCollectionForAlbum()
@@ -62,31 +62,31 @@ class ClipsAlbum: NSObject {
     func fetchAssetCollectionForAlbum() -> PHAssetCollection! {
         let fetchOptions = PHFetchOptions()
         fetchOptions.predicate = NSPredicate(format: "title = %@", ClipsAlbum.albumName)
-        let collection = PHAssetCollection.fetchAssetCollectionsWithType(.Album, subtype: .Any, options: fetchOptions)
+        let collection = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: fetchOptions)
         
         if let _: AnyObject = collection.firstObject {
-            return collection.firstObject as! PHAssetCollection
+            return collection.firstObject
         }
         return nil
     }
     
     var savedLocalIdentifier:String?
     
-    func saveVideo(clipPath:NSURL,project:Project,completion:(Bool)->Void) {
+    func saveVideo(_ clipPath:URL,project:Project,completion:@escaping (Bool)->Void) {
         if assetCollection == nil {
             return
         }
         
-        PHPhotoLibrary.sharedPhotoLibrary().performChanges({
+        PHPhotoLibrary.shared().performChanges({
             
-            guard let assetChangeRequest = PHAssetChangeRequest.creationRequestForAssetFromVideoAtFileURL(clipPath) else {return}
+            guard let assetChangeRequest = PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: clipPath) else {return}
             guard let assetPlaceHolder = assetChangeRequest.placeholderForCreatedAsset  else {return}
             
             self.savedLocalIdentifier = assetPlaceHolder.localIdentifier
             
-            let albumChangeRequest = PHAssetCollectionChangeRequest(forAssetCollection: self.assetCollection)
-            albumChangeRequest!.addAssets([assetPlaceHolder])
-           
+            let albumChangeRequest = PHAssetCollectionChangeRequest(for: self.assetCollection)
+            let enumeration: NSArray = [assetPlaceHolder]
+            albumChangeRequest!.addAssets(enumeration)
             }, completionHandler: {
                 saved, error in
                 
@@ -102,16 +102,16 @@ class ClipsAlbum: NSObject {
         })
     }
     
-    func setVideoUrlParameters(localIdentifier:String,
+    func setVideoUrlParameters(_ localIdentifier:String,
                                project:Project){
         
         if let video = project.getVideoList().last{
-            let phFetchAsset = PHAsset.fetchAssetsWithLocalIdentifiers([localIdentifier], options: nil)
-            let phAsset = phFetchAsset[0] as! PHAsset
-            PHImageManager.defaultManager().requestAVAssetForVideo(phAsset, options: nil, resultHandler: {
+            let phFetchAsset = PHAsset.fetchAssets(withLocalIdentifiers: [localIdentifier], options: nil)
+            let phAsset = phFetchAsset[0] 
+            PHImageManager.default().requestAVAsset(forVideo: phAsset, options: nil, resultHandler: {
                 avasset,audiomix,info in
                 if let asset = avasset as? AVURLAsset{
-                    video.videoURL = asset.URL
+                    video.videoURL = asset.url
                     video.mediaRecordedFinished()
                 }
             })

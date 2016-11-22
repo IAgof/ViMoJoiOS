@@ -14,6 +14,6 @@ protocol EditingRoomViewInterface:ViMoJoInterface{
     func selectMusicButton()
     func selectShareButton()
     func createAlertWaitToExport()
-    func dissmissAlertWaitToExport(completion:()->Void)
+    func dissmissAlertWaitToExport(_ completion:@escaping ()->Void)
 
 }

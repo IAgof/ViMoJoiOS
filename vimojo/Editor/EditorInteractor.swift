@@ -38,9 +38,9 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
     func getComposition() {
         guard let actualProject = project else{return}
 
-        var videonaComposition = GetActualProjectAVCompositionUseCase().getComposition(actualProject)
+        var videonaComposition = GetActualProjectAVCompositionUseCase().getComposition(project: actualProject)
         
-        let layer = GetActualProjectTextCALayerAnimationUseCase().getCALayerAnimation(actualProject)
+        let layer = GetActualProjectTextCALayerAnimationUseCase().getCALayerAnimation(project: actualProject)
         videonaComposition.layerAnimation = layer
         
         delegate?.setComposition(videonaComposition)
@@ -66,9 +66,9 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         delegate?.setVideoList(videoList)
     }
     
-    func hourToString(time:Double) -> String {
-        let mins = Int(floor(time % 3600) / 60)
-        let secs = Int(floor(time % 3600) % 60)
+    func hourToString(_ time:Double) -> String {
+        let mins = Int(floor(time.truncatingRemainder(dividingBy: 3600)) / 60)
+        let secs = Int(floor(time.truncatingRemainder(dividingBy: 3600)).truncatingRemainder(dividingBy: 60))
         
         return String(format:"%02d:%02d", mins, secs)
     }
@@ -97,27 +97,27 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         return "\(Utils().giveMeTimeNow())videonaClip.m4v"
     }
     
-    func getNewClipPath(title:String)->String{
-        var path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+    func getNewClipPath(_ title:String)->String{
+        var path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         path =  path + "/\(title)"
         return path
     }
     
-    func exportWithoutWaterMark(urlPath:NSURL, completionHandler:(String)->Void){
+    func exportWithoutWaterMark(_ urlPath:URL, completionHandler:@escaping (String)->Void){
         
         // - Create AVMutableComposition object. This object will hold your AVMutableCompositionTrack instances.
         let mixComposition = AVMutableComposition()
         
-        let videoTrack = mixComposition.addMutableTrackWithMediaType(AVMediaTypeVideo,
+        let videoTrack = mixComposition.addMutableTrack(withMediaType: AVMediaTypeVideo,
                                                                      preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
-        let audioTrack = mixComposition.addMutableTrackWithMediaType(AVMediaTypeAudio,
+        let audioTrack = mixComposition.addMutableTrack(withMediaType: AVMediaTypeAudio,
                                                                      preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
         
         // - Add assets to the composition
         
         // 2 - Get Video asset
-        let videoURL: NSURL = urlPath
-        let videoAsset = AVAsset.init(URL: videoURL)
+        let videoURL: URL = urlPath
+        let videoAsset = AVAsset.init(url: videoURL)
         
         do {
             let startTime = kCMTimeZero
@@ -125,12 +125,12 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
             let stopTime = videoAsset.duration
             
             try videoTrack.insertTimeRange(CMTimeRangeMake(startTime,  stopTime),
-                                           ofTrack: videoAsset.tracksWithMediaType(AVMediaTypeVideo)[0] ,
-                                           atTime: kCMTimeZero)
+                                           of: videoAsset.tracks(withMediaType: AVMediaTypeVideo)[0] ,
+                                           at: kCMTimeZero)
             
             try audioTrack.insertTimeRange(CMTimeRangeMake(startTime, stopTime),
-                                           ofTrack: videoAsset.tracksWithMediaType(AVMediaTypeAudio)[0] ,
-                                           atTime: kCMTimeZero)
+                                           of: videoAsset.tracks(withMediaType: AVMediaTypeAudio)[0] ,
+                                           at: kCMTimeZero)
             
         } catch _ {
             Utils().debugLog("Error trying to create videoTrack")
@@ -139,10 +139,10 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         ////////////////////////////////////////////////////////////////
         
         // 5 - Create Exporter
-        let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-        let savePath = (documentDirectory as NSString).stringByAppendingPathComponent("\(Utils().giveMeTimeNow())videonaClip.m4v")
+        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let savePath = (documentDirectory as NSString).appendingPathComponent("\(Utils().giveMeTimeNow())videonaClip.m4v")
         
-        let url = NSURL(fileURLWithPath: savePath)
+        let url = URL(fileURLWithPath: savePath)
         
         let exporter = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetHighestQuality)
         exporter!.outputURL = url
@@ -150,21 +150,21 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         exporter!.shouldOptimizeForNetworkUse = true
         
         // 6 - Perform the Export
-        exporter!.exportAsynchronouslyWithCompletionHandler() {
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        exporter!.exportAsynchronously() {
+            DispatchQueue.main.async(execute: { () -> Void in
         
                 completionHandler(savePath)
             })
         }
     }
     
-    func seekToSelectedItemHandler(videoPosition: Int) {
+    func seekToSelectedItemHandler(_ videoPosition: Int) {
         let time = getSeekTimePercentForSelectedVideo(videoPosition)
         
         delegate?.seekToTimeOfVideoSelectedReceiver(time)
     }
     
-    func getSeekTimePercentForSelectedVideo(videoPosition:Int) -> Float {
+    func getSeekTimePercentForSelectedVideo(_ videoPosition:Int) -> Float {
         guard let videoList = project?.getVideoList() else{return 0.0}
         
         var totalTimeComposition = 0.0
@@ -193,10 +193,10 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         }
     }
     
-    func removeVideo(index:Int){
+    func removeVideo(_ index:Int){
         guard var videoList = project?.getVideoList() else{return}
         
-        videoList.removeAtIndex(index)
+        videoList.remove(at: index)
         
         project?.setVideoList(videoList)
     }
@@ -205,13 +205,13 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         return project!
     }
     
-    func moveClipToPosition(sourcePosition:Int,
+    func moveClipToPosition(_ sourcePosition:Int,
                             destionationPosition:Int){
         guard var videoList = project?.getVideoList() else{return}
         
         let videoToMove = videoList[sourcePosition]
-        videoList.removeAtIndex(sourcePosition)
-        videoList.insert(videoToMove, atIndex: destionationPosition)
+        videoList.remove(at: sourcePosition)
+        videoList.insert(videoToMove, at: destionationPosition)
         
         project?.setVideoList(videoList)
     }
@@ -232,7 +232,7 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         
     }
     
-    func updateSeekOnVideoTo(value: Double, videoNumber: Int) {
+    func updateSeekOnVideoTo(_ value: Double, videoNumber: Int) {
         guard let actualProject = project else{return}
 
         let seekTime = GetSeekTimeFromValueOnVideoWorker().getSeekTime(value,
@@ -257,7 +257,7 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         }
     }
     
-    func getCompositionForVideo(videoPosition: Int) {
+    func getCompositionForVideo(_ videoPosition: Int) {
         guard let actualProject = project else{return}
 
         GetCompositionForVideoWorker().getComposition(videoPosition,
@@ -268,7 +268,7 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         })
     }
     
-    func setTrimParametersToProject(startTime:Double,
+    func setTrimParametersToProject(_ startTime:Double,
                                     stopTime:Double,
                                     videoPosition:Int){
         guard let actualProject = project else{return}

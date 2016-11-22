@@ -8,8 +8,8 @@ import Mixpanel
 import VideonaProject
 
 class ViMoJoTracker {
-    let mixpanel = Mixpanel.sharedInstanceWithToken(AnalyticsConstants().MIXPANEL_TOKEN)
-    let preferences = NSUserDefaults.standardUserDefaults()
+    let mixpanel = Mixpanel.sharedInstance(withToken: AnalyticsConstants().MIXPANEL_TOKEN)
+    let preferences = UserDefaults.standard
     
     static let sharedInstance = ViMoJoTracker()
     
@@ -24,7 +24,7 @@ class ViMoJoTracker {
         Utils().debugLog("Sending startTimeInActivityEvent")
     }
 
-    func sendTimeInActivity(controllerName:String) {
+    func sendTimeInActivity(_ controllerName:String) {
         Utils().debugLog("Sending AnalyticsConstants().TIME_IN_ACTIVITY")
         //NOT WORKING -- falta el comienzo time_event para arrancar el contador
 
@@ -36,7 +36,7 @@ class ViMoJoTracker {
     }
 
     //MARK: - User interaction track
-    func sendUserInteractedTracking(activity:String,
+    func sendUserInteractedTracking(_ activity:String,
                                     recording:Bool,
                                     interaction:String,
                                     result:String ) {
@@ -47,12 +47,12 @@ class ViMoJoTracker {
                 AnalyticsConstants().RECORDING: recording,
                 AnalyticsConstants().INTERACTION: interaction,
                 AnalyticsConstants().RESULT: result,
-        ]
+        ] as [String : Any]
 
-        mixpanel.track(AnalyticsConstants().USER_INTERACTED, properties: userInteractionsProperties as [NSObject : AnyObject])
+        mixpanel.track(AnalyticsConstants().USER_INTERACTED, properties: userInteractionsProperties as [AnyHashable: Any])
     }
 
-    func sendFilterSelectedTracking(name:String,
+    func sendFilterSelectedTracking(_ name:String,
                                     code:String,
                                     recording:Bool) {
         //JSON properties
@@ -62,9 +62,9 @@ class ViMoJoTracker {
                 AnalyticsConstants().NAME: name,
                 AnalyticsConstants().CODE: code,
                 AnalyticsConstants().RECORDING: recording,
-        ]
+        ] as [String : Any]
 
-        mixpanel.track(AnalyticsConstants().FILTER_SELECTED, properties: userInteractionsProperties as [NSObject : AnyObject])
+        mixpanel.track(AnalyticsConstants().FILTER_SELECTED, properties: userInteractionsProperties as [AnyHashable: Any])
     }
 
     //MARK: - User
@@ -72,7 +72,7 @@ class ViMoJoTracker {
         Utils().debugLog("trackMailTraits")
         
         
-        let userProfileProperties = [AnalyticsConstants().ACCOUNT_MAIL:getPreferenceStringSaved(SettingsConstants().SETTINGS_MAIL)] as [NSObject : AnyObject]
+        let userProfileProperties = [AnalyticsConstants().ACCOUNT_MAIL:getPreferenceStringSaved(SettingsConstants().SETTINGS_MAIL)] as [AnyHashable: Any]
         
         mixpanel.people.set(userProfileProperties)
     }
@@ -80,7 +80,7 @@ class ViMoJoTracker {
     func trackNameTraits() {
         Utils().debugLog("trackNameTraits")
         
-        let userProfileProperties = [AnalyticsConstants().NAME: getPreferenceStringSaved(SettingsConstants().SETTINGS_NAME)] as [NSObject : AnyObject]
+        let userProfileProperties = [AnalyticsConstants().NAME: getPreferenceStringSaved(SettingsConstants().SETTINGS_NAME)] as [AnyHashable: Any]
         
         mixpanel.people.set(userProfileProperties)
     }
@@ -88,13 +88,13 @@ class ViMoJoTracker {
     func trackUserNameTraits() {
         Utils().debugLog("trackUserNameTraits")
         
-        let userProfileProperties = [AnalyticsConstants().USERNAME:getPreferenceStringSaved(SettingsConstants().SETTINGS_USERNAME)] as [NSObject : AnyObject]
+        let userProfileProperties = [AnalyticsConstants().USERNAME:getPreferenceStringSaved(SettingsConstants().SETTINGS_USERNAME)] as [AnyHashable: Any]
         
         mixpanel.people.set(userProfileProperties)
     }
     
     //MARK: - Filter selected
-    func sendFilterSelectedTracking(type:String,
+    func sendFilterSelectedTracking(_ type:String,
                                     name:String,
                                     code:String,
                                     isRecording:Bool,
@@ -109,34 +109,34 @@ class ViMoJoTracker {
                 AnalyticsConstants().RECORDING: isRecording,
                 AnalyticsConstants().COMBINED: combined,
                 AnalyticsConstants().FILTERS_COMBINED: filtersCombined,
-                ]
-        mixpanel.track(AnalyticsConstants().FILTER_SELECTED, properties: userInteractionsProperties as [NSObject : AnyObject])
-        mixpanel.people.increment(AnalyticsConstants().TOTAL_FILTERS_USED,by: NSNumber.init(int: Int32(1)))
+                ] as [String : Any]
+        mixpanel.track(AnalyticsConstants().FILTER_SELECTED, properties: userInteractionsProperties as [AnyHashable: Any])
+        mixpanel.people.increment(AnalyticsConstants().TOTAL_FILTERS_USED,by: NSNumber.init(value: Int32(1) as Int32))
     }
     
     //MARK: - App Shared
-    func trackAppShared( appName:String,  socialNetwork:String) {
+    func trackAppShared( _ appName:String,  socialNetwork:String) {
         let appSharedProperties =
             [
                 AnalyticsConstants().APP_SHARED_NAME: appName,
                 AnalyticsConstants().SOCIAL_NETWORK: socialNetwork
         ]
-        mixpanel.track(AnalyticsConstants().APP_SHARED, properties: appSharedProperties as [NSObject : AnyObject])
+        mixpanel.track(AnalyticsConstants().APP_SHARED, properties: appSharedProperties as [AnyHashable: Any])
     }
 
     //MARK: - Link Clicked
-    func trackLinkClicked( uri:String,  destination:String) {
+    func trackLinkClicked( _ uri:String,  destination:String) {
         let linkClickProperties =
             [
                 AnalyticsConstants().LINK: uri,
                 AnalyticsConstants().SOURCE_APP: AnalyticsConstants().SOURCE_APP_VIDEONA,
                 AnalyticsConstants().DESTINATION: destination
         ]
-        mixpanel.track(AnalyticsConstants().LINK_CLICK, properties: linkClickProperties as [NSObject : AnyObject])
+        mixpanel.track(AnalyticsConstants().LINK_CLICK, properties: linkClickProperties as [AnyHashable: Any])
     }
     
     //MARK: - Video Shared
-    func trackVideoShared(socialNetwork:String,
+    func trackVideoShared(_ socialNetwork:String,
                           videoDuration:Double,
                           numberOfClips:Int) {
         
@@ -155,10 +155,10 @@ class ViMoJoTracker {
                 AnalyticsConstants().NUMBER_OF_CLIPS: numberOfClips,
                 AnalyticsConstants().TOTAL_VIDEOS_SHARED: getPreferenceIntSaved(ConfigPreferences().TOTAL_VIDEOS_SHARED),
                 AnalyticsConstants().DOUBLE_HOUR_AND_MINUTES: Utils().getDoubleHourAndMinutes(),
-                ]
-        mixpanel.track(AnalyticsConstants().VIDEO_SHARED, properties: socialNetworkProperties as [NSObject : AnyObject])
+                ] as [String : Any]
+        mixpanel.track(AnalyticsConstants().VIDEO_SHARED, properties: socialNetworkProperties as [AnyHashable: Any])
         
-        mixpanel.people.increment(AnalyticsConstants().TOTAL_VIDEOS_SHARED,by: NSNumber.init(int: Int32(1)))
+        mixpanel.people.increment(AnalyticsConstants().TOTAL_VIDEOS_SHARED,by: NSNumber.init(value: Int32(1) as Int32))
         mixpanel.people.set(AnalyticsConstants().LAST_VIDEO_SHARED,to: Utils().giveMeTimeNow())
     }
     
@@ -202,7 +202,7 @@ class ViMoJoTracker {
         mixpanel.registerSuperProperties(totalVideoRecordedSuperProperty)
     }
     
-    func sendVideoRecordedTracking(videoLenght:Double) {
+    func sendVideoRecordedTracking(_ videoLenght:Double) {
         
         let totalVideosRecorded = getPreferenceIntSaved(ConfigPreferences().TOTAL_VIDEOS_RECORDED)
         let resolution = getPreferenceStringSaved(SettingsConstants().SETTINGS_RESOLUTION)
@@ -214,13 +214,13 @@ class ViMoJoTracker {
                 AnalyticsConstants().RESOLUTION: resolution,
                 AnalyticsConstants().TOTAL_VIDEOS_RECORDED: totalVideosRecorded,
                 AnalyticsConstants().DOUBLE_HOUR_AND_MINUTES: Utils().getDoubleHourAndMinutes()
-        ]
-        mixpanel.track(AnalyticsConstants().VIDEO_RECORDED, properties: videoRecordedProperties as [NSObject : AnyObject])
+        ] as [String : Any]
+        mixpanel.track(AnalyticsConstants().VIDEO_RECORDED, properties: videoRecordedProperties as [AnyHashable: Any])
         self.updateUserProfileProperties()
     }
     
     //MARK: - Video Exported
-    func sendExportedVideoMetadataTracking(videoLenght:Double,
+    func sendExportedVideoMetadataTracking(_ videoLenght:Double,
                                            numberOfClips:Int) {
         
         let resolution = getPreferenceStringSaved(SettingsConstants().SETTINGS_RESOLUTION)
@@ -231,8 +231,8 @@ class ViMoJoTracker {
                 AnalyticsConstants().RESOLUTION: resolution,
                 AnalyticsConstants().NUMBER_OF_CLIPS:numberOfClips ,
                 AnalyticsConstants().DOUBLE_HOUR_AND_MINUTES: Utils().getDoubleHourAndMinutes(),
-                ]
-        mixpanel.track(AnalyticsConstants().VIDEO_EXPORTED, properties: videoRecordedProperties as [NSObject : AnyObject])
+                ] as [String : Any]
+        mixpanel.track(AnalyticsConstants().VIDEO_EXPORTED, properties: videoRecordedProperties as [AnyHashable: Any])
     }
     
     func updateUserProfileProperties() {
@@ -250,7 +250,7 @@ class ViMoJoTracker {
                 ]
         
         mixpanel.people.set(userProfileProperties)
-        mixpanel.people.increment(AnalyticsConstants().TOTAL_VIDEOS_RECORDED,by: NSNumber.init(int: Int32(1)))
+        mixpanel.people.increment(AnalyticsConstants().TOTAL_VIDEOS_RECORDED,by: NSNumber.init(value: Int32(1) as Int32))
         mixpanel.people.set([AnalyticsConstants().LAST_VIDEO_RECORDED:Utils().giveMeTimeNow()])
         
     }
@@ -295,7 +295,7 @@ class ViMoJoTracker {
 //        mixpanel.track(AnalyticsConstants().VIDEO_EDITED, properties: eventProperties as [NSObject : AnyObject])
     }
 
-    func trackClipDuplicated(nDuplicates:Int) {
+    func trackClipDuplicated(_ nDuplicates:Int) {
 //        let project = project?
 //
 //        let eventProperties =
@@ -336,19 +336,19 @@ class ViMoJoTracker {
 //    }
     
     //MARK: - Get saved params
-    private func getPreferenceStringSaved(preference:String) -> String {
+    fileprivate func getPreferenceStringSaved(_ preference:String) -> String {
         var preferenceSaved = ""
-        if preferences.stringForKey(preference) != nil {
-            preferenceSaved = preferences.stringForKey(preference)!
+        if preferences.string(forKey: preference) != nil {
+            preferenceSaved = preferences.string(forKey: preference)!
             
         }
         return preferenceSaved
     }
     
-    private func getPreferenceIntSaved(preference:String) -> Int {
+    fileprivate func getPreferenceIntSaved(_ preference:String) -> Int {
         var preferenceSaved = 0
-        if preferences.objectForKey(preference) != nil {
-            preferenceSaved = preferences.integerForKey(preference)
+        if preferences.object(forKey: preference) != nil {
+            preferenceSaved = preferences.integer(forKey: preference)
             
         }
         return preferenceSaved
@@ -356,15 +356,15 @@ class ViMoJoTracker {
     
     //MARK: - Update params
     func updateTotalVideosRecorded() {
-        var numTotalVideosRecorded = preferences.integerForKey(ConfigPreferences().TOTAL_VIDEOS_RECORDED)
+        var numTotalVideosRecorded = preferences.integer(forKey: ConfigPreferences().TOTAL_VIDEOS_RECORDED)
         numTotalVideosRecorded += 1
         
-        preferences.setInteger(numTotalVideosRecorded, forKey: ConfigPreferences().TOTAL_VIDEOS_RECORDED)
+        preferences.set(numTotalVideosRecorded, forKey: ConfigPreferences().TOTAL_VIDEOS_RECORDED)
     }
     
     func updateNumTotalVideosShared(){
-        var totalVideosShared = preferences.integerForKey(ConfigPreferences().TOTAL_VIDEOS_SHARED)
+        var totalVideosShared = preferences.integer(forKey: ConfigPreferences().TOTAL_VIDEOS_SHARED)
         totalVideosShared += 1
-        preferences.setInteger(totalVideosShared, forKey: ConfigPreferences().TOTAL_VIDEOS_SHARED)
+        preferences.set(totalVideosShared, forKey: ConfigPreferences().TOTAL_VIDEOS_SHARED)
     }
 }

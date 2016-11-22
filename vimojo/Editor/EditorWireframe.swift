@@ -25,23 +25,23 @@ class EditorWireframe : NSObject {
     var addTextWireframe:AddTextWireframe?
     var galleryWireframe:GalleryWireframe?
     
-    func presentEditorInterfaceFromWindow(window: UIWindow) {
+    func presentEditorInterfaceFromWindow(_ window: UIWindow) {
         let viewController = editorViewControllerFromStoryboard()
         
         rootWireframe?.showRootViewController(viewController, inWindow: window)
     }
     
-    func presentEditorInterfaceFromViewController(prevController:UIViewController){
+    func presentEditorInterfaceFromViewController(_ prevController:UIViewController){
         let viewController = editorViewControllerFromStoryboard()
         
         self.prevController = prevController
         
-        prevController.showViewController(viewController, sender: nil)
+        prevController.show(viewController, sender: nil)
     }
     
     func editorViewControllerFromStoryboard() -> EditorViewController {
         let storyboard = mainStoryboard()
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(editorViewControllerIdentifier) as! EditorViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: editorViewControllerIdentifier) as! EditorViewController
         
         viewController.eventHandler = editorPresenter
         editorViewController = viewController
@@ -55,26 +55,26 @@ class EditorWireframe : NSObject {
     }
     
     func mainStoryboard() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Editor", bundle: NSBundle.mainBundle())
+        let storyboard = UIStoryboard(name: "Editor", bundle: Bundle.main)
         return storyboard
     }
     
-    func presentTrimController(videoSelected:Int){
+    func presentTrimController(_ videoSelected:Int){
         trimWireframe?.presentTrimInterfaceFromViewController(editorViewController!,
                                                               videoSelected:videoSelected)
     }
     
-    func presentDuplicateController(videoSelected:Int){
+    func presentDuplicateController(_ videoSelected:Int){
         duplicateWireframe?.presentDuplicateInterfaceFromViewController(editorViewController!,
                                                               videoSelected:videoSelected)
     }
     
-    func presentSplitController(videoSelected:Int){
+    func presentSplitController(_ videoSelected:Int){
         splitWireframe?.presentSplitInterfaceFromViewController(editorViewController!,
                                                                 videoSelected: videoSelected)
     }
     
-    func presentAddTextController(videoSelected:Int){
+    func presentAddTextController(_ videoSelected:Int){
         addTextWireframe?.presentAddTextInterfaceFromViewController(editorViewController!,
                                                                 videoSelected: videoSelected)
     }

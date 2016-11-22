@@ -18,7 +18,7 @@ class ShareInteractor: NSObject,ShareInteractorInterface {
     var project:Project?
     var socialNetworks:[SocialNetwork] = []
     
-    func setShareMoviePath(moviePath: String) {
+    func setShareMoviePath(_ moviePath: String) {
         self.moviePath = moviePath
     }
     
@@ -49,11 +49,11 @@ class ShareInteractor: NSObject,ShareInteractorInterface {
         delegate?.setShareObjectsToView(shareViewModelObjects)
     }
     
-    func shareVideo(indexPath: NSIndexPath, videoPath: String) {
+    func shareVideo(_ indexPath: IndexPath, videoPath: String) {
         socialNetworks[indexPath.item].action.share(videoPath)
     }
     
-    func postToYoutube(token:String){
+    func postToYoutube(_ token:String){
         shareYoutubeInteractor?.postVideoToYouTube(token,callback: { (result) -> () in
             Utils().debugLog("result \(result)")
         })

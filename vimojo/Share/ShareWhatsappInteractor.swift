@@ -18,29 +18,29 @@ class ShareWhatsappInteractor: ShareActionInterface {
         self.delegate = delegate
     }
     
-    func share(path:String){
+    func share(_ path:String){
         var debug = false
         #if DEBUG
             debug = true
         #endif
         //NSURL(string: urlString!) {
-        if (UIApplication.sharedApplication().canOpenURL(NSURL(string: "whatsapp://app")!)) || debug {
+        if (UIApplication.shared.canOpenURL(URL(string: "whatsapp://app")!)) || debug {
             
-            let movie:NSURL = NSURL.fileURLWithPath(path)
+            let movie:URL = URL(fileURLWithPath: path)
             guard let viewController = UIApplication.topViewController() else{return}
             
-            documentationInteractionController = UIDocumentInteractionController.init(URL: movie)
+            documentationInteractionController = UIDocumentInteractionController.init(url: movie)
             
-            documentationInteractionController.UTI = "public.movie"
+            documentationInteractionController.uti = "public.movie"
             
-            documentationInteractionController.presentOpenInMenuFromRect(CGRectZero, inView: viewController.view, animated: true)
+            documentationInteractionController.presentOpenInMenu(from: CGRect.zero, in: viewController.view, animated: true)
             
             let objectsToShare = [movie] //comment!, imageData!, myWebsite!]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
             
             activityVC.setValue("Video", forKey: "subject")
             
-            activityVC.excludedActivityTypes = [UIActivityTypeAirDrop, UIActivityTypeAddToReadingList, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypeOpenInIBooks, UIActivityTypePostToTencentWeibo, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint]
+            activityVC.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList, UIActivityType.assignToContact, UIActivityType.copyToPasteboard, UIActivityType.mail, UIActivityType.message, UIActivityType.openInIBooks, UIActivityType.postToTencentWeibo, UIActivityType.postToVimeo, UIActivityType.postToWeibo, UIActivityType.print]
 
             
             if (activityVC.popoverPresentationController != nil) {
@@ -49,7 +49,7 @@ class ShareWhatsappInteractor: ShareActionInterface {
                 activityVC.popoverPresentationController!.sourceView = view
             }
             
-            viewController.presentViewController(activityVC, animated: false, completion: nil)
+            viewController.present(activityVC, animated: false, completion: nil)
             
             
         }else{

@@ -22,25 +22,25 @@ class DuplicateWireframe : NSObject {
 
     var prevController:UIViewController?
     
-    func presentDuplicateInterfaceFromWindow(window: UIWindow) {
+    func presentDuplicateInterfaceFromWindow(_ window: UIWindow) {
         let viewController = duplicateViewControllerFromStoryboard()
         
         rootWireframe?.showRootViewController(viewController, inWindow: window)
     }
     
-    func presentDuplicateInterfaceFromViewController(prevController:UIViewController,
+    func presentDuplicateInterfaceFromViewController(_ prevController:UIViewController,
                                                 videoSelected:Int)
     {
         let viewController = duplicateViewControllerFromStoryboard()
         
         self.prevController = prevController
         duplicatePresenter?.videoSelectedIndex = videoSelected
-        prevController.showViewController(viewController, sender: nil)
+        prevController.show(viewController, sender: nil)
     }
     
     func duplicateViewControllerFromStoryboard() -> DuplicateViewController {
         let storyboard = mainStoryboard()
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(duplicateViewControllerIdentifier) as! DuplicateViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: duplicateViewControllerIdentifier) as! DuplicateViewController
         
         viewController.eventHandler = duplicatePresenter
         duplicateViewController = viewController
@@ -56,12 +56,12 @@ class DuplicateWireframe : NSObject {
     }
     
     func mainStoryboard() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Editor", bundle: NSBundle.mainBundle())
+        let storyboard = UIStoryboard(name: "Editor", bundle: Bundle.main)
         return storyboard
     }
     
     func goPrevController(){
-        duplicateViewController?.dismissViewControllerAnimated(true, completion: nil)
+        duplicateViewController?.dismiss(animated: true, completion: nil)
     }
    
     func presentExpandPlayer(){

@@ -32,7 +32,7 @@ class SettingsPresenter:NSObject,SettingsPresenterInterface{
         delegate?.addFooter()
     }
     
-    func itemListSelected(index: NSIndexPath) {
+    func itemListSelected(_ index: IndexPath) {
         interactor?.executeSettingAtIndexPath(index)
     }
     
@@ -45,16 +45,16 @@ class SettingsPresenter:NSObject,SettingsPresenterInterface{
 }
 
 extension SettingsPresenter:SettingsInteractorDelegate{
-    func setSettingsItemsView(items: [[SettingsViewModel]]) {
+    func setSettingsItemsView(_ items: [[SettingsViewModel]]) {
         delegate?.setItems(items)
         delegate?.reloadTableData()
     }
     
-    func setSectionsToView(sections: [String]) {
+    func setSectionsToView(_ sections: [String]) {
         delegate?.setSectionsArray(sections)
     }
     
-    func goToDetailTextController(text:String){
+    func goToDetailTextController(_ text:String){
         wireframe?.presentDetailTextController(text)
     }
 }

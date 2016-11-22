@@ -28,20 +28,20 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
     var actualComposition:VideoComposition?
     var audioRecorder:AVAudioRecorder!
     
-    let recordSettings = [AVSampleRateKey : NSNumber(float: Float(44100.0)),
-                          AVFormatIDKey : NSNumber(int: Int32(kAudioFormatMPEG4AAC)),
-                          AVNumberOfChannelsKey : NSNumber(int: 1),
-                          AVEncoderAudioQualityKey : NSNumber(int: Int32(AVAudioQuality.High.rawValue))]
+    let recordSettings = [AVSampleRateKey : NSNumber(value: Float(44100.0) as Float),
+                          AVFormatIDKey : NSNumber(value: Int32(kAudioFormatMPEG4AAC) as Int32),
+                          AVNumberOfChannelsKey : NSNumber(value: 1 as Int32),
+                          AVEncoderAudioQualityKey : NSNumber(value: Int32(AVAudioQuality.high.rawValue) as Int32)]
     var audioStringPath:String?
     
     func initAudioSession(){
         let audioSession = AVAudioSession.sharedInstance()
         do {
             try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            audioStringPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0].stringByAppendingString("/audio\(Utils.sharedInstance.giveMeTimeNow()).m4a")
-            guard let audioURLPath = NSURL(string: audioStringPath!) else{return}
+            audioStringPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "/audio\(Utils.sharedInstance.giveMeTimeNow()).m4a"
+            guard let audioURLPath = URL(string: audioStringPath!) else{return}
             
-            try audioRecorder = AVAudioRecorder(URL: audioURLPath,
+            try audioRecorder = AVAudioRecorder(url: audioURLPath,
                                                 settings: recordSettings)
             audioRecorder.prepareToRecord()
         } catch {
@@ -51,9 +51,9 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
     //MARK: - Interface
     func getVideoComposition() {
         if project != nil{
-            actualComposition = GetActualProjectAVCompositionUseCase().getComposition(project!)
+            actualComposition = GetActualProjectAVCompositionUseCase().getComposition(project: project!)
             if actualComposition != nil {
-                let layer = GetActualProjectTextCALayerAnimationUseCase().getCALayerAnimation(project!)
+                let layer = GetActualProjectTextCALayerAnimationUseCase().getCALayerAnimation(project: project!)
                 actualComposition?.layerAnimation = layer
 
                 delegate?.setVideoComposition(actualComposition!)
@@ -80,7 +80,7 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
         guard let path = audioStringPath else {
             print("No audio string path" )
             return}
-        guard let url = NSURL(string: path) else {
+        guard let url = URL(string: path) else {
             print("No audio url path" )
             return}
         
@@ -90,7 +90,7 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
         delegate?.setActualAudioRecorded(url)
     }
     
-    func setVoiceOverToProject(videoVolume: Float, audioVolume: Float) {
+    func setVoiceOverToProject(_ videoVolume: Float, audioVolume: Float) {
         guard let path = audioStringPath else {
             print("No audio string path" )
             return}
@@ -108,8 +108,8 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
         project?.projectOutputAudioLevel = 1.0
     }
     
-    func getStringByKey(key:String) -> String {
-        return NSBundle.mainBundle().localizedStringForKey(key,value: "",table: "MicRecorder")
+    func getStringByKey(_ key:String) -> String {
+        return Bundle.main.localizedString(forKey: key,value: "",table: "MicRecorder")
     }
     
     //MARK: - Mic actions

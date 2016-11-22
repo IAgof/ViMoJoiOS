@@ -26,82 +26,82 @@ class EditingRoomViewController: ViMoJoController,EditingRoomViewInterface,UIIma
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
         
         forcePortrait = true
         
         eventHandler?.viewDidLoad()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         eventHandler?.viewWillAppear()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         eventHandler?.viewWillDisappear()
     }
     
     //MARK: - Button Actions
-    @IBAction func pushGoToSettings(sender: AnyObject) {
+    @IBAction func pushGoToSettings(_ sender: AnyObject) {
         eventHandler?.pushSettings()
     }
 
-    @IBAction func pushBackButton(sender: AnyObject) {
+    @IBAction func pushBackButton(_ sender: AnyObject) {
         eventHandler?.pushBack()
     }
     
-    @IBAction func pushGoToEditor(sender: AnyObject) {
+    @IBAction func pushGoToEditor(_ sender: AnyObject) {
         eventHandler?.pushEditor()
     }
     
-    @IBAction func pushGoToMusic(sender: AnyObject) {
+    @IBAction func pushGoToMusic(_ sender: AnyObject) {
         eventHandler?.pushMusic()
     }
     
-    @IBAction func pushGoToShare(sender: AnyObject) {
+    @IBAction func pushGoToShare(_ sender: AnyObject) {
         eventHandler?.pushShare()
     }
 
     
     //MARK: - Interface
     func deselectAllButtons() {
-        self.editorButton.selected = false
-        self.musicButton.selected = false
-        self.shareButton.selected = false
+        self.editorButton.isSelected = false
+        self.musicButton.isSelected = false
+        self.shareButton.isSelected = false
     }
     
     func selectEditorButton() {
-        self.editorButton.selected = true
+        self.editorButton.isSelected = true
     }
     
     func selectMusicButton() {
-        self.musicButton.selected = true
+        self.musicButton.isSelected = true
     }
     
     func selectShareButton() {
-        self.shareButton.selected = true
+        self.shareButton.isSelected = true
     }
     
     func createAlertWaitToExport(){
         let title = Utils().getStringByKeyFromSettings(RecordConstants().WAIT_TITLE)
         let message = Utils().getStringByKeyFromSettings(RecordConstants().WAIT_DESCRIPTION)
         
-        alertController = UIAlertController(title:title,message:message,preferredStyle: .Alert)
+        alertController = UIAlertController(title:title,message:message,preferredStyle: .alert)
         
-        let activityIndicator = UIActivityIndicatorView.init(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
+        let activityIndicator = UIActivityIndicatorView.init(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
         
         
-        activityIndicator.center = CGPointMake(130.5, 75.5);
+        activityIndicator.center = CGPoint(x: 130.5, y: 75.5);
         activityIndicator.startAnimating()
         
         alertController?.view.addSubview(activityIndicator)
-        self.presentViewController(alertController!, animated: false, completion:{})
+        self.present(alertController!, animated: false, completion:{})
     }
     
-    func dissmissAlertWaitToExport(completion:()->Void){
-        alertController?.dismissViewControllerAnimated(true, completion: {
+    func dissmissAlertWaitToExport(_ completion:@escaping ()->Void){
+        alertController?.dismiss(animated: true, completion: {
             print("can go to next screen")
             completion()
         })

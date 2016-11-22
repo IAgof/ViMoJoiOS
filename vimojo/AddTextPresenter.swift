@@ -20,12 +20,12 @@ class AddTextPresenter{
         }
     }
     enum AlignmentButtonPresset:Int {
-        case Top = 0
-        case Mid = 1
-        case Bottom = 2
+        case top = 0
+        case mid = 1
+        case bottom = 2
     }
     
-    var lastButtonPushed:AlignmentButtonPresset = .Top
+    var lastButtonPushed:AlignmentButtonPresset = .top
     
     var isGoingToExpandPlayer = false
     
@@ -72,7 +72,7 @@ extension AddTextPresenter:AddTextPresenterInterface{
         
         interactor?.setAlignment(.top,
                                  text: textOnLabel)
-        lastButtonPushed = .Top
+        lastButtonPushed = .top
     }
     
     func midButtonPushed() {
@@ -83,7 +83,7 @@ extension AddTextPresenter:AddTextPresenterInterface{
         interactor?.setAlignment(.mid,
                                  text: textOnLabel)
         
-        lastButtonPushed = .Mid
+        lastButtonPushed = .mid
     }
     
     func bottomButtonPushed() {
@@ -94,27 +94,27 @@ extension AddTextPresenter:AddTextPresenterInterface{
         interactor?.setAlignment(.bottom,
                                  text: textOnLabel)
         
-        lastButtonPushed = .Bottom
+        lastButtonPushed = .bottom
     }
     
-    func deselectLastButtonPushed(button:AlignmentButtonPresset){
+    func deselectLastButtonPushed(_ button:AlignmentButtonPresset){
         switch button {
-        case .Top:
+        case .top:
             delegate?.setSelectedTopButton(false)
-        case .Mid:
+        case .mid:
             delegate?.setSelectedMidButton(false)
-        case .Bottom:
+        case .bottom:
             delegate?.setSelectedBottomButton(false)
         }
     }
     
-    func selectButtonPushed(button:AlignmentButtonPresset){
+    func selectButtonPushed(_ button:AlignmentButtonPresset){
         switch button {
-        case .Top:
+        case .top:
             delegate?.setSelectedTopButton(true)
-        case .Mid:
+        case .mid:
             delegate?.setSelectedMidButton(true)
-        case .Bottom:
+        case .bottom:
             delegate?.setSelectedBottomButton(true)
         }
     }
@@ -124,7 +124,7 @@ extension AddTextPresenter:AddTextPresenterInterface{
         delegate?.expandPlayerToView()
     }
     
-    func textHasChanged(text: String) {
+    func textHasChanged(_ text: String) {
         textOnLabel = text
 
         interactor?.getLayerToPlayer(textOnLabel)
@@ -134,7 +134,7 @@ extension AddTextPresenter:AddTextPresenterInterface{
 
 //MARK: - Interactor delegate
 extension AddTextPresenter:AddTextInteractorDelegate{
-    func setVideoParams(text: String, position: Int) {
+    func setVideoParams(_ text: String, position: Int) {
         textOnLabel = text
         
         deselectLastButtonPushed(lastButtonPushed)
@@ -151,7 +151,7 @@ extension AddTextPresenter:AddTextInteractorDelegate{
         interactor?.getVideoParams()
     }
         
-    func setAVSyncLayerToPlayer(layer: CALayer) {
+    func setAVSyncLayerToPlayer(_ layer: CALayer) {
         delegate?.setSyncLayerToPlayer(layer)
     }
 }

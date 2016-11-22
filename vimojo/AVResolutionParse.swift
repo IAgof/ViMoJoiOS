@@ -87,7 +87,7 @@ class AVResolutionParse: NSObject {
         return resolutionsToTheTableView
     }
     
-    func parseResolutionToView(resolution:String) -> String {
+    func parseResolutionToView(_ resolution:String) -> String {
         switch resolution {
         case AVCaptureSessionPreset3840x2160:
             return goodResolution
@@ -100,7 +100,7 @@ class AVResolutionParse: NSObject {
         }
     }
     
-    func parseResolutionsToInteractor(textResolution:String) -> String {
+    func parseResolutionsToInteractor(_ textResolution:String) -> String {
         switch textResolution {
         case goodResolution:
             return AVCaptureSessionPreset3840x2160

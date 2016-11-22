@@ -14,21 +14,21 @@ protocol SharePresenterInterface {
     func viewDidLoad()
     func viewWillDisappear()
     func pushBack()
-    func setVideoExportedPath(path:String)
-    func setNumberOfClipsToExport(numberOfClips:Int)
-    func pushShare(indexPath:NSIndexPath)
+    func setVideoExportedPath(_ path:String)
+    func setNumberOfClipsToExport(_ numberOfClips:Int)
+    func pushShare(_ indexPath:IndexPath)
     func expandPlayer()
-    func postToYoutube(token:String)
+    func postToYoutube(_ token:String)
     func updatePlayerLayer()
     func pushGenericShare()
 }
 
 protocol SharePresenterDelegate {
-    func showShareGeneric(moviePath:String)
+    func showShareGeneric(_ moviePath:String)
     
     func createShareInterface()
-    func setShareViewObjectsList(viewObjects:[ShareViewModel])
+    func setShareViewObjectsList(_ viewObjects:[ShareViewModel])
     func bringToFrontExpandPlayerButton()
-    func setNavBarTitle(title:String)
+    func setNavBarTitle(_ title:String)
     func removeSeparatorTable()
 }

@@ -38,39 +38,39 @@ class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDel
         wireframe?.presentPlayerInterface()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         eventHandler?.viewWillDissappear()
     }
     
     //MARK: - Actions
-    @IBAction func pushCancelButton(sender: AnyObject) {
+    @IBAction func pushCancelButton(_ sender: AnyObject) {
         eventHandler?.pushCancelHandler()
     }
     
-    @IBAction func pushAcceptButton(sender: AnyObject) {
+    @IBAction func pushAcceptButton(_ sender: AnyObject) {
         eventHandler?.pushAcceptHandler()
     }
     
-    @IBAction func pushBackBarButton(sender: AnyObject) {
+    @IBAction func pushBackBarButton(_ sender: AnyObject) {
         eventHandler?.pushBack()
     }
     
-    @IBAction func labelSliderChanged(sender: NMRangeSlider) {
+    @IBAction func labelSliderChanged(_ sender: NMRangeSlider) {
         
         eventHandler?.setSplitValue(splitRangeSlider.upperValue)
     }
     
-    @IBAction func labelSliderPushed(sender: NMRangeSlider) {
+    @IBAction func labelSliderPushed(_ sender: NMRangeSlider) {
         
         eventHandler?.setSplitValue(splitRangeSlider.upperValue)
     }
     
-    @IBAction func pushExpandButton(sender: AnyObject) {
+    @IBAction func pushExpandButton(_ sender: AnyObject) {
         eventHandler?.expandPlayer()
     }
     
     //MARK: - Interface
-    func configureRangeSlider(splitValue: Float,
+    func configureRangeSlider(_ splitValue: Float,
                               maximumValue:Float) {
         
         self.configureUIRangeSlider()
@@ -87,35 +87,35 @@ class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDel
     func configureUIRangeSlider(){
 
         var trackBackgroundImage = UIImage(named: "button_edit_seekbar_background_split")
-        trackBackgroundImage = trackBackgroundImage?.resizableImageWithCapInsets(UIEdgeInsetsMake(0, 5.0, 0.0, 5.0))
+        trackBackgroundImage = trackBackgroundImage?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 5.0, 0.0, 5.0))
         splitRangeSlider.trackBackgroundImage = trackBackgroundImage
         
         var handleImage = UIImage(named: "button_edit_thumb_seekbar_over_advance_split")
-        handleImage = handleImage?.resizableImageWithCapInsets(UIEdgeInsetsMake(0, 2, 0.0, 2))
+        handleImage = handleImage?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 2, 0.0, 2))
         splitRangeSlider.upperHandleImageNormal = handleImage
 
         let handleImagePressed = UIImage(named: "button_edit_thumb_seekbar_advance_split_pressed")
-        handleImage = handleImage?.resizableImageWithCapInsets(UIEdgeInsetsMake(0, 2, 0.0, 2))
+        handleImage = handleImage?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 2, 0.0, 2))
         splitRangeSlider.upperHandleImageHighlighted = handleImagePressed
         
     }
     
-    func setSliderValue(value:Float){
+    func setSliderValue(_ value:Float){
         splitRangeSlider.upperValue = value
     }
     
     func bringToFrontExpandPlayerButton(){
-        self.playerView.bringSubviewToFront(expandPlayerButton)
+        self.playerView.bringSubview(toFront: expandPlayerButton)
     }
     
-    func cameFromFullScreenPlayer(playerView:PlayerView){
+    func cameFromFullScreenPlayer(_ playerView:PlayerView){
         self.playerView.addSubview(playerView)
-        self.playerView.bringSubviewToFront(expandPlayerButton)
+        self.playerView.bringSubview(toFront: expandPlayerButton)
         playerHandler?.layoutSubViews()
     }
     
     //MARK: - Presenter delegate
-    func setSplitValueText(text: String) {
+    func setSplitValueText(_ text: String) {
         self.timeToCutLabel.text = text
     }
     
@@ -137,21 +137,21 @@ class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDel
         playerHandler?.onVideoStops()
     }
     
-    func updatePlayerOnView(composition: VideoComposition) {
+    func updatePlayerOnView(_ composition: VideoComposition) {
         self.playerHandler?.createVideoPlayer(composition)
     }
     
-    func setPlayerToSeekTime(time: Float) {
+    func setPlayerToSeekTime(_ time: Float) {
         playerHandler?.seekToTime(time)
     }
     
     //MARK: - Player view delegate
-    func seekBarUpdate(value: Float) {
+    func seekBarUpdate(_ value: Float) {
         eventHandler?.updateSplitValueByPlayer(value)
     }
     
     //MARK: - Player setter
-    func addPlayerAsSubview(player: PlayerView) {
+    func addPlayerAsSubview(_ player: PlayerView) {
         self.playerView.addSubview(player)
     }
 }

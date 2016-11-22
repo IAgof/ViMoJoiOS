@@ -16,16 +16,18 @@ import Crashlytics
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
 
+
+
     var window: UIWindow?
     let appDependencies = AppDependencies()
     var initState = "firstTime"
     var mixpanel:Mixpanel?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         //MIXPANEL
-        mixpanel = Mixpanel.sharedInstanceWithToken(AnalyticsConstants().MIXPANEL_TOKEN)
+        mixpanel = Mixpanel.sharedInstance(withToken: AnalyticsConstants().MIXPANEL_TOKEN)
         
         self.configureGoogleSignIn()
         
@@ -42,8 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
         return true
     }
     
-    func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> UIInterfaceOrientationMask {
-       return UIInterfaceOrientationMask.All
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+       return UIInterfaceOrientationMask.all
     }
     
     func configureGoogleSignIn() {
@@ -54,44 +56,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
         
         GIDSignIn.sharedInstance().delegate = self
     }
-    func applicationWillResignActive(application: UIApplication) {
+    func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
 
-    func applicationDidEnterBackground(application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
 
-    func applicationWillEnterForeground(application: UIApplication) {
+    func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
 
-    func applicationWillTerminate(application: UIApplication) {
+    func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
     
     //MARK: - Google Sign In
-    func application(application: UIApplication,
-                     openURL url: NSURL,
-                             options: [String: AnyObject]) -> Bool {
-        return GIDSignIn.sharedInstance().handleURL(url,
-                                                    sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as? String,
-                                                    annotation: options[UIApplicationOpenURLOptionsAnnotationKey])
+    func application(_ application: UIApplication,
+                     open url: URL,
+                             options: [UIApplicationOpenURLOptionsKey: Any]) -> Bool {
+        return GIDSignIn.sharedInstance().handle(url,
+                                                    sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                                    annotation: options[UIApplicationOpenURLOptionsKey.annotation])
     }
     
-    func application(application: UIApplication,
-                     openURL url: NSURL,
+    func application(_ application: UIApplication,
+                     open url: URL,
                              sourceApplication: String?,
-                             annotation: AnyObject) -> Bool {
+                             annotation: Any) -> Bool {
         
         print("sourceApp\(sourceApplication)")
         
         return FBSDKApplicationDelegate.sharedInstance().application(
             application,
-            openURL: url,
+            open: url,
             sourceApplication: sourceApplication,
             annotation: annotation)
         
@@ -99,8 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
 //                                                    sourceApplication: sourceApplication,
 //                                                    annotation: annotation)
     }
-    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
-                withError error: NSError!) {
+    public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if (error == nil) {
             // Perform any operations on signed in user here.
             let userId = user.userID                  // For client-side use only!
@@ -116,26 +117,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
         }
     }
     
-    func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
-                withError error: NSError!) {
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!,
+                withError error: Error!){
         // Perform any operations when the user disconnects from app here.
         // ...
     }
     
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         FBSDKAppEvents.activateApp()
     }
     
     //MARK: - Inner functions
     func setupStartApp() {
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         
-        let currentAppVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
-        let previousVersion = defaults.stringForKey("appVersion")
+        let currentAppVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+        let previousVersion = defaults.string(forKey: "appVersion")
         
         if previousVersion == nil {
             // first launch
-            defaults.setObject(currentAppVersion, forKey: "appVersion")
+            defaults.set(currentAppVersion, forKey: "appVersion")
             defaults.synchronize()
             
             Utils().debugLog("setupStartApp First time")
@@ -166,7 +167,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
             //            appDependencies.installSplitRoomToRootViewControllerIntoWindow(window!)
         } else {
             // other version
-            defaults.setObject(currentAppVersion, forKey: "appVersion")
+            defaults.set(currentAppVersion, forKey: "appVersion")
             defaults.synchronize()
             
             Utils().debugLog("setupStartApp Update to \(currentAppVersion)")
@@ -179,11 +180,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
     }
     
     func configureQualityOnFirstIteration(){
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         
-        defaults.setObject(Utils().getStringByKeyFromSettings("high_quality_name"), forKey: SettingsConstants().SETTINGS_QUALITY)
+        defaults.set(Utils().getStringByKeyFromSettings("high_quality_name"), forKey: SettingsConstants().SETTINGS_QUALITY)
         
-        defaults.setObject(Utils().getStringByKeyFromSettings(AVCaptureSessionPreset1920x1080), forKey: SettingsConstants().SETTINGS_RESOLUTION)
+        defaults.set(Utils().getStringByKeyFromSettings(AVCaptureSessionPreset1920x1080), forKey: SettingsConstants().SETTINGS_RESOLUTION)
     }
     
     //MARK: - Mixpanel
@@ -193,10 +194,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
                                  AnalyticsConstants().INIT_STATE:initState,
                                  //                                 AnalyticsConstants().DOUBLE_HOUR_AND_MINUTES: Utils().getDoubleHourAndMinutes()]
         ]
-        mixpanel?.track(AnalyticsConstants().APP_STARTED, properties: initAppProperties as [NSObject : AnyObject])
+        mixpanel?.track(AnalyticsConstants().APP_STARTED, properties: initAppProperties as [AnyHashable: Any])
     }
     
-    func trackAppStartupProperties(state:Bool) {
+    func trackAppStartupProperties(_ state:Bool) {
         Utils().debugLog("trackAppStartupProperties")
         mixpanel!.identify(Utils().udid)
         
@@ -211,10 +212,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
         
         Utils().debugLog("App USE COUNT \(appUseCount)")
         
-        let appStartupSuperProperties = [AnalyticsConstants().APP_USE_COUNT:NSNumber.init(int: Int32(appUseCount)),
+        let appStartupSuperProperties = [AnalyticsConstants().APP_USE_COUNT:NSNumber.init(value: Int32(appUseCount) as Int32),
                                          AnalyticsConstants().FIRST_TIME:state,
-                                         AnalyticsConstants().APP: AnalyticsConstants().APP_NAME]
-        mixpanel?.registerSuperProperties(appStartupSuperProperties as [NSObject : AnyObject])
+                                         AnalyticsConstants().APP: AnalyticsConstants().APP_NAME] as [String : Any]
+        mixpanel?.registerSuperProperties(appStartupSuperProperties as [AnyHashable: Any])
     }
     
     func trackUserProfile() {
@@ -230,18 +231,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
         
         Utils().debugLog("trackUserProfileGeneralTraits")
         
-        let increment:NSNumber = NSNumber.init(integer: 1)
+        let increment:NSNumber = NSNumber.init(value: 1 as Int)
         Utils().debugLog("App USE COUNT Increment by: \(increment)")
         
         mixpanel?.people.increment(AnalyticsConstants().APP_USE_COUNT,by: increment)
         
-        let locale = NSLocale.preferredLanguages()[0]
+        let locale = Locale.preferredLanguages[0]
         
         //        let lang = NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode)
-        let langISO = NSLocale.currentLocale().ISO639_2LanguageCode()
+        let langISO = (Locale.current as NSLocale).iso639_2LanguageCode()
         let userProfileProperties = [AnalyticsConstants().TYPE:AnalyticsConstants().USER_TYPE_FREE,
                                      AnalyticsConstants().LOCALE:locale,
-                                     AnalyticsConstants().LANG: langISO!] as [NSObject : AnyObject]
+                                     AnalyticsConstants().LANG: langISO!] as [AnyHashable: Any]
         
         mixpanel?.people.set(userProfileProperties)
     }

@@ -17,9 +17,9 @@ class EditingRoomPresenter: NSObject,EditingRoomPresenterInterface {
     
     //MARK: Variables
     enum controllerVisible {
-        case Editor
-        case Music
-        case Share
+        case editor
+        case music
+        case share
     }
     
     var whatControllerIsVisible:controllerVisible?
@@ -42,8 +42,8 @@ class EditingRoomPresenter: NSObject,EditingRoomPresenterInterface {
     }
     
     func pushMusic() {
-        if whatControllerIsVisible != .Music{
-            whatControllerIsVisible = .Music
+        if whatControllerIsVisible != .music{
+            whatControllerIsVisible = .music
             
             controller?.deselectAllButtons()
             controller?.selectMusicButton()
@@ -53,8 +53,8 @@ class EditingRoomPresenter: NSObject,EditingRoomPresenterInterface {
     }
     
     func pushShare() {
-        if whatControllerIsVisible != .Share{
-            whatControllerIsVisible = .Share
+        if whatControllerIsVisible != .share{
+            whatControllerIsVisible = .share
             controller?.deselectAllButtons()
             controller?.selectShareButton()
             controller?.createAlertWaitToExport()
@@ -72,8 +72,8 @@ class EditingRoomPresenter: NSObject,EditingRoomPresenterInterface {
     }
     
     func pushEditor() {
-        if whatControllerIsVisible != .Editor{
-            whatControllerIsVisible = .Editor
+        if whatControllerIsVisible != .editor{
+            whatControllerIsVisible = .editor
             controller?.deselectAllButtons()
             controller?.selectEditorButton()
             

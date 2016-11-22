@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ShareActionInterface {
-    func share(path:String)
+    func share(_ path:String)
     var delegate:ShareActionDelegate {get set}
 }
 

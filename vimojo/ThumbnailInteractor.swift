@@ -11,15 +11,15 @@ import UIKit
 import AVFoundation
 
 protocol ThumbnailDelegate {
-    func setThumbToView(image:UIImage)
+    func setThumbToView(_ image:UIImage)
 }
 
 class ThumbnailInteractor: NSObject {
-    var videoURL:NSURL
+    var videoURL:URL
     var diameter:CGFloat = 40.0
     var delegate:ThumbnailDelegate?
     
-    init(videoURL:NSURL,diameter:CGFloat) {
+    init(videoURL:URL,diameter:CGFloat) {
         self.videoURL = videoURL
         self.diameter = diameter
     }
@@ -27,15 +27,15 @@ class ThumbnailInteractor: NSObject {
     func getthumbnailImage(){
         var thumbnailImage = UIImage()
         
-        let asset = AVURLAsset(URL: videoURL, options: nil)
+        let asset = AVURLAsset(url: videoURL, options: nil)
         let imgGenerator = AVAssetImageGenerator(asset: asset)
         
         var cgImage:CGImage?
         do {
-            cgImage =  try imgGenerator.copyCGImageAtTime(CMTime.init(value: 10, timescale: 10), actualTime: nil)
+            cgImage =  try imgGenerator.copyCGImage(at: CMTime.init(value: 10, timescale: 10), actualTime: nil)
             print("Thumbnail image gets okay")
             
-            thumbnailImage = UIImage(CGImage: cgImage!)
+            thumbnailImage = UIImage(cgImage: cgImage!)
             thumbnailImage = self.resizeImage(thumbnailImage, newWidth: diameter)
             delegate?.setThumbToView(thumbnailImage)
         } catch {
@@ -49,16 +49,16 @@ class ThumbnailInteractor: NSObject {
         }
     }
     
-    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+    func resizeImage(_ image: UIImage, newWidth: CGFloat) -> UIImage {
         print("Resize image")
         
-        UIGraphicsBeginImageContext(CGSizeMake(newWidth, newWidth))
-        image.drawInRect(CGRectMake(0, 0, newWidth, newWidth))
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newWidth))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newWidth))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         print("Finish resize image")
-        return newImage
+        return newImage!
     }
 
 }

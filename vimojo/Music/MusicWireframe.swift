@@ -25,23 +25,23 @@ class MusicWireframe : NSObject {
     
     var prevController:UIViewController?
     
-    func presentMusicInterfaceFromWindow(window: UIWindow) {
+    func presentMusicInterfaceFromWindow(_ window: UIWindow) {
         let viewController = musicViewControllerFromStoryboard()
         
         rootWireframe?.showRootViewController(viewController, inWindow: window)
     }
     
-    func presentMusicInterfaceFromViewController(prevController:UIViewController){
+    func presentMusicInterfaceFromViewController(_ prevController:UIViewController){
         let viewController = musicViewControllerFromStoryboard()
         
         self.prevController = prevController
         
-        prevController.showViewController(viewController, sender: nil)
+        prevController.show(viewController, sender: nil)
     }
     
     func musicViewControllerFromStoryboard() -> MusicViewController {
         let storyboard = mainStoryboard()
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(musicViewControllerIdentifier) as! MusicViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: musicViewControllerIdentifier) as! MusicViewController
         
         viewController.eventHandler = musicPresenter
         musicViewController = viewController
@@ -56,7 +56,7 @@ class MusicWireframe : NSObject {
     }
     
     func mainStoryboard() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         return storyboard
     }
     

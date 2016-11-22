@@ -24,25 +24,25 @@ class SplitWireframe : NSObject {
 
     var prevController:UIViewController?
     
-    func presentSplitInterfaceFromWindow(window: UIWindow) {
+    func presentSplitInterfaceFromWindow(_ window: UIWindow) {
         let viewController = splitViewControllerFromStoryboard()
         
         rootWireframe?.showRootViewController(viewController, inWindow: window)
     }
     
-    func presentSplitInterfaceFromViewController(prevController:UIViewController,
+    func presentSplitInterfaceFromViewController(_ prevController:UIViewController,
                                                      videoSelected:Int)
     {
         let viewController = splitViewControllerFromStoryboard()
         
         self.prevController = prevController
         splitPresenter?.videoSelectedIndex = videoSelected
-        prevController.showViewController(viewController, sender: nil)
+        prevController.show(viewController, sender: nil)
     }
     
     func splitViewControllerFromStoryboard() -> SplitViewController {
         let storyboard = mainStoryboard()
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(splitViewControllerIdentifier) as! SplitViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: splitViewControllerIdentifier) as! SplitViewController
         
         viewController.eventHandler = splitPresenter
         viewController.wireframe = self
@@ -59,12 +59,12 @@ class SplitWireframe : NSObject {
     }
     
     func mainStoryboard() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         return storyboard
     }
     
     func goPrevController(){
-        splitViewController?.dismissViewControllerAnimated(true, completion: nil)
+        splitViewController?.dismiss(animated: true, completion: nil)
     }
     
     func presentExpandPlayer(){

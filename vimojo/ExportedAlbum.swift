@@ -23,21 +23,21 @@ class ExportedAlbum: NSObject {
             return
         }
         
-        if PHPhotoLibrary.authorizationStatus() != PHAuthorizationStatus.Authorized {
+        if PHPhotoLibrary.authorizationStatus() != PHAuthorizationStatus.authorized {
             PHPhotoLibrary.requestAuthorization({ (status: PHAuthorizationStatus) -> Void in
                 status
             })
         }
         
-        if PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.Authorized {
+        if PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.authorized {
             self.createAlbum()
         } else {
             PHPhotoLibrary.requestAuthorization(requestAuthorizationHandler)
         }
     }
     
-    func requestAuthorizationHandler(status: PHAuthorizationStatus) {
-        if PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.Authorized {
+    func requestAuthorizationHandler(_ status: PHAuthorizationStatus) {
+        if PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.authorized {
             // ideally this ensures the creation of the photo album even if authorization wasn't prompted till after init was done
             print("trying again to create the album")
             self.createAlbum()
@@ -47,8 +47,8 @@ class ExportedAlbum: NSObject {
     }
     
     func createAlbum() {
-        PHPhotoLibrary.sharedPhotoLibrary().performChanges({
-            PHAssetCollectionChangeRequest.creationRequestForAssetCollectionWithTitle(ExportedAlbum.albumName)   // create an asset collection with the album name
+        PHPhotoLibrary.shared().performChanges({
+            PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: ExportedAlbum.albumName)   // create an asset collection with the album name
         }) { success, error in
             if success {
                 self.assetCollection = self.fetchAssetCollectionForAlbum()
@@ -61,24 +61,25 @@ class ExportedAlbum: NSObject {
     func fetchAssetCollectionForAlbum() -> PHAssetCollection! {
         let fetchOptions = PHFetchOptions()
         fetchOptions.predicate = NSPredicate(format: "title = %@", ExportedAlbum.albumName)
-        let collection = PHAssetCollection.fetchAssetCollectionsWithType(.Album, subtype: .Any, options: fetchOptions)
+        let collection = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: fetchOptions)
         
         if let _: AnyObject = collection.firstObject {
-            return collection.firstObject as! PHAssetCollection
+            return collection.firstObject! as PHAssetCollection
         }
         return nil
     }
     
-    func saveVideo(clipPath:NSURL) {
+    func saveVideo(_ clipPath:URL) {
         if assetCollection == nil {
             return                          // if there was an error upstream, skip the save
         }
         
-        PHPhotoLibrary.sharedPhotoLibrary().performChanges({
-            let assetChangeRequest = PHAssetChangeRequest.creationRequestForAssetFromVideoAtFileURL(clipPath)
+        PHPhotoLibrary.shared().performChanges({
+            let assetChangeRequest = PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: clipPath)
             let assetPlaceHolder = assetChangeRequest!.placeholderForCreatedAsset
-            let albumChangeRequest = PHAssetCollectionChangeRequest(forAssetCollection: self.assetCollection)
-            albumChangeRequest!.addAssets([assetPlaceHolder!])
+            let albumChangeRequest = PHAssetCollectionChangeRequest(for: self.assetCollection)
+            let enumeration: NSArray = [assetPlaceHolder!]
+            albumChangeRequest!.addAssets(enumeration)
             }, completionHandler: nil)
     }
 }

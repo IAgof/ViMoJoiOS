@@ -11,13 +11,13 @@ import VideonaProject
 
 public protocol RecorderInteractorInterface {
     func getNumberOfClipsInProject()->Int
-    func getVideoURLInPosition(position:Int)->NSURL
+    func getVideoURLInPosition(_ position:Int)->URL
     func clearProject()
     func getProject()->Project
-    func getResolutionImage(resolution:String)
+    func getResolutionImage(_ resolution:String)
 }
 
 public protocol RecorderInteractorDelegate{
-    func resolutionImageFound(image:UIImage)
-    func resolutionImagePressedFound(image:UIImage)
+    func resolutionImageFound(_ image:UIImage)
+    func resolutionImagePressedFound(_ image:UIImage)
 }

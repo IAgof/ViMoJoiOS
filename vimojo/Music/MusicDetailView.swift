@@ -34,10 +34,10 @@ class MusicDetailView: UIView,MusicDetailInterface {
     
     //MARK: - Init
     class func instanceFromNib() -> UIView {
-        return UINib(nibName: "MusicDetailView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! UIView
+        return UINib(nibName: "MusicDetailView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
     }
     
-    func initParams(title:String,
+    func initParams(_ title:String,
          author:String,
          image:UIImage,
          frame:CGRect) {
@@ -50,7 +50,7 @@ class MusicDetailView: UIView,MusicDetailInterface {
         authorLabel.adjustsFontSizeToFitWidth = true
         
         let offset = CGFloat(10)
-        self.frame = CGRectMake((offset/2), 0, (frame.width - offset), (frame.height - offset) )
+        self.frame = CGRect(x: (offset/2), y: 0, width: (frame.width - offset), height: (frame.height - offset) )
         
         self.applyPlainShadow()
     }
@@ -58,7 +58,7 @@ class MusicDetailView: UIView,MusicDetailInterface {
     func applyPlainShadow() {
         let layer = self.layer
         
-        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 10)
         layer.shadowOpacity = 0.4
         layer.shadowRadius = 5
@@ -69,29 +69,29 @@ class MusicDetailView: UIView,MusicDetailInterface {
     }
     
     //MARK: - Actions
-    @IBAction func pushCancelButton(sender: AnyObject) {
+    @IBAction func pushCancelButton(_ sender: AnyObject) {
         delegate?.cancelButtonPushed()
     }
     
-    @IBAction func pushAcceptButton(sender: AnyObject) {
+    @IBAction func pushAcceptButton(_ sender: AnyObject) {
         delegate?.acceptButtonPushed()
     }
-    @IBAction func pushRemoveButton(sender: AnyObject) {
+    @IBAction func pushRemoveButton(_ sender: AnyObject) {
         delegate?.removeDetailButtonPushed()
     }
     
     //MARK: - Show Actions
     func showAcceptOrCancelButton(){
-        acceptButton.hidden = false
-        cancelButton.hidden = false
+        acceptButton.isHidden = false
+        cancelButton.isHidden = false
         
-        removeButton.hidden = true
+        removeButton.isHidden = true
     }
     
     func showRemoveButton(){
-        acceptButton.hidden = true
-        cancelButton.hidden = true
+        acceptButton.isHidden = true
+        cancelButton.isHidden = true
         
-        removeButton.hidden = false
+        removeButton.isHidden = false
     }
 }

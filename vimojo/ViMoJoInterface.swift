@@ -11,8 +11,8 @@ import UIKit
 
 protocol ViMoJoInterface {
     func viewDidLoad()
-    func viewWillAppear(animated: Bool) 
-    func viewWillDisappear(animated: Bool)
+    func viewWillAppear(_ animated: Bool) 
+    func viewWillDisappear(_ animated: Bool)
     func getControllerName()->String
     func getTrackerObject() -> ViMoJoTracker
     func getController() -> UIViewController

@@ -19,7 +19,7 @@ class MicRecorderWireframe {
     var playerWireframe: PlayerWireframe?
     var editorRoomWireframe:EditingRoomWireframe?
     
-    func presentMusicInterfaceFromWindow(window: UIWindow) {
+    func presentMusicInterfaceFromWindow(_ window: UIWindow) {
         let viewController = musicViewControllerFromStoryboard()
         
         rootWireframe?.showRootViewController(viewController, inWindow: window)
@@ -31,14 +31,14 @@ class MicRecorderWireframe {
         guard let prevController = getVisibleViewController() else{
             return
         }
-        prevController.showViewController(viewController, sender: nil)
+        prevController.show(viewController, sender: nil)
         //        prevController.presentViewController(viewController, animated: true, completion: nil)
         
     }
     
     func musicViewControllerFromStoryboard() -> MicRecorderViewController {
         let storyboard = mainStoryboard()
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(micRecorderViewControllerIdentifier) as! MicRecorderViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: micRecorderViewControllerIdentifier) as! MicRecorderViewController
         
         viewController.eventHandler = micRecorderPresenter
         micRecorderViewController = viewController
@@ -52,12 +52,12 @@ class MicRecorderWireframe {
     }
     
     func mainStoryboard() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         return storyboard
     }
     
     func removeController(){
-        micRecorderViewController?.dismissViewControllerAnimated(true, completion: nil)
+        micRecorderViewController?.dismiss(animated: true, completion: nil)
     }
     
     func presentEditor(){
@@ -71,19 +71,19 @@ class MicRecorderWireframe {
     
     func getVisibleViewController() -> UIViewController? {
         
-        let rootViewController = UIApplication.sharedApplication().keyWindow?.rootViewController
+        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
         
         if rootViewController?.presentedViewController == nil {
             return rootViewController
         }
         
         if let presented = rootViewController?.presentedViewController {
-            if presented.isKindOfClass(UINavigationController) {
+            if presented.isKind(of: UINavigationController.self) {
                 let navigationController = presented as! UINavigationController
                 return navigationController.viewControllers.last!
             }
             
-            if presented.isKindOfClass(UITabBarController) {
+            if presented.isKind(of: UITabBarController.self) {
                 let tabBarController = presented as! UITabBarController
                 return tabBarController.selectedViewController!
             }

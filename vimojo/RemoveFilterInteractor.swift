@@ -10,17 +10,17 @@ import Foundation
 import GPUImage
 
 class RemoveFilterInteractor:NSObject{
-    func removeFilter(actualFilter:GPUImageFilter,imageView:UIImageView,display:GPUImageView){
+    func removeFilter(_ actualFilter:GPUImageFilter,imageView:UIImageView,display:GPUImageView){
         let image = UIImage.init(named: "filter_free")
         imageView.image = image
         
         actualFilter.removeAllTargets()
     }
     
-    func removeShader(actualFilter:GPUImageFilter,display:GPUImageView){
+    func removeShader(_ actualFilter:GPUImageFilter,display:GPUImageView){
         actualFilter.removeAllTargets()
     }
-    func removeOverlay(imageView:UIImageView){
+    func removeOverlay(_ imageView:UIImageView){
         let image = UIImage.init(named: "filter_free")
         imageView.image = image
     }

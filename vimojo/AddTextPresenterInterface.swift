@@ -23,7 +23,7 @@ protocol AddTextPresenterInterface {
     func midButtonPushed()
     func bottomButtonPushed()
     
-    func textHasChanged(text:String)
+    func textHasChanged(_ text:String)
 }
 
 protocol AddTextPresenterDelegate {
@@ -33,12 +33,12 @@ protocol AddTextPresenterDelegate {
     func pushBackFinished()
     func expandPlayerToView()
     func setStopToVideo()
-    func updatePlayerOnView(composition:VideoComposition)
+    func updatePlayerOnView(_ composition:VideoComposition)
     
-    func setTextToEditTextField(text:String)
-    func setSyncLayerToPlayer(layer:CALayer)
+    func setTextToEditTextField(_ text:String)
+    func setSyncLayerToPlayer(_ layer:CALayer)
     
-    func setSelectedTopButton(state:Bool)
-    func setSelectedMidButton(state:Bool)
-    func setSelectedBottomButton(state:Bool)
+    func setSelectedTopButton(_ state:Bool)
+    func setSelectedMidButton(_ state:Bool)
+    func setSelectedBottomButton(_ state:Bool)
 }

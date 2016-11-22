@@ -19,29 +19,29 @@ class SettingsWireframe : NSObject {
     
     var prevController:UIViewController?
 
-    func presentSettingsInterfaceFromWindow(window: UIWindow) {
+    func presentSettingsInterfaceFromWindow(_ window: UIWindow) {
         let viewController = settingsViewControllerFromStoryboard()
         
         rootWireframe?.showRootViewController(viewController, inWindow: window)
     }
     func setSettingsViewControllerAsRootController() {
-        let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let appdelegate = UIApplication.shared.delegate as! AppDelegate
         let homeViewController =  settingsViewControllerFromStoryboard()
         let nav = UINavigationController(rootViewController: homeViewController)
         appdelegate.window!.rootViewController = nav
     }
     
-    func presentSettingsInterfaceFromViewController(prevController:UIViewController){
+    func presentSettingsInterfaceFromViewController(_ prevController:UIViewController){
         let viewController = settingsViewControllerFromStoryboard()
         
         self.prevController = prevController
 
-        prevController.showViewController(viewController, sender: nil)
+        prevController.show(viewController, sender: nil)
     }
     
     func settingsViewControllerFromStoryboard() -> SettingsViewController {
         let storyboard = mainStoryboard()
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(settingsViewControllerIdentifier) as! SettingsViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: settingsViewControllerIdentifier) as! SettingsViewController
         
         viewController.eventHandler = settingsPresenter
         settingsViewController = viewController
@@ -51,34 +51,34 @@ class SettingsWireframe : NSObject {
     }
     
     func mainStoryboard() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         return storyboard
     }
     
-    func presentDetailTextController(textViewText:String){
+    func presentDetailTextController(_ textViewText:String){
         detailTextWireframe?.presentDetailTextInterfaceFromViewController(settingsViewController!,
                                                                      textRef: textViewText)
     }
     
     func goPrevController(){
         settingsViewController?.navigationController?.popToViewController(prevController!, animated: true)
-        settingsViewController?.dismissViewControllerAnimated(false, completion: nil)
+        settingsViewController?.dismiss(animated: false, completion: nil)
     }
     
-    func goToAppleStoreURL(url:NSURL){
-        if UIApplication.sharedApplication().canOpenURL(url){
-            UIApplication.sharedApplication().openURL(url)
+    func goToAppleStoreURL(_ url:URL){
+        if UIApplication.shared.canOpenURL(url){
+            UIApplication.shared.openURL(url)
         }
     }
     
-    func goToTwitterUserPage(user:String){
-        let twitterURL = NSURL(string: "twitter://user?screen_name=\(user)")
+    func goToTwitterUserPage(_ user:String){
+        let twitterURL = URL(string: "twitter://user?screen_name=\(user)")
         
-        if UIApplication.sharedApplication().canOpenURL(twitterURL!){
-            UIApplication.sharedApplication().openURL(twitterURL!)
+        if UIApplication.shared.canOpenURL(twitterURL!){
+            UIApplication.shared.openURL(twitterURL!)
         }else{
-            let twitterBrowserURL = NSURL(string: "http://www.twitter.com/\(user)")
-            UIApplication.sharedApplication().openURL(twitterBrowserURL!)
+            let twitterBrowserURL = URL(string: "http://www.twitter.com/\(user)")
+            UIApplication.shared.openURL(twitterBrowserURL!)
         }
     }
 }

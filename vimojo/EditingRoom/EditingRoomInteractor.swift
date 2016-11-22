@@ -9,7 +9,7 @@
 import Foundation
 import VideonaProject
 
-public class EditingRoomInteractor:EditingRoomInteractorInterface{
+open class EditingRoomInteractor:EditingRoomInteractorInterface{
     
     var project:Project
     
@@ -17,11 +17,11 @@ public class EditingRoomInteractor:EditingRoomInteractorInterface{
         self.project = project
     }
     
-    public func getProject() -> Project {
+    open func getProject() -> Project {
         return project
     }
     
-    public func getNumberOfClips() -> Int {
+    open func getNumberOfClips() -> Int {
         return project.numberOfClips()
     }
 }

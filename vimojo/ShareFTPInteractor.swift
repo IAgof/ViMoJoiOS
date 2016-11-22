@@ -21,35 +21,35 @@ class ShareFTPInteractor: ShareActionInterface {
         self.delegate = delegate
     }
     
-    func share(path: String) {
+    func share(_ path: String) {
         let title = Utils().getStringByKeyFromShare(ShareConstants().FTP_INPUT_FILENAME_TITLE)
         let message = Utils().getStringByKeyFromShare(ShareConstants().FTP_INPUT_FILENAME_PLACEHOLDER)
         let alertController = ShareUtils().createAlertViewWithInputText(title, message: message, completion: {
             filename in
             
-            let fileData = FTPfileData(name: filename.stringByAppendingString(".m4v"), path: path)
+            let fileData = FTPfileData(name: filename + ".m4v", path: path)
             self.createFTPUpload(fileData)
         })
         
         let controller = UIApplication.topViewController()
         if let settingsController = controller as? EditingRoomViewController {
-            settingsController.presentViewController(alertController, animated: true, completion: nil)
+            settingsController.present(alertController, animated: true, completion: nil)
         }
     }
     
-    private func createFTPUpload(fileData:FTPfileData){
+    fileprivate func createFTPUpload(_ fileData:FTPfileData){
         let ftpSettings = SettinsFTP()
         //For test
-        let fileURL = NSURL(string: fileData.path)
+        let fileURL = URL(string: fileData.path)
         
         var configuration = SessionConfiguration()
-        configuration.host = ftpSettings.host.stringByAppendingString(":21")
+        configuration.host = ftpSettings.host.appendingFormat(":21")
         configuration.username = ftpSettings.username
         configuration.password = ftpSettings.password
         
         if let URL = fileURL {
             let videoResultName = fileData.name
-            let path = ftpSettings.editedVideoPath.stringByAppendingString(videoResultName)
+            let path = ftpSettings.editedVideoPath + videoResultName
             
             let session = Session(configuration: configuration)
             session.upload(URL, path: path, completionHandler: {
@@ -67,7 +67,7 @@ class ShareFTPInteractor: ShareActionInterface {
         }
     }
     
-    private func handleCorrectUpload(){
+    fileprivate func handleCorrectUpload(){
         let message = Utils().getStringByKeyFromShare(ShareConstants().UPLOAD_SUCCESFULL)
         
         ShareUtils().setAlertCompletionMessageOnTopView(socialName: "FTP",
@@ -76,24 +76,24 @@ class ShareFTPInteractor: ShareActionInterface {
                                                         message: message)
     }
     
-    private func handleError(errorCode:Int){
+    fileprivate func handleError(_ errorCode:Int){
             guard let ftpErrorType:FTPErrorType = FTPErrorType(rawValue: errorCode)else {
                 print("No ftp error type\(errorCode)")
                 return
             }
             var message = ""
             switch ftpErrorType{
-            case .FTP_ERROR_HOST_UNREACHABLE,
-                 .FTP_ERROR_NO_DOMAIN,
-                 .FTP_ERROR_FILE_NOT_FOUND:
+            case .ftp_ERROR_HOST_UNREACHABLE,
+                 .ftp_ERROR_NO_DOMAIN,
+                 .ftp_ERROR_FILE_NOT_FOUND:
                 message = Utils().getStringByKeyFromShare(ShareConstants().FTP_ERROR_HOST_UNREACHABLE)
                 
                 break
-            case .FTP_ERROR_UNAUTHORIZED:
+            case .ftp_ERROR_UNAUTHORIZED:
                 message = Utils().getStringByKeyFromShare(ShareConstants().FTP_ERROR_UNAUTHORIZED)
                 
                 break
-            case .FTP_ERROR_IO:
+            case .ftp_ERROR_IO:
                 message = Utils().getStringByKeyFromShare(ShareConstants().FTP_ERROR_HOST_UNREACHABLE)
                 
                 break

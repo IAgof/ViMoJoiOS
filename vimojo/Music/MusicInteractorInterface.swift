@@ -17,5 +17,5 @@ protocol MusicInteractorInterface {
 }
 
 protocol MusicInteractorDelegate {
-    func setVideoComposition(composition: VideoComposition)
+    func setVideoComposition(_ composition: VideoComposition)
 }

@@ -10,7 +10,7 @@ import Foundation
 
 class SocialNetworkProvider:NSObject{
     
-    func getSocialNetworks(delegate:ShareActionDelegate) ->Array<SocialNetwork>{
+    func getSocialNetworks(_ delegate:ShareActionDelegate) ->Array<SocialNetwork>{
         var socialNetworks = Array<SocialNetwork>()
         
         socialNetworks.append(SocialNetwork(iconId: "activity_share_icon_ftp_green",

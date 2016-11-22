@@ -44,21 +44,19 @@ class SharePresenter:NSObject,SharePresenterInterface{
         }
     }
     
-    func setVideoExportedPath(path: String) {
+    func setVideoExportedPath(_ path: String) {
         self.videoPath = path
         
     }
     
-    func setNumberOfClipsToExport(numberOfClips: Int) {
+    func setNumberOfClipsToExport(_ numberOfClips: Int) {
         self.numberOfClips = numberOfClips
     }
     
     func pushBack() {
-        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+        DispatchQueue.global().async {
             self.playerPresenter?.pauseVideo()
         }
-        
         wireframe?.goPrevController()
     }
     
@@ -67,14 +65,14 @@ class SharePresenter:NSObject,SharePresenterInterface{
         isGoingToExpandPlayer = true
     }
     
-    func pushShare(indexPath:NSIndexPath){
+    func pushShare(_ indexPath:IndexPath){
         interactor?.shareVideo(indexPath, videoPath: videoPath)
         
         //TODO: Hacer algo con el interactor delegate para hacerle el tracking
         //        trackVideoShared(socialNetwork)
     }
     
-    func postToYoutube(token:String){
+    func postToYoutube(_ token:String){
         interactor!.postToYoutube(token)
     }
 
@@ -87,8 +85,8 @@ class SharePresenter:NSObject,SharePresenterInterface{
     }
     
     //MARK: - Mixpanel Tracking
-    func trackVideoShared(socialNetworkName: String) {
-        let duration = AVAsset(URL: NSURL(fileURLWithPath: videoPath)).duration.seconds
+    func trackVideoShared(_ socialNetworkName: String) {
+        let duration = AVAsset(url: URL(fileURLWithPath: videoPath)).duration.seconds
         
         ViMoJoTracker.sharedInstance.trackVideoShared(socialNetworkName,
                                                         videoDuration: duration,
@@ -97,7 +95,7 @@ class SharePresenter:NSObject,SharePresenterInterface{
 }
 
 extension SharePresenter:ShareInteractorDelegate{
-    func setShareObjectsToView(viewObjects: [ShareViewModel]){
+    func setShareObjectsToView(_ viewObjects: [ShareViewModel]){
         delegate?.setShareViewObjectsList(viewObjects)
     }
 }

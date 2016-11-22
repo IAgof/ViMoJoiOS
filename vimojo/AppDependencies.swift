@@ -275,15 +275,15 @@ class AppDependencies {
         galleryWireframe.interactor = gallerySaveVideosInteractor
     }
         
-    func installRecordToRootViewControllerIntoWindow(window: UIWindow){
+    func installRecordToRootViewControllerIntoWindow(_ window: UIWindow){
         recordWireframe.presentRecordInterfaceFromWindow(window)
     }
   
-    func installEditorRoomToRootViewControllerIntoWindow(window: UIWindow){
+    func installEditorRoomToRootViewControllerIntoWindow(_ window: UIWindow){
         editorRoomWireframe.presentEditingRoomInterfaceFromWindow(window)
     }
     
-    func installSettingsToRootViewControllerIntoWindow(window: UIWindow){
+    func installSettingsToRootViewControllerIntoWindow(_ window: UIWindow){
         settingsWireframe.presentSettingsInterfaceFromWindow(window)
     }
 }
