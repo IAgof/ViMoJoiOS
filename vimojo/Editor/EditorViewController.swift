@@ -9,8 +9,9 @@
 import Foundation
 import MobileCoreServices
 import VideonaPlayer
+import VideonaRangeSlider
 
-class EditorViewController: ViMoJoController,EditorViewInterface,PlayerViewDelegate,PlayerViewSetter,FullScreenWireframeDelegate,
+class EditorViewController: ViMoJoController,EditorPresenterDelegate,FullScreenWireframeDelegate,
 UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UINavigationControllerDelegate{
     
     //MARK: - VIPER variables
@@ -35,11 +36,13 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     @IBOutlet weak var thumbnailClipsCollectionView: UICollectionView!
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var expandPlayerButton: UIButton!
+    @IBOutlet weak var rangeTrimSlider: VideonaRangeSlider!
 
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        rangeTrimSlider.delegate = self
         eventHandler?.viewDidLoad()
     }
     
@@ -242,6 +245,18 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         eventHandler?.updatePlayerLayer()
     }
     
+    func setTrimViewModel(viewModel: TrimRangeBarViewModel) {
+        rangeTrimSlider.maximumValue = viewModel.totalRangeTime
+        rangeTrimSlider.lowerValue = viewModel.startTrimTime
+        rangeTrimSlider.upperValue = viewModel.finalTrimTime
+        rangeTrimSlider.middleValue = viewModel.inserctionPointTime
+        rangeTrimSlider.minimumValue = viewModel.startTime
+    }
+    
+    func setTrimMiddleValueToView(value: Double) {
+        rangeTrimSlider.middleValue = value
+    }
+    
     //MARK: - Drag and Drop handler
     func handleLongGesture(gesture: UILongPressGestureRecognizer) {
         
@@ -278,7 +293,9 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
             thumbnailClipsCollectionView.cancelInteractiveMovement()
         }
     }
-    
+}
+
+extension EditorViewController:PlayerViewDelegate{
     //MARK: Player view delegate
     func seekBarUpdate(value: Float) {
         eventHandler?.seekBarUpdateHandler(value)
@@ -291,10 +308,60 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) {
         print("navigationController didShowViewController ")
     }
-    
+}
+
+extension EditorViewController:PlayerViewSetter{
     //MARK: - Player setter
     func addPlayerAsSubview(player: PlayerView) {
         self.playerView.addSubview(player)
     }
+}
+
+extension EditorViewController:PlayerViewFinishedDelegate{
+    func playerHasLoaded(){
+        eventHandler?.playerHasLoaded()
+    }
+    func playerStartsToPlay(){
+        
+    }
+    func playerPause(){
+        
+    }
     
+    func playerSeeksTo(value:Float){
+        
+    }
+}
+extension EditorViewController:VideonaRangeSliderDelegate{
+    func rangeSliderLowerValueStartToChange() {
+        eventHandler?.rangeSliderUpperOrLowerValueStartToChange()
+    }
+    
+    func rangeSliderLowerThumbValueChanged() {
+        eventHandler?.rangeSliderUpperOrLowerValueChanged(rangeTrimSlider.lowerValue)
+    }
+    
+    func rangeSliderLowerValueStopToChange() {
+        eventHandler?.rangeSliderLowerValueStopToChange(rangeTrimSlider.lowerValue,
+                                                               stopTime: rangeTrimSlider.upperValue)
+    }
+    
+    func rangeSliderMiddleThumbValueChanged() {
+        print("range Trim Slider middleValue")
+        print(rangeTrimSlider.middleValue)
+        eventHandler?.rangeMiddleValueChanged(rangeTrimSlider.middleValue)
+    }
+    
+    func rangeSliderUpperValueStartToChange() {
+        eventHandler?.rangeSliderUpperOrLowerValueStartToChange()
+    }
+    
+    func rangeSliderUpperThumbValueChanged() {
+        eventHandler?.rangeSliderUpperOrLowerValueChanged(rangeTrimSlider.upperValue)
+    }
+    
+    func rangeSliderUpperValueStopToChange() {
+        eventHandler?.rangeSliderUpperValueStopToChange(rangeTrimSlider.lowerValue,
+                                                               stopTime: rangeTrimSlider.upperValue)
+    }
 }

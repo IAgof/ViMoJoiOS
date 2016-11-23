@@ -87,7 +87,7 @@ class EditingRoomWireframe : NSObject {
     }
     
     func mainStoryboard() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let storyboard = UIStoryboard(name: "Editor", bundle: NSBundle.mainBundle())
         return storyboard
     }
     

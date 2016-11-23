@@ -30,4 +30,34 @@ protocol EditorPresenterInterface {
        
     func expandPlayer()
     func updatePlayerLayer()
+    func playerHasLoaded()
+    
+    func rangeMiddleValueChanged(value:Double)
+    func rangeSliderUpperOrLowerValueChanged(value:Double)
+
+    func rangeSliderUpperOrLowerValueStartToChange()
+    func rangeSliderLowerValueStopToChange(startTime:Double,
+                                                  stopTime:Double)
+    func rangeSliderUpperValueStopToChange(startTime:Double,
+                                           stopTime:Double)
+}
+
+protocol EditorPresenterDelegate:ViMoJoInterface {
+    func setUpGestureRecognizer()
+    func selectCell(indexPath:NSIndexPath)
+    func deselectCell(indexPath:NSIndexPath)
+    func reloadCollectionViewData()
+    func setVideoList(list:[EditorViewModel])
+    func numberOfCellsInCollectionView()->Int
+    func showAlertRemove(title:String,
+                         message:String,
+                         yesString:String)
+    
+    func createAlertWaitToImport(completion: (() -> Void)?)
+    func dissmissAlertController()
+    func bringToFrontExpandPlayerButton()
+    func cameFromFullScreenPlayer(playerView:PlayerView)
+    
+    func setTrimViewModel(viewModel:TrimRangeBarViewModel)
+    func setTrimMiddleValueToView(value:Double)
 }
