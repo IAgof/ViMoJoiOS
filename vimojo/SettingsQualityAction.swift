@@ -10,14 +10,14 @@ import Foundation
 import VideonaProject
 
 class SettingsQualityAction: SettingsActionInterface {
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = UserDefaults.standard
     var delegate: SettingsActionDelegate
     
     init(delegate:SettingsActionDelegate){
         self.delegate = delegate
     }
     
-    func executeSettingsAction(index:NSIndexPath) {
+    func executeSettingsAction(_ index:IndexPath) {
         let title =  Utils().getStringByKeyFromSettings(SettingsConstants().QUALITY)
         
         let options = AVQualityParse().qualityToView()
@@ -30,14 +30,14 @@ class SettingsQualityAction: SettingsActionInterface {
         let controller = UIApplication.topViewController()
         if let settingsController = controller as? SettingsViewController {
             if let popoverController = alertController.popoverPresentationController {
-                popoverController.sourceView = settingsController.settingsTableView.cellForRowAtIndexPath(index)
+                popoverController.sourceView = settingsController.settingsTableView.cellForRow(at: index)
             }
-            settingsController.presentViewController(alertController, animated: true, completion: nil)
+            settingsController.present(alertController, animated: true, completion: nil)
         }
     }
     
-    func saveOnDefaults(saveString:String){ 
-        defaults.setObject(saveString, forKey: SettingsConstants().SETTINGS_QUALITY)
+    func saveOnDefaults(_ saveString:String){ 
+        defaults.set(saveString, forKey: SettingsConstants().SETTINGS_QUALITY)
         delegate.executeFinished()
     }
 }

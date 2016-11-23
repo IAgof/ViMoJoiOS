@@ -7,16 +7,17 @@
 //
 
 import Foundation
+import VideonaProject
 
 class SettingsFTPBreakignNewsHostAction: SettingsActionInterface {
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = UserDefaults.standard
     var delegate: SettingsActionDelegate
     
     init(delegate:SettingsActionDelegate){
         self.delegate = delegate
     }
     
-    func executeSettingsAction(index:NSIndexPath) {
+    func executeSettingsAction(_ index:IndexPath) {
         let title =  Utils().getStringByKeyFromSettings(SettingsConstants().ENTER_HOST)
         
         let alertController = SettingsUtils().createAlertViewWithInputText(title,
@@ -28,12 +29,12 @@ class SettingsFTPBreakignNewsHostAction: SettingsActionInterface {
         
         let controller = UIApplication.topViewController()
         if let settingsController = controller as? SettingsViewController {
-            settingsController.presentViewController(alertController, animated: true, completion: nil)
+            settingsController.present(alertController, animated: true, completion: nil)
         }
     }
     
-    func saveOnDefaults(saveString:String){
-        defaults.setObject(saveString, forKey: SettingsConstants().SETTINGS_HOST_FTP_BN)
+    func saveOnDefaults(_ saveString:String){
+        defaults.set(saveString, forKey: SettingsConstants().SETTINGS_HOST_FTP_BN)
         delegate.executeFinished()
     }
 }

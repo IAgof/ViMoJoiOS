@@ -8,6 +8,7 @@
 
 import Foundation
 import AVFoundation
+import VideonaProject
 
 class ShareFacebookInteractor:NSObject, ShareActionInterface{
     var delegate:ShareActionDelegate
@@ -17,21 +18,21 @@ class ShareFacebookInteractor:NSObject, ShareActionInterface{
         self.delegate = delegate
     }
     
-    func share(path:String){
+    func share(_ path:String){
         
         let url = ShareUtils().getLastAssetURL()
         
         let video: FBSDKShareVideo = FBSDKShareVideo()
         
-        video.videoURL = url
+        video.videoURL = url as URL!
         
         let content:FBSDKShareVideoContent = FBSDKShareVideoContent()
         content.video = video
         content.hashtag = FBSDKHashtag.init(string: Utils().getStringByKeyFromShare(ShareConstants().VIDEONATIME_HASTAGH))
         
         let dialog = FBSDKShareDialog.init()
-        if UIApplication.sharedApplication().canOpenURL(NSURL.init(string:"fbauth2:/")!){
-            dialog.mode = .Native
+        if UIApplication.shared.canOpenURL(URL.init(string:"fbauth2:/")!){
+            dialog.mode = .native
         }else{
             let message = Utils().getStringByKeyFromSettings(ShareConstants().NO_FACEBOOK_INSTALLED)
             ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Facebook",
@@ -46,7 +47,7 @@ class ShareFacebookInteractor:NSObject, ShareActionInterface{
 }
 
 extension ShareFacebookInteractor:FBSDKLoginButtonDelegate{
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         print("User Logged In")
         
         if ((error) != nil)
@@ -66,24 +67,24 @@ extension ShareFacebookInteractor:FBSDKLoginButtonDelegate{
         }
     }
     
-    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("loginButtonDidLogOut")
     }
 }
 
 
 extension ShareFacebookInteractor:FBSDKSharingDelegate{
-    func sharerDidCancel(sharer: FBSDKSharing!) {
+    func sharerDidCancel(_ sharer: FBSDKSharing!) {
         print("sharerDidCancel")
         
     }
     
-    func sharer(sharer: FBSDKSharing!, didFailWithError error: NSError!) {
+    func sharer(_ sharer: FBSDKSharing!, didFailWithError error: Error!) {
         print("sharerDidCancel\(error)")
         
     }
     
-    func sharer(sharer: FBSDKSharing!, didCompleteWithResults results: [NSObject : AnyObject]!) {
+    func sharer(_ sharer: FBSDKSharing!, didCompleteWithResults results: [AnyHashable: Any]!) {
         print("didCompleteWithResults")
         
     }

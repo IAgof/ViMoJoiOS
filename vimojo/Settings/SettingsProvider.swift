@@ -8,9 +8,10 @@
 
 import Foundation
 import AVFoundation
+import VideonaProject
 
 class SettingsProvider:NSObject{
-    func getSettings(delegate:SettingsActionDelegate)->[[SettingsContent]]{
+    func getSettings(_ delegate:SettingsActionDelegate)->[[SettingsContent]]{
         let user = userInfo()
         let camera = cameraSettings()
         let ftpConfiguration = SettinsFTP()

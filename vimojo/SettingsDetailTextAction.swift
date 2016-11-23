@@ -18,7 +18,7 @@ class SettingsDetailTextAction:SettingsActionInterface{
         self.textContent = textContent
     }
     
-    func executeSettingsAction(index:NSIndexPath) {
+    func executeSettingsAction(_ index:IndexPath) {
         guard let newDelegate = self.delegate as? SettingsActionDetailTextDelegate else{return}
         
         newDelegate.setTextToDetailView(SettingsActionDetailTextResponse(text: textContent))

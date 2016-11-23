@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import NMRangeSlider
+import VideonaProject
 
 protocol MicRecorderViewDelegate {
     func micRecorderLongPressStart()
@@ -18,13 +19,13 @@ protocol MicRecorderViewDelegate {
 }
 
 protocol MicRecorderViewInterface {
-    func setRecordButtonSelectedState(state:Bool)
-    func setRecordButtonEnable(state:Bool)
-    func setLowValueLabelString(text:String)
-    func setHighValueLabelString(text:String)
-    func setActualValueLabelString(text:String)
-    func configureRangeSlider()
-    func updateSliderTo(value:Float)
+    func setRecordButtonSelectedState(_ state:Bool)
+    func setRecordButtonEnable(_ state:Bool)
+    func setLowValueLabelString(_ text:String)
+    func setHighValueLabelString(_ text:String)
+    func setActualValueLabelString(_ text:String)
+    func configureRangeSlider(_ maximumValue:Float)
+    func updateSliderTo(_ value:Float)
     func removeView()
     func showButtons()
     func hideButtons()
@@ -47,7 +48,7 @@ class MicRecorderView: UIView,MicRecorderViewInterface{
 
     //MARK: - Init
     class func instanceFromNib() -> UIView {
-        return UINib(nibName: "MicRecorderView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! UIView
+        return UINib(nibName: "MicRecorderView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -59,34 +60,34 @@ class MicRecorderView: UIView,MicRecorderViewInterface{
         self.recordButton.addGestureRecognizer(longPressGesture!)
         
         configureUIRangeSlider()
-        totalRecordedSlider.enabled = false
+        totalRecordedSlider.isEnabled = false
     }
     
-    func setViewFrame(frame:CGRect){
-        self.frame = CGRectMake(0, 0, frame.width, frame.height)
+    func setViewFrame(_ frame:CGRect){
+        self.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
     }
     
     //MARK: - Actions
-    @IBAction func acceptButtonPushed(sender: AnyObject) {
+    @IBAction func acceptButtonPushed(_ sender: AnyObject) {
         delegate?.micRecorderAcceptButtonPushed()
     }
     
-    @IBAction func cancelButtonPushed(sender: AnyObject) {
+    @IBAction func cancelButtonPushed(_ sender: AnyObject) {
         delegate?.micRecorderCancelButtonPushed()
     }
     
     //MARK: - Drag and Drop handler
-    func handleLongGesture(gesture: UILongPressGestureRecognizer) {
+    func handleLongGesture(_ gesture: UILongPressGestureRecognizer) {
         
         switch(gesture.state) {
             
-        case UIGestureRecognizerState.Began:
+        case UIGestureRecognizerState.began:
             delegate?.micRecorderLongPressStart()
             break
-        case UIGestureRecognizerState.Changed:
+        case UIGestureRecognizerState.changed:
            
             break
-        case UIGestureRecognizerState.Ended:
+        case UIGestureRecognizerState.ended:
             delegate?.micRecorderLongPressFinished()
             break
 
@@ -96,43 +97,43 @@ class MicRecorderView: UIView,MicRecorderViewInterface{
     }
     
     
-    @IBAction func micSliderChanged(sender: NMRangeSlider) {
+    @IBAction func micSliderChanged(_ sender: NMRangeSlider) {
         
     }
     
     //MARK: - Interface
-    func setRecordButtonSelectedState(state: Bool) {
-        recordButton.selected = state
+    func setRecordButtonSelectedState(_ state: Bool) {
+        recordButton.isSelected = state
     }
     
-    func setRecordButtonEnable(state: Bool) {
-        longPressGesture?.enabled = state
-        recordButton.enabled = state
+    func setRecordButtonEnable(_ state: Bool) {
+        longPressGesture?.isEnabled = state
+        recordButton.isEnabled = state
     }
     
-    func setLowValueLabelString(text: String) {
+    func setLowValueLabelString(_ text: String) {
         lowValueLabel.text = text
     }
     
-    func setActualValueLabelString(text: String) {
+    func setActualValueLabelString(_ text: String) {
         actualValueLabel.text = text
     }
     
-    func setHighValueLabelString(text: String) {
+    func setHighValueLabelString(_ text: String) {
         highValueLabel.text = text
     }
     
-    func configureRangeSlider() {
+    func configureRangeSlider(_ maximumValue:Float) {
         
         self.configureUIRangeSlider()
         
-        totalRecordedSlider.maximumValue = 1.0
+        totalRecordedSlider.maximumValue = maximumValue
         totalRecordedSlider.minimumValue = 0.0
         
         totalRecordedSlider.lowerHandleHidden = true
         totalRecordedSlider.upperValue = 0.0
         
-        Utils.sharedInstance.debugLog("maximum value\(totalRecordedSlider.maximumValue) \n upper value\(totalRecordedSlider.upperValue)")
+        Utils().debugLog("maximum value\(totalRecordedSlider.maximumValue) \n upper value\(totalRecordedSlider.upperValue)")
     }
     
     func removeView() {
@@ -140,16 +141,16 @@ class MicRecorderView: UIView,MicRecorderViewInterface{
     }
     
     func showButtons(){
-        acceptButton.hidden = false
-        cancelButton.hidden = false
+        acceptButton.isHidden = false
+        cancelButton.isHidden = false
     }
 
     func hideButtons() {
-        acceptButton.hidden = true
-        cancelButton.hidden = true
+        acceptButton.isHidden = true
+        cancelButton.isHidden = true
     }
     
-    func updateSliderTo(value: Float) {
+    func updateSliderTo(_ value: Float) {
         totalRecordedSlider.upperValue = value
     }
     
@@ -157,15 +158,15 @@ class MicRecorderView: UIView,MicRecorderViewInterface{
     func configureUIRangeSlider(){
         
         var trackBackgroundImage = UIImage(named: "button_edit_seekbar_background_split")
-        trackBackgroundImage = trackBackgroundImage?.resizableImageWithCapInsets(UIEdgeInsetsMake(0, 5.0, 0.0, 5.0))
+        trackBackgroundImage = trackBackgroundImage?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 5.0, 0.0, 5.0))
         totalRecordedSlider.trackBackgroundImage = trackBackgroundImage
         
         var handleImage = UIImage(named: "button_edit_thumb_seekbar_over_advance_split")
-        handleImage = handleImage?.resizableImageWithCapInsets(UIEdgeInsetsMake(0, 2, 0.0, 2))
+        handleImage = handleImage?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 2, 0.0, 2))
         totalRecordedSlider.upperHandleImageNormal = handleImage
         
         let handleImagePressed = UIImage(named: "button_edit_thumb_seekbar_advance_split_pressed")
-        handleImage = handleImage?.resizableImageWithCapInsets(UIEdgeInsetsMake(0, 2, 0.0, 2))
+        handleImage = handleImage?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 2, 0.0, 2))
         totalRecordedSlider.upperHandleImageHighlighted = handleImagePressed
         
     }

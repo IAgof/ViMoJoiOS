@@ -23,19 +23,19 @@ class AddTextInteractor: AddTextInteractorInterface {
     
     var alignmentType:CATextLayerAttributes.VerticalAlignment = .top
     
-    func getAlignmentAttributesByType(type:AlignmentTypes)->CATextLayerAttributes{
+    func getAlignmentAttributesByType(_ type:AlignmentTypes)->CATextLayerAttributes{
         switch type {
-        case .Top:
+        case .top:
            return CATextLayerAttributes(horizontalAlignment: .left,
                                   verticalAlignment: .top,
                                   font: .bold,
                                   fontSize: .medium)
-        case .Mid:
+        case .mid:
            return CATextLayerAttributes(horizontalAlignment: .center,
                                   verticalAlignment: .mid,
                                   font: .bold,
                                   fontSize: .medium)
-        case .Bottom:
+        case .bottom:
           return  CATextLayerAttributes(horizontalAlignment: .left,
                                   verticalAlignment: .bottom,
                                   font: .light,
@@ -43,7 +43,7 @@ class AddTextInteractor: AddTextInteractorInterface {
         }
     }
     
-    func setAlignment(alignment:CATextLayerAttributes.VerticalAlignment,
+    func setAlignment(_ alignment:CATextLayerAttributes.VerticalAlignment,
                       text:String){
         alignmentType = alignment
         
@@ -61,19 +61,19 @@ class AddTextInteractor: AddTextInteractorInterface {
                                  position: textPosition)
     }
     
-    func getLayerToPlayer(text: String){
-        let alignmentAttributes = CATextLayerAttributes().getAlignmentAttributesByType(alignmentType)
+    func getLayerToPlayer(_ text: String){
+        let alignmentAttributes = CATextLayerAttributes().getAlignmentAttributesByType(type: alignmentType)
 
-        let image = GetImageByTextUseCase().getTextImage(text, attributes: alignmentAttributes)
+        let image = GetImageByTextUseCase().getTextImage(text: text, attributes: alignmentAttributes)
         let textImageLayer = CALayer()
-        textImageLayer.contents = image.CGImage
-        textImageLayer.frame = CGRectMake(0, 0, image.size.width, image.size.height)
-        textImageLayer.contentsScale = UIScreen.mainScreen().scale
+        textImageLayer.contents = image.cgImage
+        textImageLayer.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+        textImageLayer.contentsScale = UIScreen.main.scale
         
         delegate?.setAVSyncLayerToPlayer(textImageLayer)
     }
     
-    func setParametersToVideo(text: String,
+    func setParametersToVideo(_ text: String,
                               position: Int) {
         guard let videoList = project?.getVideoList() else {return}
         
@@ -85,11 +85,11 @@ class AddTextInteractor: AddTextInteractorInterface {
         project?.setVideoList(videoList)
     }
     
-    func setVideoPosition(position: Int) {
+    func setVideoPosition(_ position: Int) {
         self.videoPosition = position
     }
     
-    func setUpComposition(completion:(VideoComposition)->Void) {
+    func setUpComposition(_ completion:(VideoComposition)->Void) {
         var videoTotalTime:CMTime = kCMTimeZero
         
         guard let videoPos = videoPosition else {
@@ -100,14 +100,14 @@ class AddTextInteractor: AddTextInteractorInterface {
         
         let mixComposition = AVMutableComposition()
         
-        let videoTrack = mixComposition.addMutableTrackWithMediaType(AVMediaTypeVideo,
+        let videoTrack = mixComposition.addMutableTrack(withMediaType: AVMediaTypeVideo,
                                                                      preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
-        let audioTrack = mixComposition.addMutableTrackWithMediaType(AVMediaTypeAudio,
+        let audioTrack = mixComposition.addMutableTrack(withMediaType: AVMediaTypeAudio,
                                                                      preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
         
         // 2 - Get Video asset
-        let videoURL: NSURL = video.videoURL
-        let videoAsset = AVAsset.init(URL: videoURL)
+        let videoURL: URL = video.videoURL
+        let videoAsset = AVAsset.init(url: videoURL)
         
         do {
             let startTime = CMTimeMake(Int64(video.getStartTime() * 1000), 1000)
@@ -116,12 +116,12 @@ class AddTextInteractor: AddTextInteractorInterface {
             let timeRangeInsert = CMTimeRangeMake(startTime, stopTime)
             
             try videoTrack.insertTimeRange(timeRangeInsert,
-                                           ofTrack: videoAsset.tracksWithMediaType(AVMediaTypeVideo)[0] ,
-                                           atTime: kCMTimeZero)
+                                           of: videoAsset.tracks(withMediaType: AVMediaTypeVideo)[0] ,
+                                           at: kCMTimeZero)
             
             try audioTrack.insertTimeRange(timeRangeInsert,
-                                           ofTrack: videoAsset.tracksWithMediaType(AVMediaTypeAudio)[0] ,
-                                           atTime: kCMTimeZero)
+                                           of: videoAsset.tracks(withMediaType: AVMediaTypeAudio)[0] ,
+                                           at: kCMTimeZero)
             
             videoTotalTime = CMTimeAdd(videoTotalTime, (stopTime - startTime))
             

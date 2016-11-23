@@ -24,7 +24,7 @@ class CustomClipsGalleryViewController: VideosGalleryViewController {
         
         let fetchOptions = PHFetchOptions()
         fetchOptions.predicate = NSPredicate(format: "title = %@", albumName)
-        let collection:PHFetchResult = PHAssetCollection.fetchAssetCollectionsWithType(.Album, subtype: .Any, options: fetchOptions)
+        let collection:PHFetchResult = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: fetchOptions)
         var assetCollection: PHAssetCollection = PHAssetCollection()
         
         if let first_Obj:AnyObject = collection.firstObject{
@@ -32,14 +32,14 @@ class CustomClipsGalleryViewController: VideosGalleryViewController {
             assetCollection = first_Obj as! PHAssetCollection
             
             let videoFetchOptions = GalleryFetchOptions().orderByCreationDate()
-            self.videosAsset = PHAsset.fetchAssetsInAssetCollection(assetCollection, options: videoFetchOptions)
+            self.videosAsset = PHAsset.fetchAssets(in: assetCollection, options: videoFetchOptions)
             
             
             if let photoCnt = self.videosAsset?.count{
                 if(photoCnt == 0){
-                    self.noPhotosLabel.hidden = false
+                    self.noPhotosLabel.isHidden = false
                 }else{
-                    self.noPhotosLabel.hidden = true
+                    self.noPhotosLabel.isHidden = true
                 }
             }
         }

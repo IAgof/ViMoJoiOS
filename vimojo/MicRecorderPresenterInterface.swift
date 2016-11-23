@@ -29,39 +29,39 @@ protocol MicRecorderPresenterInterface {
     func pauseLongPress()
     func acceptMicRecord()
 
-    func updateActualTime(time:Float)
+    func updateActualTime(_ time:Float)
     
     func acceptMixAudio()
-    func mixVolumeUpdate(value:Float)
+    func mixVolumeUpdate(_ value:Float)
     
     func videoPlayerPlay()
     func videoPlayerPause()
-    func videoPlayerSeeksTo(value:Float)
+    func videoPlayerSeeksTo(_ value:Float)
 }
 
 protocol MicRecorderPresenterDelegate {
-    func showMicRecordView(micRecorderViewModel:MicRecorderViewModel)
+    func showMicRecordView(_ micRecorderViewModel:MicRecorderViewModel)
     func hideMicRecordView()
     
     func showMixAudioView()
     func hideMixAudioView()
     
-    func setMicRecorderButtonState(state:Bool)
-    func setMicRecorderButtonEnabled(state:Bool)
+    func setMicRecorderButtonState(_ state:Bool)
+    func setMicRecorderButtonEnabled(_ state:Bool)
     
     func showAcceptCancelButton()
     func hideAcceptCancelButton()
     
-    func updateRecordMicActualTime(time:String)
+    func updateRecordMicActualTime(_ time:String)
     
-    func changeAudioPlayerVolume(value:Float)
-    func createAudioPlayer(url: NSURL)
+    func changeAudioPlayerVolume(_ value:Float)
+    func createAudioPlayer(_ url: URL)
     func removeAudioPlayer()
     func playAudioPlayer()
     func pauseAudioPlayer()
-    func seekAudioPlayerTo(value:Float)
+    func seekAudioPlayerTo(_ value:Float)
     
-    func showAlertDiscardRecord(title:String,
+    func showAlertDiscardRecord(_ title:String,
                                 message:String,
                                 yesString:String)
 }

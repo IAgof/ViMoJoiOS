@@ -10,5 +10,5 @@ import Foundation
 
 protocol DetailTextPresenterInterface {
     func pushBack()
-    func setTextOnView(text:String)
+    func setTextOnView(_ text:String)
 }

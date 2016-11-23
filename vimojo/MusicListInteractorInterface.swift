@@ -14,17 +14,17 @@ protocol MusicListInteractorInterface {
     func getMusicList()
     func getVideoComposition()
 
-    func setMusicToProject(index:Int)
+    func setMusicToProject(_ index:Int)
     func hasMusicSelectedInProject()->Bool
-    func getMusicDetailParams(index:Int)
+    func getMusicDetailParams(_ index:Int)
 
     func getMusic()
 }
 
 protocol MusicListInteractorDelegate {
-    func setMusicModelList(list:[MusicViewModel])
-    func setMusicDetailParams(title:String,
+    func setMusicModelList(_ list:[MusicViewModel])
+    func setMusicDetailParams(_ title:String,
                               author:String,
                               image:UIImage)
-    func setVideoComposition(composition: VideoComposition)
+    func setVideoComposition(_ composition: VideoComposition)
 }

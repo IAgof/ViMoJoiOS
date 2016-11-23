@@ -11,20 +11,20 @@ import VideonaProject
 import AVFoundation
 
 class GetCompositionForVideoWorker: NSObject{
-    func getComposition(videoPosition:Int,
+    func getComposition(_ videoPosition:Int,
                                project:Project,
                                completion:(VideoComposition)->Void) {
         let video = project.getVideoList()[videoPosition]
         
         let mixComposition = AVMutableComposition()
         
-        let videoTrack = mixComposition.addMutableTrackWithMediaType(AVMediaTypeVideo,
+        let videoTrack = mixComposition.addMutableTrack(withMediaType: AVMediaTypeVideo,
                                                                      preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
-        let audioTrack = mixComposition.addMutableTrackWithMediaType(AVMediaTypeAudio,
+        let audioTrack = mixComposition.addMutableTrack(withMediaType: AVMediaTypeAudio,
                                                                      preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
         
         // 2 - Get Video asset
-        let videoAsset = AVAsset.init(URL: video.videoURL)
+        let videoAsset = AVAsset.init(url: video.videoURL)
         
         do {
             let startTime = kCMTimeZero
@@ -32,14 +32,14 @@ class GetCompositionForVideoWorker: NSObject{
             let timeRangeInsert = CMTimeRangeMake(startTime, stopTime)
             
             try videoTrack.insertTimeRange(timeRangeInsert,
-                                           ofTrack: videoAsset.tracksWithMediaType(AVMediaTypeVideo)[0] ,
-                                           atTime: kCMTimeZero)
+                                           of: videoAsset.tracks(withMediaType: AVMediaTypeVideo)[0] ,
+                                           at: kCMTimeZero)
             
             try audioTrack.insertTimeRange(timeRangeInsert,
-                                           ofTrack: videoAsset.tracksWithMediaType(AVMediaTypeAudio)[0] ,
-                                           atTime: kCMTimeZero)
+                                           of: videoAsset.tracks(withMediaType: AVMediaTypeAudio)[0] ,
+                                           at: kCMTimeZero)
         } catch _ {
-            Utils.sharedInstance.debugLog("Error trying to create videoTrack")
+            Utils().debugLog("Error trying to create videoTrack")
         }
         
         let videonaComposition = VideoComposition(mutableComposition: mixComposition)

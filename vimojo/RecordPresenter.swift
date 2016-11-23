@@ -8,6 +8,32 @@
 
 import Foundation
 import GPUImage
+import VideonaProject
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 struct BatteryIconImage {
     var normal : UIImage!
@@ -49,31 +75,30 @@ class RecordPresenter: NSObject
     var inputGainViewIsShowed = false
     
     //MARK: - Event handler
-    func viewDidLoad(displayView:GPUImageView){
+    func viewDidLoad(_ displayView:GPUImageView){
         
         delegate?.configureView()
         cameraInteractor = CameraInteractor(display: displayView,
                                             cameraDelegate: self,
                                             project: (interactor?.getProject())! )
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(RecordPresenter.audioRouteChangeListener(_:)), name: AVAudioSessionRouteChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(RecordPresenter.audioRouteChangeListener(_:)), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
         
         self.checkFlashAvaliable()
         self.checkIfMicIsAvailable()
     }
     
     func viewWillDisappear() {
-        lastOrientationEnabled = UIDevice.currentDevice().orientation.rawValue
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+        lastOrientationEnabled = UIDevice.current.orientation.rawValue
+        DispatchQueue.global().async {
             if self.isRecording{
                 self.stopRecord()
             }
             FlashInteractor().turnOffWhenViewWillDissappear()
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 self.cameraInteractor?.stopCamera()
                 self.delegate?.showFlashOn(false)
             })
-        })
+        }
     }
     
     func viewWillAppear() {
@@ -82,7 +107,7 @@ class RecordPresenter: NSObject
         
         self.setUpOrientationToForce()
         
-        if let getFromDefaultResolution = NSUserDefaults.standardUserDefaults().stringForKey(SettingsConstants().SETTINGS_RESOLUTION){
+        if let getFromDefaultResolution = UserDefaults.standard.string(forKey: SettingsConstants().SETTINGS_RESOLUTION){
             delegate?.setResolutionToView(getFromDefaultResolution)
         }
         
@@ -90,18 +115,18 @@ class RecordPresenter: NSObject
     }
     
     func setUpOrientationToForce(){
-        switch UIDevice.currentDevice().orientation{
-        case .Portrait,.PortraitUpsideDown,.LandscapeRight,.LandscapeLeft:
-            if (lastOrientationEnabled != UIDeviceOrientation.Portrait.rawValue) &&
-            (lastOrientationEnabled != UIDeviceOrientation.PortraitUpsideDown.rawValue){
+        switch UIDevice.current.orientation{
+        case .portrait,.portraitUpsideDown,.landscapeRight,.landscapeLeft:
+            if (lastOrientationEnabled != UIDeviceOrientation.portrait.rawValue) &&
+            (lastOrientationEnabled != UIDeviceOrientation.portraitUpsideDown.rawValue){
                 
                 if let value = lastOrientationEnabled{
                     delegate?.forceOrientation(value)
                 }else{
-                    delegate?.forceOrientation(UIInterfaceOrientation.LandscapeRight.rawValue)
+                    delegate?.forceOrientation(UIInterfaceOrientation.landscapeRight.rawValue)
                 }
             }else{
-                delegate?.forceOrientation(UIInterfaceOrientation.LandscapeRight.rawValue)
+                delegate?.forceOrientation(UIInterfaceOrientation.landscapeRight.rawValue)
             }
             break
         default:
@@ -242,7 +267,7 @@ class RecordPresenter: NSObject
         }
     }
     
-    func pushConfigMode(modePushed: VideoModeConfigurations) {
+    func pushConfigMode(_ modePushed: VideoModeConfigurations) {
         switch modePushed {
         case .zomm:
             pushZoom()
@@ -342,8 +367,8 @@ class RecordPresenter: NSObject
     }
     
     func checkFlashAvaliable(){
-        let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
-        if device.hasTorch == false{
+        let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        if device?.hasTorch == false{
             delegate?.showFlashSupported(false)
         }
         
@@ -365,7 +390,7 @@ class RecordPresenter: NSObject
         case empty = "activity_record_icon_battery_empty_pressed"
     }
     
-    func getBatteryIcon(value:Float)->BatteryIconImage {
+    func getBatteryIcon(_ value:Float)->BatteryIconImage {
         switch value {
         case 0...10:
            return BatteryIconImage(normal: UIImage(named: batteryImages.empty.rawValue)!,
@@ -388,18 +413,18 @@ class RecordPresenter: NSObject
         }
     }
     
-    func batteryValuesUpdate(value: Float) {
+    func batteryValuesUpdate(_ value: Float) {
         delegate?.setBatteryIcon(getBatteryIcon(value))
     }
     
-    func audioLevelHasChanged(value: Float) {
+    func audioLevelHasChanged(_ value: Float) {
         delegate?.setAudioColor(getAudioLevelColor(value))
     }
     
-    func saveResolutionToDefaults(resolution:String) {
-        let defaults = NSUserDefaults.standardUserDefaults()
+    func saveResolutionToDefaults(_ resolution:String) {
+        let defaults = UserDefaults.standard
        
-        defaults.setObject(resolution, forKey: SettingsConstants().SETTINGS_RESOLUTION)
+        defaults.set(resolution, forKey: SettingsConstants().SETTINGS_RESOLUTION)
         
         cameraInteractor?.setResolution()
         
@@ -407,18 +432,18 @@ class RecordPresenter: NSObject
     }
     
     //MARK: - Inner functions
-    func getAudioLevelColor(value:Float)->UIColor{
+    func getAudioLevelColor(_ value:Float)->UIColor{
         switch value {
         case 0 ... 0.5:
-            return UIColor.greenColor()
+            return UIColor.green
         case 0.5 ... 0.6:
-            return UIColor.yellowColor()
+            return UIColor.yellow
         case 0.6 ... 0.8:
-            return UIColor.orangeColor()
+            return UIColor.orange
         case 0.8 ... 1:
-            return UIColor.redColor()
+            return UIColor.red
         default:
-            return UIColor.greenColor()
+            return UIColor.green
         }
     }
     func startRecord(){
@@ -431,12 +456,12 @@ class RecordPresenter: NSObject
             delegate?.showRecordChronometerContainer()
         }
         
-        dispatch_async(dispatch_get_main_queue(), {
+        DispatchQueue.main.async(execute: {
             self.cameraInteractor?.setIsRecording(true)
             
             self.cameraInteractor?.startRecordVideo({answer in
                 print("Record Presenter \(answer)")
-                Utils.sharedInstance.delay(1, closure: {
+                Utils().delay(1, closure: {
                     self.delegate?.recordButtonEnable(true)
                 })
             })
@@ -455,14 +480,13 @@ class RecordPresenter: NSObject
         self.trackStopRecord()
         
         isRecording = false
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+        DispatchQueue.global().async {
             // do some task
             self.cameraInteractor?.setIsRecording(false)
             
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 self.delegate?.showStopButton()
-//                self.delegate?.enableShareButton()
+                //                self.delegate?.enableShareButton()
                 self.delegate?.showThumbnailButtonAndLabel()
                 if self.secondaryViewIsShowing {
                     self.delegate?.hideSecondaryRecordChronometerContainer()
@@ -470,8 +494,7 @@ class RecordPresenter: NSObject
                     self.delegate?.hideRecordChronometerContainer()
                 }
             });
-        });
-        
+        }
         self.stopTimer()
     }
     
@@ -644,7 +667,7 @@ class RecordPresenter: NSObject
         }
     }
     
-    func setMicButtonState(state:Bool){
+    func setMicButtonState(_ state:Bool){
         delegate?.setSelectedMicButton(state)
         micIsEnabled = state
         
@@ -664,14 +687,14 @@ class RecordPresenter: NSObject
         }
     }
     
-    dynamic private func audioRouteChangeListener(notification:NSNotification) {
+    dynamic fileprivate func audioRouteChangeListener(_ notification:Notification) {
         let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
         
         switch audioRouteChangeReason {
-        case AVAudioSessionRouteChangeReason.NewDeviceAvailable.rawValue:
+        case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
             print("headphone plugged in")
             setMicButtonState(true)
-        case AVAudioSessionRouteChangeReason.OldDeviceUnavailable.rawValue:
+        case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
             print("headphone pulled out")
             setMicButtonState(false)
         default:
@@ -699,7 +722,7 @@ class RecordPresenter: NSObject
     }
     
     //MARK: - Track Events
-    func trackFlash(flashState:Bool){
+    func trackFlash(_ flashState:Bool){
         let tracker = ViMoJoTracker.sharedInstance
         if flashState {
             tracker.sendUserInteractedTracking((delegate?.getControllerName())!,
@@ -737,7 +760,7 @@ class RecordPresenter: NSObject
                                                                   result: AnalyticsConstants().START)
     }
     
-    func trackExported(videoTotalTime:Double) {
+    func trackExported(_ videoTotalTime:Double) {
         ViMoJoTracker.sharedInstance.sendExportedVideoMetadataTracking(videoTotalTime,
                                                                               numberOfClips: (interactor?.getNumberOfClipsInProject())!)
     }
@@ -757,7 +780,7 @@ class RecordPresenter: NSObject
     }
     
     //MARK: - Camera delegate
-    func trackVideoRecorded(videoLenght:Double) {
+    func trackVideoRecorded(_ videoLenght:Double) {
         ViMoJoTracker.sharedInstance.trackTotalVideosRecordedSuperProperty()
         ViMoJoTracker.sharedInstance.sendVideoRecordedTracking(videoLenght)
         ViMoJoTracker.sharedInstance.updateTotalVideosRecorded()
@@ -795,32 +818,32 @@ class RecordPresenter: NSObject
         timerInteractor?.stop()
     }
     
-    func showFocus(center: CGPoint) {
+    func showFocus(_ center: CGPoint) {
         delegate?.showFocusAtPoint(center)
     }
     
     //MARK: - Timer delegate
-    func updateTimer(time: String) {
+    func updateTimer(_ time: String) {
         delegate?.updateChronometer(time)
     }
     
 }
 
 extension RecordPresenter:RecorderInteractorDelegate{
-    func resolutionImageFound(image: UIImage) {
+    func resolutionImageFound(_ image: UIImage) {
         delegate?.setResolutionIconImage(image)
     }
     
-    func resolutionImagePressedFound(image: UIImage) {
+    func resolutionImagePressedFound(_ image: UIImage) {
         delegate?.setResolutionIconImagePressed(image)
     }
 }
 
 //MARK: - Thumb delegate
 extension RecordPresenter:ThumbnailDelegate{
-    func setThumbToView(image: UIImage) {
+    func setThumbToView(_ image: UIImage) {
         // update some UI
-        dispatch_async(dispatch_get_main_queue(), {
+        DispatchQueue.main.async(execute: {
             self.delegate?.showRecordedVideoThumb(image)
             
             self.delegate?.showNumberVideos((self.interactor?.getNumberOfClipsInProject())!)

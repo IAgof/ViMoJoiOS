@@ -27,17 +27,17 @@ class MusicListInteractor: MusicListInteractorInterface {
         delegate?.setMusicModelList(getMusicViewModelList(musicList))
     }
     
-    func getTitleFromIndexPath(index: Int) -> String {
+    func getTitleFromIndexPath(_ index: Int) -> String {
         
         return musicList[index].getMusicTitle()
     }
     
-    func getAuthorFromIndexPath(index: Int) -> String {
+    func getAuthorFromIndexPath(_ index: Int) -> String {
         return musicList[index].getAuthor()
         
     }
     
-    func getImageFromIndexPath(index: Int) -> UIImage {
+    func getImageFromIndexPath(_ index: Int) -> UIImage {
         if let image = UIImage(named: musicList[index].musicSelectedResourceId){
             return image
         }else{
@@ -45,7 +45,7 @@ class MusicListInteractor: MusicListInteractorInterface {
         }
     }
     
-    func getMusicDetailParams(index:Int) {
+    func getMusicDetailParams(_ index:Int) {
         let title = musicList[index].getMusicTitle()
         let author = musicList[index].getAuthor()
         
@@ -70,7 +70,7 @@ class MusicListInteractor: MusicListInteractorInterface {
         delegate?.setMusicDetailParams(title, author: author, image: image)
     }
     
-    func setMusicToProject(index: Int) {
+    func setMusicToProject(_ index: Int) {
         var music = Music(title: "",
                           author: "",
                           iconResourceId: "",
@@ -97,9 +97,9 @@ class MusicListInteractor: MusicListInteractorInterface {
     
     func getVideoComposition() {
         if project != nil{
-            actualComposition = GetActualProjectAVCompositionUseCase().getComposition(project!)
+            actualComposition = GetActualProjectAVCompositionUseCase().getComposition(project: project!)
             if actualComposition != nil {
-                let layer = GetActualProjectTextCALayerAnimationUseCase().getCALayerAnimation(project!)
+                let layer = GetActualProjectTextCALayerAnimationUseCase().getCALayerAnimation(project: project!)
                 actualComposition?.layerAnimation = layer
                 delegate?.setVideoComposition(actualComposition!)
             }
@@ -107,7 +107,7 @@ class MusicListInteractor: MusicListInteractorInterface {
     }
     
     //MARK: - Inner functions
-    func getMusicViewModelList(list:[Music]) -> [MusicViewModel] {
+    func getMusicViewModelList(_ list:[Music]) -> [MusicViewModel] {
         var musicViewList:[MusicViewModel] = []
         
         for music in list{
@@ -120,7 +120,7 @@ class MusicListInteractor: MusicListInteractorInterface {
         return musicViewList
     }
     
-    func getMusicBackgroundImageList(list:[Music]) -> [UIImage] {
+    func getMusicBackgroundImageList(_ list:[Music]) -> [UIImage] {
         var imageList:[UIImage] = []
         
         for music in list{

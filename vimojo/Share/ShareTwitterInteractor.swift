@@ -9,6 +9,7 @@
 import Foundation
 import Accounts
 import AVFoundation
+import VideonaProject
 
 class ShareTwitterInteractor: ShareActionInterface {
     var delegate:ShareActionDelegate
@@ -17,12 +18,12 @@ class ShareTwitterInteractor: ShareActionInterface {
         self.delegate = delegate
     }
     
-    func share(path:String){
+    func share(_ path:String){
         let videoURL = ShareUtils().getLastAssetURL()
         let accountStore:ACAccountStore = ACAccountStore.init()
-        let accountType:ACAccountType = accountStore.accountTypeWithAccountTypeIdentifier(ACAccountTypeIdentifierTwitter)
-        accountStore.requestAccessToAccountsWithType(accountType, options: nil) { (let granted, let error) in
-            guard let accounts = accountStore.accountsWithAccountType(accountType) else{
+        let accountType:ACAccountType = accountStore.accountType(withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)
+        accountStore.requestAccessToAccounts(with: accountType, options: nil) { (granted, error) in
+            guard let accounts = accountStore.accounts(with: accountType) else{
                 let message = Utils().getStringByKeyFromShare(ShareConstants().NO_TWITTER_ACCESS)
                 Utils().debugLog(message)
                 ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Twitter",
@@ -31,8 +32,8 @@ class ShareTwitterInteractor: ShareActionInterface {
             }
             if accounts.count > 0 {//HAS ACCESS TO TWITTER
                 
-                if self.canUploadVideoToTwitter(videoURL) {
-                    let videoData = self.getVideoData(videoURL)
+                if self.canUploadVideoToTwitter(videoURL as URL) {
+                    let videoData = self.getVideoData(videoURL as URL)
                     var status = TwitterVideoUpload.instance().setVideoData(videoData)
                     TwitterVideoUpload.instance().statusContent = Utils().getStringByKeyFromShare(ShareConstants().VIDEONATIME_HASTAGH)
                     
@@ -46,7 +47,7 @@ class ShareTwitterInteractor: ShareActionInterface {
                         var messageToPrintOnView = ""
                         
                         if (errorString != nil){
-                            let codeAndMessage = self.convertStringToCodeAndMessage(errorString)
+                            let codeAndMessage = self.convertStringToCodeAndMessage(errorString!)
                             messageToPrintOnView = "Error with code: \(codeAndMessage.0) \n description: \(codeAndMessage.1) "
                         }else{
                             messageToPrintOnView = Utils().getStringByKeyFromShare(ShareConstants().UPLOAD_SUCCESFULL)
@@ -68,14 +69,14 @@ class ShareTwitterInteractor: ShareActionInterface {
     }
     
 
-    func createAlert(message:String){
+    func createAlert(_ message:String){
         Utils().debugLog(message)
         ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Twitter",
                                                         message: message)
     }
     
-    func canUploadVideoToTwitter(movieURL:NSURL)->Bool{
-        let asset = AVAsset.init(URL: movieURL)
+    func canUploadVideoToTwitter(_ movieURL:URL)->Bool{
+        let asset = AVAsset.init(url: movieURL)
         let duration = asset.duration.seconds
         
         if (duration <= 30){
@@ -85,25 +86,22 @@ class ShareTwitterInteractor: ShareActionInterface {
         }
     }
     
-    func getVideoData(url:NSURL) -> NSData {
-        if let path:String = url.path{
-            if let data = NSFileManager.defaultManager().contentsAtPath(path){
+    func getVideoData(_ url:URL) -> Data {
+        let path:String = url.path
+            if let data = FileManager.default.contents(atPath: path){
                 return data
             }else{
-                return NSData()
-            }
-        }else{
-            return NSData()
+                return Data()
         }
     }
     
-    func convertStringToCodeAndMessage(jsonStr:String) -> (String,String){
-        let data = jsonStr.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: false)
+    func convertStringToCodeAndMessage(_ jsonStr:String) -> (String,String){
+        let data = jsonStr.data(using: String.Encoding.ascii, allowLossyConversion: false)
         var code:Int = 0
         var message:String = ""
         
         do {
-            let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)
+            let json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers)
             
             if let dict = json as? [String: AnyObject] {
                 if let errors = dict["errors"] as? [AnyObject] {

@@ -12,16 +12,16 @@ protocol SettingsPresenterInterface {
     
     func pushBack()
     func viewDidLoad()
-    func itemListSelected(index:NSIndexPath)
+    func itemListSelected(_ index:IndexPath)
 }
 
 protocol SettingsPresenterDelegate{
     func registerClass()
     func reloadTableData()
     func removeSeparatorTable()
-    func setNavBarTitle(title:String)
+    func setNavBarTitle(_ title:String)
     func addFooter()
     
-    func setSectionsArray(sections:[String])
-    func setItems(items:[[SettingsViewModel]])
+    func setSectionsArray(_ sections:[String])
+    func setItems(_ items:[[SettingsViewModel]])
 }

@@ -39,40 +39,40 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
         wireframe?.presentPlayerInterface()
         
         trimRangeSlider.addTarget(self, action: #selector(TrimViewController.sliderBeganTracking),
-                             forControlEvents: UIControlEvents.TouchDown)
+                             for: UIControlEvents.touchDown)
         trimRangeSlider.addTarget(self, action: #selector(TrimViewController.sliderEndedTracking),
-                                  forControlEvents: UIControlEvents.TouchUpInside)
+                                  for: UIControlEvents.touchUpInside)
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         eventHandler?.viewWillDissappear()
     }
     
     //MARK: - Actions
-    @IBAction func pushCancelButton(sender: AnyObject) {
+    @IBAction func pushCancelButton(_ sender: AnyObject) {
         eventHandler?.pushCancelHandler()
     }
     
-    @IBAction func pushAcceptButton(sender: AnyObject) {
+    @IBAction func pushAcceptButton(_ sender: AnyObject) {
         eventHandler?.pushAcceptHandler()
         ViMoJoTracker.sharedInstance.trackClipTrimmed()
     }
     
-    @IBAction func labelSliderChanged(sender: NMRangeSlider) {
+    @IBAction func labelSliderChanged(_ sender: NMRangeSlider) {
         eventHandler?.setLowerValue(trimRangeSlider.lowerValue)
         eventHandler?.setUpperValue(trimRangeSlider.upperValue)
     }
     
-    @IBAction func pushBackBarButton(sender: AnyObject) {
+    @IBAction func pushBackBarButton(_ sender: AnyObject) {
         eventHandler?.pushBack()
     }
    
-    @IBAction func pushExpandButton(sender: AnyObject) {
+    @IBAction func pushExpandButton(_ sender: AnyObject) {
         eventHandler?.expandPlayer()
     }
     
     //MARK: - Presenter delegate
-    func configureRangeSlider(lowerValue: Float,
+    func configureRangeSlider(_ lowerValue: Float,
                               upperValue: Float,
                               maximumValue:Float) {
         
@@ -84,8 +84,8 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
         trimRangeSlider.upperValue = upperValue
         trimRangeSlider.lowerValue = lowerValue
         
-        Utils.sharedInstance.debugLog("maximum value\(trimRangeSlider.maximumValue) \n upper value\(trimRangeSlider.upperValue)")
-        Utils.sharedInstance.debugLog("maximum value\(trimRangeSlider.minimumValue) \nlower value\(trimRangeSlider.lowerValue)")
+        Utils().debugLog("maximum value\(trimRangeSlider.maximumValue) \n upper value\(trimRangeSlider.upperValue)")
+        Utils().debugLog("maximum value\(trimRangeSlider.minimumValue) \nlower value\(trimRangeSlider.lowerValue)")
     }
     
     func configureUIRangeSlider(){
@@ -102,26 +102,26 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
     }
     
     func bringToFrontExpandPlayerButton(){
-        self.playerView.bringSubviewToFront(expandPlayerButton)
+        self.playerView.bringSubview(toFront: expandPlayerButton)
     }
     
-    func cameFromFullScreenPlayer(playerView:PlayerView){
+    func cameFromFullScreenPlayer(_ playerView:PlayerView){
         self.playerView.addSubview(playerView)
-        self.playerView.bringSubviewToFront(expandPlayerButton)
+        self.playerView.bringSubview(toFront: expandPlayerButton)
         playerHandler?.layoutSubViews()
     }
     
-    func setMaxRangeValue(text: String) {
+    func setMaxRangeValue(_ text: String) {
         self.maxRangeLabel.text = text
     }
-    func setMinRangeValue(text: String) {
+    func setMinRangeValue(_ text: String) {
         self.minRangeLabel.text = text
     }
-    func setRangeValue(text: String) {
+    func setRangeValue(_ text: String) {
         self.rangeLabel.text = text
     }
     
-    func setTitleTrimLabel(text:String){
+    func setTitleTrimLabel(_ text:String){
         self.trimTitleLabel.text = text
     }
     
@@ -137,7 +137,7 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
         wireframe?.presentExpandPlayer()
     }
     
-    func setPlayerToSeekTime(time: Float) {
+    func setPlayerToSeekTime(_ time: Float) {
         playerHandler?.seekToTime(time)
     }
     
@@ -145,7 +145,7 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
         playerHandler?.onVideoStops()
     }
     
-    func updatePlayerOnView(composition: VideoComposition) {
+    func updatePlayerOnView(_ composition: VideoComposition) {
         self.playerHandler?.createVideoPlayer(composition)
     }
     
@@ -158,7 +158,7 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
     }
     
     //MARK: - Player setter
-    func addPlayerAsSubview(player: PlayerView) {
+    func addPlayerAsSubview(_ player: PlayerView) {
         self.playerView.addSubview(player)
     }
 }

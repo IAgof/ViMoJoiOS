@@ -22,7 +22,7 @@ class ShareWireframe : NSObject {
 
     var prevController:UIViewController?
 
-    func presentShareInterfaceFromWindow(window: UIWindow) {
+    func presentShareInterfaceFromWindow(_ window: UIWindow) {
         let viewController = shareViewControllerFromStoryboard()
         
         rootWireframe?.showRootViewController(viewController, inWindow: window)
@@ -30,7 +30,7 @@ class ShareWireframe : NSObject {
     
     func shareViewControllerFromStoryboard() -> ShareViewController {
         let storyboard = mainStoryboard()
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(shareViewControllerIdentifier) as! ShareViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: shareViewControllerIdentifier) as! ShareViewController
         
         viewController.eventHandler = sharePresenter
         shareViewController = viewController
@@ -49,7 +49,7 @@ class ShareWireframe : NSObject {
     }
     
     func mainStoryboard() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         return storyboard
     }
     
@@ -58,7 +58,7 @@ class ShareWireframe : NSObject {
     }
     
     func goPrevController(){
-        if prevController!.isKindOfClass(RecordController) {
+        if prevController!.isKind(of: RecordController.self) {
             (prevController as! RecordController).resetView()
         }
         

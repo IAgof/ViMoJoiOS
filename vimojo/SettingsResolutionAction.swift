@@ -10,14 +10,14 @@ import Foundation
 import VideonaProject
 
 class SettingsResolutionAction: SettingsActionInterface {
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = UserDefaults.standard
     var delegate: SettingsActionDelegate
     
     init(delegate:SettingsActionDelegate){
         self.delegate = delegate
     }
     
-    func executeSettingsAction(index:NSIndexPath) {
+    func executeSettingsAction(_ index:IndexPath) {
         let title =  Utils().getStringByKeyFromSettings(SettingsConstants().RESOLUTION)
         
         let options = AVResolutionParse().resolutionsToView()
@@ -31,15 +31,15 @@ class SettingsResolutionAction: SettingsActionInterface {
         let controller = UIApplication.topViewController()
         if let settingsController = controller as? SettingsViewController {
             if let popoverController = alertController.popoverPresentationController {
-                popoverController.sourceView = settingsController.settingsTableView.cellForRowAtIndexPath(index)
+                popoverController.sourceView = settingsController.settingsTableView.cellForRow(at: index)
             }
-            settingsController.presentViewController(alertController, animated: true, completion: nil)
+            settingsController.present(alertController, animated: true, completion: nil)
         }
     }
     
-    func saveResolutionOnDefaults(saveString:String){ 
+    func saveResolutionOnDefaults(_ saveString:String){ 
         let resolutionToSave = AVResolutionParse().parseResolutionsToInteractor(saveString)
-        defaults.setObject(resolutionToSave, forKey: SettingsConstants().SETTINGS_RESOLUTION)
+        defaults.set(resolutionToSave, forKey: SettingsConstants().SETTINGS_RESOLUTION)
         
         delegate.executeFinished()
     }

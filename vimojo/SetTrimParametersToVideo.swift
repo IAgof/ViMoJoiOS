@@ -10,7 +10,7 @@ import Foundation
 import VideonaProject
 
 class SetTrimParametersToVideoWorker: NSObject {
-    func setParameters(trimParams:TrimParameters,
+    func setParameters(_ trimParams:TrimParameters,
                        project:Project,
                        videoPosition:Int){
         let videoList = project.getVideoList()

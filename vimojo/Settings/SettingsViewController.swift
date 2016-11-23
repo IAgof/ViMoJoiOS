@@ -29,22 +29,22 @@ class SettingsViewController: ViMoJoController,SettingsInterface ,
         eventHandler?.viewDidLoad()
   }
     //MARK: - Actions
-    @IBAction func pushBackBarButton(sender: AnyObject) {
+    @IBAction func pushBackBarButton(_ sender: AnyObject) {
         eventHandler?.pushBack()
     }
     
     //MARK: - UITableview datasource
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        tableView.sectionIndexColor = UIColor.redColor()
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        tableView.sectionIndexColor = UIColor.red
         
         return self.sections[section]
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let returnedView = UIView(frame: CGRectMake(0, 0, tableView.bounds.size.width, 30)) //set these values as necessary
-        returnedView.backgroundColor = UIColor.whiteColor()
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let returnedView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30)) //set these values as necessary
+        returnedView.backgroundColor = UIColor.white
         
-        let label = UILabel(frame: CGRectMake(8, 0, tableView.bounds.size.width, 30))
+        let label = UILabel(frame: CGRect(x: 8, y: 0, width: tableView.bounds.size.width, height: 30))
         label.text = self.sections[section]
         label.textColor = VIMOJO_RED_UICOLOR
         returnedView.addSubview(label)
@@ -52,26 +52,26 @@ class SettingsViewController: ViMoJoController,SettingsInterface ,
         return returnedView
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         
         return sections.count
         
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
         return self.items[section].count
         
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell:UITableViewCell? =
-            tableView.dequeueReusableCellWithIdentifier(reuseIdentifierCell)
+            tableView.dequeueReusableCell(withIdentifier: reuseIdentifierCell)
         if (cell != nil)
         {
-            cell = UITableViewCell(style: .Value1,
+            cell = UITableViewCell(style: .value1,
                                    reuseIdentifier: reuseIdentifierCell)
         }
         // Configure the cell...
@@ -80,16 +80,16 @@ class SettingsViewController: ViMoJoController,SettingsInterface ,
         cell?.textLabel?.text = item.title
         cell?.detailTextLabel?.text = item.subtitle
         
-        cell!.detailTextLabel?.adjustsFontSizeToFitWidth
-        cell!.textLabel?.adjustsFontSizeToFitWidth
+        cell!.detailTextLabel?.adjustsFontSizeToFitWidth = true
+        cell!.textLabel?.adjustsFontSizeToFitWidth = true
         
         return cell!
     }
     
     //MARK: - UITableview delegate
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //cell push
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        tableView.deselectRow(at: indexPath, animated: false)
         
         eventHandler?.itemListSelected(indexPath)
     }
@@ -99,11 +99,11 @@ class SettingsViewController: ViMoJoController,SettingsInterface ,
 extension SettingsViewController:SettingsPresenterDelegate{
     //MARK: - init view
     func registerClass(){
-        settingsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifierCell)
+        settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifierCell)
     }
     
     func addFooter() {
-        let footer = UINib(nibName: "VideonaFooterView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! UIView
+        let footer = UINib(nibName: "VideonaFooterView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
         
         let footerTest = UIView.init(frame: footer.frame)
         footerTest.addSubview(footer)
@@ -112,10 +112,10 @@ extension SettingsViewController:SettingsPresenterDelegate{
     }
     
     func removeSeparatorTable() {
-        settingsTableView.separatorStyle = .None
+        settingsTableView.separatorStyle = .none
     }
     
-    func setNavBarTitle(title:String){
+    func setNavBarTitle(_ title:String){
         settingsNavBar.title = title
     }
     
@@ -123,11 +123,11 @@ extension SettingsViewController:SettingsPresenterDelegate{
         settingsTableView.reloadData()
     }
     
-    func setSectionsArray(sections: [String]) {
+    func setSectionsArray(_ sections: [String]) {
         self.sections = sections
     }
     
-    func setItems(items: [[SettingsViewModel]]) {
+    func setItems(_ items: [[SettingsViewModel]]) {
         self.items = items
     }
 }

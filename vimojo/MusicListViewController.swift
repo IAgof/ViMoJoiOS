@@ -25,22 +25,22 @@ class MusicListViewController:ViMoJoController{
         eventHandler?.viewDidLoad()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         eventHandler?.viewWillAppear()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         eventHandler?.viewDidAppear()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         eventHandler?.viewWillDisappear()
     }
     
-    @IBAction func pushBackButton(sender: AnyObject) {
+    @IBAction func pushBackButton(_ sender: AnyObject) {
         eventHandler?.pushBackButton()
     }
     //MARK: Interface
@@ -48,7 +48,7 @@ class MusicListViewController:ViMoJoController{
         //        self.playerView.bringSubviewToFront(expandPlayerButton)
     }
     
-    func cameFromFullScreenPlayer(playerView:PlayerView){
+    func cameFromFullScreenPlayer(_ playerView:PlayerView){
         self.playerView.addSubview(playerView)
         //        self.playerView.bringSubviewToFront(expandPlayerButton)
         eventHandler?.updatePlayerLayer()
@@ -57,11 +57,11 @@ class MusicListViewController:ViMoJoController{
 
 extension MusicListViewController:MusicListPresenterDelegate{
     //MARK: - Presenter delegate
-    func setMusicList(list: [MusicViewModel]) {
+    func setMusicList(_ list: [MusicViewModel]) {
         self.musicListView?.musicViewModelList = list
     }
     
-    func showDetailView(title:String,
+    func showDetailView(_ title:String,
                         author:String,
                         image:UIImage){
         self.setUpDetailView(title, author: author, image: image)
@@ -86,7 +86,7 @@ extension MusicListViewController:MusicListPresenterDelegate{
         musicListView?.removeFromSuperview()
     }
     
-    func setUpDetailView(title:String,
+    func setUpDetailView(_ title:String,
                          author:String,
                          image:UIImage){
         
@@ -108,7 +108,7 @@ extension MusicListViewController:MusicListPresenterDelegate{
 }
 
 extension MusicListViewController:MusicListViewDelegate{
-    func didSelectMusicAtIndexPath(indexPath:NSIndexPath){
+    func didSelectMusicAtIndexPath(_ indexPath:IndexPath){
         eventHandler?.didSelectMusicAtIndexPath(indexPath)
     }
 }
@@ -128,7 +128,7 @@ extension MusicListViewController:MusicDetailViewDelegate{
 
 extension MusicListViewController:PlayerViewSetter{
     //MARK: - Player setter
-    func addPlayerAsSubview(player: PlayerView) {
+    func addPlayerAsSubview(_ player: PlayerView) {
         self.playerView.addSubview(player)
     }
 }

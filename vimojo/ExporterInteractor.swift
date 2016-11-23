@@ -25,35 +25,35 @@ class ExporterInteractor:NSObject{
     func initQuality()->String{
         var quality = AVAssetExportPresetHighestQuality
         //Get resolution
-        if let getFromDefaultQuality = NSUserDefaults.standardUserDefaults().stringForKey(SettingsConstants().SETTINGS_QUALITY){
-            quality = AVQualityParse().parseResolutionsToInteractor(getFromDefaultQuality)
+        if let getFromDefaultQuality = UserDefaults.standard.string(forKey: SettingsConstants().SETTINGS_QUALITY){
+            quality = AVQualityParse().parseResolutionsToInteractor(textResolution: getFromDefaultQuality)
         }
         return quality
     }
 
     //Merge videos in VideosArray and export to Documents folder and PhotoLibrary
     func getNewPathToExport()->String{
-        let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-        let exportPath = (documentDirectory as NSString).stringByAppendingPathComponent("mergeVideona-\(Utils().giveMeTimeNow()).m4v")
+        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let exportPath = (documentDirectory as NSString).appendingPathComponent("mergeVideona-\(Utils().giveMeTimeNow()).m4v")
         
         return exportPath
     }
     
-    func exportVideos(completionHandler:(String,Double)->Void) {
+    func exportVideos(_ completionHandler:@escaping (String,Double)->Void) {
         project?.setExportedPath()
         
         guard let exportPath = project?.getExportedPath() else {return}
         
-        let videonaComposition = GetActualProjectAVCompositionUseCase().getComposition(project!)
+        let videonaComposition = GetActualProjectAVCompositionUseCase().getComposition(project: project!)
         var videoComposition = videonaComposition.videoComposition
         guard let mutableComposition = videonaComposition.mutableComposition else {return}
         
         // 4 - Get path
-        let url = NSURL(fileURLWithPath: exportPath)
+        let url = URL(fileURLWithPath: exportPath)
         
         // 5 - Create Exporter
         if (videoComposition == nil){
-            videoComposition = AVMutableVideoComposition(propertiesOfAsset: mutableComposition)
+            videoComposition = AVMutableVideoComposition(propertiesOf: mutableComposition)
         }
         
         ApplyTextOverlayToVideoCompositionUseCase(project: project!).applyVideoOverlayAnimation(videoComposition!,
@@ -68,14 +68,14 @@ class ExporterInteractor:NSObject{
             exporter!.videoComposition = videoComposition
         }
         // 6 - Perform the Export
-        exporter!.exportAsynchronouslyWithCompletionHandler() {
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        exporter!.exportAsynchronously() {
+            DispatchQueue.main.async(execute: { () -> Void in
                 self.clipDuration = GetActualProjectAVCompositionUseCase().compositionInSeconds
                 
                 Utils().debugLog("la duracion del clip es \(self.clipDuration)")
                 completionHandler(exportPath,self.clipDuration)
                 
-                ExportedAlbum.sharedInstance.saveVideo(NSURL.init(fileURLWithPath: exportPath))
+                ExportedAlbum.sharedInstance.saveVideo(NSURL.init(fileURLWithPath: exportPath) as URL)
             })
         }
     }

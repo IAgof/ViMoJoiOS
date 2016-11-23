@@ -9,14 +9,15 @@
 import Foundation
 import AVFoundation
 import AssetsLibrary
+import VideonaProject
 
 class AddWatermarkUseCase: NSObject {
     enum QUWatermarkPosition {
-        case TopLeft
-        case TopRight
-        case BottomLeft
-        case BottomRight
-        case Default
+        case topLeft
+        case topRight
+        case bottomLeft
+        case bottomRight
+        case `default`
     }
     
     func addWatermark(video videoAsset:AVAsset,
@@ -24,21 +25,20 @@ class AddWatermarkUseCase: NSObject {
                                           imageName name : String!,
                                                     saveToLibrary flag : Bool,
                                                                   watermarkPosition position : QUWatermarkPosition,
-                                                                                    completion : ((status : AVAssetExportSessionStatus!,session: AVAssetExportSession!,savePath:String!) -> ())?) {
+                                                                                    completion : ((_ status : AVAssetExportSessionStatus?,_ session: AVAssetExportSession?,_ savePath:String?) -> ())?) {
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+        DispatchQueue.global().async { () -> Void in
             // 1 - Create AVMutableComposition object. This object will hold your AVMutableCompositionTrack instances.
             let mixComposition = AVMutableComposition()
             
             // 2 - Create video tracks
-            let compositionVideoTrack = mixComposition.addMutableTrackWithMediaType(AVMediaTypeVideo, preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
-            let clipVideoTrack = videoAsset.tracksWithMediaType(AVMediaTypeVideo)[0]
+            let compositionVideoTrack = mixComposition.addMutableTrack(withMediaType: AVMediaTypeVideo, preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
+            let clipVideoTrack = videoAsset.tracks(withMediaType: AVMediaTypeVideo)[0]
             do{
-                try compositionVideoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, videoAsset.duration), ofTrack: clipVideoTrack, atTime: kCMTimeZero)
+                try compositionVideoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, videoAsset.duration), of: clipVideoTrack, at: kCMTimeZero)
             }catch{
                 
             }
-            clipVideoTrack.preferredTransform
             
             // Video size
             let videoSize = clipVideoTrack.naturalSize
@@ -46,19 +46,19 @@ class AddWatermarkUseCase: NSObject {
             // sorts the layer in proper order and add title layer
             let parentLayer = CALayer()
             let videoLayer = CALayer()
-            parentLayer.frame = CGRectMake(0, 0, videoSize.width, videoSize.height)
-            videoLayer.frame = CGRectMake(0, 0, videoSize.width, videoSize.height)
+            parentLayer.frame = CGRect(x: 0, y: 0, width: videoSize.width, height: videoSize.height)
+            videoLayer.frame = CGRect(x: 0, y: 0, width: videoSize.width, height: videoSize.height)
             parentLayer.addSublayer(videoLayer)
             
             if text != nil {
                 // Adding watermark text
                 let titleLayer = CATextLayer()
-                titleLayer.backgroundColor = UIColor.redColor().CGColor
+                titleLayer.backgroundColor = UIColor.red.cgColor
                 titleLayer.string = text
-                titleLayer.font = "Helvetica"
+                titleLayer.font = "Helvetica" as CFTypeRef?
                 titleLayer.fontSize = 15
                 titleLayer.alignmentMode = kCAAlignmentCenter
-                titleLayer.bounds = CGRectMake(0, 0, videoSize.width, videoSize.height)
+                titleLayer.bounds = CGRect(x: 0, y: 0, width: videoSize.width, height: videoSize.height)
                 parentLayer.addSublayer(titleLayer)
                 
                 print("\(videoSize.width)")
@@ -67,26 +67,26 @@ class AddWatermarkUseCase: NSObject {
                 // Adding image
                 let watermarkImage = UIImage(named: name)
                 let imageLayer = CALayer()
-                imageLayer.contents = watermarkImage?.CGImage
+                imageLayer.contents = watermarkImage?.cgImage
                 
                 var xPosition : CGFloat = 0.0
                 var yPosition : CGFloat = 0.0
                 let imageSize = videoSize.width
                 
                 switch (position) {
-                case .TopLeft:
+                case .topLeft:
                     xPosition = 0
                     yPosition = 0
                     break
-                case .TopRight:
+                case .topRight:
                     xPosition = videoSize.width - imageSize
                     yPosition = 0
                     break
-                case .BottomLeft:
+                case .bottomLeft:
                     xPosition = 0
                     yPosition = videoSize.height - imageSize
                     break
-                case .BottomRight, .Default:
+                case .bottomRight, .default:
                     xPosition = videoSize.width - imageSize
                     yPosition = videoSize.height - imageSize
                     break
@@ -95,7 +95,7 @@ class AddWatermarkUseCase: NSObject {
                 print("\(xPosition)")
                 print("\(yPosition)")
                 
-                imageLayer.frame = CGRectMake(xPosition, yPosition, videoSize.width,videoSize.height)
+                imageLayer.frame = CGRect(x: xPosition, y: yPosition, width: videoSize.width,height: videoSize.height)
                 imageLayer.opacity = 0.65
                 parentLayer.addSublayer(imageLayer)
             }
@@ -103,21 +103,21 @@ class AddWatermarkUseCase: NSObject {
             let videoComp = AVMutableVideoComposition()
             videoComp.renderSize = videoSize
             videoComp.frameDuration = CMTimeMake(1, 30)
-            videoComp.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, inLayer: parentLayer)
+            videoComp.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, in: parentLayer)
             
             /// instruction
             let instruction = AVMutableVideoCompositionInstruction()
             instruction.timeRange = CMTimeRangeMake(kCMTimeZero, mixComposition.duration)
             
-            let videoTrack = mixComposition.tracksWithMediaType(AVMediaTypeVideo)[0] as AVAssetTrack
+            let videoTrack = mixComposition.tracks(withMediaType: AVMediaTypeVideo)[0] as AVAssetTrack
             
-            let audioTrack = mixComposition.addMutableTrackWithMediaType(AVMediaTypeAudio,
-                preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
+            let audioTrack = mixComposition.addMutableTrack(withMediaType: AVMediaTypeAudio,
+                                                            preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
             
             do {
                 try audioTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero,videoAsset.duration),
-                    ofTrack: videoAsset.tracksWithMediaType(AVMediaTypeAudio)[0] ,
-                    atTime: kCMTimeZero)
+                                               of: videoAsset.tracks(withMediaType: AVMediaTypeAudio)[0] ,
+                                               at: kCMTimeZero)
             }catch{
                 print("error introducing audiotrack")
             }
@@ -130,13 +130,13 @@ class AddWatermarkUseCase: NSObject {
             videoComp.instructions = [instruction]
             
             // 4 - Get path
-            let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateStyle = .LongStyle
-            dateFormatter.timeStyle = .ShortStyle
-            let savePath = (documentDirectory as NSString).stringByAppendingPathComponent("\(Utils().giveMeTimeNow())videonaClip.m4v")
+            let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .long
+            dateFormatter.timeStyle = .short
+            let savePath = (documentDirectory as NSString).appendingPathComponent("\(Utils().giveMeTimeNow())videonaClip.m4v")
             
-            let url = NSURL(fileURLWithPath: savePath)
+            let url = URL(fileURLWithPath: savePath)
             
             // 5 - Create Exporter
             let exporter = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetHighestQuality)
@@ -146,31 +146,31 @@ class AddWatermarkUseCase: NSObject {
             exporter!.videoComposition = videoComp
             
             // 6 - Perform the Export
-            exporter!.exportAsynchronouslyWithCompletionHandler() {
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    if exporter!.status == AVAssetExportSessionStatus.Completed {
+            exporter!.exportAsynchronously() {
+                DispatchQueue.main.async(execute: { () -> Void in
+                    if exporter!.status == AVAssetExportSessionStatus.completed {
                         let outputURL = exporter!.outputURL
                         if flag {
                             // Save to library
                             let library = ALAssetsLibrary()
-                            if library.videoAtPathIsCompatibleWithSavedPhotosAlbum(outputURL) {
-                                library.writeVideoAtPathToSavedPhotosAlbum(outputURL,
-                                    completionBlock: { (assetURL:NSURL!, error:NSError!) -> Void in
-                                        completion!(status: AVAssetExportSessionStatus.Completed, session: exporter,savePath:savePath)
+                            if library.videoAtPathIs(compatibleWithSavedPhotosAlbum: outputURL) {
+                                library.writeVideoAtPath(toSavedPhotosAlbum: outputURL, completionBlock: {
+                                    assetURL,error in
+                                    completion!(AVAssetExportSessionStatus.completed, exporter,savePath)
                                 })
                             }
                         } else {
                             // Dont svae to library
-                            completion!(status: AVAssetExportSessionStatus.Completed, session: exporter,savePath:savePath)
+                            completion!(AVAssetExportSessionStatus.completed, exporter,savePath)
                         }
                         
                     } else {
                         // Error
-                        completion!(status: exporter!.status, session: exporter,savePath:nil)
+                        completion!(exporter!.status, exporter,nil)
                     }
                 })
             }
-        })
+        }
     }
 
 }

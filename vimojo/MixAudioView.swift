@@ -14,7 +14,7 @@ import NMRangeSlider
 protocol MixAudioViewDelegate {
     func mixAudioAcceptButtonPushed()
     func mixAudioCancelButtonPushed()
-    func mixVolumeValueChanged(value:Float)
+    func mixVolumeValueChanged(_ value:Float)
 }
 
 protocol MixAudioViewInterface {
@@ -34,7 +34,7 @@ class MixAudioView: UIView,MixAudioViewInterface{
     
     //MARK: - Init
     class func instanceFromNib() -> UIView {
-        return UINib(nibName: "MixAudioView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! UIView
+        return UINib(nibName: "MixAudioView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -45,20 +45,20 @@ class MixAudioView: UIView,MixAudioViewInterface{
 
     }
     
-    func setViewFrame(frame:CGRect){
-        self.frame = CGRectMake(0, 0, frame.width, frame.height)
+    func setViewFrame(_ frame:CGRect){
+        self.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
     }
     
     //MARK: - Actions
-    @IBAction func acceptButtonPushed(sender: AnyObject) {
+    @IBAction func acceptButtonPushed(_ sender: AnyObject) {
         delegate?.mixAudioAcceptButtonPushed()
     }
     
-    @IBAction func cancelButtonPushed(sender: AnyObject) {
+    @IBAction func cancelButtonPushed(_ sender: AnyObject) {
         delegate?.mixAudioCancelButtonPushed()
     }
     
-    @IBAction func mixAudioValueChanged(sender: AnyObject) {
+    @IBAction func mixAudioValueChanged(_ sender: AnyObject) {
         sliderValueLabel.text = "\(Int(mixAudioSlider.value * 100))%"
         delegate?.mixVolumeValueChanged(mixAudioSlider.value)
     }

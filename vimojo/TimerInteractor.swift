@@ -11,16 +11,16 @@ import Foundation
 class TimerInteractor: NSObject,TimerInteractorInterface {
 
     var time = "00:00"
-    var startTime = NSTimeInterval()
-    var timer:NSTimer = NSTimer()
+    var startTime = TimeInterval()
+    var timer:Timer = Timer()
     
     var delegate : TimerInteractorDelegate?
     
     func start(){
-        if (!timer.valid) {
+        if (!timer.isValid) {
             let aSelector : Selector = #selector(TimerInteractor.updateTime)
-            timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: aSelector, userInfo: nil, repeats: true)
-            startTime = NSDate.timeIntervalSinceReferenceDate()
+            timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: aSelector, userInfo: nil, repeats: true)
+            startTime = Date.timeIntervalSinceReferenceDate
         }
     }
     
@@ -31,18 +31,18 @@ class TimerInteractor: NSObject,TimerInteractorInterface {
     }
     
     func updateTime() {
-        let currentTime = NSDate.timeIntervalSinceReferenceDate()
+        let currentTime = Date.timeIntervalSinceReferenceDate
         
         //Find the difference between current time and start time.
-        var elapsedTime: NSTimeInterval = currentTime - startTime
+        var elapsedTime: TimeInterval = currentTime - startTime
         
         //calculate the minutes in elapsed time.
         let minutes = UInt8(elapsedTime / 60.0)
-        elapsedTime -= (NSTimeInterval(minutes) * 60)
+        elapsedTime -= (TimeInterval(minutes) * 60)
         
         //calculate the seconds in elapsed time.
         let seconds = UInt8(elapsedTime)
-        elapsedTime -= NSTimeInterval(seconds)
+        elapsedTime -= TimeInterval(seconds)
         
         //add the leading zero for minutes, seconds and millseconds and store them as string constants
         
@@ -55,7 +55,7 @@ class TimerInteractor: NSObject,TimerInteractorInterface {
         delegate?.updateTimer(time)
     }
     
-    func setDelegate(delegate:TimerInteractorDelegate){
+    func setDelegate(_ delegate:TimerInteractorDelegate){
         self.delegate = delegate
     }
 }

@@ -9,8 +9,8 @@
 import Foundation
 
 enum AlignmentTypes {
-    case Top
-    case Mid
-    case Bottom
+    case top
+    case mid
+    case bottom
 }
 

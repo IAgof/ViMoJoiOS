@@ -19,7 +19,7 @@ class RecordWireframe : NSObject {
     var editorRoomWireframe: EditingRoomWireframe?
     var settingsWireframe : SettingsWireframe?
     
-    func presentRecordInterfaceFromWindow(window: UIWindow) {
+    func presentRecordInterfaceFromWindow(_ window: UIWindow) {
         let viewController = RecordViewControllerFromStoryboard()
         
         viewController.eventHandler = recordPresenter
@@ -30,21 +30,21 @@ class RecordWireframe : NSObject {
     }
     
     func setRecordViewControllerAsRootController() {
-        let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let appdelegate = UIApplication.shared.delegate as! AppDelegate
         let homeViewController =  RecordViewControllerFromStoryboard()
         let nav = UINavigationController(rootViewController: homeViewController)
         appdelegate.window!.rootViewController = nav
     }
     
-    func presentRecordInterfaceFromViewController(prevController:UIViewController) {
+    func presentRecordInterfaceFromViewController(_ prevController:UIViewController) {
         let viewController = RecordViewControllerFromStoryboard()
         
-        prevController.presentViewController(viewController, animated: true, completion: nil)
+        prevController.present(viewController, animated: true, completion: nil)
     }
     
     func RecordViewControllerFromStoryboard() -> RecordController {
         let storyboard = mainStoryboard()
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(RecordViewControllerIdentifier) as! RecordController
+        let viewController = storyboard.instantiateViewController(withIdentifier: RecordViewControllerIdentifier) as! RecordController
         
         viewController.eventHandler = recordPresenter
         recordViewController = viewController
@@ -54,7 +54,7 @@ class RecordWireframe : NSObject {
     }
     
     func mainStoryboard() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Record", bundle: NSBundle.mainBundle())
+        let storyboard = UIStoryboard(name: "Record", bundle: Bundle.main)
         return storyboard
     }
     

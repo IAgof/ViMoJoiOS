@@ -9,5 +9,5 @@
 import Foundation
 
 protocol DetailTextInteractorInterface {
-    func getTextFromInternalMemory(key:String) -> String
+    func getTextFromInternalMemory(_ key:String) -> String
 }

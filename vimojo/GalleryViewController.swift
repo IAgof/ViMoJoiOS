@@ -17,7 +17,7 @@ class GalleryViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBarHidden = false
+        self.navigationController?.isNavigationBarHidden = false
         interactor?.setDelegate(self)
         
         self.tabBar.tintColor = VIMOJO_RED_UICOLOR
@@ -29,8 +29,8 @@ class GalleryViewController: UITabBarController {
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        self.navigationController?.navigationBarHidden = true
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
 }
 
@@ -39,7 +39,7 @@ extension GalleryViewController:VideoGalleryDelegate{
         wireframe?.goPrevController()
     }
     
-    func saveVideos(URLs: [NSURL]) {
+    func saveVideos(_ URLs: [URL]) {
         interactor?.saveVideos(URLs)
     }
 }

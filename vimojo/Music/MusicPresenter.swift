@@ -74,7 +74,7 @@ class MusicPresenter: MusicPresenterInterface,MusicInteractorDelegate {
     }
     
     //MARK: - Interactor delegate
-    func setVideoComposition(composition: VideoComposition) {
+    func setVideoComposition(_ composition: VideoComposition) {
         playerPresenter?.createVideoPlayer(composition)
     }
 }

@@ -28,27 +28,27 @@ class AddTextViewController: ViMoJoController {
     @IBOutlet weak var expandPlayerButton: UIButton!
 
     
-    @IBAction func topTextButtonPushed(sender: AnyObject) {
+    @IBAction func topTextButtonPushed(_ sender: AnyObject) {
         eventHandler?.topButtonPushed()
     }
     
-    @IBAction func midTextButtonPushed(sender: AnyObject) {
+    @IBAction func midTextButtonPushed(_ sender: AnyObject) {
         eventHandler?.midButtonPushed()
     }
     
-    @IBAction func bottomTextButtonPushed(sender: AnyObject) {
+    @IBAction func bottomTextButtonPushed(_ sender: AnyObject) {
         eventHandler?.bottomButtonPushed()
     }
         
-    @IBAction func cancelButtonPushed(sender: AnyObject) {
+    @IBAction func cancelButtonPushed(_ sender: AnyObject) {
         eventHandler?.pushCancelHandler()
     }
     
-    @IBAction func acceptButtonPushed(sender: AnyObject) {
+    @IBAction func acceptButtonPushed(_ sender: AnyObject) {
         eventHandler?.pushAcceptHandler()
     }
     
-    @IBAction func pushBackBarButton(sender: AnyObject) {
+    @IBAction func pushBackBarButton(_ sender: AnyObject) {
         eventHandler?.pushBack()
     }
     
@@ -57,7 +57,7 @@ class AddTextViewController: ViMoJoController {
         wireframe?.presentPlayerInterface()
         
         addTextTextView.textContainer.maximumNumberOfLines = MAX_LINES
-        addTextTextView.textContainer.lineBreakMode = .ByWordWrapping
+        addTextTextView.textContainer.lineBreakMode = .byWordWrapping
         
         addTextTextView.delegate = self
         
@@ -70,8 +70,8 @@ class AddTextViewController: ViMoJoController {
     }
     
     func addObserverToShowAndHideKeyboard(){
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AddTextViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AddTextViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AddTextViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AddTextViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     //Calls this function when the tap is recognized.
@@ -81,7 +81,7 @@ class AddTextViewController: ViMoJoController {
     }
     
     func addBorderToTextView(){
-        addTextTextView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        addTextTextView.layer.borderColor = UIColor.lightGray.cgColor
         addTextTextView.layer.borderWidth = 2
         addTextTextView.layer.cornerRadius = 2
     }
@@ -89,12 +89,12 @@ class AddTextViewController: ViMoJoController {
 
 extension AddTextViewController:AddTextPresenterDelegate{
     func bringToFrontExpandPlayerButton(){
-        self.playerView.bringSubviewToFront(expandPlayerButton)
+        self.playerView.bringSubview(toFront: expandPlayerButton)
     }
     
-    func cameFromFullScreenPlayer(playerView:PlayerView){
+    func cameFromFullScreenPlayer(_ playerView:PlayerView){
         self.playerView.addSubview(playerView)
-        self.playerView.bringSubviewToFront(expandPlayerButton)
+        self.playerView.bringSubview(toFront: expandPlayerButton)
         playerHandler?.layoutSubViews()
     }
     
@@ -110,7 +110,7 @@ extension AddTextViewController:AddTextPresenterDelegate{
         wireframe?.presentExpandPlayer()
     }
     
-    func setPlayerToSeekTime(time: Float) {
+    func setPlayerToSeekTime(_ time: Float) {
         playerHandler?.seekToTime(time)
     }
     
@@ -118,46 +118,46 @@ extension AddTextViewController:AddTextPresenterDelegate{
         playerHandler?.onVideoStops()
     }
     
-    func updatePlayerOnView(composition: VideoComposition) {
+    func updatePlayerOnView(_ composition: VideoComposition) {
         self.playerHandler?.createVideoPlayer(composition)
     }
     
-    func setTextToEditTextField(text: String) {
+    func setTextToEditTextField(_ text: String) {
         self.addTextTextView.text = text
     }
         
-    func setSyncLayerToPlayer(layer: CALayer) {
+    func setSyncLayerToPlayer(_ layer: CALayer) {
         playerHandler?.setAVSyncLayer(layer)
     }
     
-    func setSelectedTopButton(state: Bool) {
-        topTextConfigButton.selected = state
+    func setSelectedTopButton(_ state: Bool) {
+        topTextConfigButton.isSelected = state
     }
     
-    func setSelectedMidButton(state: Bool) {
-        midTextConfigButton.selected = state
+    func setSelectedMidButton(_ state: Bool) {
+        midTextConfigButton.isSelected = state
     }
     
-    func setSelectedBottomButton(state: Bool) {
-        bottomTextConfigButton.selected = state
+    func setSelectedBottomButton(_ state: Bool) {
+        bottomTextConfigButton.isSelected = state
     }
 }
 extension AddTextViewController:PlayerViewSetter{
     //MARK: - Player setter
-    func addPlayerAsSubview(player: PlayerView) {
+    func addPlayerAsSubview(_ player: PlayerView) {
         self.playerView.addSubview(player)
     }
 }
 
 extension AddTextViewController:UITextViewDelegate{
-    func textViewDidChange(textView: UITextView) {
+    func textViewDidChange(_ textView: UITextView) {
         guard let text = addTextTextView.text else{return}
 
         eventHandler?.textHasChanged(text)
     }
     
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-        guard let currentString: NSString = textView.text else{return false}
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        guard let currentString: NSString = textView.text as NSString? else{return false}
         
         
         if (checkIfHasLineBreak(currentString as String) && text == "\n"){
@@ -177,8 +177,8 @@ extension AddTextViewController:UITextViewDelegate{
         }
     }
     
-    func checkIfHasLineBreak(text:String) -> Bool {
-        if(((text as String).rangeOfString("\n")) != nil){
+    func checkIfHasLineBreak(_ text:String) -> Bool {
+        if(((text as String).range(of: "\n")) != nil){
             return true
         }else
         {
@@ -186,12 +186,12 @@ extension AddTextViewController:UITextViewDelegate{
         }
     }
     
-    func addLineBreakIfNeccesary(text:String)->String{
+    func addLineBreakIfNeccesary(_ text:String)->String{
         if ((text.characters.count == maxCharForLine) && !checkIfHasLineBreak(text) ) {
             let nextLine = "\n"
             
-            let preText = text.substringWithRange(Range<String.Index>(start: text.startIndex, end: text.startIndex.advancedBy(maxCharForLine)))
-            let postText = text.substringWithRange(Range<String.Index>(start: text.startIndex.advancedBy(maxCharForLine), end: text.endIndex))
+            let preText = text.substring(with: (text.startIndex ..< text.characters.index(text.startIndex, offsetBy: maxCharForLine)))
+            let postText = text.substring(with: (text.characters.index(text.startIndex, offsetBy: maxCharForLine) ..< text.endIndex))
             
             if postText.characters.count >  maxCharForLine{
                 return text
@@ -202,16 +202,16 @@ extension AddTextViewController:UITextViewDelegate{
             return finalText
         }
         
-        guard let linebreakPosition = text.rangeOfString("\n") else{
+        guard let linebreakPosition = text.range(of: "\n") else{
             return text
         }
         let nextLine = "\n"
         
-        let preText = text.substringWithRange(Range<String.Index>(start: text.startIndex, end: linebreakPosition.startIndex))
-        let postText = text.substringWithRange(Range<String.Index>(start: linebreakPosition.endIndex, end: text.endIndex))
+        let preText = text.substring(with: (text.startIndex ..< linebreakPosition.lowerBound))
+        let postText = text.substring(with: (linebreakPosition.upperBound ..< text.endIndex))
         
         if postText.characters.count >  maxCharForLine{
-            let postText = postText.substringWithRange(Range<String.Index>(start: postText.startIndex, end: postText.startIndex.advancedBy(maxCharForLine)))
+            let postText = postText.substring(with: (postText.startIndex ..< postText.characters.index(postText.startIndex, offsetBy: maxCharForLine)))
             
             return (preText + nextLine + postText)
         }
@@ -222,13 +222,13 @@ extension AddTextViewController:UITextViewDelegate{
 
 //MARK: Keyboard handler
 extension AddTextViewController{
-    func keyboardWillShow(notification: NSNotification) {
+    func keyboardWillShow(_ notification: Notification) {
         if self.view.frame.origin.y == 0{
             self.view.frame.origin.y -= addTextTextView.frame.height
         }
     }
     
-    func keyboardWillHide(notification: NSNotification) {
+    func keyboardWillHide(_ notification: Notification) {
         if self.view.frame.origin.y == (-addTextTextView.frame.height){
             self.view.frame.origin.y += addTextTextView.frame.height
         }
@@ -236,12 +236,12 @@ extension AddTextViewController{
     
     func addDoneButtonOnKeyboard()
     {
-        let doneToolbar: UIToolbar = UIToolbar(frame: CGRectMake(0, 0, 320, 50))
-        doneToolbar.barStyle = UIBarStyle.BlackTranslucent
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+        doneToolbar.barStyle = UIBarStyle.blackTranslucent
         
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Done, target: self, action: #selector(AddTextViewController.doneButtonAction))
-        done.tintColor = UIColor.whiteColor()
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(AddTextViewController.doneButtonAction))
+        done.tintColor = UIColor.white
         
         doneToolbar.items = [flexSpace,done]
         doneToolbar.sizeToFit()

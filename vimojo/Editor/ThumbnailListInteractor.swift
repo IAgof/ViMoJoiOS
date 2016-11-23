@@ -12,28 +12,28 @@ import AVFoundation
 
 class ThumbnailListInteractor: NSObject {
     var thumbnailImageView: UIImageView!
-    var videoURL:NSURL
+    var videoURL:URL
     var diameter:CGFloat = 40.0
     
-    init(videoURL:NSURL,diameter:Int) {
+    init(videoURL:URL,diameter:Int) {
         self.videoURL = videoURL
         
         let newDiameter = CGFloat.init(diameter)
-        self.thumbnailImageView = UIImageView.init(frame: CGRectMake(0, 0, newDiameter, newDiameter))
+        self.thumbnailImageView = UIImageView.init(frame: CGRect(x: 0, y: 0, width: newDiameter, height: newDiameter))
         self.diameter = newDiameter
     }
     
-    func getThumbnailImage(completion:(UIImage)->Void){
-        let asset = AVURLAsset(URL: videoURL, options: nil)
+    func getThumbnailImage(_ completion:(UIImage)->Void){
+        let asset = AVURLAsset(url: videoURL, options: nil)
         let imgGenerator = AVAssetImageGenerator(asset: asset)
         
         var cgImage:CGImage?
         do {
-            cgImage =  try imgGenerator.copyCGImageAtTime(CMTime.init(value: 10, timescale: 10), actualTime: nil)
+            cgImage =  try imgGenerator.copyCGImage(at: CMTime.init(value: 10, timescale: 10), actualTime: nil)
             print("Thumbnail image gets okay")
             
             // !! check the error before proceeding
-            var thumbnail = UIImage(CGImage: cgImage!)
+            var thumbnail = UIImage(cgImage: cgImage!)
             thumbnail = self.resizeImage(thumbnail, newWidth: diameter)
             // lay out this image view, or if it already exists, set its image property to uiImage
             
@@ -44,16 +44,16 @@ class ThumbnailListInteractor: NSObject {
         }
     }
     
-    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+    func resizeImage(_ image: UIImage, newWidth: CGFloat) -> UIImage {
         print("Resize image")
         
-        UIGraphicsBeginImageContext(CGSizeMake(newWidth, newWidth))
-        image.drawInRect(CGRectMake(0, 0, newWidth, newWidth))
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newWidth))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newWidth))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         print("Finish resize image")
-        return newImage
+        return newImage!
     }
     
 }

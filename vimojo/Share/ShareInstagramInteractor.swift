@@ -8,6 +8,7 @@
 
 import Foundation
 import Photos
+import VideonaProject
 
 class ShareInstagramInteractor:ShareActionInterface{
     var delegate:ShareActionDelegate
@@ -16,11 +17,11 @@ class ShareInstagramInteractor:ShareActionInterface{
         self.delegate = delegate
     }
     
-    func share(path:String){
+    func share(_ path:String){
         //Share to instagram
-        let instagramURL = NSURL.init(string: "instagram://library?LocalIdentifier=\(ShareUtils().getLastAssetString())")!
-        if UIApplication.sharedApplication().canOpenURL(instagramURL) {
-            UIApplication.sharedApplication().openURL(instagramURL)
+        let instagramURL = URL.init(string: "instagram://library?LocalIdentifier=\(ShareUtils().getLastAssetString())")!
+        if UIApplication.shared.canOpenURL(instagramURL) {
+            UIApplication.shared.openURL(instagramURL)
         }else{
             let message = Utils().getStringByKeyFromSettings(ShareConstants().NO_ISTAGRAM_INSTALLED)
             ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Instagram",

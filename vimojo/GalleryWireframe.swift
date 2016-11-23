@@ -17,19 +17,19 @@ class GalleryWireframe : NSObject {
     var prevController:UIViewController?
     var interactor:SaveVideosFromGalleryInterface?
     
-    func presentGalleryFromViewController(prevController:UIViewController) {
+    func presentGalleryFromViewController(_ prevController:UIViewController) {
         let viewController = galleryViewControllerFromStoryboard()
         viewController.wireframe = self
         viewController.interactor = interactor
         
         self.prevController = prevController
         
-        prevController.showViewController(viewController, sender: nil)
+        prevController.show(viewController, sender: nil)
     }
     
     func galleryViewControllerFromStoryboard() -> GalleryViewController {
         let storyboard = galleryStoryboard()
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(galleryViewControllerIdentifier) as! GalleryViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: galleryViewControllerIdentifier) as! GalleryViewController
         
         galleryViewController = viewController
         
@@ -37,11 +37,11 @@ class GalleryWireframe : NSObject {
     }
     
     func galleryStoryboard() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Gallery", bundle: NSBundle.mainBundle())
+        let storyboard = UIStoryboard(name: "Gallery", bundle: Bundle.main)
         return storyboard
     }
     
     func goPrevController(){
-        galleryViewController?.dismissViewControllerAnimated(true, completion: nil)
+        galleryViewController?.dismiss(animated: true, completion: nil)
     }
 }

@@ -19,25 +19,25 @@ class EditorClipsCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         positionNumberLabel.adjustsFontSizeToFitWidth = true
-        removeClipButton.hidden = true
+        removeClipButton.isHidden = true
     }
     
     var isClipSelected: Bool = false{
         didSet {            
             self.layer.borderWidth = (isClipSelected ? 3 : 0)
-            self.layer.borderColor = (isClipSelected ? cellColor.CGColor : UIColor.clearColor().CGColor)
+            self.layer.borderColor = (isClipSelected ? cellColor.cgColor : UIColor.clear.cgColor)
             
-            self.removeClipButton.backgroundColor = (isClipSelected ? cellColor : UIColor.clearColor())
+            self.removeClipButton.backgroundColor = (isClipSelected ? cellColor : UIColor.clear)
             
-            removeClipButton.hidden = !isClipSelected
-            removeClipButton.enabled = isClipSelected
+            removeClipButton.isHidden = !isClipSelected
+            removeClipButton.isEnabled = isClipSelected
         }
     }
     
     var isMoving = false{
         didSet{
-            UIView.animateWithDuration(0.25, animations:{
-                self.transform = CGAffineTransformMakeRotation(self.isMoving ? CGFloat(M_PI_4) : CGFloat(0))
+            UIView.animate(withDuration: 0.25, animations:{
+                self.transform = CGAffineTransform(rotationAngle: self.isMoving ? CGFloat(M_PI_4) : CGFloat(0))
             })
         }
     }

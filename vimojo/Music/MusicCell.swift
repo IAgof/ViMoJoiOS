@@ -23,7 +23,7 @@ class MusicCell: UITableViewCell {
     func applyPlainShadow() {
         let layer = self.contentView.layer
         
-        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 5)
         layer.shadowOpacity = 0.4
         layer.shadowRadius = 3

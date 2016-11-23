@@ -24,7 +24,7 @@ class AddTextWireframe : NSObject {
 
     var prevController:UIViewController?
     
-    func presentAddTextInterfaceFromViewController(prevController:UIViewController,
+    func presentAddTextInterfaceFromViewController(_ prevController:UIViewController,
                                                    videoSelected:Int)
     {
         let viewController = addTextViewControllerFromStoryboard()
@@ -32,12 +32,12 @@ class AddTextWireframe : NSObject {
         self.prevController = prevController
         addTextPresenter?.videoSelectedIndex = videoSelected
         
-        prevController.showViewController(viewController, sender: nil)
+        prevController.show(viewController, sender: nil)
     }
     
     func addTextViewControllerFromStoryboard() -> AddTextViewController {
         let storyboard = mainStoryboard()
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(addTextViewControllerIdentifier) as! AddTextViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: addTextViewControllerIdentifier) as! AddTextViewController
         
         viewController.eventHandler = addTextPresenter
         addTextViewController = viewController
@@ -49,7 +49,7 @@ class AddTextWireframe : NSObject {
     }
     
     func mainStoryboard() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         return storyboard
     }
     
@@ -67,7 +67,7 @@ class AddTextWireframe : NSObject {
     }
     
     func goPrevController(){
-        addTextViewController?.dismissViewControllerAnimated(true, completion: nil)
+        addTextViewController?.dismiss(animated: true, completion: nil)
 //        addTextViewController?.navigationController?.popToViewController(prevController!, animated: true)
     }
 }

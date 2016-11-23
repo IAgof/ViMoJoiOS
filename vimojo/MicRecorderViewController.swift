@@ -32,17 +32,17 @@ class MicRecorderViewController: ViMoJoController,MicRecorderPresenterDelegate,P
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         eventHandler?.viewWillAppear()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         eventHandler?.viewDidAppear()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         eventHandler?.viewWillDisappear()
     }
@@ -53,11 +53,11 @@ class MicRecorderViewController: ViMoJoController,MicRecorderPresenterDelegate,P
     }
     
     //MARK: Actions
-    @IBAction func pushBackButton(sender: AnyObject) {
+    @IBAction func pushBackButton(_ sender: AnyObject) {
         eventHandler?.pushBackButton()
     }
     //MARK: - Presenter delegate
-    func showMicRecordView(micRecorderViewModel: MicRecorderViewModel) {
+    func showMicRecordView(_ micRecorderViewModel: MicRecorderViewModel) {
         let view = MicRecorderView.instanceFromNib() as? MicRecorderView
         micRecorderView = view
         view?.delegate = self
@@ -68,7 +68,7 @@ class MicRecorderViewController: ViMoJoController,MicRecorderPresenterDelegate,P
         micRecorderView?.setLowValueLabelString(micRecorderViewModel.lowValue)
         micRecorderView?.setHighValueLabelString(micRecorderViewModel.highValue)
         micRecorderView?.setActualValueLabelString(micRecorderViewModel.actualValue)
-        micRecorderView?.configureRangeSlider()
+        micRecorderView?.configureRangeSlider(Float(micRecorderViewModel.sliderRange))
     }
     
     func hideMicRecordView() {
@@ -96,13 +96,13 @@ class MicRecorderViewController: ViMoJoController,MicRecorderPresenterDelegate,P
         micRecorderView?.hideButtons()
     }
     
-    func changeAudioPlayerVolume(value: Float) {
+    func changeAudioPlayerVolume(_ value: Float) {
         audioPlayer?.volume = value
     }
     
-    func createAudioPlayer(url: NSURL) {
+    func createAudioPlayer(_ url: URL) {
         do{
-            try audioPlayer = AVAudioPlayer(contentsOfURL: url)
+            try audioPlayer = AVAudioPlayer(contentsOf: url)
         }catch{
             print("Error creating audioplayer")
         }
@@ -120,41 +120,41 @@ class MicRecorderViewController: ViMoJoController,MicRecorderPresenterDelegate,P
         audioPlayer?.pause()
     }
     
-    func seekAudioPlayerTo(value:Float) {
-        audioPlayer?.currentTime = NSTimeInterval.init(value)
+    func seekAudioPlayerTo(_ value:Float) {
+        audioPlayer?.currentTime = TimeInterval.init(value)
     }
-    func showAlertDiscardRecord(title:String,
+    func showAlertDiscardRecord(_ title:String,
                                 message:String,
                                 yesString:String) {
         
         let alertController = UIAlertController(title:title,
                                                 message:message,
-                                                preferredStyle: .Alert)
+                                                preferredStyle: .alert)
         alertController.view.tintColor = VIMOJO_GREEN_UICOLOR
         
         let yesAction = UIAlertAction(title: yesString,
-                                      style: .Default,
+                                      style: .default,
                                       handler: {alert -> Void in
                                         self.eventHandler?.cancelConfirmed()
         })
         
-        let noAction = UIAlertAction(title: "No", style: .Default, handler: nil)
+        let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
         
         alertController.addAction(noAction)
         alertController.addAction(yesAction)
-        self.presentViewController(alertController, animated: false, completion:{})
+        self.present(alertController, animated: false, completion:{})
     }
     //MARK: - Change views
-    func setMicRecorderButtonState(state: Bool) {
+    func setMicRecorderButtonState(_ state: Bool) {
         micRecorderView?.setRecordButtonSelectedState(state)
     }
     
-    func setMicRecorderButtonEnabled(state: Bool) {
+    func setMicRecorderButtonEnabled(_ state: Bool) {
         micRecorderView?.setRecordButtonEnable(state)
     }
     
     //MARK: - Player setter
-    func addPlayerAsSubview(player: PlayerView) {
+    func addPlayerAsSubview(_ player: PlayerView) {
         self.playerView.addSubview(player)
     }
 }
@@ -176,7 +176,7 @@ extension MicRecorderViewController:MicRecorderViewDelegate{
         eventHandler?.cancelPushed()
     }
     
-    func updateRecordMicActualTime(time: String) {
+    func updateRecordMicActualTime(_ time: String) {
         micRecorderView?.setActualValueLabelString(time)
     }
 }
@@ -188,13 +188,13 @@ extension MicRecorderViewController:MixAudioViewDelegate{
     func mixAudioCancelButtonPushed(){
         eventHandler?.cancelPushed()
     }
-    func mixVolumeValueChanged(value: Float) {
+    func mixVolumeValueChanged(_ value: Float) {
         eventHandler?.mixVolumeUpdate(value)
     }
 }
 
 extension MicRecorderViewController:PlayerViewDelegate{
-    func seekBarUpdate(value: Float) {
+    func seekBarUpdate(_ value: Float) {
         micRecorderView?.updateSliderTo(value)
         eventHandler?.updateActualTime(value)
     }
@@ -213,7 +213,7 @@ extension MicRecorderViewController:PlayerViewFinishedDelegate{
         eventHandler?.videoPlayerPause()
     }
     
-    func playerSeeksTo(value: Float) {
+    func playerSeeksTo(_ value: Float) {
         eventHandler?.videoPlayerSeeksTo(value)
     }
 }

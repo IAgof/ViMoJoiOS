@@ -67,11 +67,11 @@ class MusicListPresenter:MusicListPresenterInterface{
         wireframe?.removeController()
     }
     
-    func setMusicDetailInterface(eventHandler: MusicDetailInterface) {
+    func setMusicDetailInterface(_ eventHandler: MusicDetailInterface) {
         self.detailEventHandler = eventHandler
     }
     
-    func didSelectMusicAtIndexPath(indexPath: NSIndexPath) {
+    func didSelectMusicAtIndexPath(_ indexPath: IndexPath) {
         lastMusicSelected = indexPath.item
         
         delegate?.hideTableView()
@@ -134,15 +134,15 @@ class MusicListPresenter:MusicListPresenterInterface{
 
 extension MusicListPresenter:MusicListInteractorDelegate{
     //MARK: - Interactor delegate
-    func setMusicModelList(list: [MusicViewModel]) {
+    func setMusicModelList(_ list: [MusicViewModel]) {
         delegate?.setMusicList(list)
     }
     
-    func setMusicDetailParams(title: String, author: String, image: UIImage) {
+    func setMusicDetailParams(_ title: String, author: String, image: UIImage) {
         delegate?.showDetailView(title, author: author, image: image)
     }
     
-    func setVideoComposition(composition: VideoComposition) {
+    func setVideoComposition(_ composition: VideoComposition) {
         playerPresenter?.createVideoPlayer(composition)
     }
 }

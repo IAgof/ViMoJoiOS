@@ -34,17 +34,17 @@ class MusicViewController: ViMoJoController,MusicViewInterface,MusicPresenterDel
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         eventHandler?.viewWillAppear()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         eventHandler?.viewDidAppear()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         eventHandler?.viewWillDisappear()
     }
@@ -55,31 +55,31 @@ class MusicViewController: ViMoJoController,MusicViewInterface,MusicPresenterDel
     }
    
     //MARK: Actions
-    @IBAction func pushExpandButton(sender: AnyObject) {
+    @IBAction func pushExpandButton(_ sender: AnyObject) {
         eventHandler?.expandPlayer()
     }
     
-    @IBAction func pushMusic(sender: AnyObject) {
+    @IBAction func pushMusic(_ sender: AnyObject) {
         eventHandler?.pushMusicHandler()
     }
     
-    @IBAction func pushMic(sender: AnyObject) {
+    @IBAction func pushMic(_ sender: AnyObject) {
         eventHandler?.pushMicHandler()
     }
     
     //MARK: Interface
     func bringToFrontExpandPlayerButton(){
-        self.playerView.bringSubviewToFront(expandPlayerButton)
+        self.playerView.bringSubview(toFront: expandPlayerButton)
     }
     
-    func cameFromFullScreenPlayer(playerView:PlayerView){
+    func cameFromFullScreenPlayer(_ playerView:PlayerView){
         self.playerView.addSubview(playerView)
-        self.playerView.bringSubviewToFront(expandPlayerButton)
+        self.playerView.bringSubview(toFront: expandPlayerButton)
         eventHandler?.updatePlayerLayer()
     }
     
     //MARK: - Player setter
-    func addPlayerAsSubview(player: PlayerView) {
+    func addPlayerAsSubview(_ player: PlayerView) {
         self.playerView.addSubview(player)
     }
 }

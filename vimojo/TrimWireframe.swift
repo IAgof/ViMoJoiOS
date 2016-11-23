@@ -22,13 +22,13 @@ class TrimWireframe : NSObject {
 
     var prevController:UIViewController?
     
-    func presentTrimInterfaceFromWindow(window: UIWindow) {
+    func presentTrimInterfaceFromWindow(_ window: UIWindow) {
         let viewController = trimViewControllerFromStoryboard()
         
         rootWireframe?.showRootViewController(viewController, inWindow: window)
     }
     
-    func presentTrimInterfaceFromViewController(prevController:UIViewController,
+    func presentTrimInterfaceFromViewController(_ prevController:UIViewController,
                                                 videoSelected:Int)
     {
         let viewController = trimViewControllerFromStoryboard()
@@ -37,12 +37,12 @@ class TrimWireframe : NSObject {
         trimPresenter?.setVideoSelectedIndex(videoSelected)
         viewController.wireframe = self
         
-        prevController.showViewController(viewController, sender: nil)
+        prevController.show(viewController, sender: nil)
     }
     
     func trimViewControllerFromStoryboard() -> TrimViewController {
         let storyboard = mainStoryboard()
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(trimViewControllerIdentifier) as! TrimViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: trimViewControllerIdentifier) as! TrimViewController
         
         viewController.eventHandler = trimPresenter
         trimViewController = viewController
@@ -58,12 +58,12 @@ class TrimWireframe : NSObject {
     }
     
     func mainStoryboard() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         return storyboard
     }
     
     func goPrevController(){
-        trimViewController?.dismissViewControllerAnimated(true, completion: nil)
+        trimViewController?.dismiss(animated: true, completion: nil)
     }
     
     func presentExpandPlayer(){

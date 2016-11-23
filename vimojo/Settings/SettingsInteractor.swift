@@ -16,7 +16,7 @@ class SettingsInteractor: NSObject,SettingsInteractorInterface {
     var delegate:SettingsInteractorDelegate?
     
     var orderArray = Dictionary<Int,String>()
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = UserDefaults.standard
 
     var settingSelected:SettingsContent?
     
@@ -51,7 +51,7 @@ class SettingsInteractor: NSObject,SettingsInteractorInterface {
         delegate?.setSettingsItemsView(settingsViewModelArray)
     }
     
-    func executeSettingAtIndexPath(index: NSIndexPath) {
+    func executeSettingAtIndexPath(_ index: IndexPath) {
         guard let setting = settings?[index.section][index.item] else { return}
         setting.action?.executeSettingsAction(index)
     }
@@ -75,7 +75,7 @@ extension SettingsInteractor:SettingsActionDelegate{
 }
 
 extension SettingsInteractor:SettingsActionDetailTextDelegate{
-    func setTextToDetailView(response: SettingsActionDetailTextResponse) {
+    func setTextToDetailView(_ response: SettingsActionDetailTextResponse) {
 
         delegate?.goToDetailTextController(response.text)
     }

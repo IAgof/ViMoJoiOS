@@ -22,14 +22,14 @@ protocol MicRecorderInteractorInterface {
     
     func getActualAudioRecorded()
     
-    func setVoiceOverToProject(videoVolume:Float,
+    func setVoiceOverToProject(_ videoVolume:Float,
                                audioVolume:Float)
     func removeVoiceOverFromProject()
-    func getStringByKey(key:String) -> String 
+    func getStringByKey(_ key:String) -> String 
 }
 
 protocol MicRecorderInteractorDelegate {
-    func setVideoComposition(composition:VideoComposition)
-    func setMicRecorderValues(value:MicRecorderViewModel)
-    func setActualAudioRecorded(url:NSURL)
+    func setVideoComposition(_ composition:VideoComposition)
+    func setMicRecorderValues(_ value:MicRecorderViewModel)
+    func setActualAudioRecorded(_ url:URL)
 }

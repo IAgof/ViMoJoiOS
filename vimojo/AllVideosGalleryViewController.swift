@@ -21,6 +21,6 @@ class AllVideosGalleryViewController: VideosGalleryViewController {
         //fetch the photos from collection
         self.navigationController?.hidesBarsOnTap = false
         let fetchOptions = GalleryFetchOptions().orderByCreationDate()
-        self.videosAsset = PHAsset.fetchAssetsWithMediaType(.Video, options: fetchOptions)
+        self.videosAsset = PHAsset.fetchAssets(with: .video, options: fetchOptions)
     }
 }

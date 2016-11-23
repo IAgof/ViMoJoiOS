@@ -11,6 +11,30 @@ import UIKit
 import AVFoundation
 import VideonaPlayer
 import VideonaProject
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l >= r
+  default:
+    return !(lhs < rhs)
+  }
+}
+
 
 class EditorPresenter: NSObject {
     //MARK: - Variables VIPER
@@ -23,14 +47,14 @@ class EditorPresenter: NSObject {
     var fullScreenPlayerWireframe: FullScreenPlayerWireframe?
 
     //MARK: - Variables
-    var selectedCellIndexPath = NSIndexPath(forRow: 0, inSection: 0)
+    var selectedCellIndexPath = IndexPath(row: 0, section: 0)
     var videoToRemove = -1
     let NO_SELECTED_CELL = -1
     var stopList:[Double] = []
     var isGoingToExpandPlayer = false
     
     //MARK: - Inner functions
-    func moveClipToPosition(sourcePosition:Int,
+    func moveClipToPosition(_ sourcePosition:Int,
                             destionationPosition:Int){
         interactor?.moveClipToPosition(sourcePosition,
                                        destionationPosition: destionationPosition)
@@ -43,7 +67,7 @@ class EditorPresenter: NSObject {
         
         self.setVideoDataToView()
         
-        selectedCellIndexPath = NSIndexPath(forRow: 0, inSection: 0)
+        selectedCellIndexPath = IndexPath(row: 0, section: 0)
     }
     
     func loadVideoListFromProject() {
@@ -59,8 +83,8 @@ class EditorPresenter: NSObject {
         return duration
     }
     
-    func updateSelectedCellUI(indexPath:NSIndexPath){
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+    func updateSelectedCellUI(_ indexPath:IndexPath){
+        DispatchQueue.main.async(execute: { () -> Void in
             self.delegate?.deselectCell(self.selectedCellIndexPath)
             self.delegate?.selectCell(indexPath)
             self.selectedCellIndexPath = indexPath
@@ -86,7 +110,7 @@ extension EditorPresenter:EditorPresenterInterface{
     }
     
     func setVideoDataToView(){
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        DispatchQueue.main.async(execute: { () -> Void in
             self.delegate?.reloadCollectionViewData()
         })
     }
@@ -107,7 +131,7 @@ extension EditorPresenter:EditorPresenterInterface{
         }
     }
     
-    func didSelectItemAtIndexPath(indexPath: NSIndexPath) {
+    func didSelectItemAtIndexPath(_ indexPath: IndexPath) {
         updateSelectedCellUI(indexPath)
         
         self.seekToSelectedItem(indexPath.item)
@@ -115,12 +139,12 @@ extension EditorPresenter:EditorPresenterInterface{
         interactor?.setRangeSliderViewValues(actualVideoNumber: indexPath.item)
     }
     
-    func seekToSelectedItem(videoPosition:Int){
+    func seekToSelectedItem(_ videoPosition:Int){
         interactor?.seekToSelectedItemHandler(videoPosition)
     }
     
-    func cellForItemAtIndexPath(indexPath: NSIndexPath) {
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+    func cellForItemAtIndexPath(_ indexPath: IndexPath) {
+        DispatchQueue.main.async(execute: { () -> Void in
             if indexPath == self.selectedCellIndexPath {
                 self.delegate?.selectCell(indexPath)
             }else{
@@ -130,8 +154,8 @@ extension EditorPresenter:EditorPresenterInterface{
         
     }
     
-    func moveItemAtIndexPath(sourceIndexPath: NSIndexPath,
-                             toIndexPath destinationIndexPath: NSIndexPath) {
+    func moveItemAtIndexPath(_ sourceIndexPath: IndexPath,
+                             toIndexPath destinationIndexPath: IndexPath) {
         self.moveClipToPosition(sourceIndexPath.item,
                                 destionationPosition: destinationIndexPath.item)
         
@@ -202,7 +226,7 @@ extension EditorPresenter:EditorPresenterInterface{
         }
     }
     
-    func seekBarUpdateHandler(value: Float) {
+    func seekBarUpdateHandler(_ value: Float) {
         let seekBarValue = Double(value)
         var cellPosition = 0
         
@@ -214,7 +238,7 @@ extension EditorPresenter:EditorPresenterInterface{
                 if cellPosition == selectedCellIndexPath.item {
                     return
                 }else{
-                    updateSelectedCellUI(NSIndexPath(forItem: cellPosition, inSection: 0))
+                    updateSelectedCellUI(IndexPath(item: cellPosition, section: 0))
                     interactor?.setRangeSliderViewValues(actualVideoNumber: cellPosition)
                     return
                 }
@@ -223,7 +247,7 @@ extension EditorPresenter:EditorPresenterInterface{
         }
     }
     
-    func removeVideoClip(position: Int) {
+    func removeVideoClip(_ position: Int) {
         videoToRemove = position
         
         delegate?.showAlertRemove(Utils().getStringByKeyFromEditor(EditorTextConstants.REMOVE_CLIP_ALERT_TITLE),
@@ -237,12 +261,12 @@ extension EditorPresenter:EditorPresenterInterface{
         self.reloadPositionNumberAfterMovement()
     }
     
-    func rangeMiddleValueChanged(value: Double) {
+    func rangeMiddleValueChanged(_ value: Double) {
         interactor?.updateSeekOnVideoTo(value,
                                         videoNumber: selectedCellIndexPath.item)
     }
     
-    func rangeSliderUpperOrLowerValueChanged(value: Double) {
+    func rangeSliderUpperOrLowerValueChanged(_ value: Double) {
         playerPresenter?.seekToTime(Float(value))
     }
     
@@ -252,14 +276,14 @@ extension EditorPresenter:EditorPresenterInterface{
         playerPresenter?.pauseVideo()
     }
     
-    func rangeSliderLowerValueStopToChange(startTime: Double, stopTime: Double) {
+    func rangeSliderLowerValueStopToChange(_ startTime: Double, stopTime: Double) {
         rangeSliderStopToChange(startTime, stopTime: stopTime)
         
         interactor?.updateSeekOnVideoTo(startTime,
                                         videoNumber: selectedCellIndexPath.item)
     }
     
-    func rangeSliderUpperValueStopToChange(startTime: Double, stopTime: Double) {
+    func rangeSliderUpperValueStopToChange(_ startTime: Double, stopTime: Double) {
         rangeSliderStopToChange(startTime, stopTime: stopTime)
 
         interactor?.updateSeekOnVideoTo(stopTime,
@@ -267,7 +291,7 @@ extension EditorPresenter:EditorPresenterInterface{
 
     }
     
-    func rangeSliderStopToChange(startTime:Double,
+    func rangeSliderStopToChange(_ startTime:Double,
                                                   stopTime:Double) {
         interactor?.setTrimParametersToProject(startTime,
                                                stopTime: stopTime,
@@ -284,14 +308,14 @@ extension EditorPresenter:EditorPresenterInterface{
 
 extension EditorPresenter:EditorInteractorDelegate{
     //MARK: - Interactor delegate
-    func setVideoList(list: [EditorViewModel]) {
+    func setVideoList(_ list: [EditorViewModel]) {
         delegate?.setVideoList(list)
         self.setVideoDataToView()
         
         updateSelectedCellUI(selectedCellIndexPath)
     }
     
-    func setStopTimeList(list: [Double]) {
+    func setStopTimeList(_ list: [Double]) {
         self.stopList = list
     }
     
@@ -301,19 +325,19 @@ extension EditorPresenter:EditorInteractorDelegate{
         self.loadVideoListFromProject()
     }
     
-    func seekToTimeOfVideoSelectedReceiver(time:Float){
+    func seekToTimeOfVideoSelectedReceiver(_ time:Float){
         playerPresenter?.seekToTime(time)
     }
     
-    func setComposition(composition: VideoComposition) {
+    func setComposition(_ composition: VideoComposition) {
         playerPresenter?.createVideoPlayer(composition)
     }
     
-    func setTrimRangeSliderViewModel(viewModel: TrimRangeBarViewModel) {
+    func setTrimRangeSliderViewModel(_ viewModel: TrimRangeBarViewModel) {
         delegate?.setTrimViewModel(viewModel)
     }
     
-    func setTrimMiddleValue(value: Double) {
+    func setTrimMiddleValue(_ value: Double) {
         delegate?.setTrimMiddleValueToView(value)
     }
 }

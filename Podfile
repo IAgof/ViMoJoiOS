@@ -6,7 +6,7 @@
 target 'vimojo' do
 pod 'Fabric'
 pod 'Crashlytics'
-pod 'Alamofire', '~> 3.3'
+pod 'Alamofire'
 pod 'Mixpanel'
 pod 'Fabric'
 pod 'Crashlytics'

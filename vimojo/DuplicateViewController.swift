@@ -40,39 +40,39 @@ class DuplicateViewController: ViMoJoController,DuplicateInterface,DuplicatePres
         wireframe?.presentPlayerInterface()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         eventHandler?.viewWillDissappear()
     }
     
     //MARK: - Actions
-    @IBAction func pushCancelButton(sender: AnyObject) {
+    @IBAction func pushCancelButton(_ sender: AnyObject) {
         eventHandler?.pushCancelHandler()
     }
     
-    @IBAction func pushAcceptButton(sender: AnyObject) {
+    @IBAction func pushAcceptButton(_ sender: AnyObject) {
         eventHandler?.pushAcceptHandler()
     }
     
-    @IBAction func pushBackBarButton(sender: AnyObject) {
+    @IBAction func pushBackBarButton(_ sender: AnyObject) {
         eventHandler?.pushBack()
     }
     
-    @IBAction func pushPlusClips(sender: AnyObject) {
+    @IBAction func pushPlusClips(_ sender: AnyObject) {
         eventHandler?.pushPlusClips()
     }
     
-    @IBAction func pushLessClips(sender: AnyObject) {
+    @IBAction func pushLessClips(_ sender: AnyObject) {
         eventHandler?.pushLessClips()
     }
     
-    @IBAction func pushExpandButton(sender: AnyObject) {
+    @IBAction func pushExpandButton(_ sender: AnyObject) {
         eventHandler?.expandPlayer()
     }
     
     //MARK: - Interface
-    func cameFromFullScreenPlayer(playerView:PlayerView){
+    func cameFromFullScreenPlayer(_ playerView:PlayerView){
         self.playerView.addSubview(playerView)
-        self.playerView.bringSubviewToFront(expandPlayerButton)
+        self.playerView.bringSubview(toFront: expandPlayerButton)
         playerHandler?.layoutSubViews()
     }
     
@@ -82,34 +82,34 @@ class DuplicateViewController: ViMoJoController,DuplicateInterface,DuplicatePres
     }
     
     func hideMinusButton(){
-        minusButton.hidden = true
+        minusButton.isHidden = true
     }
     
     func showMinusButton(){
-        minusButton.hidden = false
+        minusButton.isHidden = false
     }
     
     func bringToFrontExpandPlayerButton(){
-        self.playerView.bringSubviewToFront(expandPlayerButton)
+        self.playerView.bringSubview(toFront: expandPlayerButton)
     }
     
-    func setNumberDuplicates(text: String) {
+    func setNumberDuplicates(_ text: String) {
         self.numberOfDuplicates.text = text
     }
     
-    func setCloneYourClipText(text: String) {
+    func setCloneYourClipText(_ text: String) {
         self.cloneYourClipLabel.text = text
     }
     
-    func setThumbnails(image:UIImage){
+    func setThumbnails(_ image:UIImage){
         thumbLeft.image = image
         
         thumbRight.image = image
         
-        numberOfDuplicates.frame = CGRectMake(numberOfDuplicates.frame.origin.x,
-                                              numberOfDuplicates.frame.origin.y,
-                                              20,
-                                              numberOfDuplicates.frame.height)
+        numberOfDuplicates.frame = CGRect(x: numberOfDuplicates.frame.origin.x,
+                                              y: numberOfDuplicates.frame.origin.y,
+                                              width: 20,
+                                              height: numberOfDuplicates.frame.height)
     }
     
     func acceptFinished() {
@@ -130,12 +130,12 @@ class DuplicateViewController: ViMoJoController,DuplicateInterface,DuplicatePres
         playerHandler?.onVideoStops()
     }
     
-    func updatePlayerOnView(composition: VideoComposition) {
+    func updatePlayerOnView(_ composition: VideoComposition) {
         self.playerHandler?.createVideoPlayer(composition)
     }
     
     //MARK: - Player setter
-    func addPlayerAsSubview(player: PlayerView) {
+    func addPlayerAsSubview(_ player: PlayerView) {
         self.playerView.addSubview(player)
     }
 }

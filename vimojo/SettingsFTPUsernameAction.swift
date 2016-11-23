@@ -7,16 +7,17 @@
 //
 
 import Foundation
+import VideonaProject
 
 class SettingsFTPUsernameAction: SettingsActionInterface {
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = UserDefaults.standard
     var delegate: SettingsActionDelegate
     
     init(delegate:SettingsActionDelegate){
         self.delegate = delegate
     }
     
-    func executeSettingsAction(index:NSIndexPath) {
+    func executeSettingsAction(_ index:IndexPath) {
         let title =  Utils().getStringByKeyFromSettings(SettingsConstants().ENTER_USERNAME_FTP)
         
         let alertController = SettingsUtils().createAlertViewWithInputText(title,
@@ -28,12 +29,12 @@ class SettingsFTPUsernameAction: SettingsActionInterface {
         
         let controller = UIApplication.topViewController()
         if let settingsController = controller as? SettingsViewController {
-            settingsController.presentViewController(alertController, animated: true, completion: nil)
+            settingsController.present(alertController, animated: true, completion: nil)
         }
     }
     
-    func saveOnDefaults(saveString:String){
-        defaults.setObject(saveString, forKey: SettingsConstants().SETTINGS_USERNAME_FTP)
+    func saveOnDefaults(_ saveString:String){
+        defaults.set(saveString, forKey: SettingsConstants().SETTINGS_USERNAME_FTP)
         delegate.executeFinished()
     }
 }

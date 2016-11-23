@@ -10,7 +10,7 @@ import Foundation
 import GPUImage
 
 class ChangeFilterInteractor{
-    func changeFilter(baseFilter:GPUImageFilter, newFilter:GPUImageFilter,display:GPUImageView){
+    func changeFilter(_ baseFilter:GPUImageFilter, newFilter:GPUImageFilter,display:GPUImageView){
         newFilter.removeAllTargets()
         baseFilter.removeAllTargets()
         baseFilter.addTarget(newFilter)

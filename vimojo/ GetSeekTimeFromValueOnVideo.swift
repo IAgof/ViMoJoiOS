@@ -10,7 +10,7 @@ import Foundation
 import VideonaProject
 
 class GetSeekTimeFromValueOnVideoWorker{
-    func getSeekTime(value:Double,
+    func getSeekTime(_ value:Double,
                      project:Project,
                      numberOfVideo:Int) -> Double{
         var seekTime:Double = 0

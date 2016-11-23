@@ -9,8 +9,8 @@
 import Foundation
 
 protocol SaveVideosFromGalleryInterface {
-    func saveVideos(URLs :[NSURL])
-    func setDelegate(delegate:SaveVideosFromGalleryDelegate)
+    func saveVideos(_ URLs :[URL])
+    func setDelegate(_ delegate:SaveVideosFromGalleryDelegate)
 }
 
 protocol SaveVideosFromGalleryDelegate{

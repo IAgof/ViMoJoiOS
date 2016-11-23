@@ -15,16 +15,16 @@ struct SettingsFTPBreakingNews {
     var uneditedVideoPath:String = ""
     
     init(){
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         
-        if let hostSaved = defaults.stringForKey(SettingsConstants().SETTINGS_HOST_FTP_BN){
+        if let hostSaved = defaults.string(forKey: SettingsConstants().SETTINGS_HOST_FTP_BN){
             host = hostSaved
         }
-        if let usernameSaved = defaults.stringForKey(SettingsConstants().SETTINGS_USERNAME_FTP_BN){
+        if let usernameSaved = defaults.string(forKey: SettingsConstants().SETTINGS_USERNAME_FTP_BN){
             username = usernameSaved
         }
         
-        if let passwordSaved = defaults.stringForKey(SettingsConstants().SETTINGS_PASSWORD_FTP_BN){
+        if let passwordSaved = defaults.string(forKey: SettingsConstants().SETTINGS_PASSWORD_FTP_BN){
             if passwordSaved != ""{
                 password = passwordSaved
             }else{
@@ -32,11 +32,11 @@ struct SettingsFTPBreakingNews {
             }
         }
         
-        if let editedVideoPathSaved = defaults.stringForKey(SettingsConstants().SETTINGS_EDITED_DEST_FTP_BN){
+        if let editedVideoPathSaved = defaults.string(forKey: SettingsConstants().SETTINGS_EDITED_DEST_FTP_BN){
             editedVideoPath = editedVideoPathSaved
         }
         
-        if let uneditedVideoPathtSaved = defaults.stringForKey(SettingsConstants().SETTINGS_UNEDITED_DEST_HOST_FTP_BN){
+        if let uneditedVideoPathtSaved = defaults.string(forKey: SettingsConstants().SETTINGS_UNEDITED_DEST_HOST_FTP_BN){
             uneditedVideoPath = uneditedVideoPathtSaved
         }
     }

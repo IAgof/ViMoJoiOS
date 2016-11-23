@@ -17,12 +17,12 @@ class SaveVideosFromGalleryInteractor:NSObject,SaveVideosFromGalleryInterface{
         self.project = project
     }
     
-    func setDelegate(delegate: SaveVideosFromGalleryDelegate) {
+    func setDelegate(_ delegate: SaveVideosFromGalleryDelegate) {
         self.delegate = delegate
     }
     
-    func saveVideos(URLs: [NSURL]) {
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+    func saveVideos(_ URLs: [URL]) {
+        DispatchQueue.main.async(execute: { () -> Void in
             for url in URLs{
                 self.saveVideoToDocuments(url)
             }
@@ -30,7 +30,7 @@ class SaveVideosFromGalleryInteractor:NSObject,SaveVideosFromGalleryInterface{
         })
     }
     
-    func saveVideoToDocuments(url:NSURL) {
+    func saveVideoToDocuments(_ url:URL) {
         guard var videoList = project?.getVideoList() else{
             print("Cant load video list on Save videos from gallery interactor")
             return

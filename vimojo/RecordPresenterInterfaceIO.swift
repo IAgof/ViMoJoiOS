@@ -10,7 +10,7 @@ import Foundation
 import GPUImage
 
 protocol RecordPresenterInterface{
-    func viewDidLoad(displayView:GPUImageView)
+    func viewDidLoad(_ displayView:GPUImageView)
     func viewWillDisappear()
     func viewWillAppear()
     
@@ -36,7 +36,7 @@ protocol RecordPresenterInterface{
     func pushFocus()
     func pushExposureModes()
     
-    func pushConfigMode(modePushed:VideoModeConfigurations)
+    func pushConfigMode(_ modePushed:VideoModeConfigurations)
     
     func pushCloseBatteryButton()
     func pushCloseSpaceOnDiskButton()
@@ -44,24 +44,24 @@ protocol RecordPresenterInterface{
     func resetRecorder()
     func checkFlashAvaliable()
     
-    func batteryValuesUpdate(value:Float)
-    func audioLevelHasChanged(value:Float)
+    func batteryValuesUpdate(_ value:Float)
+    func audioLevelHasChanged(_ value:Float)
     
-    func saveResolutionToDefaults(resolution:String)
+    func saveResolutionToDefaults(_ resolution:String)
 }
 
 protocol RecordPresenterDelegate {
     func configureView()
-    func forceOrientation(orientationValue:Int)
-    func recordButtonEnable(state:Bool)
-    func configModesButtonSelected(state:Bool)
+    func forceOrientation(_ orientationValue:Int)
+    func recordButtonEnable(_ state:Bool)
+    func configModesButtonSelected(_ state:Bool)
    
-    func showFlashOn(on:Bool)
+    func showFlashOn(_ on:Bool)
     func showRecordButton()
-    func showFlashSupported(state:Bool)
+    func showFlashSupported(_ state:Bool)
     func showBackCameraSelected()
     func showFrontCameraSelected()
-    func showFocusAtPoint(point:CGPoint)
+    func showFocusAtPoint(_ point:CGPoint)
     func showStopButton()
     func showHideAllButtonsButtonImage()
     func showAllButtonsButtonImage()
@@ -69,12 +69,12 @@ protocol RecordPresenterDelegate {
     func showSpaceOnDisk()
     
     func getControllerName()->String
-    func updateChronometer(time:String)
+    func updateChronometer(_ time:String)
     
-    func showRecordedVideoThumb(image: UIImage)
+    func showRecordedVideoThumb(_ image: UIImage)
     func hideRecordedVideoThumb()
     func getThumbnailSize()->CGFloat
-    func showNumberVideos(nClips:Int)
+    func showNumberVideos(_ nClips:Int)
 
     func hidePrincipalViews()
     func showPrincipalViews()
@@ -88,10 +88,10 @@ protocol RecordPresenterDelegate {
     func hideZoomView()
     func showZoomView()
     
-    func setBatteryIcon(images:BatteryIconImage)
-    func setBatteryIconPressed(image:UIImage)
+    func setBatteryIcon(_ images:BatteryIconImage)
+    func setBatteryIconPressed(_ image:UIImage)
     
-    func setAudioColor(color:UIColor)
+    func setAudioColor(_ color:UIColor)
     
     func updateBatteryValues()
     func hideBatteryView()
@@ -110,7 +110,7 @@ protocol RecordPresenterDelegate {
     func hideMicLevelView()
     func showInputGainSliderView()
     func hideInputGainSliderView()
-    func setSelectedMicButton(state:Bool)
+    func setSelectedMicButton(_ state:Bool)
     
     func showFocusView()
     func hideFocusView()
@@ -121,9 +121,9 @@ protocol RecordPresenterDelegate {
     func showExposureModesView()
     func hideExposureModesView()
     
-    func setResolutionToView(resolution:String)
-    func setResolutionIconImage(image:UIImage)
-    func setResolutionIconImagePressed(image:UIImage)
+    func setResolutionToView(_ resolution:String)
+    func setResolutionIconImage(_ image:UIImage)
+    func setResolutionIconImagePressed(_ image:UIImage)
     
 //    func enableShareButton()
 //    func disableShareButton()

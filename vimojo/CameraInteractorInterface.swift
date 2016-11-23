@@ -16,12 +16,12 @@ protocol CameraInteractorInterface {
          project:Project)
     func setResolution()
     
-    func setIsRecording(isRecording:Bool)
-    func startRecordVideo(completion:(String)->Void)
+    func setIsRecording(_ isRecording:Bool)
+    func startRecordVideo(_ completion:@escaping (String)->Void)
     func rotateCamera()
     
-    func changeBlendImage(image:UIImage)
-    func changeFilter(newFilter:GPUImageFilter)
+    func changeBlendImage(_ image:UIImage)
+    func changeFilter(_ newFilter:GPUImageFilter)
     func removeFilters()
     func removeOverlay()
     func removeShaders()
@@ -31,12 +31,12 @@ protocol CameraInteractorInterface {
 }
 
 protocol CameraInteractorDelegate {
-    func trackVideoRecorded(videoLenght:Double)
+    func trackVideoRecorded(_ videoLenght:Double)
     func flashOn()
     func flashOff()
     func cameraFront()
     func cameraRear()
-    func showFocus(center:CGPoint)
+    func showFocus(_ center:CGPoint)
     func updateThumbnail()
 }
 

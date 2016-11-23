@@ -14,19 +14,19 @@ class FlashInteractor{
     let FLASH_ON = true
     let FLASH_OFF = false
     
-    let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+    let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
     
     func switchFlashState()->Bool{
-        if (device.hasTorch) {
+        if (device?.hasTorch)! {
             do {
-                try device.lockForConfiguration()
-                if (device.torchMode == AVCaptureTorchMode.On) {
+                try device?.lockForConfiguration()
+                if (device?.torchMode == AVCaptureTorchMode.on) {
                     
-                    device.torchMode = AVCaptureTorchMode.Off
+                    device?.torchMode = AVCaptureTorchMode.off
                     return FLASH_OFF
                 } else {
                     
-                    try device.setTorchModeOnWithLevel(1.0)
+                    try device?.setTorchModeOnWithLevel(1.0)
                     return FLASH_ON
                 }
             } catch {
@@ -39,7 +39,7 @@ class FlashInteractor{
     }
     
     func isFlashTurnOn()->Bool{
-        return device.torchMode == .On
+        return device!.torchMode == .on
     }
     
     func turnOffWhenViewWillDissappear(){

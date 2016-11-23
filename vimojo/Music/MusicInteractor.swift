@@ -18,9 +18,9 @@ class MusicInteractor: MusicInteractorInterface {
     
     func getVideoComposition() {
         if project != nil{
-            actualComposition = GetActualProjectAVCompositionUseCase().getComposition(project!)
+            actualComposition = GetActualProjectAVCompositionUseCase().getComposition(project: project!)
             if actualComposition != nil {
-                let layer = GetActualProjectTextCALayerAnimationUseCase().getCALayerAnimation(project!)
+                let layer = GetActualProjectTextCALayerAnimationUseCase().getCALayerAnimation(project: project!)
                 actualComposition?.layerAnimation = layer
                 delegate?.setVideoComposition(actualComposition!)
             }

@@ -19,11 +19,11 @@ class DetailTextController: ViMoJoController,DetailTextInterface {
         }
     }
     
-    @IBAction func pushBack(sender: AnyObject) {
+    @IBAction func pushBack(_ sender: AnyObject) {
         eventHandler?.pushBack()
     }
     
-    func setTextToTextView(text: String) {
+    func setTextToTextView(_ text: String) {
         detailTextFiled.text = text
     }
     

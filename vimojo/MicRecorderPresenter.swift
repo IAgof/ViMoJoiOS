@@ -32,11 +32,11 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
     var audioVolume:Float = 1.0
     
     enum MicViewShowed {
-        case MicRecord
-        case AudioMix
+        case micRecord
+        case audioMix
     }
     
-    var viewShowing:MicViewShowed = .MicRecord
+    var viewShowing:MicViewShowed = .micRecord
     
     //MARK: - Constants
     let NO_MUSIC_SELECTED = -1
@@ -97,10 +97,10 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
     
     func cancelConfirmed() {
         switch viewShowing {
-        case .MicRecord:
+        case .micRecord:
             cancelMicRecord()
             break
-        case .AudioMix:
+        case .audioMix:
             cancelMixAudio()
             break
         }
@@ -142,7 +142,7 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
         interactor?.stopRecordMic()
         
         delegate?.showMixAudioView()
-        viewShowing = .AudioMix
+        viewShowing = .audioMix
         
         interactor?.getActualAudioRecorded()
         
@@ -176,7 +176,7 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
         delegate?.setMicRecorderButtonEnabled(true)
     }
     
-    func updateActualTime(time: Float) {
+    func updateActualTime(_ time: Float) {
         recordMicViewActualTime = Double(time) * recordMicViewTotalTime
         if time != 1.0 {
             delegate?.updateRecordMicActualTime("\(hourToString(recordMicViewActualTime))")
@@ -186,9 +186,9 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
         }
     }
     
-    func hourToString(time:Double) -> String {
-        let mins = Int(floor(time % 3600) / 60)
-        let secs = Int(floor(time % 3600) % 60)
+    func hourToString(_ time:Double) -> String {
+        let mins = Int(floor(time.truncatingRemainder(dividingBy: 3600)) / 60)
+        let secs = Int(floor(time.truncatingRemainder(dividingBy: 3600)).truncatingRemainder(dividingBy: 60))
         
         return String(format:"%02d:%02d", mins, secs)
     }
@@ -201,7 +201,7 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
     
     func cancelMixAudio() {
         delegate?.hideMixAudioView()
-        viewShowing = .MicRecord
+        viewShowing = .micRecord
         
         delegate?.removeAudioPlayer()
         
@@ -224,7 +224,7 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
         delegate?.pauseAudioPlayer()
     }
     
-    func videoPlayerSeeksTo(value: Float) {
+    func videoPlayerSeeksTo(_ value: Float) {
         delegate?.seekAudioPlayerTo(value)
         
         if isPlayingMedia{
@@ -232,7 +232,7 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
         }
     }
     
-    func mixVolumeUpdate(value: Float) {
+    func mixVolumeUpdate(_ value: Float) {
         videoVolume = 2 * value
         if videoVolume >= 1 {
             videoVolume = 1
@@ -252,17 +252,17 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
     }
     
     //MARK: - Interactor delegate
-    func setVideoComposition(composition: VideoComposition) {
+    func setVideoComposition(_ composition: VideoComposition) {
         playerPresenter?.createVideoPlayer(composition)
     }
     
-    func setMicRecorderValues(value: MicRecorderViewModel) {
+    func setMicRecorderValues(_ value: MicRecorderViewModel) {
         recordMicViewTotalTime = value.sliderRange
         
         delegate?.showMicRecordView(value)
     }
     
-    func setActualAudioRecorded(url: NSURL) {
+    func setActualAudioRecorded(_ url: URL) {
         delegate?.createAudioPlayer(url)
     }
 }

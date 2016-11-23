@@ -26,7 +26,7 @@ class EditingRoomWireframe : NSObject {
     weak var currentViewController: UIViewController?
     var prevController:UIViewController?
 
-    func presentEditingRoomInterfaceFromWindow(window: UIWindow) {
+    func presentEditingRoomInterfaceFromWindow(_ window: UIWindow) {
         let viewController = EditingRoomViewControllerFromStoryboard()
         
         viewController.eventHandler = editingRoomPresenter
@@ -37,39 +37,39 @@ class EditingRoomWireframe : NSObject {
     }
     
     func setEditingRoomViewControllerAsRootController() {
-        let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let appdelegate = UIApplication.shared.delegate as! AppDelegate
         let homeViewController =  EditingRoomViewControllerFromStoryboard()
         let nav = UINavigationController(rootViewController: homeViewController)
         appdelegate.window!.rootViewController = nav
     }
     
-    func presentEditingRoomInterfaceFromViewController(prevController:UIViewController) {
+    func presentEditingRoomInterfaceFromViewController(_ prevController:UIViewController) {
         let viewController = EditingRoomViewControllerFromStoryboard()
 
         self.prevController = prevController
 
-        prevController.presentViewController(viewController, animated: true, completion: nil)
+        prevController.present(viewController, animated: true, completion: nil)
     }
     
-    func presentEditingRoomFromViewControllerAndExportVideo(prevController:UIViewController){
+    func presentEditingRoomFromViewControllerAndExportVideo(_ prevController:UIViewController){
         let viewController = EditingRoomViewControllerFromStoryboard()
         
         self.prevController = prevController
         
-        prevController.presentViewController(viewController, animated: true, completion: {
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        prevController.present(viewController, animated: true, completion: {
+            DispatchQueue.main.async(execute: { () -> Void in
                 self.editingRoomViewController?.eventHandler?.pushShare()
             })
         })
     }
     
-    func presentEditingRoomFromViewControllerShowGallery(prevController:UIViewController){
+    func presentEditingRoomFromViewControllerShowGallery(_ prevController:UIViewController){
         let viewController = EditingRoomViewControllerFromStoryboard()
         
         self.prevController = prevController
         
-        prevController.presentViewController(viewController, animated: true, completion: {
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        prevController.present(viewController, animated: true, completion: {
+            DispatchQueue.main.async(execute: { () -> Void in
                 self.editorWireframe?.editorPresenter?.pushAddVideoHandler()
             })
         })
@@ -77,7 +77,7 @@ class EditingRoomWireframe : NSObject {
     
     func EditingRoomViewControllerFromStoryboard() -> EditingRoomViewController {
         let storyboard = mainStoryboard()
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(EditingRoomViewControllerIdentifier) as! EditingRoomViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: EditingRoomViewControllerIdentifier) as! EditingRoomViewController
         
         viewController.eventHandler = editingRoomPresenter
         editingRoomViewController = viewController
@@ -87,17 +87,17 @@ class EditingRoomWireframe : NSObject {
     }
     
     func mainStoryboard() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Editor", bundle: NSBundle.mainBundle())
+        let storyboard = UIStoryboard(name: "Editor", bundle: Bundle.main)
         return storyboard
     }
     
     func goPrevController(){
-            self.editingRoomViewController?.dismissViewControllerAnimated(true, completion: nil)
+            self.editingRoomViewController?.dismiss(animated: true, completion: nil)
     }
     
-    func goBackToEditingRoomView(prevController:UIViewController){
+    func goBackToEditingRoomView(_ prevController:UIViewController){
 
-        prevController.navigationController?.popToRootViewControllerAnimated(true)
+        prevController.navigationController?.popToRootViewController(animated: true)
     }
     
     func showEditorInContainer(){
@@ -111,7 +111,7 @@ class EditingRoomWireframe : NSObject {
         self.presentChildController(controller!)
     }
     
-    func showShareInContainer(exportPath:String,
+    func showShareInContainer(_ exportPath:String,
                               numberOfClips:Int){
         let controller = shareWireframe?.shareViewControllerFromStoryboard()
             controller?.exportPath = exportPath
@@ -120,7 +120,7 @@ class EditingRoomWireframe : NSObject {
         self.presentChildController(controller!)
     }
     
-    func presentChildController(controller:UIViewController){
+    func presentChildController(_ controller:UIViewController){
         
         controller.view.translatesAutoresizingMaskIntoConstraints = false
        
@@ -137,34 +137,34 @@ class EditingRoomWireframe : NSObject {
         }
     }
     
-    func cycleFromViewController(oldViewController: UIViewController,
+    func cycleFromViewController(_ oldViewController: UIViewController,
                                  toViewController newViewController: UIViewController) {
-        oldViewController.willMoveToParentViewController(nil)
+        oldViewController.willMove(toParentViewController: nil)
         editingRoomViewController!.addChildViewController(newViewController)
         self.addSubview(newViewController.view, toView:editingRoomViewController!.containerView!)
         newViewController.view.alpha = 0
         newViewController.view.layoutIfNeeded()
-        UIView.animateWithDuration(0.5, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             newViewController.view.alpha = 1
             oldViewController.view.alpha = 0
             },
                                    completion: { finished in
                                     oldViewController.view.removeFromSuperview()
                                     oldViewController.removeFromParentViewController()
-                                    newViewController.didMoveToParentViewController(self.editingRoomViewController!)
+                                    newViewController.didMove(toParentViewController: self.editingRoomViewController!)
         })
     }
     
-    func addSubview(subView:UIView,
+    func addSubview(_ subView:UIView,
                     toView parentView:UIView) {
         
         parentView.addSubview(subView)
         
         var viewBindingsDict = [String: AnyObject]()
         viewBindingsDict["subView"] = subView
-        parentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[subView]|",
+        parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[subView]|",
             options: [], metrics: nil, views: viewBindingsDict))
-        parentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[subView]|",
+        parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[subView]|",
             options: [], metrics: nil, views: viewBindingsDict))
     }
     

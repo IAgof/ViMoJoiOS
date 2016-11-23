@@ -15,11 +15,11 @@ protocol MusicListPresenterInterface {
     func viewDidAppear()
    
     func pushBackButton()
-    func didSelectMusicAtIndexPath(indexPath:NSIndexPath)
+    func didSelectMusicAtIndexPath(_ indexPath:IndexPath)
     func cancelDetailButtonPushed()
     func acceptDetailButtonPushed()
     func removeDetailButtonPushed()
-    func setMusicDetailInterface(eventHandler:MusicDetailInterface)
+    func setMusicDetailInterface(_ eventHandler:MusicDetailInterface)
 
     func getMusicList()
     func updatePlayerLayer()
@@ -27,12 +27,12 @@ protocol MusicListPresenterInterface {
 }
 
 protocol MusicListPresenterDelegate {
-    func setMusicList(list:[MusicViewModel])
+    func setMusicList(_ list:[MusicViewModel])
     
     func showTableView()
     func hideTableView()
     
-    func showDetailView(title:String,
+    func showDetailView(_ title:String,
                         author:String,
                         image:UIImage)
     func hideDetailView()

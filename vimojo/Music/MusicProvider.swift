@@ -12,7 +12,7 @@ import VideonaProject
 class MusicProvider: NSObject {
     static let sharedInstance = MusicProvider()
     
-    private var localMusic = Array<Music>()
+    fileprivate var localMusic = Array<Music>()
     
     func retrieveLocalMusic() -> Array<Music>{
         if (localMusic.count == 0){

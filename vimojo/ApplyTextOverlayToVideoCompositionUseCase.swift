@@ -18,16 +18,16 @@ class ApplyTextOverlayToVideoCompositionUseCase:NSObject {
         self.project = project
     }
         
-    func applyVideoOverlayAnimation(composition:AVMutableVideoComposition,
+    func applyVideoOverlayAnimation(_ composition:AVMutableVideoComposition,
                                     mutableComposition:AVMutableComposition,
                                     size:CGSize){
         
         print("vodeo size: \(size)")
-        let videoFrame = CGRectMake(0, 0, size.width, size.height)
+        let videoFrame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         let videoLayer = CALayer()
         videoLayer.frame = videoFrame
         videoLayer.masksToBounds = true
-        videoLayer.contentsScale = UIScreen.mainScreen().scale
+        videoLayer.contentsScale = UIScreen.main.scale
         
         let layers = generateTextLayers(videoFrame)
         
@@ -39,10 +39,10 @@ class ApplyTextOverlayToVideoCompositionUseCase:NSObject {
             parentLayer.addSublayer(layer)
         }
         
-        composition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, inLayer: parentLayer)
+        composition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, in: parentLayer)
     }
     
-    func generateTextLayers(overlayFrame:CGRect)->[CALayer]{
+    func generateTextLayers(_ overlayFrame:CGRect)->[CALayer]{
         var layers :[CALayer] = []
         
         var timeToInsertAnimate = 0.0
@@ -53,13 +53,13 @@ class ApplyTextOverlayToVideoCompositionUseCase:NSObject {
                 print("Not valid position")
                 return []}
             
-            let image = GetImageByTextUseCase().getTextImage(video.textToVideo,
-                                                             attributes:CATextLayerAttributes().getAlignmentAttributesByType(textPosition))
+            let image = GetImageByTextUseCase().getTextImage(text: video.textToVideo,
+                                                             attributes:CATextLayerAttributes().getAlignmentAttributesByType(type: textPosition))
 
             let textImageLayer = CALayer()
-            textImageLayer.contents = image.CGImage
+            textImageLayer.contents = image.cgImage
             textImageLayer.frame = overlayFrame
-            textImageLayer.contentsScale = UIScreen.mainScreen().scale
+            textImageLayer.contentsScale = UIScreen.main.scale
             textImageLayer.opacity = 0.0
             
             addAnimationToLayer(textImageLayer,
@@ -74,17 +74,17 @@ class ApplyTextOverlayToVideoCompositionUseCase:NSObject {
         return layers
     }
     
-    func addAnimationToLayer(overlay:CALayer,
+    func addAnimationToLayer(_ overlay:CALayer,
                              timeAt:Double,
                              duration:Double){
         //Animacion de entrada
         let animationEntrada = CAKeyframeAnimation(keyPath:"opacity")
         animationEntrada.beginTime = AVCoreAnimationBeginTimeAtZero + timeAt
         animationEntrada.duration = duration
-        animationEntrada.keyTimes = [0, 1/100.0, 99/100.0, 1]
+        animationEntrada.keyTimes = [0, 0.01, 0.99, 1]
         animationEntrada.values = [0.0, 1.0, 1.0, 0.0]
-        animationEntrada.removedOnCompletion = false
+        animationEntrada.isRemovedOnCompletion = false
         animationEntrada.fillMode = kCAFillModeForwards
-        overlay.addAnimation(animationEntrada, forKey:"animateOpacity")
+        overlay.add(animationEntrada, forKey:"animateOpacity")
     }
 }
