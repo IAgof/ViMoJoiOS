@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 import VideonaPlayer
 import GoogleSignIn
+import VideonaProject
 
 class ShareViewController: ViMoJoController,PlayerViewSetter,
 UINavigationBarDelegate ,
@@ -128,7 +129,7 @@ UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let height = displayShareObjects[indexPath.item].icon.size.height
-        Utils.sharedInstance.debugLog("Height for social = \(height)")
+        Utils().debugLog("Height for social = \(height)")
         if UIDevice.current.userInterfaceIdiom == .pad
         {
             return CGFloat(90)

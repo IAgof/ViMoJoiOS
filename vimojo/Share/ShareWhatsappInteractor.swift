@@ -8,6 +8,7 @@
 
 import Foundation
 import Social
+import VideonaProject
 
 class ShareWhatsappInteractor: ShareActionInterface {
     var delegate:ShareActionDelegate

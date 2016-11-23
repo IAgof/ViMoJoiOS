@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import VideonaProject
 
 class SettingsPresenter:NSObject,SettingsPresenterInterface{
     

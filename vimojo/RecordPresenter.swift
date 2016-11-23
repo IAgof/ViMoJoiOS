@@ -8,6 +8,8 @@
 
 import Foundation
 import GPUImage
+import VideonaProject
+
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
@@ -459,7 +461,7 @@ class RecordPresenter: NSObject
             
             self.cameraInteractor?.startRecordVideo({answer in
                 print("Record Presenter \(answer)")
-                Utils.sharedInstance.delay(1, closure: {
+                Utils().delay(1, closure: {
                     self.delegate?.recordButtonEnable(true)
                 })
             })

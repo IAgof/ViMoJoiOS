@@ -39,7 +39,7 @@ class GetCompositionForVideoWorker: NSObject{
                                            of: videoAsset.tracks(withMediaType: AVMediaTypeAudio)[0] ,
                                            at: kCMTimeZero)
         } catch _ {
-            Utils.sharedInstance.debugLog("Error trying to create videoTrack")
+            Utils().debugLog("Error trying to create videoTrack")
         }
         
         let videonaComposition = VideoComposition(mutableComposition: mixComposition)

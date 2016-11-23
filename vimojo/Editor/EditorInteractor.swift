@@ -52,7 +52,7 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         for video in self.videosList{
 
             ThumbnailListInteractor(videoURL: video.videoURL,
-                diameter: Utils.sharedInstance.thumbnailEditorListDiameter).getThumbnailImage({
+                diameter: Utils().thumbnailEditorListDiameter).getThumbnailImage({
                     thumb in
                     
                     let timeToString = self.hourToString(video.getStopTime() - video.getStartTime())

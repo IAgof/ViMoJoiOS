@@ -24,13 +24,13 @@ class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDel
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var acceptButton: UIButton!
-    
+    @IBOutlet weak var expandPlayerButton: UIButton!
+
     @IBOutlet weak var splitYourClipLabel: UILabel!
     @IBOutlet weak var timeToCutLabel: UILabel!
     
     @IBOutlet weak var splitRangeSlider: NMRangeSlider!
 
-    @IBOutlet weak var expandPlayerButton: UIButton!
 
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -81,7 +81,7 @@ class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDel
         splitRangeSlider.lowerHandleHidden = true
         splitRangeSlider.upperValue = splitValue
         
-        Utils.sharedInstance.debugLog("maximum value\(splitRangeSlider.maximumValue) \n upper value\(splitRangeSlider.upperValue)")
+        Utils().debugLog("maximum value\(splitRangeSlider.maximumValue) \n upper value\(splitRangeSlider.upperValue)")
     }
     
     func configureUIRangeSlider(){

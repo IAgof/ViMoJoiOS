@@ -38,7 +38,7 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
         let audioSession = AVAudioSession.sharedInstance()
         do {
             try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            audioStringPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "/audio\(Utils.sharedInstance.giveMeTimeNow()).m4a"
+            audioStringPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "/audio\(Utils().giveMeTimeNow()).m4a"
             guard let audioURLPath = URL(string: audioStringPath!) else{return}
             
             try audioRecorder = AVAudioRecorder(url: audioURLPath,

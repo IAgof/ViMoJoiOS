@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import VideonaProject
 
 class SettingsFTPBreakignNewsPasswordAction: SettingsActionInterface {
     let defaults = UserDefaults.standard

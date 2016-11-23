@@ -20,6 +20,7 @@ import ExpositionModes
 import ZoomCameraSlider
 import ResolutionSelector
 import InputSoundGainControl
+import VideonaProject
 
 class RecordController: ViMoJoController,UINavigationControllerDelegate{
     //MARK: - Variables VIPER
@@ -144,7 +145,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     }
     
     func thumbnailTapped(){
-        Utils.sharedInstance.debugLog("Thumbnail has tapped")
+        Utils().debugLog("Thumbnail has tapped")
         
         eventHandler?.thumbnailHasTapped()
     }
@@ -545,7 +546,7 @@ extension RecordController:RecordPresenterDelegate {
         focusImageView.center = point
         focusImageView.isHidden = false
         
-        Utils.sharedInstance.delay(0.5, closure: {
+        Utils().delay(0.5, closure: {
             self.focusImageView.isHidden = true
         })
     }

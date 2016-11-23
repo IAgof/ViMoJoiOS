@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import VideonaProject
 
 class EditingRoomViewController: ViMoJoController,EditingRoomViewInterface,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     //MARK: - Variables VIPER

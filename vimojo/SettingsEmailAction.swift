@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import VideonaProject
 
 class SettingsEmailAction: SettingsActionInterface {
     let defaults = UserDefaults.standard

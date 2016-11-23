@@ -94,12 +94,17 @@ class ClipsAlbum: NSObject {
                     if let localIdentifier = self.savedLocalIdentifier{
                         self.setVideoUrlParameters(localIdentifier,
                             project: project)
+                        Utils().removeFileFromURL(clipPath)
                         completion(true)
                     }
                 }else{
                     completion(false)
                 }
         })
+    }
+    
+    func removeVideoFromDocuments(_ clipPath:URL){
+        
     }
     
     func setVideoUrlParameters(_ localIdentifier:String,

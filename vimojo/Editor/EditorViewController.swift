@@ -10,6 +10,7 @@ import Foundation
 import MobileCoreServices
 import VideonaPlayer
 import VideonaRangeSlider
+import VideonaProject
 
 class EditorViewController: ViMoJoController,EditorPresenterDelegate,FullScreenWireframeDelegate,
 UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UINavigationControllerDelegate{
@@ -93,7 +94,7 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
                         layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAt indexPath: IndexPath) -> CGSize {
        
-        let size = Utils.sharedInstance.thumbnailEditorListDiameter
+        let size = Utils().thumbnailEditorListDiameter
         
         return CGSize(width: size,
                       height: size)
@@ -112,7 +113,7 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
                                             to destinationIndexPath: IndexPath) {
         // move your data order
         
-        //        Utils.sharedInstance.debugLog("Move item at index \n sourceIndexPath: \(sourceIndexPath.item) \n destinationIndexPath \(destinationIndexPath.item)")
+        //        Utils().debugLog("Move item at index \n sourceIndexPath: \(sourceIndexPath.item) \n destinationIndexPath \(destinationIndexPath.item)")
         
         eventHandler?.moveItemAtIndexPath(sourceIndexPath,
                                           toIndexPath: destinationIndexPath)

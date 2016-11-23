@@ -8,6 +8,7 @@
 
 import Foundation
 import AVFoundation
+import VideonaProject
 
 class SettingsProvider:NSObject{
     func getSettings(_ delegate:SettingsActionDelegate)->[[SettingsContent]]{

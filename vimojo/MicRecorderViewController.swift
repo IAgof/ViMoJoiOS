@@ -68,7 +68,7 @@ class MicRecorderViewController: ViMoJoController,MicRecorderPresenterDelegate,P
         micRecorderView?.setLowValueLabelString(micRecorderViewModel.lowValue)
         micRecorderView?.setHighValueLabelString(micRecorderViewModel.highValue)
         micRecorderView?.setActualValueLabelString(micRecorderViewModel.actualValue)
-        micRecorderView?.configureRangeSlider()
+        micRecorderView?.configureRangeSlider(Float(micRecorderViewModel.sliderRange))
     }
     
     func hideMicRecordView() {

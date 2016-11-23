@@ -8,6 +8,7 @@
 
 import Foundation
 import AVFoundation
+import VideonaProject
 
 class ShareFacebookInteractor:NSObject, ShareActionInterface{
     var delegate:ShareActionDelegate

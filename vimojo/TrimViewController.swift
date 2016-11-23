@@ -84,8 +84,8 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
         trimRangeSlider.upperValue = upperValue
         trimRangeSlider.lowerValue = lowerValue
         
-        Utils.sharedInstance.debugLog("maximum value\(trimRangeSlider.maximumValue) \n upper value\(trimRangeSlider.upperValue)")
-        Utils.sharedInstance.debugLog("maximum value\(trimRangeSlider.minimumValue) \nlower value\(trimRangeSlider.lowerValue)")
+        Utils().debugLog("maximum value\(trimRangeSlider.maximumValue) \n upper value\(trimRangeSlider.upperValue)")
+        Utils().debugLog("maximum value\(trimRangeSlider.minimumValue) \nlower value\(trimRangeSlider.lowerValue)")
     }
     
     func configureUIRangeSlider(){

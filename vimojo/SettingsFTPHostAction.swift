@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import VideonaProject
 class SettingsFTPHostAction: SettingsActionInterface {
     let defaults = UserDefaults.standard
     var delegate: SettingsActionDelegate

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import VideonaProject
 
 class SettingsFTPPasswordAction: SettingsActionInterface {
     let defaults = UserDefaults.standard

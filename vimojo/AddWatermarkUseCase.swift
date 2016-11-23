@@ -9,6 +9,7 @@
 import Foundation
 import AVFoundation
 import AssetsLibrary
+import VideonaProject
 
 class AddWatermarkUseCase: NSObject {
     enum QUWatermarkPosition {

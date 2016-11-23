@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import VideonaProject
 
 class SettingsFTPEditedDestination: SettingsActionInterface {
     let defaults = UserDefaults.standard

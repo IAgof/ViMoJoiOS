@@ -8,6 +8,7 @@
 
 import Foundation
 import Photos
+import VideonaProject
 
 class ShareInstagramInteractor:ShareActionInterface{
     var delegate:ShareActionDelegate

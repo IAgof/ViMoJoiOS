@@ -9,6 +9,7 @@
 import Foundation
 import Accounts
 import AVFoundation
+import VideonaProject
 
 class ShareTwitterInteractor: ShareActionInterface {
     var delegate:ShareActionDelegate

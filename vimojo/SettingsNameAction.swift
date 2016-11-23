@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import VideonaProject
 
 class SettingsNameAction: SettingsActionInterface {
     let defaults = UserDefaults.standard

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import AVFoundation
+import VideonaProject
 
 protocol ThumbnailDelegate {
     func setThumbToView(_ image:UIImage)
@@ -39,7 +40,7 @@ class ThumbnailInteractor: NSObject {
             thumbnailImage = self.resizeImage(thumbnailImage, newWidth: diameter)
             delegate?.setThumbToView(thumbnailImage)
         } catch {
-            Utils.sharedInstance.debugLog("Thumbnail error \nSomething went wrong!")
+            Utils().debugLog("Thumbnail error \nSomething went wrong!")
             
             if let image = UIImage(named: "black_image") {
                 thumbnailImage = image

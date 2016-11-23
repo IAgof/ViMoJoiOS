@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import NMRangeSlider
+import VideonaProject
 
 protocol MicRecorderViewDelegate {
     func micRecorderLongPressStart()
@@ -23,7 +24,7 @@ protocol MicRecorderViewInterface {
     func setLowValueLabelString(_ text:String)
     func setHighValueLabelString(_ text:String)
     func setActualValueLabelString(_ text:String)
-    func configureRangeSlider()
+    func configureRangeSlider(_ maximumValue:Float)
     func updateSliderTo(_ value:Float)
     func removeView()
     func showButtons()
@@ -122,17 +123,17 @@ class MicRecorderView: UIView,MicRecorderViewInterface{
         highValueLabel.text = text
     }
     
-    func configureRangeSlider() {
+    func configureRangeSlider(_ maximumValue:Float) {
         
         self.configureUIRangeSlider()
         
-        totalRecordedSlider.maximumValue = 1.0
+        totalRecordedSlider.maximumValue = maximumValue
         totalRecordedSlider.minimumValue = 0.0
         
         totalRecordedSlider.lowerHandleHidden = true
         totalRecordedSlider.upperValue = 0.0
         
-        Utils.sharedInstance.debugLog("maximum value\(totalRecordedSlider.maximumValue) \n upper value\(totalRecordedSlider.upperValue)")
+        Utils().debugLog("maximum value\(totalRecordedSlider.maximumValue) \n upper value\(totalRecordedSlider.upperValue)")
     }
     
     func removeView() {

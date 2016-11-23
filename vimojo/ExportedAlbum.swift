@@ -8,6 +8,7 @@
 
 import Foundation
 import Photos
+import VideonaProject
 
 class ExportedAlbum: NSObject {
     static let albumName = "ViMoJo Export"
@@ -80,6 +81,12 @@ class ExportedAlbum: NSObject {
             let albumChangeRequest = PHAssetCollectionChangeRequest(for: self.assetCollection)
             let enumeration: NSArray = [assetPlaceHolder!]
             albumChangeRequest!.addAssets(enumeration)
-            }, completionHandler: nil)
+        }, completionHandler: {
+            saved, error in
+            
+            if saved{
+                    Utils().removeFileFromURL(clipPath)
+            }
+        })
     }
 }

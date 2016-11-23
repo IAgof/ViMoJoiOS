@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import VideonaProject
 
 class SettingsFTPBreakingNewsUneditedDestination: SettingsActionInterface {
     let defaults = UserDefaults.standard

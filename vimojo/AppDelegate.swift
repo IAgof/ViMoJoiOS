@@ -12,6 +12,7 @@ import GoogleSignIn
 import AVFoundation
 import Fabric
 import Crashlytics
+import VideonaProject
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
