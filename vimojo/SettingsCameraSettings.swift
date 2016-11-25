@@ -12,6 +12,7 @@ import AVFoundation
 struct cameraSettings {
     var resolution:String
     var quality:String
+    var frameRate:Int
     
     init(){
         let defaults = UserDefaults.standard
@@ -26,10 +27,19 @@ struct cameraSettings {
         }
         
         let qualitySaved = defaults.string(forKey: SettingsConstants().SETTINGS_QUALITY)
+        
         if (qualitySaved != nil){
             quality = qualitySaved!
         }else{
             quality = ""
         }
+        
+        var frameRateSaved = defaults.integer(forKey: SettingsConstants().SETTINGS_FRAMERATE)
+        
+        if(frameRateSaved == 0){
+            frameRateSaved = 30
+        }
+        
+        frameRate = frameRateSaved
     }
 }

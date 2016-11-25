@@ -1,0 +1,29 @@
+//
+//  VideoToRealmVideoMapper.swift
+//  vimojo
+//
+//  Created by Alejandro Arjonilla Garcia on 24/11/16.
+//  Copyright © 2016 Videona. All rights reserved.
+//
+
+import Foundation
+import VideonaProject
+
+public class VideoToRealmVideoMapper:Mapper{
+    public typealias From = Video
+    public typealias To = RealmVideo
+    
+    public func map(from: Video) -> RealmVideo {
+        let realmVideo = RealmVideo()
+        realmVideo.title = from.getTitle()
+        realmVideo.mediaPath = from.getMediaPath()
+        realmVideo.position = from.getPosition()
+        realmVideo.startTime = from.getStartTime()
+        realmVideo.stopTime = from.getStopTime()
+        realmVideo.uuid = from.uuid
+        realmVideo.clipTextPosition = from.textPositionToVideo
+        realmVideo.clipText = from.textToVideo
+        
+        return realmVideo
+    }
+}

@@ -62,6 +62,7 @@ class SettingsConstants: NSObject {
     
     let SETTINGS_RESOLUTION = "settingsResolution"
     let SETTINGS_QUALITY = "settingsQuality"
+    let SETTINGS_FRAMERATE = "settingsFrameRate"
     
     let SETTINGS_HOST_FTP = "settingHostFTP"
     let SETTINGS_USERNAME_FTP = "settingsUsernameFTP"

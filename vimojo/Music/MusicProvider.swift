@@ -65,4 +65,13 @@ class MusicProvider: NSObject {
 //            iconResourceId: "imagebutton_music_background_classic",
 //            musicResourceId: "audio_clasica_piano"))
     }
+    
+    func getMusicByTitle(title:String)->Music?{
+        for music in localMusic{
+            if music.getTitle() == title{
+                return music
+            }
+        }
+        return nil
+    }
 }

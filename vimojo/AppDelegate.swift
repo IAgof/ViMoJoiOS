@@ -17,8 +17,6 @@ import VideonaProject
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
 
-
-
     var window: UIWindow?
     let appDependencies = AppDependencies()
     var initState = "firstTime"

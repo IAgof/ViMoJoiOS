@@ -103,6 +103,9 @@
 		A93BCE761D7D92C300421BD0 /* filter_free.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE751D7D92C300421BD0 /* filter_free.png */; };
 		A93BCE781D7D93B700421BD0 /* water_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE771D7D93B700421BD0 /* water_mark.png */; };
 		A94E11F61D941C84004A0E96 /* ResolutionsImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E11F51D941C84004A0E96 /* ResolutionsImages.swift */; };
+		A95078CC1DE5F1E100FD250B /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95078CB1DE5F1E100FD250B /* Repository.swift */; };
+		A95078CE1DE5F35100FD250B /* Specification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95078CD1DE5F35100FD250B /* Specification.swift */; };
+		A95078D01DE5F38800FD250B /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95078CF1DE5F38800FD250B /* Mapper.swift */; };
 		A955D6341D9A88EB00604567 /* AddWatermarkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A955D6331D9A88EB00604567 /* AddWatermarkUseCase.swift */; };
 		A95BE9811D990A4A00602DCD /* SettingsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9741D990A4A00602DCD /* SettingsContent.swift */; };
 		A95BE9821D990A4A00602DCD /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9751D990A4A00602DCD /* SettingsInteractor.swift */; };
@@ -424,6 +427,18 @@
 		A9CFA5E61D991DBE0037B1F5 /* VideonaFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CFA5E51D991DBE0037B1F5 /* VideonaFooterView.xib */; };
 		A9E611711DCB6D8600F221AB /* SaveVideosFromGalleryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E611701DCB6D8600F221AB /* SaveVideosFromGalleryInteractor.swift */; };
 		A9E611761DCB6DCE00F221AB /* SaveVideosFromGalleryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E611751DCB6DCE00F221AB /* SaveVideosFromGalleryInterface.swift */; };
+		A9E90D521DE7067F002B9DA3 /* ProjectRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D511DE7067F002B9DA3 /* ProjectRepository.swift */; };
+		A9E90D581DE7070E002B9DA3 /* RealmProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D571DE7070E002B9DA3 /* RealmProject.swift */; };
+		A9E90D611DE70BFE002B9DA3 /* ProjectToRealmProjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D601DE70BFE002B9DA3 /* ProjectToRealmProjectMapper.swift */; };
+		A9E90D631DE70FB2002B9DA3 /* RealmVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D621DE70FB2002B9DA3 /* RealmVideo.swift */; };
+		A9E90D671DE71E45002B9DA3 /* RealmProjectToProjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D661DE71E45002B9DA3 /* RealmProjectToProjectMapper.swift */; };
+		A9E90D6C1DE72662002B9DA3 /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D6B1DE72662002B9DA3 /* ProfileRepository.swift */; };
+		A9E90D6E1DE726A2002B9DA3 /* ProfileSharedPreferencesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D6D1DE726A2002B9DA3 /* ProfileSharedPreferencesRepository.swift */; };
+		A9E90D701DE729A1002B9DA3 /* ProjectRealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D6F1DE729A1002B9DA3 /* ProjectRealmRepository.swift */; };
+		A9E90D801DE7425A002B9DA3 /* RealmVideoToVideoMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D7F1DE7425A002B9DA3 /* RealmVideoToVideoMapper.swift */; };
+		A9E90D821DE7426C002B9DA3 /* VideoToRealmVideoMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D811DE7426C002B9DA3 /* VideoToRealmVideoMapper.swift */; };
+		A9E90D841DE7427B002B9DA3 /* VideoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D831DE7427B002B9DA3 /* VideoRepository.swift */; };
+		A9E90D861DE74289002B9DA3 /* VideoRealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D851DE74289002B9DA3 /* VideoRealmRepository.swift */; };
 		A9ED00501D9178CB00969F31 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED004F1D9178CB00969F31 /* Alamofire.framework */; };
 		A9ED005A1D917B7200969F31 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00571D917B7200969F31 /* FBSDKCoreKit.framework */; };
 		A9ED005B1D917B7200969F31 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00581D917B7200969F31 /* FBSDKLoginKit.framework */; };
@@ -670,6 +685,9 @@
 		A93BCE751D7D92C300421BD0 /* filter_free.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filter_free.png; sourceTree = "<group>"; };
 		A93BCE771D7D93B700421BD0 /* water_mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water_mark.png; sourceTree = "<group>"; };
 		A94E11F51D941C84004A0E96 /* ResolutionsImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResolutionsImages.swift; sourceTree = "<group>"; };
+		A95078CB1DE5F1E100FD250B /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		A95078CD1DE5F35100FD250B /* Specification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Specification.swift; sourceTree = "<group>"; };
+		A95078CF1DE5F38800FD250B /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 		A955D6331D9A88EB00604567 /* AddWatermarkUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWatermarkUseCase.swift; sourceTree = "<group>"; };
 		A95BE9741D990A4A00602DCD /* SettingsContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsContent.swift; path = Settings/SettingsContent.swift; sourceTree = "<group>"; };
 		A95BE9751D990A4A00602DCD /* SettingsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsInteractor.swift; path = Settings/SettingsInteractor.swift; sourceTree = "<group>"; };
@@ -789,6 +807,18 @@
 		A9CFA5E51D991DBE0037B1F5 /* VideonaFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideonaFooterView.xib; sourceTree = "<group>"; };
 		A9E611701DCB6D8600F221AB /* SaveVideosFromGalleryInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveVideosFromGalleryInteractor.swift; sourceTree = "<group>"; };
 		A9E611751DCB6DCE00F221AB /* SaveVideosFromGalleryInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveVideosFromGalleryInterface.swift; sourceTree = "<group>"; };
+		A9E90D511DE7067F002B9DA3 /* ProjectRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectRepository.swift; sourceTree = "<group>"; };
+		A9E90D571DE7070E002B9DA3 /* RealmProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmProject.swift; sourceTree = "<group>"; };
+		A9E90D601DE70BFE002B9DA3 /* ProjectToRealmProjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectToRealmProjectMapper.swift; sourceTree = "<group>"; };
+		A9E90D621DE70FB2002B9DA3 /* RealmVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmVideo.swift; sourceTree = "<group>"; };
+		A9E90D661DE71E45002B9DA3 /* RealmProjectToProjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmProjectToProjectMapper.swift; sourceTree = "<group>"; };
+		A9E90D6B1DE72662002B9DA3 /* ProfileRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
+		A9E90D6D1DE726A2002B9DA3 /* ProfileSharedPreferencesRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSharedPreferencesRepository.swift; sourceTree = "<group>"; };
+		A9E90D6F1DE729A1002B9DA3 /* ProjectRealmRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectRealmRepository.swift; sourceTree = "<group>"; };
+		A9E90D7F1DE7425A002B9DA3 /* RealmVideoToVideoMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmVideoToVideoMapper.swift; sourceTree = "<group>"; };
+		A9E90D811DE7426C002B9DA3 /* VideoToRealmVideoMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoToRealmVideoMapper.swift; sourceTree = "<group>"; };
+		A9E90D831DE7427B002B9DA3 /* VideoRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoRepository.swift; sourceTree = "<group>"; };
+		A9E90D851DE74289002B9DA3 /* VideoRealmRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoRealmRepository.swift; sourceTree = "<group>"; };
 		A9ED004F1D9178CB00969F31 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		A9ED00571D917B7200969F31 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		A9ED00581D917B7200969F31 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -1112,6 +1142,18 @@
 				A93BCE5D1D7D7A1300421BD0 /* NSLocale+ISO639_2.m */,
 			);
 			name = NSLocale;
+			sourceTree = "<group>";
+		};
+		A95078C71DE5F1CD00FD250B /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				A9E90D561DE706FF002B9DA3 /* Project */,
+				A9E90D7B1DE74232002B9DA3 /* Video */,
+				A95078CF1DE5F38800FD250B /* Mapper.swift */,
+				A95078CB1DE5F1E100FD250B /* Repository.swift */,
+				A95078CD1DE5F35100FD250B /* Specification.swift */,
+			);
+			name = Repository;
 			sourceTree = "<group>";
 		};
 		A95BE96D1D9909F100602DCD /* Settings */ = {
@@ -1460,6 +1502,7 @@
 				A988DF001DAD1DE40030E285 /* Music Mic recorder */,
 				A91760FB1D916F3F008915DA /* Music Selector */,
 				A93BCE401D7D598600421BD0 /* Recorder */,
+				A95078C71DE5F1CD00FD250B /* Repository */,
 				A95BE96D1D9909F100602DCD /* Settings */,
 				A91760F81D916F3B008915DA /* Share */,
 				A91760DC1D9147ED008915DA /* Split */,
@@ -1769,6 +1812,32 @@
 				A9E611751DCB6DCE00F221AB /* SaveVideosFromGalleryInterface.swift */,
 			);
 			name = Interactor;
+			sourceTree = "<group>";
+		};
+		A9E90D561DE706FF002B9DA3 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				A9E90D6B1DE72662002B9DA3 /* ProfileRepository.swift */,
+				A9E90D6D1DE726A2002B9DA3 /* ProfileSharedPreferencesRepository.swift */,
+				A9E90D6F1DE729A1002B9DA3 /* ProjectRealmRepository.swift */,
+				A9E90D511DE7067F002B9DA3 /* ProjectRepository.swift */,
+				A9E90D601DE70BFE002B9DA3 /* ProjectToRealmProjectMapper.swift */,
+				A9E90D571DE7070E002B9DA3 /* RealmProject.swift */,
+				A9E90D661DE71E45002B9DA3 /* RealmProjectToProjectMapper.swift */,
+			);
+			name = Project;
+			sourceTree = "<group>";
+		};
+		A9E90D7B1DE74232002B9DA3 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				A9E90D621DE70FB2002B9DA3 /* RealmVideo.swift */,
+				A9E90D7F1DE7425A002B9DA3 /* RealmVideoToVideoMapper.swift */,
+				A9E90D851DE74289002B9DA3 /* VideoRealmRepository.swift */,
+				A9E90D831DE7427B002B9DA3 /* VideoRepository.swift */,
+				A9E90D811DE7426C002B9DA3 /* VideoToRealmVideoMapper.swift */,
+			);
+			name = Video;
 			sourceTree = "<group>";
 		};
 		A9FDD8B71DAD3D4100AB0930 /* Mic mixAudio */ = {
@@ -2218,6 +2287,8 @@
 				A97F0F351DC0B77500907196 /* SettingsFTPHostAction.swift in Sources */,
 				A91761341D916F53008915DA /* MusicInteractorInterface.swift in Sources */,
 				A94E11F61D941C84004A0E96 /* ResolutionsImages.swift in Sources */,
+				A9E90D701DE729A1002B9DA3 /* ProjectRealmRepository.swift in Sources */,
+				A9E90D611DE70BFE002B9DA3 /* ProjectToRealmProjectMapper.swift in Sources */,
 				A988DF0A1DAD1E230030E285 /* MicRecorderInteractor.swift in Sources */,
 				A9B7F8E41DBE570400F24E78 /* SettingsFTP.swift in Sources */,
 				A91760DA1D9146FE008915DA /* FullScreenPlayerWireframe.swift in Sources */,
@@ -2239,6 +2310,7 @@
 				A900C7551DC35DA100A65730 /* SettingsFTPBreakingNewsUneditedDestination.swift in Sources */,
 				A95BE9951D990C4100602DCD /* DetailTextInteractor.swift in Sources */,
 				A906CCE01DB0D06B00AC8FFB /* MicRecorderConstants.swift in Sources */,
+				A9E90D861DE74289002B9DA3 /* VideoRealmRepository.swift in Sources */,
 				A97F0F2F1DC0A6B700907196 /* SettingsResolutionAction.swift in Sources */,
 				A91760B91D9146BF008915DA /* EditorClipsCell.swift in Sources */,
 				A91760BC1D9146BF008915DA /* EditorPresenter.swift in Sources */,
@@ -2281,11 +2353,13 @@
 				A95BE9861D990A4A00602DCD /* SettingsPresenterInterface.swift in Sources */,
 				A91760EC1D914840008915DA /* SplitViewController.swift in Sources */,
 				A97F0F371DC0BDF600907196 /* SettingsFTPUsernameAction.swift in Sources */,
+				A9E90D581DE7070E002B9DA3 /* RealmProject.swift in Sources */,
 				A91761351D916F53008915DA /* MusicPresenter.swift in Sources */,
 				A9A419181DB5110C00FB642E /* AddTextPresenter.swift in Sources */,
 				A91760E01D914827008915DA /* TrimViewController.swift in Sources */,
 				A9E611711DCB6D8600F221AB /* SaveVideosFromGalleryInteractor.swift in Sources */,
 				A9B3862B1D7D531B0065D3EC /* RecorderConstants.swift in Sources */,
+				A9E90D6C1DE72662002B9DA3 /* ProfileRepository.swift in Sources */,
 				A91C694B1DCB59A000AF2576 /* CustomExportedVideosGalleryViewController.swift in Sources */,
 				A91760D81D9146FE008915DA /* FullScreenPlayerPresenterInterface.swift in Sources */,
 				A91760BD1D9146BF008915DA /* EditorPresenterInterface.swift in Sources */,
@@ -2302,19 +2376,23 @@
 				A900C74B1DC358F500A65730 /* SettingsFTPBreakingNews.swift in Sources */,
 				A917611B1D916F48008915DA /* SharePresenterInterface.swift in Sources */,
 				A988DEEE1DACEF800030E285 /* MusicListInteractor.swift in Sources */,
+				A95078D01DE5F38800FD250B /* Mapper.swift in Sources */,
 				A9645EA21DC0D27D000944CB /* SettingsModel.swift in Sources */,
 				A91760E61D914835008915DA /* DuplicateInterface.swift in Sources */,
 				A91761211D916F48008915DA /* ShareYoutubeInteractor.swift in Sources */,
 				A988DEF41DACEFA40030E285 /* MusicListPresenter.swift in Sources */,
 				A91760A91D9146B5008915DA /* EditingRoomInteractorInterface.swift in Sources */,
+				A9E90D521DE7067F002B9DA3 /* ProjectRepository.swift in Sources */,
 				A9B386531D7D53D10065D3EC /* CameraRecorderInteractor.swift in Sources */,
 				A9B385EA1D7D51380065D3EC /* AppDelegate.swift in Sources */,
 				A9B386411D7D53880065D3EC /* TimerInteractor.swift in Sources */,
 				A91761141D916F48008915DA /* ShareConstants.swift in Sources */,
+				A9E90D6E1DE726A2002B9DA3 /* ProfileSharedPreferencesRepository.swift in Sources */,
 				A9A4191A1DB5110C00FB642E /* AddTextInteractor.swift in Sources */,
 				A9A1E5B61DB636DC003BF354 /* ApplyTextOverlayToVideoCompositionUseCase.swift in Sources */,
 				A93BCE4D1D7D5C7400421BD0 /* AnalitycsConstants.swift in Sources */,
 				A91760C21D9146BF008915DA /* ThumbnailListInteractor.swift in Sources */,
+				A9E90D841DE7427B002B9DA3 /* VideoRepository.swift in Sources */,
 				A91C694C1DCB59A000AF2576 /* CustomClipsGalleryViewController.swift in Sources */,
 				A91761361D916F53008915DA /* MusicPresenterInterface.swift in Sources */,
 				A9FEF9781DBF8B0A00A56611 /* SettingsActionInterface.swift in Sources */,
@@ -2325,8 +2403,10 @@
 				A9FEF97C1DBF8B3A00A56611 /* SettingsUsernameAction.swift in Sources */,
 				A9B3865F1D7D55660065D3EC /* ViMoJoController.swift in Sources */,
 				A9B386541D7D53D10065D3EC /* CameraRecorderInterface.swift in Sources */,
+				A9E90D821DE7426C002B9DA3 /* VideoToRealmVideoMapper.swift in Sources */,
 				A93BCE4C1D7D5C7400421BD0 /* ConfigPreferences.swift in Sources */,
 				A91760D71D9146FE008915DA /* FullScreenPlayerPresenter.swift in Sources */,
+				A9E90D801DE7425A002B9DA3 /* RealmVideoToVideoMapper.swift in Sources */,
 				A9B386491D7D53B20065D3EC /* ExporterInteractor.swift in Sources */,
 				A9A419191DB5110C00FB642E /* AddTextInteractorInterface.swift in Sources */,
 				A91760AB1D9146B5008915DA /* EditingRoomPresenterInterface.swift in Sources */,
@@ -2340,6 +2420,7 @@
 				A91C69521DCB59D200AF2576 /* GalleryWireframe.swift in Sources */,
 				A91760E11D914827008915DA /* TrimWireframe.swift in Sources */,
 				A91761391D916F53008915DA /* MusicViewInterface.swift in Sources */,
+				A95078CE1DE5F35100FD250B /* Specification.swift in Sources */,
 				A9E611761DCB6DCE00F221AB /* SaveVideosFromGalleryInterface.swift in Sources */,
 				A91761161D916F48008915DA /* ShareInstagramInteractor.swift in Sources */,
 				A95BE9941D990C4100602DCD /* DetailTextController.swift in Sources */,
@@ -2363,12 +2444,15 @@
 				A988DEF01DACEF8E0030E285 /* MusicListInteractorInterface.swift in Sources */,
 				A9B3864E1D7D53BA0065D3EC /* RemoveFilterInteractor.swift in Sources */,
 				A9A419151DB5110C00FB642E /* AddTextWireframe.swift in Sources */,
+				A9E90D671DE71E45002B9DA3 /* RealmProjectToProjectMapper.swift in Sources */,
 				A91760AD1D9146B5008915DA /* EditingRoomViewInterface.swift in Sources */,
+				A95078CC1DE5F1E100FD250B /* Repository.swift in Sources */,
 				A9B386451D7D53960065D3EC /* FlashInteractor.swift in Sources */,
 				A91761301D916F53008915DA /* MusicCell.swift in Sources */,
 				A917613A1D916F53008915DA /* MusicWireframe.swift in Sources */,
 				A97F0F3F1DC0BEEF00907196 /* SettingsFTPUneditedDestination.swift in Sources */,
 				A95BE9871D990A4A00602DCD /* SettingsProvider.swift in Sources */,
+				A9E90D631DE70FB2002B9DA3 /* RealmVideo.swift in Sources */,
 				A9B386601D7D55660065D3EC /* ViMoJoInterface.swift in Sources */,
 				A9B386381D7D53450065D3EC /* ClipsAlbum.swift in Sources */,
 				A988DEF61DACEFAE0030E285 /* MusicListWireframe.swift in Sources */,

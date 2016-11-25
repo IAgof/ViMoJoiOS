@@ -10,6 +10,7 @@ pod 'Alamofire'
 pod 'Mixpanel'
 pod 'Fabric'
 pod 'Crashlytics'
+pod 'RealmSwift'
 
 pod 'Google/SignIn'
 pod 'Google'
@@ -54,4 +55,6 @@ post_install do |installer|
         end
     end
 end
+
+
 
