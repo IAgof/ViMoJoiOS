@@ -40,6 +40,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
         
         self.setupStartApp()
         
+        CheckMicPermissionUseCase().askIfNeeded()
+        CheckPhotoRollPermissionUseCase().askIfNeeded()
+        CheckCameraPermissionUseCase().askIfNeeded()
+        
         return true
     }
     
