@@ -18,4 +18,8 @@ public class RealmProject:Object{
     dynamic var musicTitle:String = ""
     dynamic var musicVolume:Double = 0.5
     let videos = List<RealmVideo>()
+    
+    override public class func primaryKey() -> String? {
+        return "title"
+    }
 }

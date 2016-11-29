@@ -14,13 +14,17 @@ class MusicProvider: NSObject {
     
     fileprivate var localMusic = Array<Music>()
     
+    override init() {
+        super.init()
+        self.populateLocalMusic()
+    }
+    
     func retrieveLocalMusic() -> Array<Music>{
         if (localMusic.count == 0){
             populateLocalMusic()
         }
         
     return localMusic;
-   
     }
     
     func populateLocalMusic() {

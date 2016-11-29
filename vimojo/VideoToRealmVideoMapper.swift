@@ -23,6 +23,7 @@ public class VideoToRealmVideoMapper:Mapper{
         realmVideo.uuid = from.uuid
         realmVideo.clipTextPosition = from.textPositionToVideo
         realmVideo.clipText = from.textToVideo
+        realmVideo.videoURL = from.videoURL.absoluteString
         
         return realmVideo
     }

@@ -21,7 +21,10 @@ public class RealmVideoToVideoMapper:Mapper{
         video.setStartTime(from.startTime)
         video.textToVideo = from.clipText
         video.textPositionToVideo = from.clipTextPosition
+        video.videoURL = URL(string: from.videoURL)!
         
+        video.setDefaultVideoParameters()
+                
         return video
     }
 }

@@ -71,21 +71,24 @@ class MusicListInteractor: MusicListInteractorInterface {
     }
     
     func setMusicToProject(_ index: Int) {
+        guard let project = project else{return}
         var music = Music(title: "",
                           author: "",
                           iconResourceId: "",
                           musicResourceId: "",
                           musicSelectedResourceId: "")
         if index == -1 {
-            project?.setMusic(music)
-            project?.isMusicSet = false
+            project.setMusic(music)
+            project.isMusicSet = false
             
         }else{
             music = musicList[index]
             
-            project?.setMusic(music)
-            project?.isMusicSet = true
+            project.setMusic(music)
+            project.isMusicSet = true
         }
+        
+        ProjectRealmRepository().update(item: project)
     }
     
     func hasMusicSelectedInProject()->Bool{

@@ -38,6 +38,7 @@ class CameraRecorderInteractor{
         AddVideoToProjectUseCase().add(videoPath: clipPath,
                                        title: title,
                                        project: self.project!)
+
         print("Number of clips in project :\n \(self.project?.numberOfClips())")
         
         let clipURL = URL.init(fileURLWithPath: clipPath)

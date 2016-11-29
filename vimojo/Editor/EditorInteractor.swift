@@ -20,10 +20,10 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
     
     var videosList:[Video] = []
 
-    override init() {
-        guard let videosList = project?.getVideoList() else{return}
+    init( project:Project) {
+        videosList = project.getVideoList()
         
-        self.videosList = videosList
+        self.project = project
     }
     
     func getListData(){
@@ -183,22 +183,27 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
     
     func reloadPositionNumberAfterMovement() {
         guard let videoList = project?.getVideoList() else{return}
-        
+        guard let actualProject = project else{return}
+
         if !videoList.isEmpty {
             for videoPosition in 1...(videoList.count) {
                 videoList[videoPosition - 1].setPosition(videoPosition)
             }
             
-            project?.setVideoList(videoList)
+            actualProject.setVideoList(videoList)            
+            ProjectRealmRepository().update(item: actualProject)
         }
     }
     
     func removeVideo(_ index:Int){
         guard var videoList = project?.getVideoList() else{return}
         
+        guard let actualProject = project else{return}
         videoList.remove(at: index)
         
-        project?.setVideoList(videoList)
+        actualProject.setVideoList(videoList)
+        
+        ProjectRealmRepository().update(item: actualProject)
     }
     
     func getProject() -> Project {
@@ -278,5 +283,11 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         SetTrimParametersToVideoWorker().setParameters(trimParams,
                                                        project: actualProject,
                                                        videoPosition: videoPosition)
+    }
+    
+    func clearProject() {
+        if project != nil{
+            CreateNewProjectUseCase().create(project: project!)
+        }
     }
 }

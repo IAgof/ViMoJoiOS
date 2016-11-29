@@ -31,6 +31,11 @@ class SaveVideosFromGalleryInteractor:NSObject,SaveVideosFromGalleryInterface{
     }
     
     func saveVideoToDocuments(_ url:URL) {
+        guard let actualProject = project else{
+            print("Cant load project object")
+            return
+        }
+        
         guard var videoList = project?.getVideoList() else{
             print("Cant load video list on Save videos from gallery interactor")
             return
@@ -39,9 +44,13 @@ class SaveVideosFromGalleryInteractor:NSObject,SaveVideosFromGalleryInterface{
         let newVideo = Video(title: "", mediaPath: "")
         newVideo.videoURL = url
         newVideo.mediaRecordedFinished()
+        newVideo.setPosition(videoList.count + 1)
         
         videoList.append(newVideo)
         
-        project?.setVideoList(videoList)
+        VideoRealmRepository().add(item: newVideo)
+        actualProject.setVideoList(videoList)
+        
+        ProjectRealmRepository().update(item: actualProject)
     }
 }

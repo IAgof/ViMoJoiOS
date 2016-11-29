@@ -16,7 +16,7 @@ import VideonaPlayer
 
 
 class AppDependencies {
-    var project = Project()
+    var project:Project?
     
     var recordWireframe = RecordWireframe()
     var editorRoomWireframe = EditingRoomWireframe()
@@ -46,6 +46,14 @@ class AppDependencies {
     }
 
     func configureDependencies(){
+        
+        project =  CreateDefaultProjectUseCase().loadOrCreateProject()
+        
+        guard var project = self.project else{
+            print("Cant load project in configure dependencies")
+            return
+        }
+        
         let rootWireframe = RootWireframe()
         
         let recordPresenter = RecordPresenter()
@@ -66,7 +74,7 @@ class AppDependencies {
         let editingRoomInteractor = EditingRoomInteractor(project: project)
         
         let editorPresenter = EditorPresenter()
-        let editorInteractor = EditorInteractor()
+        let editorInteractor = EditorInteractor(project: project)
         
         let trimPresenter = TrimPresenter()
         let trimInteractor = TrimInteractor(project: project)
@@ -147,7 +155,6 @@ class AppDependencies {
         editorWireframe.galleryWireframe = galleryWireframe
         
         editorInteractor.delegate = editorPresenter
-        editorInteractor.project = project
         
         //SHARE MODULE
         sharePresenter.wireframe = shareWireframe

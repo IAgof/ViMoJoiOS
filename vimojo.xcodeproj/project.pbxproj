@@ -77,6 +77,10 @@
 		A91761391D916F53008915DA /* MusicViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917612E1D916F53008915DA /* MusicViewInterface.swift */; };
 		A917613A1D916F53008915DA /* MusicWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917612F1D916F53008915DA /* MusicWireframe.swift */; };
 		A91AEC311DDDA16700691081 /* Editor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91AEC301DDDA16700691081 /* Editor.storyboard */; };
+		A91B8C931DE884460040CA57 /* CheckMicPermissionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B8C921DE884460040CA57 /* CheckMicPermissionUseCase.swift */; };
+		A91B8C981DE8845D0040CA57 /* CheckPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B8C971DE8845D0040CA57 /* CheckPermission.swift */; };
+		A91B8C9A1DE885790040CA57 /* CheckCameraPermissionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B8C991DE885790040CA57 /* CheckCameraPermissionUseCase.swift */; };
+		A91B8C9C1DE8864D0040CA57 /* CheckPhotoRollPermissionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B8C9B1DE8864D0040CA57 /* CheckPhotoRollPermissionUseCase.swift */; };
 		A91C694A1DCB59A000AF2576 /* AllVideosGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C69471DCB59A000AF2576 /* AllVideosGalleryViewController.swift */; };
 		A91C694B1DCB59A000AF2576 /* CustomExportedVideosGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C69481DCB59A000AF2576 /* CustomExportedVideosGalleryViewController.swift */; };
 		A91C694C1DCB59A000AF2576 /* CustomClipsGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C69491DCB59A000AF2576 /* CustomClipsGalleryViewController.swift */; };
@@ -160,6 +164,7 @@
 		A988DF081DAD1E1C0030E285 /* MicRecorderInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DF071DAD1E1C0030E285 /* MicRecorderInteractorInterface.swift */; };
 		A988DF0A1DAD1E230030E285 /* MicRecorderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DF091DAD1E230030E285 /* MicRecorderInteractor.swift */; };
 		A988DF0C1DAD1E2B0030E285 /* MicRecorderWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DF0B1DAD1E2B0030E285 /* MicRecorderWireframe.swift */; };
+		A99A015A1DE84DF40019CF7E /* CreateDefaultProjectUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99A01591DE84DF40019CF7E /* CreateDefaultProjectUseCase.swift */; };
 		A99C7CF71DC0F8FA00F2E03A /* ShareFTPInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99C7CF61DC0F8FA00F2E03A /* ShareFTPInteractor.swift */; };
 		A9A1E5B61DB636DC003BF354 /* ApplyTextOverlayToVideoCompositionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1E5B51DB636DC003BF354 /* ApplyTextOverlayToVideoCompositionUseCase.swift */; };
 		A9A419151DB5110C00FB642E /* AddTextWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A4190F1DB5110C00FB642E /* AddTextWireframe.swift */; };
@@ -444,6 +449,7 @@
 		A9ED005B1D917B7200969F31 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00581D917B7200969F31 /* FBSDKLoginKit.framework */; };
 		A9ED005C1D917B7200969F31 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00591D917B7200969F31 /* FBSDKShareKit.framework */; };
 		A9ED005E1D9185BB00969F31 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9ED005D1D9185BB00969F31 /* GoogleService-Info.plist */; };
+		A9EDDD561DEC5977001F7DD9 /* CreateNewProjectUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EDDD551DEC5977001F7DD9 /* CreateNewProjectUseCase.swift */; };
 		A9FC5C351DE4A57D003AA3CB /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93BCE0C1D7D577300421BD0 /* GPUImage.framework */; };
 		A9FC5C361DE4A57D003AA3CB /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A93BCE0C1D7D577300421BD0 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9FC5C3A1DE4A581003AA3CB /* RebekkaTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A921D9701DC1DEA9003631E8 /* RebekkaTouch.framework */; };
@@ -655,6 +661,10 @@
 		A917612F1D916F53008915DA /* MusicWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusicWireframe.swift; path = Music/MusicWireframe.swift; sourceTree = "<group>"; };
 		A917614B1D917176008915DA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		A91AEC301DDDA16700691081 /* Editor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Editor.storyboard; sourceTree = "<group>"; };
+		A91B8C921DE884460040CA57 /* CheckMicPermissionUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckMicPermissionUseCase.swift; sourceTree = "<group>"; };
+		A91B8C971DE8845D0040CA57 /* CheckPermission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckPermission.swift; sourceTree = "<group>"; };
+		A91B8C991DE885790040CA57 /* CheckCameraPermissionUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckCameraPermissionUseCase.swift; sourceTree = "<group>"; };
+		A91B8C9B1DE8864D0040CA57 /* CheckPhotoRollPermissionUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckPhotoRollPermissionUseCase.swift; sourceTree = "<group>"; };
 		A91C69471DCB59A000AF2576 /* AllVideosGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllVideosGalleryViewController.swift; sourceTree = "<group>"; };
 		A91C69481DCB59A000AF2576 /* CustomExportedVideosGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomExportedVideosGalleryViewController.swift; sourceTree = "<group>"; };
 		A91C69491DCB59A000AF2576 /* CustomClipsGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomClipsGalleryViewController.swift; sourceTree = "<group>"; };
@@ -742,6 +752,7 @@
 		A988DF071DAD1E1C0030E285 /* MicRecorderInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicRecorderInteractorInterface.swift; sourceTree = "<group>"; };
 		A988DF091DAD1E230030E285 /* MicRecorderInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicRecorderInteractor.swift; sourceTree = "<group>"; };
 		A988DF0B1DAD1E2B0030E285 /* MicRecorderWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicRecorderWireframe.swift; sourceTree = "<group>"; };
+		A99A01591DE84DF40019CF7E /* CreateDefaultProjectUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDefaultProjectUseCase.swift; sourceTree = "<group>"; };
 		A99C7CF61DC0F8FA00F2E03A /* ShareFTPInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareFTPInteractor.swift; sourceTree = "<group>"; };
 		A9A1E5B51DB636DC003BF354 /* ApplyTextOverlayToVideoCompositionUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyTextOverlayToVideoCompositionUseCase.swift; sourceTree = "<group>"; };
 		A9A4190F1DB5110C00FB642E /* AddTextWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTextWireframe.swift; sourceTree = "<group>"; };
@@ -824,6 +835,7 @@
 		A9ED00581D917B7200969F31 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		A9ED00591D917B7200969F31 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		A9ED005D1D9185BB00969F31 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A9EDDD551DEC5977001F7DD9 /* CreateNewProjectUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewProjectUseCase.swift; sourceTree = "<group>"; };
 		A9FDD8BA1DAD3D5300AB0930 /* MixAudioView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixAudioView.swift; sourceTree = "<group>"; };
 		A9FDD8BC1DAD3D5F00AB0930 /* MixAudioView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MixAudioView.xib; sourceTree = "<group>"; };
 		A9FEF9771DBF8B0A00A56611 /* SettingsActionInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsActionInterface.swift; sourceTree = "<group>"; };
@@ -1130,6 +1142,12 @@
 		A93BCE541D7D792300421BD0 /* Use case */ = {
 			isa = PBXGroup;
 			children = (
+				A99A01591DE84DF40019CF7E /* CreateDefaultProjectUseCase.swift */,
+				A9EDDD551DEC5977001F7DD9 /* CreateNewProjectUseCase.swift */,
+				A91B8C921DE884460040CA57 /* CheckMicPermissionUseCase.swift */,
+				A91B8C991DE885790040CA57 /* CheckCameraPermissionUseCase.swift */,
+				A91B8C9B1DE8864D0040CA57 /* CheckPhotoRollPermissionUseCase.swift */,
+				A91B8C971DE8845D0040CA57 /* CheckPermission.swift */,
 			);
 			name = "Use case";
 			sourceTree = "<group>";
@@ -1375,8 +1393,8 @@
 		A988DF001DAD1DE40030E285 /* Music Mic recorder */ = {
 			isa = PBXGroup;
 			children = (
-				A906CCD61DB0D01B00AC8FFB /* Model */,
 				A988DF0D1DAD24450030E285 /* App Logic */,
+				A906CCD61DB0D01B00AC8FFB /* Model */,
 				A988DF0E1DAD244D0030E285 /* User Interface */,
 			);
 			name = "Music Mic recorder";
@@ -1491,6 +1509,7 @@
 		A9B386181D7D519E0065D3EC /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A9EDDD5A1DEC80CC001F7DD9 /* Project List */,
 				A9A4190C1DB510C300FB642E /* AddText */,
 				A95BE98C1D990C3700602DCD /* DetailText */,
 				A91760DD1D9147F1008915DA /* Duplicate */,
@@ -1838,6 +1857,13 @@
 				A9E90D811DE7426C002B9DA3 /* VideoToRealmVideoMapper.swift */,
 			);
 			name = Video;
+			sourceTree = "<group>";
+		};
+		A9EDDD5A1DEC80CC001F7DD9 /* Project List */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Project List";
 			sourceTree = "<group>";
 		};
 		A9FDD8B71DAD3D4100AB0930 /* Mic mixAudio */ = {
@@ -2326,6 +2352,7 @@
 				A988DF081DAD1E1C0030E285 /* MicRecorderInteractorInterface.swift in Sources */,
 				A917611A1D916F48008915DA /* SharePresenter.swift in Sources */,
 				A900C7461DC3575700A65730 /* FTPErrorType.swift in Sources */,
+				A9EDDD561DEC5977001F7DD9 /* CreateNewProjectUseCase.swift in Sources */,
 				A91760E51D914835008915DA /* DuplicateViewController.swift in Sources */,
 				A9B386331D7D53230065D3EC /* CameraInteractorInterface.swift in Sources */,
 				A91D63041DDF1F3A00D226B8 /* GetCompositionForVideo.swift in Sources */,
@@ -2333,6 +2360,7 @@
 				A988DF061DAD1E110030E285 /* MicRecorderPresenterInterface.swift in Sources */,
 				A96E15F01DA257A400CF81E8 /* MusicModels.swift in Sources */,
 				A900C7571DC35DC300A65730 /* SettingsFTPBreakingNewsUsernameAction.swift in Sources */,
+				A91B8C981DE8845D0040CA57 /* CheckPermission.swift in Sources */,
 				A9C5FB691DD5B5BC00057A1B /* GalleryFetchOptions.swift in Sources */,
 				A9B386291D7D52F40065D3EC /* RecordWireframe.swift in Sources */,
 				A9B386391D7D53450065D3EC /* ExportedAlbum.swift in Sources */,
@@ -2392,6 +2420,7 @@
 				A9A1E5B61DB636DC003BF354 /* ApplyTextOverlayToVideoCompositionUseCase.swift in Sources */,
 				A93BCE4D1D7D5C7400421BD0 /* AnalitycsConstants.swift in Sources */,
 				A91760C21D9146BF008915DA /* ThumbnailListInteractor.swift in Sources */,
+				A91B8C9A1DE885790040CA57 /* CheckCameraPermissionUseCase.swift in Sources */,
 				A9E90D841DE7427B002B9DA3 /* VideoRepository.swift in Sources */,
 				A91C694C1DCB59A000AF2576 /* CustomClipsGalleryViewController.swift in Sources */,
 				A91761361D916F53008915DA /* MusicPresenterInterface.swift in Sources */,
@@ -2406,6 +2435,7 @@
 				A9E90D821DE7426C002B9DA3 /* VideoToRealmVideoMapper.swift in Sources */,
 				A93BCE4C1D7D5C7400421BD0 /* ConfigPreferences.swift in Sources */,
 				A91760D71D9146FE008915DA /* FullScreenPlayerPresenter.swift in Sources */,
+				A91B8C931DE884460040CA57 /* CheckMicPermissionUseCase.swift in Sources */,
 				A9E90D801DE7425A002B9DA3 /* RealmVideoToVideoMapper.swift in Sources */,
 				A9B386491D7D53B20065D3EC /* ExporterInteractor.swift in Sources */,
 				A9A419191DB5110C00FB642E /* AddTextInteractorInterface.swift in Sources */,
@@ -2432,6 +2462,7 @@
 				A9B3865A1D7D55340065D3EC /* RootWireframe.swift in Sources */,
 				A91761231D916F48008915DA /* SocialNetworkProvider.swift in Sources */,
 				A964410D1DA3015B00CAD950 /* EditorModel.swift in Sources */,
+				A91B8C9C1DE8864D0040CA57 /* CheckPhotoRollPermissionUseCase.swift in Sources */,
 				A91760A81D9146B5008915DA /* EditingRoomInteractor.swift in Sources */,
 				A93BCE431D7D599900421BD0 /* ViMoJoTracker.swift in Sources */,
 				A917611D1D916F48008915DA /* ShareTwitterInteractor.swift in Sources */,
@@ -2475,6 +2506,7 @@
 				A95BE9881D990A4A00602DCD /* SettingsViewController.swift in Sources */,
 				A97F0F2D1DC099BE00907196 /* SettingsQualityAction.swift in Sources */,
 				A95BE9981D990C4100602DCD /* DetailTextPresenter.swift in Sources */,
+				A99A015A1DE84DF40019CF7E /* CreateDefaultProjectUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,14 +22,10 @@ public class ProjectRealmRepository:ProjectRepository{
     }
     
     public func add(item: Project) {
-        do{
             let realm = try! Realm()
-            try realm.write {
+            try! realm.write {
                 realm.add(toRealmProjectMapper.map(from: item))
             }
-        }catch{
-            print("Error writing project:\(error)")
-        }
     }
     
     public func add(items: [Project]) {
@@ -59,14 +55,23 @@ public class ProjectRealmRepository:ProjectRepository{
     }
     
     public func query(specification: Specification) -> [Project] {
-        var project = Project()
+        let project = Project()
         
         return [project]
     }
     
-    public func getCurrentProject() -> Project {
+    public func getCurrentProject()->Project{
         var project = Project()
+        let realm = try! Realm()
         
+        try! realm.write {
+            if let result = realm.objects(RealmProject.self).last{
+                project = self.toProjectMapper.map(from: result)
+            }else{
+                realm.add(self.toRealmProjectMapper.map(from: project))
+                try! realm.commitWrite()
+            }
+        }
         return project
     }
 }

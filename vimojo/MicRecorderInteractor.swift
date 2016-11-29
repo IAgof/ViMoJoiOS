@@ -91,16 +91,21 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
     }
     
     func setVoiceOverToProject(_ videoVolume: Float, audioVolume: Float) {
+        guard let project = self.project else{return}
+
         guard let path = audioStringPath else {
             print("No audio string path" )
-            return}
+            return
+        }
         
         let voiceOver = Audio(title: "Vimojo VoiceOver", mediaPath: path)
         voiceOver.audioLevel = audioVolume
-        project?.projectOutputAudioLevel = videoVolume
+        project.projectOutputAudioLevel = videoVolume
         
-        project?.isVoiceOverSet = true
-        project?.voiceOver = voiceOver
+        project.isVoiceOverSet = true
+        project.voiceOver = voiceOver
+        
+        ProjectRealmRepository().update(item: project)
     }
     
     func removeVoiceOverFromProject(){

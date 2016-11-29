@@ -118,6 +118,8 @@ class ClipsAlbum: NSObject {
                 if let asset = avasset as? AVURLAsset{
                     video.videoURL = asset.url
                     video.mediaRecordedFinished()
+                    VideoRealmRepository().add(item: video)
+                    ProjectRealmRepository().update(item: project)
                 }
             })
         }

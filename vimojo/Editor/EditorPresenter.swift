@@ -96,6 +96,10 @@ class EditorPresenter: NSObject {
 extension EditorPresenter:EditorPresenterInterface{
     //MARK: - Interface
     func viewDidLoad() {
+        loadView()
+    }
+    
+    func loadView(){
         self.reloadPositionNumberAfterMovement()
         
         //Auto select first item on first load
@@ -117,7 +121,7 @@ extension EditorPresenter:EditorPresenterInterface{
     
     func viewWillAppear() {
         if !isGoingToExpandPlayer{
-            self.viewDidLoad()
+            self.loadView()
             
             playerPresenter?.onVideoStops()
         }else{
@@ -204,6 +208,10 @@ extension EditorPresenter:EditorPresenterInterface{
     
     func pushAddVideoHandler() {
         wireframe?.presentGallery()
+    }
+    
+    func pushClearProject() {
+        interactor?.clearProject()
     }
     
     func expandPlayer() {

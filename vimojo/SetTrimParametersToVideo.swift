@@ -19,5 +19,7 @@ class SetTrimParametersToVideoWorker: NSObject {
         videoList[videoPosition].setStopTime(trimParams.stopTime)
 
         project.setVideoList(videoList)
+        
+        ProjectRealmRepository().update(item: project)
     }
 }

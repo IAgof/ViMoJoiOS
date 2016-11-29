@@ -58,5 +58,7 @@ public class RealmProjectToProjectMapper:Mapper{
         for realmVideo in realmProject.videos{
             videoList.append(toVideoMapper.map(from: realmVideo))
         }
+        
+        project.setVideoList(videoList)
     }
 }

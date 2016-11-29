@@ -55,21 +55,21 @@
                                         <rect key="frame" x="300" y="154" width="68" height="68"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbb-jx-SNd">
-                                        <rect key="frame" x="8" y="8" width="127" height="28"/>
+                                        <rect key="frame" x="8" y="8" width="277" height="28"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="08T-D0-KZt">
-                                                <rect key="frame" x="16" y="4" width="95" height="20"/>
+                                                <rect key="frame" x="16" y="4" width="245" height="20"/>
                                                 <subviews>
-                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dra-Hy-CZB">
-                                                        <rect key="frame" x="-7.5" y="0.0" width="0.0" height="20"/>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dra-Hy-CZB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                                         <state key="normal" image="activity_record_icon_microphone_pressed"/>
                                                         <state key="selected" image="activity_record_icon_microphone_normal"/>
                                                         <connections>
                                                             <action selector="pushMic:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="1XL-EH-hY0"/>
                                                         </connections>
                                                     </button>
-                                                    <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nAM-ZC-cFG" customClass="AudioLevelBarView" customModule="AudioLevelBar">
-                                                        <rect key="frame" x="-7.5" y="0.0" width="0.0" height="20"/>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAM-ZC-cFG" customClass="AudioLevelBarView" customModule="AudioLevelBar">
+                                                        <rect key="frame" x="35" y="0.0" width="100" height="20"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="jXh-V8-j9e"/>
@@ -91,14 +91,14 @@
                                                         </variation>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veW-ha-Wav">
-                                                        <rect key="frame" x="0.0" y="0.0" width="24" height="20"/>
+                                                        <rect key="frame" x="150" y="0.0" width="24" height="20"/>
                                                         <state key="normal" image="activity_record_icon_battery_charged"/>
                                                         <connections>
                                                             <action selector="pushBattery:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="HSS-iy-Dzy"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8j-Vd-5dC">
-                                                        <rect key="frame" x="39" y="0.0" width="16" height="20"/>
+                                                        <rect key="frame" x="189" y="0.0" width="16" height="20"/>
                                                         <state key="normal" image="activity_record_icon_memory"/>
                                                         <state key="selected" image="activity_record_icon_memory_pressed"/>
                                                         <state key="highlighted" image="activity_record_icon_memory_pressed"/>
@@ -107,7 +107,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6R-qJ-vTS">
-                                                        <rect key="frame" x="70" y="0.0" width="25" height="20"/>
+                                                        <rect key="frame" x="220" y="0.0" width="25" height="20"/>
                                                         <state key="normal" image="activity_record_icon_resolution_1080"/>
                                                         <connections>
                                                             <action selector="pushResolution:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="Gpf-gM-kTU"/>

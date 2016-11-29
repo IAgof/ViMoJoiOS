@@ -25,7 +25,8 @@ public class VideoRealmRepository:VideoRepository{
         do{
             let realm = try! Realm()
             try realm.write {
-                realm.add(toRealmVideoMapper.map(from: item))
+                let realmVideo =  toRealmVideoMapper.map(from: item)
+                realm.add(realmVideo)
             }
         }catch{
             print("Error writing project:\(error)")
@@ -38,7 +39,11 @@ public class VideoRealmRepository:VideoRepository{
     }
     
     public func update(item: Video) {
+        let realm = try! Realm()
         
+        try! realm.write {
+            realm.add(toRealmVideoMapper.map(from: item), update: true)
+        }
     }
     
     public func update(item: Video,
