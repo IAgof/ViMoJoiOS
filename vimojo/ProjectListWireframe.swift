@@ -18,7 +18,8 @@ class ProjectListWireframe : NSObject {
     var presenter : ProjectListPresenter?
     
     var prevController:UIViewController?
-    
+    var editorRoomWireframe: EditingRoomWireframe?
+
     func presentInterfaceFromWindow(_ window: UIWindow) {
         let viewController = viewControllerFromStoryboard()
         
@@ -52,5 +53,17 @@ class ProjectListWireframe : NSObject {
     func goPrevController(){
         
         viewController?.navigationController?.popToViewController(prevController!, animated: true)
+    }
+    
+    func presentEditorInterface(){
+        if viewController != nil{
+            editorRoomWireframe?.presentEditingRoomInterfaceFromViewController(viewController!)
+        }
+    }
+    
+    func presentShareInterface(){
+        if viewController != nil{
+            editorRoomWireframe?.presentEditingRoomFromViewControllerAndExportVideo(viewController!)
+        }
     }
 }

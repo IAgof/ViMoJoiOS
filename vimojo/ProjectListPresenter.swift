@@ -14,7 +14,7 @@ class ProjectListPresenter:NSObject,ProjectListPresenterInterface{
     var interactor: ProjectListInteractorInterface?
     
     var wireframe: ProjectListWireframe?
-    
+
     func viewDidLoad() {
         interactor?.findProjects()
     }
@@ -32,7 +32,7 @@ class ProjectListPresenter:NSObject,ProjectListPresenterInterface{
     }
     
     func shareProject(projectNumber: Int) {
-        interactor?.removeProjectAction(projectNumber: projectNumber)
+        interactor?.shareProjectAction(projectNumber: projectNumber)
     }
     
     func duplicateProject(projectNumber: Int) {
@@ -44,5 +44,13 @@ extension ProjectListPresenter:ProjectListInteractorDelegate{
     func setItemsView(_ items: [ProjectListViewModel]) {
         delegate?.setItems(items)
         delegate?.reloadTableData()
+    }
+    
+    func editProjectFinished() {
+        wireframe?.presentEditorInterface()
+    }
+    
+    func shareProjectFinished() {
+        wireframe?.presentShareInterface()
     }
 }

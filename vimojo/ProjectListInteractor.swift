@@ -13,6 +13,11 @@ import AVFoundation
 class ProjectListInteractor: ProjectListInteractorInterface {
     var delegate:ProjectListInteractorDelegate?
     var projectList:[Project] = []
+    var project:Project
+    
+    init(project:Project) {
+        self.project = project
+    }
     
     func findProjects() {
         projectList = ProjectRealmRepository().getAllProjects()
@@ -69,7 +74,13 @@ class ProjectListInteractor: ProjectListInteractorInterface {
     }
     
     func editProjectAction(projectNumber: Int) {
-        
+        if self.projectList.indices.contains(projectNumber){
+            let projectToLoad = projectList[projectNumber]
+            ReloadProjectWithProjectAction().reload(actualProject: project,
+                                                    newProject: projectToLoad)
+            
+            delegate?.editProjectFinished()
+        }
     }
     
     func duplicateProjectAction(projectNumber: Int) {
@@ -81,7 +92,13 @@ class ProjectListInteractor: ProjectListInteractorInterface {
     }
     
     func shareProjectAction(projectNumber: Int) {
-        
+        if self.projectList.indices.contains(projectNumber){
+            let projectToLoad = projectList[projectNumber]
+            ReloadProjectWithProjectAction().reload(actualProject: project,
+                                                    newProject: projectToLoad)
+            
+            delegate?.shareProjectFinished()
+        }
     }
 }
 

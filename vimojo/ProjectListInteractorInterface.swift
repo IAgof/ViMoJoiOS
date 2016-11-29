@@ -19,4 +19,7 @@ protocol ProjectListInteractorInterface {
 
 protocol ProjectListInteractorDelegate {
     func setItemsView(_ items:[ProjectListViewModel])
+    
+    func editProjectFinished()
+    func shareProjectFinished()
 }

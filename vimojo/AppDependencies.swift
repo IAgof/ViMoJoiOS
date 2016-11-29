@@ -105,7 +105,7 @@ class AppDependencies {
         let gallerySaveVideosInteractor = SaveVideosFromGalleryInteractor(project: project)
         
         let projectListPresenter = ProjectListPresenter()
-        let projectListInteractor = ProjectListInteractor()
+        let projectListInteractor = ProjectListInteractor(project: project)
         
         //RECORD MODULE
         recordPresenter.recordWireframe = recordWireframe
@@ -293,6 +293,7 @@ class AppDependencies {
         projectListInteractor.delegate = projectListPresenter
         
         projectListWireframe.presenter = projectListPresenter
+        projectListWireframe.editorRoomWireframe = editorRoomWireframe
         projectListWireframe.rootWireframe = rootWireframe
     }
         
