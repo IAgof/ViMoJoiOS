@@ -22,6 +22,7 @@ public class ProjectToRealmProjectMapper:Mapper{
         realmProject.quality = from.getProfile().getQuality()
         realmProject.resolution = from.getProfile().getResolution()
         realmProject.frameRate = from.getProfile().frameRate
+        realmProject.uuid = from.uuid
         
         if from.isMusicSet{
             realmProject.musicTitle = from.getMusic().getTitle()

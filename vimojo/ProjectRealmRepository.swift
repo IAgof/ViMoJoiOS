@@ -45,7 +45,7 @@ public class ProjectRealmRepository:ProjectRepository{
         let realm = try! Realm()
         
         try! realm.write {
-            let result = realm.objects(RealmProject.self).filter("title ='\(item.getTitle())'")
+            let result = realm.objects(RealmProject.self).filter("uuid ='\(item.uuid)'")
             realm.delete(result)
         }
     }
@@ -73,5 +73,39 @@ public class ProjectRealmRepository:ProjectRepository{
             }
         }
         return project
+    }
+    
+    public func duplicateProject(id:String) {
+        let realm = try! Realm()
+        
+        try! realm.write {
+            if let projectToCopy = realm.objects(RealmProject.self).filter("uuid ='\(id)'").last{
+               let newProjectRealm = RealmProject()
+                newProjectRealm.frameRate = projectToCopy.frameRate
+                newProjectRealm.musicTitle = projectToCopy.musicTitle
+                newProjectRealm.musicVolume = projectToCopy.musicVolume
+                newProjectRealm.projectPath = projectToCopy.projectPath
+                newProjectRealm.quality = projectToCopy.quality
+                newProjectRealm.resolution = projectToCopy.resolution
+                newProjectRealm.title = projectToCopy.title
+                newProjectRealm.videos = projectToCopy.videos
+                newProjectRealm.uuid = UUID().uuidString
+                
+                realm.add(newProjectRealm)
+            }
+        }
+    }
+    
+    public func getAllProjects() -> [Project] {
+        var projects:[Project] = []
+        let realm = try! Realm()
+        
+        try! realm.write {
+            let results = realm.objects(RealmProject.self)
+            for result in results{
+                projects.append(self.toProjectMapper.map(from: result))
+            }
+        }
+        return projects
     }
 }

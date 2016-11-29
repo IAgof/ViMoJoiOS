@@ -15,6 +15,8 @@ public class VideoToRealmVideoMapper:Mapper{
     
     public func map(from: Video) -> RealmVideo {
         let realmVideo = RealmVideo()
+        
+        realmVideo.uuid = from.uuid
         realmVideo.title = from.getTitle()
         realmVideo.mediaPath = from.getMediaPath()
         realmVideo.position = from.getPosition()

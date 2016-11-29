@@ -22,6 +22,7 @@ public class RealmProjectToProjectMapper:Mapper{
         let project = Project(title: from.title,
                               rootPath: "",
                               profile: profile)
+        project.uuid = from.uuid
         
         setProjectMusic(project: project, realmProject: from)
         setProjectVideos(project: project, realmProject: from)

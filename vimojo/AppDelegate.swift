@@ -13,6 +13,7 @@ import AVFoundation
 import Fabric
 import Crashlytics
 import VideonaProject
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
@@ -159,15 +160,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
             
             trackAppStartupProperties(false);
             
-            appDependencies.installRecordToRootViewControllerIntoWindow(window!)
+//            appDependencies.installRecordToRootViewControllerIntoWindow(window!)
             
-            //            Test other views on root
-            //            appDependencies.installIntroToRootViewControllerIntoWindow(window!)
-//            appDependencies.installSettingsToRootViewControllerIntoWindow(window!)
-//                        appDependencies.installShareToRootViewControllerIntoWindow(window!)
-//                        appDependencies.installEditorRoomToRootViewControllerIntoWindow(window!)
-            //            appDependencies.installDuplicateRoomToRootViewControllerIntoWindow(window!)
-            //            appDependencies.installSplitRoomToRootViewControllerIntoWindow(window!)
+            appDependencies.installProjectListToRootViewControllerIntoWindow(window!)
         } else {
             // other version
             defaults.set(currentAppVersion, forKey: "appVersion")
@@ -254,6 +249,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
         let createdSuperProperty = [AnalyticsConstants().CREATED: Utils().giveMeTimeNow()]
         mixpanel?.registerSuperPropertiesOnce(createdSuperProperty)
     }
-    
 }
 

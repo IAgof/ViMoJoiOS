@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 public class RealmProject:Object{
+    dynamic var uuid = ""
     dynamic var title = ""
     dynamic var projectPath = ""
     dynamic var quality = ""
@@ -17,9 +18,9 @@ public class RealmProject:Object{
     dynamic var frameRate:Int = 30
     dynamic var musicTitle:String = ""
     dynamic var musicVolume:Double = 0.5
-    let videos = List<RealmVideo>()
+    var videos = List<RealmVideo>()
     
     override public class func primaryKey() -> String? {
-        return "title"
+        return "uuid"
     }
 }
