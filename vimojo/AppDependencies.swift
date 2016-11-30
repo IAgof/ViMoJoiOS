@@ -158,6 +158,7 @@ class AppDependencies {
         editorWireframe.fullScreenPlayerWireframe = fullScreenPlayerWireframe
         editorWireframe.addTextWireframe = addTextWireframe
         editorWireframe.galleryWireframe = galleryWireframe
+        editorWireframe.projectSelectorWireframe = projectListWireframe
         
         editorInteractor.delegate = editorPresenter
         

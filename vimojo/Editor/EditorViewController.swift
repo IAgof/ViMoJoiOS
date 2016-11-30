@@ -157,6 +157,10 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         eventHandler?.pushClearProject()
     }
     
+    @IBAction func pushShowProjects(_ sender: AnyObject) {
+        eventHandler?.showProjects()
+    }
+    
     //MARK: - Interface
     func deselectCell(_ indexPath:IndexPath) {
         if (thumbnailClipsCollectionView.cellForItem(at: indexPath) != nil){

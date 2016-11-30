@@ -31,7 +31,9 @@ UITableViewDelegate, UITableViewDataSource
 
     var exportPath: String? {
         didSet {
-            eventHandler?.setVideoExportedPath(exportPath!)
+            if let url = URL(string: exportPath!){
+                eventHandler?.setVideoExportedPath(url)
+            }
         }
     }
     

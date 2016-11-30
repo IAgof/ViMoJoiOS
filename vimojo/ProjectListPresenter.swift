@@ -23,6 +23,10 @@ class ProjectListPresenter:NSObject,ProjectListPresenterInterface{
         interactor?.findProjects()
     }
     
+    func pushBack() {
+        wireframe?.goPrevController()
+    }
+    
     func removeProject(projectNumber: Int) {
         interactor?.removeProjectAction(projectNumber: projectNumber)
     }

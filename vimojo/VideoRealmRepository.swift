@@ -86,4 +86,27 @@ public class VideoRealmRepository:VideoRepository{
         let realm = try! Realm()
         return realm.objects(RealmVideo.self)
     }
+    
+    public func duplicateVideo(realmVideo:RealmVideo,completion:(RealmVideo)->Void) {
+        let realm = try! Realm()
+        
+        try! realm.write {
+            if let videoToCopy = realm.objects(RealmVideo.self).filter("uuid ='\(realmVideo.uuid)'").last{
+                let newVideoRealm = RealmVideo()
+                newVideoRealm.uuid = UUID().uuidString
+                newVideoRealm.title = realmVideo.title
+                newVideoRealm.stopTime = realmVideo.stopTime
+                newVideoRealm.startTime = realmVideo.startTime
+                newVideoRealm.position = realmVideo.position
+                newVideoRealm.mediaPath = realmVideo.mediaPath
+                newVideoRealm.videoURL = realmVideo.videoURL
+                newVideoRealm.clipTextPosition = realmVideo.clipTextPosition
+                newVideoRealm.clipText = realmVideo.clipText
+                
+                realm.add(newVideoRealm)
+                completion(newVideoRealm)
+            }
+        }
+    }
+    
 }

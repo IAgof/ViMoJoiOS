@@ -103,61 +103,6 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         return path
     }
     
-    func exportWithoutWaterMark(_ urlPath:URL, completionHandler:@escaping (String)->Void){
-        
-        // - Create AVMutableComposition object. This object will hold your AVMutableCompositionTrack instances.
-        let mixComposition = AVMutableComposition()
-        
-        let videoTrack = mixComposition.addMutableTrack(withMediaType: AVMediaTypeVideo,
-                                                                     preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
-        let audioTrack = mixComposition.addMutableTrack(withMediaType: AVMediaTypeAudio,
-                                                                     preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
-        
-        // - Add assets to the composition
-        
-        // 2 - Get Video asset
-        let videoURL: URL = urlPath
-        let videoAsset = AVAsset.init(url: videoURL)
-        
-        do {
-            let startTime = kCMTimeZero
-            
-            let stopTime = videoAsset.duration
-            
-            try videoTrack.insertTimeRange(CMTimeRangeMake(startTime,  stopTime),
-                                           of: videoAsset.tracks(withMediaType: AVMediaTypeVideo)[0] ,
-                                           at: kCMTimeZero)
-            
-            try audioTrack.insertTimeRange(CMTimeRangeMake(startTime, stopTime),
-                                           of: videoAsset.tracks(withMediaType: AVMediaTypeAudio)[0] ,
-                                           at: kCMTimeZero)
-            
-        } catch _ {
-            Utils().debugLog("Error trying to create videoTrack")
-            //                completionHandler("Error trying to create videoTrack",0.0)
-        }
-        ////////////////////////////////////////////////////////////////
-        
-        // 5 - Create Exporter
-        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        let savePath = (documentDirectory as NSString).appendingPathComponent("\(Utils().giveMeTimeNow())videonaClip.m4v")
-        
-        let url = URL(fileURLWithPath: savePath)
-        
-        let exporter = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetHighestQuality)
-        exporter!.outputURL = url
-        exporter!.outputFileType = AVFileTypeQuickTimeMovie
-        exporter!.shouldOptimizeForNetworkUse = true
-        
-        // 6 - Perform the Export
-        exporter!.exportAsynchronously() {
-            DispatchQueue.main.async(execute: { () -> Void in
-        
-                completionHandler(savePath)
-            })
-        }
-    }
-    
     func seekToSelectedItemHandler(_ videoPosition: Int) {
         let time = getSeekTimePercentForSelectedVideo(videoPosition)
         
@@ -288,6 +233,8 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
     func clearProject() {
         if project != nil{
             CreateNewProjectUseCase().create(project: project!)
+            
+            self.getListData()
         }
     }
 }

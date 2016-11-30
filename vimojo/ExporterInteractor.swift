@@ -15,6 +15,7 @@ class ExporterInteractor:NSObject{
     var clipDuration = 0.0
     var exportedPresetQuality:String!
     var project:Project?
+    var exportSession:AVAssetExportSession?
     
     init(project:Project) {
         super.init()
@@ -39,13 +40,16 @@ class ExporterInteractor:NSObject{
         return exportPath
     }
     
-    func exportVideos(_ completionHandler:@escaping (String,Double)->Void) {
-        project?.setExportedPath()
+    func exportVideos(_ completionHandler:@escaping (URL)->Void) {
+//        project?.setExportedPath()
         
-        guard let exportPath = project?.getExportedPath() else {return}
-        
+//        guard let exportPath = project?.getExportedPath() else {return}
+        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let exportPath = (documentDirectory as NSString).appendingPathComponent("\(Utils().giveMeTimeNow())_VimojoClip_exported.m4v")
+
         let videonaComposition = GetActualProjectAVCompositionUseCase().getComposition(project: project!)
         var videoComposition = videonaComposition.videoComposition
+        
         guard let mutableComposition = videonaComposition.mutableComposition else {return}
         
         // 4 - Get path
@@ -55,30 +59,34 @@ class ExporterInteractor:NSObject{
         if (videoComposition == nil){
             videoComposition = AVMutableVideoComposition(propertiesOf: mutableComposition)
         }
-        
+
         ApplyTextOverlayToVideoCompositionUseCase(project: project!).applyVideoOverlayAnimation(videoComposition!,
                                                                                                 mutableComposition: mutableComposition,
                                                                                                 size: videoComposition!.renderSize)
         
-        let exporter = AVAssetExportSession(asset: mutableComposition, presetName: exportedPresetQuality)
-        exporter!.outputURL = url
-        exporter!.outputFileType = AVFileTypeQuickTimeMovie
-        exporter!.shouldOptimizeForNetworkUse = true
+        exportSession = AVAssetExportSession(asset: mutableComposition, presetName: exportedPresetQuality)
+        exportSession!.outputURL = url
+        exportSession!.outputFileType = AVFileTypeQuickTimeMovie
+        exportSession!.shouldOptimizeForNetworkUse = true
+        
         if (videoComposition != nil){
-            exporter!.videoComposition = videoComposition
+            exportSession!.videoComposition = videoComposition
         }
+        
+        if let audioMix = videonaComposition.audioMix{
+            exportSession!.audioMix = audioMix
+        }
+        
         // 6 - Perform the Export
-        exporter!.exportAsynchronously() {
+        exportSession?.exportAsynchronously(completionHandler: {
             DispatchQueue.main.async(execute: { () -> Void in
-                self.clipDuration = GetActualProjectAVCompositionUseCase().compositionInSeconds
-                
-                Utils().debugLog("la duracion del clip es \(self.clipDuration)")
-                completionHandler(exportPath,self.clipDuration)
-                
-                ExportedAlbum.sharedInstance.saveVideo(NSURL.init(fileURLWithPath: exportPath) as URL)
+                if self.exportSession?.status == .completed{
+                    ExportedAlbum.sharedInstance.saveVideo(url,completion:{
+                        videoURL in
+                        completionHandler(videoURL)
+                    })
+                }
             })
-        }
+        })
     }
-    
-
 }

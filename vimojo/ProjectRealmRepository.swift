@@ -13,7 +13,8 @@ import RealmSwift
 public class ProjectRealmRepository:ProjectRepository{
     var toRealmProjectMapper:ProjectToRealmProjectMapper
     var toProjectMapper:RealmProjectToProjectMapper
-    
+    let serialQueue = DispatchQueue(label: "duplicateQueue")
+
 //    protected VideoRepository videoRepository = new VideoRealmRepository();
 
     init() {
@@ -77,23 +78,51 @@ public class ProjectRealmRepository:ProjectRepository{
     
     public func duplicateProject(id:String) {
         let realm = try! Realm()
+        var projectToCopy:RealmProject? = nil
         
         try! realm.write {
-            if let projectToCopy = realm.objects(RealmProject.self).filter("uuid ='\(id)'").last{
-               let newProjectRealm = RealmProject()
-                newProjectRealm.frameRate = projectToCopy.frameRate
-                newProjectRealm.musicTitle = projectToCopy.musicTitle
-                newProjectRealm.musicVolume = projectToCopy.musicVolume
-                newProjectRealm.projectPath = projectToCopy.projectPath
-                newProjectRealm.quality = projectToCopy.quality
-                newProjectRealm.resolution = projectToCopy.resolution
-                newProjectRealm.title = projectToCopy.title
-                newProjectRealm.videos = projectToCopy.videos
+            projectToCopy = realm.objects(RealmProject.self).filter("uuid ='\(id)'").last
+        }
+      
+        if projectToCopy != nil {
+            duplicateVideos(videos: projectToCopy!.videos, completion: {
+                duplicateVideoList in
+                
+                let newProjectRealm = RealmProject()
+                newProjectRealm.frameRate = projectToCopy!.frameRate
+                newProjectRealm.musicTitle = projectToCopy!.musicTitle
+                newProjectRealm.musicVolume = projectToCopy!.musicVolume
+                newProjectRealm.projectPath = projectToCopy!.projectPath
+                newProjectRealm.quality = projectToCopy!.quality
+                newProjectRealm.resolution = projectToCopy!.resolution
+                newProjectRealm.title = projectToCopy!.title
+                newProjectRealm.videos = duplicateVideoList
                 newProjectRealm.uuid = UUID().uuidString
                 
                 realm.add(newProjectRealm)
+            })
+            
+        }
+    }
+    
+    func duplicateVideos(videos:List<RealmVideo>,completion:@escaping (List<RealmVideo>)->Void){
+        let newVideoList:List<RealmVideo> = List<RealmVideo>()
+        
+        var count = 0
+        for video in videos{
+            serialQueue.sync {
+                VideoRealmRepository().duplicateVideo(realmVideo: video, completion: {
+                    duplicateVideo in
+                    newVideoList.append(duplicateVideo)
+                    
+                    count += 1
+                    if count == videos.count{
+                        completion(newVideoList)
+                    }
+                })
             }
         }
+        
     }
     
     public func getAllProjects() -> [Project] {

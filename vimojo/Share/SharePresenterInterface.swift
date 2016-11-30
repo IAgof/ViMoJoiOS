@@ -14,7 +14,7 @@ protocol SharePresenterInterface {
     func viewDidLoad()
     func viewWillDisappear()
     func pushBack()
-    func setVideoExportedPath(_ path:String)
+    func setVideoExportedPath(_ url: URL) 
     func setNumberOfClipsToExport(_ numberOfClips:Int)
     func pushShare(_ indexPath:IndexPath)
     func expandPlayer()

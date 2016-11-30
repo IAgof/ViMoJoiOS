@@ -61,11 +61,11 @@ class EditingRoomPresenter: NSObject,EditingRoomPresenterInterface {
             
             let exporter = ExporterInteractor.init(project: (interactor?.getProject())!)
             exporter.exportVideos({
-                exportPath,videoTotalTime in
+                exportPath in
                 print("Export path response = \(exportPath)")
                 self.controller?.dissmissAlertWaitToExport({
                     
-                    self.wireframe?.showShareInContainer(exportPath, numberOfClips: (self.interactor?.getNumberOfClips())!)
+                    self.wireframe?.showShareInContainer(exportPath.absoluteString, numberOfClips: (self.interactor?.getNumberOfClips())!)
                 })
             })
         }

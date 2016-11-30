@@ -20,7 +20,8 @@ class SharePresenter:NSObject,SharePresenterInterface{
 
     var wireframe: ShareWireframe?
     
-    var videoPath = ""
+    var videoURL:URL?
+    
     var numberOfClips = 0
     var isGoingToExpandPlayer = false
 
@@ -31,7 +32,10 @@ class SharePresenter:NSObject,SharePresenterInterface{
         
         wireframe?.presentPlayerInterface()
         
-        playerPresenter?.createVideoPlayer(videoPath)
+        if let url = videoURL {
+            playerPresenter?.createVideoPlayer(url)
+        }
+        
         interactor?.findSocialNetworks()
         
         delegate?.bringToFrontExpandPlayerButton()
@@ -44,9 +48,8 @@ class SharePresenter:NSObject,SharePresenterInterface{
         }
     }
     
-    func setVideoExportedPath(_ path: String) {
-        self.videoPath = path
-        
+    func setVideoExportedPath(_ url: URL) {
+        self.videoURL = url
     }
     
     func setNumberOfClipsToExport(_ numberOfClips: Int) {
@@ -66,7 +69,9 @@ class SharePresenter:NSObject,SharePresenterInterface{
     }
     
     func pushShare(_ indexPath:IndexPath){
-        interactor?.shareVideo(indexPath, videoPath: videoPath)
+        if let path = videoURL?.absoluteString{
+            interactor?.shareVideo(indexPath, videoPath: path)
+        }
         
         //TODO: Hacer algo con el interactor delegate para hacerle el tracking
         //        trackVideoShared(socialNetwork)
@@ -81,16 +86,21 @@ class SharePresenter:NSObject,SharePresenterInterface{
     }
     
     func pushGenericShare() {
-        delegate?.showShareGeneric(videoPath)
+        if let path = videoURL?.absoluteString{
+            delegate?.showShareGeneric(path)
+        }
     }
     
     //MARK: - Mixpanel Tracking
     func trackVideoShared(_ socialNetworkName: String) {
-        let duration = AVAsset(url: URL(fileURLWithPath: videoPath)).duration.seconds
+        if let url = videoURL{
+            let duration = AVAsset(url: url).duration.seconds
+            
+            ViMoJoTracker.sharedInstance.trackVideoShared(socialNetworkName,
+                                                          videoDuration: duration,
+                                                          numberOfClips: numberOfClips)
+        }
         
-        ViMoJoTracker.sharedInstance.trackVideoShared(socialNetworkName,
-                                                        videoDuration: duration,
-                                                        numberOfClips: numberOfClips)
     }
 }
 

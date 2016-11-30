@@ -26,7 +26,7 @@ class ProjectListWireframe : NSObject {
         rootWireframe?.showRootViewController(viewController, inWindow: window)
     }
     
-    func presentInterfaceFromViewController(_ prevController:UIViewController,textRef:String) {
+    func presentInterfaceFromViewController(_ prevController:UIViewController) {
         let viewController = viewControllerFromStoryboard()
         
         self.prevController = prevController
@@ -51,8 +51,8 @@ class ProjectListWireframe : NSObject {
     }
     
     func goPrevController(){
-        
-        viewController?.navigationController?.popToViewController(prevController!, animated: true)
+        viewController?.dismiss(animated: true, completion: nil)
+//        viewController?.navigationController?.popToViewController(prevController!, animated: true)
     }
     
     func presentEditorInterface(){

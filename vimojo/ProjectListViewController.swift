@@ -22,6 +22,11 @@ class ProjectListViewController:ViMoJoController{
     override func viewDidLoad() {
         eventHandler?.viewDidLoad()
     }
+    
+    //MARK: - Actions
+    @IBAction func pushBackBarButton(_ sender: AnyObject) {
+        eventHandler?.pushBack()
+    }
 }
 
 extension ProjectListViewController:ProjectListPresenterDelegate{

@@ -15,7 +15,8 @@ class ExportedAlbum: NSObject {
     static let sharedInstance = ExportedAlbum()
     
     var assetCollection: PHAssetCollection!
-    
+    var savedLocalIdentifier:String?
+
     override init() {
         super.init()
         
@@ -70,7 +71,7 @@ class ExportedAlbum: NSObject {
         return nil
     }
     
-    func saveVideo(_ clipPath:URL) {
+    func saveVideo(_ clipPath:URL,completion:@escaping (URL)->Void) {
         if assetCollection == nil {
             return                          // if there was an error upstream, skip the save
         }
@@ -78,6 +79,8 @@ class ExportedAlbum: NSObject {
         PHPhotoLibrary.shared().performChanges({
             let assetChangeRequest = PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: clipPath)
             let assetPlaceHolder = assetChangeRequest!.placeholderForCreatedAsset
+            self.savedLocalIdentifier = assetPlaceHolder?.localIdentifier
+            
             let albumChangeRequest = PHAssetCollectionChangeRequest(for: self.assetCollection)
             let enumeration: NSArray = [assetPlaceHolder!]
             albumChangeRequest!.addAssets(enumeration)
@@ -85,8 +88,26 @@ class ExportedAlbum: NSObject {
             saved, error in
             
             if saved{
+                if let localIdentifier = self.savedLocalIdentifier{
+                    self.getVideoUrlFromIdentifier(localIdentifier, completion: {
+                        videoURL in
+                        completion(videoURL)
+                    })
                     Utils().removeFileFromURL(clipPath)
+                }
             }
         })
     }
+    
+    func getVideoUrlFromIdentifier(_ localIdentifier:String,completion:@escaping (URL)->Void){
+        let phFetchAsset = PHAsset.fetchAssets(withLocalIdentifiers: [localIdentifier], options: nil)
+        let phAsset = phFetchAsset[0]
+        PHImageManager.default().requestAVAsset(forVideo: phAsset, options: nil, resultHandler: {
+            avasset,audiomix,info in
+            if let asset = avasset as? AVURLAsset{
+                completion(asset.url)
+            }
+        })
+    }
+
 }
