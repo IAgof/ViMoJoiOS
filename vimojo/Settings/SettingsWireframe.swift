@@ -61,8 +61,14 @@ class SettingsWireframe : NSObject {
     }
     
     func goPrevController(){
-        settingsViewController?.navigationController?.popToViewController(prevController!, animated: true)
-        settingsViewController?.dismiss(animated: false, completion: nil)
+        if let controller = prevController{
+            if controller.isBeingPresented{
+                self.settingsViewController?.present(controller, animated: true, completion: nil)
+            }else{
+                self.settingsViewController?.dismiss(animated: true, completion: nil)
+            }
+        }
+        
     }
     
     func goToAppleStoreURL(_ url:URL){

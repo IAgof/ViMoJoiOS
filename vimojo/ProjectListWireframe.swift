@@ -51,8 +51,8 @@ class ProjectListWireframe : NSObject {
     }
     
     func goPrevController(){
-        viewController?.dismiss(animated: true, completion: nil)
-//        viewController?.navigationController?.popToViewController(prevController!, animated: true)
+        viewController?.navigationController?.popToViewController(prevController!, animated: true)
+        viewController?.dismiss(animated: false, completion: nil)
     }
     
     func presentEditorInterface(){

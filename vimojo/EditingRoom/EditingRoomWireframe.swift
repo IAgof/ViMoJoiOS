@@ -92,12 +92,14 @@ class EditingRoomWireframe : NSObject {
     }
     
     func goPrevController(){
-            self.editingRoomViewController?.dismiss(animated: true, completion: nil)
-    }
-    
-    func goBackToEditingRoomView(_ prevController:UIViewController){
-
-        prevController.navigationController?.popToRootViewController(animated: true)
+        if let controller = prevController{
+            if controller.isBeingPresented{
+                self.editingRoomViewController?.present(controller, animated: true, completion: nil)
+            }else{
+                self.editingRoomViewController?.dismiss(animated: true, completion: nil)
+            }
+        }
+        
     }
     
     func showEditorInContainer(){
