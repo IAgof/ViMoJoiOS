@@ -42,6 +42,8 @@ pod 'VideonaSplit', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/Videon
 pod 'VideonaTrim', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaTrim'
 pod 'VideonaPlayer', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaPlayer'
 
+pod 'KYDrawerController'
+
 end
 
 target 'vimojoTests' do

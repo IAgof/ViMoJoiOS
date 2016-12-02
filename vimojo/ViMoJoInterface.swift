@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 protocol ViMoJoInterface {
+    var eventHandler:ViMoJoPresenterInterface?{get set}
+    
     func viewDidLoad()
     func viewWillAppear(_ animated: Bool) 
     func viewWillDisappear(_ animated: Bool)
