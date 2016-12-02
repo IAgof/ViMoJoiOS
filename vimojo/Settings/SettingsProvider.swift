@@ -38,6 +38,9 @@ class SettingsProvider:NSObject{
                                              subTitle: camera.quality,
                                              action: SettingsQualityAction(delegate: delegate))
         
+        let transitionSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().TRANSITION),
+                                                subTitle: SettingsTransition().getTransitionToView(),
+                                                action: SettingsTransitionAction(delegate: delegate))
         //MARK: - MORE INFOR SECTION
         let AboutUsSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().ABOUT_US_TITLE),
                                              action: SettingsDetailTextAction(delegate: delegate,
@@ -101,7 +104,7 @@ class SettingsProvider:NSObject{
                                                             action: SettingsFTPBreakingNewsUneditedDestination(delegate: delegate))
         
         let settings = [[nameSetting,userNameSetting,emailSetting],
-                        [resolutionSetting,qualitySetting],
+                        [resolutionSetting,qualitySetting,transitionSetting],
                         [AboutUsSetting,privacyPolicySetting,termsOfServiceSetting,licensesSetting,legalAdviceSetting],
                         [ftpHostSetting,ftpUserNameSetting,ftpPasswordSetting,ftpEditedDestinationSetting,ftpUneditedDestinationSetting],
                         [ftpBNHostSetting,ftpBNUserNameSetting,ftpBNPasswordSetting,ftpBNEditedDestinationSetting,ftpBNUneditedDestinationSetting]]

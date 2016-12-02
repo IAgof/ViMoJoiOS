@@ -91,7 +91,7 @@ class AppDependencies {
         let addTextInteractor = AddTextInteractor(project: project)
         
         let settingsPresenter = SettingsPresenter()
-        let settingsInteractor = SettingsInteractor()
+        let settingsInteractor = SettingsInteractor(project: project)
         
         let detailTextPresenter = DetailTextPresenter()
         let detailTextInteractor = DetailTextInteractor()

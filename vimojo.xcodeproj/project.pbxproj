@@ -16,6 +16,8 @@
 		A900C7551DC35DA100A65730 /* SettingsFTPBreakingNewsUneditedDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C7541DC35DA100A65730 /* SettingsFTPBreakingNewsUneditedDestination.swift */; };
 		A900C7571DC35DC300A65730 /* SettingsFTPBreakingNewsUsernameAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C7561DC35DC300A65730 /* SettingsFTPBreakingNewsUsernameAction.swift */; };
 		A900C7591DC35FB500A65730 /* ShareFTPBreakingNewsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C7581DC35FB500A65730 /* ShareFTPBreakingNewsInteractor.swift */; };
+		A90386401DF1A64B00C01244 /* SettingsTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A903863F1DF1A64B00C01244 /* SettingsTransition.swift */; };
+		A90386471DF1AC5600C01244 /* SettingTransitionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90386461DF1AC5600C01244 /* SettingTransitionAction.swift */; };
 		A906CCDB1DB0D03700AC8FFB /* MicRecorder.strings in Resources */ = {isa = PBXBuildFile; fileRef = A906CCDD1DB0D03700AC8FFB /* MicRecorder.strings */; };
 		A906CCE01DB0D06B00AC8FFB /* MicRecorderConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A906CCDF1DB0D06B00AC8FFB /* MicRecorderConstants.swift */; };
 		A91760A81D9146B5008915DA /* EditingRoomInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A11D9146B5008915DA /* EditingRoomInteractor.swift */; };
@@ -609,6 +611,8 @@
 		A900C7541DC35DA100A65730 /* SettingsFTPBreakingNewsUneditedDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsFTPBreakingNewsUneditedDestination.swift; sourceTree = "<group>"; };
 		A900C7561DC35DC300A65730 /* SettingsFTPBreakingNewsUsernameAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsFTPBreakingNewsUsernameAction.swift; sourceTree = "<group>"; };
 		A900C7581DC35FB500A65730 /* ShareFTPBreakingNewsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareFTPBreakingNewsInteractor.swift; sourceTree = "<group>"; };
+		A903863F1DF1A64B00C01244 /* SettingsTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTransition.swift; sourceTree = "<group>"; };
+		A90386461DF1AC5600C01244 /* SettingTransitionAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTransitionAction.swift; sourceTree = "<group>"; };
 		A906CCDC1DB0D03700AC8FFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/MicRecorder.strings; sourceTree = "<group>"; };
 		A906CCDE1DB0D03900AC8FFB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MicRecorder.strings; sourceTree = "<group>"; };
 		A906CCDF1DB0D06B00AC8FFB /* MicRecorderConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicRecorderConstants.swift; sourceTree = "<group>"; };
@@ -1284,6 +1288,7 @@
 				A97F0F241DC092C800907196 /* SettingsNameAction.swift */,
 				A97F0F2C1DC099BE00907196 /* SettingsQualityAction.swift */,
 				A97F0F2E1DC0A6B700907196 /* SettingsResolutionAction.swift */,
+				A90386461DF1AC5600C01244 /* SettingTransitionAction.swift */,
 				A9FEF97B1DBF8B3A00A56611 /* SettingsUsernameAction.swift */,
 			);
 			name = Actions;
@@ -1786,6 +1791,7 @@
 			isa = PBXGroup;
 			children = (
 				A9B7F8E11DBE56EE00F24E78 /* SettingsCameraSettings.swift */,
+				A903863F1DF1A64B00C01244 /* SettingsTransition.swift */,
 				A95BE9741D990A4A00602DCD /* SettingsContent.swift */,
 				A9645EA11DC0D27D000944CB /* SettingsModel.swift */,
 				A9B7F8E31DBE570400F24E78 /* SettingsFTP.swift */,
@@ -2407,8 +2413,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A90386401DF1A64B00C01244 /* SettingsTransition.swift in Sources */,
 				A97F0F351DC0B77500907196 /* SettingsFTPHostAction.swift in Sources */,
 				A91761341D916F53008915DA /* MusicInteractorInterface.swift in Sources */,
+				A90386471DF1AC5600C01244 /* SettingTransitionAction.swift in Sources */,
 				A94E11F61D941C84004A0E96 /* ResolutionsImages.swift in Sources */,
 				A9E90D701DE729A1002B9DA3 /* ProjectRealmRepository.swift in Sources */,
 				A9E90D611DE70BFE002B9DA3 /* ProjectToRealmProjectMapper.swift in Sources */,

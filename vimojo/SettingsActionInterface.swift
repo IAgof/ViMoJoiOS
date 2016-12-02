@@ -14,6 +14,7 @@ protocol SettingsActionInterface {
 }
 
 protocol SettingsActionDelegate {
+    func executeFinished(response:SettingsActionResponse)
     func executeFinished()
 }
 
