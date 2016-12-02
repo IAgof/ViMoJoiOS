@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class SettingsViewController: ViMoJoController,SettingsInterface ,
+class SettingsViewController: ViMoJoController,
     UINavigationBarDelegate,UITableViewDelegate,UITableViewDataSource{
     
     var eventHandler: SettingsPresenterInterface?

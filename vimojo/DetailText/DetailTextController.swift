@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailTextController: ViMoJoController,DetailTextInterface {
+class DetailTextController: ViMoJoController,DetailTextPresenterDelegate{
     var eventHandler: DetailTextPresenterInterface?
     
     @IBOutlet weak var detailTextFiled: UITextView!

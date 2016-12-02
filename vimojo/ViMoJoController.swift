@@ -19,7 +19,6 @@ ViMoJoInterface {
 
     let tracker = ViMoJoTracker()
     var forcePortrait = false
-    var eventHandler: ViMoJoPresenterInterface?
     
     override public func viewDidLoad() {
         print("View did load in \n \(self)")
@@ -64,9 +63,6 @@ ViMoJoInterface {
     }
 }
 
-extension ViMoJoController:ViMoJoPresenterDelegate{
-
-}
 //Force Portrait to iPad
 extension ViMoJoController{
     

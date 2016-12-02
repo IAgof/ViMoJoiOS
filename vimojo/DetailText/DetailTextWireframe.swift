@@ -41,7 +41,7 @@ class DetailTextWireframe : NSObject {
         
         viewController.eventHandler = detailTextPresenter
         detailTextViewController = viewController
-        detailTextPresenter?.controller = viewController
+        detailTextPresenter?.delegate = viewController
         
         return viewController
     }

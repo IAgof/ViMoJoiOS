@@ -10,7 +10,7 @@ import Foundation
 
 class DetailTextPresenter: NSObject,DetailTextPresenterInterface {
     var wireframe: DetailTextWireframe?
-    var controller: DetailTextInterface?
+    var delegate: DetailTextPresenterDelegate?
     var interactor: DetailTextInteractorInterface?
     
     
@@ -20,6 +20,6 @@ class DetailTextPresenter: NSObject,DetailTextPresenterInterface {
     
     func setTextOnView(_ text:String) {
         let textToView = interactor?.getTextFromInternalMemory(text)
-        controller?.setTextToTextView(textToView!)
+        delegate?.setTextToTextView(textToView!)
     }
 }
