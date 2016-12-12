@@ -1,0 +1,26 @@
+//
+//  DrawerMenuInteractor.swift
+//  vimojo
+//
+//  Created by Alejandro Arjonilla Garcia on 12/12/16.
+//  Copyright © 2016 Videona. All rights reserved.
+//
+
+import Foundation
+import VideonaProject
+
+class DrawerMenuInteractor: DrawerMenuInteractorInterface {
+    var delegate:DrawerMenuInteractorDelegate?
+    
+    var project:Project?
+    
+    init(project:Project) {
+        self.project = project
+    }
+    
+    func createNewProject() {
+        if project != nil{
+            CreateNewProjectUseCase().create(project: project!)
+        }
+    }
+}

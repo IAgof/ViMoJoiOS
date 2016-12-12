@@ -229,12 +229,5 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
                                                        project: actualProject,
                                                        videoPosition: videoPosition)
     }
-    
-    func clearProject() {
-        if project != nil{
-            CreateNewProjectUseCase().create(project: project!)
-            
-            self.getListData()
-        }
-    }
+
 }

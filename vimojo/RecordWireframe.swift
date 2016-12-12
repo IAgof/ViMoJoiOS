@@ -18,6 +18,7 @@ class RecordWireframe : NSObject {
     
     var editorRoomWireframe: EditingRoomWireframe?
     var settingsWireframe : SettingsWireframe?
+    var drawerWireframe : DrawerMenuWireframe?
     
     func presentRecordInterfaceFromWindow(_ window: UIWindow) {
         let viewController = RecordViewControllerFromStoryboard()
@@ -26,7 +27,9 @@ class RecordWireframe : NSObject {
         recordViewController = viewController
         recordPresenter?.delegate = viewController
         
-        rootWireframe?.showRootViewController(viewController, inWindow: window)
+        if let viewControllerToPresent = drawerWireframe?.getDrawerController(viewController: viewController){
+            rootWireframe?.showRootViewController(viewControllerToPresent, inWindow: window)
+        }
     }
     
     func setRecordViewControllerAsRootController() {
@@ -38,8 +41,9 @@ class RecordWireframe : NSObject {
     
     func presentRecordInterfaceFromViewController(_ prevController:UIViewController) {
         let viewController = RecordViewControllerFromStoryboard()
-        
-        prevController.present(viewController, animated: true, completion: nil)
+        if let viewControllerToPresent = drawerWireframe?.getDrawerController(viewController: viewController){
+            prevController.present(viewControllerToPresent, animated: true, completion: nil)
+        }
     }
     
     func RecordViewControllerFromStoryboard() -> RecordController {

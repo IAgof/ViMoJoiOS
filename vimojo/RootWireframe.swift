@@ -13,26 +13,16 @@ import KYDrawerController
 class RootWireframe : NSObject {
     
     func showRootViewController(_ viewController: UIViewController, inWindow: UIWindow) {
+//        let navigationController = navigationControllerFromWindow(inWindow)
+//        navigationController.viewControllers = [viewController]
 
-        let drawerController     = KYDrawerController(drawerDirection: .left, drawerWidth: 300)
-        drawerController.mainViewController = viewController
-        drawerController.drawerViewController = DrawerViewControllerFromStoryboard()
-        
-        inWindow.rootViewController = drawerController
+        inWindow.rootViewController = viewController
         inWindow.makeKeyAndVisible()
     }
     
     func navigationControllerFromWindow(_ window: UIWindow) -> UINavigationController {
         let navigationController = window.rootViewController as! UINavigationController
         return navigationController
-    }
-    
-    func DrawerViewControllerFromStoryboard() -> DrawerMenuTableViewController {
-        let storyboard = mainStoryboard()
-        let viewController = storyboard.instantiateViewController(withIdentifier: "DrawerMenuTableViewController") as! DrawerMenuTableViewController
-
-        
-        return viewController
     }
     
     func mainStoryboard() -> UIStoryboard {

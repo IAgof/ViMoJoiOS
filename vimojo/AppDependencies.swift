@@ -18,6 +18,8 @@ import VideonaPlayer
 class AppDependencies {
     var project:Project?
     
+    var drawerWireframe = DrawerMenuWireframe()
+    
     var recordWireframe = RecordWireframe()
     var editorRoomWireframe = EditingRoomWireframe()
     var editorWireframe = EditorWireframe()
@@ -57,6 +59,9 @@ class AppDependencies {
         }
         
         let rootWireframe = RootWireframe()
+        
+        let drawerPresenter = DrawerMenuPresenter()
+        let drawerInteractor = DrawerMenuInteractor(project: project)
         
         let recordPresenter = RecordPresenter()
         let recordInteractor = RecorderInteractor()
@@ -107,6 +112,16 @@ class AppDependencies {
         let projectListPresenter = ProjectListPresenter()
         let projectListInteractor = ProjectListInteractor(project: project)
         
+        //DRAWER MODULE
+        drawerPresenter.interactor = drawerInteractor
+        drawerPresenter.wireframe = drawerWireframe
+        
+        drawerInteractor.delegate = drawerPresenter
+        
+        drawerWireframe.presenter = drawerPresenter
+        drawerWireframe.projectSelectorWireframe = projectListWireframe
+        drawerWireframe.settingsWireframe = settingsWireframe
+        
         //RECORD MODULE
         recordPresenter.recordWireframe = recordWireframe
         recordPresenter.interactor = recordInteractor
@@ -115,7 +130,8 @@ class AppDependencies {
         recordWireframe.rootWireframe = rootWireframe
         recordWireframe.editorRoomWireframe = editorRoomWireframe
         recordWireframe.settingsWireframe = settingsWireframe
-        
+        recordWireframe.drawerWireframe = drawerWireframe
+
         recordInteractor.project = project
         recordInteractor.delegate = recordPresenter
         
@@ -142,7 +158,8 @@ class AppDependencies {
         editorRoomWireframe.musicWireframe = musicWireframe
         editorRoomWireframe.settingsWireframe = settingsWireframe
         editorWireframe.fullScreenPlayerWireframe = fullScreenPlayerWireframe
-
+        editorRoomWireframe.drawerWireframe = drawerWireframe
+        
         //EDITOR MODULE
         editorPresenter.wireframe = editorWireframe
         editorPresenter.playerPresenter = playerPresenter
@@ -158,7 +175,6 @@ class AppDependencies {
         editorWireframe.fullScreenPlayerWireframe = fullScreenPlayerWireframe
         editorWireframe.addTextWireframe = addTextWireframe
         editorWireframe.galleryWireframe = galleryWireframe
-        editorWireframe.projectSelectorWireframe = projectListWireframe
         
         editorInteractor.delegate = editorPresenter
         

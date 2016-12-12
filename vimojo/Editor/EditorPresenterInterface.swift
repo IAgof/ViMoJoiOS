@@ -27,8 +27,6 @@ protocol EditorPresenterInterface {
     
     func seekBarUpdateHandler(_ value: Float)
     func pushAddVideoHandler()
-    func pushClearProject()
-    func showProjects()
     
     func expandPlayer()
     func updatePlayerLayer()

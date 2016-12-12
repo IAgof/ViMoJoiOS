@@ -32,8 +32,6 @@ protocol EditorInteractorInterface {
     func setTrimParametersToProject(_ startTime:Double,
                                     stopTime:Double,
                                     videoPosition:Int)
-    
-    func clearProject()
 }
 
 protocol EditorInteractorDelegate {

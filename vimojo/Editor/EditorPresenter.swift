@@ -210,14 +210,6 @@ extension EditorPresenter:EditorPresenterInterface{
         wireframe?.presentGallery()
     }
     
-    func pushClearProject() {
-        interactor?.clearProject()
-    }
-    
-    func showProjects() {
-        wireframe?.presentProjectsSelector()
-    }
-    
     func expandPlayer() {
         isGoingToExpandPlayer = true
         

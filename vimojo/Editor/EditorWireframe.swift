@@ -24,7 +24,6 @@ class EditorWireframe : NSObject {
     var splitWireframe:SplitWireframe?
     var addTextWireframe:AddTextWireframe?
     var galleryWireframe:GalleryWireframe?
-    var projectSelectorWireframe:ProjectListWireframe?
     
     func presentEditorInterfaceFromWindow(_ window: UIWindow) {
         let viewController = editorViewControllerFromStoryboard()
@@ -92,12 +91,6 @@ class EditorWireframe : NSObject {
     func presentGallery(){
         if let controller = editorViewController{
             galleryWireframe?.presentGalleryFromViewController(controller)
-        }
-    }
-    
-    func presentProjectsSelector(){
-        if let controller = editorViewController{
-            projectSelectorWireframe?.presentInterfaceFromViewController(controller)
         }
     }
 }
