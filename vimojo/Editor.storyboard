@@ -592,6 +592,12 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="untrackedAreaColor">
                                         <color key="value" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="middleThumbLayerHeight">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="middleThumbLayerWidth">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -771,14 +777,14 @@
                                         <rect key="frame" x="0.0" y="7" width="974" height="56"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIW-Zj-YLZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="243.5" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="244" height="56"/>
                                                 <state key="normal" image="activity_edit_clip_record"/>
                                                 <connections>
                                                     <action selector="pushBackButton:" destination="zb5-ld-AOv" eventType="touchUpInside" id="Kli-wa-oMI"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFG-7P-Tgi">
-                                                <rect key="frame" x="243.5" y="0.0" width="243.5" height="56"/>
+                                                <rect key="frame" x="244" y="0.0" width="243" height="56"/>
                                                 <state key="normal" image="activity_edit_clip_normal"/>
                                                 <state key="selected" image="activity_edit_clip_pressed"/>
                                                 <state key="highlighted" image="activity_edit_clip_pressed"/>
@@ -787,7 +793,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I0i-TH-Ev2">
-                                                <rect key="frame" x="487" y="0.0" width="243.5" height="56"/>
+                                                <rect key="frame" x="487" y="0.0" width="244" height="56"/>
                                                 <state key="normal" image="activity_edit_audio_normal"/>
                                                 <state key="selected" image="activity_edit_audio_pressed"/>
                                                 <state key="highlighted" image="activity_edit_audio_pressed"/>
@@ -796,7 +802,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fen-dv-aiD">
-                                                <rect key="frame" x="730.5" y="0.0" width="243.5" height="56"/>
+                                                <rect key="frame" x="731" y="0.0" width="243" height="56"/>
                                                 <state key="normal" image="activity_edit_share_normal"/>
                                                 <state key="selected" image="activity_edit_share_pressed"/>
                                                 <state key="highlighted" image="activity_edit_share_pressed"/>
