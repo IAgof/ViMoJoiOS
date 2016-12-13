@@ -159,6 +159,7 @@ class AppDependencies {
         editorRoomWireframe.settingsWireframe = settingsWireframe
         editorWireframe.fullScreenPlayerWireframe = fullScreenPlayerWireframe
         editorRoomWireframe.drawerWireframe = drawerWireframe
+        editorRoomWireframe.recordWireframe = recordWireframe
         
         //EDITOR MODULE
         editorPresenter.wireframe = editorWireframe

@@ -16,6 +16,10 @@ class DrawerMenuTableViewController: UITableViewController {
         super.viewDidLoad()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+            print("View will appear")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -37,10 +41,18 @@ extension DrawerMenuTableViewController: DrawerMenuPresenterDelegate{
            parentController.setDrawerState(.closed, animated: true)
         }
     }
+    
+    func layoutDrawerControllerView() {
+        if let parentController = parent as? KYDrawerController{
+            parentController.mainViewController.viewWillAppear(true)
+        }
+    }
 }
 
-//extension DrawerMenuTableViewController:KYDrawerControllerDelegate{
-//    func drawerController(_ drawerController: KYDrawerController, stateChanged state: KYDrawerController.DrawerState) {
-//        self.loadView()
-//    }
-//}
+extension DrawerMenuTableViewController:KYDrawerControllerDelegate{
+    func viewWillAppear() {
+        if let cell = self.tableView.cellForRow(at: IndexPath(item: 0, section: 0)) as? DrawerProfileTableViewCell{
+            cell.configureView()
+        }
+    }
+}

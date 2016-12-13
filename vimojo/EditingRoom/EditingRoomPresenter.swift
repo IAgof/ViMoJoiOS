@@ -38,7 +38,7 @@ class EditingRoomPresenter: NSObject,EditingRoomPresenterInterface {
     }
     
     func pushBack() {
-        wireframe?.goPrevController()
+        wireframe?.navigateToRecorder()
     }
     
     func pushMusic() {

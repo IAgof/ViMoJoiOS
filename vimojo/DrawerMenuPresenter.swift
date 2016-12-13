@@ -22,7 +22,7 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
     let optionsSection = 1
     
     func didSelectAtIndexPath(indexPath: IndexPath) {
-        
+        delegate?.closeDrawer()
         if indexPath.section == optionsSection{
             if let row = cellType(rawValue: indexPath.item){
                 switch row {
@@ -31,6 +31,7 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
                     break
                 case .newProject:
                     interactor?.createNewProject()
+                    delegate?.layoutDrawerControllerView()
                     break
                 case .options:
                     wireframe?.presentSettings()

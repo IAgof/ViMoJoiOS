@@ -107,11 +107,11 @@ class CameraInteractor:CameraRecorderDelegate,
             switch UIDevice.current.orientation{
             case .portrait,.portraitUpsideDown:
                 print("Check Orientation: \(UIDevice.current.orientation)")
-            case .landscapeLeft:
+//            case .landscapeLeft:
+//                videoCamera.outputImageOrientation = .landscapeRight
+//                break
+            case .landscapeRight,.landscapeLeft:
                 videoCamera.outputImageOrientation = .landscapeRight
-                break
-            case .landscapeRight:
-                videoCamera.outputImageOrientation = .landscapeLeft
                 break
             default:
                 break

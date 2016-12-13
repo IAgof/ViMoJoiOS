@@ -16,6 +16,17 @@ class DrawerProfileTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        configureView()
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+    
+    func configureView(){
         let user = userInfo()
         
         usernameLabel.text = user.name
@@ -23,11 +34,5 @@ class DrawerProfileTableViewCell: UITableViewCell {
         
         usernameLabel.adjustsFontSizeToFitWidth = true
         emailLabel.adjustsFontSizeToFitWidth = true
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 }

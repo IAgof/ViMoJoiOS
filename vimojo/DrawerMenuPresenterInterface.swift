@@ -15,4 +15,5 @@ protocol DrawerMenuPresenterInterface {
 
 protocol DrawerMenuPresenterDelegate {
     func closeDrawer()
+    func layoutDrawerControllerView()
 }

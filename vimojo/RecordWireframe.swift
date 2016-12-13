@@ -28,6 +28,7 @@ class RecordWireframe : NSObject {
         recordPresenter?.delegate = viewController
         
         if let viewControllerToPresent = drawerWireframe?.getDrawerController(viewController: viewController){
+            viewControllerToPresent.forceOrientation(orientation: .lanscapeOnly)
             rootWireframe?.showRootViewController(viewControllerToPresent, inWindow: window)
         }
     }
@@ -42,6 +43,7 @@ class RecordWireframe : NSObject {
     func presentRecordInterfaceFromViewController(_ prevController:UIViewController) {
         let viewController = RecordViewControllerFromStoryboard()
         if let viewControllerToPresent = drawerWireframe?.getDrawerController(viewController: viewController){
+            viewControllerToPresent.forceOrientation(orientation: .lanscapeOnly)
             prevController.present(viewControllerToPresent, animated: true, completion: nil)
         }
     }

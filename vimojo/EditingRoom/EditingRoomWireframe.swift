@@ -22,6 +22,7 @@ class EditingRoomWireframe : NSObject {
     var shareWireframe: ShareWireframe?
     var settingsWireframe:SettingsWireframe?
     var drawerWireframe : DrawerMenuWireframe?
+    var recordWireframe : RecordWireframe?
 
     //MARK: - Variables
     weak var currentViewController: UIViewController?
@@ -106,6 +107,12 @@ class EditingRoomWireframe : NSObject {
             }
         }
         
+    }
+    
+    func navigateToRecorder(){
+        if let controller = editingRoomViewController{
+            recordWireframe?.presentRecordInterfaceFromViewController(controller)
+        }
     }
     
     func showEditorInContainer(){

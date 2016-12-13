@@ -22,7 +22,7 @@ class DrawerMenuWireframe {
         
         let drawerMenuController = drawerViewControllerFromStoryboard()
         drawerController.drawerViewController = drawerMenuController
-//        drawerController.delegate = drawerMenuController
+        drawerController.delegate = drawerMenuController
         
         return drawerController
     }
