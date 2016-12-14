@@ -13,6 +13,7 @@ protocol SharePresenterInterface {
     
     func viewDidLoad()
     func viewWillDisappear()
+    func viewDidAppear()
     func pushBack()
     func setVideoExportedPath(_ url: URL) 
     func setNumberOfClipsToExport(_ numberOfClips:Int)
@@ -24,6 +25,9 @@ protocol SharePresenterInterface {
 }
 
 protocol SharePresenterDelegate {
+    func createAlertWaitToExport()
+    func dissmissAlertWaitToExport()
+
     func showShareGeneric(_ moviePath:String)
     
     func createShareInterface()

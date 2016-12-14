@@ -16,8 +16,10 @@ protocol ShareInteractorInterface {
     func setShareMoviePath(_ moviePath:String)
     func postToYoutube(_ token:String)
     func getProject()->Project
+    func exportVideo()
 }
 
 protocol ShareInteractorDelegate{
     func setShareObjectsToView(_ viewObjects:[ShareViewModel])
+    func setPlayerUrl(videoURL:URL)
 }

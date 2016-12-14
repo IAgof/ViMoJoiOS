@@ -50,6 +50,7 @@ UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var expandPlayerButton: UIButton!
     @IBOutlet weak var shareGenericButton: UIButton!
 
+    var alertController:UIAlertController?
     
     override func viewDidLoad() {
 
@@ -57,6 +58,10 @@ UITableViewDelegate, UITableViewDataSource
         print("ViewDid Load")
 
         eventHandler?.viewDidLoad()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        eventHandler?.viewDidAppear()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -163,6 +168,31 @@ UITableViewDelegate, UITableViewDataSource
 
 extension ShareViewController:SharePresenterDelegate{
     //Presenter delegate
+    
+    func createAlertWaitToExport(){
+        let title = Utils().getStringByKeyFromSettings(RecordConstants().WAIT_TITLE)
+        let message = Utils().getStringByKeyFromSettings(RecordConstants().WAIT_DESCRIPTION)
+        
+        alertController = UIAlertController(title: title,
+                                                message: message,
+                                                preferredStyle: .alert)
+        
+        guard let alertC = alertController else{return}
+        
+        let activityIndicator = UIActivityIndicatorView.init(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
+        
+        activityIndicator.center = CGPoint(x: 130.5, y: 75.5);
+        activityIndicator.startAnimating()
+        
+        alertC.view.addSubview(activityIndicator)
+        
+        self.present(alertC, animated: true, completion: nil)
+    }
+    
+    func dissmissAlertWaitToExport(){
+        alertController?.dismiss(animated: true, completion: nil)
+    }
+    
     func showShareGeneric(_ moviePath:String) {
         
         let movie:URL = URL(fileURLWithPath: moviePath)

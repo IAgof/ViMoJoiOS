@@ -38,31 +38,6 @@ class ShareUtils{
         }
     }
     
-    func createAlertWaitToExport(){
-        let alertController = UIAlertController(title: Utils().getStringByKeyFromShare(ShareConstants().UPLOADING_VIDEO),
-                                            message: Utils().getStringByKeyFromShare(ShareConstants().PLEASE_WAIT),
-                                            preferredStyle: .alert)
-        
-        let activityIndicator = UIActivityIndicatorView.init(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
-        
-        activityIndicator.center = CGPoint(x: 130.5, y: 75.5);
-        activityIndicator.startAnimating()
-        
-        alertController.view.addSubview(activityIndicator)
-        
-        let controller = UIApplication.topViewController()
-        if let shareController = controller as? EditingRoomViewController {
-            shareController.present(alertController, animated: true, completion: nil)
-        }
-    }
-    
-    func dissmissAlertWaitToExport(_ completion:()->Void){
-//        alertController?.dismissViewControllerAnimated(true, completion: {
-//            print("can go to next screen")
-//            completion()
-//        })
-    }
-    
     func getLastAsset() -> PHAsset
     {
         var asset:PHAsset = PHAsset()

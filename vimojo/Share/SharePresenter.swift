@@ -17,14 +17,14 @@ class SharePresenter:NSObject,SharePresenterInterface{
     var interactor: ShareInteractorInterface?
     var playerPresenter: PlayerPresenterInterface?
     var delegate:SharePresenterDelegate?
-
+    
     var wireframe: ShareWireframe?
     
     var videoURL:URL?
     
     var numberOfClips = 0
     var isGoingToExpandPlayer = false
-
+    
     //LifeCicle
     func viewDidLoad() {
         delegate!.createShareInterface()
@@ -32,14 +32,16 @@ class SharePresenter:NSObject,SharePresenterInterface{
         
         wireframe?.presentPlayerInterface()
         
-        if let url = videoURL {
-            playerPresenter?.createVideoPlayer(url)
-        }
-        
         interactor?.findSocialNetworks()
         
         delegate?.bringToFrontExpandPlayerButton()
         delegate?.removeSeparatorTable()
+    }
+    
+    func viewDidAppear() {
+        delegate?.createAlertWaitToExport()
+        
+        interactor?.exportVideo()
     }
     
     func viewWillDisappear() {
@@ -80,7 +82,7 @@ class SharePresenter:NSObject,SharePresenterInterface{
     func postToYoutube(_ token:String){
         interactor!.postToYoutube(token)
     }
-
+    
     func updatePlayerLayer() {
         playerPresenter!.layoutSubViews()
     }
@@ -107,5 +109,13 @@ class SharePresenter:NSObject,SharePresenterInterface{
 extension SharePresenter:ShareInteractorDelegate{
     func setShareObjectsToView(_ viewObjects: [ShareViewModel]){
         delegate?.setShareViewObjectsList(viewObjects)
+    }
+    
+    func setPlayerUrl(videoURL: URL) {
+        delegate?.dissmissAlertWaitToExport()
+        
+        self.videoURL = videoURL
+        
+        playerPresenter?.createVideoPlayer(videoURL)
     }
 }

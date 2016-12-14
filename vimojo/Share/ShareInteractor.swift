@@ -25,6 +25,16 @@ class ShareInteractor: NSObject,ShareInteractorInterface {
     func getProject() -> Project {
         return project!
     }
+    func exportVideo() {
+        guard let actualProject = project else{return}
+        
+        let exporter = ExporterInteractor.init(project: actualProject)
+        exporter.exportVideos({
+            exportURL in
+            print("Export path response = \(exportURL)")
+            self.delegate?.setPlayerUrl(videoURL: exportURL)
+        })
+    }
     
     func findSocialNetworks(){
         socialNetworks = SocialNetworkProvider().getSocialNetworks(self)
