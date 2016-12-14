@@ -50,7 +50,6 @@ public class RealmProjectToProjectMapper:Mapper{
         music.volume = realmProject.musicVolume
         
         project.setMusic(music)
-        
     }
     
     func setProjectVideos(project:Project,realmProject:RealmProject){

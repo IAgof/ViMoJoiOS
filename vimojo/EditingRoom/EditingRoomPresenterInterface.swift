@@ -9,20 +9,6 @@
 import Foundation
 
 protocol EditingRoomPresenterInterface{
-    
-    func viewDidLoad()
-    
-    func viewWillDisappear()
-    
-    func viewWillAppear()
-    
-    func pushSettings()
-    
-    func pushBack()
-    
-    func pushEditor()
-    
-    func pushMusic()
-    
-    func pushShare()
+    func controllerSelectedTag(tag:Int)
+    func loadView()
 }

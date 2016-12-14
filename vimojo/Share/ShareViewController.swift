@@ -12,7 +12,7 @@ import VideonaPlayer
 import GoogleSignIn
 import VideonaProject
 
-class ShareViewController: ViMoJoController,PlayerViewSetter,
+class ShareViewController: EditingRoomItemController,PlayerViewSetter,
 UINavigationBarDelegate ,
 UITableViewDelegate, UITableViewDataSource
 ,FullScreenWireframeDelegate{

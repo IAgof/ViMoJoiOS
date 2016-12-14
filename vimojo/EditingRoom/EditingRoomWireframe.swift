@@ -33,7 +33,6 @@ class EditingRoomWireframe : NSObject {
         
         viewController.eventHandler = editingRoomPresenter
         editingRoomViewController = viewController
-        editingRoomPresenter?.controller = viewController
         
         if let viewControllerToPresent = drawerWireframe?.getDrawerController(viewController: viewController){
             rootWireframe?.showRootViewController(viewControllerToPresent, inWindow: window)
@@ -59,27 +58,11 @@ class EditingRoomWireframe : NSObject {
     }
     
     func presentEditingRoomFromViewControllerAndExportVideo(_ prevController:UIViewController){
-        let viewController = EditingRoomViewControllerFromStoryboard()
-        
-        self.prevController = prevController
-        
-        prevController.present(viewController, animated: true, completion: {
-            DispatchQueue.main.async(execute: { () -> Void in
-                self.editingRoomViewController?.eventHandler?.pushShare()
-            })
-        })
+      
     }
     
     func presentEditingRoomFromViewControllerShowGallery(_ prevController:UIViewController){
-        let viewController = EditingRoomViewControllerFromStoryboard()
-        
-        self.prevController = prevController
-        
-        prevController.present(viewController, animated: true, completion: {
-            DispatchQueue.main.async(execute: { () -> Void in
-                self.editorWireframe?.editorPresenter?.pushAddVideoHandler()
-            })
-        })
+
     }
     
     func EditingRoomViewControllerFromStoryboard() -> EditingRoomViewController {
@@ -88,7 +71,6 @@ class EditingRoomWireframe : NSObject {
         
         viewController.eventHandler = editingRoomPresenter
         editingRoomViewController = viewController
-        editingRoomPresenter?.controller = viewController
         
         return viewController
     }
@@ -106,7 +88,6 @@ class EditingRoomWireframe : NSObject {
                 self.editingRoomViewController?.dismiss(animated: true, completion: nil)
             }
         }
-        
     }
     
     func navigateToRecorder(){
@@ -115,72 +96,32 @@ class EditingRoomWireframe : NSObject {
         }
     }
     
-    func showEditorInContainer(){
-        let controller = editorWireframe?.editorViewControllerFromStoryboard()
-        self.presentChildController(controller!)
-    }
-    
-    func showMusicInContainer(){
-        let controller = musicWireframe?.musicViewControllerFromStoryboard()
-   
-        self.presentChildController(controller!)
-    }
-    
-    func showShareInContainer(_ exportPath:String,
-                              numberOfClips:Int){
-        let controller = shareWireframe?.shareViewControllerFromStoryboard()
-            controller?.exportPath = exportPath
-            controller?.numberOfClips = numberOfClips
+    func initTabBarControllers(){
+        var controllers:[UIViewController]  = []
+       
+        if let newController = editorWireframe?.editorViewControllerFromStoryboard(){
+            controllers.append(newController)
+        }
         
-        self.presentChildController(controller!)
+        if let newController = musicWireframe?.musicViewControllerFromStoryboard(){
+            controllers.append(newController)
+        }
+        
+        if let newController = shareWireframe?.shareViewControllerFromStoryboard(){
+            controllers.append(newController)
+        }
+        
+        editingRoomViewController?.viewControllers = controllers
     }
     
     func presentChildController(_ controller:UIViewController){
         
-        controller.view.translatesAutoresizingMaskIntoConstraints = false
-       
-        if currentViewController == nil {
-            self.currentViewController = controller
-            self.currentViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-            editingRoomViewController!.addChildViewController(self.currentViewController!)
-            self.addSubview(self.currentViewController!.view,
-                            toView: editingRoomViewController!.containerView)
-        }else{
-            self.cycleFromViewController(self.currentViewController!,
-                                         toViewController: controller)
-            self.currentViewController = controller
-        }
+
     }
     
     func cycleFromViewController(_ oldViewController: UIViewController,
                                  toViewController newViewController: UIViewController) {
-        oldViewController.willMove(toParentViewController: nil)
-        editingRoomViewController!.addChildViewController(newViewController)
-        self.addSubview(newViewController.view, toView:editingRoomViewController!.containerView!)
-        newViewController.view.alpha = 0
-        newViewController.view.layoutIfNeeded()
-        UIView.animate(withDuration: 0.5, animations: {
-            newViewController.view.alpha = 1
-            oldViewController.view.alpha = 0
-            },
-                                   completion: { finished in
-                                    oldViewController.view.removeFromSuperview()
-                                    oldViewController.removeFromParentViewController()
-                                    newViewController.didMove(toParentViewController: self.editingRoomViewController!)
-        })
-    }
-    
-    func addSubview(_ subView:UIView,
-                    toView parentView:UIView) {
-        
-        parentView.addSubview(subView)
-        
-        var viewBindingsDict = [String: AnyObject]()
-        viewBindingsDict["subView"] = subView
-        parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[subView]|",
-            options: [], metrics: nil, views: viewBindingsDict))
-        parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[subView]|",
-            options: [], metrics: nil, views: viewBindingsDict))
+
     }
     
     func presentSettingsInterface(){

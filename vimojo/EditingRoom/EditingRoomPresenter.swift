@@ -13,75 +13,35 @@ class EditingRoomPresenter: NSObject,EditingRoomPresenterInterface {
     //MARK: - Variables VIPER
     var controller: EditingRoomViewInterface?
     var wireframe: EditingRoomWireframe?
-    var interactor:EditingRoomInteractorInterface?
     
     //MARK: Variables
-    enum controllerVisible {
-        case editor
-        case music
-        case share
+    enum controllerVisible:Int {
+        case editor = 1
+        case music = 2
+        case share = 3
     }
     
-    var whatControllerIsVisible:controllerVisible?
+    var whatControllerIsVisible:controllerVisible = .editor
     
-    //MARK: - Event handler
-    func viewDidLoad(){
-        wireframe?.showEditorInContainer()
+    func loadView() {
+        wireframe?.initTabBarControllers()
     }
     
-    func viewWillDisappear() {
-        whatControllerIsVisible = nil
-    }
-    
-    func viewWillAppear() {
+    func controllerSelectedTag(tag: Int) {
+        if let controllerVisible = controllerVisible(rawValue: tag){
+            whatControllerIsVisible = controllerVisible
+            
+            switch whatControllerIsVisible {
+            case .editor:
 
-    }
-    
-    func pushBack() {
-        wireframe?.navigateToRecorder()
-    }
-    
-    func pushMusic() {
-        if whatControllerIsVisible != .music{
-            whatControllerIsVisible = .music
-            
-            controller?.deselectAllButtons()
-            controller?.selectMusicButton()
-            
-            wireframe?.showMusicInContainer()
+                break
+            case .music:
+                
+                break
+            case .share:
+                
+                break
+            }
         }
-    }
-    
-    func pushShare() {
-        if whatControllerIsVisible != .share{
-            whatControllerIsVisible = .share
-            controller?.deselectAllButtons()
-            controller?.selectShareButton()
-            controller?.createAlertWaitToExport()
-            
-            let exporter = ExporterInteractor.init(project: (interactor?.getProject())!)
-            exporter.exportVideos({
-                exportPath in
-                print("Export path response = \(exportPath)")
-                self.controller?.dissmissAlertWaitToExport({
-                    
-                    self.wireframe?.showShareInContainer(exportPath.absoluteString, numberOfClips: (self.interactor?.getNumberOfClips())!)
-                })
-            })
-        }
-    }
-    
-    func pushEditor() {
-        if whatControllerIsVisible != .editor{
-            whatControllerIsVisible = .editor
-            controller?.deselectAllButtons()
-            controller?.selectEditorButton()
-            
-            wireframe?.showEditorInContainer()
-        }
-    }
-    
-    func pushSettings() {
-        wireframe?.presentSettingsInterface()
     }
 }

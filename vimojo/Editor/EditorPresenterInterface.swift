@@ -20,11 +20,13 @@ protocol EditorPresenterInterface {
     func removeVideoClip(_ position:Int)
     func removeVideoClipAfterConfirmation()
     
-    func pushTrimHandler()
     func pushDuplicateHandler()
     func pushSplitHandler()
     func pushAddTextHandler()
+    func pushAddFloating()
     
+    func addSelection(selection:String)
+
     func seekBarUpdateHandler(_ value: Float)
     func pushAddVideoHandler()
     
@@ -54,6 +56,8 @@ protocol EditorPresenterDelegate:ViMoJoInterface {
                          yesString:String)
     
     func createAlertWaitToImport(_ completion: @escaping (() -> Void))
+    func createAlertWithAddOptions(title:String,
+                                   options:[String])
     func dissmissAlertController()
     func bringToFrontExpandPlayerButton()
     func cameFromFullScreenPlayer(_ playerView:PlayerView)

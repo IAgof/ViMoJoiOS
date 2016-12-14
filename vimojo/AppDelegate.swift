@@ -160,9 +160,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
             
             trackAppStartupProperties(false);
             
-            appDependencies.installRecordToRootViewControllerIntoWindow(window!)
+            appDependencies.installEditorRoomToRootViewControllerIntoWindow(window!)
             
-//            appDependencies.installProjectListToRootViewControllerIntoWindow(window!)
         } else {
             // other version
             defaults.set(currentAppVersion, forKey: "appVersion")

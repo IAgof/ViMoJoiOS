@@ -11,30 +11,6 @@ import UIKit
 import AVFoundation
 import VideonaPlayer
 import VideonaProject
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l >= r
-  default:
-    return !(lhs < rhs)
-  }
-}
-
 
 class EditorPresenter: NSObject {
     //MARK: - Variables VIPER
@@ -52,6 +28,10 @@ class EditorPresenter: NSObject {
     let NO_SELECTED_CELL = -1
     var stopList:[Double] = []
     var isGoingToExpandPlayer = false
+    
+    let option_video = Utils().getStringByKeyFromEditor(EditorTextConstants.ADD_VIDEO)
+    let option_gallery = Utils().getStringByKeyFromEditor(EditorTextConstants.ADD_GALLERY)
+    let option_add_text = Utils().getStringByKeyFromEditor(EditorTextConstants.ADD_TEXT_TO_VIDEO)
     
     //MARK: - Inner functions
     func moveClipToPosition(_ sourcePosition:Int,
@@ -178,12 +158,6 @@ extension EditorPresenter:EditorPresenterInterface{
         }
     }
     
-    func pushTrimHandler() {
-        if checkIfSelectedCellExits() && canGoToAnyEditorAction(){
-            wireframe?.presentTrimController(selectedCellIndexPath.item)
-        }
-    }
-    
     func pushSplitHandler() {
         if checkIfSelectedCellExits() && canGoToAnyEditorAction(){
             wireframe?.presentSplitController(selectedCellIndexPath.item)
@@ -196,6 +170,31 @@ extension EditorPresenter:EditorPresenterInterface{
         }
     }
     
+    func pushAddFloating() {
+        let title = Utils().getStringByKeyFromEditor(EditorTextConstants.ADD_TITLE)
+
+        let addOptions = [option_video,
+                      option_gallery,
+                      option_add_text]
+        
+        delegate?.createAlertWithAddOptions(title: title, options: addOptions)
+    }
+    
+    func addSelection(selection:String){
+        switch selection {
+        case option_video:
+            wireframe?.presentRecorder()
+            break
+        case option_gallery:
+            wireframe?.presentGallery()
+            break
+        case option_add_text:
+            wireframe?.presentAddTextController(selectedCellIndexPath.item)
+            break
+        default:
+            print("Default add selection")
+        }
+    }
     func canGoToAnyEditorAction() -> Bool {
         let nClips = interactor?.getNumberOfClips()
         
@@ -221,13 +220,14 @@ extension EditorPresenter:EditorPresenterInterface{
     }
     
     func checkIfSelectedCellExits()->Bool{
-        let numberOfCells = delegate?.numberOfCellsInCollectionView()
-        
-        if numberOfCells >= selectedCellIndexPath.item {
-            return true
-        }else{
-            return false
+        if let numberOfCells = delegate?.numberOfCellsInCollectionView(){
+            if numberOfCells >= selectedCellIndexPath.item {
+                return true
+            }else{
+                return false
+            }
         }
+        return false
     }
     
     func seekBarUpdateHandler(_ value: Float) {

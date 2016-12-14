@@ -27,6 +27,7 @@ ViMoJoInterface {
 //                                                         selector: #selector(ViMoJoController.hideStatusBarAlways),
 //                                                         name: NSNotification.Name.UIDeviceOrientationDidChange,
 //                                                         object: nil)
+        UIApplication.shared.setStatusBarHidden(true, with: .none)
     }
     
     override public func viewWillAppear(_ animated: Bool) {

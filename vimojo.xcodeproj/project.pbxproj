@@ -20,8 +20,6 @@
 		A90386471DF1AC5600C01244 /* SettingTransitionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90386461DF1AC5600C01244 /* SettingTransitionAction.swift */; };
 		A906CCDB1DB0D03700AC8FFB /* MicRecorder.strings in Resources */ = {isa = PBXBuildFile; fileRef = A906CCDD1DB0D03700AC8FFB /* MicRecorder.strings */; };
 		A906CCE01DB0D06B00AC8FFB /* MicRecorderConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A906CCDF1DB0D06B00AC8FFB /* MicRecorderConstants.swift */; };
-		A91760A81D9146B5008915DA /* EditingRoomInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A11D9146B5008915DA /* EditingRoomInteractor.swift */; };
-		A91760A91D9146B5008915DA /* EditingRoomInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A21D9146B5008915DA /* EditingRoomInteractorInterface.swift */; };
 		A91760AA1D9146B5008915DA /* EditingRoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A31D9146B5008915DA /* EditingRoomPresenter.swift */; };
 		A91760AB1D9146B5008915DA /* EditingRoomPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A41D9146B5008915DA /* EditingRoomPresenterInterface.swift */; };
 		A91760AC1D9146B5008915DA /* EditingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A51D9146B5008915DA /* EditingRoomViewController.swift */; };
@@ -127,6 +125,7 @@
 		A95BE9981D990C4100602DCD /* DetailTextPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9911D990C4100602DCD /* DetailTextPresenter.swift */; };
 		A95BE9991D990C4100602DCD /* DetailTextPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9921D990C4100602DCD /* DetailTextPresenterInterface.swift */; };
 		A95BE99A1D990C4100602DCD /* DetailTextWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9931D990C4100602DCD /* DetailTextWireframe.swift */; };
+		A95F23C41E013E3000864755 /* EditingRoomItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95F23C31E013E3000864755 /* EditingRoomItemController.swift */; };
 		A964410D1DA3015B00CAD950 /* EditorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A964410C1DA3015B00CAD950 /* EditorModel.swift */; };
 		A96441111DA3E59700CAD950 /* Settings.strings in Resources */ = {isa = PBXBuildFile; fileRef = A96441131DA3E59700CAD950 /* Settings.strings */; };
 		A9645EA21DC0D27D000944CB /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9645EA11DC0D27D000944CB /* SettingsModel.swift */; };
@@ -271,7 +270,6 @@
 		A9C167881D92AB1C007EE697 /* SharePresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761061D916F48008915DA /* SharePresenterInterface.swift */; };
 		A9C167891D92AB1C007EE697 /* DuplicateInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760E31D914835008915DA /* DuplicateInterface.swift */; };
 		A9C1678A1D92AB1C007EE697 /* ShareYoutubeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917610C1D916F48008915DA /* ShareYoutubeInteractor.swift */; };
-		A9C1678B1D92AB1C007EE697 /* EditingRoomInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A21D9146B5008915DA /* EditingRoomInteractorInterface.swift */; };
 		A9C1678C1D92AB1C007EE697 /* CameraRecorderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386511D7D53D10065D3EC /* CameraRecorderInteractor.swift */; };
 		A9C1678E1D92AB1C007EE697 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B385E91D7D51380065D3EC /* AppDelegate.swift */; };
 		A9C1678F1D92AB1C007EE697 /* TimerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3863F1D7D53880065D3EC /* TimerInteractor.swift */; };
@@ -296,7 +294,6 @@
 		A9C167A21D92AB1C007EE697 /* ShareFacebookInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761001D916F48008915DA /* ShareFacebookInteractor.swift */; };
 		A9C167A31D92AB1C007EE697 /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386591D7D55340065D3EC /* RootWireframe.swift */; };
 		A9C167A41D92AB1C007EE697 /* SocialNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917610E1D916F48008915DA /* SocialNetworkProvider.swift */; };
-		A9C167A51D92AB1C007EE697 /* EditingRoomInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A11D9146B5008915DA /* EditingRoomInteractor.swift */; };
 		A9C167A61D92AB1C007EE697 /* ViMoJoTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE421D7D599900421BD0 /* ViMoJoTracker.swift */; };
 		A9C167A71D92AB1C007EE697 /* ShareTwitterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761081D916F48008915DA /* ShareTwitterInteractor.swift */; };
 		A9C167A81D92AB1C007EE697 /* EditorWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B71D9146BF008915DA /* EditorWireframe.swift */; };
@@ -378,7 +375,6 @@
 		A9C168191D92C667007EE697 /* SharePresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761061D916F48008915DA /* SharePresenterInterface.swift */; };
 		A9C1681A1D92C667007EE697 /* DuplicateInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760E31D914835008915DA /* DuplicateInterface.swift */; };
 		A9C1681B1D92C667007EE697 /* ShareYoutubeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917610C1D916F48008915DA /* ShareYoutubeInteractor.swift */; };
-		A9C1681C1D92C667007EE697 /* EditingRoomInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A21D9146B5008915DA /* EditingRoomInteractorInterface.swift */; };
 		A9C1681D1D92C667007EE697 /* CameraRecorderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386511D7D53D10065D3EC /* CameraRecorderInteractor.swift */; };
 		A9C1681F1D92C667007EE697 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B385E91D7D51380065D3EC /* AppDelegate.swift */; };
 		A9C168201D92C667007EE697 /* TimerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3863F1D7D53880065D3EC /* TimerInteractor.swift */; };
@@ -403,7 +399,6 @@
 		A9C168331D92C667007EE697 /* ShareFacebookInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761001D916F48008915DA /* ShareFacebookInteractor.swift */; };
 		A9C168341D92C667007EE697 /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386591D7D55340065D3EC /* RootWireframe.swift */; };
 		A9C168351D92C667007EE697 /* SocialNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917610E1D916F48008915DA /* SocialNetworkProvider.swift */; };
-		A9C168361D92C667007EE697 /* EditingRoomInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A11D9146B5008915DA /* EditingRoomInteractor.swift */; };
 		A9C168371D92C667007EE697 /* ViMoJoTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE421D7D599900421BD0 /* ViMoJoTracker.swift */; };
 		A9C168381D92C667007EE697 /* ShareTwitterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761081D916F48008915DA /* ShareTwitterInteractor.swift */; };
 		A9C168391D92C667007EE697 /* EditorWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B71D9146BF008915DA /* EditorWireframe.swift */; };
@@ -623,8 +618,6 @@
 		A906CCDE1DB0D03900AC8FFB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MicRecorder.strings; sourceTree = "<group>"; };
 		A906CCDF1DB0D06B00AC8FFB /* MicRecorderConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicRecorderConstants.swift; sourceTree = "<group>"; };
 		A906CCE41DB0D76C00AC8FFB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
-		A91760A11D9146B5008915DA /* EditingRoomInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditingRoomInteractor.swift; path = EditingRoom/EditingRoomInteractor.swift; sourceTree = "<group>"; };
-		A91760A21D9146B5008915DA /* EditingRoomInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditingRoomInteractorInterface.swift; path = EditingRoom/EditingRoomInteractorInterface.swift; sourceTree = "<group>"; };
 		A91760A31D9146B5008915DA /* EditingRoomPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditingRoomPresenter.swift; path = EditingRoom/EditingRoomPresenter.swift; sourceTree = "<group>"; };
 		A91760A41D9146B5008915DA /* EditingRoomPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditingRoomPresenterInterface.swift; path = EditingRoom/EditingRoomPresenterInterface.swift; sourceTree = "<group>"; };
 		A91760A51D9146B5008915DA /* EditingRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditingRoomViewController.swift; path = EditingRoom/EditingRoomViewController.swift; sourceTree = "<group>"; };
@@ -736,6 +729,7 @@
 		A95BE9911D990C4100602DCD /* DetailTextPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailTextPresenter.swift; path = DetailText/DetailTextPresenter.swift; sourceTree = "<group>"; };
 		A95BE9921D990C4100602DCD /* DetailTextPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailTextPresenterInterface.swift; path = DetailText/DetailTextPresenterInterface.swift; sourceTree = "<group>"; };
 		A95BE9931D990C4100602DCD /* DetailTextWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailTextWireframe.swift; path = DetailText/DetailTextWireframe.swift; sourceTree = "<group>"; };
+		A95F23C31E013E3000864755 /* EditingRoomItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingRoomItemController.swift; sourceTree = "<group>"; };
 		A964410C1DA3015B00CAD950 /* EditorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorModel.swift; sourceTree = "<group>"; };
 		A96441121DA3E59700CAD950 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Settings.strings; sourceTree = "<group>"; };
 		A96441141DA3E59A00CAD950 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Settings.strings; sourceTree = "<group>"; };
@@ -981,12 +975,8 @@
 		A9058DBE1D90357A0048F484 /* EditingRoom */ = {
 			isa = PBXGroup;
 			children = (
-				A91760A11D9146B5008915DA /* EditingRoomInteractor.swift */,
-				A91760A21D9146B5008915DA /* EditingRoomInteractorInterface.swift */,
-				A91760A31D9146B5008915DA /* EditingRoomPresenter.swift */,
-				A91760A41D9146B5008915DA /* EditingRoomPresenterInterface.swift */,
-				A91760A51D9146B5008915DA /* EditingRoomViewController.swift */,
-				A91760A61D9146B5008915DA /* EditingRoomViewInterface.swift */,
+				A95F23C61E014C4100864755 /* Presenter */,
+				A95F23C51E014C3B00864755 /* View */,
 				A91760A71D9146B5008915DA /* EditingRoomWireframe.swift */,
 			);
 			name = EditingRoom;
@@ -1332,6 +1322,33 @@
 				A946702D1DF185FD00F0E487 /* User Interface */,
 			);
 			name = DetailText;
+			sourceTree = "<group>";
+		};
+		A95F23C51E014C3B00864755 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A91760A51D9146B5008915DA /* EditingRoomViewController.swift */,
+				A91760A61D9146B5008915DA /* EditingRoomViewInterface.swift */,
+				A95F23C71E014C5700864755 /* Item */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A95F23C61E014C4100864755 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A91760A31D9146B5008915DA /* EditingRoomPresenter.swift */,
+				A91760A41D9146B5008915DA /* EditingRoomPresenterInterface.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		A95F23C71E014C5700864755 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				A95F23C31E013E3000864755 /* EditingRoomItemController.swift */,
+			);
+			name = Item;
 			sourceTree = "<group>";
 		};
 		A96441081DA3012200CAD950 /* App Logic */ = {
@@ -2654,7 +2671,6 @@
 				A91760E61D914835008915DA /* DuplicateInterface.swift in Sources */,
 				A91761211D916F48008915DA /* ShareYoutubeInteractor.swift in Sources */,
 				A988DEF41DACEFA40030E285 /* MusicListPresenter.swift in Sources */,
-				A91760A91D9146B5008915DA /* EditingRoomInteractorInterface.swift in Sources */,
 				A9E90D521DE7067F002B9DA3 /* ProjectRepository.swift in Sources */,
 				A9B386531D7D53D10065D3EC /* CameraRecorderInteractor.swift in Sources */,
 				A9B385EA1D7D51380065D3EC /* AppDelegate.swift in Sources */,
@@ -2680,6 +2696,7 @@
 				A9B3865F1D7D55660065D3EC /* ViMoJoController.swift in Sources */,
 				A9B386541D7D53D10065D3EC /* CameraRecorderInterface.swift in Sources */,
 				A9E90D821DE7426C002B9DA3 /* VideoToRealmVideoMapper.swift in Sources */,
+				A95F23C41E013E3000864755 /* EditingRoomItemController.swift in Sources */,
 				A93BCE4C1D7D5C7400421BD0 /* ConfigPreferences.swift in Sources */,
 				A9A2072E1DED8732004AAEE2 /* ProjectListViewController.swift in Sources */,
 				A91760D71D9146FE008915DA /* FullScreenPlayerPresenter.swift in Sources */,
@@ -2712,7 +2729,6 @@
 				A91761231D916F48008915DA /* SocialNetworkProvider.swift in Sources */,
 				A964410D1DA3015B00CAD950 /* EditorModel.swift in Sources */,
 				A91B8C9C1DE8864D0040CA57 /* CheckPhotoRollPermissionUseCase.swift in Sources */,
-				A91760A81D9146B5008915DA /* EditingRoomInteractor.swift in Sources */,
 				A93BCE431D7D599900421BD0 /* ViMoJoTracker.swift in Sources */,
 				A917611D1D916F48008915DA /* ShareTwitterInteractor.swift in Sources */,
 				A97F0F251DC092C800907196 /* SettingsNameAction.swift in Sources */,
@@ -2819,7 +2835,6 @@
 				A9C167881D92AB1C007EE697 /* SharePresenterInterface.swift in Sources */,
 				A9C167891D92AB1C007EE697 /* DuplicateInterface.swift in Sources */,
 				A9C1678A1D92AB1C007EE697 /* ShareYoutubeInteractor.swift in Sources */,
-				A9C1678B1D92AB1C007EE697 /* EditingRoomInteractorInterface.swift in Sources */,
 				A9C1678C1D92AB1C007EE697 /* CameraRecorderInteractor.swift in Sources */,
 				A9C1678E1D92AB1C007EE697 /* AppDelegate.swift in Sources */,
 				A9C1678F1D92AB1C007EE697 /* TimerInteractor.swift in Sources */,
@@ -2844,7 +2859,6 @@
 				A9C167A21D92AB1C007EE697 /* ShareFacebookInteractor.swift in Sources */,
 				A9C167A31D92AB1C007EE697 /* RootWireframe.swift in Sources */,
 				A9C167A41D92AB1C007EE697 /* SocialNetworkProvider.swift in Sources */,
-				A9C167A51D92AB1C007EE697 /* EditingRoomInteractor.swift in Sources */,
 				A9C167A61D92AB1C007EE697 /* ViMoJoTracker.swift in Sources */,
 				A9C167A71D92AB1C007EE697 /* ShareTwitterInteractor.swift in Sources */,
 				A9C167A81D92AB1C007EE697 /* EditorWireframe.swift in Sources */,
@@ -2915,7 +2929,6 @@
 				A9C168191D92C667007EE697 /* SharePresenterInterface.swift in Sources */,
 				A9C1681A1D92C667007EE697 /* DuplicateInterface.swift in Sources */,
 				A9C1681B1D92C667007EE697 /* ShareYoutubeInteractor.swift in Sources */,
-				A9C1681C1D92C667007EE697 /* EditingRoomInteractorInterface.swift in Sources */,
 				A9C1681D1D92C667007EE697 /* CameraRecorderInteractor.swift in Sources */,
 				A9C1681F1D92C667007EE697 /* AppDelegate.swift in Sources */,
 				A9C168201D92C667007EE697 /* TimerInteractor.swift in Sources */,
@@ -2940,7 +2953,6 @@
 				A9C168331D92C667007EE697 /* ShareFacebookInteractor.swift in Sources */,
 				A9C168341D92C667007EE697 /* RootWireframe.swift in Sources */,
 				A9C168351D92C667007EE697 /* SocialNetworkProvider.swift in Sources */,
-				A9C168361D92C667007EE697 /* EditingRoomInteractor.swift in Sources */,
 				A9C168371D92C667007EE697 /* ViMoJoTracker.swift in Sources */,
 				A9C168381D92C667007EE697 /* ShareTwitterInteractor.swift in Sources */,
 				A9C168391D92C667007EE697 /* EditorWireframe.swift in Sources */,

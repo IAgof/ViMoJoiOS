@@ -31,7 +31,7 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         
         self.videosList = videosList
         
-        self.getVideoList()
+        self.getVideoList() 
         self.getStopTimeList()
     }
     

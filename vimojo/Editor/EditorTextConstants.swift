@@ -16,4 +16,8 @@ struct EditorTextConstants {
     static let IMPORT_VIDEO_FROM_PHOTO_LIBRARY_TITLE = "import_video_from_photo_library_title"
     static let IMPORT_VIDEO_FROM_PHOTO_LIBRARY_MESSAGE = "import_video_from_photo_library_message"
     
+    static let ADD_TITLE = "add_title"
+    static let ADD_VIDEO = "add_video"
+    static let ADD_GALLERY = "add_gallery"
+    static let ADD_TEXT_TO_VIDEO = "add_text"
 }

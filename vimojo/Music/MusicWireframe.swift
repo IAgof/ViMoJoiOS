@@ -56,7 +56,7 @@ class MusicWireframe : NSObject {
     }
     
     func mainStoryboard() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let storyboard = UIStoryboard(name: "Editor", bundle: Bundle.main)
         return storyboard
     }
     
@@ -73,7 +73,7 @@ class MusicWireframe : NSObject {
         guard let wireframe = editorRoomWireframe else{
             return
         }
-        wireframe.editingRoomViewController?.eventHandler?.pushEditor()
+//        wireframe.editingRoomViewController?.eventHandler?.pushEditor()
     }
     
     func presenterMusicListView(){

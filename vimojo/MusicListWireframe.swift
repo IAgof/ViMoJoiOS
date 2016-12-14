@@ -66,7 +66,7 @@ class MusicListWireframe {
         guard let wireframe = editorRoomWireframe else{
             return
         }
-        wireframe.editingRoomViewController?.eventHandler?.pushEditor()
+//        wireframe.editingRoomViewController?.eventHandler?.pushEditor()
     }
     
     func getVisibleViewController() -> UIViewController? {

@@ -12,7 +12,7 @@ import VideonaPlayer
 import VideonaRangeSlider
 import VideonaProject
 
-class EditorViewController: ViMoJoController,EditorPresenterDelegate,FullScreenWireframeDelegate,
+class EditorViewController: EditingRoomItemController,EditorPresenterDelegate,FullScreenWireframeDelegate,
 UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UINavigationControllerDelegate{
     
     //MARK: - VIPER variables
@@ -38,15 +38,16 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var expandPlayerButton: UIButton!
     @IBOutlet weak var rangeTrimSlider: VideonaRangeSlider!
+    @IBOutlet weak var addFloatingButton: UIButton!
 
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         rangeTrimSlider.delegate = self
-        eventHandler?.viewDidLoad()
+        eventHandler?.viewDidLoad()        
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -126,11 +127,6 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         eventHandler?.removeVideoClip(sender.tag)
     }
     
-    @IBAction func pushTrimClip(_ sender:AnyObject){
-        
-        eventHandler?.pushTrimHandler()
-    }
-    
     @IBAction func pushDuplicateClip(_ sender:AnyObject){
         
         eventHandler?.pushDuplicateHandler()
@@ -151,6 +147,10 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     
     @IBAction func pushAddTextButton(_ sender: AnyObject) {
         eventHandler?.pushAddTextHandler()
+    }
+    
+    @IBAction func pushAddFloatingButton(_ sender: Any) {
+        eventHandler?.pushAddFloating()
     }
     
     //MARK: - Interface
@@ -230,6 +230,26 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
             presented in
             completion()
         })
+    }
+    
+    func createAlertWithAddOptions(title:String,
+                                   options:[String]){
+        
+        let alertController = SettingsUtils().createActionSheetWithOptions(title,
+                                                                           options: options,
+                                                                           completion: {
+                                                                            response in
+                                                                            print("response add options")
+                                                                            print(response)
+                                                                            self.eventHandler?.addSelection(selection: response)
+                                                                            
+        })
+        
+            if let popoverController = alertController.popoverPresentationController {
+                popoverController.sourceView = addFloatingButton
+            }
+            self.present(alertController, animated: true, completion: nil)
+
     }
     
     func dissmissAlertController(){

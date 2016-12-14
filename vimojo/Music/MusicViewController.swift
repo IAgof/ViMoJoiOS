@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import VideonaPlayer
 
-class MusicViewController: ViMoJoController,MusicViewInterface,MusicPresenterDelegate,PlayerViewSetter,FullScreenWireframeDelegate{
+class MusicViewController: EditingRoomItemController,MusicViewInterface,MusicPresenterDelegate,PlayerViewSetter,FullScreenWireframeDelegate{
     //MARK: - VIPER variables
     var eventHandler: MusicPresenterInterface?
     

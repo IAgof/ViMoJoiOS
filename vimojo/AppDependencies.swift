@@ -78,7 +78,6 @@ class AppDependencies {
         let shareInteractor = ShareInteractor()
         
         let editorRoomPresenter = EditingRoomPresenter()
-        let editingRoomInteractor = EditingRoomInteractor(project: project)
         
         let editorPresenter = EditorPresenter()
         let editorInteractor = EditorInteractor(project: project)
@@ -149,7 +148,6 @@ class AppDependencies {
         
         //EDITOR ROOM MODULE
         editorRoomPresenter.wireframe = editorRoomWireframe
-        editorRoomPresenter.interactor = editingRoomInteractor
         
         editorRoomWireframe.editingRoomPresenter = editorRoomPresenter
         editorRoomWireframe.rootWireframe = rootWireframe
@@ -176,6 +174,7 @@ class AppDependencies {
         editorWireframe.fullScreenPlayerWireframe = fullScreenPlayerWireframe
         editorWireframe.addTextWireframe = addTextWireframe
         editorWireframe.galleryWireframe = galleryWireframe
+        editorWireframe.editingRoomWireframe = editorRoomWireframe
         
         editorInteractor.delegate = editorPresenter
         
