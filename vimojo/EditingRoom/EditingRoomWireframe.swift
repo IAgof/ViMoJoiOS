@@ -23,6 +23,7 @@ class EditingRoomWireframe : NSObject {
     var settingsWireframe:SettingsWireframe?
     var drawerWireframe : DrawerMenuWireframe?
     var recordWireframe : RecordWireframe?
+    var galleryWireframe:GalleryWireframe?
 
     //MARK: - Variables
     weak var currentViewController: UIViewController?
@@ -58,11 +59,27 @@ class EditingRoomWireframe : NSObject {
     }
     
     func presentEditingRoomFromViewControllerAndExportVideo(_ prevController:UIViewController){
-      
+        let viewController = EditingRoomViewControllerFromStoryboard()
+        
+        self.prevController = prevController
+        
+        if let viewControllerToPresent = drawerWireframe?.getDrawerController(viewController: viewController){
+            viewController.selectedIndex = 2
+            
+            prevController.present(viewControllerToPresent, animated: true, completion: nil)
+        }
     }
     
     func presentEditingRoomFromViewControllerShowGallery(_ prevController:UIViewController){
-
+        let viewController = EditingRoomViewControllerFromStoryboard()
+        
+        self.prevController = prevController
+        
+        if let viewControllerToPresent = drawerWireframe?.getDrawerController(viewController: viewController){
+            prevController.present(viewControllerToPresent, animated: true, completion: {
+                self.galleryWireframe?.presentGalleryFromViewController(viewControllerToPresent)
+            })
+        }
     }
     
     func EditingRoomViewControllerFromStoryboard() -> EditingRoomViewController {

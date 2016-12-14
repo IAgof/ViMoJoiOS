@@ -10,31 +10,6 @@ import Foundation
 import GPUImage
 import VideonaProject
 
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l > r
-  default:
-    return rhs < lhs
-  }
-}
-
-
 struct BatteryIconImage {
     var normal : UIImage!
     var pressed : UIImage!
@@ -73,6 +48,22 @@ class RecordPresenter: NSObject
     var micIsEnabled = false
     var modeViewIsShowed = false
     var inputGainViewIsShowed = false
+    
+    enum batteryImages:String {
+        case charged = "activity_rec_battery_100"
+        case seventyFivePercent = "activity_rec_battery_75"
+        case fiftyPercent = "activity_rec_battery_50"
+        case twentyFivePercent = "activity_rec_battery_25"
+        case empty = "activity_rec_battery_0"
+    }
+    
+    enum batteryImagesPressed:String{
+        case charged = "activity_rec_battery_100"
+        case seventyFivePercent = "activity_rec_battery_75"
+        case fiftyPercent = "activity_rec_battery_50"
+        case twentyFivePercent = "activity_rec_battery_25"
+        case empty = "activity_rec_battery_0"
+    }
     
     //MARK: - Event handler
     func viewDidLoad(_ displayView:GPUImageView){
@@ -374,21 +365,7 @@ class RecordPresenter: NSObject
         
     }
 
-    enum batteryImages:String {
-        case charged = "activity_record_icon_battery_charged"
-        case seventyFivePercent = "activity_record_icon_battery_75"
-        case fiftyPercent = "activity_record_icon_battery_50"
-        case twentyFivePercent = "activity_record_icon_battery_25"
-        case empty = "activity_record_icon_battery_empty"
-    }
-    
-    enum batteryImagesPressed:String{
-        case charged = "activity_record_icon_battery_charged_pressed"
-        case seventyFivePercent = "activity_record_icon_battery_75_pressed"
-        case fiftyPercent = "activity_record_icon_battery_50_pressed"
-        case twentyFivePercent = "activity_record_icon_battery_25_pressed"
-        case empty = "activity_record_icon_battery_empty_pressed"
-    }
+
     
     func getBatteryIcon(_ value:Float)->BatteryIconImage {
         switch value {
@@ -499,12 +476,12 @@ class RecordPresenter: NSObject
     }
     
     func thumbnailHasTapped() {
-        let nClips = interactor?.getNumberOfClipsInProject()
-        
-        if nClips > 0{
-            recordWireframe?.presentEditorRoomInterface()
-        }else{
-            recordWireframe?.presentGalleryInsideEditorRoomInterface()
+        if let nClips = interactor?.getNumberOfClipsInProject(){
+            if nClips > 0{
+                recordWireframe?.presentEditorRoomInterface()
+            }else{
+                recordWireframe?.presentGalleryInsideEditorRoomInterface()
+            }
         }
     }
 
@@ -703,21 +680,21 @@ class RecordPresenter: NSObject
     }
     
     func updateThumbnail() {
-        let nClips = interactor?.getNumberOfClipsInProject()
-        
-        if nClips > 0{
-            if let videoURL = interactor?.getVideoURLInPosition(nClips! - 1){
-                thumbnailInteractor = ThumbnailInteractor.init(videoURL: videoURL,
-                                                               diameter: (self.delegate?.getThumbnailSize())!)
+        if let nClips = interactor?.getNumberOfClipsInProject(){
+            if nClips > 0{
+                if let videoURL = interactor?.getVideoURLInPosition(nClips - 1){
+                    thumbnailInteractor = ThumbnailInteractor.init(videoURL: videoURL,
+                                                                   diameter: (self.delegate?.getThumbnailSize())!)
+                }
+                
+                if thumbnailInteractor != nil {
+                    thumbnailInteractor?.delegate = self
+                    thumbnailInteractor?.getthumbnailImage()
+                }
+            }else{
+                self.delegate?.hideRecordedVideoThumb()
+                //            self.delegate?.disableShareButton()
             }
-            
-            if thumbnailInteractor != nil {
-                thumbnailInteractor?.delegate = self
-                thumbnailInteractor?.getthumbnailImage()
-            }
-        }else{
-            self.delegate?.hideRecordedVideoThumb()
-//            self.delegate?.disableShareButton()
         }
     }
     
