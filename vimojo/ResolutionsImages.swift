@@ -18,24 +18,26 @@ struct ResolutionImage{
     init(resolution:String){
         switch resolution {
         case AVCaptureSessionPreset640x480:
-            image = UIImage(named:"activity_rec_resolution_720")!
-            imagePressed = UIImage(named:"activity_rec_resolution_720")!
-            break
-        case AVCaptureSessionPreset1280x720:
-            image = UIImage(named:"activity_rec_resolution_720")!
-            imagePressed = UIImage(named:"activity_rec_resolution_720")!
-            break
-        case AVCaptureSessionPreset1920x1080:
-            image = UIImage(named:"activity_rec_resolution_1080")!
-            imagePressed = UIImage(named:"activity_rec_resolution_720")!
-            break
-        case AVCaptureSessionPreset3840x2160:
-            image = UIImage(named:"activity_rec_resolution_4k")!
-            imagePressed = UIImage(named:"activity_rec_resolution_4k")!
-            break
-        default:
             image = UIImage(named:"activity_record_icon_resolution_720")!
             imagePressed = UIImage(named:"activity_record_icon_resolution_720_pressed")!
+
+            break
+        case AVCaptureSessionPreset1280x720:
+            image = UIImage(named:"activity_record_icon_resolution_720")!
+            imagePressed = UIImage(named:"activity_record_icon_resolution_720_pressed")!
+
+            break
+        case AVCaptureSessionPreset1920x1080:
+            image = UIImage(named:"activity_record_icon_resolution_1080")!
+            imagePressed = UIImage(named:"activity_record_icon_resolution_1080_pressed")!
+            break
+        case AVCaptureSessionPreset3840x2160:
+            image = UIImage(named:"activity_record_icon_resolution_4k")!
+            imagePressed = UIImage(named:"activity_record_icon_resolution_4k_pressed")!
+            break
+        default:
+            image = UIImage(named:"activity_recorderord_icon_resolution_720")!
+            imagePressed = UIImage(named:"activity_recorderord_icon_resolution_720_pressed")!
         }
     }
 }
