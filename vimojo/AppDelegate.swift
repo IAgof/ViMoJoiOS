@@ -27,8 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
         // Override point for customization after application launch.
         
         //MIXPANEL
-        mixpanel = Mixpanel.sharedInstance(withToken: AnalyticsConstants().MIXPANEL_TOKEN)
+        #if DEBUG
         
+        #else
+            mixpanel = Mixpanel.sharedInstance(withToken: AnalyticsConstants().MIXPANEL_TOKEN)
+        #endif
+                
         self.configureGoogleSignIn()
         
         // Optional: configure GAI options.

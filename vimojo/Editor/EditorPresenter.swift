@@ -76,7 +76,7 @@ class EditorPresenter: NSObject {
 extension EditorPresenter:EditorPresenterInterface{
     //MARK: - Interface
     func viewDidLoad() {
-        loadView()
+        //loadView()
     }
     
     func loadView(){
@@ -178,6 +178,10 @@ extension EditorPresenter:EditorPresenterInterface{
                       option_add_text]
         
         delegate?.createAlertWithAddOptions(title: title, options: addOptions)
+    }
+    
+    func pushOptions() {
+        wireframe?.presentSettings()
     }
     
     func addSelection(selection:String){

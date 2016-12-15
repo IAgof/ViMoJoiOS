@@ -39,6 +39,7 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     @IBOutlet weak var expandPlayerButton: UIButton!
     @IBOutlet weak var rangeTrimSlider: VideonaRangeSlider!
     @IBOutlet weak var addFloatingButton: UIButton!
+    @IBOutlet weak var navigationBar: UINavigationBar!
 
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -48,7 +49,7 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         eventHandler?.viewDidLoad()        
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         eventHandler?.viewWillAppear()
@@ -151,6 +152,10 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     
     @IBAction func pushAddFloatingButton(_ sender: Any) {
         eventHandler?.pushAddFloating()
+    }
+    
+    @IBAction func pushOptionsButton(_ sender: Any) {
+        eventHandler?.pushOptions()
     }
     
     //MARK: - Interface

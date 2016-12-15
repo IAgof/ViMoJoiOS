@@ -103,6 +103,10 @@ UITableViewDelegate, UITableViewDataSource
         eventHandler?.pushGenericShare()
     }
     
+    @IBAction func pushOptionsButton(_ sender: Any) {
+        eventHandler?.pushOptions()
+    }
+    
     //MARK: - UITableView Datasource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        

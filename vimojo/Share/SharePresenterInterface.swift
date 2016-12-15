@@ -22,6 +22,7 @@ protocol SharePresenterInterface {
     func postToYoutube(_ token:String)
     func updatePlayerLayer()
     func pushGenericShare()
+    func pushOptions()
 }
 
 protocol SharePresenterDelegate {

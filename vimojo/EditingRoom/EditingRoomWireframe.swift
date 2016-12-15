@@ -36,6 +36,7 @@ class EditingRoomWireframe : NSObject {
         editingRoomViewController = viewController
         
         if let viewControllerToPresent = drawerWireframe?.getDrawerController(viewController: viewController){
+            viewControllerToPresent.forceOrientation(orientation: .verticalOnly)
             rootWireframe?.showRootViewController(viewControllerToPresent, inWindow: window)
         }
     }
@@ -54,6 +55,7 @@ class EditingRoomWireframe : NSObject {
         self.prevController = prevController
 
         if let viewControllerToPresent = drawerWireframe?.getDrawerController(viewController: viewController){
+            viewControllerToPresent.forceOrientation(orientation: .verticalOnly)
             prevController.present(viewControllerToPresent, animated: true, completion: nil)
         }
     }
@@ -65,7 +67,8 @@ class EditingRoomWireframe : NSObject {
         
         if let viewControllerToPresent = drawerWireframe?.getDrawerController(viewController: viewController){
             viewController.selectedIndex = 2
-            
+            viewControllerToPresent.forceOrientation(orientation: .verticalOnly)
+
             prevController.present(viewControllerToPresent, animated: true, completion: nil)
         }
     }
@@ -76,6 +79,7 @@ class EditingRoomWireframe : NSObject {
         self.prevController = prevController
         
         if let viewControllerToPresent = drawerWireframe?.getDrawerController(viewController: viewController){
+            viewControllerToPresent.forceOrientation(orientation: .verticalOnly)
             prevController.present(viewControllerToPresent, animated: true, completion: {
                 self.galleryWireframe?.presentGalleryFromViewController(viewControllerToPresent)
             })
@@ -110,6 +114,12 @@ class EditingRoomWireframe : NSObject {
     func navigateToRecorder(){
         if let controller = editingRoomViewController{
             recordWireframe?.presentRecordInterfaceFromViewController(controller)
+        }
+    }
+    
+    func navigateToSettings(){
+        if let controller = editingRoomViewController{
+            settingsWireframe?.presentSettingsInterfaceFromViewController(controller)
         }
     }
     

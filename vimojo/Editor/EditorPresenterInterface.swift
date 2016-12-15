@@ -24,6 +24,7 @@ protocol EditorPresenterInterface {
     func pushSplitHandler()
     func pushAddTextHandler()
     func pushAddFloating()
+    func pushOptions()
     
     func addSelection(selection:String)
 

@@ -67,6 +67,10 @@ class MusicViewController: EditingRoomItemController,MusicViewInterface,MusicPre
         eventHandler?.pushMicHandler()
     }
     
+    @IBAction func pushOptionsButton(_ sender: Any) {
+        eventHandler?.pushOptions()
+    }
+    
     //MARK: Interface
     func bringToFrontExpandPlayerButton(){
         self.playerView.bringSubview(toFront: expandPlayerButton)

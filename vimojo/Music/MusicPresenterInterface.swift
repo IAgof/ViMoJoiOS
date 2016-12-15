@@ -20,6 +20,7 @@ protocol MusicPresenterInterface {
     
     func pushMusicHandler()
     func pushMicHandler()
+    func pushOptions()
 }
 
 protocol MusicPresenterDelegate {

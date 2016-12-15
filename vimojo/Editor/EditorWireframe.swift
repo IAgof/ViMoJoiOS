@@ -93,4 +93,8 @@ class EditorWireframe : NSObject {
     func presentRecorder(){
         editingRoomWireframe?.navigateToRecorder()
     }
+    
+    func presentSettings(){
+        editingRoomWireframe?.navigateToSettings()
+    }
 }

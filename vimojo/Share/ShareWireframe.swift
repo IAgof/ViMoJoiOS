@@ -19,6 +19,7 @@ class ShareWireframe : NSObject {
     var sharePresenter : SharePresenter?
     var playerWireframe: PlayerWireframe?
     var fullScreenPlayerWireframe: FullScreenPlayerWireframe?
+    var editingRoomWireframe:EditingRoomWireframe?
 
     var prevController:UIViewController?
 
@@ -63,5 +64,9 @@ class ShareWireframe : NSObject {
         }
         
         shareViewController?.navigationController?.popToViewController(prevController!, animated: true)
+    }
+    
+    func presentSettings(){
+        editingRoomWireframe?.navigateToSettings()
     }
 }

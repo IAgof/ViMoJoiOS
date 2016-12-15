@@ -73,6 +73,10 @@ class MusicPresenter: MusicPresenterInterface,MusicInteractorDelegate {
         wireframe?.presenterMicRecorderView()
     }
     
+    func pushOptions() {
+        wireframe?.presentSettings()
+    }
+    
     //MARK: - Interactor delegate
     func setVideoComposition(_ composition: VideoComposition) {
         playerPresenter?.createVideoPlayer(composition)

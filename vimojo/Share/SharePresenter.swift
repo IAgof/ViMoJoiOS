@@ -83,6 +83,10 @@ class SharePresenter:NSObject,SharePresenterInterface{
         interactor!.postToYoutube(token)
     }
     
+    func pushOptions() {
+        wireframe?.presentSettings()
+    }
+    
     func updatePlayerLayer() {
         playerPresenter!.layoutSubViews()
     }
