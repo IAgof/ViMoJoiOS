@@ -90,7 +90,7 @@ class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDel
         trackBackgroundImage = trackBackgroundImage?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 5.0, 0.0, 5.0))
         splitRangeSlider.trackBackgroundImage = trackBackgroundImage
         
-        var handleImage = UIImage(named: "button_edit_thumb_seekbar_over_advance_split")
+        var handleImage = UIImage(named: "button_edit_thumb_seekbar_advance_split_normal")
         handleImage = handleImage?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 2, 0.0, 2))
         splitRangeSlider.upperHandleImageNormal = handleImage
 

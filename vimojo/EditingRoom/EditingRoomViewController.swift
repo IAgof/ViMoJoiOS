@@ -14,6 +14,7 @@ class EditingRoomViewController: UITabBarController {
     
     override func viewDidLoad() {
         eventHandler?.loadView()
+        self.tabBar.tintColor = VIMOJO_RED_UICOLOR
     }
     
 }

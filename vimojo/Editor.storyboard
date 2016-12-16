@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
+    <device id="ipad12_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -21,16 +21,16 @@
                         <viewControllerLayoutGuide type="bottom" id="1nl-TN-WbQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DMs-hy-0hf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NRw-Gt-uQp">
-                                <rect key="frame" x="-4" y="0.0" width="328" height="44"/>
-                                <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                <color key="barTintColor" red="0.94509803920000002" green="0.29411764709999999" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem id="TVB-n5-jZD">
-                                        <barButtonItem key="leftBarButtonItem" image="activity_edit_back_normal" id="tqo-ee-myT">
-                                            <color key="tintColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <barButtonItem key="leftBarButtonItem" image="activity_edit_back" id="tqo-ee-myT">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="pushBackBarButton:" destination="qOb-Qv-UDy" id="Fpt-qY-jBU"/>
                                             </connections>
@@ -38,49 +38,49 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ue1-UA-7yv">
-                                <rect key="frame" x="278" y="525" width="26" height="23"/>
-                                <state key="normal" image="common_icon_edit_accept_normal"/>
-                                <state key="highlighted" image="common_icon_edit_accept_pressed"/>
+                            <button opaque="NO" contentMode="scaleToFill" highlighted="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ue1-UA-7yv">
+                                <rect key="frame" x="961" y="1310" width="43" height="36"/>
+                                <state key="normal" image="activity_edit_accept_normal"/>
+                                <state key="highlighted" image="activity_edit_accept_pressed"/>
                                 <connections>
                                     <action selector="pushAcceptButton:" destination="qOb-Qv-UDy" eventType="touchUpInside" id="FHe-Fo-aDM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UsH-nl-JyL">
-                                <rect key="frame" x="16" y="524" width="24" height="24"/>
-                                <state key="normal" image="common_icon_edit_cancel_normal"/>
-                                <state key="highlighted" image="common_icon_edit_cancel_pressed"/>
+                            <button opaque="NO" contentMode="scaleToFill" highlighted="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UsH-nl-JyL">
+                                <rect key="frame" x="20" y="1316" width="30" height="30"/>
+                                <state key="normal" image="activity_edit_cancel_normal"/>
+                                <state key="highlighted" image="activity_edit_cancel_pressed"/>
                                 <connections>
                                     <action selector="pushCancelButton:" destination="qOb-Qv-UDy" eventType="touchUpInside" id="aF4-7q-f8F"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QPo-sx-2xK">
-                                <rect key="frame" x="-4" y="227.5" width="328" height="294.5"/>
+                                <rect key="frame" x="20" y="628.5" width="984" height="691.5"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KqX-gu-Zf5" customClass="UIImageView">
-                                        <rect key="frame" x="165.5" y="106.5" width="64.5" height="36.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KqX-gu-Zf5" customClass="UIImageView">
+                                        <rect key="frame" x="548" y="238" width="386" height="217"/>
                                         <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="KqX-gu-Zf5" secondAttribute="height" multiplier="169:95" id="GTt-jC-0Wm"/>
                                         </constraints>
                                     </view>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BA5-Lb-W8H">
-                                        <rect key="frame" x="78.5" y="221.5" width="43" height="43"/>
-                                        <state key="normal" image="button_edit_decrement_clips_normal"/>
+                                        <rect key="frame" x="365" y="503.5" width="75" height="75"/>
+                                        <state key="normal" image="activity_edit_duplicate_clip_minus_normal"/>
                                         <state key="selected" image="button_edit_decrement_clips_pressed"/>
-                                        <state key="highlighted" image="button_edit_decrement_clips_pressed"/>
+                                        <state key="highlighted" image="activity_edit_duplicate_clip_minus_pressed"/>
                                         <connections>
                                             <action selector="pushLessClips:" destination="qOb-Qv-UDy" eventType="touchUpInside" id="Ycz-Gs-oKD"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIa-H9-jEv">
-                                        <rect key="frame" x="137.5" y="216.5" width="53" height="53"/>
+                                        <rect key="frame" x="456" y="505" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="YIa-H9-jEv" secondAttribute="height" multiplier="1:1" id="8Pm-uA-NY8"/>
                                         </constraints>
-                                        <state key="normal" image="button_edit_increment_clips_normal"/>
+                                        <state key="normal" image="activity_edit_duplicate_clip_plus_normal"/>
                                         <state key="selected" image="button_edit_increment_clips_pressed"/>
-                                        <state key="highlighted" image="button_edit_increment_clips_pressed"/>
+                                        <state key="highlighted" image="activity_edit_duplicate_clip_plus_pressed"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="8Pm-uA-NY8"/>
@@ -96,7 +96,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clona tu clip de video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3U5-iX-HyG">
-                                        <rect key="frame" x="81.5" y="53" width="165" height="20"/>
+                                        <rect key="frame" x="348.5" y="127" width="287" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -104,15 +104,15 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         </variation>
                                     </label>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qTL-Ct-FfM" customClass="UIImageView">
-                                        <rect key="frame" x="20" y="105.5" width="65.5" height="37"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qTL-Ct-FfM" customClass="UIImageView">
+                                        <rect key="frame" x="50" y="237" width="387" height="218"/>
                                         <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="qTL-Ct-FfM" secondAttribute="height" multiplier="167:94" id="fQI-JQ-Gxl"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="x2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhe-GL-M2w">
-                                        <rect key="frame" x="115.5" y="114.5" width="19" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhe-GL-M2w">
+                                        <rect key="frame" x="467" y="325.5" width="50" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="19" id="kCp-wz-awp">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="50"/>
@@ -182,10 +182,10 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="j3v-cD-0zC"/>
-                                        <exclude reference="FWQ-KN-Tk9"/>
-                                        <exclude reference="kvk-Jc-Ua9"/>
                                         <exclude reference="MOS-b0-rfE"/>
                                         <exclude reference="rYe-XS-Nai"/>
+                                        <exclude reference="FWQ-KN-Tk9"/>
+                                        <exclude reference="kvk-Jc-Ua9"/>
                                         <exclude reference="dSl-oK-t17"/>
                                         <exclude reference="dkN-sw-QPd"/>
                                         <exclude reference="kDj-Nk-YmO"/>
@@ -203,9 +203,9 @@
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <mask key="constraints">
+                                        <include reference="rYe-XS-Nai"/>
                                         <include reference="FWQ-KN-Tk9"/>
                                         <include reference="kvk-Jc-Ua9"/>
-                                        <include reference="rYe-XS-Nai"/>
                                         <include reference="dSl-oK-t17"/>
                                         <include reference="dkN-sw-QPd"/>
                                         <include reference="kDj-Nk-YmO"/>
@@ -213,10 +213,10 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QG1-p9-8FA" customClass="PlayerView" customModule="VideonaPlayer">
-                                <rect key="frame" x="4" y="52" width="312" height="175.5"/>
+                                <rect key="frame" x="0.0" y="44" width="1024" height="576.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1j-pd-0gW">
-                                        <rect key="frame" x="280" y="8" width="24" height="24"/>
+                                        <rect key="frame" x="968" y="8" width="48" height="48"/>
                                         <state key="normal" image="common_icon_expand"/>
                                         <connections>
                                             <action selector="pushExpandButton:" destination="qOb-Qv-UDy" eventType="touchUpInside" id="mgH-gi-rQ3"/>
@@ -251,18 +251,16 @@
                                 <variation key="heightClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="QG1-p9-8FA" secondAttribute="trailing" constant="-20" id="UI6-as-DzS">
-                                <variation key="heightClass=regular-widthClass=compact" constant="-12"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
                             </constraint>
                             <constraint firstItem="QPo-sx-2xK" firstAttribute="top" secondItem="QG1-p9-8FA" secondAttribute="bottom" id="XTc-jD-l0F"/>
                             <constraint firstItem="QG1-p9-8FA" firstAttribute="leading" secondItem="DMs-hy-0hf" secondAttribute="leadingMargin" constant="-20" id="Z3s-uO-0JU">
-                                <variation key="heightClass=regular-widthClass=compact" constant="-12"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="QPo-sx-2xK" secondAttribute="trailing" constant="-20" id="cy0-jF-gGs"/>
-                            <constraint firstItem="QG1-p9-8FA" firstAttribute="top" secondItem="NRw-Gt-uQp" secondAttribute="bottom" id="fnJ-M5-gak">
-                                <variation key="heightClass=regular-widthClass=compact" constant="8"/>
-                            </constraint>
+                            <constraint firstItem="QG1-p9-8FA" firstAttribute="top" secondItem="NRw-Gt-uQp" secondAttribute="bottom" id="fnJ-M5-gak"/>
                             <constraint firstItem="QG1-p9-8FA" firstAttribute="leading" secondItem="DMs-hy-0hf" secondAttribute="leadingMargin" constant="90" id="iNq-MD-Fha">
-                                <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="-20"/>
                             </constraint>
                             <constraint firstItem="Ue1-UA-7yv" firstAttribute="trailing" secondItem="DMs-hy-0hf" secondAttribute="trailingMargin" id="jRX-Lv-jXW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NRw-Gt-uQp" secondAttribute="trailing" constant="-20" id="jjj-CA-9zL"/>
@@ -277,7 +275,7 @@
                             <constraint firstItem="Ue1-UA-7yv" firstAttribute="top" secondItem="QPo-sx-2xK" secondAttribute="bottom" constant="3" id="v3H-Zq-zxv"/>
                             <constraint firstItem="1nl-TN-WbQ" firstAttribute="top" secondItem="Ue1-UA-7yv" secondAttribute="bottom" constant="20" id="v3Q-SG-Hri"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QG1-p9-8FA" secondAttribute="trailing" constant="90" id="x86-EK-7FN">
-                                <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="-20"/>
                             </constraint>
                         </constraints>
                         <variation key="default">
@@ -367,14 +365,16 @@
                         <viewControllerLayoutGuide type="bottom" id="5CZ-S0-lou"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vBN-xW-xuQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ljm-eA-NzW" customClass="VideonaRangeSlider" customModule="VideonaRangeSlider">
-                                <rect key="frame" x="20" y="232" width="280" height="30"/>
+                                <rect key="frame" x="20" y="628" width="984" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="oEl-a1-UA4"/>
+                                    <constraint firstAttribute="height" constant="30" id="oEl-a1-UA4">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                                    </constraint>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundSliderColor">
@@ -407,10 +407,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qy9-eY-fhW" customClass="PlayerView" customModule="VideonaPlayer">
-                                <rect key="frame" x="0.0" y="44" width="320" height="180"/>
+                                <rect key="frame" x="0.0" y="44" width="1024" height="576"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBP-hM-jHt">
-                                        <rect key="frame" x="288" y="8" width="24" height="24"/>
+                                        <rect key="frame" x="968" y="8" width="48" height="48"/>
                                         <state key="normal" image="common_icon_expand"/>
                                         <connections>
                                             <action selector="pushExpandButton:" destination="U7Z-wj-ZL9" eventType="touchUpInside" id="Kp6-rB-TOj"/>
@@ -428,7 +428,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hsD-gO-4mR">
-                                <rect key="frame" x="16" y="270" width="288" height="241"/>
+                                <rect key="frame" x="20" y="696" width="984" height="613"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="fU2-af-Akt">
@@ -459,7 +459,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fD7-iG-ych">
-                                                    <rect key="frame" x="59" y="0.0" width="19" height="26"/>
+                                                    <rect key="frame" x="45" y="0.0" width="33" height="33"/>
                                                     <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
                                                     <state key="normal" image="activity_edit_clip_delete"/>
                                                 </button>
@@ -524,7 +524,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqn-cb-4Pg">
-                                <rect key="frame" x="236" y="451" width="60" height="60"/>
+                                <rect key="frame" x="887" y="1200" width="109" height="109"/>
                                 <state key="normal" image="activity_edit_floating_button">
                                     <color key="titleShadowColor" red="0.7843137255" green="0.85882352939999995" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -534,7 +534,7 @@
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YZW-HT-mLk">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
                                 <color key="barTintColor" red="0.94712263350000003" green="0.29490819569999999" blue="0.31749987600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem id="SL9-Aj-RWQ">
@@ -652,27 +652,27 @@
                         <viewControllerLayoutGuide type="bottom" id="u2c-sB-Djr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="S5H-aD-eEB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hue-cB-MxL">
-                                <rect key="frame" x="-4" y="44" width="328" height="524"/>
+                                <rect key="frame" x="0.0" y="80" width="1024" height="1286"/>
                             </containerView>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UXv-m5-s1o">
                                 <rect key="frame" x="0.0" y="8" width="600" height="70"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ros-dm-sGl">
-                                        <rect key="frame" x="0.0" y="7" width="278" height="30"/>
+                                        <rect key="frame" x="0.0" y="7" width="974" height="56"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIW-Zj-YLZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="70" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="243.5" height="56"/>
                                                 <state key="normal" image="activity_edit_clip_record"/>
                                                 <connections>
                                                     <action selector="pushBackButton:" destination="zb5-ld-AOv" eventType="touchUpInside" id="Kli-wa-oMI"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFG-7P-Tgi">
-                                                <rect key="frame" x="70" y="0.0" width="69" height="30"/>
+                                                <rect key="frame" x="243.5" y="0.0" width="243.5" height="56"/>
                                                 <state key="normal" image="activity_edit_clip_normal"/>
                                                 <state key="selected" image="activity_edit_clip_pressed"/>
                                                 <state key="highlighted" image="activity_edit_clip_pressed"/>
@@ -681,7 +681,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I0i-TH-Ev2">
-                                                <rect key="frame" x="139" y="0.0" width="70" height="30"/>
+                                                <rect key="frame" x="487" y="0.0" width="243.5" height="56"/>
                                                 <state key="normal" image="activity_edit_audio_normal"/>
                                                 <state key="selected" image="activity_edit_audio_pressed"/>
                                                 <state key="highlighted" image="activity_edit_audio_pressed"/>
@@ -690,7 +690,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fen-dv-aiD">
-                                                <rect key="frame" x="209" y="0.0" width="69" height="30"/>
+                                                <rect key="frame" x="730.5" y="0.0" width="243.5" height="56"/>
                                                 <state key="normal" image="activity_edit_share_normal"/>
                                                 <state key="selected" image="activity_edit_share_pressed"/>
                                                 <state key="highlighted" image="activity_edit_share_pressed"/>
@@ -772,11 +772,11 @@
                         <viewControllerLayoutGuide type="bottom" id="GIi-1P-cfX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="daU-Tx-zTj">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wv9-CH-SoO">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
                                 <color key="barTintColor" red="0.94712263350000003" green="0.29490819569999999" blue="0.31749987600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem id="B7P-ne-6yv">
@@ -796,21 +796,21 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Urw-rA-t6e">
-                                <rect key="frame" x="16" y="224.5" width="308" height="294.5"/>
+                                <rect key="frame" x="20" y="620" width="1004" height="697"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQp-8J-dT4">
-                                        <rect key="frame" x="0.0" y="110" width="154" height="75"/>
-                                        <state key="normal" image="activity_edit_sound_music_normal"/>
+                                        <rect key="frame" x="0.0" y="288" width="502" height="121"/>
+                                        <state key="normal" image="activity_edit_sound_micro_normal"/>
                                         <state key="selected" image="activity_edit_sound_music_pressed"/>
-                                        <state key="highlighted" image="activity_edit_sound_music_pressed"/>
+                                        <state key="highlighted" image="activity_edit_sound_micro_pressed"/>
                                         <connections>
                                             <action selector="pushMusic:" destination="bnB-1P-Nds" eventType="touchUpInside" id="641-PO-2Lq"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stx-Ev-inA">
-                                        <rect key="frame" x="154" y="110" width="154" height="75"/>
-                                        <state key="normal" image="activity_edit_sound_micro_normal"/>
-                                        <state key="highlighted" image="activity_edit_sound_micro_pressed"/>
+                                        <rect key="frame" x="502" y="288" width="502" height="121"/>
+                                        <state key="normal" image="activity_edit_sound_music_normal"/>
+                                        <state key="highlighted" image="activity_edit_sound_music_pressed"/>
                                         <connections>
                                             <action selector="pushMic:" destination="bnB-1P-Nds" eventType="touchUpInside" id="Oct-MI-ErB"/>
                                         </connections>
@@ -833,10 +833,10 @@
                                 </variation>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c8O-jG-he3" customClass="PlayerView" customModule="vimojo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="320" height="180.5"/>
+                                <rect key="frame" x="0.0" y="44" width="1024" height="576"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1i-MY-LSq">
-                                        <rect key="frame" x="288" y="8" width="24" height="24"/>
+                                        <rect key="frame" x="968" y="8" width="48" height="48"/>
                                         <state key="normal" image="common_icon_expand"/>
                                         <connections>
                                             <action selector="pushExpandButton:" destination="bnB-1P-Nds" eventType="touchUpInside" id="kaN-qU-8zo"/>
@@ -905,11 +905,11 @@
                         <viewControllerLayoutGuide type="bottom" id="apB-Zm-2Y5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aEf-KX-WbJ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AVC-Ru-3Q3">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
                                 <color key="barTintColor" red="0.94712263350000003" green="0.29490819569999999" blue="0.31749987600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem id="07S-pW-Sr3">
@@ -929,11 +929,11 @@
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eui-a0-tKc" customClass="PlayerView" customModule="vimojo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="320" height="180.5"/>
+                                <rect key="frame" x="0.0" y="44" width="1024" height="576"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTh-2X-7DX">
-                                        <rect key="frame" x="288" y="8" width="24" height="24"/>
-                                        <state key="normal" image="common_icon_expand"/>
+                                        <rect key="frame" x="977" y="8" width="39" height="39"/>
+                                        <state key="normal" image="activity_edit_video_expand"/>
                                         <connections>
                                             <action selector="pushExpandButton:" destination="IW3-3U-wVk" eventType="touchUpInside" id="LK2-AO-577"/>
                                         </connections>
@@ -950,7 +950,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ggA-dc-NdU">
-                                <rect key="frame" x="-4" y="232.5" width="328" height="278.5"/>
+                                <rect key="frame" x="0.0" y="628" width="1024" height="681"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="d5e-DE-ZXh">
@@ -959,10 +959,10 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="1GJ-Zq-Gsi">
-                                        <rect key="frame" x="0.0" y="28" width="328" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="1024" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1GJ-Zq-Gsi" id="Frk-6I-rFX">
-                                            <rect key="frame" x="0.0" y="0.0" width="328" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -983,7 +983,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkZ-ED-Gqd">
-                                <rect key="frame" x="252" y="451" width="60" height="60"/>
+                                <rect key="frame" x="907" y="1200" width="109" height="109"/>
                                 <state key="normal" image="activity_edit_floating_button">
                                     <color key="titleShadowColor" red="0.7843137255" green="0.85882352939999995" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -1041,37 +1041,40 @@
         </scene>
     </scenes>
     <resources>
-        <image name="activity_edit_add_music_normal" width="38" height="38"/>
+        <image name="activity_edit_accept_normal" width="43" height="36"/>
+        <image name="activity_edit_accept_pressed" width="43" height="36"/>
+        <image name="activity_edit_add_music_normal" width="48" height="48"/>
         <image name="activity_edit_audio_normal" width="38" height="34"/>
         <image name="activity_edit_audio_pressed" width="38" height="34"/>
-        <image name="activity_edit_back_normal" width="18" height="18"/>
-        <image name="activity_edit_clip_delete" width="15" height="15"/>
-        <image name="activity_edit_clip_normal" width="30" height="30"/>
-        <image name="activity_edit_clip_pressed" width="30" height="30"/>
-        <image name="activity_edit_clip_record" width="40" height="24"/>
-        <image name="activity_edit_clips_duplicate" width="27" height="27"/>
-        <image name="activity_edit_clips_normal" width="38" height="38"/>
-        <image name="activity_edit_clips_split" width="27" height="26"/>
-        <image name="activity_edit_drawer" width="27" height="24"/>
-        <image name="activity_edit_floating_button" width="60" height="60"/>
-        <image name="activity_edit_menu_normal" width="5" height="22"/>
-        <image name="activity_edit_options" width="8" height="27"/>
-        <image name="activity_edit_play_normal" width="50" height="50"/>
-        <image name="activity_edit_share_normal" width="27" height="30"/>
-        <image name="activity_edit_share_pressed" width="27" height="30"/>
-        <image name="activity_edit_sound_micro_normal" width="75" height="75"/>
-        <image name="activity_edit_sound_micro_pressed" width="75" height="75"/>
-        <image name="activity_edit_sound_music_normal" width="75" height="75"/>
-        <image name="activity_edit_sound_music_pressed" width="75" height="75"/>
-        <image name="button_edit_decrement_clips_normal" width="43" height="43"/>
-        <image name="button_edit_decrement_clips_pressed" width="43" height="43"/>
-        <image name="button_edit_increment_clips_normal" width="53" height="53"/>
-        <image name="button_edit_increment_clips_pressed" width="53" height="53"/>
-        <image name="common_icon_edit_accept_normal" width="26" height="23"/>
-        <image name="common_icon_edit_accept_pressed" width="27" height="23"/>
-        <image name="common_icon_edit_cancel_normal" width="24" height="24"/>
-        <image name="common_icon_edit_cancel_pressed" width="24" height="24"/>
-        <image name="common_icon_expand" width="24" height="24"/>
-        <image name="common_icon_play" width="34" height="34"/>
+        <image name="activity_edit_back" width="40" height="32"/>
+        <image name="activity_edit_cancel_normal" width="30" height="30"/>
+        <image name="activity_edit_cancel_pressed" width="30" height="30"/>
+        <image name="activity_edit_clip_delete" width="29" height="29"/>
+        <image name="activity_edit_clip_normal" width="59" height="60"/>
+        <image name="activity_edit_clip_pressed" width="59" height="60"/>
+        <image name="activity_edit_clip_record" width="80" height="49"/>
+        <image name="activity_edit_clips_duplicate" width="44" height="43"/>
+        <image name="activity_edit_clips_normal" width="46" height="46"/>
+        <image name="activity_edit_clips_split" width="44" height="42"/>
+        <image name="activity_edit_drawer" width="36" height="32"/>
+        <image name="activity_edit_duplicate_clip_minus_normal" width="75" height="75"/>
+        <image name="activity_edit_duplicate_clip_minus_pressed" width="75" height="75"/>
+        <image name="activity_edit_duplicate_clip_plus_normal" width="72" height="72"/>
+        <image name="activity_edit_duplicate_clip_plus_pressed" width="72" height="72"/>
+        <image name="activity_edit_floating_button" width="109" height="109"/>
+        <image name="activity_edit_menu_normal" width="11" height="45"/>
+        <image name="activity_edit_options" width="9" height="30"/>
+        <image name="activity_edit_play_normal" width="85" height="85"/>
+        <image name="activity_edit_share_normal" width="54" height="60"/>
+        <image name="activity_edit_share_pressed" width="54" height="60"/>
+        <image name="activity_edit_sound_micro_normal" width="121" height="121"/>
+        <image name="activity_edit_sound_micro_pressed" width="121" height="121"/>
+        <image name="activity_edit_sound_music_normal" width="121" height="121"/>
+        <image name="activity_edit_sound_music_pressed" width="121" height="121"/>
+        <image name="activity_edit_video_expand" width="39" height="39"/>
+        <image name="button_edit_decrement_clips_pressed" width="86" height="87"/>
+        <image name="button_edit_increment_clips_pressed" width="105" height="105"/>
+        <image name="common_icon_expand" width="48" height="48"/>
+        <image name="common_icon_play" width="68" height="68"/>
     </resources>
 </document>

@@ -31,7 +31,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="TjX-yv-LUT">
-                                        <barButtonItem key="leftBarButtonItem" image="activity_edit_back_normal" id="UMC-RI-4di">
+                                        <barButtonItem key="leftBarButtonItem" image="activity_edit_back" id="UMC-RI-4di">
                                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="pushBackBarButton:" destination="kao-ji-l7I" id="QdR-IZ-AhM"/>
@@ -76,28 +76,28 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="9N6-VG-0vL">
-                                                    <rect key="frame" x="153.5" y="106.5" width="213.5" height="37"/>
+                                                    <rect key="frame" x="153.5" y="120.5" width="213.5" height="23"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EmA-eg-S2H">
-                                                            <rect key="frame" x="0.0" y="0.0" width="62" height="37"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="79" height="23"/>
                                                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <state key="normal" image="activity_edit_clips_add_clip_gallery_normal"/>
                                                             <state key="highlighted" image="activity_edit_clips_add_clip_gallery_pressed"/>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcf-Xn-jiD">
-                                                            <rect key="frame" x="62" y="0.0" width="50.5" height="37"/>
+                                                            <rect key="frame" x="79" y="0.0" width="45" height="23"/>
                                                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <state key="normal" image="activity_gallery_projects_share_normal"/>
                                                             <state key="highlighted" image="activity_gallery_projects_share_pressed"/>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLv-e7-WeS">
-                                                            <rect key="frame" x="112.5" y="0.0" width="50.5" height="37"/>
+                                                            <rect key="frame" x="124" y="0.0" width="44.5" height="23"/>
                                                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <state key="normal" image="activy_gallery_projects_delete_normal"/>
                                                             <state key="highlighted" image="activy_gallery_projects_delete_pressed"/>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VyK-z5-lm1">
-                                                            <rect key="frame" x="163" y="0.0" width="50.5" height="37"/>
+                                                            <rect key="frame" x="168.5" y="0.0" width="45" height="23"/>
                                                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <state key="normal" image="activy_gallery_projects_edit_normal"/>
                                                             <state key="selected" image="activy_gallery_projects_edit_pressed"/>
@@ -166,15 +166,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="activity_edit_back_normal" width="18" height="18"/>
-        <image name="activity_edit_clips_add_clip_gallery_normal" width="37" height="37"/>
-        <image name="activity_edit_clips_add_clip_gallery_pressed" width="37" height="37"/>
-        <image name="activity_gallery_projects_share_normal" width="30" height="30"/>
-        <image name="activity_gallery_projects_share_pressed" width="30" height="30"/>
-        <image name="activy_gallery_projects_delete_normal" width="30" height="37"/>
-        <image name="activy_gallery_projects_delete_pressed" width="30" height="37"/>
-        <image name="activy_gallery_projects_edit_normal" width="30" height="30"/>
-        <image name="activy_gallery_projects_edit_pressed" width="30" height="30"/>
+        <image name="activity_edit_back" width="20" height="16"/>
+        <image name="activity_edit_clips_add_clip_gallery_normal" width="23" height="23"/>
+        <image name="activity_edit_clips_add_clip_gallery_pressed" width="23" height="23"/>
+        <image name="activity_gallery_projects_share_normal" width="13" height="13"/>
+        <image name="activity_gallery_projects_share_pressed" width="13" height="13"/>
+        <image name="activy_gallery_projects_delete_normal" width="13" height="16"/>
+        <image name="activy_gallery_projects_delete_pressed" width="13" height="16"/>
+        <image name="activy_gallery_projects_edit_normal" width="13" height="13"/>
+        <image name="activy_gallery_projects_edit_pressed" width="13" height="13"/>
         <image name="no_image.png" width="204" height="204"/>
     </resources>
 </document>

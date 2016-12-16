@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,44 +17,45 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cx7-zJ-Fqz">
-                    <rect key="frame" x="145" y="202" width="50" height="50"/>
-                    <state key="normal" image="activity_record_icon_rec"/>
-                    <state key="selected" image="activity_record_icon_stop"/>
-                    <state key="highlighted" image="activity_record_icon_stop"/>
+                    <rect key="frame" x="132.5" y="177" width="75" height="75"/>
+                    <state key="normal" image="activity_edit_sound_voiceover_record_normal"/>
+                    <state key="selected" image="activity_edit_sound_voiceover_record_pressed"/>
+                    <state key="highlighted" image="activity_edit_sound_voiceover_record_pressed"/>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ak8-lw-L5R">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ak8-lw-L5R">
                     <rect key="frame" x="8" y="131" width="46" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBn-Vy-0Xf">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBn-Vy-0Xf">
                     <rect key="frame" x="287" y="131" width="46" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BOJ-rZ-0lF">
-                    <rect key="frame" x="306" y="245" width="27" height="23"/>
+                    <rect key="frame" x="307" y="246" width="26" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="BOJ-rZ-0lF" secondAttribute="height" multiplier="27:23" id="VW9-H1-2X4"/>
                     </constraints>
-                    <state key="normal" image="common_icon_edit_accept_normal"/>
-                    <state key="highlighted" image="common_icon_edit_accept_pressed"/>
+                    <state key="normal" image="activity_edit_accept_normal"/>
+                    <state key="highlighted" image="activity_edit_accept_pressed"/>
                     <connections>
                         <action selector="acceptButtonPushed:" destination="iN0-l3-epB" eventType="touchUpInside" id="erW-bS-frb"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXF-XZ-P7z">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXF-XZ-P7z">
                     <rect key="frame" x="147" y="131" width="46" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="65h-5Z-Vxb" customClass="NMRangeSlider">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="65h-5Z-Vxb" customClass="NMRangeSlider">
                     <rect key="frame" x="8" y="93" width="325" height="30"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstAttribute="height" constant="30" id="fdQ-bH-nqT"/>
                         <constraint firstAttribute="height" constant="30" id="gDG-jd-cm2"/>
                     </constraints>
                     <variation key="default">
@@ -63,18 +68,18 @@
                     </connections>
                 </view>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qN-Yy-fS4">
-                    <rect key="frame" x="8" y="244" width="24" height="24"/>
+                    <rect key="frame" x="8" y="246" width="22" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="5qN-Yy-fS4" secondAttribute="height" multiplier="1:1" id="MfC-ot-GFm"/>
                     </constraints>
-                    <state key="normal" image="common_icon_edit_cancel_normal"/>
-                    <state key="highlighted" image="common_icon_edit_cancel_pressed"/>
+                    <state key="normal" image="activity_edit_cancel_normal"/>
+                    <state key="highlighted" image="activity_edit_cancel_pressed"/>
                     <connections>
                         <action selector="cancelButtonPushed:" destination="iN0-l3-epB" eventType="touchUpInside" id="gVJ-SN-AvY"/>
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="5qN-Yy-fS4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="6lb-Bg-dqk"/>
                 <constraint firstItem="5qN-Yy-fS4" firstAttribute="width" secondItem="5qN-Yy-fS4" secondAttribute="height" multiplier="1:1" id="7g6-hI-K5n"/>
@@ -109,11 +114,11 @@
         </view>
     </objects>
     <resources>
-        <image name="activity_record_icon_rec" width="50" height="50"/>
-        <image name="activity_record_icon_stop" width="50" height="51"/>
-        <image name="common_icon_edit_accept_normal" width="27" height="23"/>
-        <image name="common_icon_edit_accept_pressed" width="27" height="23"/>
-        <image name="common_icon_edit_cancel_normal" width="24" height="24"/>
-        <image name="common_icon_edit_cancel_pressed" width="24" height="24"/>
+        <image name="activity_edit_accept_normal" width="21" height="18"/>
+        <image name="activity_edit_accept_pressed" width="21" height="18"/>
+        <image name="activity_edit_cancel_normal" width="15" height="15"/>
+        <image name="activity_edit_cancel_pressed" width="15" height="15"/>
+        <image name="activity_edit_sound_voiceover_record_normal" width="75" height="75"/>
+        <image name="activity_edit_sound_voiceover_record_pressed" width="78" height="78"/>
     </resources>
 </document>

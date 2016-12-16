@@ -50,19 +50,21 @@ class RecordPresenter: NSObject
     var inputGainViewIsShowed = false
     
     enum batteryImages:String {
-        case charged = "activity_record_icon_battery_charged"
-        case seventyFivePercent = "activity_record_icon_battery_75"
-        case fiftyPercent = "activity_record_icon_battery_50"
-        case twentyFivePercent = "activity_record_icon_battery_25"
-        case empty = "activity_record_icon_battery_empty"
+        case charged = "activity_rec_battery_100"
+//        case seventyFivePercent = "activity_rec_battery_75"
+        case seventyFivePercent = "activity_rec_battery_charging"
+        case fiftyPercent = "activity_rec_battery_50"
+        case twentyFivePercent = "activity_rec_battery_25"
+        case empty = "activity_rec_battery_0"
     }
     
     enum batteryImagesPressed:String{
-        case charged = "activity_record_icon_battery_charged_pressed"
-        case seventyFivePercent = "activity_record_icon_battery_75_pressed"
-        case fiftyPercent = "activity_record_icon_battery_50_pressed"
-        case twentyFivePercent = "activity_record_icon_battery_25_pressed"
-        case empty = "activity_record_icon_battery_empty_pressed"
+        case charged = "activity_rec_battery_100_pressed"
+//        case seventyFivePercent = "activity_rec_battery_75_pressed"
+        case seventyFivePercent = "activity_rec_battery_charging_pressed"
+        case fiftyPercent = "activity_rec_battery_50_pressed"
+        case twentyFivePercent = "activity_rec_battery_25_pressed"
+        case empty = "activity_rec_battery_0_pressed"
     }
 
     
