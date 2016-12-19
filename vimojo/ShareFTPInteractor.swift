@@ -32,9 +32,8 @@ class ShareFTPInteractor: ShareActionInterface {
             self.createFTPUpload(fileData)
         })
         
-        let controller = UIApplication.topViewController()
-        if let settingsController = controller as? EditingRoomViewController {
-            settingsController.present(alertController, animated: true, completion: nil)
+        if let controller = UIApplication.topViewController(){
+            controller.present(alertController, animated: true, completion: nil)
         }
     }
     

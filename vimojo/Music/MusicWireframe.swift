@@ -74,7 +74,9 @@ class MusicWireframe : NSObject {
         guard let wireframe = editorRoomWireframe else{
             return
         }
-//        wireframe.editingRoomViewController?.eventHandler?.pushEditor()
+        if let controller = musicViewController{
+            wireframe.presentEditingRoomInterfaceFromViewController(controller)
+        }
     }
     
     func presenterMusicListView(){

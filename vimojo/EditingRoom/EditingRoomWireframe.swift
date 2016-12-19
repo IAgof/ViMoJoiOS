@@ -56,6 +56,7 @@ class EditingRoomWireframe : NSObject {
 
         if let viewControllerToPresent = drawerWireframe?.getDrawerController(viewController: viewController){
             viewControllerToPresent.forceOrientation(orientation: .verticalOnly)
+            viewController.selectedIndex = 0
             prevController.present(viewControllerToPresent, animated: true, completion: nil)
         }
     }

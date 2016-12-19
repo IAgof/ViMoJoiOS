@@ -34,7 +34,7 @@ class SettingsFTPPasswordAction: SettingsActionInterface {
     }
     
     func saveOnDefaults(_ saveString:String){
-        defaults.set(saveString, forKey: SettingsConstants().SETTINGS_HOST_FTP)
+        defaults.set(saveString, forKey: SettingsConstants().SETTINGS_PASSWORD_FTP)
         delegate.executeFinished()
     }
 }

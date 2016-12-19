@@ -55,17 +55,17 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QPo-sx-2xK">
-                                <rect key="frame" x="20" y="628.5" width="984" height="691.5"/>
+                                <rect key="frame" x="20" y="629" width="984" height="691"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KqX-gu-Zf5" customClass="UIImageView">
-                                        <rect key="frame" x="548" y="238" width="386" height="217"/>
+                                        <rect key="frame" x="548" y="239" width="386" height="217"/>
                                         <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="KqX-gu-Zf5" secondAttribute="height" multiplier="169:95" id="GTt-jC-0Wm"/>
                                         </constraints>
                                     </view>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BA5-Lb-W8H">
-                                        <rect key="frame" x="365" y="503.5" width="75" height="75"/>
+                                        <rect key="frame" x="365" y="504" width="75" height="75"/>
                                         <state key="normal" image="activity_edit_duplicate_clip_minus_normal"/>
                                         <state key="selected" image="button_edit_decrement_clips_pressed"/>
                                         <state key="highlighted" image="activity_edit_duplicate_clip_minus_pressed"/>
@@ -74,7 +74,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIa-H9-jEv">
-                                        <rect key="frame" x="456" y="505" width="72" height="72"/>
+                                        <rect key="frame" x="456" y="506" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="YIa-H9-jEv" secondAttribute="height" multiplier="1:1" id="8Pm-uA-NY8"/>
                                         </constraints>
@@ -96,7 +96,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clona tu clip de video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3U5-iX-HyG">
-                                        <rect key="frame" x="348.5" y="127" width="287" height="36"/>
+                                        <rect key="frame" x="349" y="128" width="287" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -105,14 +105,14 @@
                                         </variation>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qTL-Ct-FfM" customClass="UIImageView">
-                                        <rect key="frame" x="50" y="237" width="387" height="218"/>
+                                        <rect key="frame" x="50" y="238" width="387" height="218"/>
                                         <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="qTL-Ct-FfM" secondAttribute="height" multiplier="167:94" id="fQI-JQ-Gxl"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhe-GL-M2w">
-                                        <rect key="frame" x="467" y="325.5" width="50" height="42"/>
+                                        <rect key="frame" x="467" y="326" width="50" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="19" id="kCp-wz-awp">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="50"/>
@@ -213,7 +213,7 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QG1-p9-8FA" customClass="PlayerView" customModule="VideonaPlayer">
-                                <rect key="frame" x="0.0" y="44" width="1024" height="576.5"/>
+                                <rect key="frame" x="0.0" y="44" width="1024" height="577"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="QG1-p9-8FA" secondAttribute="height" multiplier="16:9" id="Cy2-kP-Vak"/>
@@ -223,8 +223,8 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1j-pd-0gW">
-                                <rect key="frame" x="968" y="52" width="48" height="48"/>
-                                <state key="normal" image="common_icon_expand"/>
+                                <rect key="frame" x="977" y="52" width="39" height="39"/>
+                                <state key="normal" image="activity_edit_video_expand"/>
                                 <connections>
                                     <action selector="pushExpandButton:" destination="qOb-Qv-UDy" eventType="touchUpInside" id="mgH-gi-rQ3"/>
                                 </connections>
@@ -408,8 +408,8 @@
                                 <rect key="frame" x="0.0" y="44" width="1024" height="576"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBP-hM-jHt">
-                                        <rect key="frame" x="968" y="8" width="48" height="48"/>
-                                        <state key="normal" image="common_icon_expand"/>
+                                        <rect key="frame" x="977" y="8" width="39" height="39"/>
+                                        <state key="normal" image="activity_edit_video_expand"/>
                                         <connections>
                                             <action selector="pushExpandButton:" destination="U7Z-wj-ZL9" eventType="touchUpInside" id="Kp6-rB-TOj"/>
                                         </connections>
@@ -422,7 +422,7 @@
                                     <constraint firstAttribute="width" secondItem="Qy9-eY-fhW" secondAttribute="height" multiplier="16:9" id="thR-yE-p6Y"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="activity_edit_play_normal"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="common_icon_play_normal"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hsD-gO-4mR">
@@ -717,12 +717,12 @@
                                     <constraint firstAttribute="width" secondItem="c8O-jG-he3" secondAttribute="height" multiplier="16:9" id="ZzI-7M-k3Z"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="common_icon_play"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="common_icon_play_normal"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1i-MY-LSq">
-                                <rect key="frame" x="968" y="52" width="48" height="48"/>
-                                <state key="normal" image="common_icon_expand"/>
+                                <rect key="frame" x="977" y="52" width="39" height="39"/>
+                                <state key="normal" image="activity_edit_video_expand"/>
                                 <connections>
                                     <action selector="pushExpandButton:" destination="bnB-1P-Nds" eventType="touchUpInside" id="kaN-qU-8zo"/>
                                 </connections>
@@ -811,7 +811,7 @@
                                     <constraint firstAttribute="width" secondItem="eui-a0-tKc" secondAttribute="height" multiplier="16:9" id="18C-I3-a1i"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="common_icon_play"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="common_icon_play_normal"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ggA-dc-NdU">
@@ -932,7 +932,6 @@
         <image name="activity_edit_duplicate_clip_plus_pressed" width="72" height="72"/>
         <image name="activity_edit_floating_button" width="109" height="109"/>
         <image name="activity_edit_options" width="9" height="30"/>
-        <image name="activity_edit_play_normal" width="85" height="85"/>
         <image name="activity_edit_share_normal" width="54" height="60"/>
         <image name="activity_edit_sound_micro_normal" width="121" height="121"/>
         <image name="activity_edit_sound_micro_pressed" width="121" height="121"/>
@@ -941,7 +940,7 @@
         <image name="activity_edit_video_expand" width="39" height="39"/>
         <image name="button_edit_decrement_clips_pressed" width="86" height="87"/>
         <image name="button_edit_increment_clips_pressed" width="105" height="105"/>
-        <image name="common_icon_expand" width="48" height="48"/>
         <image name="common_icon_play" width="68" height="68"/>
+        <image name="common_icon_play_normal" width="64" height="64"/>
     </resources>
 </document>
