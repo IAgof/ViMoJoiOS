@@ -8,6 +8,7 @@
 
 import Foundation
 import VideonaPlayer
+import AVKit
 
 let fullScreenPlayerViewControllerIdentifier = "FullScreenPlayerViewController"
 
@@ -27,8 +28,13 @@ class FullScreenPlayerWireframe : NSObject {
 
         viewController.playerView = playerView
         self.prevController = prevController
-
-        prevController.show(viewController, sender: nil)
+        if let player = playerView.player{
+            let avController = AVPlayerViewController()
+            avController.player = player
+            
+            prevController.show(avController, sender: nil)
+        }
+//        prevController.show(viewController, sender: nil)
     }
 
     func fullScreenPlayerViewControllerFromStoryboard() -> FullScreenPlayerViewController {

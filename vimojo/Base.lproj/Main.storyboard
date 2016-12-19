@@ -55,20 +55,9 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ck2-bG-eRC" customClass="PlayerView" customModule="Hispanopost" customModuleProvider="target">
                                 <rect key="frame" x="8" y="44" width="398" height="224.33333333333331"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hK2-dv-6yA">
-                                        <rect key="frame" x="364" y="8" width="26" height="26"/>
-                                        <state key="normal" image="activity_edit_video_expand"/>
-                                        <connections>
-                                            <action selector="pushExpandButton:" destination="e1J-kO-AGR" eventType="touchUpInside" id="nyW-IA-oAY"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="hK2-dv-6yA" secondAttribute="trailing" constant="8" id="cxr-Zs-6WP"/>
                                     <constraint firstAttribute="width" secondItem="Ck2-bG-eRC" secondAttribute="height" multiplier="16:9" id="gZ7-IM-4CT"/>
-                                    <constraint firstItem="hK2-dv-6yA" firstAttribute="top" secondItem="Ck2-bG-eRC" secondAttribute="top" constant="8" id="vuq-Sx-cze"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="activity_record_icon_white_balance_fluorescent_pressed"/>
@@ -171,6 +160,13 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hK2-dv-6yA">
+                                <rect key="frame" x="372" y="52" width="26" height="26"/>
+                                <state key="normal" image="activity_edit_video_expand"/>
+                                <connections>
+                                    <action selector="pushExpandButton:" destination="e1J-kO-AGR" eventType="touchUpInside" id="nyW-IA-oAY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -187,6 +183,7 @@
                             <constraint firstItem="8pi-Oz-r2z" firstAttribute="top" secondItem="SZn-wu-f2Y" secondAttribute="bottom" constant="8" id="LAf-04-Hb9"/>
                             <constraint firstItem="Ck2-bG-eRC" firstAttribute="top" secondItem="5Fn-wi-nE5" secondAttribute="bottom" id="PL6-m7-VqV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="SZn-wu-f2Y" secondAttribute="trailing" constant="-20" id="Sk0-ik-q63"/>
+                            <constraint firstItem="hK2-dv-6yA" firstAttribute="trailing" secondItem="Ck2-bG-eRC" secondAttribute="trailing" constant="-8" id="Srq-Wc-Oer"/>
                             <constraint firstItem="Ck2-bG-eRC" firstAttribute="leading" secondItem="4Ub-oa-8Vs" secondAttribute="leadingMargin" id="UB7-Zp-e02">
                                 <variation key="heightClass=compact" constant="-12"/>
                             </constraint>
@@ -210,6 +207,7 @@
                             </constraint>
                             <constraint firstItem="SZn-wu-f2Y" firstAttribute="leading" secondItem="4Ub-oa-8Vs" secondAttribute="leadingMargin" constant="-20" id="tal-rz-D7C"/>
                             <constraint firstItem="mNW-tr-V3g" firstAttribute="trailing" secondItem="4Ub-oa-8Vs" secondAttribute="trailingMargin" id="td4-SM-a4V"/>
+                            <constraint firstItem="hK2-dv-6yA" firstAttribute="top" secondItem="Ck2-bG-eRC" secondAttribute="top" constant="8" id="xaB-fG-IKK"/>
                             <constraint firstItem="FOT-i4-NCU" firstAttribute="top" secondItem="mNW-tr-V3g" secondAttribute="bottom" constant="20" id="z2J-3H-FvJ"/>
                             <constraint firstItem="SZn-wu-f2Y" firstAttribute="top" secondItem="Ck2-bG-eRC" secondAttribute="bottom" constant="8" id="zpV-Cp-Yeu"/>
                         </constraints>
@@ -335,20 +333,9 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4wQ-2f-JFb" customClass="PlayerView" customModule="Hispanopost" customModuleProvider="target">
                                 <rect key="frame" x="8" y="44" width="398" height="224.33333333333331"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fd3-2Q-8bH">
-                                        <rect key="frame" x="364" y="8" width="26" height="26"/>
-                                        <state key="normal" image="activity_edit_video_expand"/>
-                                        <connections>
-                                            <action selector="pushExpandButton:" destination="8SH-hk-FrO" eventType="touchUpInside" id="S0o-JG-b89"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="4wQ-2f-JFb" secondAttribute="height" multiplier="16:9" id="CoG-92-tdh"/>
-                                    <constraint firstItem="Fd3-2Q-8bH" firstAttribute="top" secondItem="4wQ-2f-JFb" secondAttribute="top" constant="8" id="Dfl-My-sOw"/>
-                                    <constraint firstAttribute="trailing" secondItem="Fd3-2Q-8bH" secondAttribute="trailing" constant="8" id="Kma-xx-j2z"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="common_icon_play"/>
@@ -479,6 +466,13 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fd3-2Q-8bH">
+                                <rect key="frame" x="372" y="52" width="26" height="26"/>
+                                <state key="normal" image="activity_edit_video_expand"/>
+                                <connections>
+                                    <action selector="pushExpandButton:" destination="8SH-hk-FrO" eventType="touchUpInside" id="S0o-JG-b89"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -512,10 +506,12 @@
                                 <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="gcq-km-lJG" firstAttribute="top" secondItem="i46-kW-2TQ" secondAttribute="bottom" constant="20" id="gad-3O-Zcv"/>
+                            <constraint firstItem="Fd3-2Q-8bH" firstAttribute="trailing" secondItem="4wQ-2f-JFb" secondAttribute="trailing" constant="-8" id="gwA-rF-ZzQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ri7-fK-LSk" secondAttribute="trailing" constant="-20" id="iBJ-zS-9Do"/>
                             <constraint firstItem="ZCz-0d-hhA" firstAttribute="leading" secondItem="HJB-34-OpP" secondAttribute="leadingMargin" constant="-20" id="iN5-Ns-bnD"/>
                             <constraint firstItem="ri7-fK-LSk" firstAttribute="leading" secondItem="HJB-34-OpP" secondAttribute="leadingMargin" constant="-20" id="iUa-9g-qM7"/>
                             <constraint firstItem="i46-kW-2TQ" firstAttribute="top" secondItem="ZCz-0d-hhA" secondAttribute="bottom" constant="8" id="iWk-Y5-Xyp"/>
+                            <constraint firstItem="Fd3-2Q-8bH" firstAttribute="top" secondItem="4wQ-2f-JFb" secondAttribute="top" constant="8" id="kor-Gl-pMa"/>
                             <constraint firstItem="i46-kW-2TQ" firstAttribute="top" secondItem="ZCz-0d-hhA" secondAttribute="bottom" constant="-7" id="lVu-Gs-sQL"/>
                             <constraint firstItem="4wQ-2f-JFb" firstAttribute="top" secondItem="ri7-fK-LSk" secondAttribute="bottom" id="mSr-bu-qec"/>
                             <constraint firstItem="ZCz-0d-hhA" firstAttribute="top" secondItem="ri7-fK-LSk" secondAttribute="bottom" constant="8" id="nvD-Gq-kb5"/>
@@ -691,7 +687,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRT-LD-nmS">
                                 <rect key="frame" x="20" y="72" width="560" height="508"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
@@ -1186,17 +1182,9 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nNu-1f-FYH" customClass="PlayerView" customModule="Hispanopost" customModuleProvider="target">
                                 <rect key="frame" x="8" y="44" width="398" height="224.33333333333331"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eE-Cq-Gw0">
-                                        <rect key="frame" x="364" y="8" width="26" height="26"/>
-                                        <state key="normal" image="activity_edit_video_expand"/>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nNu-1f-FYH" secondAttribute="height" multiplier="16:9" id="6Sq-wt-XVq"/>
-                                    <constraint firstAttribute="trailing" secondItem="4eE-Cq-Gw0" secondAttribute="trailing" constant="8" id="BRD-ar-AFB"/>
-                                    <constraint firstItem="4eE-Cq-Gw0" firstAttribute="top" secondItem="nNu-1f-FYH" secondAttribute="top" constant="8" id="jiu-Z3-wz5"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="common_icon_play"/>
@@ -1269,10 +1257,15 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eE-Cq-Gw0">
+                                <rect key="frame" x="372" y="52" width="26" height="26"/>
+                                <state key="normal" image="activity_edit_video_expand"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6og-th-fyQ" firstAttribute="leading" secondItem="XsN-Sl-FYs" secondAttribute="leadingMargin" constant="-20" id="0Cb-NX-KD8"/>
+                            <constraint firstItem="4eE-Cq-Gw0" firstAttribute="top" secondItem="nNu-1f-FYH" secondAttribute="top" constant="8" id="0bI-sj-rCi"/>
                             <constraint firstItem="bfI-Y3-JHt" firstAttribute="top" secondItem="xTC-kA-uQv" secondAttribute="bottom" constant="8" id="1BD-CP-Yqk"/>
                             <constraint firstItem="xTC-kA-uQv" firstAttribute="leading" secondItem="nNu-1f-FYH" secondAttribute="trailing" constant="8" id="1no-1h-Nmt"/>
                             <constraint firstItem="bfI-Y3-JHt" firstAttribute="top" secondItem="xTC-kA-uQv" secondAttribute="bottom" constant="4" id="2e0-t9-260"/>
@@ -1308,6 +1301,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="nNu-1f-FYH" secondAttribute="trailing" constant="-20" id="ikn-Z1-2HB">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-12"/>
                             </constraint>
+                            <constraint firstItem="4eE-Cq-Gw0" firstAttribute="trailing" secondItem="nNu-1f-FYH" secondAttribute="trailing" constant="-8" id="jic-3c-ol5"/>
                             <constraint firstItem="xTC-kA-uQv" firstAttribute="leading" secondItem="XsN-Sl-FYs" secondAttribute="leadingMargin" id="k2w-1F-WHp"/>
                             <constraint firstItem="bfI-Y3-JHt" firstAttribute="trailing" secondItem="XsN-Sl-FYs" secondAttribute="trailingMargin" id="k5c-i2-01u"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xTC-kA-uQv" secondAttribute="trailing" constant="-20" id="oTo-HC-eMV"/>

@@ -76,7 +76,7 @@ class EditorPresenter: NSObject {
 extension EditorPresenter:EditorPresenterInterface{
     //MARK: - Interface
     func viewDidLoad() {
-        //loadView()
+        loadView()
     }
     
     func loadView(){
@@ -103,7 +103,7 @@ extension EditorPresenter:EditorPresenterInterface{
         if !isGoingToExpandPlayer{
             self.loadView()
             
-            playerPresenter?.onVideoStops()
+            self.playerPresenter?.onVideoStops()
         }else{
             isGoingToExpandPlayer = false
         }

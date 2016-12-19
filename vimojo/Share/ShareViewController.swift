@@ -183,9 +183,9 @@ extension ShareViewController:SharePresenterDelegate{
         
         guard let alertC = alertController else{return}
         
-        let activityIndicator = UIActivityIndicatorView.init(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
+        let activityIndicator = UIActivityIndicatorView.init(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
         
-        activityIndicator.center = CGPoint(x: 130.5, y: 75.5);
+        activityIndicator.center = CGPoint(x: 130.5, y: 60);
         activityIndicator.startAnimating()
         
         alertC.view.addSubview(activityIndicator)

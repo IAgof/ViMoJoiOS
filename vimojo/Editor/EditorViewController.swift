@@ -226,7 +226,6 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         
         let activityIndicator = UIActivityIndicatorView.init(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
         
-        
         activityIndicator.center = CGPoint(x: 130.5, y: 70.0);
         activityIndicator.startAnimating()
         
