@@ -13,38 +13,38 @@ class SocialNetworkProvider:NSObject{
     func getSocialNetworks(_ delegate:ShareActionDelegate) ->Array<SocialNetwork>{
         var socialNetworks = Array<SocialNetwork>()
         
-        socialNetworks.append(SocialNetwork(iconId: "activity_share_icon_ftp_green",
-            iconIdPressed: "activity_share_icon_ftp_green",
+        socialNetworks.append(SocialNetwork(iconId: "activity_edit_share_ftp",
+            iconIdPressed: "activity_edit_share_ftp",
             title: "FTP",
             action: ShareFTPInteractor(delegate: delegate)))
         
-        socialNetworks.append(SocialNetwork(iconId: "activity_share_icon_ftp_red",
-            iconIdPressed: "activity_share_icon_ftp_red",
+        socialNetworks.append(SocialNetwork(iconId: "activity_edit_share_ftp_pressed",
+            iconIdPressed: "activity_edit_share_ftp_pressed",
             title: "Breaking News",
             action: ShareFTPBreakingNewsInteractor(delegate: delegate)))
         
-        socialNetworks.append( SocialNetwork(iconId: "share_icon_facebook_normal",
-            iconIdPressed: "share_icon_facebook_pressed",
+        socialNetworks.append( SocialNetwork(iconId: "activity_edit_share_facebook_normal",
+            iconIdPressed: "activity_edit_share_facebook_pressed",
             title: "Facebook",
             action: ShareFacebookInteractor(delegate: delegate)))
         
-        socialNetworks.append( SocialNetwork(iconId: "share_icon_instagram_normal",
-            iconIdPressed: "share_icon_instagram_pressed",
+        socialNetworks.append( SocialNetwork(iconId: "activity_edit_share_instagram_normal",
+            iconIdPressed: "activity_edit_share_instagram_pressed",
             title: "Instagram",
             action: ShareInstagramInteractor(delegate: delegate)))
         
-        socialNetworks.append(SocialNetwork(iconId: "share_icon_twitter_norma",
-            iconIdPressed: "share_icon_twitter_pressed",
+        socialNetworks.append(SocialNetwork(iconId: "activity_edit_share_twitter_normal",
+            iconIdPressed: "activity_edit_share_twitter_pressed",
             title: "Twitter",
             action: ShareTwitterInteractor(delegate: delegate)))
         
-        socialNetworks.append(SocialNetwork(iconId: "share_icon_whatsapp_normal",
-            iconIdPressed: "share_icon_whatsapp_pressed",
+        socialNetworks.append(SocialNetwork(iconId: "activity_edit_share_whatsapp_normal",
+            iconIdPressed: "activity_edit_share_whatsapp_pressed",
             title: "Whatsapp",
             action: ShareWhatsappInteractor(delegate: delegate)))
         
-        socialNetworks.append(SocialNetwork(iconId: "share_icon_youtube_normal",
-            iconIdPressed: "share_icon_youtube_pressed",
+        socialNetworks.append(SocialNetwork(iconId: "activity_edit_share_youtube_normal",
+            iconIdPressed: "activity_edit_share_youtube_pressed",
             title: "Youtube",
             action: ShareYoutubeInteractor(delegate: delegate)))
         
