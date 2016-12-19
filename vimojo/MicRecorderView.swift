@@ -161,13 +161,12 @@ class MicRecorderView: UIView,MicRecorderViewInterface{
         trackBackgroundImage = trackBackgroundImage?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 5.0, 0.0, 5.0))
         totalRecordedSlider.trackBackgroundImage = trackBackgroundImage
         
-        var handleImage = UIImage(named: "button_edit_thumb_seekbar_over_advance_split")
+        var handleImage = UIImage(named: "button_edit_thumb_seekbar_advance_split_normal")
         handleImage = handleImage?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 2, 0.0, 2))
         totalRecordedSlider.upperHandleImageNormal = handleImage
         
         let handleImagePressed = UIImage(named: "button_edit_thumb_seekbar_advance_split_pressed")
         handleImage = handleImage?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 2, 0.0, 2))
         totalRecordedSlider.upperHandleImageHighlighted = handleImagePressed
-        
     }
 }
