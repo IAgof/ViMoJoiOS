@@ -448,11 +448,6 @@ extension RecordController{
         thumbnailView.clipsToBounds = true
     }
     
-    func setBorderToThumb(){
-        let borderLayer = self.getBorderLayer()
-        thumbnailView.layer.addSublayer(borderLayer)
-    }
-    
     func getBorderLayer() -> CALayer{
         let diameter = thumbnailView.frame.width/2
         let borderLayer = CALayer.init()
@@ -497,7 +492,6 @@ extension RecordController:RecordPresenterDelegate {
         thumbnailView.image = image
         
         setCornerToThumbnail()
-        setBorderToThumb()
     }
     
     func hideRecordedVideoThumb(){
