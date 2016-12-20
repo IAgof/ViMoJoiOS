@@ -76,6 +76,18 @@ public class ProjectRealmRepository:ProjectRepository{
         return project
     }
     
+    public func getProjectByUUID(uuid: String) -> Project?{
+        let realm = try! Realm()
+        var project:Project?
+        
+        try! realm.write {
+            if let result = realm.objects(RealmProject.self).filter("uuid ='\(uuid)'").last{
+                project = self.toProjectMapper.map(from: result)
+            }
+        }
+        return project
+    }
+    
     public func duplicateProject(id:String) {
         let realm = try! Realm()
         var projectToCopy:RealmProject? = nil

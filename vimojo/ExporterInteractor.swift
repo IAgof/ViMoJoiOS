@@ -31,14 +31,6 @@ class ExporterInteractor:NSObject{
         }
         return quality
     }
-
-    //Merge videos in VideosArray and export to Documents folder and PhotoLibrary
-    func getNewPathToExport()->String{
-        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        let exportPath = (documentDirectory as NSString).appendingPathComponent("mergeVideona-\(Utils().giveMeTimeNow()).m4v")
-        
-        return exportPath
-    }
     
     func exportVideos(_ completionHandler:@escaping (URL)->Void) {
 
@@ -81,6 +73,9 @@ class ExporterInteractor:NSObject{
                 if self.exportSession?.status == .completed{
                     ExportedAlbum.sharedInstance.saveVideo(url,completion:{
                         videoURL in
+
+                        self.project?.setExportedPath(path: exportPath)
+
                         completionHandler(videoURL)
                     })
                 }

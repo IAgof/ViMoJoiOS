@@ -9,6 +9,7 @@
 import Foundation
 import VideonaPlayer
 import AVKit
+import AVFoundation
 
 let fullScreenPlayerViewControllerIdentifier = "FullScreenPlayerViewController"
 
@@ -20,39 +21,50 @@ class FullScreenPlayerWireframe : NSObject {
     var rootWireframe : RootWireframe?
     var fullScreenPlayerViewController: FullScreenPlayerViewController?
     var fullScreenPlayerPresenter: FullScreenPlayerPresenter?
-
+    
     var prevController:UIViewController?
-
+    
     func presentFullScreenPlayerFromViewController(_ prevController:UIViewController, playerView:PlayerView) {
         let viewController = fullScreenPlayerViewControllerFromStoryboard()
-
+        
         viewController.playerView = playerView
         self.prevController = prevController
-        if let player = playerView.player{
-            let avController = AVPlayerViewController()
-            avController.player = player
-            
-            prevController.show(avController, sender: nil)
+        
+        guard let playerItemOld = playerView.player?.currentItem else{return}
+        let playerAssetOld = playerItemOld.asset
+        let playerItem = AVPlayerItem(asset: playerAssetOld)
+        
+        if let videoComposition = playerItemOld.videoComposition{
+            playerItem.videoComposition = videoComposition
         }
-//        prevController.show(viewController, sender: nil)
+        
+        if let audioMix = playerItemOld.audioMix{
+            playerItem.audioMix = audioMix
+        }
+        
+        let player = AVPlayer(playerItem:playerItem)
+        let avController = AVPlayerViewController()
+        avController.player = player
+        
+        prevController.show(avController, sender: nil)
     }
-
+    
     func fullScreenPlayerViewControllerFromStoryboard() -> FullScreenPlayerViewController {
         let storyboard = mainStoryboard()
         let viewController = storyboard.instantiateViewController(withIdentifier: fullScreenPlayerViewControllerIdentifier) as! FullScreenPlayerViewController
-
+        
         viewController.eventHandler = fullScreenPlayerPresenter
         fullScreenPlayerViewController = viewController
         fullScreenPlayerPresenter?.controller = viewController
-
+        
         return viewController
     }
-
+    
     func mainStoryboard() -> UIStoryboard {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         return storyboard
     }
-
+    
     func goPrevController(_ playerView:PlayerView){
         
         if let controller = prevController as? FullScreenWireframeDelegate{

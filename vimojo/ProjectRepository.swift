@@ -15,4 +15,5 @@ public protocol ProjectRepository:Repository{
     func getCurrentProject()->Project
     func duplicateProject(id:String)
     func getAllProjects()->[Project]
+    func getProjectByUUID (uuid:String)->Project?
 }

@@ -93,7 +93,6 @@ class ExportedAlbum: NSObject {
                         videoURL in
                         completion(videoURL)
                     })
-                    Utils().removeFileFromURL(clipPath)
                 }
             }
         })

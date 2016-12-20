@@ -80,19 +80,22 @@ extension EditorPresenter:EditorPresenterInterface{
     }
     
     func loadView(){
-        self.reloadPositionNumberAfterMovement()
+        loadVideoListFromProject()
         
         //Auto select first item on first load
         self.didSelectItemAtIndexPath(selectedCellIndexPath)
         
         delegate?.setUpGestureRecognizer()
         
-        wireframe?.presentPlayerInterface()
-        delegate?.bringToFrontExpandPlayerButton()
-        
+        self.updatePlayerView()
         self.setVideoDataToView()
     }
     
+    func updatePlayerView(){
+        wireframe?.presentPlayerInterface()
+        delegate?.bringToFrontExpandPlayerButton()
+    }
+
     func setVideoDataToView(){
         DispatchQueue.main.async(execute: { () -> Void in
             self.delegate?.reloadCollectionViewData()
@@ -100,6 +103,8 @@ extension EditorPresenter:EditorPresenterInterface{
     }
     
     func viewWillAppear() {
+        updatePlayerView()
+        
         if !isGoingToExpandPlayer{
             self.loadView()
             

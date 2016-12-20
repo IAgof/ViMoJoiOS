@@ -51,6 +51,7 @@ class SaveVideosFromGalleryInteractor:NSObject,SaveVideosFromGalleryInterface{
         VideoRealmRepository().add(item: newVideo)
         actualProject.setVideoList(videoList)
         
+        actualProject.updateModificationDate()
         ProjectRealmRepository().update(item: actualProject)
     }
 }

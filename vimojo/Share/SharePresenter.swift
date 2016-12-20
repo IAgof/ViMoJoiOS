@@ -31,15 +31,20 @@ class SharePresenter:NSObject,SharePresenterInterface{
         delegate!.createShareInterface()
         delegate?.setNavBarTitle(Utils().getStringByKeyFromShare(ShareConstants().SHARE_YOUR_VIDEO))
         
-        wireframe?.presentPlayerInterface()
-        
         interactor?.findSocialNetworks()
-        
-        delegate?.bringToFrontExpandPlayerButton()
         delegate?.removeSeparatorTable()
     }
     
+    func updatePlayerView(){
+        DispatchQueue.main.async {
+            self.wireframe?.presentPlayerInterface()
+            self.delegate?.bringToFrontExpandPlayerButton()
+        }
+    }
+    
     func viewDidAppear() {
+        updatePlayerView()
+
         delegate?.createAlertWaitToExport()
         
         interactor?.exportVideo()

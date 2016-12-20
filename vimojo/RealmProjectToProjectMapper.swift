@@ -23,6 +23,9 @@ public class RealmProjectToProjectMapper:Mapper{
                               rootPath: "",
                               profile: profile)
         project.uuid = from.uuid
+        project.setExportedPath(path: from.exportedPath)
+        project.exportDate = from.exportedDate
+        project.modificationDate = from.modificationDate
         
         setProjectMusic(project: project, realmProject: from)
         setProjectVideos(project: project, realmProject: from)

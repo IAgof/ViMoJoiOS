@@ -119,6 +119,7 @@ class ClipsAlbum: NSObject {
                     video.videoURL = asset.url
                     video.mediaRecordedFinished()
                     VideoRealmRepository().add(item: video)
+                    project.updateModificationDate()
                     ProjectRealmRepository().update(item: project)
                 }
             })

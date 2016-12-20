@@ -105,6 +105,7 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
         project.isVoiceOverSet = true
         project.voiceOver = voiceOver
         
+        project.updateModificationDate()
         ProjectRealmRepository().update(item: project)
     }
     

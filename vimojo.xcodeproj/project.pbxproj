@@ -92,6 +92,7 @@
 		A91D63081DDF234C00D226B8 /* TrimParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91D63071DDF234C00D226B8 /* TrimParameters.swift */; };
 		A9325FAD1E091E1D00400AD6 /* ExportTemporalVideoToShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9325FAC1E091E1D00400AD6 /* ExportTemporalVideoToShare.swift */; };
 		A9325FB21E091FB900400AD6 /* GetPHAssetFromUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9325FB11E091FB900400AD6 /* GetPHAssetFromUrl.swift */; };
+		A9325FC31E0950B600400AD6 /* DateCompareExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9325FC21E0950B600400AD6 /* DateCompareExtension.swift */; };
 		A9334EEF1DAAB96A00762D8A /* MusicListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9334EEE1DAAB96A00762D8A /* MusicListView.xib */; };
 		A9334EF11DAAB97C00762D8A /* MusicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9334EF01DAAB97C00762D8A /* MusicListView.swift */; };
 		A9334EF31DAABBFC00762D8A /* MusicListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9334EF21DAABBFC00762D8A /* MusicListCell.xib */; };
@@ -695,6 +696,7 @@
 		A921D9661DC1DEA9003631E8 /* Rebekka.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rebekka.xcodeproj; path = "../FTP_Client_Rebekka/rebekka-source/Rebekka.xcodeproj"; sourceTree = "<group>"; };
 		A9325FAC1E091E1D00400AD6 /* ExportTemporalVideoToShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportTemporalVideoToShare.swift; sourceTree = "<group>"; };
 		A9325FB11E091FB900400AD6 /* GetPHAssetFromUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPHAssetFromUrl.swift; sourceTree = "<group>"; };
+		A9325FC21E0950B600400AD6 /* DateCompareExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCompareExtension.swift; sourceTree = "<group>"; };
 		A9334EEE1DAAB96A00762D8A /* MusicListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicListView.xib; sourceTree = "<group>"; };
 		A9334EF01DAAB97C00762D8A /* MusicListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicListView.swift; sourceTree = "<group>"; };
 		A9334EF21DAABBFC00762D8A /* MusicListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicListCell.xib; sourceTree = "<group>"; };
@@ -1128,6 +1130,15 @@
 				A9325FB11E091FB900400AD6 /* GetPHAssetFromUrl.swift */,
 			);
 			name = "Export Temporal Video";
+			sourceTree = "<group>";
+		};
+		A9325FBE1E0950AB00400AD6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A97F0F221DC092A100907196 /* UIApplicationExtensionGetTopController.swift */,
+				A9325FC21E0950B600400AD6 /* DateCompareExtension.swift */,
+			);
+			name = Extension;
 			sourceTree = "<group>";
 		};
 		A9334EE91DAAB94700762D8A /* MusicListView */ = {
@@ -1882,7 +1893,7 @@
 		A9B3865B1D7D55440065D3EC /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				A97F0F221DC092A100907196 /* UIApplicationExtensionGetTopController.swift */,
+				A9325FBE1E0950AB00400AD6 /* Extension */,
 				A9CFA5E51D991DBE0037B1F5 /* VideonaFooterView.xib */,
 				A93BCE491D7D5C6B00421BD0 /* Constants */,
 				A97307631DF048EB00451244 /* DrawerMenu */,
@@ -2739,6 +2750,7 @@
 				A97F0F231DC092A100907196 /* UIApplicationExtensionGetTopController.swift in Sources */,
 				A91C694E1DCB59AA00AF2576 /* GalleryViewController.swift in Sources */,
 				A900C74E1DC35CBD00A65730 /* SettingsFTPBreakingNewsEditedDestination.swift in Sources */,
+				A9325FC31E0950B600400AD6 /* DateCompareExtension.swift in Sources */,
 				A97F0F281DC0937300907196 /* SettingsEmailAction.swift in Sources */,
 				A91761151D916F48008915DA /* ShareFacebookInteractor.swift in Sources */,
 				A9B3865A1D7D55340065D3EC /* RootWireframe.swift in Sources */,

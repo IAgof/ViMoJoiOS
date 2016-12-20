@@ -19,7 +19,8 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
     var project:Project?
     
     var videosList:[Video] = []
-
+    var videoCount:Int?
+    
     init( project:Project) {
         videosList = project.getVideoList()
         
@@ -30,9 +31,25 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         guard let videosList = project?.getVideoList() else{return}
         
         self.videosList = videosList
-        
+        self.updateProjectForSplitAndDuplicateChanges()
         self.getVideoList() 
         self.getStopTimeList()
+    }
+    
+    func updateProjectForSplitAndDuplicateChanges(){
+        //Cant handler realm repo from outside library, if video count changes, project changes, have to update that
+        guard let count = videoCount else{
+            videoCount = videosList.count
+            return
+        }
+        
+        if count != videosList.count{
+            videoCount = videosList.count
+            
+            guard let actualProject = project else{return}
+            actualProject.updateModificationDate()
+            ProjectRealmRepository().update(item: actualProject)
+        }
     }
     
     func getComposition() {
@@ -136,6 +153,7 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
             }
             
             actualProject.setVideoList(videoList)            
+            actualProject.updateModificationDate()
             ProjectRealmRepository().update(item: actualProject)
         }
     }
@@ -148,6 +166,7 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         
         actualProject.setVideoList(videoList)
         
+        actualProject.updateModificationDate()
         ProjectRealmRepository().update(item: actualProject)
     }
     

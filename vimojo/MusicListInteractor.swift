@@ -88,6 +88,7 @@ class MusicListInteractor: MusicListInteractorInterface {
             project.isMusicSet = true
         }
         
+        project.updateModificationDate()
         ProjectRealmRepository().update(item: project)
     }
     

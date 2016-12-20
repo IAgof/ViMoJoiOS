@@ -20,6 +20,7 @@ class SetTrimParametersToVideoWorker: NSObject {
 
         project.setVideoList(videoList)
         
+        project.updateModificationDate()
         ProjectRealmRepository().update(item: project)
     }
 }

@@ -27,11 +27,52 @@ class ShareInteractor: NSObject,ShareInteractorInterface {
     }
     func exportVideo() {
         guard let actualProject = project else{return}
+        let realmProject = ProjectRealmRepository().getProjectByUUID(uuid: actualProject.uuid)
+        
+        guard let modDate = actualProject.modificationDate else{
+            exportVideoAction()
+            return
+        }
+        
+        guard let exportDate = realmProject?.exportDate else{
+            exportVideoAction()
+            return
+        }
+        
+        guard let exportPath = realmProject?.getExportedPath() else{
+            exportVideoAction()
+            return
+        }
+        
+        if modDate.isGreaterThanDate(dateToCompare: exportDate){
+            exportVideoAction()
+        }else{
+            if FileManager.default.fileExists(atPath: exportPath){
+                let exportURL = URL(fileURLWithPath: exportPath)
+                self.delegate?.setPlayerUrl(videoURL: exportURL)
+            }else{
+                print("File doesn't exist")
+                exportVideoAction()
+            }
+        }
+
+    }
+    
+    func exportVideoAction(){
+        guard let actualProject = project else{return}
+        
+        if let exportPath = actualProject.getExportedPath(){
+            if FileManager.default.fileExists(atPath: exportPath){
+                let exportURL = URL(fileURLWithPath: exportPath)
+                Utils().removeFileFromURL(exportURL)
+            }
+        }
         
         let exporter = ExporterInteractor.init(project: actualProject)
         exporter.exportVideos({
             exportURL in
             print("Export path response = \(exportURL)")
+            ProjectRealmRepository().update(item: actualProject)
             self.delegate?.setPlayerUrl(videoURL: exportURL)
         })
     }
@@ -60,15 +101,10 @@ class ShareInteractor: NSObject,ShareInteractorInterface {
     }
     
     func shareVideo(_ indexPath: IndexPath, videoPath: String) {
-        if let videoURL = NSURL(string: videoPath){
-            GetPHAssetFromUrl().PHAssetForFileURL(url:videoURL, completion: {
-                phasset in
-                
-                ExportTemporalVideoToShare().exportVideoAsset(phasset, completion: {
-                    temporalVideo in
-                    self.socialNetworks[indexPath.item].action.share(temporalVideo.absoluteString)
-                })
-            })
+        guard let actualProject = project else{return}
+
+        if let exportPath = actualProject.getExportedPath(){
+            self.socialNetworks[indexPath.item].action.share(exportPath)
         }
     }
     

@@ -19,6 +19,9 @@ public class RealmProject:Object{
     dynamic var musicTitle:String = ""
     dynamic var musicVolume:Double = 0.5
     var videos = List<RealmVideo>()
+    dynamic var modificationDate: NSDate? = nil
+    dynamic var exportedDate: NSDate? = nil
+    dynamic var exportedPath: String? = nil
     
     override public class func primaryKey() -> String? {
         return "uuid"
