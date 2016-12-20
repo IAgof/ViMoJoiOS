@@ -94,7 +94,15 @@ class SharePresenter:NSObject,SharePresenterInterface{
     
     func pushGenericShare() {
         if let url = videoURL{
-            delegate?.showShareGeneric(url)
+            
+            GetPHAssetFromUrl().PHAssetForFileURL(url:url as NSURL, completion: {
+                phasset in
+                
+                ExportTemporalVideoToShare().exportVideoAsset(phasset, completion: {
+                    temporalVideo in
+                    self.delegate?.showShareGeneric(temporalVideo)
+                })
+            })
         }
     }
     
