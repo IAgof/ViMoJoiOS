@@ -60,7 +60,16 @@ class ShareInteractor: NSObject,ShareInteractorInterface {
     }
     
     func shareVideo(_ indexPath: IndexPath, videoPath: String) {
-        socialNetworks[indexPath.item].action.share(videoPath)
+        if let videoURL = NSURL(string: videoPath){
+            GetPHAssetFromUrl().PHAssetForFileURL(url:videoURL, completion: {
+                phasset in
+                
+                ExportTemporalVideoToShare().exportVideoAsset(phasset, completion: {
+                    temporalVideo in
+                    self.socialNetworks[indexPath.item].action.share(temporalVideo.absoluteString)
+                })
+            })
+        }
     }
     
     func postToYoutube(_ token:String){

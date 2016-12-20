@@ -40,31 +40,30 @@ class ShareFTPBreakingNewsInteractor: ShareActionInterface {
     fileprivate func createFTPUpload(_ fileData:FTPfileData){
         let ftpSettings = SettingsFTPBreakingNews()
         //For test
-        let fileURL = URL(string: fileData.path)
+        let fileURL = URL(fileURLWithPath: fileData.path)
         
         var configuration = SessionConfiguration()
         configuration.host = ftpSettings.host.appendingFormat(":21")
         configuration.username = ftpSettings.username
         configuration.password = ftpSettings.password
         
-        if let URL = fileURL {
-            let videoResultName = fileData.name
-            let path = ftpSettings.editedVideoPath + videoResultName
-            
-            let session = Session(configuration: configuration)
-            session.upload(URL, path: path, completionHandler: {
-                (result, error) -> Void in
-                if result{
-                    self.handleCorrectUpload()
-                }else{
-                    guard let errorCode = error?.code else {
-                        print("No error code")
-                        return
-                    }
-                    self.handleError(errorCode)
+        let videoResultName = fileData.name
+        let path = ftpSettings.editedVideoPath + videoResultName
+        
+        let session = Session(configuration: configuration)
+        session.upload(fileURL, path: path, completionHandler: {
+            (result, error) -> Void in
+            if result{
+                self.handleCorrectUpload()
+            }else{
+                guard let errorCode = error?.code else {
+                    print("No error code")
+                    return
                 }
-            })
-        }
+                self.handleError(errorCode)
+            }
+        })
+        
     }
     
     fileprivate func handleCorrectUpload(){

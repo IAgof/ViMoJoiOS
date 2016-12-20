@@ -9,6 +9,7 @@
 import Foundation
 import RebekkaTouch
 import VideonaProject
+import Photos
 
 class ShareFTPInteractor: ShareActionInterface {
     struct FTPfileData {
@@ -38,21 +39,21 @@ class ShareFTPInteractor: ShareActionInterface {
     }
     
     fileprivate func createFTPUpload(_ fileData:FTPfileData){
-        let ftpSettings = SettinsFTP()
         //For test
-        let fileURL = URL(string: fileData.path)
-        
-        var configuration = SessionConfiguration()
-        configuration.host = ftpSettings.host.appendingFormat(":21")
-        configuration.username = ftpSettings.username
-        configuration.password = ftpSettings.password
-        
-        if let URL = fileURL {
+        if let fileURL = URL(string: fileData.path){
+
+            let ftpSettings = SettinsFTP()
+            
+            var configuration = SessionConfiguration()
+            configuration.host = ftpSettings.host.appendingFormat(":21")
+            configuration.username = ftpSettings.username
+            configuration.password = ftpSettings.password
+            
             let videoResultName = fileData.name
             let path = ftpSettings.editedVideoPath + videoResultName
             
             let session = Session(configuration: configuration)
-            session.upload(URL, path: path, completionHandler: {
+            session.upload(fileURL, path: path, completionHandler: {
                 (result, error) -> Void in
                 if result{
                     self.handleCorrectUpload()
@@ -65,6 +66,7 @@ class ShareFTPInteractor: ShareActionInterface {
                 }
             })
         }
+        
     }
     
     fileprivate func handleCorrectUpload(){

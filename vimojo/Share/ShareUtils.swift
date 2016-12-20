@@ -19,9 +19,9 @@ class ShareUtils{
         alertController.addAction(UIAlertAction(title: Utils().getStringByKeyFromShare(ShareConstants().OK),
             style: .default, handler: nil))
         
-        let controller = UIApplication.topViewController()
-        if let shareController = controller as? EditingRoomViewController {
-            shareController.present(alertController, animated: true, completion: nil)
+        
+        if let controller = UIApplication.topViewController() {
+            controller.present(alertController, animated: true, completion: nil)
         }
         
     }

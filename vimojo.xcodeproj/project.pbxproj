@@ -90,6 +90,8 @@
 		A91D63041DDF1F3A00D226B8 /* GetCompositionForVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91D63031DDF1F3A00D226B8 /* GetCompositionForVideo.swift */; };
 		A91D63061DDF22F600D226B8 /* SetTrimParametersToVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91D63051DDF22F600D226B8 /* SetTrimParametersToVideo.swift */; };
 		A91D63081DDF234C00D226B8 /* TrimParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91D63071DDF234C00D226B8 /* TrimParameters.swift */; };
+		A9325FAD1E091E1D00400AD6 /* ExportTemporalVideoToShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9325FAC1E091E1D00400AD6 /* ExportTemporalVideoToShare.swift */; };
+		A9325FB21E091FB900400AD6 /* GetPHAssetFromUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9325FB11E091FB900400AD6 /* GetPHAssetFromUrl.swift */; };
 		A9334EEF1DAAB96A00762D8A /* MusicListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9334EEE1DAAB96A00762D8A /* MusicListView.xib */; };
 		A9334EF11DAAB97C00762D8A /* MusicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9334EF01DAAB97C00762D8A /* MusicListView.swift */; };
 		A9334EF31DAABBFC00762D8A /* MusicListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9334EF21DAABBFC00762D8A /* MusicListCell.xib */; };
@@ -691,6 +693,8 @@
 		A91D63051DDF22F600D226B8 /* SetTrimParametersToVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTrimParametersToVideo.swift; sourceTree = "<group>"; };
 		A91D63071DDF234C00D226B8 /* TrimParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrimParameters.swift; sourceTree = "<group>"; };
 		A921D9661DC1DEA9003631E8 /* Rebekka.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rebekka.xcodeproj; path = "../FTP_Client_Rebekka/rebekka-source/Rebekka.xcodeproj"; sourceTree = "<group>"; };
+		A9325FAC1E091E1D00400AD6 /* ExportTemporalVideoToShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportTemporalVideoToShare.swift; sourceTree = "<group>"; };
+		A9325FB11E091FB900400AD6 /* GetPHAssetFromUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPHAssetFromUrl.swift; sourceTree = "<group>"; };
 		A9334EEE1DAAB96A00762D8A /* MusicListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicListView.xib; sourceTree = "<group>"; };
 		A9334EF01DAAB97C00762D8A /* MusicListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicListView.swift; sourceTree = "<group>"; };
 		A9334EF21DAABBFC00762D8A /* MusicListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicListCell.xib; sourceTree = "<group>"; };
@@ -1423,6 +1427,8 @@
 				A91761021D916F48008915DA /* ShareInteractor.swift */,
 				A91761031D916F48008915DA /* ShareInteractorInterface.swift */,
 				A917610E1D916F48008915DA /* SocialNetworkProvider.swift */,
+				A9325FAC1E091E1D00400AD6 /* ExportTemporalVideoToShare.swift */,
+				A9325FB11E091FB900400AD6 /* GetPHAssetFromUrl.swift */,
 			);
 			name = "App Logic";
 			sourceTree = "<group>";
@@ -2621,6 +2627,7 @@
 				A9C5FB691DD5B5BC00057A1B /* GalleryFetchOptions.swift in Sources */,
 				A9B386291D7D52F40065D3EC /* RecordWireframe.swift in Sources */,
 				A9A2072A1DED8723004AAEE2 /* ProjectListInteractorInterface.swift in Sources */,
+				A9325FAD1E091E1D00400AD6 /* ExportTemporalVideoToShare.swift in Sources */,
 				A9B386391D7D53450065D3EC /* ExportedAlbum.swift in Sources */,
 				A91760BA1D9146BF008915DA /* EditorInteractor.swift in Sources */,
 				A988DEFA1DACF35D0030E285 /* MusicListViewController.swift in Sources */,
@@ -2682,6 +2689,7 @@
 				A9A1E5B61DB636DC003BF354 /* ApplyTextOverlayToVideoCompositionUseCase.swift in Sources */,
 				A973076A1DF04FA100451244 /* DrawerMenuTableViewController.swift in Sources */,
 				A93BCE4D1D7D5C7400421BD0 /* AnalitycsConstants.swift in Sources */,
+				A9325FB21E091FB900400AD6 /* GetPHAssetFromUrl.swift in Sources */,
 				A91760C21D9146BF008915DA /* ThumbnailListInteractor.swift in Sources */,
 				A91B8C9A1DE885790040CA57 /* CheckCameraPermissionUseCase.swift in Sources */,
 				A9E90D841DE7427B002B9DA3 /* VideoRepository.swift in Sources */,

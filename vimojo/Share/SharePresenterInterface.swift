@@ -29,7 +29,7 @@ protocol SharePresenterDelegate {
     func createAlertWaitToExport()
     func dissmissAlertWaitToExport()
 
-    func showShareGeneric(_ moviePath:String)
+    func showShareGeneric(_ movieURL:URL)
     
     func createShareInterface()
     func setShareViewObjectsList(_ viewObjects:[ShareViewModel])

@@ -11,6 +11,7 @@ import UIKit
 import AVFoundation
 import VideonaPlayer
 import VideonaProject
+import Photos
 
 class SharePresenter:NSObject,SharePresenterInterface{
     
@@ -92,8 +93,8 @@ class SharePresenter:NSObject,SharePresenterInterface{
     }
     
     func pushGenericShare() {
-        if let path = videoURL?.absoluteString{
-            delegate?.showShareGeneric(path)
+        if let url = videoURL{
+            delegate?.showShareGeneric(url)
         }
     }
     

@@ -197,11 +197,9 @@ extension ShareViewController:SharePresenterDelegate{
         alertController?.dismiss(animated: true, completion: nil)
     }
     
-    func showShareGeneric(_ moviePath:String) {
+    func showShareGeneric(_ movieURL:URL) {
         
-        let movie:URL = URL(fileURLWithPath: moviePath)
-        
-        let objectsToShare = [movie] //comment!, imageData!, myWebsite!]
+        let objectsToShare = [movieURL] //comment!, imageData!, myWebsite!]
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         
         activityVC.setValue("Video", forKey: "subject")
