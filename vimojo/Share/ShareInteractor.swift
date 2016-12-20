@@ -113,6 +113,14 @@ class ShareInteractor: NSObject,ShareInteractorInterface {
             Utils().debugLog("result \(result)")
         })
     }
+    
+    func getShareExportURL() -> URL? {
+        guard let exportPath = project?.getExportedPath() else{
+            return nil
+        }
+        
+        return URL(fileURLWithPath: exportPath)
+    }
 }
 
 extension ShareInteractor:ShareActionDelegate{

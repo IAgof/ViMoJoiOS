@@ -17,6 +17,7 @@ protocol ShareInteractorInterface {
     func postToYoutube(_ token:String)
     func getProject()->Project
     func exportVideo()
+    func getShareExportURL()->URL?
 }
 
 protocol ShareInteractorDelegate{
