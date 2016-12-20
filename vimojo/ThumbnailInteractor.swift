@@ -35,22 +35,24 @@ class ThumbnailInteractor: NSObject {
         do {
             cgImage =  try imgGenerator.copyCGImage(at: CMTime.init(value: 10, timescale: 10), actualTime: nil)
             print("Thumbnail image gets okay")
-            
-            thumbnailImage = UIImage(cgImage: cgImage!)
-            thumbnailImage = self.resizeImage(thumbnailImage, newWidth: diameter)
-            delegate?.setThumbToView(thumbnailImage)
         } catch {
             Utils().debugLog("Thumbnail error \nSomething went wrong!")
             
             if let image = UIImage(named: "black_image") {
                 thumbnailImage = image
-                thumbnailImage = self.resizeImage(thumbnailImage, newWidth: diameter)
-                delegate?.setThumbToView(thumbnailImage)
+                if let thumbnail = self.resizeImage(thumbnailImage, newWidth: diameter){
+                    delegate?.setThumbToView(thumbnail)
+                }
             }
+        }
+        
+        thumbnailImage = UIImage(cgImage: cgImage!)
+        if let thumbnail = self.resizeImage(thumbnailImage, newWidth: diameter){
+            delegate?.setThumbToView(thumbnail)
         }
     }
     
-    func resizeImage(_ image: UIImage, newWidth: CGFloat) -> UIImage {
+    func resizeImage(_ image: UIImage, newWidth: CGFloat) -> UIImage? {
         print("Resize image")
         
         UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newWidth))
@@ -59,7 +61,7 @@ class ThumbnailInteractor: NSObject {
         UIGraphicsEndImageContext()
         
         print("Finish resize image")
-        return newImage!
+        return newImage
     }
 
 }

@@ -89,7 +89,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     var pinchDisplay:UIPinchGestureRecognizer?
     
     var defaultThumbImage:UIImage{
-        guard let image = UIImage(named: "activity_record_gallery_normal") else{
+        guard let image = UIImage(named: "activity_rec_gallery") else{
             return UIImage()
         }
         return image

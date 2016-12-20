@@ -71,7 +71,7 @@ class SettingsProvider:NSObject{
                                              action: SettingsFTPUsernameAction(delegate: delegate))
         
         let ftpPasswordSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().PASSWORD_FTP),
-                                             subTitle: ftpConfiguration.password,
+                                             subTitle: ftpConfiguration.passwordToView,
                                              action: SettingsFTPPasswordAction(delegate: delegate))
         
         let ftpEditedDestinationSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().EDITED_VIDEO_DESTINATION),
@@ -92,7 +92,7 @@ class SettingsProvider:NSObject{
                                                  action: SettingsFTPBreakingNewsUsernameAction(delegate: delegate))
         
         let ftpBNPasswordSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().PASSWORD_FTP),
-                                                 subTitle: ftpConfigurationBN.password,
+                                                 subTitle: ftpConfigurationBN.passwordToView,
                                                  action: SettingsFTPBreakignNewsPasswordAction(delegate: delegate))
         
         let ftpBNEditedDestinationSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().EDITED_VIDEO_DESTINATION),

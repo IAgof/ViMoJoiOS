@@ -12,6 +12,7 @@ struct SettinsFTP {
     var host:String = ""
     var username:String = ""
     var password:String = ""
+    var passwordToView:String = ""
     var editedVideoPath:String = ""
     var uneditedVideoPath:String = ""
 
@@ -26,13 +27,12 @@ struct SettinsFTP {
         }
         
         if let passwordSaved = defaults.string(forKey: SettingsConstants().SETTINGS_PASSWORD_FTP){
-            if passwordSaved != ""{
-                password = passwordSaved
-            }else{
-                password = "********"
-            }
+            password = passwordSaved
         }
         
+        if password != ""{
+            passwordToView = "********"
+        }
         if let editedVideoPathSaved = defaults.string(forKey: SettingsConstants().SETTINGS_EDITED_DEST_FTP){
             editedVideoPath = editedVideoPathSaved
         }
