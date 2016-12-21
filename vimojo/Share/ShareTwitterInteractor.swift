@@ -19,7 +19,7 @@ class ShareTwitterInteractor: ShareActionInterface {
     }
     
     func share(_ path:String){
-        let videoURL = ShareUtils().getLastAssetURL()
+        let videoURL = URL(fileURLWithPath: path)
         let accountStore:ACAccountStore = ACAccountStore.init()
         let accountType:ACAccountType = accountStore.accountType(withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)
         accountStore.requestAccessToAccounts(with: accountType, options: nil) { (granted, error) in
@@ -63,7 +63,6 @@ class ShareTwitterInteractor: ShareActionInterface {
                 Utils().debugLog(message)
                 ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Twitter",
                                                                 message: message)
-                
             }
         }
     }
