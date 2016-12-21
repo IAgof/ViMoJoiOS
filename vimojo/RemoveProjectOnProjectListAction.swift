@@ -12,12 +12,13 @@ import VideonaProject
 class RemoveProjectOnProjectListAction {
     
     func execute(completion:@escaping (Bool)->Void){
-        let title = "Remove title"
-        let removeString = "Yes"
+        let title = Utils().getStringByKeyFromProjectList(ProjectListConstants().REMOVE_PROJECT_ALERT_TITLE)
+        let removeString = Utils().getStringByKeyFromProjectList(ProjectListConstants().REMOVE_PROJECT_ALERT_YES_BUTTON)
         
-        let cancelString = Utils().getStringByKeyFromSettings(SettingsConstants().CANCEL_SETTINGS_CAMERA)
+        let cancelString = Utils().getStringByKeyFromProjectList(ProjectListConstants().REMOVE_PROJECT_ALERT_NO_BUTTON)
         
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        alertController.view.tintColor = VIMOJO_RED_UICOLOR
 
         let removeAction = UIAlertAction(title: removeString, style: .default, handler: {alert -> Void in
             completion(true)

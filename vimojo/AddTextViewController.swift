@@ -238,7 +238,7 @@ extension AddTextViewController{
     {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
         doneToolbar.barStyle = UIBarStyle.blackTranslucent
-        
+        doneToolbar.backgroundColor = VIMOJO_RED_UICOLOR
         let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(AddTextViewController.doneButtonAction))
         done.tintColor = UIColor.white

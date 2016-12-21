@@ -52,7 +52,6 @@ class DetailTextWireframe : NSObject {
     }
     
     func goPrevController(){
-        
-        detailTextViewController?.navigationController?.popToViewController(prevController!, animated: true)
+        detailTextViewController?.dismiss(animated: true, completion: nil)
     }
 }

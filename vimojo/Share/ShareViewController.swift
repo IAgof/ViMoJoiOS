@@ -126,7 +126,7 @@ UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! ShareCell
         
-        cell.shareTitle!.textColor = VIMOJO_GREEN_UICOLOR
+        cell.shareTitle!.textColor = VIMOJO_RED_UICOLOR
         cell.shareImage!.image = displayShareObjects[indexPath.item].iconPressed
     }
     
@@ -185,7 +185,7 @@ extension ShareViewController:SharePresenterDelegate{
         
         let activityIndicator = UIActivityIndicatorView.init(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
         
-        activityIndicator.center = CGPoint(x: 130.5, y: 60);
+        activityIndicator.center = CGPoint(x: 130.5, y: 65);
         activityIndicator.startAnimating()
         
         alertC.view.addSubview(activityIndicator)

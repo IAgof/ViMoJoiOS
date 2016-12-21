@@ -78,11 +78,14 @@ class AddTextInteractor: AddTextInteractorInterface {
         guard let videoList = project?.getVideoList() else {return}
         
         guard let vidPosition = videoPosition else{return}
+        guard let actualProject = project else{return}
         
         videoList[vidPosition].textToVideo = text
         videoList[vidPosition].textPositionToVideo = position
         
-        project?.setVideoList(videoList)
+        actualProject.setVideoList(videoList)
+        
+        ProjectRealmRepository().update(item: actualProject)
     }
     
     func setVideoPosition(_ position: Int) {

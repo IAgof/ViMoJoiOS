@@ -313,6 +313,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         viewsToBorder.append(expositionModesView)
         viewsToBorder.append(focalLensSliderView)
         viewsToBorder.append(inputGainSlider)
+        viewsToBorder.append(exposureConfigurationView)
         
         for view in viewsToBorder{
             view.layer.cornerRadius = cornerRadius

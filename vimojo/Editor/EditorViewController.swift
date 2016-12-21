@@ -199,7 +199,7 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         let alertController = UIAlertController(title:title,
                                                 message:message,
                                                 preferredStyle: .alert)
-        alertController.view.tintColor = VIMOJO_GREEN_UICOLOR
+        alertController.view.tintColor = VIMOJO_RED_UICOLOR
 
         let yesAction = UIAlertAction(title: yesString,
                                       style: .default,
@@ -248,12 +248,13 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
                                                                             self.eventHandler?.addSelection(selection: response)
                                                                             
         })
+        alertController.setTintColor()
         
-            if let popoverController = alertController.popoverPresentationController {
-                popoverController.sourceView = addFloatingButton
-            }
-            self.present(alertController, animated: true, completion: nil)
-
+        if let popoverController = alertController.popoverPresentationController {
+            popoverController.sourceView = addFloatingButton
+        }
+        self.present(alertController, animated: true, completion: nil)
+        
     }
     
     func dissmissAlertController(){

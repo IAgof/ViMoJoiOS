@@ -130,7 +130,7 @@ class MicRecorderViewController: ViMoJoController,MicRecorderPresenterDelegate,P
         let alertController = UIAlertController(title:title,
                                                 message:message,
                                                 preferredStyle: .alert)
-        alertController.view.tintColor = VIMOJO_GREEN_UICOLOR
+        alertController.view.tintColor = VIMOJO_RED_UICOLOR
         
         let yesAction = UIAlertAction(title: yesString,
                                       style: .default,

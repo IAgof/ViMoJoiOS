@@ -28,11 +28,10 @@ class MusicListWireframe {
     func presentMusicListInterface(){
         let viewController = musicViewControllerFromStoryboard()
         
-        guard let prevController = getVisibleViewController() else{
+        guard let prevController = UIApplication.topViewController() else{
             return
         }
         prevController.show(viewController, sender: nil)
-//        prevController.presentViewController(viewController, animated: true, completion: nil)
         
     }
     
@@ -68,29 +67,4 @@ class MusicListWireframe {
         }
 //        wireframe.editingRoomViewController?.eventHandler?.pushEditor()
     }
-    
-    func getVisibleViewController() -> UIViewController? {
-        
-        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
-        
-        if rootViewController?.presentedViewController == nil {
-            return rootViewController
-        }
-        
-        if let presented = rootViewController?.presentedViewController {
-            if presented.isKind(of: UINavigationController.self) {
-                let navigationController = presented as! UINavigationController
-                return navigationController.viewControllers.last!
-            }
-            
-            if presented.isKind(of: UITabBarController.self) {
-                let tabBarController = presented as! UITabBarController
-                return tabBarController.selectedViewController!
-            }
-            
-            return presented
-        }
-        return nil
-    }
-    
 }

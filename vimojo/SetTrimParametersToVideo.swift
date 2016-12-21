@@ -14,13 +14,14 @@ class SetTrimParametersToVideoWorker: NSObject {
                        project:Project,
                        videoPosition:Int){
         let videoList = project.getVideoList()
-        
-        videoList[videoPosition].setStartTime(trimParams.startTime)
-        videoList[videoPosition].setStopTime(trimParams.stopTime)
-
-        project.setVideoList(videoList)
-        
-        project.updateModificationDate()
-        ProjectRealmRepository().update(item: project)
+        if videoList.indices.contains(videoPosition){
+            videoList[videoPosition].setStartTime(trimParams.startTime)
+            videoList[videoPosition].setStopTime(trimParams.stopTime)
+            
+            project.setVideoList(videoList)
+            
+            project.updateModificationDate()
+            ProjectRealmRepository().update(item: project)
+        }
     }
 }

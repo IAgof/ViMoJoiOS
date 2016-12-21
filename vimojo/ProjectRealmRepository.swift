@@ -100,6 +100,8 @@ public class ProjectRealmRepository:ProjectRepository{
             duplicateVideos(videos: projectToCopy!.videos, completion: {
                 duplicateVideoList in
                 
+                let copyText = "Copy"
+                
                 let newProjectRealm = RealmProject()
                 newProjectRealm.frameRate = projectToCopy!.frameRate
                 newProjectRealm.musicTitle = projectToCopy!.musicTitle
@@ -107,9 +109,17 @@ public class ProjectRealmRepository:ProjectRepository{
                 newProjectRealm.projectPath = projectToCopy!.projectPath
                 newProjectRealm.quality = projectToCopy!.quality
                 newProjectRealm.resolution = projectToCopy!.resolution
-                newProjectRealm.title = projectToCopy!.title
                 newProjectRealm.videos = duplicateVideoList
                 newProjectRealm.uuid = UUID().uuidString
+                newProjectRealm.exportedDate = projectToCopy?.exportedDate
+                newProjectRealm.exportedPath = projectToCopy?.exportedPath
+                newProjectRealm.modificationDate = projectToCopy?.modificationDate
+                
+                if let title = projectToCopy?.title{
+                    newProjectRealm.title = copyText.appending(title)
+                }else{
+                    newProjectRealm.title = "Copy project"
+                }
                 
                 realm.add(newProjectRealm)
             })
@@ -142,7 +152,7 @@ public class ProjectRealmRepository:ProjectRepository{
         let realm = try! Realm()
         
         try! realm.write {
-            let results = realm.objects(RealmProject.self)
+            let results = realm.objects(RealmProject.self).sorted(byProperty: "modificationDate", ascending: false)
             for result in results{
                 projects.append(self.toProjectMapper.map(from: result))
             }

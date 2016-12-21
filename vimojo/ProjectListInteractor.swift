@@ -35,7 +35,10 @@ class ProjectListInteractor: ProjectListInteractorInterface {
         let duration = Utils().hourToString(project.getDuration())
         let title = project.getTitle()
         let image = getProjectListThumbnail(project: project)
-        let date = "has to set date on model"
+        var date = "No date"
+        if let dateDescription = project.modificationDate?.description{
+            date = dateDescription
+        }
         
         return ProjectListViewModel(thumbImage: image,
                                     title: title,

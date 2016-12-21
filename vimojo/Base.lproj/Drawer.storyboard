@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,33 +15,27 @@
             <objects>
                 <tableViewController storyboardIdentifier="DrawerMenuTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="s83-2h-qSy" customClass="DrawerMenuTableViewController" customModule="vimojo" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7YA-3h-seG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
                             <tableViewSection id="ROc-Cg-GGe">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DrawerProfileTableViewCell" rowHeight="200" id="QIE-Zj-dmi" customClass="DrawerProfileTableViewCell" customModule="vimojo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DrawerProfileTableViewCell" rowHeight="120" id="QIE-Zj-dmi" customClass="DrawerProfileTableViewCell" customModule="vimojo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QIE-Zj-dmi" id="mw6-BE-9sC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alberto Perez Sanchez" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYU-P4-Spu">
-                                                    <rect key="frame" x="8" y="120" width="359" height="26"/>
+                                                    <rect key="frame" x="8" y="53.5" width="304" height="26"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                     <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a.perez@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFL-su-lME">
-                                                    <rect key="frame" x="8" y="149" width="151" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GWp-Cb-lNv">
-                                                    <rect key="frame" x="337" y="8" width="30" height="30"/>
+                                                    <rect key="frame" x="282" y="8" width="30" height="30"/>
                                                     <state key="normal" title="Exit">
                                                         <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
@@ -49,10 +43,16 @@
                                                         <action selector="exitButtonPushed:" destination="s83-2h-qSy" eventType="touchUpInside" id="e6n-SC-Kdc"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a.perez@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFL-su-lME">
+                                                    <rect key="frame" x="8" y="82.5" width="151" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.94712263350000003" green="0.29490819569999999" blue="0.31749987600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstItem="NYU-P4-Spu" firstAttribute="top" secondItem="GWp-Cb-lNv" secondAttribute="bottom" constant="82" id="NJe-91-e22"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="eFL-su-lME" secondAttribute="bottom" constant="8" id="Koh-ie-1IU"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="NYU-P4-Spu" secondAttribute="trailing" id="V9J-mE-hDx"/>
                                                 <constraint firstItem="GWp-Cb-lNv" firstAttribute="top" secondItem="mw6-BE-9sC" secondAttribute="topMargin" id="VaO-w8-kVS"/>
                                                 <constraint firstItem="NYU-P4-Spu" firstAttribute="leading" secondItem="eFL-su-lME" secondAttribute="leading" id="Vm7-pn-GNV"/>
@@ -71,10 +71,10 @@
                             <tableViewSection id="595-sg-zcl">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="80" id="Vqg-F1-yRG">
-                                        <rect key="frame" x="0.0" y="200" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="120" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vqg-F1-yRG" id="TdX-ag-Axc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_drawer_projects_normal" highlightedImage="activity_drawer_projects_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="cWZ-zY-F9d">
@@ -96,10 +96,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="80" id="gI3-LE-IrV">
-                                        <rect key="frame" x="0.0" y="280" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="200" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gI3-LE-IrV" id="yNs-Fz-DKX">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_drawer_recicle_bin_normal" highlightedImage="activity_drawer_recycle_bin_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="EOr-70-SiL">
@@ -121,10 +121,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="80" id="aHk-Cz-4P7">
-                                        <rect key="frame" x="0.0" y="360" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="280" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aHk-Cz-4P7" id="nTp-Be-0SI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_drawer_favourites_normal" highlightedImage="activity_drawer_favourites_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="Wbf-Uq-bcm">
