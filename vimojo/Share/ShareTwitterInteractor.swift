@@ -18,8 +18,8 @@ class ShareTwitterInteractor: ShareActionInterface {
         self.delegate = delegate
     }
     
-    func share(_ path:String){
-        let videoURL = URL(fileURLWithPath: path)
+    func share(_ sharePath:ShareVideoPath){
+        let videoURL = URL(fileURLWithPath: sharePath.documentsPath)
         let accountStore:ACAccountStore = ACAccountStore.init()
         let accountType:ACAccountType = accountStore.accountType(withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)
         accountStore.requestAccessToAccounts(with: accountType, options: nil) { (granted, error) in

@@ -18,7 +18,7 @@ class ShareFacebookInteractor:NSObject, ShareActionInterface{
         self.delegate = delegate
     }
     
-    func share(_ path:String){
+    func share(_ sharePath:ShareVideoPath){
         
         let url = ShareUtils().getLastAssetURL()
         

@@ -19,7 +19,7 @@ class ShareWhatsappInteractor: ShareActionInterface {
         self.delegate = delegate
     }
     
-    func share(_ path:String){
+    func share(_ sharePath:ShareVideoPath){
         var debug = false
         #if DEBUG
             debug = true
@@ -27,7 +27,7 @@ class ShareWhatsappInteractor: ShareActionInterface {
         //NSURL(string: urlString!) {
         if (UIApplication.shared.canOpenURL(URL(string: "whatsapp://app")!)) || debug {
             
-            let movie:URL = URL(fileURLWithPath: path)
+            let movie:URL = URL(fileURLWithPath: sharePath.documentsPath)
             guard let viewController = UIApplication.topViewController() else{return}
             
             documentationInteractionController = UIDocumentInteractionController.init(url: movie)

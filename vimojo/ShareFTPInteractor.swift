@@ -12,6 +12,7 @@ import VideonaProject
 import Photos
 
 class ShareFTPInteractor: ShareActionInterface {
+
     struct FTPfileData {
         let name:String
         let path:String
@@ -23,13 +24,13 @@ class ShareFTPInteractor: ShareActionInterface {
         self.delegate = delegate
     }
     
-    func share(_ path: String) {
+    func share(_ sharePath: ShareVideoPath) {
         let title = Utils().getStringByKeyFromShare(ShareConstants().FTP_INPUT_FILENAME_TITLE)
         let message = Utils().getStringByKeyFromShare(ShareConstants().FTP_INPUT_FILENAME_PLACEHOLDER)
         let alertController = ShareUtils().createAlertViewWithInputText(title, message: message, completion: {
             filename in
             
-            let fileData = FTPfileData(name: filename + ".m4v", path: path)
+            let fileData = FTPfileData(name: filename + ".m4v", path: sharePath.documentsPath)
             self.createFTPUpload(fileData)
         })
         

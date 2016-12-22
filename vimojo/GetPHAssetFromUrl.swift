@@ -10,7 +10,7 @@ import Foundation
 import Photos
 
 class GetPHAssetFromUrl {
-    func PHAssetForFileURL(url: NSURL,completion:@escaping (PHAsset)->Void){
+    func PHAssetForFileURL(url: NSURL,completion:@escaping (_ asset:PHAsset?,_ isHaveFound:Bool)->Void){
         let imageRequestOptions = PHImageRequestOptions()
         imageRequestOptions.version = .current
         imageRequestOptions.deliveryMode = .fastFormat
@@ -25,7 +25,11 @@ class GetPHAssetFromUrl {
                 
                 if let urlAsset = avAsset as? AVURLAsset{
                     if urlAsset.url.absoluteString == url.absoluteString{
-                        completion(asset)
+                        completion(asset,true)
+                    }else{
+                        if i == (fetchResult.count - 1){
+                            completion(nil,false)
+                        }
                     }
                 }
             })

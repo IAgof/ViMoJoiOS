@@ -17,7 +17,7 @@ class ShareInteractor: NSObject,ShareInteractorInterface {
     var shareYoutubeInteractor:ShareYoutubeInteractor?
     var project:Project?
     var socialNetworks:[SocialNetwork] = []
-    
+
     func setShareMoviePath(_ moviePath: String) {
         self.moviePath = moviePath
     }
@@ -72,6 +72,7 @@ class ShareInteractor: NSObject,ShareInteractorInterface {
         exporter.exportVideos({
             exportURL in
             print("Export path response = \(exportURL)")
+            self.moviePath = exportURL.absoluteString
             ProjectRealmRepository().update(item: actualProject)
             self.delegate?.setPlayerUrl(videoURL: exportURL)
         })
@@ -104,7 +105,8 @@ class ShareInteractor: NSObject,ShareInteractorInterface {
         guard let actualProject = project else{return}
 
         if let exportPath = actualProject.getExportedPath(){
-            self.socialNetworks[indexPath.item].action.share(exportPath)
+             let sharePaths = ShareVideoPath(cameraRollPath: moviePath, documentsPath: exportPath)
+            self.socialNetworks[indexPath.item].action.share(sharePaths)
         }
     }
     

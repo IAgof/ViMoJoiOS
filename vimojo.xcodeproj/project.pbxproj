@@ -114,6 +114,7 @@
 		A95078CE1DE5F35100FD250B /* Specification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95078CD1DE5F35100FD250B /* Specification.swift */; };
 		A95078D01DE5F38800FD250B /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95078CF1DE5F38800FD250B /* Mapper.swift */; };
 		A955D6341D9A88EB00604567 /* AddWatermarkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A955D6331D9A88EB00604567 /* AddWatermarkUseCase.swift */; };
+		A95737C91E0BC892006F2AB7 /* ShareVideoPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95737C81E0BC892006F2AB7 /* ShareVideoPath.swift */; };
 		A95BE9811D990A4A00602DCD /* SettingsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9741D990A4A00602DCD /* SettingsContent.swift */; };
 		A95BE9821D990A4A00602DCD /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9751D990A4A00602DCD /* SettingsInteractor.swift */; };
 		A95BE9831D990A4A00602DCD /* SettingsInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9761D990A4A00602DCD /* SettingsInteractorInterface.swift */; };
@@ -724,6 +725,7 @@
 		A95078CD1DE5F35100FD250B /* Specification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Specification.swift; sourceTree = "<group>"; };
 		A95078CF1DE5F38800FD250B /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 		A955D6331D9A88EB00604567 /* AddWatermarkUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWatermarkUseCase.swift; sourceTree = "<group>"; };
+		A95737C81E0BC892006F2AB7 /* ShareVideoPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareVideoPath.swift; sourceTree = "<group>"; };
 		A95BE9741D990A4A00602DCD /* SettingsContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsContent.swift; path = Settings/SettingsContent.swift; sourceTree = "<group>"; };
 		A95BE9751D990A4A00602DCD /* SettingsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsInteractor.swift; path = Settings/SettingsInteractor.swift; sourceTree = "<group>"; };
 		A95BE9761D990A4A00602DCD /* SettingsInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsInteractorInterface.swift; path = Settings/SettingsInteractorInterface.swift; sourceTree = "<group>"; };
@@ -1209,10 +1211,7 @@
 			children = (
 				A99A01591DE84DF40019CF7E /* CreateDefaultProjectUseCase.swift */,
 				A9EDDD551DEC5977001F7DD9 /* CreateNewProjectUseCase.swift */,
-				A91B8C921DE884460040CA57 /* CheckMicPermissionUseCase.swift */,
-				A91B8C991DE885790040CA57 /* CheckCameraPermissionUseCase.swift */,
-				A91B8C9B1DE8864D0040CA57 /* CheckPhotoRollPermissionUseCase.swift */,
-				A91B8C971DE8845D0040CA57 /* CheckPermission.swift */,
+				A95737C41E0BC62F006F2AB7 /* CheckPermission */,
 			);
 			name = "Use case";
 			sourceTree = "<group>";
@@ -1310,6 +1309,17 @@
 				A95078CD1DE5F35100FD250B /* Specification.swift */,
 			);
 			name = Repository;
+			sourceTree = "<group>";
+		};
+		A95737C41E0BC62F006F2AB7 /* CheckPermission */ = {
+			isa = PBXGroup;
+			children = (
+				A91B8C921DE884460040CA57 /* CheckMicPermissionUseCase.swift */,
+				A91B8C991DE885790040CA57 /* CheckCameraPermissionUseCase.swift */,
+				A91B8C9B1DE8864D0040CA57 /* CheckPhotoRollPermissionUseCase.swift */,
+				A91B8C971DE8845D0040CA57 /* CheckPermission.swift */,
+			);
+			name = CheckPermission;
 			sourceTree = "<group>";
 		};
 		A95BE96D1D9909F100602DCD /* Settings */ = {
@@ -1497,6 +1507,7 @@
 			isa = PBXGroup;
 			children = (
 				A917610D1D916F48008915DA /* SocialNetwork.swift */,
+				A95737C81E0BC892006F2AB7 /* ShareVideoPath.swift */,
 				A9645EA31DC0D298000944CB /* ShareViewModel.swift */,
 				A97772BB1DC244E700EA9291 /* Share.strings */,
 				A91760FF1D916F48008915DA /* ShareConstants.swift */,
@@ -2624,6 +2635,7 @@
 				A9A419171DB5110C00FB642E /* AddTextPresenterInterface.swift in Sources */,
 				A900C7591DC35FB500A65730 /* ShareFTPBreakingNewsInteractor.swift in Sources */,
 				A91760AA1D9146B5008915DA /* EditingRoomPresenter.swift in Sources */,
+				A95737C91E0BC892006F2AB7 /* ShareVideoPath.swift in Sources */,
 				A900C7551DC35DA100A65730 /* SettingsFTPBreakingNewsUneditedDestination.swift in Sources */,
 				A95BE9951D990C4100602DCD /* DetailTextInteractor.swift in Sources */,
 				A906CCE01DB0D06B00AC8FFB /* MicRecorderConstants.swift in Sources */,

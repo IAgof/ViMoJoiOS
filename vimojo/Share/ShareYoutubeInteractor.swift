@@ -22,7 +22,7 @@ class ShareYoutubeInteractor: ShareActionInterface{
         viewControllerOnTop = UIApplication.topViewController()
     }
     
-    func share(_ path:String){
+    func share(_ sharePath:ShareVideoPath){
         let youtubeScope = "https://www.googleapis.com/auth/youtube.upload"
         let youtubeScope2 = "https://www.googleapis.com/auth/youtube"
         let youtubeScope3 = "https://www.googleapis.com/auth/youtubepartner"
@@ -33,7 +33,7 @@ class ShareYoutubeInteractor: ShareActionInterface{
         
         GIDSignIn.sharedInstance().signIn()
         
-        mediaPath = path
+        mediaPath = sharePath.documentsPath
     }
     
     
