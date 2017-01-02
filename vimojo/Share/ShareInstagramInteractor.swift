@@ -25,7 +25,11 @@ class ShareInstagramInteractor:ShareActionInterface{
             var instagramURL:URL!
             
             if isHaveFoundAsset{
-                instagramURL = URL.init(string: "instagram://library?LocalIdentifier=\(asset?.localIdentifier)")!
+                if let localIdentifier = asset?.localIdentifier{
+                    instagramURL = URL.init(string: "instagram://library?LocalIdentifier=\(localIdentifier)")!
+                }else{
+                    instagramURL = URL.init(string: "instagram://")!
+                }
             }else{
                 instagramURL = URL.init(string: "instagram://")!
             }

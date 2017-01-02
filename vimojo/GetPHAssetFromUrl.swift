@@ -24,7 +24,10 @@ class GetPHAssetFromUrl {
                 avAsset,audioMix, info in
                 
                 if let urlAsset = avAsset as? AVURLAsset{
-                    if urlAsset.url.absoluteString == url.absoluteString{
+                    let urlAssetAbsString = (urlAsset.url.absoluteString as NSString).lastPathComponent
+                    let urlAbsString = (url.absoluteString! as NSString).lastPathComponent
+                   
+                    if urlAssetAbsString == urlAbsString{
                         completion(asset,true)
                     }else{
                         if i == (fetchResult.count - 1){
