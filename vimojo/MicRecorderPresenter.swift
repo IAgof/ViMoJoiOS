@@ -195,7 +195,8 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
     
     func acceptMixAudio() {
         interactor?.setVoiceOverToProject(videoVolume,audioVolume: audioVolume)
-        
+        resetAudioParams()
+
         wireframe?.presentEditor()
     }
     
@@ -206,12 +207,18 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
         delegate?.removeAudioPlayer()
         
         resetRecord()
+        resetAudioParams()
         
         interactor?.removeVoiceOverFromProject()
         
         interactor?.getMicRecorderValues()
     }
 
+    func resetAudioParams(){
+        videoVolume = 1
+        audioVolume = 1
+    }
+    
     func videoPlayerPlay() {
         isPlayingMedia = true
         
