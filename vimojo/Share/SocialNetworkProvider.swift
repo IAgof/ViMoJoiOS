@@ -43,10 +43,10 @@ class SocialNetworkProvider:NSObject{
             title: "Whatsapp",
             action: ShareWhatsappInteractor(delegate: delegate)))
         
-//        socialNetworks.append(SocialNetwork(iconId: "activity_edit_share_youtube_normal",
-//            iconIdPressed: "activity_edit_share_youtube_pressed",
-//            title: "Youtube",
-//            action: ShareYoutubeInteractor(delegate: delegate)))
+        socialNetworks.append(SocialNetwork(iconId: "activity_edit_share_youtube_normal",
+            iconIdPressed: "activity_edit_share_youtube_pressed",
+            title: "Youtube",
+            action: ShareYoutubeInteractor(delegate: delegate)))
         
         return socialNetworks
     }

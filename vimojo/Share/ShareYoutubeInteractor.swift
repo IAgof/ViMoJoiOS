@@ -50,58 +50,32 @@ class ShareYoutubeInteractor: ShareActionInterface{
         let videoData = try? Data.init(contentsOf: URL(fileURLWithPath: path))
         let urlRequest = try! URLRequest(url: "https://www.googleapis.com/upload/youtube/v3/videos?part=snippet", method: .post, headers: headers)
         
-//        Alamofire.upload(multipartFormData: { multipartFormData in
-//            multipartFormData.appendBodyPart(data:"{'snippet':{'title' : '\(title)', 'description': '\(description)'}}".dataUsingEncoding(String.Encoding.utf8, allowLossyConversion: false)!, name :"snippet", mimeType: "application/json")
-//            
-//            multipartFormData.append(data: videoData!, name: "video", fileName: "video.mp4", mimeType: "application/octet-stream")
-//            
-//        }, to: urlRequest,
-//           encodingCompletion: { encodingResult in
-//            switch encodingResult {
-//            case .Success(let upload, _, _):
-//                upload.responseJSON { response in
-//                    print(response)
-//                    callback(true)
-//                    
-//                    let message = Utils().getStringByKeyFromShare(ShareConstants().UPLOAD_SUCCESFULL)
-//                    ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Youtube", message: message)
-//                }
-//            case .Failure(_):
-//                callback(false)
-//                let message = Utils().getStringByKeyFromShare(ShareConstants().UPLOAD_FAIL)
-//                ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Youtube", message: message)
-//            }
-//        })
-        
-        //        Alamofire.upload(
-        //            .POST,
-        //            "https://www.googleapis.com/upload/youtube/v3/videos?part=snippet",
-        //            headers: headers,
-        //            multipartFormData: { multipartFormData in
-        //                multipartFormData.appendBodyPart(data:"{'snippet':{'title' : '\(title)', 'description': '\(description)'}}".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"snippet", mimeType: "application/json")
-        //
-        //                multipartFormData.appendBodyPart(data: videoData!, name: "video", fileName: "video.mp4", mimeType: "application/octet-stream")
-        //
-        //            },
-        //            encodingCompletion: { encodingResult in
-        //                switch encodingResult {
-        //                case .Success(let upload, _, _):
-        //                    upload.responseJSON { response in
-        //                        print(response)
-        //                        callback(true)
-        //
-        //                        let message = Utils().getStringByKeyFromShare(ShareConstants().UPLOAD_SUCCESFULL)
-        //                        ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Youtube", message: message)
-        //                    }
-        //                case .Failure(_):
-        //                    callback(false)
-        //                    let message = Utils().getStringByKeyFromShare(ShareConstants().UPLOAD_FAIL)
-        //                    ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Youtube", message: message)
-        //                }
-        //        })
-        //    }
+        Alamofire.upload(multipartFormData: { multipartFormData in
+            
+            multipartFormData.append("{'snippet':{'title' : '\(title)', 'description': '\(description)'}}".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "snippet", mimeType: "application/json")
+            
+            multipartFormData.append(videoData!, withName: "video", fileName: "video.mp4", mimeType: "application/octet-stream")
+        },
+                         with: urlRequest,
+                         encodingCompletion: { encodingResult in
+                            switch encodingResult {
+                            case .success(let upload, _, _):
+                                upload.responseJSON { response in
+                                    print(response)
+                                    callback(true)
+                                    
+                                    let message = Utils().getStringByKeyFromShare(ShareConstants().UPLOAD_SUCCESFULL)
+                                    ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Youtube", message: message)
+                                }
+                            case .failure(_):
+                                callback(false)
+                                let message = Utils().getStringByKeyFromShare(ShareConstants().UPLOAD_FAIL)
+                                ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Youtube", message: message)
+                            }
+        })
     }
 }
+
 extension ShareViewController:GIDSignInUIDelegate{
 
     //MARK: - Google methods
