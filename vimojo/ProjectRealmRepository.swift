@@ -66,7 +66,7 @@ public class ProjectRealmRepository:ProjectRepository{
         let realm = try! Realm()
         
         try! realm.write {
-            if let result = realm.objects(RealmProject.self).last{
+           if let result = realm.objects(RealmProject.self).sorted(byProperty: "modificationDate", ascending: false).first{
                 project = self.toProjectMapper.map(from: result)
             }else{
                 realm.add(self.toRealmProjectMapper.map(from: project))

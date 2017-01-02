@@ -26,6 +26,9 @@ public class RealmProjectToProjectMapper:Mapper{
         project.setExportedPath(path: from.exportedPath)
         project.exportDate = from.exportedDate
         project.modificationDate = from.modificationDate
+        project.isVoiceOverSet = from.isVoiceOverSet
+        project.voiceOver = Audio(title: "", mediaPath: from.voiceOverPath)
+        project.voiceOver.audioLevel = from.voiceOverAudioLevel
         
         setProjectMusic(project: project, realmProject: from)
         setProjectVideos(project: project, realmProject: from)
