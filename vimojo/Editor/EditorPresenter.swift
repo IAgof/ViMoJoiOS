@@ -29,11 +29,17 @@ class EditorPresenter: NSObject {
     var stopList:[Double] = []
     var isGoingToExpandPlayer = false
     
-    let option_video = Utils().getStringByKeyFromEditor(EditorTextConstants.ADD_VIDEO)
-    let option_gallery = Utils().getStringByKeyFromEditor(EditorTextConstants.ADD_GALLERY)
-    let option_add_text = Utils().getStringByKeyFromEditor(EditorTextConstants.ADD_TEXT_TO_VIDEO)
+    let option_video:String
+    let option_gallery:String
+    let option_add_text:String
     
     //MARK: - Inner functions
+    override init() {
+        option_video = Utils().getStringByKeyFromEditor(EditorTextConstants.ADD_VIDEO)
+        option_gallery = Utils().getStringByKeyFromEditor(EditorTextConstants.ADD_GALLERY)
+        option_add_text = Utils().getStringByKeyFromEditor(EditorTextConstants.ADD_TEXT_TO_VIDEO)
+    }
+    
     func moveClipToPosition(_ sourcePosition:Int,
                             destionationPosition:Int){
         interactor?.moveClipToPosition(sourcePosition,

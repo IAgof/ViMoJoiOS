@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="ipad12_9" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -21,11 +21,11 @@
                         <viewControllerLayoutGuide type="bottom" id="1nl-TN-WbQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DMs-hy-0hf">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NRw-Gt-uQp">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <color key="barTintColor" red="0.94509803920000002" green="0.29411764709999999" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem id="TVB-n5-jZD">
@@ -39,7 +39,7 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" highlighted="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ue1-UA-7yv">
-                                <rect key="frame" x="961" y="1310" width="43" height="36"/>
+                                <rect key="frame" x="366" y="692" width="28" height="24"/>
                                 <state key="normal" image="activity_edit_accept_normal"/>
                                 <state key="highlighted" image="activity_edit_accept_pressed"/>
                                 <connections>
@@ -47,7 +47,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" highlighted="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UsH-nl-JyL">
-                                <rect key="frame" x="20" y="1316" width="30" height="30"/>
+                                <rect key="frame" x="20" y="694" width="20" height="22"/>
                                 <state key="normal" image="activity_edit_cancel_normal"/>
                                 <state key="highlighted" image="activity_edit_cancel_pressed"/>
                                 <connections>
@@ -55,17 +55,17 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QPo-sx-2xK">
-                                <rect key="frame" x="20" y="628" width="984" height="692"/>
+                                <rect key="frame" x="0.0" y="277" width="414" height="412"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KqX-gu-Zf5" customClass="UIImageView">
-                                        <rect key="frame" x="548" y="238" width="386" height="217"/>
+                                        <rect key="frame" x="247.66666666666663" y="166" width="146.33333333333337" height="82"/>
                                         <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="KqX-gu-Zf5" secondAttribute="height" multiplier="169:95" id="GTt-jC-0Wm"/>
                                         </constraints>
                                     </view>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BA5-Lb-W8H">
-                                        <rect key="frame" x="304" y="503" width="116" height="116"/>
+                                        <rect key="frame" x="77.666666666666657" y="287" width="76.999999999999972" height="77"/>
                                         <state key="normal" image="activity_edit_duplicate_clip_minus_normal"/>
                                         <state key="selected" image="button_edit_decrement_clips_pressed"/>
                                         <state key="highlighted" image="activity_edit_duplicate_clip_minus_pressed"/>
@@ -74,7 +74,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIa-H9-jEv">
-                                        <rect key="frame" x="436" y="505" width="112" height="112"/>
+                                        <rect key="frame" x="170.66666666666666" y="288" width="74" height="75"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="YIa-H9-jEv" secondAttribute="height" multiplier="1:1" id="8Pm-uA-NY8"/>
                                         </constraints>
@@ -96,7 +96,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clona tu clip de video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3U5-iX-HyG">
-                                        <rect key="frame" x="349" y="127" width="287" height="36"/>
+                                        <rect key="frame" x="125.33333333333331" y="100.33333333333331" width="165" height="20.666666666666686"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -105,14 +105,14 @@
                                         </variation>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qTL-Ct-FfM" customClass="UIImageView">
-                                        <rect key="frame" x="50" y="237" width="387" height="218"/>
+                                        <rect key="frame" x="20" y="165" width="147.66666666666666" height="83"/>
                                         <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="qTL-Ct-FfM" secondAttribute="height" multiplier="167:94" id="fQI-JQ-Gxl"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhe-GL-M2w">
-                                        <rect key="frame" x="467" y="325" width="50" height="42"/>
+                                        <rect key="frame" x="197.66666666666666" y="196.33333333333331" width="19" height="20.333333333333371"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="19" id="kCp-wz-awp">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="50"/>
@@ -182,10 +182,10 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="j3v-cD-0zC"/>
-                                        <exclude reference="FWQ-KN-Tk9"/>
-                                        <exclude reference="kvk-Jc-Ua9"/>
                                         <exclude reference="MOS-b0-rfE"/>
                                         <exclude reference="rYe-XS-Nai"/>
+                                        <exclude reference="FWQ-KN-Tk9"/>
+                                        <exclude reference="kvk-Jc-Ua9"/>
                                         <exclude reference="dSl-oK-t17"/>
                                         <exclude reference="dkN-sw-QPd"/>
                                         <exclude reference="kDj-Nk-YmO"/>
@@ -203,9 +203,9 @@
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <mask key="constraints">
+                                        <include reference="rYe-XS-Nai"/>
                                         <include reference="FWQ-KN-Tk9"/>
                                         <include reference="kvk-Jc-Ua9"/>
-                                        <include reference="rYe-XS-Nai"/>
                                         <include reference="dSl-oK-t17"/>
                                         <include reference="dkN-sw-QPd"/>
                                         <include reference="kDj-Nk-YmO"/>
@@ -213,7 +213,7 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QG1-p9-8FA" customClass="PlayerView" customModule="VideonaPlayer">
-                                <rect key="frame" x="0.0" y="44" width="1024" height="576"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="233"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="QG1-p9-8FA" secondAttribute="height" multiplier="16:9" id="Cy2-kP-Vak"/>
@@ -223,7 +223,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1j-pd-0gW">
-                                <rect key="frame" x="977" y="52" width="39" height="39"/>
+                                <rect key="frame" x="380" y="52" width="26" height="26"/>
                                 <state key="normal" image="activity_edit_video_expand"/>
                                 <connections>
                                     <action selector="pushExpandButton:" destination="qOb-Qv-UDy" eventType="touchUpInside" id="mgH-gi-rQ3"/>
@@ -354,7 +354,7 @@
             </objects>
             <point key="canvasLocation" x="3948" y="142"/>
         </scene>
-        <!--Editor View Controller-->
+        <!--Edit-->
         <scene sceneID="JAf-7c-PQM">
             <objects>
                 <viewController storyboardIdentifier="EditorViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="U7Z-wj-ZL9" customClass="EditorViewController" customModule="vimojo" customModuleProvider="target" sceneMemberID="viewController">
@@ -363,11 +363,11 @@
                         <viewControllerLayoutGuide type="bottom" id="5CZ-S0-lou"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vBN-xW-xuQ">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ljm-eA-NzW" customClass="VideonaRangeSlider" customModule="VideonaRangeSlider">
-                                <rect key="frame" x="50" y="628" width="924" height="60"/>
+                                <rect key="frame" x="50" y="297" width="314" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="oEl-a1-UA4">
@@ -382,10 +382,10 @@
                                         <color key="value" red="0.92165768146514893" green="0.19774162769317627" blue="0.2517913281917572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="untrackedAreaHeight">
-                                        <real key="value" value="5"/>
+                                        <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="trackedAreaHeight">
-                                        <real key="value" value="5"/>
+                                        <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="thumbLayerHeight">
                                         <real key="value" value="20"/>
@@ -405,10 +405,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qy9-eY-fhW" customClass="PlayerView" customModule="VideonaPlayer">
-                                <rect key="frame" x="0.0" y="44" width="1024" height="576"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="233"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBP-hM-jHt">
-                                        <rect key="frame" x="977" y="8" width="39" height="39"/>
+                                        <rect key="frame" x="372" y="16" width="26" height="26"/>
                                         <state key="normal" image="activity_edit_video_expand"/>
                                         <connections>
                                             <action selector="pushExpandButton:" destination="U7Z-wj-ZL9" eventType="touchUpInside" id="Kp6-rB-TOj"/>
@@ -417,8 +417,8 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="EBP-hM-jHt" firstAttribute="top" secondItem="Qy9-eY-fhW" secondAttribute="top" constant="8" id="0QT-jI-Uli"/>
-                                    <constraint firstAttribute="trailing" secondItem="EBP-hM-jHt" secondAttribute="trailing" constant="8" id="d6G-Lk-xdd"/>
+                                    <constraint firstItem="EBP-hM-jHt" firstAttribute="top" secondItem="Qy9-eY-fhW" secondAttribute="top" constant="16" id="0QT-jI-Uli"/>
+                                    <constraint firstAttribute="trailing" secondItem="EBP-hM-jHt" secondAttribute="trailing" constant="16" id="d6G-Lk-xdd"/>
                                     <constraint firstAttribute="width" secondItem="Qy9-eY-fhW" secondAttribute="height" multiplier="16:9" id="thR-yE-p6Y"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -426,15 +426,15 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hsD-gO-4mR">
-                                <rect key="frame" x="20" y="696" width="984" height="613"/>
+                                <rect key="frame" x="20" y="347" width="374" height="332"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="fU2-af-Akt">
                                         <variation key="heightClass=compact-widthClass=compact" constant="220"/>
                                     </constraint>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6bg-Bu-HGp">
-                                    <size key="itemSize" width="80" height="80"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="4" id="6bg-Bu-HGp">
+                                    <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -450,37 +450,31 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7j1-Q1-aSm">
                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eik-Gn-BXB">
-                                                    <rect key="frame" x="42" y="61" width="34" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00     " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eik-Gn-BXB">
+                                                    <rect key="frame" x="0.0" y="65" width="80" height="15"/>
+                                                    <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="0.49015410958904099" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fD7-iG-ych">
-                                                    <rect key="frame" x="59" y="0.0" width="19" height="26"/>
+                                                    <rect key="frame" x="64" y="0.0" width="14" height="26"/>
                                                     <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
                                                     <state key="normal" image="activity_edit_delete_clip_normal"/>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgd-7f-JF7">
-                                                    <rect key="frame" x="4" y="0.0" width="8" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgd-7f-JF7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="18" height="21"/>
+                                                    <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="0.4901541096" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="16" id="AGT-dR-8rL">
-                                                            <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                                                        <constraint firstAttribute="width" constant="18" id="AGT-dR-8rL">
+                                                            <variation key="heightClass=regular-widthClass=regular" constant="36"/>
                                                         </constraint>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="AGT-dR-8rL"/>
-                                                        </mask>
-                                                    </variation>
                                                     <variation key="heightClass=regular-widthClass=regular">
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                        <mask key="constraints">
-                                                            <include reference="AGT-dR-8rL"/>
-                                                        </mask>
                                                     </variation>
                                                 </label>
                                             </subviews>
@@ -489,13 +483,14 @@
                                             <constraint firstAttribute="trailingMargin" secondItem="7j1-Q1-aSm" secondAttribute="trailing" constant="-8" id="3E7-Ke-PXX"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="7j1-Q1-aSm" secondAttribute="bottom" constant="-8" id="3LU-Mp-nYq"/>
                                             <constraint firstItem="7j1-Q1-aSm" firstAttribute="leading" secondItem="aVw-WW-bIx" secondAttribute="leadingMargin" constant="-8" id="5bK-PK-kh6"/>
+                                            <constraint firstAttribute="trailing" secondItem="eik-Gn-BXB" secondAttribute="trailing" id="7cR-3E-hHX"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="fD7-iG-ych" secondAttribute="trailing" constant="-6" id="E97-eb-ZPl"/>
                                             <constraint firstItem="fD7-iG-ych" firstAttribute="top" secondItem="aVw-WW-bIx" secondAttribute="topMargin" constant="-8" id="L9r-mu-mGn"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="eik-Gn-BXB" secondAttribute="trailing" constant="-4" id="RCn-61-k8s"/>
-                                            <constraint firstItem="Hgd-7f-JF7" firstAttribute="leading" secondItem="aVw-WW-bIx" secondAttribute="leadingMargin" constant="-4" id="WPb-Us-Azk"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="eik-Gn-BXB" secondAttribute="bottom" constant="-4" id="khd-64-SFP"/>
+                                            <constraint firstItem="eik-Gn-BXB" firstAttribute="leading" secondItem="aVw-WW-bIx" secondAttribute="leading" id="a4X-Vv-0HQ"/>
+                                            <constraint firstItem="Hgd-7f-JF7" firstAttribute="top" secondItem="aVw-WW-bIx" secondAttribute="top" id="heI-yn-Q8w"/>
+                                            <constraint firstItem="Hgd-7f-JF7" firstAttribute="leading" secondItem="aVw-WW-bIx" secondAttribute="leading" id="kqd-bC-iO0"/>
                                             <constraint firstItem="7j1-Q1-aSm" firstAttribute="top" secondItem="aVw-WW-bIx" secondAttribute="topMargin" constant="-8" id="qFF-yV-zPg"/>
-                                            <constraint firstItem="Hgd-7f-JF7" firstAttribute="top" secondItem="aVw-WW-bIx" secondAttribute="topMargin" constant="-4" id="rEF-w8-DXT"/>
+                                            <constraint firstAttribute="bottom" secondItem="eik-Gn-BXB" secondAttribute="bottom" id="uDh-AH-aUV"/>
                                         </constraints>
                                         <size key="customSize" width="80" height="80"/>
                                         <connections>
@@ -522,7 +517,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqn-cb-4Pg">
-                                <rect key="frame" x="887" y="1200" width="109" height="109"/>
+                                <rect key="frame" x="314" y="607" width="72" height="72"/>
                                 <state key="normal" image="activity_edit_floating_button">
                                     <color key="titleShadowColor" red="0.7843137255" green="0.85882352939999995" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -532,7 +527,7 @@
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YZW-HT-mLk">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <color key="barTintColor" red="0.94712263350000003" green="0.29490819569999999" blue="0.31749987600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem id="SL9-Aj-RWQ">
@@ -575,14 +570,14 @@
                             <constraint firstItem="5CZ-S0-lou" firstAttribute="top" secondItem="dqn-cb-4Pg" secondAttribute="bottom" constant="8" id="OAm-xP-kWd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dqn-cb-4Pg" secondAttribute="trailing" constant="8" id="Q2y-fq-yBy"/>
                             <constraint firstAttribute="trailing" secondItem="Qy9-eY-fhW" secondAttribute="trailing" id="RDx-k0-Flv"/>
-                            <constraint firstItem="Ljm-eA-NzW" firstAttribute="top" secondItem="Qy9-eY-fhW" secondAttribute="bottom" constant="8" id="TF4-e9-6Z3"/>
+                            <constraint firstItem="Ljm-eA-NzW" firstAttribute="top" secondItem="Qy9-eY-fhW" secondAttribute="bottom" constant="20" id="TF4-e9-6Z3"/>
                             <constraint firstItem="hsD-gO-4mR" firstAttribute="leading" secondItem="vBN-xW-xuQ" secondAttribute="leadingMargin" id="cbc-C7-8GI"/>
                             <constraint firstItem="hsD-gO-4mR" firstAttribute="top" secondItem="YZW-HT-mLk" secondAttribute="bottom" constant="4" id="eHD-8w-2oG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dqn-cb-4Pg" secondAttribute="trailing" constant="8" id="gVH-JR-dZ4"/>
                             <constraint firstItem="hsD-gO-4mR" firstAttribute="trailing" secondItem="vBN-xW-xuQ" secondAttribute="trailingMargin" id="gZP-C6-uUn"/>
                             <constraint firstItem="Qy9-eY-fhW" firstAttribute="top" secondItem="YZW-HT-mLk" secondAttribute="bottom" id="jAB-y7-z8b"/>
                             <constraint firstItem="Ljm-eA-NzW" firstAttribute="centerX" secondItem="Qy9-eY-fhW" secondAttribute="centerX" id="ldr-el-TFY"/>
-                            <constraint firstItem="hsD-gO-4mR" firstAttribute="top" secondItem="Ljm-eA-NzW" secondAttribute="bottom" constant="8" id="lhK-Q5-A1b"/>
+                            <constraint firstItem="hsD-gO-4mR" firstAttribute="top" secondItem="Ljm-eA-NzW" secondAttribute="bottom" constant="20" id="lhK-Q5-A1b"/>
                             <constraint firstItem="Qy9-eY-fhW" firstAttribute="leading" secondItem="vBN-xW-xuQ" secondAttribute="leading" id="pRK-LX-ocE"/>
                             <constraint firstItem="5CZ-S0-lou" firstAttribute="top" secondItem="dqn-cb-4Pg" secondAttribute="bottom" constant="8" id="rc9-tY-PWD"/>
                             <constraint firstItem="Ljm-eA-NzW" firstAttribute="leading" secondItem="Qy9-eY-fhW" secondAttribute="leading" constant="50" id="t7M-cU-TrN"/>
@@ -604,7 +599,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="" image="activity_edit_clips_normal" id="Jfd-KL-IKl"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Edit" image="activity_edit_clips_normal" id="Jfd-KL-IKl"/>
                     <connections>
                         <outlet property="addFloatingButton" destination="dqn-cb-4Pg" id="hdN-nn-jnV"/>
                         <outlet property="expandPlayerButton" destination="EBP-hM-jHt" id="Trl-LA-Jku"/>
@@ -616,7 +611,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e3q-ph-pto" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1216.304347826087" y="-582.60869565217399"/>
+            <point key="canvasLocation" x="1215.8203125" y="-582.86969253294285"/>
         </scene>
         <!--Editing Room View Controller-->
         <scene sceneID="8E5-es-Brw">
@@ -641,7 +636,7 @@
             </objects>
             <point key="canvasLocation" x="286" y="-129"/>
         </scene>
-        <!--Music View Controller-->
+        <!--Audio-->
         <scene sceneID="Mrc-bO-aWe">
             <objects>
                 <viewController storyboardIdentifier="MusicViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bnB-1P-Nds" customClass="MusicViewController" customModule="vimojo" customModuleProvider="target" sceneMemberID="viewController">
@@ -650,11 +645,11 @@
                         <viewControllerLayoutGuide type="bottom" id="GIi-1P-cfX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="daU-Tx-zTj">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wv9-CH-SoO">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <color key="barTintColor" red="0.94712263350000003" green="0.29490819569999999" blue="0.31749987600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem id="B7P-ne-6yv">
@@ -674,10 +669,10 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Urw-rA-t6e">
-                                <rect key="frame" x="20" y="620" width="1004" height="697"/>
+                                <rect key="frame" x="20" y="277" width="394" height="410"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQp-8J-dT4">
-                                        <rect key="frame" x="0.0" y="266.5" width="502" height="164"/>
+                                        <rect key="frame" x="0.0" y="150.66666666666669" width="197" height="108.99999999999994"/>
                                         <state key="normal" image="activity_edit_sound_micro_normal"/>
                                         <state key="selected" image="activity_edit_sound_music_pressed"/>
                                         <state key="highlighted" image="activity_edit_sound_micro_pressed"/>
@@ -686,7 +681,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stx-Ev-inA">
-                                        <rect key="frame" x="502" y="266.5" width="502" height="164"/>
+                                        <rect key="frame" x="197" y="150.66666666666669" width="197" height="108.99999999999994"/>
                                         <state key="normal" image="activity_edit_sound_music_normal"/>
                                         <state key="highlighted" image="activity_edit_sound_music_pressed"/>
                                         <connections>
@@ -711,7 +706,7 @@
                                 </variation>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c8O-jG-he3" customClass="PlayerView" customModule="vimojo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="1024" height="576"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="233"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="c8O-jG-he3" secondAttribute="height" multiplier="16:9" id="ZzI-7M-k3Z"/>
@@ -721,7 +716,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1i-MY-LSq">
-                                <rect key="frame" x="977" y="52" width="39" height="39"/>
+                                <rect key="frame" x="372" y="60" width="26" height="26"/>
                                 <state key="normal" image="activity_edit_video_expand"/>
                                 <connections>
                                     <action selector="pushExpandButton:" destination="bnB-1P-Nds" eventType="touchUpInside" id="kaN-qU-8zo"/>
@@ -734,10 +729,10 @@
                             <constraint firstItem="Wv9-CH-SoO" firstAttribute="leading" secondItem="daU-Tx-zTj" secondAttribute="leading" id="9Cu-T1-HoF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Urw-rA-t6e" secondAttribute="trailing" constant="-20" id="E85-7i-s9S"/>
                             <constraint firstItem="Wv9-CH-SoO" firstAttribute="top" secondItem="daU-Tx-zTj" secondAttribute="top" id="IJG-yY-11k"/>
-                            <constraint firstItem="s1i-MY-LSq" firstAttribute="trailing" secondItem="c8O-jG-he3" secondAttribute="trailing" constant="-8" id="NY5-JQ-UaS"/>
+                            <constraint firstItem="s1i-MY-LSq" firstAttribute="trailing" secondItem="c8O-jG-he3" secondAttribute="trailing" constant="-16" id="NY5-JQ-UaS"/>
                             <constraint firstItem="Urw-rA-t6e" firstAttribute="top" secondItem="c8O-jG-he3" secondAttribute="bottom" id="Sb5-37-eIG"/>
                             <constraint firstItem="Urw-rA-t6e" firstAttribute="top" secondItem="Wv9-CH-SoO" secondAttribute="bottom" id="Wry-dJ-tbh"/>
-                            <constraint firstItem="s1i-MY-LSq" firstAttribute="top" secondItem="c8O-jG-he3" secondAttribute="top" constant="8" id="YJM-Sx-pqv"/>
+                            <constraint firstItem="s1i-MY-LSq" firstAttribute="top" secondItem="c8O-jG-he3" secondAttribute="top" constant="16" id="YJM-Sx-pqv"/>
                             <constraint firstAttribute="trailing" secondItem="Wv9-CH-SoO" secondAttribute="trailing" id="Yaw-VT-wja"/>
                             <constraint firstItem="Urw-rA-t6e" firstAttribute="leading" secondItem="c8O-jG-he3" secondAttribute="trailing" constant="8" id="gMD-Ia-7u2"/>
                             <constraint firstItem="c8O-jG-he3" firstAttribute="leading" secondItem="daU-Tx-zTj" secondAttribute="leading" id="jRg-Mx-jIy"/>
@@ -761,7 +756,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="2" title="" image="activity_edit_sound_normal" id="fHl-8J-ZSZ"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Audio" image="activity_edit_sound_normal" id="fHl-8J-ZSZ"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="expandPlayerButton" destination="s1i-MY-LSq" id="Qpe-FT-jYa"/>
@@ -772,7 +767,7 @@
             </objects>
             <point key="canvasLocation" x="1216.25" y="99.375"/>
         </scene>
-        <!--Share View Controller-->
+        <!--Share-->
         <scene sceneID="iTZ-ce-LMF">
             <objects>
                 <viewController storyboardIdentifier="ShareViewController" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IW3-3U-wVk" customClass="ShareViewController" customModule="vimojo" customModuleProvider="target" sceneMemberID="viewController">
@@ -781,11 +776,11 @@
                         <viewControllerLayoutGuide type="bottom" id="apB-Zm-2Y5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aEf-KX-WbJ">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AVC-Ru-3Q3">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <color key="barTintColor" red="0.94712263350000003" green="0.29490819569999999" blue="0.31749987600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem id="07S-pW-Sr3">
@@ -805,7 +800,7 @@
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eui-a0-tKc" customClass="PlayerView" customModule="vimojo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="1024" height="576"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="233"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="eui-a0-tKc" secondAttribute="height" multiplier="16:9" id="18C-I3-a1i"/>
@@ -815,7 +810,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ggA-dc-NdU">
-                                <rect key="frame" x="0.0" y="628" width="1024" height="681"/>
+                                <rect key="frame" x="0.0" y="285" width="414" height="394"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="d5e-DE-ZXh">
@@ -824,10 +819,10 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="1GJ-Zq-Gsi">
-                                        <rect key="frame" x="0.0" y="28" width="1024" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1GJ-Zq-Gsi" id="Frk-6I-rFX">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -848,7 +843,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkZ-ED-Gqd">
-                                <rect key="frame" x="907" y="1200" width="109" height="109"/>
+                                <rect key="frame" x="334" y="607" width="72" height="72"/>
                                 <state key="normal" image="activity_edit_floating_button">
                                     <color key="titleShadowColor" red="0.7843137255" green="0.85882352939999995" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -857,7 +852,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTh-2X-7DX">
-                                <rect key="frame" x="977" y="52" width="39" height="39"/>
+                                <rect key="frame" x="372" y="60" width="26" height="26"/>
                                 <state key="normal" image="activity_edit_video_expand"/>
                                 <connections>
                                     <action selector="pushExpandButton:" destination="IW3-3U-wVk" eventType="touchUpInside" id="LK2-AO-577"/>
@@ -872,8 +867,8 @@
                             <constraint firstItem="ggA-dc-NdU" firstAttribute="top" secondItem="eui-a0-tKc" secondAttribute="bottom" constant="8" id="I5j-Js-LRi"/>
                             <constraint firstItem="apB-Zm-2Y5" firstAttribute="top" secondItem="ggA-dc-NdU" secondAttribute="bottom" constant="8" id="P77-on-oqM"/>
                             <constraint firstItem="eui-a0-tKc" firstAttribute="top" secondItem="AVC-Ru-3Q3" secondAttribute="bottom" id="Qih-2J-6dl"/>
-                            <constraint firstItem="uTh-2X-7DX" firstAttribute="trailing" secondItem="eui-a0-tKc" secondAttribute="trailing" constant="-8" id="QtU-ht-wEH"/>
-                            <constraint firstItem="uTh-2X-7DX" firstAttribute="top" secondItem="eui-a0-tKc" secondAttribute="top" constant="8" id="R0a-yL-2sT"/>
+                            <constraint firstItem="uTh-2X-7DX" firstAttribute="trailing" secondItem="eui-a0-tKc" secondAttribute="trailing" constant="-16" id="QtU-ht-wEH"/>
+                            <constraint firstItem="uTh-2X-7DX" firstAttribute="top" secondItem="eui-a0-tKc" secondAttribute="top" constant="16" id="R0a-yL-2sT"/>
                             <constraint firstItem="AVC-Ru-3Q3" firstAttribute="top" secondItem="aEf-KX-WbJ" secondAttribute="top" id="YHh-qD-Ynz"/>
                             <constraint firstAttribute="trailing" secondItem="fkZ-ED-Gqd" secondAttribute="trailing" constant="8" id="Zbf-XO-CzA"/>
                             <constraint firstItem="eui-a0-tKc" firstAttribute="leading" secondItem="aEf-KX-WbJ" secondAttribute="leading" id="cZo-yy-Sad"/>
@@ -899,7 +894,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="3" title="" image="activity_edit_share_normal" id="UM2-HW-PBt"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="Share" image="activity_edit_share_normal" id="UM2-HW-PBt"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
@@ -915,32 +910,32 @@
         </scene>
     </scenes>
     <resources>
-        <image name="activity_edit_accept_normal" width="43" height="36"/>
-        <image name="activity_edit_accept_pressed" width="43" height="36"/>
-        <image name="activity_edit_back" width="40" height="32"/>
-        <image name="activity_edit_cancel_normal" width="30" height="30"/>
-        <image name="activity_edit_cancel_pressed" width="30" height="30"/>
-        <image name="activity_edit_clips_duplicate" width="44" height="43"/>
-        <image name="activity_edit_clips_normal" width="38" height="38"/>
-        <image name="activity_edit_clips_split" width="44" height="42"/>
-        <image name="activity_edit_delete_clip_normal" width="15" height="19"/>
-        <image name="activity_edit_drawer" width="36" height="32"/>
-        <image name="activity_edit_duplicate_clip_minus_normal" width="116" height="116"/>
-        <image name="activity_edit_duplicate_clip_minus_pressed" width="116" height="116"/>
-        <image name="activity_edit_duplicate_clip_plus_normal" width="112" height="112"/>
-        <image name="activity_edit_duplicate_clip_plus_pressed" width="112" height="112"/>
-        <image name="activity_edit_floating_button" width="109" height="109"/>
-        <image name="activity_edit_options" width="9" height="30"/>
-        <image name="activity_edit_share_normal" width="54" height="60"/>
-        <image name="activity_edit_sound_micro_normal" width="164" height="164"/>
-        <image name="activity_edit_sound_micro_pressed" width="164" height="164"/>
-        <image name="activity_edit_sound_music_normal" width="164" height="164"/>
-        <image name="activity_edit_sound_music_pressed" width="164" height="164"/>
-        <image name="activity_edit_sound_normal" width="42" height="37"/>
-        <image name="activity_edit_video_expand" width="39" height="39"/>
-        <image name="button_edit_decrement_clips_pressed" width="86" height="87"/>
-        <image name="button_edit_increment_clips_pressed" width="105" height="105"/>
-        <image name="common_icon_play" width="68" height="68"/>
-        <image name="common_icon_play_normal" width="64" height="64"/>
+        <image name="activity_edit_accept_normal" width="28" height="24"/>
+        <image name="activity_edit_accept_pressed" width="28" height="24"/>
+        <image name="activity_edit_back" width="26" height="21"/>
+        <image name="activity_edit_cancel_normal" width="20" height="20"/>
+        <image name="activity_edit_cancel_pressed" width="20" height="20"/>
+        <image name="activity_edit_clips_duplicate" width="29" height="29"/>
+        <image name="activity_edit_clips_normal" width="25" height="25"/>
+        <image name="activity_edit_clips_split" width="29" height="28"/>
+        <image name="activity_edit_delete_clip_normal" width="10" height="12"/>
+        <image name="activity_edit_drawer" width="24" height="21"/>
+        <image name="activity_edit_duplicate_clip_minus_normal" width="77" height="77"/>
+        <image name="activity_edit_duplicate_clip_minus_pressed" width="77" height="77"/>
+        <image name="activity_edit_duplicate_clip_plus_normal" width="74" height="75"/>
+        <image name="activity_edit_duplicate_clip_plus_pressed" width="74" height="75"/>
+        <image name="activity_edit_floating_button" width="72" height="72"/>
+        <image name="activity_edit_options" width="6" height="20"/>
+        <image name="activity_edit_share_normal" width="36" height="40"/>
+        <image name="activity_edit_sound_micro_normal" width="109" height="109"/>
+        <image name="activity_edit_sound_micro_pressed" width="109" height="109"/>
+        <image name="activity_edit_sound_music_normal" width="109" height="109"/>
+        <image name="activity_edit_sound_music_pressed" width="109" height="109"/>
+        <image name="activity_edit_sound_normal" width="28" height="25"/>
+        <image name="activity_edit_video_expand" width="26" height="26"/>
+        <image name="button_edit_decrement_clips_pressed" width="57" height="58"/>
+        <image name="button_edit_increment_clips_pressed" width="70" height="70"/>
+        <image name="common_icon_play" width="45" height="45"/>
+        <image name="common_icon_play_normal" width="42" height="42"/>
     </resources>
 </document>

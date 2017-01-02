@@ -100,6 +100,6 @@ extension ProjectListViewController:UITableViewDelegate{
     
     //MARK: - UITableview delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        eventHandler?.editProject(projectNumber: indexPath.item)
     }
 }
