@@ -12,9 +12,12 @@ import VideonaProject
 class SettingsQualityAction: SettingsActionInterface {
     let defaults = UserDefaults.standard
     var delegate: SettingsActionDelegate
+    var project:Project
     
-    init(delegate:SettingsActionDelegate){
+    init(delegate:SettingsActionDelegate,
+         project:Project){
         self.delegate = delegate
+        self.project = project
     }
     
     func executeSettingsAction(_ index:IndexPath) {
@@ -25,7 +28,7 @@ class SettingsQualityAction: SettingsActionInterface {
                                                                            options: options,
                                                                            completion: {
                                                                             response in
-                                                                            self.saveOnDefaults(response)
+                                                                            self.saveOnProject(response)
         })
         let controller = UIApplication.topViewController()
         if let settingsController = controller as? SettingsViewController {
@@ -36,8 +39,11 @@ class SettingsQualityAction: SettingsActionInterface {
         }
     }
     
-    func saveOnDefaults(_ saveString:String){ 
-        defaults.set(saveString, forKey: SettingsConstants().SETTINGS_QUALITY)
+    func saveOnProject(_ saveString:String){
+        project.getProfile().setQuality(saveString)
+
+        ProjectRealmRepository().update(item: project)
+
         delegate.executeFinished()
     }
 }

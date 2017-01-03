@@ -83,13 +83,10 @@ class CameraInteractor:CameraRecorderDelegate,
             break
         }
         
-        
         cameraRecorder = CameraRecorderInteractor(project: project)
         videoCamera.startCapture()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(CameraInteractor.checkOrientation), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-        
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(CameraInteractor.checkOrientation), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)        
     }
     
     func startCamera() {
@@ -277,12 +274,9 @@ class CameraInteractor:CameraRecorderDelegate,
     }
     
     func setResolution(){
+        guard let actualProject = project else{return}
         //Get resolution
-        if let getFromDefaultResolution = UserDefaults.standard.string(forKey: SettingsConstants().SETTINGS_RESOLUTION){
-            cameraResolution = CameraResolution.init(AVResolution: getFromDefaultResolution)
-        }else{
-            cameraResolution = CameraResolution.init(AVResolution: "")
-        }
+        cameraResolution = CameraResolution.init(AVResolution: actualProject.getProfile().getResolution())
         
         //Set resolution
         if isFrontCamera {

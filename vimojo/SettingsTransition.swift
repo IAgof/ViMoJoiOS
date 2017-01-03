@@ -20,8 +20,8 @@ class SettingsTransition {
     let defaults = UserDefaults.standard
     var transitionTime:Double = 0
     
-    init(){
-        transitionTime = defaults.double(forKey: SettingsConstants().TRANSITION)
+    init(project:Project){
+        transitionTime = project.transitionTime
     }
     
     func save(value:String){

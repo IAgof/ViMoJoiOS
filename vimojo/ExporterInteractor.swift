@@ -13,23 +13,12 @@ import VideonaPlayer
 
 class ExporterInteractor:NSObject{
     var clipDuration = 0.0
-    var exportedPresetQuality:String!
     var project:Project?
     var exportSession:AVAssetExportSession?
     
     init(project:Project) {
         super.init()
-        exportedPresetQuality = initQuality()
         self.project = project
-    }
-
-    func initQuality()->String{
-        var quality = AVAssetExportPresetHighestQuality
-        //Get resolution
-        if let getFromDefaultQuality = UserDefaults.standard.string(forKey: SettingsConstants().SETTINGS_QUALITY){
-            quality = AVQualityParse().parseResolutionsToInteractor(textResolution: getFromDefaultQuality)
-        }
-        return quality
     }
     
     func exportVideos(_ completionHandler:@escaping (URL)->Void) {
@@ -53,8 +42,13 @@ class ExporterInteractor:NSObject{
         ApplyTextOverlayToVideoCompositionUseCase(project: project!).applyVideoOverlayAnimation(videoComposition!,
                                                                                                 mutableComposition: mutableComposition,
                                                                                                 size: videoComposition!.renderSize)
+        var exportQuality = AVAssetExportPresetHighestQuality
         
-        exportSession = AVAssetExportSession(asset: mutableComposition, presetName: exportedPresetQuality)
+        if let projectQuality = project?.getProfile().getQuality(){
+            exportQuality = AVQualityParse().parseResolutionsToInteractor(textResolution: projectQuality)
+        }
+        
+        exportSession = AVAssetExportSession(asset: mutableComposition, presetName: exportQuality)
         exportSession!.outputURL = url
         exportSession!.outputFileType = AVFileTypeQuickTimeMovie
         exportSession!.shouldOptimizeForNetworkUse = true

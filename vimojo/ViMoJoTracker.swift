@@ -10,6 +10,7 @@ import VideonaProject
 class ViMoJoTracker {
     let mixpanel = Mixpanel.sharedInstance(withToken: AnalyticsConstants().MIXPANEL_TOKEN)
     let preferences = UserDefaults.standard
+    var project:Project?
     
     static let sharedInstance = ViMoJoTracker()
     
@@ -146,12 +147,14 @@ class ViMoJoTracker {
         
         mixpanel.identify(Utils().udid)
         
+        guard let resolution = project?.getProfile().getResolution() else {return}
+
         //JSON properties
         let socialNetworkProperties =
             [
                 AnalyticsConstants().SOCIAL_NETWORK : socialNetwork,
                 AnalyticsConstants().VIDEO_LENGTH: videoDuration,
-                AnalyticsConstants().RESOLUTION: getPreferenceStringSaved(SettingsConstants().SETTINGS_RESOLUTION),
+                AnalyticsConstants().RESOLUTION: resolution,
                 AnalyticsConstants().NUMBER_OF_CLIPS: numberOfClips,
                 AnalyticsConstants().TOTAL_VIDEOS_SHARED: getPreferenceIntSaved(ConfigPreferences().TOTAL_VIDEOS_SHARED),
                 AnalyticsConstants().DOUBLE_HOUR_AND_MINUTES: Utils().getDoubleHourAndMinutes(),
@@ -205,7 +208,7 @@ class ViMoJoTracker {
     func sendVideoRecordedTracking(_ videoLenght:Double) {
         
         let totalVideosRecorded = getPreferenceIntSaved(ConfigPreferences().TOTAL_VIDEOS_RECORDED)
-        let resolution = getPreferenceStringSaved(SettingsConstants().SETTINGS_RESOLUTION)
+        guard let resolution = project?.getProfile().getResolution() else {return}
         
         //JSON properties
         let videoRecordedProperties =
@@ -223,7 +226,7 @@ class ViMoJoTracker {
     func sendExportedVideoMetadataTracking(_ videoLenght:Double,
                                            numberOfClips:Int) {
         
-        let resolution = getPreferenceStringSaved(SettingsConstants().SETTINGS_RESOLUTION)
+        guard let resolution = project?.getProfile().getResolution() else {return}
 
         let videoRecordedProperties =
             [
@@ -239,9 +242,9 @@ class ViMoJoTracker {
         Utils().debugLog("updateUserProfileProperties")
         mixpanel.identify(Utils().udid)
         
-        let quality = getPreferenceStringSaved(SettingsConstants().SETTINGS_QUALITY)
-        let resolution = getPreferenceStringSaved(SettingsConstants().SETTINGS_RESOLUTION)
-        
+        guard let quality = project?.getProfile().getQuality() else {return}
+        guard let resolution = project?.getProfile().getResolution() else {return}
+
         //JSON properties
         let userProfileProperties =
             [

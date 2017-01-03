@@ -12,9 +12,12 @@ import VideonaProject
 class SettingsResolutionAction: SettingsActionInterface {
     let defaults = UserDefaults.standard
     var delegate: SettingsActionDelegate
-    
-    init(delegate:SettingsActionDelegate){
+    var project:Project
+
+    init(delegate:SettingsActionDelegate,
+         project:Project){
         self.delegate = delegate
+        self.project = project
     }
     
     func executeSettingsAction(_ index:IndexPath) {
@@ -25,7 +28,7 @@ class SettingsResolutionAction: SettingsActionInterface {
                                                                            options: options,
                                                                            completion: {
                                                                             response in
-                                                                            self.saveResolutionOnDefaults(response)
+                                                                            self.saveOnProject(response)
         })
         
         let controller = UIApplication.topViewController()
@@ -37,10 +40,12 @@ class SettingsResolutionAction: SettingsActionInterface {
         }
     }
     
-    func saveResolutionOnDefaults(_ saveString:String){ 
+    func saveOnProject(_ saveString:String){ 
         let resolutionToSave = AVResolutionParse().parseResolutionsToInteractor(saveString)
-        defaults.set(resolutionToSave, forKey: SettingsConstants().SETTINGS_RESOLUTION)
+        project.getProfile().setResolution(resolutionToSave)
         
+        ProjectRealmRepository().update(item: project)
+
         delegate.executeFinished()
     }
 }

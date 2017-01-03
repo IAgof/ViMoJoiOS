@@ -11,9 +11,12 @@ import AVFoundation
 import VideonaProject
 
 class SettingsProvider:NSObject{
-    func getSettings(_ delegate:SettingsActionDelegate)->[[SettingsContent]]{
+    
+    func getSettings(_ delegate:SettingsActionDelegate,
+                     project:Project)->[[SettingsContent]]{
+        
         let user = userInfo()
-        let camera = cameraSettings()
+        let camera = CameraSettings(project: project)
         let ftpConfiguration = SettinsFTP()
         let ftpConfigurationBN = SettingsFTPBreakingNews()
         
@@ -31,16 +34,19 @@ class SettingsProvider:NSObject{
                                            action: SettingsEmailAction(delegate: delegate))
         //MARK: - CAMERA SECTION
         let resolutionSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().RESOLUTION),
-                                                subTitle: camera.resolution,
-                                                action: SettingsResolutionAction(delegate: delegate))
+                                                subTitle: AVResolutionParse().parseResolutionToView(camera.resolution),
+                                                action: SettingsResolutionAction(delegate: delegate,
+                                                                                 project:project))
         
         let qualitySetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().QUALITY),
                                              subTitle: camera.quality,
-                                             action: SettingsQualityAction(delegate: delegate))
+                                             action: SettingsQualityAction(delegate: delegate,
+                                                                           project:project))
         
         let transitionSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().TRANSITION),
-                                                subTitle: SettingsTransition().getTransitionToView(),
-                                                action: SettingsTransitionAction(delegate: delegate))
+                                                subTitle: SettingsTransition(project: project).getTransitionToView(),
+                                                action: SettingsTransitionAction(delegate: delegate,
+                                                                                 project:project))
         //MARK: - MORE INFOR SECTION
         let AboutUsSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().ABOUT_US_TITLE),
                                              action: SettingsDetailTextAction(delegate: delegate,

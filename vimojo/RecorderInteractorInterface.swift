@@ -15,6 +15,8 @@ public protocol RecorderInteractorInterface {
     func clearProject()
     func getProject()->Project
     func getResolutionImage(_ resolution:String)
+    func getResolution()->String
+    func saveResolution(resolution:String)
 }
 
 public protocol RecorderInteractorDelegate{

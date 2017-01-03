@@ -8,31 +8,18 @@
 
 import Foundation
 import AVFoundation
+import VideonaProject
 
-struct cameraSettings {
+struct CameraSettings {
     var resolution:String
     var quality:String
     var frameRate:Int
     
-    init(){
+    init(project:Project){
         let defaults = UserDefaults.standard
-        
-        let resolutionSaved = defaults.string(forKey: SettingsConstants().SETTINGS_RESOLUTION)
-        
-        if (resolutionSaved != nil){
-            resolution = AVResolutionParse().parseResolutionToView(resolutionSaved!)
-            
-        }else{
-            resolution = AVResolutionParse().parseResolutionToView(AVCaptureSessionPreset1280x720)
-        }
-        
-        let qualitySaved = defaults.string(forKey: SettingsConstants().SETTINGS_QUALITY)
-        
-        if (qualitySaved != nil){
-            quality = qualitySaved!
-        }else{
-            quality = ""
-        }
+                
+        quality = project.getProfile().getQuality()
+        resolution = project.getProfile().getResolution()
         
         var frameRateSaved = defaults.integer(forKey: SettingsConstants().SETTINGS_FRAMERATE)
         

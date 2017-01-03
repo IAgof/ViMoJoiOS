@@ -11,7 +11,7 @@ import VideonaProject
 
 public class ProfileDefaultsRepository:ProfileRepository{
     let defaults = UserDefaults.standard
-    let camera = cameraSettings()
+    let camera = CameraSettings(project: Project())
 
     public func getCurrentProfile() -> Profile {
         return Profile(resolution: camera.resolution,

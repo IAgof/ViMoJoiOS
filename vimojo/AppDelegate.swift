@@ -130,9 +130,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
             trackUserProfile();
             trackCreatedSuperProperty();
             trackAppStartupProperties(true);
-            
-            self.configureQualityOnFirstIteration()
-            
+                        
             appDependencies.installRecordToRootViewControllerIntoWindow(window!)
         } else if previousVersion == currentAppVersion {
             // same version
@@ -155,14 +153,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
             trackAppStartupProperties(false);
             appDependencies.installRecordToRootViewControllerIntoWindow(window!)
         }
-    }
-    
-    func configureQualityOnFirstIteration(){
-        let defaults = UserDefaults.standard
-        
-        defaults.set(Utils().getStringByKeyFromSettings("high_quality_name"), forKey: SettingsConstants().SETTINGS_QUALITY)
-        
-        defaults.set(Utils().getStringByKeyFromSettings(AVCaptureSessionPreset1920x1080), forKey: SettingsConstants().SETTINGS_RESOLUTION)
     }
     
     //MARK: - Mixpanel

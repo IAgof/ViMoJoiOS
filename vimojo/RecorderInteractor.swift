@@ -8,6 +8,7 @@
 
 import Foundation
 import VideonaProject
+import AVFoundation
 
 class RecorderInteractor: RecorderInteractorInterface {
     
@@ -46,5 +47,18 @@ class RecorderInteractor: RecorderInteractorInterface {
         if let resImagePressed = resolution.imagePressed{
             delegate?.resolutionImagePressedFound(resImagePressed)
         }
+    }
+    
+    func getResolution()->String{
+        guard let actualProject = project else{return AVCaptureSessionPreset1920x1080}
+        
+        return actualProject.getProfile().getResolution()
+    }
+    
+    func saveResolution(resolution:String){
+        guard let actualProject = project else{return}
+        
+        actualProject.getProfile().setResolution(resolution)
+        ProjectRealmRepository().update(item: actualProject)
     }
 }

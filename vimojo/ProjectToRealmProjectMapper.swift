@@ -29,7 +29,8 @@ public class ProjectToRealmProjectMapper:Mapper{
         realmProject.isVoiceOverSet = from.isVoiceOverSet
         realmProject.voiceOverPath = from.voiceOver.getMediaPath()
         realmProject.voiceOverAudioLevel = from.voiceOver.audioLevel
-        
+        realmProject.transitionTime = from.transitionTime
+
         if from.isMusicSet{
             realmProject.musicTitle = from.getMusic().getTitle()
             realmProject.musicVolume = from.getMusic().volume

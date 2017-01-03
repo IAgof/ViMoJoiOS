@@ -16,15 +16,18 @@ struct SettingsTransitionActionResponse:SettingsActionResponse {
 class SettingsTransitionAction: SettingsActionInterface {
     let defaults = UserDefaults.standard
     var delegate: SettingsActionDelegate
-    
-    init(delegate:SettingsActionDelegate){
+    var project:Project
+
+    init(delegate:SettingsActionDelegate,
+         project:Project){
         self.delegate = delegate
+        self.project = project
     }
     
     func executeSettingsAction(_ index:IndexPath) {
         let title =  Utils().getStringByKeyFromSettings(SettingsConstants().TRANSITION)
         
-        let options = SettingsTransition().getAllTransitionsToView()
+        let options = SettingsTransition(project: project).getAllTransitionsToView()
         let alertController = SettingsUtils().createActionSheetWithOptions(title,
                                                                            options: options,
                                                                            completion: {
@@ -42,8 +45,12 @@ class SettingsTransitionAction: SettingsActionInterface {
     }
     
     func saveOnDefaults(_ saveString:String){
-        let transition = SettingsTransition()
+        let transition = SettingsTransition(project: project)
         transition.save(value: saveString)
-        delegate.executeFinished(response: SettingsTransitionActionResponse(transitionTime: transition.transitionTime))
+        
+        project.transitionTime = transition.transitionTime
+        ProjectRealmRepository().update(item: project)
+
+        delegate.executeFinished()
     }
 }

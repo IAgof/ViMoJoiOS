@@ -101,8 +101,8 @@ class RecordPresenter: NSObject
         
         self.setUpOrientationToForce()
         
-        if let getFromDefaultResolution = UserDefaults.standard.string(forKey: SettingsConstants().SETTINGS_RESOLUTION){
-            delegate?.setResolutionToView(getFromDefaultResolution)
+        if let resolution = interactor?.getResolution(){
+            delegate?.setResolutionToView(resolution)
         }
         
         self.updateThumbnail()
@@ -402,9 +402,8 @@ class RecordPresenter: NSObject
     }
     
     func saveResolutionToDefaults(_ resolution:String) {
-        let defaults = UserDefaults.standard
-       
-        defaults.set(resolution, forKey: SettingsConstants().SETTINGS_RESOLUTION)
+        
+        interactor?.saveResolution(resolution: resolution)
         
         cameraInteractor?.setResolution()
         

@@ -46,9 +46,11 @@ class ThumbnailInteractor: NSObject {
             }
         }
         
-        thumbnailImage = UIImage(cgImage: cgImage!)
-        if let thumbnail = self.resizeImage(thumbnailImage, newWidth: diameter){
-            delegate?.setThumbToView(thumbnail)
+        if let cgImageNotNil = cgImage{
+            thumbnailImage = UIImage(cgImage: cgImageNotNil)
+            if let thumbnail = self.resizeImage(thumbnailImage, newWidth: diameter){
+                delegate?.setThumbToView(thumbnail)
+            }
         }
     }
     

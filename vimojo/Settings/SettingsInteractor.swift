@@ -29,7 +29,9 @@ class SettingsInteractor: NSObject,SettingsInteractorInterface {
     }
     
     func findSettings(){
-        self.settings = SettingsProvider().getSettings(self)
+        guard let actualProject = project else{return}
+        
+        self.settings = SettingsProvider().getSettings(self,project: actualProject)
         self.sections = SettingsProvider().getSections()
         
         if let sectionsArray = self.sections{
@@ -79,11 +81,6 @@ extension SettingsInteractor:SettingsActionDelegate{
     }
     
     func executeFinished(response: SettingsActionResponse) {
-        if response is SettingsTransitionActionResponse{
-            if let time = (response as? SettingsTransitionActionResponse)?.transitionTime{
-                project?.transitionTime = time
-            }
-        }
         self.findSettings()
     }
 }
