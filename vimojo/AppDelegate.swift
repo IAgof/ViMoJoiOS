@@ -19,11 +19,15 @@ import RealmSwift
 class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
 
     var window: UIWindow?
-    let appDependencies = AppDependencies()
+    var appDependencies:AppDependencies!
     var initState = "firstTime"
     var mixpanel:Mixpanel?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        RealmMigrationsUseCase().updateMigrationDefault()
+        
+        appDependencies = AppDependencies()
+        
         //MIXPANEL
         #if DEBUG
         
@@ -46,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
         CheckMicPermissionUseCase().askIfNeeded()
         CheckPhotoRollPermissionUseCase().askIfNeeded()
         CheckCameraPermissionUseCase().askIfNeeded()
+        
         
         return true
     }
