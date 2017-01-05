@@ -224,13 +224,13 @@ extension AddTextViewController:UITextViewDelegate{
 extension AddTextViewController{
     func keyboardWillShow(_ notification: Notification) {
         if self.view.frame.origin.y == 0{
-            self.view.frame.origin.y -= addTextTextView.frame.height
+            self.view.frame.origin.y -= (addTextTextView.frame.height / 2)
         }
     }
     
     func keyboardWillHide(_ notification: Notification) {
-        if self.view.frame.origin.y == (-addTextTextView.frame.height){
-            self.view.frame.origin.y += addTextTextView.frame.height
+        if self.view.frame.origin.y == (-(addTextTextView.frame.height / 2)){
+            self.view.frame.origin.y += (addTextTextView.frame.height / 2)
         }
     }
     
@@ -238,7 +238,8 @@ extension AddTextViewController{
     {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
         doneToolbar.barStyle = UIBarStyle.blackTranslucent
-        doneToolbar.backgroundColor = VIMOJO_RED_UICOLOR
+        doneToolbar.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        
         let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(AddTextViewController.doneButtonAction))
         done.tintColor = UIColor.white

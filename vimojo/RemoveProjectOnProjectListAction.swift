@@ -18,7 +18,7 @@ class RemoveProjectOnProjectListAction {
         let cancelString = Utils().getStringByKeyFromProjectList(ProjectListConstants().REMOVE_PROJECT_ALERT_NO_BUTTON)
         
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-        alertController.view.tintColor = VIMOJO_RED_UICOLOR
+        alertController.setTintColor()
 
         let removeAction = UIAlertAction(title: removeString, style: .default, handler: {alert -> Void in
             completion(true)

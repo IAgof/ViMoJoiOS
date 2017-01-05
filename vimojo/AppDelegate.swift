@@ -28,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
         
         appDependencies = AppDependencies()
         
+        CustomDPTheme().configureTheme()
+
         //MIXPANEL
         #if DEBUG
         

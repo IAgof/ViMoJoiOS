@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
@@ -382,7 +382,7 @@
                                         <color key="value" red="0.92165768146514893" green="0.19774162769317627" blue="0.2517913281917572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="untrackedAreaHeight">
-                                        <real key="value" value="1"/>
+                                        <real key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="trackedAreaHeight">
                                         <real key="value" value="1"/>
@@ -402,6 +402,8 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="middleThumbLayerWidth">
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="lowerSliderImage" value="common_icon_trim_bar_normal"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="upperSliderImage" value="common_icon_trim_bar_normal"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qy9-eY-fhW" customClass="PlayerView" customModule="VideonaPlayer">
@@ -450,7 +452,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7j1-Q1-aSm">
                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00     " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eik-Gn-BXB">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00     " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eik-Gn-BXB">
                                                     <rect key="frame" x="0.0" y="65" width="80" height="15"/>
                                                     <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="0.49015410958904099" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -458,7 +460,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fD7-iG-ych">
-                                                    <rect key="frame" x="64" y="0.0" width="14" height="26"/>
+                                                    <rect key="frame" x="58" y="0.0" width="20" height="26"/>
                                                     <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
                                                     <state key="normal" image="activity_edit_delete_clip_normal"/>
                                                 </button>
@@ -822,7 +824,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1GJ-Zq-Gsi" id="Frk-6I-rFX">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -918,7 +920,7 @@
         <image name="activity_edit_clips_duplicate" width="29" height="29"/>
         <image name="activity_edit_clips_normal" width="25" height="25"/>
         <image name="activity_edit_clips_split" width="29" height="28"/>
-        <image name="activity_edit_delete_clip_normal" width="10" height="12"/>
+        <image name="activity_edit_delete_clip_normal" width="16" height="20"/>
         <image name="activity_edit_drawer" width="24" height="21"/>
         <image name="activity_edit_duplicate_clip_minus_normal" width="77" height="77"/>
         <image name="activity_edit_duplicate_clip_minus_pressed" width="77" height="77"/>
@@ -937,5 +939,6 @@
         <image name="button_edit_increment_clips_pressed" width="70" height="70"/>
         <image name="common_icon_play" width="45" height="45"/>
         <image name="common_icon_play_normal" width="42" height="42"/>
+        <image name="common_icon_trim_bar_normal" width="17" height="17"/>
     </resources>
 </document>

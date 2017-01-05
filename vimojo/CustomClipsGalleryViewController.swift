@@ -16,7 +16,7 @@ class CustomClipsGalleryViewController: VideosGalleryViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cellColor = VIMOJO_RED_UICOLOR
+        cellColor = mainColor
     }
     
     override func fetchVideos() {

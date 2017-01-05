@@ -15,7 +15,8 @@ class ShareUtils{
     func setAlertCompletionMessageOnTopView(socialName:String,
                                             message:String){
         let alertController = UIAlertController(title: socialName, message: message, preferredStyle: .alert)
-        
+        alertController.setTintColor()
+
         alertController.addAction(UIAlertAction(title: Utils().getStringByKeyFromShare(ShareConstants().OK),
             style: .default, handler: nil))
         
@@ -61,7 +62,8 @@ class ShareUtils{
         let cancelString = Utils().getStringByKeyFromShare(ShareConstants().FTP_INPUT_FILENAME_CANCEL)
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
+        alertController.setTintColor()
+
         alertController.addTextField { (textField : UITextField!) -> Void in
             textField.placeholder = message
         }

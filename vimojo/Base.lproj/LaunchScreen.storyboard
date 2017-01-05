@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,76 +20,23 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Splash_vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fpf-L7-X7G">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash_horizontal" translatesAutoresizingMaskIntoConstraints="NO" id="Zmb-um-bEL">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_screen_logo" highlightedImage="splash_screen_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Kk5-N6-F9d">
+                                <rect key="frame" x="25.5" y="249.5" width="269" height="69"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Kk5-N6-F9d" secondAttribute="height" multiplier="269:69" id="Nnp-jX-caa"/>
+                                </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.29411764709999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Fpf-L7-X7G" secondAttribute="trailing" constant="-20" id="9P6-dD-9kS"/>
-                            <constraint firstItem="Fpf-L7-X7G" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-20" id="FT8-an-IDU"/>
-                            <constraint firstItem="Zmb-um-bEL" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-20" id="Gp3-aV-7UQ"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Fpf-L7-X7G" secondAttribute="bottom" id="K2t-FF-kSa"/>
-                            <constraint firstItem="Fpf-L7-X7G" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="fiT-eq-VjW"/>
-                            <constraint firstItem="Zmb-um-bEL" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="jup-gy-O5u"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Zmb-um-bEL" secondAttribute="trailing" constant="-20" id="pXq-lH-QEp"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Zmb-um-bEL" secondAttribute="bottom" id="up6-WI-gSV"/>
+                            <constraint firstItem="Kk5-N6-F9d" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="3vc-51-NGo"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Kk5-N6-F9d" secondAttribute="trailing" constant="8" id="B3k-9o-q4R"/>
+                            <constraint firstItem="Kk5-N6-F9d" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="8" id="L0p-WX-tq9"/>
+                            <constraint firstItem="Kk5-N6-F9d" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="bld-0s-SNC"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="Fpf-L7-X7G"/>
-                                <exclude reference="Zmb-um-bEL"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="K2t-FF-kSa"/>
-                                <exclude reference="up6-WI-gSV"/>
-                                <exclude reference="9P6-dD-9kS"/>
-                                <exclude reference="FT8-an-IDU"/>
-                                <exclude reference="fiT-eq-VjW"/>
-                                <exclude reference="Gp3-aV-7UQ"/>
-                                <exclude reference="jup-gy-O5u"/>
-                                <exclude reference="pXq-lH-QEp"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=compact">
-                            <mask key="subviews">
-                                <include reference="Zmb-um-bEL"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="up6-WI-gSV"/>
-                                <include reference="Gp3-aV-7UQ"/>
-                                <include reference="jup-gy-O5u"/>
-                                <include reference="pXq-lH-QEp"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="Fpf-L7-X7G"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="K2t-FF-kSa"/>
-                                <include reference="9P6-dD-9kS"/>
-                                <include reference="FT8-an-IDU"/>
-                                <include reference="fiT-eq-VjW"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=regular">
-                            <mask key="subviews">
-                                <include reference="Zmb-um-bEL"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="up6-WI-gSV"/>
-                                <include reference="Gp3-aV-7UQ"/>
-                                <include reference="jup-gy-O5u"/>
-                                <include reference="pXq-lH-QEp"/>
-                            </mask>
-                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -98,7 +45,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Splash_horizontal" width="1136" height="640"/>
-        <image name="Splash_vertical" width="640" height="1136"/>
+        <image name="splash_screen_logo" width="269" height="69"/>
     </resources>
 </document>

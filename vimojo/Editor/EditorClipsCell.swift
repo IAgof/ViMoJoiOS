@@ -15,7 +15,7 @@ class EditorClipsCell: UICollectionViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var removeClipButton: UIButton!
     
-    let cellColor = VIMOJO_RED_UICOLOR
+    let cellColor = mainColor
     
     override func awakeFromNib() {
         positionNumberLabel.adjustsFontSizeToFitWidth = true

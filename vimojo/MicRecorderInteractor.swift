@@ -83,10 +83,7 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
         guard let url = URL(string: path) else {
             print("No audio url path" )
             return}
-        
-//        print("Set music in debug")
-//        url = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("GALLOPING", ofType: "mp3")!)
-//        
+       
         delegate?.setActualAudioRecorded(url)
     }
     

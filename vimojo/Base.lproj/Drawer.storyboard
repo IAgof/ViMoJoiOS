@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,14 +29,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alberto Perez Sanchez" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYU-P4-Spu">
-                                                    <rect key="frame" x="8" y="53.5" width="304" height="26"/>
+                                                    <rect key="frame" x="8" y="54" width="304" height="26"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                     <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GWp-Cb-lNv">
-                                                    <rect key="frame" x="282" y="8" width="30" height="30"/>
-                                                    <state key="normal" title="Exit">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GWp-Cb-lNv">
+                                                    <rect key="frame" x="286" y="8" width="26" height="26"/>
+                                                    <state key="normal" image="activity_drawer_close">
                                                         <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
@@ -44,7 +44,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a.perez@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFL-su-lME">
-                                                    <rect key="frame" x="8" y="82.5" width="151" height="21"/>
+                                                    <rect key="frame" x="8" y="83" width="151" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -78,10 +78,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_drawer_projects_normal" highlightedImage="activity_drawer_projects_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="cWZ-zY-F9d">
-                                                    <rect key="frame" x="4" y="26" width="32" height="28"/>
+                                                    <rect key="frame" x="4" y="27" width="34" height="27"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Projects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVS-PO-1cj">
-                                                    <rect key="frame" x="53" y="29" width="63" height="21"/>
+                                                    <rect key="frame" x="55" y="30" width="63" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -102,11 +102,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_drawer_recicle_bin_normal" highlightedImage="activity_drawer_recycle_bin_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="EOr-70-SiL">
-                                                    <rect key="frame" x="4" y="24" width="25" height="32"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_drawer_new_project_normal" highlightedImage="activity_drawer_new_project_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="EOr-70-SiL">
+                                                    <rect key="frame" x="4" y="22" width="44" height="37"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdE-PI-TGi">
-                                                    <rect key="frame" x="46" y="29" width="93" height="21"/>
+                                                    <rect key="frame" x="65" y="30" width="93" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -127,11 +127,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_drawer_favourites_normal" highlightedImage="activity_drawer_favourites_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="Wbf-Uq-bcm">
-                                                    <rect key="frame" x="4" y="24" width="32" height="32"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_drawer_options_normal" highlightedImage="activity_drawer_options_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="Wbf-Uq-bcm">
+                                                    <rect key="frame" x="4" y="25" width="29" height="30"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqr-7E-B6Q">
-                                                    <rect key="frame" x="53" y="29" width="64" height="21"/>
+                                                    <rect key="frame" x="50" y="29" width="64" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -162,11 +162,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="activity_drawer_favourites_normal" width="32" height="32"/>
-        <image name="activity_drawer_favourites_pressed" width="32" height="32"/>
-        <image name="activity_drawer_projects_normal" width="32" height="28"/>
-        <image name="activity_drawer_projects_pressed" width="32" height="28"/>
-        <image name="activity_drawer_recicle_bin_normal" width="25" height="32"/>
-        <image name="activity_drawer_recycle_bin_pressed" width="25" height="32"/>
+        <image name="activity_drawer_close" width="26" height="26"/>
+        <image name="activity_drawer_new_project_normal" width="44" height="37"/>
+        <image name="activity_drawer_new_project_pressed" width="44" height="37"/>
+        <image name="activity_drawer_options_normal" width="29" height="30"/>
+        <image name="activity_drawer_options_pressed" width="29" height="30"/>
+        <image name="activity_drawer_projects_normal" width="34" height="27"/>
+        <image name="activity_drawer_projects_pressed" width="34" height="27"/>
     </resources>
 </document>

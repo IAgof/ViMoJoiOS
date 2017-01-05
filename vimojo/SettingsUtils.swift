@@ -18,7 +18,8 @@ class SettingsUtils {
         let cancelString = Utils().getStringByKeyFromSettings(SettingsConstants().CANCEL_SETTINGS_CAMERA)
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
+        alertController.setTintColor()
+
         alertController.addTextField { (textField : UITextField!) -> Void in
             textField.placeholder = title
         }
@@ -43,7 +44,8 @@ class SettingsUtils {
         let cancelString = Utils().getStringByKeyFromSettings(SettingsConstants().CANCEL_SETTINGS_CAMERA)
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
+        alertController.setTintColor()
+
         alertController.addTextField { (textField : UITextField!) -> Void in
             textField.placeholder = title
             textField.isSecureTextEntry = true
@@ -69,7 +71,8 @@ class SettingsUtils {
         let cancelString = Utils().getStringByKeyFromSettings(SettingsConstants().CANCEL_SETTINGS_CAMERA)
 
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
-        
+        alertController.setTintColor()
+
         for option in options {
             let optionAction = UIAlertAction(title: option, style: .default, handler: {alert -> Void in
 

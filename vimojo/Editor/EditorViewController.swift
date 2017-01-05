@@ -199,7 +199,7 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         let alertController = UIAlertController(title:title,
                                                 message:message,
                                                 preferredStyle: .alert)
-        alertController.view.tintColor = VIMOJO_RED_UICOLOR
+        alertController.setTintColor()
 
         let yesAction = UIAlertAction(title: yesString,
                                       style: .default,
