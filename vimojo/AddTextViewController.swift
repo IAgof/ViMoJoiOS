@@ -68,7 +68,11 @@ class AddTextViewController: ViMoJoController {
         addBorderToTextView()
         addDoneButtonOnKeyboard()
     }
-    
+
+    override func viewWillDisappear(_ animated: Bool) {
+        setPlayerPlayButtonState(state: false)
+    }
+
     func addObserverToShowAndHideKeyboard(){
         NotificationCenter.default.addObserver(self, selector: #selector(AddTextViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(AddTextViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -255,5 +259,35 @@ extension AddTextViewController{
     func doneButtonAction()
     {
         view.endEditing(true)
+    }
+}
+
+extension AddTextViewController:PlayerViewFinishedDelegate{
+    func playerHasLoaded() {
+        setPlayerPlayButtonState(state: true)
+    }
+    
+    func playerPause() {
+        setPlayerPlayButtonState(state: true)
+    }
+    
+    func setPlayerPlayButtonState(state:Bool){
+        for view in playerView.subviews{
+            if let player =  view as? PlayerView{
+                if state{
+                    player.sendSubview(toBack: player.playOrPauseButton)
+                }else{
+                    player.bringSubview(toFront: player.playOrPauseButton)
+                }
+            }
+        }
+    }
+    
+    func playerStartsToPlay() {
+        
+    }
+    
+    func playerSeeksTo(_ value: Float) {
+        
     }
 }
