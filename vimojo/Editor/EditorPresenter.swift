@@ -111,6 +111,10 @@ extension EditorPresenter:EditorPresenterInterface{
     func viewWillAppear() {
         updatePlayerView()
         
+        if interactor?.getNumberOfClips() == 0{
+            self.pushAddFloating()
+        }
+        
         if !isGoingToExpandPlayer{
             self.loadView()
             
