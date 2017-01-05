@@ -41,7 +41,7 @@ class DPTheme: NSObject {
             self.customizeSwitch(onColor: maincolor)
             self.customizeSearchBar(barColor: maincolor, tintColor: secondaryColor)
             self.customizeActivityIndicator(color: maincolor)
-            self.customizeButton(buttonColor: maincolor)
+            self.customizeButton(buttonColor:secondaryColor ,selectedButtonColor: maincolor)
             self.customizeSegmentedControl(mainColor: maincolor, secondaryColor: secondaryColor)
             self.customizeSlider(sliderColor: maincolor,maxTrackColor: secondaryColor)
             self.customizePageControl(currentPageColor: maincolor)
@@ -124,8 +124,10 @@ class DPTheme: NSObject {
     
     // UIButton
     internal static func customizeButton(
-        buttonColor: UIColor) {
-            UIButton.appearance().setTitleColor(buttonColor, for: .normal)
+        buttonColor: UIColor,
+        selectedButtonColor:UIColor) {
+        UIButton.appearance().setTitleColor(buttonColor, for: .normal)
+        UIButton.appearance().setTitleColor(selectedButtonColor, for: .selected)
     }
     
     
@@ -182,7 +184,7 @@ class DPTheme: NSObject {
         sliderColor: UIColor,
         maxTrackColor:UIColor) {
         UISlider.appearance().minimumTrackTintColor = sliderColor
-        UISlider.appearance().maximumTrackTintColor = sliderColor
+        UISlider.appearance().maximumTrackTintColor = maxTrackColor
     }
     
     internal static func customizeSliderThumbImage(

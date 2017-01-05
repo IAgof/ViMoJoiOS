@@ -96,7 +96,8 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
                         layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAt indexPath: IndexPath) -> CGSize {
        
-        let size = Utils().thumbnailEditorListDiameter
+//        let size = Utils().thumbnailEditorListDiameter
+        let size = (collectionView.frame.width/4) - 4
         
         return CGSize(width: size,
                       height: size)

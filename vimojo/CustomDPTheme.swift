@@ -14,7 +14,7 @@ let mainColor = #colorLiteral(red: 0.9490196078, green: 0.2941176471, blue: 0.31
 let secondColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 
 class CustomDPTheme {
-    func configureTheme(){
+    func configureTheme(){  
         DPTheme.setupTheme(
             maincolor: mainColor,
             secondaryColor: secondColor,
@@ -29,7 +29,7 @@ class CustomDPTheme {
             DPTheme.customizeSliderThumbImageHighlighted(sliderThumbImage: sliderImageHighlighted)
         }
         
-        DPTheme.customizeTabBar(barColor: mainColor, selectedTintColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), unselectedTintColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
+        DPTheme.customizeTabBar(barColor: #colorLiteral(red: 0.9529411765, green: 0.9529411765, blue: 0.9529411765, alpha: 1), textColor: mainColor)
     }
 }
 
