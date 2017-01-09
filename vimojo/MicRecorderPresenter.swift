@@ -74,6 +74,8 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
         playerPresenter?.enablePlayerInteraction()
         
         playerPresenter?.pauseVideo()
+        delegate?.pauseAudioPlayer()
+        
         delegate?.removeAudioPlayer()
         
         if !isGoingToExpandPlayer{
@@ -163,13 +165,15 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
     func resetRecord() {
         
         playerPresenter?.pauseVideo()
+        delegate?.pauseAudioPlayer()
+        
+        delegate?.seekAudioPlayerTo(0.0)
         playerPresenter?.seekToTime(0.0)
         
         interactor?.initAudioSession()
         
         playerPresenter?.setPlayerMuted(true)
         playerPresenter?.disablePlayerInteraction()
-
         
         delegate?.hideAcceptCancelButton()
         delegate?.setMicRecorderButtonState(true)
@@ -183,6 +187,7 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
         }else{
             delegate?.setMicRecorderButtonEnabled(false)
             playerPresenter?.pauseVideo()
+            delegate?.pauseAudioPlayer()
         }
     }
     
