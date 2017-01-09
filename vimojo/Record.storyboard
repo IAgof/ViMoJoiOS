@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="landscape">
+    <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -24,17 +24,17 @@
                         <viewControllerLayoutGuide type="bottom" id="RJj-LY-m3o"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="j7H-ws-M5v">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="overlay_clear_grid" translatesAutoresizingMaskIntoConstraints="NO" id="0V7-5h-nKZ">
-                                <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hax-3B-Lc5" customClass="GPUImageView">
-                                <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                                 <subviews>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vel-Gg-DCb" customClass="SpaceOnDiskView" customModule="SpaceOnDisk">
-                                        <rect key="frame" x="248" y="143" width="240" height="128"/>
+                                        <rect key="frame" x="164" y="96" width="240" height="128"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="KMS-Yy-vqy"/>
@@ -42,7 +42,7 @@
                                         </constraints>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5X8-bB-gAq" customClass="BatteryRemainingView" customModule="BatteryRemaining">
-                                        <rect key="frame" x="248" y="143" width="240" height="128"/>
+                                        <rect key="frame" x="164" y="96" width="240" height="128"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="128" id="FUB-6n-t4d"/>
@@ -52,16 +52,16 @@
                                         </constraints>
                                     </view>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_record_icon_focus_focused" translatesAutoresizingMaskIntoConstraints="NO" id="lpZ-Hu-RXr">
-                                        <rect key="frame" x="323" y="162" width="90" height="90"/>
+                                        <rect key="frame" x="250" y="126" width="68" height="68"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbb-jx-SNd">
-                                        <rect key="frame" x="8" y="8" width="147" height="28"/>
+                                        <rect key="frame" x="8" y="8" width="111" height="28"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="08T-D0-KZt">
-                                                <rect key="frame" x="16" y="4" width="115" height="20"/>
+                                                <rect key="frame" x="16" y="4" width="79" height="20"/>
                                                 <subviews>
                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dra-Hy-CZB">
-                                                        <rect key="frame" x="-12.666666666666666" y="0.0" width="0.0" height="20"/>
+                                                        <rect key="frame" x="-7.5" y="0.0" width="0.0" height="20"/>
                                                         <state key="normal" image="activity_rec_micro_connected_normal"/>
                                                         <state key="selected" image="activity_rec_micro_connected_pressed"/>
                                                         <state key="highlighted" image="activity_rec_micro_connected_pressed"/>
@@ -70,7 +70,7 @@
                                                         </connections>
                                                     </button>
                                                     <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nAM-ZC-cFG" customClass="AudioLevelBarView" customModule="AudioLevelBar">
-                                                        <rect key="frame" x="-12.666666666666666" y="0.0" width="0.0" height="20"/>
+                                                        <rect key="frame" x="-7.5" y="0.0" width="0.0" height="20"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="jXh-V8-j9e"/>
@@ -92,7 +92,7 @@
                                                         </variation>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veW-ha-Wav">
-                                                        <rect key="frame" x="0.0" y="0.0" width="26" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="19" height="20"/>
                                                         <state key="normal" image="activity_rec_battery_100"/>
                                                         <state key="selected" image="activity_rec_battery_100_pressed"/>
                                                         <state key="highlighted" image="activity_rec_battery_100_pressed"/>
@@ -101,7 +101,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8j-Vd-5dC">
-                                                        <rect key="frame" x="51" y="0.0" width="14" height="20"/>
+                                                        <rect key="frame" x="34" y="0.0" width="11" height="20"/>
                                                         <state key="normal" image="activity_rec_memory"/>
                                                         <state key="selected" image="activity_rec_memory_pressed"/>
                                                         <state key="highlighted" image="activity_rec_memory_pressed"/>
@@ -110,7 +110,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6R-qJ-vTS">
-                                                        <rect key="frame" x="90" y="0.0" width="25" height="20"/>
+                                                        <rect key="frame" x="60" y="0.0" width="19" height="20"/>
                                                         <state key="normal" image="activity_rec_resolution_1080"/>
                                                         <state key="selected" image="activity_rec_resolution_1080_pressed"/>
                                                         <state key="highlighted" image="activity_rec_resolution_1080_pressed"/>
@@ -132,13 +132,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dnm-Zp-iJ8">
-                                        <rect key="frame" x="201" y="355" width="334" height="51"/>
+                                        <rect key="frame" x="139.5" y="270" width="289" height="42"/>
                                         <subviews>
                                             <stackView contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ewd-xp-MaT">
-                                                <rect key="frame" x="20" y="8" width="294" height="35"/>
+                                                <rect key="frame" x="20" y="8" width="249" height="26"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQa-c5-bas">
-                                                        <rect key="frame" x="0.0" y="0.0" width="34" height="35"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="26"/>
                                                         <state key="normal" image="activity_rec_zoom_normal"/>
                                                         <state key="selected" image="activity_rec_zoom_normal_pressed"/>
                                                         <state key="highlighted" image="activity_rec_zoom_normal_pressed"/>
@@ -147,7 +147,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aiN-vN-CHp">
-                                                        <rect key="frame" x="64" y="0.0" width="35" height="35"/>
+                                                        <rect key="frame" x="55" y="0.0" width="26" height="26"/>
                                                         <state key="normal" image="activity_rec_iso"/>
                                                         <state key="selected" image="activity_rec_iso_pressed"/>
                                                         <state key="highlighted" image="activity_rec_iso_pressed"/>
@@ -156,7 +156,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsz-IZ-LCD">
-                                                        <rect key="frame" x="129" y="0.0" width="35" height="35"/>
+                                                        <rect key="frame" x="111" y="0.0" width="26" height="26"/>
                                                         <state key="normal" image="activity_rec_focus"/>
                                                         <state key="selected" image="activity_rec_focus_pressed"/>
                                                         <state key="highlighted" image="activity_rec_focus_pressed"/>
@@ -165,7 +165,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRL-0H-ouH">
-                                                        <rect key="frame" x="194" y="0.0" width="35" height="35"/>
+                                                        <rect key="frame" x="167" y="0.0" width="26" height="26"/>
                                                         <state key="normal" image="activity_rec_white_balance"/>
                                                         <state key="selected" image="activity_rec_white_balance_pressed"/>
                                                         <state key="highlighted" image="activity_rec_white_balance_pressed"/>
@@ -174,7 +174,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfD-8X-HMf">
-                                                        <rect key="frame" x="259" y="0.0" width="35" height="35"/>
+                                                        <rect key="frame" x="223" y="0.0" width="26" height="26"/>
                                                         <state key="normal" image="activity_rec_metering"/>
                                                         <state key="selected" image="activity_rec_metering_pressed"/>
                                                         <state key="highlighted" image="activity_rec_metering_pressed"/>
@@ -196,7 +196,7 @@
                                         </constraints>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Sz-Cx-Stq" customClass="FocalLensSliderView" customModule="FocalLensSlider">
-                                        <rect key="frame" x="-133.66666666666666" y="187" width="320.33333333333331" height="40"/>
+                                        <rect key="frame" x="-91" y="140" width="230" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="230" id="DiV-g7-4Xd">
@@ -210,7 +210,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vuo-zZ-7lL" customClass="ZoomSliderView" customModule="ZoomCameraSlider">
-                                        <rect key="frame" x="-133.66666666666666" y="187" width="320.33333333333331" height="40"/>
+                                        <rect key="frame" x="-91" y="140" width="230" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="230" id="Gac-Rz-nFn">
@@ -224,7 +224,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xIW-qf-psD" customClass="ExposureView" customModule="Exposure">
-                                        <rect key="frame" x="-132.66666666666666" y="187" width="320.33333333333331" height="40"/>
+                                        <rect key="frame" x="-90" y="140" width="230" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="230" id="hBp-VU-Xyz">
@@ -238,7 +238,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="owx-Ns-ABx" customClass="ISOConfigurationView" customModule="ISOConfiguration">
-                                        <rect key="frame" x="213" y="316" width="309" height="35"/>
+                                        <rect key="frame" x="129" y="231" width="309" height="35"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="309" id="UKj-XI-KqE"/>
@@ -246,7 +246,7 @@
                                         </constraints>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTG-lk-0Ju" customClass="WhiteBalanceView" customModule="WhiteBalance">
-                                        <rect key="frame" x="213" y="316" width="309" height="35"/>
+                                        <rect key="frame" x="129" y="231" width="309" height="35"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="h56-zJ-te8"/>
@@ -267,43 +267,8 @@
                                             <userDefinedRuntimeAttribute type="image" keyPath="tungstenImageHighlightedAndPressed" value="activity_rec_white_balance_tungsten_pressed"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bd7-YM-xmD" customClass="ExpositionModesView" customModule="ExpositionModes">
-                                        <rect key="frame" x="383" y="316" width="150" height="35"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="aFQ-74-cWv"/>
-                                            <constraint firstAttribute="width" constant="150" id="b0d-Q0-SLP"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="autoImageNormal" value="activity_rec_metering_automatic"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="autoImageHighlightedAndPressed" value="activity_rec_metering_automatic_pressed"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="centerImageNormal" value="activity_rec_metering_spot"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="centerImageHighlightedAndPressed" value="activity_rec_metering_spot_pressed"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="manualSliderImageNormal" value="activity_rec_metering_manual"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="manualSliderImageHighlightedAndPressed" value="activity_rec_metering_manual_pressed"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="manualImageNormal" value="activity_rec_metering_touch"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="manualImageHighlightedAndPressed" value="activity_rec_focus_touch_pressed"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dex-fY-oYP" customClass="FocusView" customModule="Focus">
-                                        <rect key="frame" x="293" y="316" width="150" height="35"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="2y6-Rz-34Y"/>
-                                            <constraint firstAttribute="height" constant="35" id="gJo-eM-0Xo"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="autoImageNormal" value="activity_rec_focus_automatic"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="autoImageHighlightedAndPressed" value="activity_rec_focus_automatic_pressed"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="focalLensManualImageNormal" value="activity_rec_focus_manual"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="focalLensManualImageHighlightedAndPressed" value="activity_rec_focus_manual_pressed"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="manualTapImageNormal" value="activity_rec_focus_touch"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="manualTapImageHighlightedAndPressed" value="activity_rec_focus_touch_pressed"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iei-TN-55D" customClass="ResolutionsSelectorView" customModule="ResolutionSelector">
-                                        <rect key="frame" x="243" y="82" width="250" height="250"/>
+                                        <rect key="frame" x="159" y="58" width="250" height="204"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" priority="500" constant="250" id="8aS-al-yYC"/>
@@ -317,7 +282,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhg-e3-51Y">
-                                        <rect key="frame" x="8" y="384" width="21" height="22"/>
+                                        <rect key="frame" x="8" y="290" width="16" height="22"/>
                                         <state key="normal" image="activity_rec_expand"/>
                                         <state key="selected" image="activity_rec_shrink"/>
                                         <connections>
@@ -325,24 +290,24 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_rec_gallery" highlightedImage="activity_rec_gallery_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="OjL-sb-H1o">
-                                        <rect key="frame" x="670" y="8" width="43" height="37"/>
+                                        <rect key="frame" x="514.5" y="8" width="32" height="28"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7C-x1-dO0">
-                                        <rect key="frame" x="670" y="8" width="43" height="37"/>
+                                        <rect key="frame" x="514.5" y="8" width="32" height="28"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YP7-c0-irG">
-                                        <rect key="frame" x="662" y="347" width="58" height="59"/>
+                                        <rect key="frame" x="508" y="268" width="44" height="44"/>
                                         <state key="normal" image="activity_rec_start_recording"/>
                                         <state key="selected" image="activity_rec_stop_recording"/>
                                         <connections>
                                             <action selector="pushRecord:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="jKB-oJ-xUw"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gn6-UX-bN2">
-                                        <rect key="frame" x="501" y="123" width="14" height="27"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gn6-UX-bN2">
+                                        <rect key="frame" x="490.5" y="236" width="11" height="22"/>
                                         <state key="normal" image="activity_rec_hide_tools"/>
                                         <state key="selected" image="activity_rec_hide_tools_pressed"/>
                                         <state key="highlighted" image="activity_rec_hide_tools_pressed"/>
@@ -351,7 +316,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UfD-Ey-QnE">
-                                        <rect key="frame" x="684" y="311" width="14" height="26"/>
+                                        <rect key="frame" x="525" y="236" width="10" height="22"/>
                                         <state key="normal" image="activity_rec_show_tools"/>
                                         <state key="selected" image="activity_rec_show_tools_pressed"/>
                                         <state key="highlighted" image="activity_rec_show_tools_pressed"/>
@@ -360,13 +325,13 @@
                                         </connections>
                                     </button>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5M-wT-ZUe">
-                                        <rect key="frame" x="666" y="153" width="51" height="184"/>
+                                        <rect key="frame" x="509.5" y="86" width="42" height="172"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ud1-4P-GCz">
-                                                <rect key="frame" x="8" y="8" width="35" height="168"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Ud1-4P-GCz">
+                                                <rect key="frame" x="8" y="8" width="26" height="156"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qft-6a-P9q">
-                                                        <rect key="frame" x="0.0" y="0.0" width="35" height="36"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="26" height="27"/>
                                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                                         <state key="normal" image="activity_rec_rotate"/>
                                                         <state key="selected" image="activity_rec_rotate_pressed"/>
@@ -376,7 +341,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0La-NE-dnt">
-                                                        <rect key="frame" x="0.0" y="44" width="35" height="36"/>
+                                                        <rect key="frame" x="0.0" y="43" width="26" height="27"/>
                                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                                         <state key="normal" image="activity_rec_flash"/>
                                                         <state key="selected" image="activity_rec_flash_pressed"/>
@@ -386,7 +351,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0BA-ps-suH">
-                                                        <rect key="frame" x="0.0" y="88" width="35" height="36"/>
+                                                        <rect key="frame" x="0.0" y="86" width="26" height="27"/>
                                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                                         <state key="normal" image="activity_rec_tools_menu"/>
                                                         <state key="selected" image="activity_rec_tools_menu_pressed"/>
@@ -396,7 +361,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwJ-gK-90e">
-                                                        <rect key="frame" x="0.0" y="132" width="35" height="36"/>
+                                                        <rect key="frame" x="0.0" y="129" width="26" height="27"/>
                                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                                         <state key="normal" image="activity_rec_settings"/>
                                                         <state key="selected" image="activity_rec_settings_pressed"/>
@@ -429,16 +394,16 @@
                                         </variation>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yzi-0I-GIh">
-                                        <rect key="frame" x="314.33333333333331" y="8" width="107.33333333333337" height="28.333333333333336"/>
+                                        <rect key="frame" x="244.5" y="8" width="79" height="28.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="KEV-WL-wpU">
-                                                <rect key="frame" x="4" y="4" width="99.333333333333371" height="20.333333333333336"/>
+                                                <rect key="frame" x="4" y="4" width="71" height="20.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_record_icon_recording" translatesAutoresizingMaskIntoConstraints="NO" id="zZ0-fN-Qrj">
-                                                        <rect key="frame" x="0.0" y="0.0" width="17.333333333333371" height="20.333333333333336"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="9" height="20.5"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="216-mj-D5y">
-                                                        <rect key="frame" x="19.333333333333371" y="0.0" width="80" height="20.333333333333336"/>
+                                                        <rect key="frame" x="11" y="0.0" width="60" height="20.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="Oup-M7-y3g">
                                                                 <variation key="widthClass=regular" constant="80"/>
@@ -463,7 +428,7 @@
                                         </constraints>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEb-ih-mOX" customClass="InputSoundGainControlView" customModule="InputSoundGainControl">
-                                        <rect key="frame" x="-134" y="187" width="320" height="40"/>
+                                        <rect key="frame" x="-91.5" y="140" width="230" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="I4F-Sc-vML"/>
@@ -477,16 +442,16 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijC-dC-TM0">
-                                        <rect key="frame" x="314.33333333333331" y="8" width="107.33333333333337" height="28.333333333333336"/>
+                                        <rect key="frame" x="244.5" y="8" width="79" height="28.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="QcR-og-2Mj">
-                                                <rect key="frame" x="4" y="4" width="99.333333333333371" height="20.333333333333336"/>
+                                                <rect key="frame" x="4" y="4" width="71" height="20.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_record_icon_recording" translatesAutoresizingMaskIntoConstraints="NO" id="l2N-7L-tuG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="17.333333333333371" height="20.333333333333336"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="9" height="20.5"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHA-0I-LE1">
-                                                        <rect key="frame" x="19.333333333333371" y="0.0" width="80" height="20.333333333333336"/>
+                                                        <rect key="frame" x="11" y="0.0" width="60" height="20.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="GZu-PC-piJ">
                                                                 <variation key="widthClass=regular" constant="80"/>
@@ -510,6 +475,41 @@
                                             <constraint firstAttribute="bottom" secondItem="QcR-og-2Mj" secondAttribute="bottom" constant="4" id="W5X-Ge-CXs"/>
                                         </constraints>
                                     </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dex-fY-oYP" customClass="FocusView" customModule="Focus">
+                                        <rect key="frame" x="208.5" y="231" width="150" height="35"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="2y6-Rz-34Y"/>
+                                            <constraint firstAttribute="height" constant="35" id="gJo-eM-0Xo"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="autoImageNormal" value="activity_rec_focus_automatic"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="autoImageHighlightedAndPressed" value="activity_rec_focus_automatic_pressed"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="focalLensManualImageNormal" value="activity_rec_focus_manual"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="focalLensManualImageHighlightedAndPressed" value="activity_rec_focus_manual_pressed"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="manualTapImageNormal" value="activity_rec_focus_touch"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="manualTapImageHighlightedAndPressed" value="activity_rec_focus_touch_pressed"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bd7-YM-xmD" customClass="ExpositionModesView" customModule="ExpositionModes">
+                                        <rect key="frame" x="218.5" y="231" width="190" height="35"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="aFQ-74-cWv"/>
+                                            <constraint firstAttribute="width" constant="190" id="b0d-Q0-SLP"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="autoImageNormal" value="activity_rec_metering_automatic"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="autoImageHighlightedAndPressed" value="activity_rec_metering_automatic_pressed"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="centerImageNormal" value="activity_rec_metering_spot"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="centerImageHighlightedAndPressed" value="activity_rec_metering_spot_pressed"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="manualSliderImageNormal" value="activity_rec_metering_manual"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="manualSliderImageHighlightedAndPressed" value="activity_rec_metering_manual_pressed"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="manualImageNormal" value="activity_rec_metering_touch"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="manualImageHighlightedAndPressed" value="activity_rec_focus_touch_pressed"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -527,6 +527,7 @@
                                     <constraint firstItem="jhg-e3-51Y" firstAttribute="top" relation="greaterThanOrEqual" secondItem="1Sz-Cx-Stq" secondAttribute="bottom" constant="8" id="F27-CF-tHt"/>
                                     <constraint firstItem="OjL-sb-H1o" firstAttribute="top" secondItem="nbb-jx-SNd" secondAttribute="bottom" constant="4" id="I4c-e0-F2b"/>
                                     <constraint firstItem="YP7-c0-irG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="c5M-wT-ZUe" secondAttribute="bottom" constant="10" id="IrL-c4-u4Y"/>
+                                    <constraint firstItem="bd7-YM-xmD" firstAttribute="trailing" secondItem="rfD-8X-HMf" secondAttribute="trailing" id="Jq0-59-wYr"/>
                                     <constraint firstItem="U7C-x1-dO0" firstAttribute="centerY" secondItem="OjL-sb-H1o" secondAttribute="centerY" id="KMG-zv-Stp"/>
                                     <constraint firstItem="c5M-wT-ZUe" firstAttribute="centerY" secondItem="hax-3B-Lc5" secondAttribute="centerY" priority="250" constant="42" id="KtJ-bZ-tax"/>
                                     <constraint firstAttribute="bottom" secondItem="jhg-e3-51Y" secondAttribute="bottom" constant="8" id="LBi-B9-AYR"/>
@@ -572,7 +573,6 @@
                                     <constraint firstItem="nbb-jx-SNd" firstAttribute="top" secondItem="hax-3B-Lc5" secondAttribute="top" constant="8" id="kzW-Qj-xj9"/>
                                     <constraint firstItem="U7C-x1-dO0" firstAttribute="centerX" secondItem="OjL-sb-H1o" secondAttribute="centerX" id="nlr-xs-vaG"/>
                                     <constraint firstItem="UfD-Ey-QnE" firstAttribute="centerX" secondItem="c5M-wT-ZUe" secondAttribute="centerX" id="pS6-U9-l2h"/>
-                                    <constraint firstItem="bd7-YM-xmD" firstAttribute="leading" secondItem="Dnm-Zp-iJ8" secondAttribute="trailing" constant="-152" id="rPT-JP-8wI"/>
                                     <constraint firstItem="Vel-Gg-DCb" firstAttribute="centerX" secondItem="hax-3B-Lc5" secondAttribute="centerX" id="rX7-Lo-Gyg"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Dnm-Zp-iJ8" secondAttribute="trailing" constant="10" id="spk-3y-6Bg"/>
                                     <constraint firstItem="Dnm-Zp-iJ8" firstAttribute="top" secondItem="owx-Ns-ABx" secondAttribute="bottom" constant="4" id="tlP-Si-ogk"/>
@@ -659,80 +659,80 @@
         </scene>
     </scenes>
     <resources>
-        <image name="activity_edit_accept_normal" width="28" height="24"/>
-        <image name="activity_edit_accept_pressed" width="28" height="24"/>
-        <image name="activity_edit_cancel_normal" width="20" height="20"/>
-        <image name="activity_edit_cancel_pressed" width="20" height="20"/>
-        <image name="activity_rec_battery_100" width="26" height="14"/>
-        <image name="activity_rec_battery_100_pressed" width="26" height="14"/>
-        <image name="activity_rec_expand" width="21" height="21"/>
-        <image name="activity_rec_flash" width="18" height="36"/>
-        <image name="activity_rec_flash_pressed" width="18" height="36"/>
-        <image name="activity_rec_focus" width="35" height="35"/>
-        <image name="activity_rec_focus_automatic" width="35" height="35"/>
-        <image name="activity_rec_focus_automatic_pressed" width="35" height="35"/>
-        <image name="activity_rec_focus_macro" width="15" height="15"/>
-        <image name="activity_rec_focus_manual" width="35" height="35"/>
-        <image name="activity_rec_focus_manual_pressed" width="35" height="35"/>
-        <image name="activity_rec_focus_pressed" width="35" height="35"/>
-        <image name="activity_rec_focus_slider_infinite" width="19" height="12"/>
-        <image name="activity_rec_focus_touch" width="35" height="35"/>
-        <image name="activity_rec_focus_touch_pressed" width="35" height="35"/>
-        <image name="activity_rec_gallery" width="43" height="37"/>
-        <image name="activity_rec_gallery_pressed" width="43" height="37"/>
-        <image name="activity_rec_hide_tools" width="14" height="27"/>
-        <image name="activity_rec_hide_tools_pressed" width="14" height="27"/>
-        <image name="activity_rec_iso" width="35" height="35"/>
-        <image name="activity_rec_iso_pressed" width="35" height="35"/>
-        <image name="activity_rec_memory" width="14" height="19"/>
-        <image name="activity_rec_memory_pressed" width="14" height="19"/>
-        <image name="activity_rec_metering" width="35" height="35"/>
-        <image name="activity_rec_metering_automatic" width="35" height="35"/>
-        <image name="activity_rec_metering_automatic_pressed" width="35" height="35"/>
-        <image name="activity_rec_metering_manual" width="35" height="35"/>
-        <image name="activity_rec_metering_manual_pressed" width="35" height="35"/>
-        <image name="activity_rec_metering_pressed" width="35" height="35"/>
-        <image name="activity_rec_metering_spot" width="35" height="35"/>
-        <image name="activity_rec_metering_spot_pressed" width="35" height="35"/>
-        <image name="activity_rec_metering_touch" width="35" height="35"/>
-        <image name="activity_rec_micro_connected_normal" width="18" height="21"/>
-        <image name="activity_rec_micro_connected_pressed" width="26" height="27"/>
-        <image name="activity_rec_micro_volume_loud" width="15" height="13"/>
-        <image name="activity_rec_micro_volume_low" width="16" height="13"/>
-        <image name="activity_rec_minus" width="15" height="15"/>
-        <image name="activity_rec_plus" width="15" height="15"/>
-        <image name="activity_rec_resolution_1080" width="25" height="13"/>
-        <image name="activity_rec_resolution_1080_pressed" width="25" height="13"/>
-        <image name="activity_rec_rotate" width="35" height="36"/>
-        <image name="activity_rec_rotate_pressed" width="35" height="36"/>
-        <image name="activity_rec_settings" width="35" height="36"/>
-        <image name="activity_rec_settings_pressed" width="35" height="36"/>
-        <image name="activity_rec_show_tools" width="14" height="26"/>
-        <image name="activity_rec_show_tools_pressed" width="14" height="26"/>
-        <image name="activity_rec_shrink" width="22" height="22"/>
-        <image name="activity_rec_start_recording" width="58" height="59"/>
-        <image name="activity_rec_stop_recording" width="58" height="59"/>
-        <image name="activity_rec_tools_menu" width="35" height="36"/>
-        <image name="activity_rec_tools_menu_pressed" width="35" height="36"/>
-        <image name="activity_rec_wb_flash" width="15" height="29"/>
-        <image name="activity_rec_wb_flash_pressed" width="15" height="29"/>
-        <image name="activity_rec_white_balance" width="35" height="35"/>
-        <image name="activity_rec_white_balance_automatic" width="18" height="18"/>
-        <image name="activity_rec_white_balance_automatic_pressed" width="18" height="18"/>
-        <image name="activity_rec_white_balance_cloudy" width="35" height="24"/>
-        <image name="activity_rec_white_balance_cloudy_pressed" width="35" height="24"/>
-        <image name="activity_rec_white_balance_fluorescent" width="35" height="35"/>
-        <image name="activity_rec_white_balance_fluorescent_pressed" width="35" height="35"/>
-        <image name="activity_rec_white_balance_pressed" width="35" height="35"/>
-        <image name="activity_rec_white_balance_sunny" width="35" height="35"/>
-        <image name="activity_rec_white_balance_sunny_pressed" width="35" height="35"/>
-        <image name="activity_rec_white_balance_tungsten" width="34" height="35"/>
-        <image name="activity_rec_white_balance_tungsten_pressed" width="34" height="35"/>
-        <image name="activity_rec_zoom_normal" width="34" height="35"/>
-        <image name="activity_rec_zoom_normal_pressed" width="34" height="35"/>
-        <image name="activity_record_icon_focus_focused" width="90" height="90"/>
+        <image name="activity_edit_accept_normal" width="21" height="18"/>
+        <image name="activity_edit_accept_pressed" width="21" height="18"/>
+        <image name="activity_edit_cancel_normal" width="15" height="15"/>
+        <image name="activity_edit_cancel_pressed" width="15" height="15"/>
+        <image name="activity_rec_battery_100" width="19" height="11"/>
+        <image name="activity_rec_battery_100_pressed" width="19" height="11"/>
+        <image name="activity_rec_expand" width="16" height="16"/>
+        <image name="activity_rec_flash" width="14" height="27"/>
+        <image name="activity_rec_flash_pressed" width="14" height="27"/>
+        <image name="activity_rec_focus" width="26" height="26"/>
+        <image name="activity_rec_focus_automatic" width="26" height="26"/>
+        <image name="activity_rec_focus_automatic_pressed" width="26" height="26"/>
+        <image name="activity_rec_focus_macro" width="11" height="11"/>
+        <image name="activity_rec_focus_manual" width="26" height="26"/>
+        <image name="activity_rec_focus_manual_pressed" width="26" height="26"/>
+        <image name="activity_rec_focus_pressed" width="26" height="26"/>
+        <image name="activity_rec_focus_slider_infinite" width="15" height="9"/>
+        <image name="activity_rec_focus_touch" width="26" height="26"/>
+        <image name="activity_rec_focus_touch_pressed" width="26" height="26"/>
+        <image name="activity_rec_gallery" width="32" height="28"/>
+        <image name="activity_rec_gallery_pressed" width="32" height="28"/>
+        <image name="activity_rec_hide_tools" width="11" height="20"/>
+        <image name="activity_rec_hide_tools_pressed" width="11" height="20"/>
+        <image name="activity_rec_iso" width="26" height="26"/>
+        <image name="activity_rec_iso_pressed" width="26" height="26"/>
+        <image name="activity_rec_memory" width="11" height="14"/>
+        <image name="activity_rec_memory_pressed" width="11" height="14"/>
+        <image name="activity_rec_metering" width="26" height="26"/>
+        <image name="activity_rec_metering_automatic" width="26" height="26"/>
+        <image name="activity_rec_metering_automatic_pressed" width="26" height="26"/>
+        <image name="activity_rec_metering_manual" width="26" height="26"/>
+        <image name="activity_rec_metering_manual_pressed" width="26" height="26"/>
+        <image name="activity_rec_metering_pressed" width="26" height="26"/>
+        <image name="activity_rec_metering_spot" width="26" height="26"/>
+        <image name="activity_rec_metering_spot_pressed" width="26" height="26"/>
+        <image name="activity_rec_metering_touch" width="26" height="26"/>
+        <image name="activity_rec_micro_connected_normal" width="14" height="16"/>
+        <image name="activity_rec_micro_connected_pressed" width="20" height="20"/>
+        <image name="activity_rec_micro_volume_loud" width="11" height="10"/>
+        <image name="activity_rec_micro_volume_low" width="12" height="10"/>
+        <image name="activity_rec_minus" width="11" height="11"/>
+        <image name="activity_rec_plus" width="11" height="11"/>
+        <image name="activity_rec_resolution_1080" width="19" height="10"/>
+        <image name="activity_rec_resolution_1080_pressed" width="19" height="10"/>
+        <image name="activity_rec_rotate" width="26" height="27"/>
+        <image name="activity_rec_rotate_pressed" width="26" height="27"/>
+        <image name="activity_rec_settings" width="26" height="27"/>
+        <image name="activity_rec_settings_pressed" width="26" height="27"/>
+        <image name="activity_rec_show_tools" width="10" height="20"/>
+        <image name="activity_rec_show_tools_pressed" width="10" height="20"/>
+        <image name="activity_rec_shrink" width="17" height="17"/>
+        <image name="activity_rec_start_recording" width="44" height="44"/>
+        <image name="activity_rec_stop_recording" width="44" height="44"/>
+        <image name="activity_rec_tools_menu" width="26" height="27"/>
+        <image name="activity_rec_tools_menu_pressed" width="26" height="27"/>
+        <image name="activity_rec_wb_flash" width="11" height="22"/>
+        <image name="activity_rec_wb_flash_pressed" width="11" height="22"/>
+        <image name="activity_rec_white_balance" width="26" height="26"/>
+        <image name="activity_rec_white_balance_automatic" width="14" height="14"/>
+        <image name="activity_rec_white_balance_automatic_pressed" width="14" height="14"/>
+        <image name="activity_rec_white_balance_cloudy" width="26" height="18"/>
+        <image name="activity_rec_white_balance_cloudy_pressed" width="26" height="18"/>
+        <image name="activity_rec_white_balance_fluorescent" width="26" height="26"/>
+        <image name="activity_rec_white_balance_fluorescent_pressed" width="26" height="26"/>
+        <image name="activity_rec_white_balance_pressed" width="26" height="26"/>
+        <image name="activity_rec_white_balance_sunny" width="26" height="26"/>
+        <image name="activity_rec_white_balance_sunny_pressed" width="26" height="26"/>
+        <image name="activity_rec_white_balance_tungsten" width="26" height="26"/>
+        <image name="activity_rec_white_balance_tungsten_pressed" width="26" height="26"/>
+        <image name="activity_rec_zoom_normal" width="25" height="26"/>
+        <image name="activity_rec_zoom_normal_pressed" width="25" height="26"/>
+        <image name="activity_record_icon_focus_focused" width="68" height="68"/>
         <image name="activity_record_icon_peak_meter" width="219" height="51"/>
-        <image name="activity_record_icon_recording" width="10" height="10"/>
-        <image name="overlay_clear_grid" width="736" height="414"/>
+        <image name="activity_record_icon_recording" width="7" height="7"/>
+        <image name="overlay_clear_grid" width="552" height="310"/>
     </resources>
 </document>
