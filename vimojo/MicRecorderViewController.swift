@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import VideonaPlayer
 import AVFoundation
+import VideonaTrackOverView
 
 class MicRecorderViewController: ViMoJoController,MicRecorderPresenterDelegate,PlayerViewSetter{
     //MARK: - VIPER variables
@@ -22,7 +23,7 @@ class MicRecorderViewController: ViMoJoController,MicRecorderPresenterDelegate,P
     //MARK: - Variables and constants
     var micRecorderView:MicRecorderViewInterface?
     var mixAudioView:MixAudioViewInterface?
-    var audioPlayer:AVAudioPlayer?
+    var audioPlayer:AVPlayer?
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -100,12 +101,9 @@ class MicRecorderViewController: ViMoJoController,MicRecorderPresenterDelegate,P
         audioPlayer?.volume = value
     }
     
-    func createAudioPlayer(_ url: URL) {
-        do{
-            try audioPlayer = AVAudioPlayer(contentsOf: url)
-        }catch{
-            print("Error creating audioplayer")
-        }
+    func createAudioPlayer(_ composition: AVMutableComposition){
+        let playerItem = AVPlayerItem(asset: composition)
+        audioPlayer = AVPlayer(playerItem: playerItem)
     }
     
     func removeAudioPlayer() {
@@ -121,8 +119,9 @@ class MicRecorderViewController: ViMoJoController,MicRecorderPresenterDelegate,P
     }
     
     func seekAudioPlayerTo(_ value:Float) {
-        audioPlayer?.currentTime = TimeInterval.init(value)
+        audioPlayer?.seek(to: CMTimeMakeWithSeconds(Float64(value), 600))
     }
+    
     func showAlertDiscardRecord(_ title:String,
                                 message:String,
                                 yesString:String) {
@@ -144,6 +143,11 @@ class MicRecorderViewController: ViMoJoController,MicRecorderPresenterDelegate,P
         alertController.addAction(yesAction)
         self.present(alertController, animated: false, completion:{})
     }
+    
+    func setRecordedTrackArea(value: TrackModel) {
+        micRecorderView?.addTrackedArea(values: value)
+    }
+    
     //MARK: - Change views
     func setMicRecorderButtonState(_ state: Bool) {
         micRecorderView?.setRecordButtonSelectedState(state)
@@ -161,11 +165,19 @@ class MicRecorderViewController: ViMoJoController,MicRecorderPresenterDelegate,P
 
 extension MicRecorderViewController:MicRecorderViewDelegate{
     func micRecorderLongPressStart(){
-        eventHandler?.startLongPress()
+        for view in playerView.subviews{
+            if let player =  view as? PlayerView{
+                if let time = player.player?.currentTime(){
+                    eventHandler?.startLongPress(atTime: time)
+                    micRecorderView?.setSliderEnableState(isEnabled: false)
+                }
+            }
+        }
     }
     
     func micRecorderLongPressFinished(){
         eventHandler?.pauseLongPress()
+        micRecorderView?.setSliderEnableState(isEnabled: true)
     }
     
     func micRecorderAcceptButtonPushed(){
@@ -178,6 +190,10 @@ extension MicRecorderViewController:MicRecorderViewDelegate{
     
     func updateRecordMicActualTime(_ time: String) {
         micRecorderView?.setActualValueLabelString(time)
+    }
+    
+    func micSliderInserctionPointValueChanged(value: Float) {
+        eventHandler?.micInserctionPointValue(value: value)
     }
 }
 

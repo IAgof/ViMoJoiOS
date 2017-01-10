@@ -14,9 +14,9 @@ import AVFoundation
 protocol MicRecorderInteractorInterface {
     func getMicRecorderValues()
     func getVideoComposition()
+    func loadVoiceOverAudios()
     
-    func initAudioSession()
-    func startRecordMic()
+    func startRecordMic(atTime:CMTime)
     func pauseRecordMic()
     func stopRecordMic()
     
@@ -31,5 +31,7 @@ protocol MicRecorderInteractorInterface {
 protocol MicRecorderInteractorDelegate {
     func setVideoComposition(_ composition:VideoComposition)
     func setMicRecorderValues(_ value:MicRecorderViewModel)
-    func setActualAudioRecorded(_ url:URL)
+    func setActualAudioRecorded(_ voiceOverComposition:AVMutableComposition)
+    
+    func setMicRecordedTimeRangeValues(micRecordedRanges:[CMTimeRange])
 }

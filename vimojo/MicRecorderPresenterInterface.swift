@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import AVFoundation
+import VideonaTrackOverView
 
 protocol MicRecorderPresenterInterface {
     func viewDidLoad()
@@ -25,10 +26,10 @@ protocol MicRecorderPresenterInterface {
     
     func getMicRecorderViewValues()
     
-    func startLongPress()
+    func startLongPress(atTime:CMTime)
     func pauseLongPress()
     func acceptMicRecord()
-
+    func micInserctionPointValue(value:Float)
     func updateActualTime(_ time:Float)
     
     func acceptMixAudio()
@@ -55,7 +56,7 @@ protocol MicRecorderPresenterDelegate {
     func updateRecordMicActualTime(_ time:String)
     
     func changeAudioPlayerVolume(_ value:Float)
-    func createAudioPlayer(_ url: URL)
+    func createAudioPlayer(_ composition: AVMutableComposition)
     func removeAudioPlayer()
     func playAudioPlayer()
     func pauseAudioPlayer()
@@ -64,4 +65,6 @@ protocol MicRecorderPresenterDelegate {
     func showAlertDiscardRecord(_ title:String,
                                 message:String,
                                 yesString:String)
+    
+    func setRecordedTrackArea(value:TrackModel)
 }

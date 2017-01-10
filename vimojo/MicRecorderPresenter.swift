@@ -10,8 +10,9 @@ import Foundation
 import VideonaPlayer
 import AVFoundation
 import VideonaProject
+import VideonaTrackOverView
 
-class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorDelegate {
+class MicRecorderPresenter: MicRecorderPresenterInterface {
     //MARK: - Variables VIPER
     var delegate:MicRecorderPresenterDelegate?
     var interactor: MicRecorderInteractorInterface?
@@ -30,6 +31,8 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
     var isPlayingMedia = false
     var videoVolume:Float = 1.0
     var audioVolume:Float = 1.0
+    var micRecordedTimeRangeValues:[CMTimeRange] = []
+    var videoTotalTime:Double = 0
     
     enum MicViewShowed {
         case micRecord
@@ -45,15 +48,12 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
     func viewDidLoad() {
         wireframe?.presentPlayerInterface()
 
-        interactor?.removeVoiceOverFromProject()
-
         interactor?.getVideoComposition()
-        interactor?.initAudioSession()
         interactor?.getMicRecorderValues()
     }
     
     func viewWillAppear() {
-//        delegate?.bringToFrontExpandPlayerButton()
+        interactor?.loadVoiceOverAudios()
     }
     
     func viewDidAppear() {
@@ -116,19 +116,19 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
         interactor?.getMicRecorderValues()
     }
     
-    func startLongPress() {
-        startRecord()
+    func startLongPress(atTime: CMTime) {
+        startRecord(atTime: atTime)
     }
     
     func pauseLongPress() {
         pauseRecord()
     }
     
-    func startRecord() {
+    func startRecord(atTime:CMTime) {
         delegate?.setMicRecorderButtonState(true)
         playerPresenter?.pushPlayButton()
         
-        interactor?.startRecordMic()
+        interactor?.startRecordMic(atTime: atTime)
         
         delegate?.showAcceptCancelButton()
     }
@@ -137,7 +137,7 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
         delegate?.setMicRecorderButtonState(false)
         playerPresenter?.pushPlayButton()
         
-        interactor?.pauseRecordMic()
+        interactor?.stopRecordMic()
     }
     
     func acceptMicRecord() {
@@ -169,8 +169,6 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
         
         delegate?.seekAudioPlayerTo(0.0)
         playerPresenter?.seekToTime(0.0)
-        
-        interactor?.initAudioSession()
         
         playerPresenter?.setPlayerMuted(true)
         playerPresenter?.disablePlayerInteraction()
@@ -263,8 +261,17 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
         playerPresenter?.setPlayerVolume(videoVolume)
     }
     
+    func micInserctionPointValue(value: Float) {
+        playerPresenter?.seekToTime(value)
+    }    
+}
+
+extension MicRecorderPresenter:MicRecorderInteractorDelegate{
     //MARK: - Interactor delegate
     func setVideoComposition(_ composition: VideoComposition) {
+        if let duration = composition.mutableComposition?.duration.seconds{
+            videoTotalTime = duration
+        }
         playerPresenter?.createVideoPlayer(composition)
     }
     
@@ -274,7 +281,20 @@ class MicRecorderPresenter: MicRecorderPresenterInterface,MicRecorderInteractorD
         delegate?.showMicRecordView(value)
     }
     
-    func setActualAudioRecorded(_ url: URL) {
-        delegate?.createAudioPlayer(url)
+    func setActualAudioRecorded(_ voiceOverComposition:AVMutableComposition){
+        delegate?.createAudioPlayer(voiceOverComposition)
+    }
+    
+    func setMicRecordedTimeRangeValues(micRecordedRanges: [CMTimeRange]) {
+        self.micRecordedTimeRangeValues = micRecordedRanges
+        
+        for micRecordedValue in micRecordedTimeRangeValues{
+            let trackModel = TrackModel(maxValue: Float(videoTotalTime),
+                                        lowerValue: Float(micRecordedValue.start.seconds),
+                                        upperValue: Float(micRecordedValue.end.seconds),
+                                        color: mainColor.cgColor)
+            
+            delegate?.setRecordedTrackArea(value: trackModel)
+        }
     }
 }

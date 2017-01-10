@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -78,16 +78,24 @@
                         <action selector="cancelButtonPushed:" destination="iN0-l3-epB" eventType="touchUpInside" id="gVJ-SN-AvY"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frc-rt-73M" customClass="VideonaTrackOverView" customModule="VideonaTrackOverView">
+                    <rect key="frame" x="0.0" y="40" width="341" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="5qN-Yy-fS4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="6lb-Bg-dqk"/>
+                <constraint firstItem="frc-rt-73M" firstAttribute="centerX" secondItem="65h-5Z-Vxb" secondAttribute="centerX" id="6rE-6F-ht2"/>
                 <constraint firstItem="5qN-Yy-fS4" firstAttribute="width" secondItem="5qN-Yy-fS4" secondAttribute="height" multiplier="1:1" id="7g6-hI-K5n"/>
+                <constraint firstItem="frc-rt-73M" firstAttribute="centerY" secondItem="65h-5Z-Vxb" secondAttribute="centerY" id="96f-Ju-XoI"/>
                 <constraint firstItem="vBn-Vy-0Xf" firstAttribute="trailing" secondItem="65h-5Z-Vxb" secondAttribute="trailing" id="AMQ-Pi-Hot"/>
+                <constraint firstItem="frc-rt-73M" firstAttribute="height" secondItem="65h-5Z-Vxb" secondAttribute="height" id="BtG-Mu-fWJ"/>
                 <constraint firstItem="cx7-zJ-Fqz" firstAttribute="top" secondItem="IXF-XZ-P7z" secondAttribute="bottom" constant="35" id="Cgc-Ze-8jn"/>
                 <constraint firstItem="Ak8-lw-L5R" firstAttribute="leading" secondItem="65h-5Z-Vxb" secondAttribute="leading" id="Dcp-sG-Kde"/>
                 <constraint firstItem="BOJ-rZ-0lF" firstAttribute="width" secondItem="BOJ-rZ-0lF" secondAttribute="height" multiplier="27:23" id="JKe-o1-qgV"/>
                 <constraint firstAttribute="trailing" secondItem="65h-5Z-Vxb" secondAttribute="trailing" constant="8" id="JRh-Wo-TDz"/>
+                <constraint firstItem="frc-rt-73M" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="KYG-VG-PkV"/>
                 <constraint firstItem="65h-5Z-Vxb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="RqQ-5k-9OG"/>
                 <constraint firstAttribute="bottom" secondItem="5qN-Yy-fS4" secondAttribute="bottom" constant="8" id="Udg-Nj-kbH"/>
                 <constraint firstAttribute="bottom" secondItem="BOJ-rZ-0lF" secondAttribute="bottom" constant="8" id="bew-qA-MEn"/>
@@ -108,6 +116,7 @@
                 <outlet property="highValueLabel" destination="vBn-Vy-0Xf" id="8oi-ci-cng"/>
                 <outlet property="lowValueLabel" destination="Ak8-lw-L5R" id="kc8-9U-QyJ"/>
                 <outlet property="recordButton" destination="cx7-zJ-Fqz" id="MNs-Pu-DYS"/>
+                <outlet property="recordedTrackOverView" destination="frc-rt-73M" id="7a1-nF-UaC"/>
                 <outlet property="totalRecordedSlider" destination="65h-5Z-Vxb" id="9WM-8g-CVC"/>
             </connections>
             <point key="canvasLocation" x="10" y="-7"/>

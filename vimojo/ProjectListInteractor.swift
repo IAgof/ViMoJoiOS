@@ -61,7 +61,7 @@ class ProjectListInteractor: ProjectListInteractorInterface {
                 print("error")
             }
         }
-        return UIImage(named: "no_image")!
+        return UIImage(named: "activity_project_gallery_no_videos")!
     }
     
     func removeProjectAction(projectNumber: Int) {

@@ -32,6 +32,7 @@ pod 'VideoGallery', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideoG
 pod 'VideoGallery', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideoGallery'
 pod 'InputSoundGainControl', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/InputSoundGainControl'
 pod 'VideonaRangeSlider', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaRangeSlider'
+pod 'VideonaTrackOverView', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaTrackOverView'
 
 pod 'VideonaProject', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaProject'
 

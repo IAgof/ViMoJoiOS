@@ -146,7 +146,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
             
             trackAppStartupProperties(false);
             
-            appDependencies.installRecordToRootViewControllerIntoWindow(window!)
+//            appDependencies.installRecordToRootViewControllerIntoWindow(window!)
+            appDependencies.installEditorRoomToRootViewControllerIntoWindow(window!)
             
         } else {
             // other version

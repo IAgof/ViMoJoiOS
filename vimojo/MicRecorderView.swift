@@ -10,12 +10,14 @@ import Foundation
 import UIKit
 import NMRangeSlider
 import VideonaProject
+import VideonaTrackOverView
 
 protocol MicRecorderViewDelegate {
     func micRecorderLongPressStart()
     func micRecorderLongPressFinished()
     func micRecorderAcceptButtonPushed()
     func micRecorderCancelButtonPushed()
+    func micSliderInserctionPointValueChanged(value:Float)
 }
 
 protocol MicRecorderViewInterface {
@@ -25,10 +27,16 @@ protocol MicRecorderViewInterface {
     func setHighValueLabelString(_ text:String)
     func setActualValueLabelString(_ text:String)
     func configureRangeSlider(_ maximumValue:Float)
+    func setSliderEnableState(isEnabled:Bool)
     func updateSliderTo(_ value:Float)
     func removeView()
     func showButtons()
     func hideButtons()
+    
+    func addTrackedArea(values:TrackModel)
+    func removeTrackedArea(position:Int)
+    func updateTrackedArea(position:Int,
+                           values:TrackModel)
 }
 
 class MicRecorderView: UIView,MicRecorderViewInterface{
@@ -41,6 +49,7 @@ class MicRecorderView: UIView,MicRecorderViewInterface{
     @IBOutlet weak var totalRecordedSlider: NMRangeSlider!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var acceptButton: UIButton!
+    @IBOutlet weak var recordedTrackOverView: VideonaTrackOverView!
     
     //MARK: - Variables
     var delegate:MicRecorderViewDelegate?
@@ -60,7 +69,6 @@ class MicRecorderView: UIView,MicRecorderViewInterface{
         self.recordButton.addGestureRecognizer(longPressGesture!)
         
         configureUIRangeSlider()
-        totalRecordedSlider.isEnabled = false
     }
     
     func setViewFrame(_ frame:CGRect){
@@ -98,7 +106,7 @@ class MicRecorderView: UIView,MicRecorderViewInterface{
     
     
     @IBAction func micSliderChanged(_ sender: NMRangeSlider) {
-        
+        delegate?.micSliderInserctionPointValueChanged(value: totalRecordedSlider.upperValue)
     }
     
     //MARK: - Interface
@@ -152,6 +160,22 @@ class MicRecorderView: UIView,MicRecorderViewInterface{
     
     func updateSliderTo(_ value: Float) {
         totalRecordedSlider.upperValue = value
+    }
+    
+    func setSliderEnableState(isEnabled: Bool) {
+        totalRecordedSlider.isEnabled = isEnabled
+    }
+    
+    func addTrackedArea(values: TrackModel) {
+        recordedTrackOverView.addLayer(portionData: values)
+    }
+    
+    func removeTrackedArea(position: Int) {
+        recordedTrackOverView.removeLayerFromPosition(position: position)
+    }
+    
+    func updateTrackedArea(position: Int, values: TrackModel) {
+        recordedTrackOverView.updateLayer(portionData: values, position: position)
     }
     
     //MARK: - Range UI Config

@@ -15,6 +15,7 @@ public class RealmProjectToProjectMapper:Mapper{
     
     let musicSource = MusicProvider()
     var toVideoMapper = RealmVideoToVideoMapper()
+    var toAudioMapper = RealmAudioToAudioMapper()
 
     public func map(from: RealmProject) -> Project {
         let profile = mapProfile(realmProject: from)
@@ -26,13 +27,11 @@ public class RealmProjectToProjectMapper:Mapper{
         project.setExportedPath(path: from.exportedPath)
         project.exportDate = from.exportedDate
         project.modificationDate = from.modificationDate
-        project.isVoiceOverSet = from.isVoiceOverSet
-        project.voiceOver = Audio(title: "", mediaPath: from.voiceOverPath)
-        project.voiceOver.audioLevel = from.voiceOverAudioLevel
         project.transitionTime = from.transitionTime
 
         setProjectMusic(project: project, realmProject: from)
         setProjectVideos(project: project, realmProject: from)
+        setProjectVoiceOver(project: project, realmProject: from)
         
         return project
     }
@@ -67,5 +66,15 @@ public class RealmProjectToProjectMapper:Mapper{
         }
         
         project.setVideoList(videoList)
+    }
+    
+    func setProjectVoiceOver(project:Project,realmProject:RealmProject){
+        var audioList = project.voiceOver
+        
+        for realmAudio in realmProject.voiceOver{
+            audioList.append(toAudioMapper.map(from: realmAudio))
+        }
+        
+        project.voiceOver = audioList
     }
 }
