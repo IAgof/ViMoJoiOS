@@ -11,6 +11,7 @@ pod 'Mixpanel'
 pod 'Fabric'
 pod 'Crashlytics'
 pod 'RealmSwift'
+pod 'SwifterSwift'
 
 pod 'Google/SignIn'
 pod 'Google'

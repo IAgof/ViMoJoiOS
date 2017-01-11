@@ -25,7 +25,7 @@ protocol MicRecorderInteractorInterface {
     func setVoiceOverToProject(_ videoVolume:Float,
                                audioVolume:Float)
     func removeVoiceOverFromProject()
-    func getStringByKey(_ key:String) -> String 
+    func getStringByKey(_ key:String) -> String
 }
 
 protocol MicRecorderInteractorDelegate {
@@ -33,5 +33,5 @@ protocol MicRecorderInteractorDelegate {
     func setMicRecorderValues(_ value:MicRecorderViewModel)
     func setActualAudioRecorded(_ voiceOverComposition:AVMutableComposition)
     
-    func setMicRecordedTimeRangeValues(micRecordedRanges:[CMTimeRange])
+    func setMicRecordedTimeRangeValue(micRecordedRange: CMTimeRange) 
 }

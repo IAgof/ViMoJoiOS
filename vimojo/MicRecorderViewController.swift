@@ -11,8 +11,9 @@ import UIKit
 import VideonaPlayer
 import AVFoundation
 import VideonaTrackOverView
+import NMRangeSlider
 
-class MicRecorderViewController: ViMoJoController,MicRecorderPresenterDelegate,PlayerViewSetter{
+class MicRecorderViewController: ViMoJoController,PlayerViewSetter{
     //MARK: - VIPER variables
     var eventHandler: MicRecorderPresenterInterface?
     
@@ -20,17 +21,75 @@ class MicRecorderViewController: ViMoJoController,MicRecorderPresenterDelegate,P
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var musicContainer: UIView!
     
+    @IBOutlet weak var sliderValueLabel: UILabel!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var acceptButton: UIButton!
+    @IBOutlet weak var mixAudioSlider: UISlider!
+    
+    @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var lowValueLabel: UILabel!
+    @IBOutlet weak var actualValueLabel: UILabel!
+    @IBOutlet weak var highValueLabel: UILabel!
+    @IBOutlet weak var totalRecordedSlider: NMRangeSlider!
+    @IBOutlet weak var recordedTrackOverView: VideonaTrackOverView!
+    
     //MARK: - Variables and constants
-    var micRecorderView:MicRecorderViewInterface?
-    var mixAudioView:MixAudioViewInterface?
     var audioPlayer:AVPlayer?
+    var longPressGesture: UILongPressGestureRecognizer?
+
+    //MARK: - Actions
+    @IBAction func acceptButtonPushed(_ sender: AnyObject) {
+        //TODO: assign function on eventhandler
+    }
+    
+    @IBAction func cancelButtonPushed(_ sender: AnyObject) {
+        //TODO: assign function on eventhandler
+    }
+    
+    @IBAction func mixAudioValueChanged(_ sender: AnyObject) {
+        sliderValueLabel.text = "\(Int(mixAudioSlider.value * 100))%"
+        eventHandler?.mixVolumeUpdate(mixAudioSlider.value)
+    }
+    
+    @IBAction func micSliderChanged(_ sender: NMRangeSlider) {
+        eventHandler?.micInserctionPointValue(value: totalRecordedSlider.upperValue)
+    }
+    
+    func handleLongGesture(_ gesture: UILongPressGestureRecognizer) {
+        
+        switch(gesture.state) {
+            
+        case UIGestureRecognizerState.began:
+            for view in playerView.subviews{
+                if let player =  view as? PlayerView{
+                    if let time = player.player?.currentTime(){
+                        eventHandler?.startLongPress(atTime: time)
+                        totalRecordedSlider.isEnabled = false
+                    }
+                }
+            }
+            break
+        case UIGestureRecognizerState.ended:
+            eventHandler?.pauseLongPress()
+            totalRecordedSlider.isEnabled = true
+
+            break
+            
+        default:
+            break
+        }
+    }
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        eventHandler?.viewDidLoad()
+        longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(MicRecorderViewController.handleLongGesture(_:)))
+        self.recordButton.addGestureRecognizer(longPressGesture!)
         
+        configureUIRangeSlider()
+        
+        eventHandler?.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,161 +116,138 @@ class MicRecorderViewController: ViMoJoController,MicRecorderPresenterDelegate,P
     @IBAction func pushBackButton(_ sender: AnyObject) {
         eventHandler?.pushBackButton()
     }
-    //MARK: - Presenter delegate
-    func showMicRecordView(_ micRecorderViewModel: MicRecorderViewModel) {
-        let view = MicRecorderView.instanceFromNib() as? MicRecorderView
-        micRecorderView = view
-        view?.delegate = self
-        
-        musicContainer.addSubview(view!)
-        view?.setViewFrame(musicContainer.frame)
-        
-        micRecorderView?.setLowValueLabelString(micRecorderViewModel.lowValue)
-        micRecorderView?.setHighValueLabelString(micRecorderViewModel.highValue)
-        micRecorderView?.setActualValueLabelString(micRecorderViewModel.actualValue)
-        micRecorderView?.configureRangeSlider(Float(micRecorderViewModel.sliderRange))
-    }
-    
-    func hideMicRecordView() {
-        micRecorderView?.removeView()
-    }
-    
-    func showMixAudioView() {
-        let view = MixAudioView.instanceFromNib() as? MixAudioView
-        mixAudioView = view
-        view?.delegate = self
-        
-        musicContainer.addSubview(view!)
-        view?.setViewFrame(musicContainer.frame)
-    }
-    
-    func hideMixAudioView() {
-        mixAudioView?.removeView()
-    }
 
-    func showAcceptCancelButton() {
-        micRecorderView?.showButtons()
-    }
-    
-    func hideAcceptCancelButton() {
-        micRecorderView?.hideButtons()
-    }
-    
-    func changeAudioPlayerVolume(_ value: Float) {
-        audioPlayer?.volume = value
-    }
-    
-    func createAudioPlayer(_ composition: AVMutableComposition){
-        let playerItem = AVPlayerItem(asset: composition)
-        audioPlayer = AVPlayer(playerItem: playerItem)
-    }
-    
-    func removeAudioPlayer() {
-        audioPlayer = nil
-    }
-    
-    func playAudioPlayer(){
-        audioPlayer?.play()
-    }
-    
-    func pauseAudioPlayer(){
-        audioPlayer?.pause()
-    }
-    
-    func seekAudioPlayerTo(_ value:Float) {
-        audioPlayer?.seek(to: CMTimeMakeWithSeconds(Float64(value), 600))
-    }
-    
-    func showAlertDiscardRecord(_ title:String,
-                                message:String,
-                                yesString:String) {
-        
-        let alertController = UIAlertController(title:title,
-                                                message:message,
-                                                preferredStyle: .alert)
-        alertController.setTintColor()
-        
-        let yesAction = UIAlertAction(title: yesString,
-                                      style: .default,
-                                      handler: {alert -> Void in
-                                        self.eventHandler?.cancelConfirmed()
-        })
-        
-        let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
-        
-        alertController.addAction(noAction)
-        alertController.addAction(yesAction)
-        self.present(alertController, animated: false, completion:{})
-    }
-    
-    func setRecordedTrackArea(value: TrackModel) {
-        micRecorderView?.addTrackedArea(values: value)
-    }
-    
+
     //MARK: - Change views
     func setMicRecorderButtonState(_ state: Bool) {
-        micRecorderView?.setRecordButtonSelectedState(state)
+        recordButton.isSelected = state
     }
     
     func setMicRecorderButtonEnabled(_ state: Bool) {
-        micRecorderView?.setRecordButtonEnable(state)
+        longPressGesture?.isEnabled = state
+        recordButton.isEnabled = state
     }
     
     //MARK: - Player setter
     func addPlayerAsSubview(_ player: PlayerView) {
         self.playerView.addSubview(player)
     }
+    
+    //MARK: - Range UI Config
+    func configureUIRangeSlider(){
+        /*
+        var trackBackgroundImage = UIImage(named: "button_edit_seekbar_background_split")
+        trackBackgroundImage = trackBackgroundImage?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 5.0, 0.0, 5.0))
+        totalRecordedSlider.trackBackgroundImage = trackBackgroundImage
+        */
+        totalRecordedSlider.color
+        var handleImage = UIImage(named: "button_edit_thumb_seekbar_advance_split_normal")
+        handleImage = handleImage?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 2, 0.0, 2))
+        totalRecordedSlider.upperHandleImageNormal = handleImage
+        
+        let handleImagePressed = UIImage(named: "button_edit_thumb_seekbar_advance_split_pressed")
+        handleImage = handleImage?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 2, 0.0, 2))
+        totalRecordedSlider.upperHandleImageHighlighted = handleImagePressed
+    }
+    
+    func configureRangeSlider(_ maximumValue:Float) {
+        
+        self.configureUIRangeSlider()
+        
+        totalRecordedSlider.maximumValue = maximumValue
+        totalRecordedSlider.minimumValue = 0.0
+        
+        totalRecordedSlider.lowerHandleHidden = true
+        totalRecordedSlider.upperValue = 0.0
+        
+    }
 }
 
-extension MicRecorderViewController:MicRecorderViewDelegate{
-    func micRecorderLongPressStart(){
-        for view in playerView.subviews{
-            if let player =  view as? PlayerView{
-                if let time = player.player?.currentTime(){
-                    eventHandler?.startLongPress(atTime: time)
-                    micRecorderView?.setSliderEnableState(isEnabled: false)
-                }
-            }
-        }
+extension MicRecorderViewController:MicRecorderPresenterDelegate{
+    //MARK: - Presenter delegate
+    func setUpValues(_ micRecorderViewModel: MicRecorderViewModel) {
+        lowValueLabel.text = micRecorderViewModel.lowValue
+        highValueLabel.text = micRecorderViewModel.highValue
+        actualValueLabel.text = micRecorderViewModel.actualValue
+        configureRangeSlider(Float(micRecorderViewModel.sliderRange))
     }
-    
-    func micRecorderLongPressFinished(){
-        eventHandler?.pauseLongPress()
-        micRecorderView?.setSliderEnableState(isEnabled: true)
+
+    func showAcceptCancelButton() {
+        acceptButton.isHidden = false
+        cancelButton.isHidden = false
     }
-    
-    func micRecorderAcceptButtonPushed(){
-        eventHandler?.acceptMicRecord()
+
+    func hideAcceptCancelButton() {
+        acceptButton.isHidden = true
+        cancelButton.isHidden = true
     }
-    
-    func micRecorderCancelButtonPushed(){
-        eventHandler?.cancelPushed()
+
+    func changeAudioPlayerVolume(_ value: Float) {
+        audioPlayer?.volume = value
     }
-    
+
+    func createAudioPlayer(_ composition: AVMutableComposition){
+        let playerItem = AVPlayerItem(asset: composition)
+        audioPlayer = AVPlayer(playerItem: playerItem)
+    }
+
+    func removeAudioPlayer() {
+        audioPlayer = nil
+    }
+
+    func playAudioPlayer(){
+        audioPlayer?.play()
+    }
+
+    func pauseAudioPlayer(){
+        audioPlayer?.pause()
+    }
+
+    func seekAudioPlayerTo(_ value:Float) {
+        audioPlayer?.seek(to: CMTimeMakeWithSeconds(Float64(value), 600))
+    }
+
+    func showAlertDiscardRecord(_ title:String,
+                                message:String,
+                                yesString:String) {
+
+        let alertController = UIAlertController(title:title,
+                message:message,
+                preferredStyle: .alert)
+        alertController.setTintColor()
+
+        let yesAction = UIAlertAction(title: yesString,
+                style: .default,
+                handler: {alert -> Void in
+                    self.eventHandler?.cancelConfirmed()
+                })
+
+        let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
+
+        alertController.addAction(noAction)
+        alertController.addAction(yesAction)
+        self.present(alertController, animated: false, completion:{})
+    }
+
+    func setRecordedTrackArea(value: TrackModel) {
+        recordedTrackOverView.addLayer(portionData: value)
+    }
+
+    func updateRecordedTrackArea(position: Int, value: TrackModel) {
+        recordedTrackOverView.updateLayer(portionData: value, position: position)
+    }
+
+    func removeTrackArea(inPosition: Int) {
+        recordedTrackOverView.removeLayerFromPosition(position: inPosition)
+    }
+
     func updateRecordMicActualTime(_ time: String) {
-        micRecorderView?.setActualValueLabelString(time)
-    }
-    
-    func micSliderInserctionPointValueChanged(value: Float) {
-        eventHandler?.micInserctionPointValue(value: value)
+        actualValueLabel.text = time
     }
 }
-
-extension MicRecorderViewController:MixAudioViewDelegate{
-    func mixAudioAcceptButtonPushed(){
-        eventHandler?.acceptMixAudio()
-    }
-    func mixAudioCancelButtonPushed(){
-        eventHandler?.cancelPushed()
-    }
-    func mixVolumeValueChanged(_ value: Float) {
-        eventHandler?.mixVolumeUpdate(value)
-    }
-}
-
 extension MicRecorderViewController:PlayerViewDelegate{
     func seekBarUpdate(_ value: Float) {
-        micRecorderView?.updateSliderTo(value)
+        totalRecordedSlider.upperValue = value
         eventHandler?.updateActualTime(value)
     }
 }

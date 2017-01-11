@@ -41,12 +41,8 @@ protocol MicRecorderPresenterInterface {
 }
 
 protocol MicRecorderPresenterDelegate {
-    func showMicRecordView(_ micRecorderViewModel:MicRecorderViewModel)
-    func hideMicRecordView()
-    
-    func showMixAudioView()
-    func hideMixAudioView()
-    
+    func setUpValues(_ micRecorderViewModel:MicRecorderViewModel)
+
     func setMicRecorderButtonState(_ state:Bool)
     func setMicRecorderButtonEnabled(_ state:Bool)
     
@@ -67,4 +63,7 @@ protocol MicRecorderPresenterDelegate {
                                 yesString:String)
     
     func setRecordedTrackArea(value:TrackModel)
+    func updateRecordedTrackArea(position:Int,
+                                 value:TrackModel)
+    func removeTrackArea(inPosition:Int)
 }

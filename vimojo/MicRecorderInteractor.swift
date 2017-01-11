@@ -9,13 +9,7 @@
 import Foundation
 import VideonaProject
 import AVFoundation
-
-struct MicRecorderViewModel{
-    var lowValue:String
-    var actualValue:String
-    var highValue:String
-    var sliderRange:Double
-}
+import VideonaTrackOverView
 
 class MicRecorderInteractor :MicRecorderInteractorInterface{
     
@@ -43,13 +37,11 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
     }
     
     func sentRecordedTimeRanges(){
-        var recordedTimeRanges:[CMTimeRange] = []
         for audio in voiceOverAudios{
-            recordedTimeRanges.append(CMTimeRangeMake(CMTimeMakeWithSeconds(audio.getStartTime(), 600),
-                                                      CMTimeMakeWithSeconds(audio.getDuration(), 600)))
+            let timeRange = CMTimeRangeMake(CMTimeMakeWithSeconds(audio.getStartTime(), 600),
+                                            CMTimeMakeWithSeconds(audio.getDuration(), 600))
+            delegate?.setMicRecordedTimeRangeValue(micRecordedRange: timeRange)
         }
-        
-        delegate?.setMicRecordedTimeRangeValues(micRecordedRanges: recordedTimeRanges)
     }
     
     func initAudioSession(){
@@ -142,7 +134,9 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
         audio.setStartTime(atTime.seconds)
         
         voiceOverAudios.append(audio)
-        
+        delegate?.setMicRecordedTimeRangeValue(micRecordedRange: CMTimeRangeMake(CMTimeMakeWithSeconds(audio.getStartTime(), 600),
+                                                                                 CMTimeMakeWithSeconds(audio.getDuration(), 600)))
+
         let audioSession = AVAudioSession.sharedInstance()
         do {
             print("Start record")
