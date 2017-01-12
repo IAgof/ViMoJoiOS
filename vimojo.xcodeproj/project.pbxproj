@@ -139,6 +139,7 @@
 		A9693B7D1DB7C8CD00B00DD1 /* AddTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9693B7C1DB7C8CD00B00DD1 /* AddTextModel.swift */; };
 		A96E15F01DA257A400CF81E8 /* MusicModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96E15EF1DA257A400CF81E8 /* MusicModels.swift */; };
 		A973076A1DF04FA100451244 /* DrawerMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97307691DF04FA100451244 /* DrawerMenuTableViewController.swift */; };
+		A973B3501E27A38E00EC84AD /* UIViewFadeViewsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973B34F1E27A38E00EC84AD /* UIViewFadeViewsExtension.swift */; };
 		A97772B71DC244E700EA9291 /* Share.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97772BB1DC244E700EA9291 /* Share.strings */; };
 		A97772B81DC244E700EA9291 /* Share.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97772BB1DC244E700EA9291 /* Share.strings */; };
 		A97772B91DC244E700EA9291 /* Share.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97772BB1DC244E700EA9291 /* Share.strings */; };
@@ -750,6 +751,7 @@
 		A9693B7C1DB7C8CD00B00DD1 /* AddTextModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTextModel.swift; sourceTree = "<group>"; };
 		A96E15EF1DA257A400CF81E8 /* MusicModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicModels.swift; sourceTree = "<group>"; };
 		A97307691DF04FA100451244 /* DrawerMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerMenuTableViewController.swift; sourceTree = "<group>"; };
+		A973B34F1E27A38E00EC84AD /* UIViewFadeViewsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewFadeViewsExtension.swift; sourceTree = "<group>"; };
 		A97772BA1DC244E700EA9291 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Share.strings; sourceTree = "<group>"; };
 		A97772BF1DC244E800EA9291 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Share.strings; sourceTree = "<group>"; };
 		A97772C41DC2451200EA9291 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/EditorStrings.strings; sourceTree = "<group>"; };
@@ -1159,6 +1161,7 @@
 			children = (
 				A97F0F221DC092A100907196 /* UIApplicationExtensionGetTopController.swift */,
 				A9325FC21E0950B600400AD6 /* DateCompareExtension.swift */,
+				A973B34F1E27A38E00EC84AD /* UIViewFadeViewsExtension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -1734,7 +1737,6 @@
 		A9B385E81D7D51380065D3EC /* vimojo */ = {
 			isa = PBXGroup;
 			children = (
-				A9148DE11E1D3ED6006DC511 /* Theme */,
 				A93BCE5A1D7D7A1200421BD0 /* vimojo-Bridging-Header.h */,
 				A93BCE751D7D92C300421BD0 /* filter_free.png */,
 				A93BCE771D7D93B700421BD0 /* water_mark.png */,
@@ -1937,6 +1939,7 @@
 		A9B3865B1D7D55440065D3EC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A9148DE11E1D3ED6006DC511 /* Theme */,
 				A9325FBE1E0950AB00400AD6 /* Extension */,
 				A9CFA5E51D991DBE0037B1F5 /* VideonaFooterView.xib */,
 				A93BCE491D7D5C6B00421BD0 /* Constants */,
@@ -2796,6 +2799,7 @@
 				A91761231D916F48008915DA /* SocialNetworkProvider.swift in Sources */,
 				A964410D1DA3015B00CAD950 /* EditorModel.swift in Sources */,
 				A91B8C9C1DE8864D0040CA57 /* CheckPhotoRollPermissionUseCase.swift in Sources */,
+				A973B3501E27A38E00EC84AD /* UIViewFadeViewsExtension.swift in Sources */,
 				A93BCE431D7D599900421BD0 /* ViMoJoTracker.swift in Sources */,
 				A917611D1D916F48008915DA /* ShareTwitterInteractor.swift in Sources */,
 				A97F0F251DC092C800907196 /* SettingsNameAction.swift in Sources */,

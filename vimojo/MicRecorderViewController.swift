@@ -11,7 +11,8 @@ import UIKit
 import VideonaPlayer
 import AVFoundation
 import VideonaTrackOverView
-import NMRangeSlider
+import TTRangeSlider
+import VideonaProject
 
 class MicRecorderViewController: ViMoJoController,PlayerViewSetter{
     //MARK: - VIPER variables
@@ -30,31 +31,34 @@ class MicRecorderViewController: ViMoJoController,PlayerViewSetter{
     @IBOutlet weak var lowValueLabel: UILabel!
     @IBOutlet weak var actualValueLabel: UILabel!
     @IBOutlet weak var highValueLabel: UILabel!
-    @IBOutlet weak var totalRecordedSlider: NMRangeSlider!
+    @IBOutlet weak var totalRecordedSlider: TTRangeSlider!
     @IBOutlet weak var recordedTrackOverView: VideonaTrackOverView!
     
     //MARK: - Variables and constants
     var audioPlayer:AVPlayer?
     var longPressGesture: UILongPressGestureRecognizer?
-
+    var hasRecordViews:[UIView] = []
+    
     //MARK: - Actions
     @IBAction func acceptButtonPushed(_ sender: AnyObject) {
         //TODO: assign function on eventhandler
+        eventHandler?.acceptPushed()
     }
     
     @IBAction func cancelButtonPushed(_ sender: AnyObject) {
         //TODO: assign function on eventhandler
+        eventHandler?.cancelPushed()
     }
     
     @IBAction func mixAudioValueChanged(_ sender: AnyObject) {
         sliderValueLabel.text = "\(Int(mixAudioSlider.value * 100))%"
         eventHandler?.mixVolumeUpdate(mixAudioSlider.value)
     }
-    
-    @IBAction func micSliderChanged(_ sender: NMRangeSlider) {
-        eventHandler?.micInserctionPointValue(value: totalRecordedSlider.upperValue)
+
+    @IBAction func pushBackButton(_ sender: AnyObject) {
+        eventHandler?.pushBackButton()
     }
-    
+
     func handleLongGesture(_ gesture: UILongPressGestureRecognizer) {
         
         switch(gesture.state) {
@@ -81,6 +85,10 @@ class MicRecorderViewController: ViMoJoController,PlayerViewSetter{
     }
     
     //MARK: - Lifecycle
+    override public var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+            return UIInterfaceOrientationMask.portrait
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,8 +96,10 @@ class MicRecorderViewController: ViMoJoController,PlayerViewSetter{
         self.recordButton.addGestureRecognizer(longPressGesture!)
         
         configureUIRangeSlider()
-        
+        totalRecordedSlider.delegate = self
         eventHandler?.viewDidLoad()
+        setUpHasRecordView()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -111,12 +121,6 @@ class MicRecorderViewController: ViMoJoController,PlayerViewSetter{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    //MARK: Actions
-    @IBAction func pushBackButton(_ sender: AnyObject) {
-        eventHandler?.pushBackButton()
-    }
-
 
     //MARK: - Change views
     func setMicRecorderButtonState(_ state: Bool) {
@@ -135,31 +139,33 @@ class MicRecorderViewController: ViMoJoController,PlayerViewSetter{
     
     //MARK: - Range UI Config
     func configureUIRangeSlider(){
-        /*
-        var trackBackgroundImage = UIImage(named: "button_edit_seekbar_background_split")
-        trackBackgroundImage = trackBackgroundImage?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 5.0, 0.0, 5.0))
-        totalRecordedSlider.trackBackgroundImage = trackBackgroundImage
-        */
-        totalRecordedSlider.color
-        var handleImage = UIImage(named: "button_edit_thumb_seekbar_advance_split_normal")
-        handleImage = handleImage?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 2, 0.0, 2))
-        totalRecordedSlider.upperHandleImageNormal = handleImage
+        totalRecordedSlider.tintColor = secondColor
+        totalRecordedSlider.backgroundColor = secondColor
+        totalRecordedSlider.maxLabelColour = secondColor
         
-        let handleImagePressed = UIImage(named: "button_edit_thumb_seekbar_advance_split_pressed")
-        handleImage = handleImage?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 2, 0.0, 2))
-        totalRecordedSlider.upperHandleImageHighlighted = handleImagePressed
+        let handleImage = UIImage(named: "button_edit_thumb_seekbar_advance_split_normal")
+        totalRecordedSlider.handleImage = handleImage
+        
+        let formatter = TimeNumberFormatter()
+        self.totalRecordedSlider.numberFormatterOverride = formatter
     }
     
     func configureRangeSlider(_ maximumValue:Float) {
         
         self.configureUIRangeSlider()
         
-        totalRecordedSlider.maximumValue = maximumValue
-        totalRecordedSlider.minimumValue = 0.0
+        totalRecordedSlider.maxValue = maximumValue
+        totalRecordedSlider.minValue = 0.0
         
-        totalRecordedSlider.lowerHandleHidden = true
-        totalRecordedSlider.upperValue = 0.0
-        
+        totalRecordedSlider.selectedMaximum = 0.0
+        totalRecordedSlider.selectedMinimum = 0
+    }
+    
+    func setUpHasRecordView(){
+        hasRecordViews.append(cancelButton)
+        hasRecordViews.append(acceptButton)
+        hasRecordViews.append(mixAudioSlider)
+        hasRecordViews.append(sliderValueLabel)
     }
 }
 
@@ -172,14 +178,20 @@ extension MicRecorderViewController:MicRecorderPresenterDelegate{
         configureRangeSlider(Float(micRecorderViewModel.sliderRange))
     }
 
-    func showAcceptCancelButton() {
-        acceptButton.isHidden = false
-        cancelButton.isHidden = false
+    func showHasRecordViews() {
+        for view in hasRecordViews{
+            if view.isHidden{
+                view.fadeInViews([view])
+            }
+        }
     }
 
-    func hideAcceptCancelButton() {
-        acceptButton.isHidden = true
-        cancelButton.isHidden = true
+    func hideHasRecordViews() {
+        for view in hasRecordViews{
+            if !view.isHidden{
+                view.fadeOutViews([view])
+            }
+        }
     }
 
     func changeAudioPlayerVolume(_ value: Float) {
@@ -247,8 +259,15 @@ extension MicRecorderViewController:MicRecorderPresenterDelegate{
 }
 extension MicRecorderViewController:PlayerViewDelegate{
     func seekBarUpdate(_ value: Float) {
-        totalRecordedSlider.upperValue = value
+        totalRecordedSlider.selectedMaximum = value
         eventHandler?.updateActualTime(value)
+    }
+}
+
+extension MicRecorderViewController:TTRangeSliderDelegate{
+    func rangeSlider(_ sender: TTRangeSlider!, didChangeSelectedMinimumValue selectedMinimum: Float, andMaximumValue selectedMaximum: Float) {
+        debugPrint("Maximum value \(selectedMaximum)")
+        eventHandler?.micInserctionPointValue(value: selectedMaximum)
     }
 }
 

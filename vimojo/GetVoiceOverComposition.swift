@@ -21,7 +21,8 @@ class GetVoiceOverComposition{
                 
                 let asset = AVAsset(url: url)
                 
-                let sourceAudioAssetTrack: AVAssetTrack = asset.tracks(withMediaType: AVMediaTypeAudio).first!
+                guard let sourceAudioAssetTrack: AVAssetTrack = asset.tracks(withMediaType: AVMediaTypeAudio).first else {return}
+                
                 let audioCompositionTrack = mutableComposition.addMutableTrack(withMediaType: AVMediaTypeAudio, preferredTrackID: kCMPersistentTrackID_Invalid)
                 
                 do {

@@ -18,21 +18,19 @@ protocol MicRecorderPresenterInterface {
     func viewDidAppear()
     func playerHasLoaded()
     
-//    func expandPlayer()
     func updatePlayerLayer()
     func pushBackButton()
     func cancelPushed()
+    func acceptPushed()
     func cancelConfirmed()
     
     func getMicRecorderViewValues()
     
     func startLongPress(atTime:CMTime)
     func pauseLongPress()
-    func acceptMicRecord()
     func micInserctionPointValue(value:Float)
     func updateActualTime(_ time:Float)
     
-    func acceptMixAudio()
     func mixVolumeUpdate(_ value:Float)
     
     func videoPlayerPlay()
@@ -46,8 +44,8 @@ protocol MicRecorderPresenterDelegate {
     func setMicRecorderButtonState(_ state:Bool)
     func setMicRecorderButtonEnabled(_ state:Bool)
     
-    func showAcceptCancelButton()
-    func hideAcceptCancelButton()
+    func showHasRecordViews()
+    func hideHasRecordViews()
     
     func updateRecordMicActualTime(_ time:String)
     

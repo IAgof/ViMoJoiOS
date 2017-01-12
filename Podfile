@@ -16,6 +16,7 @@ pod 'SwifterSwift'
 pod 'Google/SignIn'
 pod 'Google'
 pod 'NMRangeSlider', '~> 1.2'
+pod 'TTRangeSlider'
 
 pod 'SpaceOnDisk', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/SpaceOnDisk'
 pod 'BatteryRemaining', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/BatteryRemaining'

@@ -23,16 +23,26 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
     var playerPresenter: PlayerPresenterInterface?
     
     //MARK: - Variables
-    var lastMusicSelected:Int = -1
     var isMusicSet:Bool = false
     var isGoingToExpandPlayer = false
+    var isPlayingMedia = false
+    var isRecording = false
     var recordMicViewActualTime = 0.0
     var recordMicViewTotalTime = 0.0
-    var isPlayingMedia = false
     var videoVolume:Float = 1.0
     var audioVolume:Float = 1.0
-    var micRecordedTimeRangeValues:[CMTimeRange] = []
+    var lastMusicSelected:Int = -1
     var videoTotalTime:Double = 0
+
+    var micRecordedTimeRangeValues:[CMTimeRange] = []{
+        didSet{
+            if micRecordedTimeRangeValues.count == 0{
+                delegate?.hideHasRecordViews()
+            }else{
+                delegate?.showHasRecordViews()
+            }
+        }
+    }
 
     //MARK: - Constants
     let NO_MUSIC_SELECTED = -1
@@ -43,6 +53,7 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
 
         interactor?.getVideoComposition()
         interactor?.getMicRecorderValues()
+        interactor?.getActualAudioRecorded()
     }
     
     func viewWillAppear() {
@@ -50,7 +61,7 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
     }
     
     func viewDidAppear() {
-        playerPresenter?.disablePlayerInteraction()
+
     }
     
     func viewWillDisappear() {
@@ -58,14 +69,12 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
     }
     
     func playerHasLoaded() {
-        playerPresenter?.setPlayerMuted(true)
-        playerPresenter?.disablePlayerInteraction()
+
     }
     
     func pushBackButton() {
         playerPresenter?.setPlayerMuted(false)
-        playerPresenter?.enablePlayerInteraction()
-        
+
         playerPresenter?.pauseVideo()
         delegate?.pauseAudioPlayer()
         
@@ -76,7 +85,14 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
         }
         wireframe?.removeController()
     }
-    
+
+    func acceptPushed() {
+        interactor?.setVoiceOverToProject(videoVolume,audioVolume: audioVolume)
+        resetAudioParams()
+
+        wireframe?.presentEditor()
+    }
+
     func cancelPushed() {
         guard let title = interactor?.getStringByKey(MicRecorderConstants.DISCARD_RECORDER_TITLE) else{return}
         guard let message = interactor?.getStringByKey(MicRecorderConstants.DISCARD_RECORDER_MESSAGE)else{return}
@@ -89,7 +105,12 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
     }
     
     func cancelConfirmed() {
+        resetRecord()
+        resetAudioParams()
 
+        interactor?.removeVoiceOverFromProject()
+
+        interactor?.getMicRecorderValues()
     }
     
     func updatePlayerLayer() {
@@ -102,6 +123,9 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
     
     func startLongPress(atTime: CMTime) {
         startRecord(atTime: atTime)
+        
+        playerPresenter?.setPlayerMuted(true)
+        isRecording = true
     }
     
     func pauseLongPress() {
@@ -110,54 +134,43 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
     
     func startRecord(atTime:CMTime) {
         delegate?.setMicRecorderButtonState(true)
-        playerPresenter?.pushPlayButton()
         
-        interactor?.startRecordMic(atTime: atTime)
+        if !isPlayingMedia{
+            playerPresenter?.pushPlayButton()
+        }
         
-        delegate?.showAcceptCancelButton()
+        interactor?.startRecordMic(atTime: atTime,
+                                   audioVolume: audioVolume)
+        
+        delegate?.showHasRecordViews()
     }
     
     func pauseRecord() {
+        
+        playerPresenter?.setPlayerMuted(false)
+        isRecording = false
+        
         delegate?.setMicRecorderButtonState(false)
         playerPresenter?.pushPlayButton()
         
         interactor?.stopRecordMic()
-    }
-    
-    func acceptMicRecord() {
-
         interactor?.getActualAudioRecorded()
-        
-        playerPresenter?.enablePlayerInteraction()
-        playerPresenter?.setPlayerMuted(false)
-        playerPresenter?.seekToTime(0.0)
-    }
-    
-    func cancelMicRecord() {
-        interactor?.removeVoiceOverFromProject()
-        
-        delegate?.removeAudioPlayer()
-        
-        playerPresenter?.seekToTime(0.0)
-        resetRecord()
     }
     
     func resetRecord() {
         
         playerPresenter?.pauseVideo()
+        playerPresenter?.setPlayerVolume(1)
+        
         delegate?.pauseAudioPlayer()
         
-        delegate?.seekAudioPlayerTo(0.0)
-        playerPresenter?.seekToTime(0.0)
-        
-        playerPresenter?.setPlayerMuted(true)
-        playerPresenter?.disablePlayerInteraction()
-        
-        delegate?.hideAcceptCancelButton()
-        delegate?.setMicRecorderButtonState(true)
+        bothPlayersSeeks(toTime:0.0)
+
+        delegate?.hideHasRecordViews()
+        delegate?.setMicRecorderButtonState(false)
         delegate?.setMicRecorderButtonEnabled(true)
         
-        for i in (micRecordedTimeRangeValues.count)...0{
+        for i in (0...(micRecordedTimeRangeValues.count)).reversed(){
             delegate?.removeTrackArea(inPosition: i)
         }
         
@@ -165,16 +178,11 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
     }
     
     func updateActualTime(_ time: Float) {
-        recordMicViewActualTime = Double(time) * recordMicViewTotalTime
-        if time != 1.0 {
-            delegate?.updateRecordMicActualTime("\(hourToString(recordMicViewActualTime))")
-        }else{
-            delegate?.setMicRecorderButtonEnabled(false)
-            playerPresenter?.pauseVideo()
-            delegate?.pauseAudioPlayer()
-        }
-        
-        if isPlayingMedia{
+        if isRecording{
+            if time >= Float(recordMicViewTotalTime - 0.1) {
+                pauseRecord()
+            }
+            
             DispatchQueue.main.async {
                 self.updateLastAudioTrackAreaWithValue(time: time)
             }
@@ -185,7 +193,6 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
         if var micRecordedValue = micRecordedTimeRangeValues.last{
 
             let position = micRecordedTimeRangeValues.count - 1
-            let barColor = #colorLiteral(red: 0.4, green: 0.4, blue: 0.4, alpha: 0.4901541096)
             
             let maxTime = Float(videoTotalTime)
             let lowerValue = Float(micRecordedValue.start.seconds)
@@ -193,7 +200,7 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
             let trackModel = TrackModel(maxValue: maxTime,
                                         lowerValue: lowerValue,
                                         upperValue: time,
-                                        color: barColor.cgColor)
+                                        color: mainColor.cgColor)
             debugPrint(trackModel)
 
             delegate?.updateRecordedTrackArea(position: position,
@@ -206,24 +213,6 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
         let secs = Int(floor(time.truncatingRemainder(dividingBy: 3600)).truncatingRemainder(dividingBy: 60))
         
         return String(format:"%02d:%02d", mins, secs)
-    }
-    
-    func acceptMixAudio() {
-        interactor?.setVoiceOverToProject(videoVolume,audioVolume: audioVolume)
-        resetAudioParams()
-
-        wireframe?.presentEditor()
-    }
-    
-    func cancelMixAudio() {
-        delegate?.removeAudioPlayer()
-        
-        resetRecord()
-        resetAudioParams()
-        
-        interactor?.removeVoiceOverFromProject()
-        
-        interactor?.getMicRecorderValues()
     }
 
     func resetAudioParams(){
@@ -267,8 +256,13 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
     }
     
     func micInserctionPointValue(value: Float) {
-        playerPresenter?.seekToTime(value)
-    }    
+        bothPlayersSeeks(toTime:value)
+    }
+    
+    func bothPlayersSeeks(toTime:Float){
+        playerPresenter?.seekToTime(toTime)
+        delegate?.seekAudioPlayerTo(toTime)
+    }
 }
 
 extension MicRecorderPresenter:MicRecorderInteractorDelegate{
@@ -288,16 +282,16 @@ extension MicRecorderPresenter:MicRecorderInteractorDelegate{
     
     func setActualAudioRecorded(_ voiceOverComposition:AVMutableComposition){
         delegate?.createAudioPlayer(voiceOverComposition)
+        delegate?.seekAudioPlayerTo(Float(recordMicViewActualTime))
     }
     
     func setMicRecordedTimeRangeValue(micRecordedRange: CMTimeRange) {
         self.micRecordedTimeRangeValues.append(micRecordedRange)
         
-        let barColor = #colorLiteral(red: 0.4, green: 0.4, blue: 0.4, alpha: 0.4901541096)
         let trackModel = TrackModel(maxValue: Float(videoTotalTime),
                                     lowerValue: Float(micRecordedRange.start.seconds),
                                     upperValue: Float(micRecordedRange.end.seconds),
-                                    color: barColor.cgColor)
+                                    color: mainColor.cgColor)
         debugPrint(trackModel)
         delegate?.setRecordedTrackArea(value: trackModel)
     }

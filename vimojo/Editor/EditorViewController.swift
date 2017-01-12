@@ -39,7 +39,6 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     @IBOutlet weak var expandPlayerButton: UIButton!
     @IBOutlet weak var rangeTrimSlider: VideonaRangeSlider!
     @IBOutlet weak var addFloatingButton: UIButton!
-    @IBOutlet weak var navigationBar: UINavigationBar!
 
     //MARK: - Lifecycle
     override func viewDidLoad() {

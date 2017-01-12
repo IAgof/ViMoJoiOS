@@ -16,7 +16,7 @@ protocol MicRecorderInteractorInterface {
     func getVideoComposition()
     func loadVoiceOverAudios()
     
-    func startRecordMic(atTime:CMTime)
+    func startRecordMic(atTime:CMTime,audioVolume:Float)
     func pauseRecordMic()
     func stopRecordMic()
     

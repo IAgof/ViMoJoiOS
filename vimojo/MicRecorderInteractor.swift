@@ -60,14 +60,17 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
     
     //MARK: - Interface
     func getVideoComposition() {
-        if project != nil{
-            actualComposition = GetActualProjectAVCompositionUseCase().getComposition(project: project!)
-            if actualComposition != nil {
-                let layer = GetActualProjectTextCALayerAnimationUseCase().getCALayerAnimation(project: project!)
-                actualComposition?.layerAnimation = layer
-
-                delegate?.setVideoComposition(actualComposition!)
-            }
+        guard let copyProject = project?.copy() as? Project else{
+            return
+        }
+        copyProject.voiceOver = []
+        
+        actualComposition = GetActualProjectAVCompositionUseCase().getComposition(project: copyProject)
+        if actualComposition != nil {
+            let layer = GetActualProjectTextCALayerAnimationUseCase().getCALayerAnimation(project: copyProject)
+            actualComposition?.layerAnimation = layer
+            
+            delegate?.setVideoComposition(actualComposition!)
         }
     }
     
@@ -87,7 +90,6 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
     }
     
     func getActualAudioRecorded() {
-        guard let project = self.project else{return}
         GetVoiceOverComposition().getComposition(audios: voiceOverAudios, completion: {
             voiceOverComposition in
             delegate?.setActualAudioRecorded(voiceOverComposition)
@@ -126,12 +128,13 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
     }
     
     //MARK: - Mic actions
-    func startRecordMic(atTime: CMTime) {
+    func startRecordMic(atTime: CMTime,audioVolume:Float) {
         initAudioSession()
         guard let audioPath = audioStringPath else{return}
         
         let audio = Audio(title: "", mediaPath: audioPath)
         audio.setStartTime(atTime.seconds)
+        audio.audioLevel = audioVolume
         
         voiceOverAudios.append(audio)
         delegate?.setMicRecordedTimeRangeValue(micRecordedRange: CMTimeRangeMake(CMTimeMakeWithSeconds(audio.getStartTime(), 600),
