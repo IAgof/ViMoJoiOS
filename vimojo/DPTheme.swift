@@ -36,7 +36,11 @@ class DPTheme: NSObject {
                     .lightContent, animated: false)
             }
             
-            self.customizeNavigationBar(barColor: maincolor, textColor: secondaryColor, fontName: fontName, fontSize: kDefaultNavigationBarFontSize, buttonColor: secondaryColor)
+            self.customizeNavigationBar(barColor: maincolor,
+                                        textColor: secondaryColor,
+                                        fontName: fontName,
+                                        fontSize: kDefaultNavigationBarFontSize,
+                                        buttonColor: secondaryColor)
             self.customizeTabBar(barColor: maincolor, textColor: secondaryColor, fontName: fontName, fontSize: kDefaultTabBarFontSize)
             self.customizeSwitch(onColor: maincolor)
             self.customizeSearchBar(barColor: maincolor, tintColor: secondaryColor)
@@ -128,6 +132,7 @@ class DPTheme: NSObject {
         selectedButtonColor:UIColor) {
         UIButton.appearance().setTitleColor(buttonColor, for: .normal)
         UIButton.appearance().setTitleColor(selectedButtonColor, for: .selected)
+        UIButton.appearance().tintColor = selectedButtonColor
     }
     
     
@@ -184,6 +189,7 @@ class DPTheme: NSObject {
         sliderColor: UIColor,
         maxTrackColor:UIColor) {
         UISlider.appearance().minimumTrackTintColor = sliderColor
+        UISlider.appearance().tintColor = sliderColor
         UISlider.appearance().maximumTrackTintColor = maxTrackColor
     }
     

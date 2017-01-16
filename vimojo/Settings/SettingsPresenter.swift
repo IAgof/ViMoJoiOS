@@ -25,7 +25,6 @@ class SettingsPresenter:NSObject,SettingsPresenterInterface{
     }
     
     func viewDidLoad() {
-        delegate?.setNavBarTitle(Utils().getStringByKeyFromSettings(SettingsConstants().SETTINGS_TITLE))
         delegate?.registerClass()
         delegate?.removeSeparatorTable()
         

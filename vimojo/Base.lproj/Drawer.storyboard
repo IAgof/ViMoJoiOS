@@ -13,7 +13,7 @@
         <!--Menu-->
         <scene sceneID="28G-o8-Joi">
             <objects>
-                <tableViewController storyboardIdentifier="DrawerMenuTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="s83-2h-qSy" customClass="DrawerMenuTableViewController" customModule="vimojo" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DrawerMenuTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="s83-2h-qSy" customClass="DrawerMenuTableViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7YA-3h-seG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                         <sections>
                             <tableViewSection id="ROc-Cg-GGe">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DrawerProfileTableViewCell" rowHeight="120" id="QIE-Zj-dmi" customClass="DrawerProfileTableViewCell" customModule="vimojo" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DrawerProfileTableViewCell" rowHeight="120" id="QIE-Zj-dmi" customClass="DrawerProfileTableViewCell" customModule="RTVE" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QIE-Zj-dmi" id="mw6-BE-9sC">
@@ -155,6 +155,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Menu" id="riH-7R-M5n"/>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="userContentView" destination="mw6-BE-9sC" id="Uk3-le-s56"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J8W-zh-Wqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

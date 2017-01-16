@@ -45,9 +45,16 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         super.viewDidLoad()
         
         rangeTrimSlider.delegate = self
-        eventHandler?.viewDidLoad()        
+        configureUITrimSlider()
+        eventHandler?.viewDidLoad()
     }
 
+    func configureUITrimSlider(){
+        rangeTrimSlider.backgroundSliderColor = mainColor
+        rangeTrimSlider.middleSliderColor = mainColor
+        rangeTrimSlider.untrackedAreaColor = secondColor
+    }
+        
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 

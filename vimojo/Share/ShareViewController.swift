@@ -46,7 +46,6 @@ UITableViewDelegate, UITableViewDataSource
     //MARK: - Outlets
     @IBOutlet weak var shareTableView: UITableView!
     @IBOutlet weak var playerView: UIView!
-    @IBOutlet weak var settingsNavBar: UINavigationItem!
     @IBOutlet weak var expandPlayerButton: UIButton!
     @IBOutlet weak var shareGenericButton: UIButton!
 
@@ -82,10 +81,6 @@ UITableViewDelegate, UITableViewDataSource
 
     func bringToFrontExpandPlayerButton(){
         self.playerView.bringSubview(toFront: expandPlayerButton)
-    }
-    
-    func setNavBarTitle(_ title:String){
-        //        settingsNavBar.title = title
     }
     
     func removeSeparatorTable() {

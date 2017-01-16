@@ -12,8 +12,12 @@ import KYDrawerController
 class DrawerMenuTableViewController: UITableViewController {
     var eventHandler:DrawerMenuPresenterInterface?
     
+    @IBOutlet weak var userContentView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        userContentView.backgroundColor = mainColor
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -22,7 +26,7 @@ class DrawerMenuTableViewController: UITableViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

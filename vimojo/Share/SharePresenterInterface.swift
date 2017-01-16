@@ -34,6 +34,5 @@ protocol SharePresenterDelegate {
     func createShareInterface()
     func setShareViewObjectsList(_ viewObjects:[ShareViewModel])
     func bringToFrontExpandPlayerButton()
-    func setNavBarTitle(_ title:String)
     func removeSeparatorTable()
 }
