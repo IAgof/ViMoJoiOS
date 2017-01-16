@@ -22,7 +22,6 @@ public class VideoToRealmVideoMapper:Mapper{
         realmVideo.position = from.getPosition()
         realmVideo.startTime = from.getStartTime()
         realmVideo.stopTime = from.getStopTime()
-        realmVideo.uuid = from.uuid
         realmVideo.clipTextPosition = from.textPositionToVideo
         realmVideo.clipText = from.textToVideo
         realmVideo.videoURL = from.videoURL.absoluteString

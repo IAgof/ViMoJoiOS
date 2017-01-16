@@ -10,8 +10,8 @@ import Foundation
 import RealmSwift
 
 class RealmMigrationsUseCase {
-    let newSchemaVersion = UInt64(1)
-    let oldSchemaVersion = UInt64(0)
+    let newSchemaVersion = UInt64(3)
+    let oldSchemaVersion = UInt64(2)
     
     func updateMigrationDefault(){
         // Inside your application(application:didFinishLaunchingWithOptions:)

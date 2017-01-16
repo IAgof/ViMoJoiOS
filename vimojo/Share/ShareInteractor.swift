@@ -54,7 +54,6 @@ class ShareInteractor: NSObject,ShareInteractorInterface {
                 exportVideoAction()
             }
         }
-
     }
     
     func exportVideoAction(){

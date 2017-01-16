@@ -17,10 +17,3 @@ public protocol VideoRepository:Repository{
     func getVideos()->Results<RealmVideo>
     func removeAllVideos()
 }
-
-//
-//public interface VideoRepository extends Repository<Video>{
-//    void update(Video item, RealmProject realmProject);
-//    RealmResults<RealmVideo> getVideos();
-//    void removeAllVideos();
-//}

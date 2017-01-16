@@ -22,9 +22,10 @@ public class RealmProject:Object{
     dynamic var modificationDate: NSDate? = nil
     dynamic var exportedDate: NSDate? = nil
     dynamic var exportedPath: String? = nil
-    dynamic var voiceOverPath: String = ""
-    dynamic var isVoiceOverSet: Bool = false
+    var voiceOver = List<RealmAudio>()
+        dynamic var isVoiceOverSet: Bool = false
     dynamic var voiceOverAudioLevel:Float = 0
+    dynamic var projectOutputAudioLevel:Float = 1
     dynamic var transitionTime:Double = 0
     
     override public class func primaryKey() -> String? {

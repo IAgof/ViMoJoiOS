@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import AVFoundation
+import VideonaTrackOverView
 
 protocol MicRecorderPresenterInterface {
     func viewDidLoad()
@@ -17,21 +18,21 @@ protocol MicRecorderPresenterInterface {
     func viewDidAppear()
     func playerHasLoaded()
     
-//    func expandPlayer()
     func updatePlayerLayer()
     func pushBackButton()
     func cancelPushed()
+    func acceptPushed()
     func cancelConfirmed()
+    func removeVoiceOverTrack()
     
     func getMicRecorderViewValues()
     
-    func startLongPress()
+    func startLongPress(atTime:CMTime)
     func pauseLongPress()
-    func acceptMicRecord()
-
+    func micInserctionPointValue(value:Float)
     func updateActualTime(_ time:Float)
+    func deleteTrack()
     
-    func acceptMixAudio()
     func mixVolumeUpdate(_ value:Float)
     
     func videoPlayerPlay()
@@ -40,22 +41,18 @@ protocol MicRecorderPresenterInterface {
 }
 
 protocol MicRecorderPresenterDelegate {
-    func showMicRecordView(_ micRecorderViewModel:MicRecorderViewModel)
-    func hideMicRecordView()
-    
-    func showMixAudioView()
-    func hideMixAudioView()
-    
+    func setUpValues(_ micRecorderViewModel:MicRecorderViewModel)
+
     func setMicRecorderButtonState(_ state:Bool)
     func setMicRecorderButtonEnabled(_ state:Bool)
     
-    func showAcceptCancelButton()
-    func hideAcceptCancelButton()
+    func showHasRecordViews()
+    func hideHasRecordViews()
     
     func updateRecordMicActualTime(_ time:String)
     
     func changeAudioPlayerVolume(_ value:Float)
-    func createAudioPlayer(_ url: URL)
+    func createAudioPlayer(_ composition: AVMutableComposition)
     func removeAudioPlayer()
     func playAudioPlayer()
     func pauseAudioPlayer()
@@ -64,4 +61,12 @@ protocol MicRecorderPresenterDelegate {
     func showAlertDiscardRecord(_ title:String,
                                 message:String,
                                 yesString:String)
+    
+    func setRecordedTrackArea(value:TrackModel)
+    func updateRecordedTrackArea(position:Int,
+                                 value:TrackModel)
+    func removeTrackArea(inPosition:Int)
+    
+    func recordButtonIsHidden(isHidden:Bool)
+    func deleteVoiceOverTrackButtonIsHidden(isHidden:Bool)
 }

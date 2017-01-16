@@ -24,7 +24,6 @@ class MusicViewController: EditingRoomItemController,MusicViewInterface,MusicPre
     
     var detailMusicView:MusicDetailView?
     var musicListView:MusicListView?
-    var micRecorderView:MicRecorderViewInterface?
     
     //MARK: - Lifecycle
     override func viewDidLoad() {

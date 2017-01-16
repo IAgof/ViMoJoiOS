@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11A097E8D44766969156DCB8 /* MicRecorderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A09073A2322E361D5AF3A8 /* MicRecorderViewModel.swift */; };
 		6F276CCDBF2518B0460A8298 /* Pods_vimojo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB586E6DDDB51926A3B11FCA /* Pods_vimojo.framework */; };
 		A900C7461DC3575700A65730 /* FTPErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C7451DC3575700A65730 /* FTPErrorType.swift */; };
 		A900C74B1DC358F500A65730 /* SettingsFTPBreakingNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C74A1DC358F500A65730 /* SettingsFTPBreakingNews.swift */; };
@@ -20,6 +21,7 @@
 		A90386471DF1AC5600C01244 /* SettingTransitionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90386461DF1AC5600C01244 /* SettingTransitionAction.swift */; };
 		A906CCDB1DB0D03700AC8FFB /* MicRecorder.strings in Resources */ = {isa = PBXBuildFile; fileRef = A906CCDD1DB0D03700AC8FFB /* MicRecorder.strings */; };
 		A906CCE01DB0D06B00AC8FFB /* MicRecorderConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A906CCDF1DB0D06B00AC8FFB /* MicRecorderConstants.swift */; };
+		A907FE7C1E26366500E6D2F6 /* RecordedTrackAreaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A907FE7B1E26366500E6D2F6 /* RecordedTrackAreaViewModel.swift */; };
 		A9148DDC1E1D3ECE006DC511 /* DPTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9148DDA1E1D3ECE006DC511 /* DPTheme.swift */; };
 		A9148DDD1E1D3ECE006DC511 /* CustomDPTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9148DDB1E1D3ECE006DC511 /* CustomDPTheme.swift */; };
 		A915E8D51E1BC00E00A37F5F /* RealmMigrationsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915E8D41E1BC00E00A37F5F /* RealmMigrationsUseCase.swift */; };
@@ -92,14 +94,13 @@
 		A91D63041DDF1F3A00D226B8 /* GetCompositionForVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91D63031DDF1F3A00D226B8 /* GetCompositionForVideo.swift */; };
 		A91D63061DDF22F600D226B8 /* SetTrimParametersToVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91D63051DDF22F600D226B8 /* SetTrimParametersToVideo.swift */; };
 		A91D63081DDF234C00D226B8 /* TrimParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91D63071DDF234C00D226B8 /* TrimParameters.swift */; };
+		A9320B861E2CD65F004DC8A1 /* AppThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9320B851E2CD65F004DC8A1 /* AppThemeColors.swift */; };
 		A9325FAD1E091E1D00400AD6 /* ExportTemporalVideoToShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9325FAC1E091E1D00400AD6 /* ExportTemporalVideoToShare.swift */; };
 		A9325FB21E091FB900400AD6 /* GetPHAssetFromUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9325FB11E091FB900400AD6 /* GetPHAssetFromUrl.swift */; };
 		A9325FC31E0950B600400AD6 /* DateCompareExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9325FC21E0950B600400AD6 /* DateCompareExtension.swift */; };
 		A9334EEF1DAAB96A00762D8A /* MusicListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9334EEE1DAAB96A00762D8A /* MusicListView.xib */; };
 		A9334EF11DAAB97C00762D8A /* MusicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9334EF01DAAB97C00762D8A /* MusicListView.swift */; };
 		A9334EF31DAABBFC00762D8A /* MusicListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9334EF21DAABBFC00762D8A /* MusicListCell.xib */; };
-		A9334EF61DAB6E9600762D8A /* MicRecorderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9334EF51DAB6E9600762D8A /* MicRecorderView.xib */; };
-		A9334EF81DAB6EA100762D8A /* MicRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9334EF71DAB6EA100762D8A /* MicRecorderView.swift */; };
 		A93BCE431D7D599900421BD0 /* ViMoJoTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE421D7D599900421BD0 /* ViMoJoTracker.swift */; };
 		A93BCE4C1D7D5C7400421BD0 /* ConfigPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE4A1D7D5C7400421BD0 /* ConfigPreferences.swift */; };
 		A93BCE4D1D7D5C7400421BD0 /* AnalitycsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE4B1D7D5C7400421BD0 /* AnalitycsConstants.swift */; };
@@ -139,6 +140,7 @@
 		A9693B7D1DB7C8CD00B00DD1 /* AddTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9693B7C1DB7C8CD00B00DD1 /* AddTextModel.swift */; };
 		A96E15F01DA257A400CF81E8 /* MusicModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96E15EF1DA257A400CF81E8 /* MusicModels.swift */; };
 		A973076A1DF04FA100451244 /* DrawerMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97307691DF04FA100451244 /* DrawerMenuTableViewController.swift */; };
+		A973B3501E27A38E00EC84AD /* UIViewFadeViewsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973B34F1E27A38E00EC84AD /* UIViewFadeViewsExtension.swift */; };
 		A97772B71DC244E700EA9291 /* Share.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97772BB1DC244E700EA9291 /* Share.strings */; };
 		A97772B81DC244E700EA9291 /* Share.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97772BB1DC244E700EA9291 /* Share.strings */; };
 		A97772B91DC244E700EA9291 /* Share.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97772BB1DC244E700EA9291 /* Share.strings */; };
@@ -159,6 +161,13 @@
 		A97F0F3B1DC0BE8000907196 /* SettingsFTPPasswordAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F3A1DC0BE8000907196 /* SettingsFTPPasswordAction.swift */; };
 		A97F0F3D1DC0BEBF00907196 /* SettingsFTPEditedDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F3C1DC0BEBF00907196 /* SettingsFTPEditedDestination.swift */; };
 		A97F0F3F1DC0BEEF00907196 /* SettingsFTPUneditedDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F3E1DC0BEEF00907196 /* SettingsFTPUneditedDestination.swift */; };
+		A980A5291E23D18B00D50034 /* RealmAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A980A5281E23D18B00D50034 /* RealmAudio.swift */; };
+		A980A52D1E23D37800D50034 /* RealmAudioToAudioMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A980A52C1E23D37800D50034 /* RealmAudioToAudioMapper.swift */; };
+		A980A52F1E23D85900D50034 /* AudioToRealmAudioMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A980A52E1E23D85900D50034 /* AudioToRealmAudioMapper.swift */; };
+		A980A5311E23D8C500D50034 /* AudioRealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A980A5301E23D8C500D50034 /* AudioRealmRepository.swift */; };
+		A980A5331E23D8E900D50034 /* AudioRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A980A5321E23D8E900D50034 /* AudioRepository.swift */; };
+		A980A5361E23DB8100D50034 /* RealmVideoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A980A5351E23DB8100D50034 /* RealmVideoTests.swift */; };
+		A980A57B1E23F34300D50034 /* GetVoiceOverComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A980A57A1E23F34300D50034 /* GetVoiceOverComposition.swift */; };
 		A988DEEE1DACEF800030E285 /* MusicListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DEED1DACEF800030E285 /* MusicListInteractor.swift */; };
 		A988DEF01DACEF8E0030E285 /* MusicListInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DEEF1DACEF8E0030E285 /* MusicListInteractorInterface.swift */; };
 		A988DEF21DACEF9B0030E285 /* MusicListPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DEF11DACEF9B0030E285 /* MusicListPresenterInterface.swift */; };
@@ -184,10 +193,10 @@
 		A9A2072C1DED872B004AAEE2 /* ProjectListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2072B1DED872B004AAEE2 /* ProjectListInteractor.swift */; };
 		A9A2072E1DED8732004AAEE2 /* ProjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2072D1DED8732004AAEE2 /* ProjectListViewController.swift */; };
 		A9A207361DED8C84004AAEE2 /* ProjectListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A207351DED8C84004AAEE2 /* ProjectListViewModel.swift */; };
-		A9A207381DED915F004AAEE2 /* no_image.png in Resources */ = {isa = PBXBuildFile; fileRef = A9A207371DED915F004AAEE2 /* no_image.png */; };
 		A9A2073A1DED929F004AAEE2 /* ProjectListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A207391DED929F004AAEE2 /* ProjectListCellView.swift */; };
 		A9A2073C1DED94BB004AAEE2 /* ProjectList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9A2073B1DED94BB004AAEE2 /* ProjectList.storyboard */; };
 		A9A207421DEDAF84004AAEE2 /* RemoveProjectOnProjectListAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A207411DEDAF84004AAEE2 /* RemoveProjectOnProjectListAction.swift */; };
+		A9A268D31E28F29600B65010 /* MixAudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A268D21E28F29600B65010 /* MixAudioModel.swift */; };
 		A9A419151DB5110C00FB642E /* AddTextWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A4190F1DB5110C00FB642E /* AddTextWireframe.swift */; };
 		A9A419161DB5110C00FB642E /* AddTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A419101DB5110C00FB642E /* AddTextViewController.swift */; };
 		A9A419171DB5110C00FB642E /* AddTextPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A419111DB5110C00FB642E /* AddTextPresenterInterface.swift */; };
@@ -471,8 +480,6 @@
 		A9FC5C361DE4A57D003AA3CB /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A93BCE0C1D7D577300421BD0 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9FC5C3A1DE4A581003AA3CB /* RebekkaTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A921D9701DC1DEA9003631E8 /* RebekkaTouch.framework */; };
 		A9FC5C3B1DE4A581003AA3CB /* RebekkaTouch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A921D9701DC1DEA9003631E8 /* RebekkaTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A9FDD8BB1DAD3D5300AB0930 /* MixAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FDD8BA1DAD3D5300AB0930 /* MixAudioView.swift */; };
-		A9FDD8BD1DAD3D5F00AB0930 /* MixAudioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9FDD8BC1DAD3D5F00AB0930 /* MixAudioView.xib */; };
 		A9FEF9781DBF8B0A00A56611 /* SettingsActionInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FEF9771DBF8B0A00A56611 /* SettingsActionInterface.swift */; };
 		A9FEF97C1DBF8B3A00A56611 /* SettingsUsernameAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FEF97B1DBF8B3A00A56611 /* SettingsUsernameAction.swift */; };
 		A9FEF9801DBF9CB400A56611 /* SettingsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FEF97F1DBF9CB400A56611 /* SettingsUtils.swift */; };
@@ -603,6 +610,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		11A09073A2322E361D5AF3A8 /* MicRecorderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicRecorderViewModel.swift; sourceTree = "<group>"; };
 		7632CB83B0D9EBF5233B0541 /* Pods_vimojoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vimojoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		953914E431AE5941AB6338E5 /* Pods-vimojo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojo.release.xcconfig"; path = "Pods/Target Support Files/Pods-vimojo/Pods-vimojo.release.xcconfig"; sourceTree = "<group>"; };
 		A900C7451DC3575700A65730 /* FTPErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTPErrorType.swift; sourceTree = "<group>"; };
@@ -619,6 +627,7 @@
 		A906CCDE1DB0D03900AC8FFB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MicRecorder.strings; sourceTree = "<group>"; };
 		A906CCDF1DB0D06B00AC8FFB /* MicRecorderConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicRecorderConstants.swift; sourceTree = "<group>"; };
 		A906CCE41DB0D76C00AC8FFB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		A907FE7B1E26366500E6D2F6 /* RecordedTrackAreaViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordedTrackAreaViewModel.swift; sourceTree = "<group>"; };
 		A9148DDA1E1D3ECE006DC511 /* DPTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPTheme.swift; sourceTree = "<group>"; };
 		A9148DDB1E1D3ECE006DC511 /* CustomDPTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDPTheme.swift; sourceTree = "<group>"; };
 		A915E8D41E1BC00E00A37F5F /* RealmMigrationsUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmMigrationsUseCase.swift; sourceTree = "<group>"; };
@@ -694,14 +703,13 @@
 		A91D63051DDF22F600D226B8 /* SetTrimParametersToVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTrimParametersToVideo.swift; sourceTree = "<group>"; };
 		A91D63071DDF234C00D226B8 /* TrimParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrimParameters.swift; sourceTree = "<group>"; };
 		A921D9661DC1DEA9003631E8 /* Rebekka.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rebekka.xcodeproj; path = "../FTP_Client_Rebekka/rebekka-source/Rebekka.xcodeproj"; sourceTree = "<group>"; };
+		A9320B851E2CD65F004DC8A1 /* AppThemeColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppThemeColors.swift; sourceTree = "<group>"; };
 		A9325FAC1E091E1D00400AD6 /* ExportTemporalVideoToShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportTemporalVideoToShare.swift; sourceTree = "<group>"; };
 		A9325FB11E091FB900400AD6 /* GetPHAssetFromUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPHAssetFromUrl.swift; sourceTree = "<group>"; };
 		A9325FC21E0950B600400AD6 /* DateCompareExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCompareExtension.swift; sourceTree = "<group>"; };
 		A9334EEE1DAAB96A00762D8A /* MusicListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicListView.xib; sourceTree = "<group>"; };
 		A9334EF01DAAB97C00762D8A /* MusicListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicListView.swift; sourceTree = "<group>"; };
 		A9334EF21DAABBFC00762D8A /* MusicListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicListCell.xib; sourceTree = "<group>"; };
-		A9334EF51DAB6E9600762D8A /* MicRecorderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MicRecorderView.xib; sourceTree = "<group>"; };
-		A9334EF71DAB6EA100762D8A /* MicRecorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicRecorderView.swift; sourceTree = "<group>"; };
 		A93BCE031D7D577300421BD0 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = ../GPUImageForViMojoApp/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 		A93BCE421D7D599900421BD0 /* ViMoJoTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViMoJoTracker.swift; sourceTree = "<group>"; };
 		A93BCE4A1D7D5C7400421BD0 /* ConfigPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigPreferences.swift; sourceTree = "<group>"; };
@@ -746,6 +754,7 @@
 		A9693B7C1DB7C8CD00B00DD1 /* AddTextModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTextModel.swift; sourceTree = "<group>"; };
 		A96E15EF1DA257A400CF81E8 /* MusicModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicModels.swift; sourceTree = "<group>"; };
 		A97307691DF04FA100451244 /* DrawerMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerMenuTableViewController.swift; sourceTree = "<group>"; };
+		A973B34F1E27A38E00EC84AD /* UIViewFadeViewsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewFadeViewsExtension.swift; sourceTree = "<group>"; };
 		A97772BA1DC244E700EA9291 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Share.strings; sourceTree = "<group>"; };
 		A97772BF1DC244E800EA9291 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Share.strings; sourceTree = "<group>"; };
 		A97772C41DC2451200EA9291 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/EditorStrings.strings; sourceTree = "<group>"; };
@@ -765,6 +774,13 @@
 		A97F0F3A1DC0BE8000907196 /* SettingsFTPPasswordAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsFTPPasswordAction.swift; sourceTree = "<group>"; };
 		A97F0F3C1DC0BEBF00907196 /* SettingsFTPEditedDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsFTPEditedDestination.swift; sourceTree = "<group>"; };
 		A97F0F3E1DC0BEEF00907196 /* SettingsFTPUneditedDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsFTPUneditedDestination.swift; sourceTree = "<group>"; };
+		A980A5281E23D18B00D50034 /* RealmAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmAudio.swift; sourceTree = "<group>"; };
+		A980A52C1E23D37800D50034 /* RealmAudioToAudioMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmAudioToAudioMapper.swift; sourceTree = "<group>"; };
+		A980A52E1E23D85900D50034 /* AudioToRealmAudioMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioToRealmAudioMapper.swift; sourceTree = "<group>"; };
+		A980A5301E23D8C500D50034 /* AudioRealmRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRealmRepository.swift; sourceTree = "<group>"; };
+		A980A5321E23D8E900D50034 /* AudioRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRepository.swift; sourceTree = "<group>"; };
+		A980A5351E23DB8100D50034 /* RealmVideoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmVideoTests.swift; path = RepositoryTests/Video/RealmVideoTests.swift; sourceTree = "<group>"; };
+		A980A57A1E23F34300D50034 /* GetVoiceOverComposition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetVoiceOverComposition.swift; sourceTree = "<group>"; };
 		A988DEED1DACEF800030E285 /* MusicListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicListInteractor.swift; sourceTree = "<group>"; };
 		A988DEEF1DACEF8E0030E285 /* MusicListInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicListInteractorInterface.swift; sourceTree = "<group>"; };
 		A988DEF11DACEF9B0030E285 /* MusicListPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicListPresenterInterface.swift; sourceTree = "<group>"; };
@@ -790,10 +806,10 @@
 		A9A2072B1DED872B004AAEE2 /* ProjectListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectListInteractor.swift; sourceTree = "<group>"; };
 		A9A2072D1DED8732004AAEE2 /* ProjectListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectListViewController.swift; sourceTree = "<group>"; };
 		A9A207351DED8C84004AAEE2 /* ProjectListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectListViewModel.swift; sourceTree = "<group>"; };
-		A9A207371DED915F004AAEE2 /* no_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_image.png; sourceTree = "<group>"; };
 		A9A207391DED929F004AAEE2 /* ProjectListCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectListCellView.swift; sourceTree = "<group>"; };
 		A9A2073B1DED94BB004AAEE2 /* ProjectList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProjectList.storyboard; sourceTree = "<group>"; };
 		A9A207411DEDAF84004AAEE2 /* RemoveProjectOnProjectListAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveProjectOnProjectListAction.swift; sourceTree = "<group>"; };
+		A9A268D21E28F29600B65010 /* MixAudioModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixAudioModel.swift; sourceTree = "<group>"; };
 		A9A4190F1DB5110C00FB642E /* AddTextWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTextWireframe.swift; sourceTree = "<group>"; };
 		A9A419101DB5110C00FB642E /* AddTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTextViewController.swift; sourceTree = "<group>"; };
 		A9A419111DB5110C00FB642E /* AddTextPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTextPresenterInterface.swift; sourceTree = "<group>"; };
@@ -882,8 +898,6 @@
 		A9ED00591D917B7200969F31 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		A9EDDD551DEC5977001F7DD9 /* CreateNewProjectUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewProjectUseCase.swift; sourceTree = "<group>"; };
 		A9F03D361E1E542D00DE2880 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A9FDD8BA1DAD3D5300AB0930 /* MixAudioView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixAudioView.swift; sourceTree = "<group>"; };
-		A9FDD8BC1DAD3D5F00AB0930 /* MixAudioView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MixAudioView.xib; sourceTree = "<group>"; };
 		A9FEF9771DBF8B0A00A56611 /* SettingsActionInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsActionInterface.swift; sourceTree = "<group>"; };
 		A9FEF97B1DBF8B3A00A56611 /* SettingsUsernameAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsUsernameAction.swift; sourceTree = "<group>"; };
 		A9FEF97F1DBF9CB400A56611 /* SettingsUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsUtils.swift; sourceTree = "<group>"; };
@@ -1005,6 +1019,9 @@
 			children = (
 				A906CCDD1DB0D03700AC8FFB /* MicRecorder.strings */,
 				A906CCDF1DB0D06B00AC8FFB /* MicRecorderConstants.swift */,
+				A907FE7B1E26366500E6D2F6 /* RecordedTrackAreaViewModel.swift */,
+				11A09073A2322E361D5AF3A8 /* MicRecorderViewModel.swift */,
+				A9A268D21E28F29600B65010 /* MixAudioModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1014,6 +1031,7 @@
 			children = (
 				A9148DDA1E1D3ECE006DC511 /* DPTheme.swift */,
 				A9148DDB1E1D3ECE006DC511 /* CustomDPTheme.swift */,
+				A9320B851E2CD65F004DC8A1 /* AppThemeColors.swift */,
 			);
 			name = Theme;
 			sourceTree = "<group>";
@@ -1149,6 +1167,7 @@
 			children = (
 				A97F0F221DC092A100907196 /* UIApplicationExtensionGetTopController.swift */,
 				A9325FC21E0950B600400AD6 /* DateCompareExtension.swift */,
+				A973B34F1E27A38E00EC84AD /* UIViewFadeViewsExtension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -1162,15 +1181,6 @@
 				A9334EF01DAAB97C00762D8A /* MusicListView.swift */,
 			);
 			name = MusicListView;
-			sourceTree = "<group>";
-		};
-		A9334EF41DAB6E8300762D8A /* MicRecorderView */ = {
-			isa = PBXGroup;
-			children = (
-				A9334EF51DAB6E9600762D8A /* MicRecorderView.xib */,
-				A9334EF71DAB6EA100762D8A /* MicRecorderView.swift */,
-			);
-			name = MicRecorderView;
 			sourceTree = "<group>";
 		};
 		A93BCE041D7D577300421BD0 /* Products */ = {
@@ -1304,6 +1314,7 @@
 		A95078C71DE5F1CD00FD250B /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				A980A5271E23D16800D50034 /* Audio */,
 				A9E90D561DE706FF002B9DA3 /* Project */,
 				A9E90D7B1DE74232002B9DA3 /* Video */,
 				A95078CF1DE5F38800FD250B /* Mapper.swift */,
@@ -1518,6 +1529,26 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		A980A5271E23D16800D50034 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				A980A5281E23D18B00D50034 /* RealmAudio.swift */,
+				A980A52C1E23D37800D50034 /* RealmAudioToAudioMapper.swift */,
+				A980A52E1E23D85900D50034 /* AudioToRealmAudioMapper.swift */,
+				A980A5301E23D8C500D50034 /* AudioRealmRepository.swift */,
+				A980A5321E23D8E900D50034 /* AudioRepository.swift */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
+		A980A5341E23DB4B00D50034 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				A980A5351E23DB8100D50034 /* RealmVideoTests.swift */,
+			);
+			name = Repository;
+			sourceTree = "<group>";
+		};
 		A988DEEC1DACEF6E0030E285 /* Music List */ = {
 			isa = PBXGroup;
 			children = (
@@ -1589,6 +1620,7 @@
 			children = (
 				A988DF071DAD1E1C0030E285 /* MicRecorderInteractorInterface.swift */,
 				A988DF091DAD1E230030E285 /* MicRecorderInteractor.swift */,
+				A980A57A1E23F34300D50034 /* GetVoiceOverComposition.swift */,
 			);
 			name = "App Logic";
 			sourceTree = "<group>";
@@ -1596,8 +1628,6 @@
 		A988DF0E1DAD244D0030E285 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
-				A9FDD8B71DAD3D4100AB0930 /* Mic mixAudio */,
-				A9334EF41DAB6E8300762D8A /* MicRecorderView */,
 				A988DF011DAD1DFC0030E285 /* MicRecorderViewController.swift */,
 				A988DF031DAD1E090030E285 /* MicRecorderPresenter.swift */,
 				A988DF051DAD1E110030E285 /* MicRecorderPresenterInterface.swift */,
@@ -1713,10 +1743,8 @@
 		A9B385E81D7D51380065D3EC /* vimojo */ = {
 			isa = PBXGroup;
 			children = (
-				A9148DE11E1D3ED6006DC511 /* Theme */,
 				A93BCE5A1D7D7A1200421BD0 /* vimojo-Bridging-Header.h */,
 				A93BCE751D7D92C300421BD0 /* filter_free.png */,
-				A9A207371DED915F004AAEE2 /* no_image.png */,
 				A93BCE771D7D93B700421BD0 /* water_mark.png */,
 				A93BCE731D7D88EE00421BD0 /* activity_record_rec_circle.png */,
 				A9B385E91D7D51380065D3EC /* AppDelegate.swift */,
@@ -1735,6 +1763,7 @@
 			isa = PBXGroup;
 			children = (
 				A9B385FE1D7D51380065D3EC /* vimojoTests.swift */,
+				A980A5341E23DB4B00D50034 /* Repository */,
 				A97F0F1A1DC08E0400907196 /* SettingsProviderTests.swift */,
 				A9B386001D7D51380065D3EC /* Info.plist */,
 			);
@@ -1916,6 +1945,7 @@
 		A9B3865B1D7D55440065D3EC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A9148DE11E1D3ED6006DC511 /* Theme */,
 				A9325FBE1E0950AB00400AD6 /* Extension */,
 				A9CFA5E51D991DBE0037B1F5 /* VideonaFooterView.xib */,
 				A93BCE491D7D5C6B00421BD0 /* Constants */,
@@ -2147,9 +2177,9 @@
 			children = (
 				A9E90D621DE70FB2002B9DA3 /* RealmVideo.swift */,
 				A9E90D7F1DE7425A002B9DA3 /* RealmVideoToVideoMapper.swift */,
+				A9E90D811DE7426C002B9DA3 /* VideoToRealmVideoMapper.swift */,
 				A9E90D851DE74289002B9DA3 /* VideoRealmRepository.swift */,
 				A9E90D831DE7427B002B9DA3 /* VideoRepository.swift */,
-				A9E90D811DE7426C002B9DA3 /* VideoToRealmVideoMapper.swift */,
 			);
 			name = Video;
 			sourceTree = "<group>";
@@ -2161,15 +2191,6 @@
 				A9A207301DED8C59004AAEE2 /* User Interface */,
 			);
 			name = "Project List";
-			sourceTree = "<group>";
-		};
-		A9FDD8B71DAD3D4100AB0930 /* Mic mixAudio */ = {
-			isa = PBXGroup;
-			children = (
-				A9FDD8BA1DAD3D5300AB0930 /* MixAudioView.swift */,
-				A9FDD8BC1DAD3D5F00AB0930 /* MixAudioView.xib */,
-			);
-			name = "Mic mixAudio";
 			sourceTree = "<group>";
 		};
 		BCC440BCA8009FA05E7A4053 /* Pods */ = {
@@ -2366,7 +2387,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9A207381DED915F004AAEE2 /* no_image.png in Resources */,
 				A9B54B9B1DFEAD5E00388002 /* Drawer.storyboard in Resources */,
 				A93BCE741D7D88EE00421BD0 /* activity_record_rec_circle.png in Resources */,
 				A906CCDB1DB0D03700AC8FFB /* MicRecorder.strings in Resources */,
@@ -2379,12 +2399,10 @@
 				A9334EEF1DAAB96A00762D8A /* MusicListView.xib in Resources */,
 				A91761131D916F48008915DA /* ShareCell.xib in Resources */,
 				A9334EF31DAABBFC00762D8A /* MusicListCell.xib in Resources */,
-				A9334EF61DAB6E9600762D8A /* MicRecorderView.xib in Resources */,
 				A9C695931DA2411400597646 /* GALLOPING.mp3 in Resources */,
 				A97B537F1E0AA0290001B288 /* ProjectList.strings in Resources */,
 				A964DE2A1DD1DBA700E6C7DA /* Record.storyboard in Resources */,
 				A9950CC41E1AA121009367E7 /* GoogleService-Info.plist in Resources */,
-				A9FDD8BD1DAD3D5F00AB0930 /* MixAudioView.xib in Resources */,
 				A96441111DA3E59700CAD950 /* Settings.strings in Resources */,
 				A97772C11DC2451200EA9291 /* EditorStrings.strings in Resources */,
 				A9B385EF1D7D51380065D3EC /* Main.storyboard in Resources */,
@@ -2612,8 +2630,10 @@
 				A90386401DF1A64B00C01244 /* SettingsTransition.swift in Sources */,
 				A97F0F351DC0B77500907196 /* SettingsFTPHostAction.swift in Sources */,
 				A91761341D916F53008915DA /* MusicInteractorInterface.swift in Sources */,
+				A907FE7C1E26366500E6D2F6 /* RecordedTrackAreaViewModel.swift in Sources */,
 				A90386471DF1AC5600C01244 /* SettingTransitionAction.swift in Sources */,
 				A94E11F61D941C84004A0E96 /* ResolutionsImages.swift in Sources */,
+				A9320B861E2CD65F004DC8A1 /* AppThemeColors.swift in Sources */,
 				A9E90D701DE729A1002B9DA3 /* ProjectRealmRepository.swift in Sources */,
 				A9E90D611DE70BFE002B9DA3 /* ProjectToRealmProjectMapper.swift in Sources */,
 				A988DF0A1DAD1E230030E285 /* MicRecorderInteractor.swift in Sources */,
@@ -2621,6 +2641,7 @@
 				A91760DA1D9146FE008915DA /* FullScreenPlayerWireframe.swift in Sources */,
 				A91760BE1D9146BF008915DA /* EditorTextConstants.swift in Sources */,
 				A95BE99A1D990C4100602DCD /* DetailTextWireframe.swift in Sources */,
+				A980A5331E23D8E900D50034 /* AudioRepository.swift in Sources */,
 				A91760E71D914835008915DA /* DuplicateWireframe.swift in Sources */,
 				A91761221D916F48008915DA /* SocialNetwork.swift in Sources */,
 				A9693B7D1DB7C8CD00B00DD1 /* AddTextModel.swift in Sources */,
@@ -2630,15 +2651,18 @@
 				A91761311D916F53008915DA /* MusicDetailView.swift in Sources */,
 				A9334EF11DAAB97C00762D8A /* MusicListView.swift in Sources */,
 				A988DF0C1DAD1E2B0030E285 /* MicRecorderWireframe.swift in Sources */,
+				A9A268D31E28F29600B65010 /* MixAudioModel.swift in Sources */,
 				A9A419171DB5110C00FB642E /* AddTextPresenterInterface.swift in Sources */,
 				A900C7591DC35FB500A65730 /* ShareFTPBreakingNewsInteractor.swift in Sources */,
 				A9148DDD1E1D3ECE006DC511 /* CustomDPTheme.swift in Sources */,
+				A980A5311E23D8C500D50034 /* AudioRealmRepository.swift in Sources */,
 				A91760AA1D9146B5008915DA /* EditingRoomPresenter.swift in Sources */,
 				A95737C91E0BC892006F2AB7 /* ShareVideoPath.swift in Sources */,
 				A900C7551DC35DA100A65730 /* SettingsFTPBreakingNewsUneditedDestination.swift in Sources */,
 				A95BE9951D990C4100602DCD /* DetailTextInteractor.swift in Sources */,
 				A906CCE01DB0D06B00AC8FFB /* MicRecorderConstants.swift in Sources */,
 				A9E90D861DE74289002B9DA3 /* VideoRealmRepository.swift in Sources */,
+				A980A52F1E23D85900D50034 /* AudioToRealmAudioMapper.swift in Sources */,
 				A97F0F2F1DC0A6B700907196 /* SettingsResolutionAction.swift in Sources */,
 				A91760B91D9146BF008915DA /* EditorClipsCell.swift in Sources */,
 				A91760BC1D9146BF008915DA /* EditorPresenter.swift in Sources */,
@@ -2646,6 +2670,7 @@
 				A91760BF1D9146BF008915DA /* EditorViewController.swift in Sources */,
 				A97B53841E0AA0B50001B288 /* ProjectListConstants.swift in Sources */,
 				A9B386311D7D53230065D3EC /* RecorderInteractor.swift in Sources */,
+				A980A57B1E23F34300D50034 /* GetVoiceOverComposition.swift in Sources */,
 				A992B7B81DEDC71800BAFC75 /* DuplicateProjectOnProjectListAction.swift in Sources */,
 				A91761371D916F53008915DA /* MusicProvider.swift in Sources */,
 				A9B54BA91DFEF4CB00388002 /* DrawerMenuInteractorInterface.swift in Sources */,
@@ -2674,7 +2699,6 @@
 				A91760BA1D9146BF008915DA /* EditorInteractor.swift in Sources */,
 				A988DEFA1DACF35D0030E285 /* MusicListViewController.swift in Sources */,
 				A917611E1D916F48008915DA /* ShareViewController.swift in Sources */,
-				A9334EF81DAB6EA100762D8A /* MicRecorderView.swift in Sources */,
 				A9645EA41DC0D298000944CB /* ShareViewModel.swift in Sources */,
 				A93BCE531D7D785100421BD0 /* SettingsConstants.swift in Sources */,
 				A9B386321D7D53230065D3EC /* CameraInteractor.swift in Sources */,
@@ -2694,6 +2718,7 @@
 				A9B54BA31DFEE98300388002 /* DrawerMenuPresenterInterface.swift in Sources */,
 				A91760E01D914827008915DA /* TrimViewController.swift in Sources */,
 				A9E611711DCB6D8600F221AB /* SaveVideosFromGalleryInteractor.swift in Sources */,
+				A980A52D1E23D37800D50034 /* RealmAudioToAudioMapper.swift in Sources */,
 				A9B3862B1D7D531B0065D3EC /* RecorderConstants.swift in Sources */,
 				A9E90D6C1DE72662002B9DA3 /* ProfileRepository.swift in Sources */,
 				A91C694B1DCB59A000AF2576 /* CustomExportedVideosGalleryViewController.swift in Sources */,
@@ -2741,7 +2766,6 @@
 				A91761361D916F53008915DA /* MusicPresenterInterface.swift in Sources */,
 				A9FEF9781DBF8B0A00A56611 /* SettingsActionInterface.swift in Sources */,
 				A91760EB1D914840008915DA /* SplitViewInterface.swift in Sources */,
-				A9FDD8BB1DAD3D5300AB0930 /* MixAudioView.swift in Sources */,
 				A91C694A1DCB59A000AF2576 /* AllVideosGalleryViewController.swift in Sources */,
 				A9CDB9C21DDDCF1A000313DE /*  GetSeekTimeFromValueOnVideo.swift in Sources */,
 				A9FEF97C1DBF8B3A00A56611 /* SettingsUsernameAction.swift in Sources */,
@@ -2779,9 +2803,11 @@
 				A97F0F281DC0937300907196 /* SettingsEmailAction.swift in Sources */,
 				A91761151D916F48008915DA /* ShareFacebookInteractor.swift in Sources */,
 				A9B3865A1D7D55340065D3EC /* RootWireframe.swift in Sources */,
+				A980A5291E23D18B00D50034 /* RealmAudio.swift in Sources */,
 				A91761231D916F48008915DA /* SocialNetworkProvider.swift in Sources */,
 				A964410D1DA3015B00CAD950 /* EditorModel.swift in Sources */,
 				A91B8C9C1DE8864D0040CA57 /* CheckPhotoRollPermissionUseCase.swift in Sources */,
+				A973B3501E27A38E00EC84AD /* UIViewFadeViewsExtension.swift in Sources */,
 				A93BCE431D7D599900421BD0 /* ViMoJoTracker.swift in Sources */,
 				A917611D1D916F48008915DA /* ShareTwitterInteractor.swift in Sources */,
 				A97F0F251DC092C800907196 /* SettingsNameAction.swift in Sources */,
@@ -2829,6 +2855,7 @@
 				A97F0F2D1DC099BE00907196 /* SettingsQualityAction.swift in Sources */,
 				A95BE9981D990C4100602DCD /* DetailTextPresenter.swift in Sources */,
 				A99A015A1DE84DF40019CF7E /* CreateDefaultProjectUseCase.swift in Sources */,
+				11A097E8D44766969156DCB8 /* MicRecorderViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2838,6 +2865,7 @@
 			files = (
 				A9B385FF1D7D51380065D3EC /* vimojoTests.swift in Sources */,
 				A97F0F1B1DC08E0400907196 /* SettingsProviderTests.swift in Sources */,
+				A980A5361E23DB8100D50034 /* RealmVideoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

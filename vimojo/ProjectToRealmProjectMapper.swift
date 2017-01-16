@@ -14,6 +14,7 @@ public class ProjectToRealmProjectMapper:Mapper{
     public typealias To = RealmProject
     
     let toRealmVideoMapper = VideoToRealmVideoMapper()
+    let toRealmAudioMapper = AudioToRealmAudioMapper()
     
     public func map(from: Project) -> RealmProject {
         let realmProject = RealmProject()
@@ -27,10 +28,9 @@ public class ProjectToRealmProjectMapper:Mapper{
         realmProject.modificationDate = from.modificationDate
         realmProject.exportedPath = from.getExportedPath()
         realmProject.isVoiceOverSet = from.isVoiceOverSet
-        realmProject.voiceOverPath = from.voiceOver.getMediaPath()
-        realmProject.voiceOverAudioLevel = from.voiceOver.audioLevel
         realmProject.transitionTime = from.transitionTime
-
+        realmProject.projectOutputAudioLevel = from.projectOutputAudioLevel
+        
         if from.isMusicSet{
             realmProject.musicTitle = from.getMusic().getTitle()
             realmProject.musicVolume = from.getMusic().volume
@@ -40,6 +40,9 @@ public class ProjectToRealmProjectMapper:Mapper{
             realmProject.videos.append(toRealmVideoMapper.map(from: video))
         }
         
+        for audio in from.voiceOver{
+            realmProject.voiceOver.append(toRealmAudioMapper.map(from: audio))
+        }
         return realmProject
     }
 }

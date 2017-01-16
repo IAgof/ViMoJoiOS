@@ -9,13 +9,7 @@
 import Foundation
 import VideonaProject
 import AVFoundation
-
-struct MicRecorderViewModel{
-    var lowValue:String
-    var actualValue:String
-    var highValue:String
-    var sliderRange:Double
-}
+import VideonaTrackOverView
 
 class MicRecorderInteractor :MicRecorderInteractorInterface{
     
@@ -27,12 +21,28 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
     var project: Project?
     var actualComposition:VideoComposition?
     var audioRecorder:AVAudioRecorder!
+    var voiceOverAudios:[Audio] = []
     
     let recordSettings = [AVSampleRateKey : NSNumber(value: Float(44100.0) as Float),
                           AVFormatIDKey : NSNumber(value: Int32(kAudioFormatMPEG4AAC) as Int32),
                           AVNumberOfChannelsKey : NSNumber(value: 1 as Int32),
                           AVEncoderAudioQualityKey : NSNumber(value: Int32(AVAudioQuality.high.rawValue) as Int32)]
     var audioStringPath:String?
+    
+    func loadVoiceOverAudios() {
+        guard let project = self.project else{return}
+
+        self.voiceOverAudios = project.voiceOver
+        sentRecordedTimeRanges()
+    }
+    
+    func sentRecordedTimeRanges(){
+        for audio in voiceOverAudios{
+            let timeRange = CMTimeRangeMake(CMTimeMakeWithSeconds(audio.getStartTime(), 600),
+                                            CMTimeMakeWithSeconds(audio.getDuration(), 600))
+            delegate?.setMicRecordedTimeRangeValue(micRecordedRange: timeRange)
+        }
+    }
     
     func initAudioSession(){
         let audioSession = AVAudioSession.sharedInstance()
@@ -50,14 +60,18 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
     
     //MARK: - Interface
     func getVideoComposition() {
-        if project != nil{
-            actualComposition = GetActualProjectAVCompositionUseCase().getComposition(project: project!)
-            if actualComposition != nil {
-                let layer = GetActualProjectTextCALayerAnimationUseCase().getCALayerAnimation(project: project!)
-                actualComposition?.layerAnimation = layer
-
-                delegate?.setVideoComposition(actualComposition!)
-            }
+        guard let copyProject = project?.copy() as? Project else{
+            return
+        }
+        copyProject.voiceOver = []
+        copyProject.projectOutputAudioLevel = 1
+        
+        actualComposition = GetActualProjectAVCompositionUseCase().getComposition(project: copyProject)
+        if actualComposition != nil {
+            let layer = GetActualProjectTextCALayerAnimationUseCase().getCALayerAnimation(project: copyProject)
+            actualComposition?.layerAnimation = layer
+            
+            delegate?.setVideoComposition(actualComposition!)
         }
     }
     
@@ -67,48 +81,66 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
         guard let composition = actualComposition?.mutableComposition else{
             return
         }
+        guard let project = self.project else{return}
+
+        var audioVolume:Float = 0.5
+        
+        if !voiceOverAudios.isEmpty{
+            if let volume = voiceOverAudios.first?.audioLevel{
+                audioVolume = volume
+            }
+        }
+        
         let highValue = Utils().hourToString(composition.duration.seconds)
         let sliderRange = composition.duration.seconds
         let micValues = MicRecorderViewModel(
-            lowValue: lowValue, actualValue: actualValue,highValue: highValue , sliderRange: sliderRange
+            lowValue: lowValue, actualValue: actualValue,
+            highValue: highValue , sliderRange: sliderRange,
+            audioVolume: audioVolume,
+            projectAudioVolume: project.projectOutputAudioLevel,
+            mixAudioSliderValue: 0.5
         )
         
         delegate?.setMicRecorderValues(micValues)
     }
     
     func getActualAudioRecorded() {
-        guard let path = audioStringPath else {
-            print("No audio string path" )
-            return}
-        guard let url = URL(string: path) else {
-            print("No audio url path" )
-            return}
-       
-        delegate?.setActualAudioRecorded(url)
+        GetVoiceOverComposition().getComposition(audios: voiceOverAudios, completion: {
+            voiceOverComposition in
+            delegate?.setActualAudioRecorded(voiceOverComposition)
+        })
     }
     
     func setVoiceOverToProject(_ videoVolume: Float, audioVolume: Float) {
         guard let project = self.project else{return}
 
-        guard let path = audioStringPath else {
-            print("No audio string path" )
-            return
-        }
-        
-        let voiceOver = Audio(title: "Vimojo VoiceOver", mediaPath: path)
-        voiceOver.audioLevel = audioVolume
+        self.setVoiceOverAudioLevel(audioVolume: audioVolume)
         project.projectOutputAudioLevel = videoVolume
         
-        project.isVoiceOverSet = true
-        project.voiceOver = voiceOver
+        project.voiceOver = voiceOverAudios
         
         project.updateModificationDate()
         ProjectRealmRepository().update(item: project)
     }
     
+    func setVoiceOverAudioLevel(audioVolume: Float){
+        for audio in voiceOverAudios{
+            audio.audioLevel = audioVolume
+        }
+    }
+
     func removeVoiceOverFromProject(){
-        project?.isVoiceOverSet = false
-        project?.projectOutputAudioLevel = 1.0
+        guard let project = self.project else{return}
+        project.voiceOver.removeAll()
+        voiceOverAudios.removeAll()
+        project.projectOutputAudioLevel = 1.0
+       
+        ProjectRealmRepository().update(item: project)
+    }
+    
+    func removeVoiceOverTrack(inPosition: Int) {
+        voiceOverAudios.remove(at: inPosition)
+        self.getActualAudioRecorded()
     }
     
     func getStringByKey(_ key:String) -> String {
@@ -116,7 +148,18 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
     }
     
     //MARK: - Mic actions
-    func startRecordMic() {
+    func startRecordMic(atTime: CMTime,audioVolume:Float) {
+        initAudioSession()
+        guard let audioPath = audioStringPath else{return}
+        
+        let audio = Audio(title: "", mediaPath: audioPath)
+        audio.setStartTime(atTime.seconds)
+        audio.audioLevel = audioVolume
+        
+        voiceOverAudios.append(audio)
+        delegate?.setMicRecordedTimeRangeValue(micRecordedRange: CMTimeRangeMake(CMTimeMakeWithSeconds(audio.getStartTime(), 600),
+                                                                                 CMTimeMakeWithSeconds(audio.getDuration(), 600)))
+
         let audioSession = AVAudioSession.sharedInstance()
         do {
             print("Start record")
@@ -133,6 +176,18 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
     
     func stopRecordMic() {
         print("Stop record")
+
         audioRecorder.stop()
+        updateLastAudioParameters()
+    }
+    
+    func updateLastAudioParameters(){
+        if let audio = voiceOverAudios.last{
+            let url =  URL(fileURLWithPath: audio.getMediaPath())
+            let asset = AVAsset(url: url)
+            let stopTime = asset.duration.seconds + audio.getStartTime()
+            
+            audio.setStopTime(stopTime)            
+        }
     }
 }

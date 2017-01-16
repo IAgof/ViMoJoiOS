@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Mixpanel
+import SwifterSwift
 
 public class ViMoJoController: UIViewController,
 ViMoJoInterface {
