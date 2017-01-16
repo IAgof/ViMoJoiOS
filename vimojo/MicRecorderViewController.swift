@@ -144,9 +144,10 @@ class MicRecorderViewController: ViMoJoController,PlayerViewSetter{
     
     //MARK: - Range UI Config
     func configureUIRangeSlider(){
-        totalRecordedSlider.tintColor = secondColor
-        totalRecordedSlider.backgroundColor = secondColor
+        totalRecordedSlider.tintColor = secondColorWithOpacity
+        totalRecordedSlider.backgroundColor = secondColorWithOpacity
         totalRecordedSlider.maxLabelColour = secondColor
+        totalRecordedSlider.lineHeight = 0
         
         let handleImage = UIImage(named: "button_edit_thumb_seekbar_advance_split_normal")
         totalRecordedSlider.handleImage = handleImage

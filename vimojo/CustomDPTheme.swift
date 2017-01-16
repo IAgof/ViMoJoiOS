@@ -9,10 +9,6 @@
 import Foundation
 import UIKit
 
-let fontName = "Helvetica"
-let mainColor = #colorLiteral(red: 0.9490196078, green: 0.2941176471, blue: 0.3176470588, alpha: 1)
-let secondColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-
 class CustomDPTheme {
     func configureTheme(){  
         DPTheme.setupTheme(
