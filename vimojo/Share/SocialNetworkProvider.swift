@@ -13,15 +13,17 @@ class SocialNetworkProvider:NSObject{
     func getSocialNetworks(_ delegate:ShareActionDelegate) ->Array<SocialNetwork>{
         var socialNetworks = Array<SocialNetwork>()
         
-        socialNetworks.append(SocialNetwork(iconId: "activity_edit_share_ftp",
-            iconIdPressed: "activity_edit_share_ftp",
-            title: "FTP",
-            action: ShareFTPInteractor(delegate: delegate)))
-        
-        socialNetworks.append(SocialNetwork(iconId: "activity_edit_share_ftp_pressed",
-            iconIdPressed: "activity_edit_share_ftp_pressed",
-            title: "Breaking News",
-            action: ShareFTPBreakingNewsInteractor(delegate: delegate)))
+        if configuration.FTP_FEATURE {
+            socialNetworks.append(SocialNetwork(iconId: "activity_edit_share_ftp",
+                                                iconIdPressed: "activity_edit_share_ftp",
+                                                title: "FTP",
+                                                action: ShareFTPInteractor(delegate: delegate)))
+            
+            socialNetworks.append(SocialNetwork(iconId: "activity_edit_share_ftp_pressed",
+                                                iconIdPressed: "activity_edit_share_ftp_pressed",
+                                                title: "Breaking News",
+                                                action: ShareFTPBreakingNewsInteractor(delegate: delegate)))
+        }
         
 //        socialNetworks.append( SocialNetwork(iconId: "activity_edit_share_facebook_normal",
 //            iconIdPressed: "activity_edit_share_facebook_pressed",

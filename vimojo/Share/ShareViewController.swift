@@ -121,7 +121,7 @@ UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! ShareCell
         
-        cell.shareTitle!.textColor = mainColor
+        cell.shareTitle!.textColor = configuration.mainColor
         cell.shareImage!.image = displayShareObjects[indexPath.item].iconPressed
     }
     

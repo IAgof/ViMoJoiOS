@@ -50,9 +50,9 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     }
 
     func configureUITrimSlider(){
-        rangeTrimSlider.backgroundSliderColor = mainColor
-        rangeTrimSlider.middleSliderColor = mainColor
-        rangeTrimSlider.untrackedAreaColor = secondColor
+        rangeTrimSlider.backgroundSliderColor = configuration.mainColor
+        rangeTrimSlider.middleSliderColor = configuration.mainColor
+        rangeTrimSlider.untrackedAreaColor = configuration.secondColor
     }
         
     override func viewDidAppear(_ animated: Bool) {

@@ -44,7 +44,7 @@ class SettingsViewController: ViMoJoController,
         
         let label = UILabel(frame: CGRect(x: 8, y: 0, width: tableView.bounds.size.width, height: 30))
         label.text = self.sections[section]
-        label.textColor = mainColor
+        label.textColor = configuration.mainColor
         returnedView.addSubview(label)
         
         return returnedView

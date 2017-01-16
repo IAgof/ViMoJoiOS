@@ -14,7 +14,7 @@ class AllVideosGalleryViewController: VideosGalleryViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        cellColor = mainColor
+        cellColor = configuration.mainColor
     }
     
     override func fetchVideos() {
