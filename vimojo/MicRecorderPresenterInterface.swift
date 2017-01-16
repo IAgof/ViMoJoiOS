@@ -23,6 +23,7 @@ protocol MicRecorderPresenterInterface {
     func cancelPushed()
     func acceptPushed()
     func cancelConfirmed()
+    func removeVoiceOverTrack()
     
     func getMicRecorderViewValues()
     
@@ -30,6 +31,7 @@ protocol MicRecorderPresenterInterface {
     func pauseLongPress()
     func micInserctionPointValue(value:Float)
     func updateActualTime(_ time:Float)
+    func deleteTrack()
     
     func mixVolumeUpdate(_ value:Float)
     
@@ -64,4 +66,7 @@ protocol MicRecorderPresenterDelegate {
     func updateRecordedTrackArea(position:Int,
                                  value:TrackModel)
     func removeTrackArea(inPosition:Int)
+    
+    func recordButtonIsHidden(isHidden:Bool)
+    func deleteVoiceOverTrackButtonIsHidden(isHidden:Bool)
 }

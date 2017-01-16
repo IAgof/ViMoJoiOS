@@ -34,6 +34,8 @@ class MicRecorderViewController: ViMoJoController,PlayerViewSetter{
     @IBOutlet weak var totalRecordedSlider: TTRangeSlider!
     @IBOutlet weak var recordedTrackOverView: VideonaTrackOverView!
     
+    @IBOutlet weak var deleteVoiceOverTrackButton: UIButton!
+    
     //MARK: - Variables and constants
     var audioPlayer:AVPlayer?
     var longPressGesture: UILongPressGestureRecognizer?
@@ -57,6 +59,9 @@ class MicRecorderViewController: ViMoJoController,PlayerViewSetter{
 
     @IBAction func pushBackButton(_ sender: AnyObject) {
         eventHandler?.pushBackButton()
+    }
+    @IBAction func deleteVoiceOverTrackPushed(_ sender: Any) {
+        eventHandler?.removeVoiceOverTrack()
     }
 
     func handleLongGesture(_ gesture: UILongPressGestureRecognizer) {
@@ -162,8 +167,6 @@ class MicRecorderViewController: ViMoJoController,PlayerViewSetter{
     }
     
     func setUpHasRecordView(){
-        hasRecordViews.append(cancelButton)
-        hasRecordViews.append(acceptButton)
         hasRecordViews.append(mixAudioSlider)
         hasRecordViews.append(sliderValueLabel)
     }
@@ -176,6 +179,10 @@ extension MicRecorderViewController:MicRecorderPresenterDelegate{
         highValueLabel.text = micRecorderViewModel.highValue
         actualValueLabel.text = micRecorderViewModel.actualValue
         configureRangeSlider(Float(micRecorderViewModel.sliderRange))
+        
+        mixAudioSlider.value = micRecorderViewModel.mixAudioSliderValue
+        sliderValueLabel.text = "\(Int(mixAudioSlider.value * 100))%"
+        eventHandler?.mixVolumeUpdate(mixAudioSlider.value)
     }
 
     func showHasRecordViews() {
@@ -255,6 +262,14 @@ extension MicRecorderViewController:MicRecorderPresenterDelegate{
 
     func updateRecordMicActualTime(_ time: String) {
         actualValueLabel.text = time
+    }
+    
+    func recordButtonIsHidden(isHidden: Bool) {
+        recordButton.isHidden = isHidden
+    }
+    
+    func deleteVoiceOverTrackButtonIsHidden(isHidden: Bool) {
+        deleteVoiceOverTrackButton.isHidden = isHidden
     }
 }
 extension MicRecorderViewController:PlayerViewDelegate{

@@ -37,5 +37,9 @@ class GetVoiceOverComposition{
                 }
             }
         }
+        
+        if totalAudios == 0{
+            completion(mutableComposition)
+        }
     }
 }

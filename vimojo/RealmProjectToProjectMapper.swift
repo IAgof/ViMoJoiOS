@@ -28,7 +28,8 @@ public class RealmProjectToProjectMapper:Mapper{
         project.exportDate = from.exportedDate
         project.modificationDate = from.modificationDate
         project.transitionTime = from.transitionTime
-
+        project.projectOutputAudioLevel = from.projectOutputAudioLevel
+        
         setProjectMusic(project: project, realmProject: from)
         setProjectVideos(project: project, realmProject: from)
         setProjectVoiceOver(project: project, realmProject: from)

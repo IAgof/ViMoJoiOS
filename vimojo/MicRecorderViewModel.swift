@@ -10,4 +10,7 @@ struct MicRecorderViewModel{
     let actualValue:String
     let highValue:String
     let sliderRange:Double
+    let audioVolume:Float
+    let projectAudioVolume:Float
+    var mixAudioSliderValue:Float
 }

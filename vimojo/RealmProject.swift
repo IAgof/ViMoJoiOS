@@ -25,6 +25,7 @@ public class RealmProject:Object{
     var voiceOver = List<RealmAudio>()
         dynamic var isVoiceOverSet: Bool = false
     dynamic var voiceOverAudioLevel:Float = 0
+    dynamic var projectOutputAudioLevel:Float = 1
     dynamic var transitionTime:Double = 0
     
     override public class func primaryKey() -> String? {

@@ -27,7 +27,7 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
     var isGoingToExpandPlayer = false
     var isPlayingMedia = false
     var isRecording = false
-    var recordMicViewActualTime = 0.0
+    var recordMicViewActualTime:Float = 0.0
     var recordMicViewTotalTime = 0.0
     var videoVolume:Float = 1.0
     var audioVolume:Float = 1.0
@@ -43,9 +43,28 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
             }
         }
     }
-
+    
+    var trackOverSliderNumber = -1{
+        didSet{
+            if trackOverSliderNumber != NO_TRACK_SELECTED{
+                delegate?.recordButtonIsHidden(isHidden: true)
+                delegate?.deleteVoiceOverTrackButtonIsHidden(isHidden: false)
+                
+                if isRecording {
+                    pauseRecord()
+                }
+            }else{
+                delegate?.recordButtonIsHidden(isHidden: false)
+                delegate?.deleteVoiceOverTrackButtonIsHidden(isHidden: true)
+            }
+        }
+    }
+    
+    let checkTrackOverQueue = DispatchQueue(label: "checkTrackOverQueue")
+    
     //MARK: - Constants
     let NO_MUSIC_SELECTED = -1
+    let NO_TRACK_SELECTED = -1
     
     //MARK: - Interface
     func viewDidLoad() {
@@ -113,6 +132,15 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
         interactor?.getMicRecorderValues()
     }
     
+    func removeVoiceOverTrack() {
+        if trackOverSliderNumber != NO_TRACK_SELECTED{
+            micRecordedTimeRangeValues.remove(at: trackOverSliderNumber)
+            interactor?.removeVoiceOverTrack(inPosition: trackOverSliderNumber)
+            delegate?.removeTrackArea(inPosition: trackOverSliderNumber)
+            trackOverSliderNumber = NO_TRACK_SELECTED
+        }
+    }
+    
     func updatePlayerLayer() {
         playerPresenter!.layoutSubViews()
     }
@@ -166,6 +194,8 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
         
         bothPlayersSeeks(toTime:0.0)
 
+        trackOverSliderNumber = NO_TRACK_SELECTED
+        
         delegate?.hideHasRecordViews()
         delegate?.setMicRecorderButtonState(false)
         delegate?.setMicRecorderButtonEnabled(true)
@@ -178,6 +208,9 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
     }
     
     func updateActualTime(_ time: Float) {
+        checkIfThisTimeBeenInAnyRecordedRange(time: time)
+        recordMicViewActualTime = time
+        
         if isRecording{
             if time >= Float(recordMicViewTotalTime - 0.1) {
                 pauseRecord()
@@ -190,13 +223,16 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
     }
     
     func updateLastAudioTrackAreaWithValue(time: Float){
-        if var micRecordedValue = micRecordedTimeRangeValues.last{
+        if let micRecordedValue = micRecordedTimeRangeValues.last{
 
             let position = micRecordedTimeRangeValues.count - 1
             
             let maxTime = Float(videoTotalTime)
             let lowerValue = Float(micRecordedValue.start.seconds)
-
+            
+            micRecordedTimeRangeValues[micRecordedTimeRangeValues.count - 1] = CMTimeRangeMake(micRecordedValue.start,
+                                                   CMTimeMakeWithSeconds(Float64(time - lowerValue), 600))
+            
             let trackModel = TrackModel(maxValue: maxTime,
                                         lowerValue: lowerValue,
                                         upperValue: time,
@@ -241,17 +277,12 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
     }
     
     func mixVolumeUpdate(_ value: Float) {
-        videoVolume = 2 * value
-        if videoVolume >= 1 {
-            videoVolume = 1
-        }
-        audioVolume = 2 * ( 1 - value)
-        if audioVolume >= 1 {
-            audioVolume = 1
-        }
+        let mixAudio = MixAudioModel(sliderValue: value)
+        
+        audioVolume = mixAudio.audioVolume
+        videoVolume = mixAudio.videoVolume
         
         delegate?.changeAudioPlayerVolume(audioVolume)
-        
         playerPresenter?.setPlayerVolume(videoVolume)
     }
     
@@ -262,6 +293,36 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
     func bothPlayersSeeks(toTime:Float){
         playerPresenter?.seekToTime(toTime)
         delegate?.seekAudioPlayerTo(toTime)
+        
+        checkIfThisTimeBeenInAnyRecordedRange(time: toTime)
+    }
+    
+    func checkIfThisTimeBeenInAnyRecordedRange(time: Float){
+        var isOcupated = false
+        var totalRanges = self.micRecordedTimeRangeValues.count
+        
+        for range in self.micRecordedTimeRangeValues{
+            isOcupated = CMTimeRangeContainsTime(range, CMTimeMakeWithSeconds(Float64(time), 600))
+            
+            totalRanges -= 1
+            if isOcupated{
+                self.trackOverSliderNumber = self.micRecordedTimeRangeValues.count - totalRanges - 1
+                return
+            }else{
+                self.trackOverSliderNumber = self.NO_TRACK_SELECTED
+            }
+        }
+        
+        if micRecordedTimeRangeValues.isEmpty{
+            self.trackOverSliderNumber = self.NO_TRACK_SELECTED
+        }
+    }
+    
+    func deleteTrack() {
+        if trackOverSliderNumber != NO_TRACK_SELECTED {
+            interactor?.removeVoiceOverTrack(inPosition: trackOverSliderNumber)
+            delegate?.removeTrackArea(inPosition: trackOverSliderNumber)
+        }
     }
 }
 
@@ -277,12 +338,16 @@ extension MicRecorderPresenter:MicRecorderInteractorDelegate{
     func setMicRecorderValues(_ value: MicRecorderViewModel) {
         recordMicViewTotalTime = value.sliderRange
         
-        delegate?.setUpValues(value)
+        var setUpValues = value
+        let audioMix = MixAudioModel(audioVolume: value.audioVolume,
+                                     videoVolume: value.projectAudioVolume)
+        setUpValues.mixAudioSliderValue = audioMix.sliderValue
+        delegate?.setUpValues(setUpValues)
     }
     
     func setActualAudioRecorded(_ voiceOverComposition:AVMutableComposition){
         delegate?.createAudioPlayer(voiceOverComposition)
-        delegate?.seekAudioPlayerTo(Float(recordMicViewActualTime))
+        delegate?.seekAudioPlayerTo(recordMicViewActualTime)
     }
     
     func setMicRecordedTimeRangeValue(micRecordedRange: CMTimeRange) {

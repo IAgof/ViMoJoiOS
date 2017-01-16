@@ -64,6 +64,7 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
             return
         }
         copyProject.voiceOver = []
+        copyProject.projectOutputAudioLevel = 1
         
         actualComposition = GetActualProjectAVCompositionUseCase().getComposition(project: copyProject)
         if actualComposition != nil {
@@ -80,10 +81,24 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
         guard let composition = actualComposition?.mutableComposition else{
             return
         }
+        guard let project = self.project else{return}
+
+        var audioVolume:Float = 0.5
+        
+        if !voiceOverAudios.isEmpty{
+            if let volume = voiceOverAudios.first?.audioLevel{
+                audioVolume = volume
+            }
+        }
+        
         let highValue = Utils().hourToString(composition.duration.seconds)
         let sliderRange = composition.duration.seconds
         let micValues = MicRecorderViewModel(
-            lowValue: lowValue, actualValue: actualValue,highValue: highValue , sliderRange: sliderRange
+            lowValue: lowValue, actualValue: actualValue,
+            highValue: highValue , sliderRange: sliderRange,
+            audioVolume: audioVolume,
+            projectAudioVolume: project.projectOutputAudioLevel,
+            mixAudioSliderValue: 0.5
         )
         
         delegate?.setMicRecorderValues(micValues)
@@ -121,6 +136,11 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
         project.projectOutputAudioLevel = 1.0
        
         ProjectRealmRepository().update(item: project)
+    }
+    
+    func removeVoiceOverTrack(inPosition: Int) {
+        voiceOverAudios.remove(at: inPosition)
+        self.getActualAudioRecorded()
     }
     
     func getStringByKey(_ key:String) -> String {
