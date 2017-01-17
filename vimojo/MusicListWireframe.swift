@@ -18,15 +18,18 @@ class MusicListWireframe {
     var musicListPresenter : MusicListPresenter?
     var playerWireframe: PlayerWireframe?
     var editorRoomWireframe:EditingRoomWireframe?
-
+    var settingsWireframe:SettingsWireframe?
+    
     func presentMusicInterfaceFromWindow(_ window: UIWindow) {
         let viewController = musicViewControllerFromStoryboard()
-        
+        viewController.configureDefaultNavigationBar()
+
         rootWireframe?.showRootViewController(viewController, inWindow: window)
     }
     
     func presentMusicListInterface(){
         let viewController = musicViewControllerFromStoryboard()
+        viewController.configureDefaultNavigationBar()
         
         guard let prevController = UIApplication.topViewController() else{
             return
@@ -51,7 +54,7 @@ class MusicListWireframe {
     }
     
     func mainStoryboard() -> UIStoryboard {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let storyboard = UIStoryboard(name: "Editor", bundle: Bundle.main)
         return storyboard
     }
     
@@ -66,5 +69,13 @@ class MusicListWireframe {
             return
         }
 //        wireframe.editingRoomViewController?.eventHandler?.pushEditor()
+    }
+    
+    func presentSettings(){
+        
+        guard let prevController = UIApplication.topViewController() else{
+            return
+        }
+        settingsWireframe?.presentSettingsInterfaceFromViewController(prevController)
     }
 }
