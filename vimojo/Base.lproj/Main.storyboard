@@ -794,7 +794,6 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="settingsNavBar" destination="xGH-4S-2tv" id="9Pt-QL-S17"/>
                         <outlet property="settingsTableView" destination="AQZ-9N-IPL" id="Kx6-uk-h9t"/>
                     </connections>
                 </viewController>
@@ -802,174 +801,10 @@
             </objects>
             <point key="canvasLocation" x="1548" y="171"/>
         </scene>
-        <!--Music List View Controller-->
-        <scene sceneID="15B-GL-78d">
-            <objects>
-                <viewController storyboardIdentifier="MusicListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LLv-ed-KJz" customClass="MusicListViewController" customModule="RTVE" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ufR-Sb-QyW"/>
-                        <viewControllerLayoutGuide type="bottom" id="PDe-5E-DuA"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qKE-aX-xlN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xWQ-m1-jO1">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <color key="barTintColor" red="0.94509803920000002" green="0.29411764709999999" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem id="JAe-aA-tMu">
-                                        <barButtonItem key="leftBarButtonItem" image="activity_edit_back" id="tVx-In-eqX">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <action selector="pushBackButton:" destination="LLv-ed-KJz" id="YG2-oz-5by"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z0b-ep-7T6">
-                                <rect key="frame" x="15" y="285" width="384" height="451"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="cgU-mq-Onz"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="cgU-mq-Onz"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="cgU-mq-Onz"/>
-                                    </mask>
-                                </variation>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QL2-Nc-FHF" customClass="PlayerView" customModule="Hispanopost" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="414" height="233"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="QL2-Nc-FHF" secondAttribute="height" multiplier="16:9" id="Cqo-S3-P5r"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="common_icon_play"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Z0b-ep-7T6" firstAttribute="leading" secondItem="qKE-aX-xlN" secondAttribute="leadingMargin" constant="50" id="0dJ-oo-eMY">
-                                <variation key="heightClass=regular-widthClass=regular" constant="10"/>
-                            </constraint>
-                            <constraint firstItem="Z0b-ep-7T6" firstAttribute="top" secondItem="QL2-Nc-FHF" secondAttribute="bottom" constant="8" id="7IJ-10-swh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Z0b-ep-7T6" secondAttribute="trailing" constant="50" id="Ezr-1J-iii">
-                                <variation key="heightClass=regular-widthClass=regular" constant="10"/>
-                            </constraint>
-                            <constraint firstItem="Z0b-ep-7T6" firstAttribute="top" secondItem="xWQ-m1-jO1" secondAttribute="bottom" constant="8" id="KY4-Tt-Wfv"/>
-                            <constraint firstItem="QL2-Nc-FHF" firstAttribute="leading" secondItem="qKE-aX-xlN" secondAttribute="leadingMargin" constant="-20" id="MIa-jC-e7x"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xWQ-m1-jO1" secondAttribute="trailing" constant="-20" id="Mba-x7-6Cz"/>
-                            <constraint firstItem="xWQ-m1-jO1" firstAttribute="top" secondItem="qKE-aX-xlN" secondAttribute="topMargin" id="NBJ-Zw-SV5"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Z0b-ep-7T6" secondAttribute="trailing" constant="8" id="Okg-pK-Gpp">
-                                <variation key="heightClass=compact" constant="-20"/>
-                            </constraint>
-                            <constraint firstItem="QL2-Nc-FHF" firstAttribute="top" secondItem="xWQ-m1-jO1" secondAttribute="bottom" id="Qlc-xZ-PZI"/>
-                            <constraint firstItem="Z0b-ep-7T6" firstAttribute="top" secondItem="QL2-Nc-FHF" secondAttribute="bottom" constant="8" id="UMb-Uw-Lcx"/>
-                            <constraint firstItem="Z0b-ep-7T6" firstAttribute="leading" secondItem="QL2-Nc-FHF" secondAttribute="trailing" constant="8" id="Uym-EL-w03"/>
-                            <constraint firstItem="xWQ-m1-jO1" firstAttribute="leading" secondItem="qKE-aX-xlN" secondAttribute="leadingMargin" constant="-20" id="VVv-XV-NLp"/>
-                            <constraint firstItem="QL2-Nc-FHF" firstAttribute="trailing" secondItem="qKE-aX-xlN" secondAttribute="trailingMargin" constant="20" id="a5A-eU-X28"/>
-                            <constraint firstItem="QL2-Nc-FHF" firstAttribute="top" secondItem="ufR-Sb-QyW" secondAttribute="bottom" constant="20" id="cup-eP-VMF"/>
-                            <constraint firstItem="Z0b-ep-7T6" firstAttribute="leading" secondItem="qKE-aX-xlN" secondAttribute="leadingMargin" constant="8" id="dNX-yK-UJ9">
-                                <variation key="heightClass=regular-widthClass=compact" constant="-5"/>
-                            </constraint>
-                            <constraint firstItem="PDe-5E-DuA" firstAttribute="top" secondItem="Z0b-ep-7T6" secondAttribute="bottom" constant="8" id="egh-9p-VCR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Z0b-ep-7T6" secondAttribute="trailing" constant="-5" id="gew-Ed-QMh"/>
-                            <constraint firstItem="PDe-5E-DuA" firstAttribute="top" secondItem="Z0b-ep-7T6" secondAttribute="bottom" constant="20" id="ita-IG-xfB">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
-                            </constraint>
-                            <constraint firstAttribute="trailingMargin" secondItem="QL2-Nc-FHF" secondAttribute="trailing" constant="50" id="meP-6a-LQx">
-                                <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
-                            </constraint>
-                            <constraint firstItem="PDe-5E-DuA" firstAttribute="top" secondItem="Z0b-ep-7T6" secondAttribute="bottom" constant="20" id="n3N-YS-oN3">
-                                <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
-                            </constraint>
-                            <constraint firstItem="QL2-Nc-FHF" firstAttribute="leading" secondItem="qKE-aX-xlN" secondAttribute="leadingMargin" id="pEA-gh-7uo">
-                                <variation key="heightClass=compact" constant="-12"/>
-                            </constraint>
-                            <constraint firstItem="QL2-Nc-FHF" firstAttribute="leading" secondItem="qKE-aX-xlN" secondAttribute="leadingMargin" constant="50" id="rvw-PF-lQH">
-                                <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
-                            </constraint>
-                            <constraint firstItem="QL2-Nc-FHF" firstAttribute="top" secondItem="ufR-Sb-QyW" secondAttribute="bottom" constant="8" id="w4d-NU-01J"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="MIa-jC-e7x"/>
-                                <exclude reference="a5A-eU-X28"/>
-                                <exclude reference="cup-eP-VMF"/>
-                                <exclude reference="meP-6a-LQx"/>
-                                <exclude reference="pEA-gh-7uo"/>
-                                <exclude reference="rvw-PF-lQH"/>
-                                <exclude reference="w4d-NU-01J"/>
-                                <exclude reference="0dJ-oo-eMY"/>
-                                <exclude reference="7IJ-10-swh"/>
-                                <exclude reference="Ezr-1J-iii"/>
-                                <exclude reference="KY4-Tt-Wfv"/>
-                                <exclude reference="Okg-pK-Gpp"/>
-                                <exclude reference="UMb-Uw-Lcx"/>
-                                <exclude reference="Uym-EL-w03"/>
-                                <exclude reference="dNX-yK-UJ9"/>
-                                <exclude reference="gew-Ed-QMh"/>
-                                <exclude reference="egh-9p-VCR"/>
-                                <exclude reference="ita-IG-xfB"/>
-                                <exclude reference="n3N-YS-oN3"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=compact">
-                            <mask key="constraints">
-                                <include reference="pEA-gh-7uo"/>
-                                <include reference="KY4-Tt-Wfv"/>
-                                <include reference="Okg-pK-Gpp"/>
-                                <include reference="Uym-EL-w03"/>
-                                <include reference="egh-9p-VCR"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="constraints">
-                                <include reference="MIa-jC-e7x"/>
-                                <include reference="a5A-eU-X28"/>
-                                <exclude reference="w4d-NU-01J"/>
-                                <include reference="7IJ-10-swh"/>
-                                <include reference="dNX-yK-UJ9"/>
-                                <include reference="gew-Ed-QMh"/>
-                                <include reference="ita-IG-xfB"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=regular">
-                            <mask key="constraints">
-                                <include reference="cup-eP-VMF"/>
-                                <include reference="meP-6a-LQx"/>
-                                <include reference="rvw-PF-lQH"/>
-                                <include reference="0dJ-oo-eMY"/>
-                                <include reference="Ezr-1J-iii"/>
-                                <include reference="UMb-Uw-Lcx"/>
-                                <include reference="n3N-YS-oN3"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <connections>
-                        <outlet property="musicContainer" destination="Z0b-ep-7T6" id="O71-lq-uaK"/>
-                        <outlet property="playerView" destination="QL2-Nc-FHF" id="mHv-AI-gwE"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jgK-qu-Hpw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3801" y="170"/>
-        </scene>
         <!--Mic Recorder View Controller-->
         <scene sceneID="YD1-1q-QLz">
             <objects>
-                <viewController storyboardIdentifier="MicRecorderViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="I1J-mQ-QlR" customClass="MicRecorderViewController" customModule="RTVE" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MicRecorderViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="I1J-mQ-QlR" customClass="MicRecorderViewController" customModule="Hispanopost" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IP6-dC-a4u"/>
                         <viewControllerLayoutGuide type="bottom" id="zaa-Sl-PSs"/>
@@ -1066,17 +901,17 @@
                                         <rect key="frame" x="99.666666666666686" y="159" width="185.66666666666663" height="133.00000000000006"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEj-Un-b8l">
-                                                <rect key="frame" x="0.0" y="0.0" width="151.33333333333331" height="133.00000000000006"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="185.66666666666663" height="133.00000000000006"/>
                                                 <gestureRecognizers/>
                                                 <state key="normal" image="activity_edit_sound_voiceover_record_normal"/>
                                                 <state key="selected" image="activity_edit_sound_voiceover_record_pressed"/>
                                                 <state key="highlighted" image="activity_edit_sound_voiceover_record_pressed"/>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg0-GR-d24">
-                                                <rect key="frame" x="151.33333333333331" y="49.666666666666686" width="34.333333333333314" height="34"/>
+                                                <rect key="frame" x="185.66666666666663" y="49.666666666666686" width="0.0" height="34"/>
                                                 <gestureRecognizers/>
-                                                <state key="selected" image="B362200C-E544-4CE3-BAC3-B73BA65BAC18"/>
-                                                <state key="highlighted" image="B362200C-E544-4CE3-BAC3-B73BA65BAC18"/>
+                                                <state key="selected" image="5629D356-8C8E-422A-A98B-406D22618020"/>
+                                                <state key="highlighted" image="5629D356-8C8E-422A-A98B-406D22618020"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="image" keyPath="imageForNormal" value="activy_sound_music_delete_normal"/>
                                                     <userDefinedRuntimeAttribute type="image" keyPath="imageForHighlighted" value="activy_sound_music_delete_pressed"/>
@@ -1264,7 +1099,7 @@
         <!--Add Text View Controller-->
         <scene sceneID="R6l-jc-Ivd">
             <objects>
-                <viewController storyboardIdentifier="AddTextViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WAi-KM-zkg" customClass="AddTextViewController" customModule="RTVE" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddTextViewController" id="WAi-KM-zkg" customClass="AddTextViewController" customModule="Hispanopost" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HBS-zl-m0N"/>
                         <viewControllerLayoutGuide type="bottom" id="4Ia-gr-5bo"/>
@@ -1531,7 +1366,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="B362200C-E544-4CE3-BAC3-B73BA65BAC18" width="138" height="138">
+        <image name="5629D356-8C8E-422A-A98B-406D22618020" width="138" height="138">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

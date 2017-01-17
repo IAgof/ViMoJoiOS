@@ -94,7 +94,7 @@
 		A91D63041DDF1F3A00D226B8 /* GetCompositionForVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91D63031DDF1F3A00D226B8 /* GetCompositionForVideo.swift */; };
 		A91D63061DDF22F600D226B8 /* SetTrimParametersToVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91D63051DDF22F600D226B8 /* SetTrimParametersToVideo.swift */; };
 		A91D63081DDF234C00D226B8 /* TrimParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91D63071DDF234C00D226B8 /* TrimParameters.swift */; };
-		A9320B861E2CD65F004DC8A1 /* AppThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9320B851E2CD65F004DC8A1 /* AppThemeColors.swift */; };
+		A9320B861E2CD65F004DC8A1 /* ViMoJoConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9320B851E2CD65F004DC8A1 /* ViMoJoConfiguration.swift */; };
 		A9320B951E2CE185004DC8A1 /* SettingsTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A903863F1DF1A64B00C01244 /* SettingsTransition.swift */; };
 		A9320B961E2CE185004DC8A1 /* SettingsFTPHostAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F341DC0B77500907196 /* SettingsFTPHostAction.swift */; };
 		A9320B971E2CE185004DC8A1 /* MusicInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761291D916F53008915DA /* MusicInteractorInterface.swift */; };
@@ -356,12 +356,15 @@
 		A9320C9A1E2CE185004DC8A1 /* WE_BEAT_AS_ONE.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A9C695911DA2411400597646 /* WE_BEAT_AS_ONE.mp3 */; };
 		A9320C9B1E2CE185004DC8A1 /* Share.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97772BB1DC244E700EA9291 /* Share.strings */; };
 		A9320C9C1E2CE185004DC8A1 /* filter_free.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE751D7D92C300421BD0 /* filter_free.png */; };
-		A9320C9D1E2CE185004DC8A1 /* Editor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95737CC1E0BDCF8006F2AB7 /* Editor.storyboard */; };
 		A9320CA31E2CE185004DC8A1 /* RebekkaTouch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A921D9701DC1DEA9003631E8 /* RebekkaTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9320CA41E2CE185004DC8A1 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A93BCE0C1D7D577300421BD0 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A9320CB01E2CE1ED004DC8A1 /* RTVEThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9320CAE1E2CE1E5004DC8A1 /* RTVEThemeColors.swift */; };
+		A9320CB01E2CE1ED004DC8A1 /* RTVEConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9320CAE1E2CE1E5004DC8A1 /* RTVEConfiguration.swift */; };
 		A9320CB71E2CE76D004DC8A1 /* RTVE.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9320CB61E2CE76D004DC8A1 /* RTVE.xcassets */; };
 		A9320CB91E2CE7AC004DC8A1 /* RTVELaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9320CB81E2CE7AC004DC8A1 /* RTVELaunchScreen.storyboard */; };
+		A9320CC01E2D26D3004DC8A1 /* ConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9320CBF1E2D26D3004DC8A1 /* ConfigurationProtocol.swift */; };
+		A9320CC11E2D2771004DC8A1 /* ConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9320CBF1E2D26D3004DC8A1 /* ConfigurationProtocol.swift */; };
+		A9320CC41E2D3830004DC8A1 /* Editor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95737CC1E0BDCF8006F2AB7 /* Editor.storyboard */; };
+		A9320CC61E2D3AB4004DC8A1 /* Editor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95737CC1E0BDCF8006F2AB7 /* Editor.storyboard */; };
 		A9325FAD1E091E1D00400AD6 /* ExportTemporalVideoToShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9325FAC1E091E1D00400AD6 /* ExportTemporalVideoToShare.swift */; };
 		A9325FB21E091FB900400AD6 /* GetPHAssetFromUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9325FB11E091FB900400AD6 /* GetPHAssetFromUrl.swift */; };
 		A9325FC31E0950B600400AD6 /* DateCompareExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9325FC21E0950B600400AD6 /* DateCompareExtension.swift */; };
@@ -377,13 +380,18 @@
 		A93BCE741D7D88EE00421BD0 /* activity_record_rec_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE731D7D88EE00421BD0 /* activity_record_rec_circle.png */; };
 		A93BCE761D7D92C300421BD0 /* filter_free.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE751D7D92C300421BD0 /* filter_free.png */; };
 		A93BCE781D7D93B700421BD0 /* water_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE771D7D93B700421BD0 /* water_mark.png */; };
+		A94D42E51E2E2E4A00CE4F3B /* MicRecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DF011DAD1DFC0030E285 /* MicRecorderViewController.swift */; };
+		A94D42E91E2E2E4B00CE4F3B /* MicRecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DF011DAD1DFC0030E285 /* MicRecorderViewController.swift */; };
+		A94D42EA1E2E2E6700CE4F3B /* AddTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A419101DB5110C00FB642E /* AddTextViewController.swift */; };
+		A94D42EB1E2E2E6800CE4F3B /* AddTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A419101DB5110C00FB642E /* AddTextViewController.swift */; };
+		A94D42EC1E2E2E9000CE4F3B /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DEF91DACF35D0030E285 /* MusicListViewController.swift */; };
+		A94D42ED1E2E2E9100CE4F3B /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DEF91DACF35D0030E285 /* MusicListViewController.swift */; };
 		A94E11F61D941C84004A0E96 /* ResolutionsImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E11F51D941C84004A0E96 /* ResolutionsImages.swift */; };
 		A95078CC1DE5F1E100FD250B /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95078CB1DE5F1E100FD250B /* Repository.swift */; };
 		A95078CE1DE5F35100FD250B /* Specification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95078CD1DE5F35100FD250B /* Specification.swift */; };
 		A95078D01DE5F38800FD250B /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95078CF1DE5F38800FD250B /* Mapper.swift */; };
 		A955D6341D9A88EB00604567 /* AddWatermarkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A955D6331D9A88EB00604567 /* AddWatermarkUseCase.swift */; };
 		A95737C91E0BC892006F2AB7 /* ShareVideoPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95737C81E0BC892006F2AB7 /* ShareVideoPath.swift */; };
-		A95737CA1E0BDCF8006F2AB7 /* Editor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95737CC1E0BDCF8006F2AB7 /* Editor.storyboard */; };
 		A95BE9811D990A4A00602DCD /* SettingsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9741D990A4A00602DCD /* SettingsContent.swift */; };
 		A95BE9821D990A4A00602DCD /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9751D990A4A00602DCD /* SettingsInteractor.swift */; };
 		A95BE9831D990A4A00602DCD /* SettingsInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9761D990A4A00602DCD /* SettingsInteractorInterface.swift */; };
@@ -996,12 +1004,13 @@
 		A91D63051DDF22F600D226B8 /* SetTrimParametersToVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTrimParametersToVideo.swift; sourceTree = "<group>"; };
 		A91D63071DDF234C00D226B8 /* TrimParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrimParameters.swift; sourceTree = "<group>"; };
 		A921D9661DC1DEA9003631E8 /* Rebekka.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rebekka.xcodeproj; path = "../FTP_Client_Rebekka/rebekka-source/Rebekka.xcodeproj"; sourceTree = "<group>"; };
-		A9320B851E2CD65F004DC8A1 /* AppThemeColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppThemeColors.swift; sourceTree = "<group>"; };
+		A9320B851E2CD65F004DC8A1 /* ViMoJoConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViMoJoConfiguration.swift; sourceTree = "<group>"; };
 		A9320CA81E2CE185004DC8A1 /* RTVE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RTVE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9320CA91E2CE186004DC8A1 /* vimojo copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "vimojo copy2-Info.plist"; path = "/Users/Alejandro/Desktop/Repos/Vimojo_xCode8/vimojo copy2-Info.plist"; sourceTree = "<absolute>"; };
-		A9320CAE1E2CE1E5004DC8A1 /* RTVEThemeColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RTVEThemeColors.swift; path = vimojo/RTVEThemeColors.swift; sourceTree = "<group>"; };
+		A9320CAE1E2CE1E5004DC8A1 /* RTVEConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RTVEConfiguration.swift; path = vimojo/RTVEConfiguration.swift; sourceTree = "<group>"; };
 		A9320CB61E2CE76D004DC8A1 /* RTVE.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = RTVE.xcassets; sourceTree = "<group>"; };
 		A9320CB81E2CE7AC004DC8A1 /* RTVELaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RTVELaunchScreen.storyboard; sourceTree = "<group>"; };
+		A9320CBF1E2D26D3004DC8A1 /* ConfigurationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationProtocol.swift; sourceTree = "<group>"; };
 		A9325FAC1E091E1D00400AD6 /* ExportTemporalVideoToShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportTemporalVideoToShare.swift; sourceTree = "<group>"; };
 		A9325FB11E091FB900400AD6 /* GetPHAssetFromUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPHAssetFromUrl.swift; sourceTree = "<group>"; };
 		A9325FC21E0950B600400AD6 /* DateCompareExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCompareExtension.swift; sourceTree = "<group>"; };
@@ -1343,7 +1352,6 @@
 			children = (
 				A9148DDA1E1D3ECE006DC511 /* DPTheme.swift */,
 				A9148DDB1E1D3ECE006DC511 /* CustomDPTheme.swift */,
-				A9320B851E2CD65F004DC8A1 /* AppThemeColors.swift */,
 			);
 			name = Theme;
 			sourceTree = "<group>";
@@ -1468,11 +1476,27 @@
 		A9320CAD1E2CE1A4004DC8A1 /* RTVE */ = {
 			isa = PBXGroup;
 			children = (
-				A9320CAE1E2CE1E5004DC8A1 /* RTVEThemeColors.swift */,
+				A9320CAE1E2CE1E5004DC8A1 /* RTVEConfiguration.swift */,
 				A9320CB81E2CE7AC004DC8A1 /* RTVELaunchScreen.storyboard */,
 				A9320CB61E2CE76D004DC8A1 /* RTVE.xcassets */,
 			);
 			name = RTVE;
+			sourceTree = "<group>";
+		};
+		A9320CBD1E2D2486004DC8A1 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				A9320B851E2CD65F004DC8A1 /* ViMoJoConfiguration.swift */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
+		A9320CBE1E2D26C7004DC8A1 /* Configuration Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				A9320CBF1E2D26D3004DC8A1 /* ConfigurationProtocol.swift */,
+			);
+			name = "Configuration Protocol";
 			sourceTree = "<group>";
 		};
 		A9325FB31E09256800400AD6 /* Export Temporal Video */ = {
@@ -2068,6 +2092,7 @@
 		A9B385E81D7D51380065D3EC /* vimojo */ = {
 			isa = PBXGroup;
 			children = (
+				A9320CBD1E2D2486004DC8A1 /* Configuration */,
 				A9148DE11E1D3ED6006DC511 /* Theme */,
 				A93BCE5A1D7D7A1200421BD0 /* vimojo-Bridging-Header.h */,
 				A93BCE751D7D92C300421BD0 /* filter_free.png */,
@@ -2271,6 +2296,7 @@
 		A9B3865B1D7D55440065D3EC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A9320CBE1E2D26C7004DC8A1 /* Configuration Protocol */,
 				A9325FBE1E0950AB00400AD6 /* Extension */,
 				A9CFA5E51D991DBE0037B1F5 /* VideonaFooterView.xib */,
 				A93BCE491D7D5C6B00421BD0 /* Constants */,
@@ -2757,6 +2783,7 @@
 				A9320C8F1E2CE185004DC8A1 /* GALLOPING.mp3 in Resources */,
 				A9320C901E2CE185004DC8A1 /* ProjectList.strings in Resources */,
 				A9320CB71E2CE76D004DC8A1 /* RTVE.xcassets in Resources */,
+				A9320CC41E2D3830004DC8A1 /* Editor.storyboard in Resources */,
 				A9320C911E2CE185004DC8A1 /* Record.storyboard in Resources */,
 				A9320C921E2CE185004DC8A1 /* GoogleService-Info.plist in Resources */,
 				A9320C931E2CE185004DC8A1 /* Settings.strings in Resources */,
@@ -2769,7 +2796,6 @@
 				A9320C9A1E2CE185004DC8A1 /* WE_BEAT_AS_ONE.mp3 in Resources */,
 				A9320C9B1E2CE185004DC8A1 /* Share.strings in Resources */,
 				A9320C9C1E2CE185004DC8A1 /* filter_free.png in Resources */,
-				A9320C9D1E2CE185004DC8A1 /* Editor.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2796,6 +2822,7 @@
 				A96441111DA3E59700CAD950 /* Settings.strings in Resources */,
 				A97772C11DC2451200EA9291 /* EditorStrings.strings in Resources */,
 				A9B385EF1D7D51380065D3EC /* Main.storyboard in Resources */,
+				A9320CC61E2D3AB4004DC8A1 /* Editor.storyboard in Resources */,
 				A9A2073C1DED94BB004AAEE2 /* ProjectList.storyboard in Resources */,
 				A9CFA5E61D991DBE0037B1F5 /* VideonaFooterView.xib in Resources */,
 				A9C695921DA2411400597646 /* FREE_THE_COLD_WIND.mp3 in Resources */,
@@ -2803,7 +2830,6 @@
 				A9C695951DA2411400597646 /* WE_BEAT_AS_ONE.mp3 in Resources */,
 				A97772B71DC244E700EA9291 /* Share.strings in Resources */,
 				A93BCE761D7D92C300421BD0 /* filter_free.png in Resources */,
-				A95737CA1E0BDCF8006F2AB7 /* Editor.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3190,6 +3216,7 @@
 				A9320BF91E2CE185004DC8A1 /* TrimParameters.swift in Sources */,
 				A9320BFA1E2CE185004DC8A1 /* AddTextViewController.swift in Sources */,
 				A9320BFB1E2CE185004DC8A1 /* ShareCell.swift in Sources */,
+				A9320CC11E2D2771004DC8A1 /* ConfigurationProtocol.swift in Sources */,
 				A9320BFC1E2CE185004DC8A1 /* NSLocale+ISO639_2.m in Sources */,
 				A9320BFD1E2CE185004DC8A1 /* DrawerProfileTableViewCell.swift in Sources */,
 				A9320BFE1E2CE185004DC8A1 /* SettingsInteractor.swift in Sources */,
@@ -3208,7 +3235,7 @@
 				A9320C0B1E2CE185004DC8A1 /* ProjectRepository.swift in Sources */,
 				A9320C0C1E2CE185004DC8A1 /* CameraRecorderInteractor.swift in Sources */,
 				A9320C0D1E2CE185004DC8A1 /* AppDelegate.swift in Sources */,
-				A9320CB01E2CE1ED004DC8A1 /* RTVEThemeColors.swift in Sources */,
+				A9320CB01E2CE1ED004DC8A1 /* RTVEConfiguration.swift in Sources */,
 				A9320C0E1E2CE185004DC8A1 /* ProjectListInteractor.swift in Sources */,
 				A9320C0F1E2CE185004DC8A1 /* TimerInteractor.swift in Sources */,
 				A9320C101E2CE185004DC8A1 /* ShareConstants.swift in Sources */,
@@ -3330,7 +3357,7 @@
 				A907FE7C1E26366500E6D2F6 /* RecordedTrackAreaViewModel.swift in Sources */,
 				A90386471DF1AC5600C01244 /* SettingTransitionAction.swift in Sources */,
 				A94E11F61D941C84004A0E96 /* ResolutionsImages.swift in Sources */,
-				A9320B861E2CD65F004DC8A1 /* AppThemeColors.swift in Sources */,
+				A9320B861E2CD65F004DC8A1 /* ViMoJoConfiguration.swift in Sources */,
 				A9E90D701DE729A1002B9DA3 /* ProjectRealmRepository.swift in Sources */,
 				A9E90D611DE70BFE002B9DA3 /* ProjectToRealmProjectMapper.swift in Sources */,
 				A988DF0A1DAD1E230030E285 /* MicRecorderInteractor.swift in Sources */,
@@ -3369,6 +3396,7 @@
 				A9B386311D7D53230065D3EC /* RecorderInteractor.swift in Sources */,
 				A980A57B1E23F34300D50034 /* GetVoiceOverComposition.swift in Sources */,
 				A992B7B81DEDC71800BAFC75 /* DuplicateProjectOnProjectListAction.swift in Sources */,
+				A9320CC01E2D26D3004DC8A1 /* ConfigurationProtocol.swift in Sources */,
 				A91761371D916F53008915DA /* MusicProvider.swift in Sources */,
 				A9B54BA91DFEF4CB00388002 /* DrawerMenuInteractorInterface.swift in Sources */,
 				A9B386301D7D53230065D3EC /* RecorderInteractorInterface.swift in Sources */,
@@ -3590,6 +3618,7 @@
 				A9C167701D92AB1C007EE697 /* SharePresenter.swift in Sources */,
 				A9C167711D92AB1C007EE697 /* DuplicateViewController.swift in Sources */,
 				A9C167721D92AB1C007EE697 /* CameraInteractorInterface.swift in Sources */,
+				A94D42EC1E2E2E9000CE4F3B /* MusicListViewController.swift in Sources */,
 				A9C167751D92AB1C007EE697 /* RecordWireframe.swift in Sources */,
 				A9C167761D92AB1C007EE697 /* ExportedAlbum.swift in Sources */,
 				A9C167771D92AB1C007EE697 /* EditorInteractor.swift in Sources */,
@@ -3647,7 +3676,9 @@
 				A9C167AF1D92AB1C007EE697 /* ViMoJoInterface.swift in Sources */,
 				A9C167B01D92AB1C007EE697 /* ClipsAlbum.swift in Sources */,
 				A9C167B11D92AB1C007EE697 /* ShareInteractorInterface.swift in Sources */,
+				A94D42EA1E2E2E6700CE4F3B /* AddTextViewController.swift in Sources */,
 				A9C167B21D92AB1C007EE697 /* AddFilterInteractor.swift in Sources */,
+				A94D42E51E2E2E4A00CE4F3B /* MicRecorderViewController.swift in Sources */,
 				A9C167B31D92AB1C007EE697 /* TimerInteractorInterface.swift in Sources */,
 				A9C167B41D92AB1C007EE697 /* FullScreenPlayerInterface.swift in Sources */,
 				A9C167B61D92AB1C007EE697 /* ShareUtils.swift in Sources */,
@@ -3682,6 +3713,7 @@
 				A9C168011D92C667007EE697 /* SharePresenter.swift in Sources */,
 				A9C168021D92C667007EE697 /* DuplicateViewController.swift in Sources */,
 				A9C168031D92C667007EE697 /* CameraInteractorInterface.swift in Sources */,
+				A94D42ED1E2E2E9100CE4F3B /* MusicListViewController.swift in Sources */,
 				A9C168061D92C667007EE697 /* RecordWireframe.swift in Sources */,
 				A9C168071D92C667007EE697 /* ExportedAlbum.swift in Sources */,
 				A9C168081D92C667007EE697 /* EditorInteractor.swift in Sources */,
@@ -3739,7 +3771,9 @@
 				A9C168401D92C667007EE697 /* ViMoJoInterface.swift in Sources */,
 				A9C168411D92C667007EE697 /* ClipsAlbum.swift in Sources */,
 				A9C168421D92C667007EE697 /* ShareInteractorInterface.swift in Sources */,
+				A94D42EB1E2E2E6800CE4F3B /* AddTextViewController.swift in Sources */,
 				A9C168431D92C667007EE697 /* AddFilterInteractor.swift in Sources */,
+				A94D42E91E2E2E4B00CE4F3B /* MicRecorderViewController.swift in Sources */,
 				A9C168441D92C667007EE697 /* TimerInteractorInterface.swift in Sources */,
 				A9C168451D92C667007EE697 /* FullScreenPlayerInterface.swift in Sources */,
 				A9C168471D92C667007EE697 /* ShareUtils.swift in Sources */,

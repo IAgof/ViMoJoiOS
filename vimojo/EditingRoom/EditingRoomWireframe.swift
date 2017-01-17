@@ -24,6 +24,7 @@ class EditingRoomWireframe : NSObject {
     var drawerWireframe : DrawerMenuWireframe?
     var recordWireframe : RecordWireframe?
     var galleryWireframe:GalleryWireframe?
+    var musicListWireframe:MusicListWireframe?
 
     //MARK: - Variables
     weak var currentViewController: UIViewController?
@@ -126,13 +127,20 @@ class EditingRoomWireframe : NSObject {
     
     func initTabBarControllers(){
         var controllers:[UIViewController]  = []
-       
+        
         if let newController = editorWireframe?.editorViewControllerFromStoryboard(){
             controllers.append(newController)
         }
         
-        if let newController = musicWireframe?.musicViewControllerFromStoryboard(){
-            controllers.append(newController)
+        if configuration.VOICE_OVER_FEATURE{
+            if let newController = musicWireframe?.musicViewControllerFromStoryboard(){
+                controllers.append(newController)
+            }
+        }else{
+            if let newController = musicListWireframe?.musicViewControllerFromStoryboard(){
+                controllers.append(newController)
+                newController.configureNavigationBarWithDrawerAndOptions()
+            }
         }
         
         if let newController = shareWireframe?.shareViewControllerFromStoryboard(){

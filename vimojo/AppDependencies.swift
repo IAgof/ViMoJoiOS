@@ -159,6 +159,7 @@ class AppDependencies {
         editorRoomWireframe.drawerWireframe = drawerWireframe
         editorRoomWireframe.recordWireframe = recordWireframe
         editorRoomWireframe.galleryWireframe = galleryWireframe
+        editorRoomWireframe.musicListWireframe = musicListWireframe
         
         //EDITOR MODULE
         editorPresenter.wireframe = editorWireframe
@@ -224,6 +225,7 @@ class AppDependencies {
         musicListWireframe.rootWireframe = rootWireframe
         musicListWireframe.playerWireframe = playerWireframe
         musicListWireframe.editorRoomWireframe = editorRoomWireframe
+        musicListWireframe.settingsWireframe = settingsWireframe
         
         //MIC RECORDER MODULE
         micRecorderPresenter.wireframe = micRecorderWireframe
