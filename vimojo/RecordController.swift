@@ -674,7 +674,7 @@ extension RecordController:RecordPresenterDelegate {
     
     func setSelectedMicButton(_ state: Bool) {
         micButton.isHidden = !state
-        micButton.isSelected = state
+        micButton.isSelected = !state
     }
     
     func showFocusView() {
