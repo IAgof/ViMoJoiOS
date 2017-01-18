@@ -18,19 +18,19 @@ struct MixAudioModel {
         self.videoVolume = videoVolume
         self.audioVolume = audioVolume
         
-        if videoVolume != 1{
-            self.sliderValue = (videoVolume)/2
+        if audioVolume != 1{
+            self.sliderValue = (audioVolume)/2
         }
         
-        if audioVolume != 1{
-            self.sliderValue = 1 - audioVolume/2
+        if videoVolume != 1{
+            self.sliderValue = 1 - videoVolume/2
         }
     }
     
     init(sliderValue:Float) {
         self.sliderValue = sliderValue
         
-        videoVolume = min(1, 2 * sliderValue)
-        audioVolume = min(1,2 * ( 1 - sliderValue))
+        audioVolume = min(1, 2 * sliderValue)
+        videoVolume = min(1,2 * ( 1 - sliderValue))
     }
 }
