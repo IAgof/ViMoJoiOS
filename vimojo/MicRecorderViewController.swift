@@ -104,7 +104,6 @@ class MicRecorderViewController: ViMoJoController,PlayerViewSetter{
         totalRecordedSlider.delegate = self
         eventHandler?.viewDidLoad()
         setUpHasRecordView()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

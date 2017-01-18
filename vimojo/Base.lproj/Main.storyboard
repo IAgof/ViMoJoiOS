@@ -66,17 +66,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZn-wu-f2Y">
                                 <rect key="frame" x="0.0" y="285" width="414" height="399"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQH-Jg-yVS">
-                                        <rect key="frame" x="184.33333333333334" y="285.33333333333337" width="46" height="20.333333333333258"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                        </variation>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Divide tu clip de video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbi-zj-3BR">
-                                        <rect key="frame" x="123.33333333333334" y="110" width="168.66666666666666" height="20.333333333333314"/>
+                                        <rect key="frame" x="123.33333333333334" y="120" width="168.66666666666666" height="20.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -84,29 +75,30 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         </variation>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ede-G3-Wep" customClass="NMRangeSlider">
-                                        <rect key="frame" x="10" y="175.33333333333331" width="394" height="50"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ede-G3-Wep" customClass="TTRangeSlider">
+                                        <rect key="frame" x="10" y="185.33333333333331" width="394" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="2f4-h4-gaG">
+                                            <constraint firstAttribute="height" constant="30" id="2f4-h4-gaG">
                                                 <variation key="heightClass=compact" constant="85"/>
                                                 <variation key="heightClass=regular-widthClass=regular" constant="175"/>
                                             </constraint>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="selectedMinimum">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="disableRange" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="2f4-h4-gaG"/>
                                             </mask>
                                         </variation>
-                                        <connections>
-                                            <action selector="labelSliderChanged:" destination="e1J-kO-AGR" eventType="valueChanged" id="eog-fW-kEv"/>
-                                            <action selector="labelSliderPushed:" destination="e1J-kO-AGR" eventType="touchUpInside" id="LLH-ya-SJN"/>
-                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="fQH-Jg-yVS" firstAttribute="centerX" secondItem="Ede-G3-Wep" secondAttribute="centerX" id="34I-vJ-qw2"/>
                                     <constraint firstItem="rbi-zj-3BR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="SZn-wu-f2Y" secondAttribute="top" constant="86" id="67z-3U-l8A">
                                         <variation key="heightClass=regular-widthClass=regular" constant="60"/>
                                     </constraint>
@@ -117,9 +109,6 @@
                                     </constraint>
                                     <constraint firstItem="Ede-G3-Wep" firstAttribute="centerX" secondItem="SZn-wu-f2Y" secondAttribute="centerX" id="K1p-03-e4z"/>
                                     <constraint firstAttribute="trailing" secondItem="Ede-G3-Wep" secondAttribute="trailing" constant="10" id="UCo-M6-ZjW"/>
-                                    <constraint firstItem="fQH-Jg-yVS" firstAttribute="top" secondItem="Ede-G3-Wep" secondAttribute="bottom" constant="30" id="WwQ-2o-9NF">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="60"/>
-                                    </constraint>
                                     <constraint firstItem="rbi-zj-3BR" firstAttribute="centerX" secondItem="Ede-G3-Wep" secondAttribute="centerX" id="bae-nI-9Xb"/>
                                     <constraint firstItem="Ede-G3-Wep" firstAttribute="centerY" secondItem="SZn-wu-f2Y" secondAttribute="centerY" id="ctb-9l-gtf"/>
                                     <constraint firstItem="Ede-G3-Wep" firstAttribute="leading" secondItem="SZn-wu-f2Y" secondAttribute="leading" constant="10" id="pmN-Fu-bZo"/>
@@ -142,7 +131,6 @@
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="subviews">
-                                        <include reference="fQH-Jg-yVS"/>
                                         <include reference="rbi-zj-3BR"/>
                                         <include reference="Ede-G3-Wep"/>
                                     </mask>
@@ -278,7 +266,6 @@
                         <outlet property="playerView" destination="Ck2-bG-eRC" id="MYc-SL-LGG"/>
                         <outlet property="splitRangeSlider" destination="Ede-G3-Wep" id="w4w-yF-flc"/>
                         <outlet property="splitYourClipLabel" destination="rbi-zj-3BR" id="4Vq-Tf-e7c"/>
-                        <outlet property="timeToCutLabel" destination="fQH-Jg-yVS" id="ny1-2u-fkK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GH5-hs-dQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -834,17 +821,17 @@
                                 <rect key="frame" x="15" y="285.33333333333326" width="384" height="450.66666666666674"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0V4-dR-ZjO">
-                                        <rect key="frame" x="168.66666666666666" y="118.66666666666669" width="46" height="20.333333333333314"/>
+                                        <rect key="frame" x="168.66666666666666" y="122.66666666666669" width="46" height="20.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p4x-F4-w1f" customClass="VideonaTrackOverView" customModule="VideonaTrackOverView">
-                                        <rect key="frame" x="23" y="72.666666666666686" width="338" height="30"/>
+                                        <rect key="frame" x="23" y="76.666666666666686" width="338" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A7I-K0-5AL" customClass="TTRangeSlider">
-                                        <rect key="frame" x="8" y="72.666666666666686" width="368" height="30"/>
+                                        <rect key="frame" x="8" y="76.666666666666686" width="368" height="30"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="sF1-hF-hil"/>
@@ -857,13 +844,13 @@
                                         </connections>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLS-cn-Hbl">
-                                        <rect key="frame" x="29" y="118.66666666666669" width="46" height="20.333333333333314"/>
+                                        <rect key="frame" x="29" y="122.66666666666669" width="46" height="20.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IY8-n6-H70">
-                                        <rect key="frame" x="308" y="118.66666666666669" width="46" height="20.333333333333314"/>
+                                        <rect key="frame" x="308" y="122.66666666666669" width="46" height="20.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -891,7 +878,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="activity_edit_sound_voiceover_mix_micro" maximumValueImage="activity_edit_sound_normal" translatesAutoresizingMaskIntoConstraints="NO" id="WJn-IL-MvO">
-                                        <rect key="frame" x="19" y="349.33333333333331" width="347" height="31"/>
+                                        <rect key="frame" x="19" y="340.33333333333331" width="347" height="31"/>
                                         <color key="minimumTrackTintColor" red="0.94901960780000005" green="0.29411764709999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="mixAudioValueChanged:" destination="I1J-mQ-QlR" eventType="valueChanged" id="IRn-M9-eUI"/>
@@ -901,17 +888,17 @@
                                         <rect key="frame" x="99.666666666666686" y="159" width="185.66666666666663" height="133.00000000000006"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEj-Un-b8l">
-                                                <rect key="frame" x="0.0" y="0.0" width="185.66666666666663" height="133.00000000000006"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="151.33333333333331" height="133.00000000000006"/>
                                                 <gestureRecognizers/>
                                                 <state key="normal" image="activity_edit_sound_voiceover_record_normal"/>
                                                 <state key="selected" image="activity_edit_sound_voiceover_record_pressed"/>
                                                 <state key="highlighted" image="activity_edit_sound_voiceover_record_pressed"/>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg0-GR-d24">
-                                                <rect key="frame" x="185.66666666666663" y="49.666666666666686" width="0.0" height="34"/>
+                                                <rect key="frame" x="151.33333333333331" y="49.666666666666686" width="34.333333333333314" height="34"/>
                                                 <gestureRecognizers/>
-                                                <state key="selected" image="30B33C0D-ACAA-4475-8D34-7493ECB94A9A"/>
-                                                <state key="highlighted" image="30B33C0D-ACAA-4475-8D34-7493ECB94A9A"/>
+                                                <state key="selected" image="56C47902-D5AF-4E76-AB66-D37B62BAAF60"/>
+                                                <state key="highlighted" image="56C47902-D5AF-4E76-AB66-D37B62BAAF60"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="image" keyPath="imageForNormal" value="activy_sound_music_delete_normal"/>
                                                     <userDefinedRuntimeAttribute type="image" keyPath="imageForHighlighted" value="activy_sound_music_delete_pressed"/>
@@ -932,7 +919,7 @@
                                     <constraint firstItem="0V4-dR-ZjO" firstAttribute="top" secondItem="A7I-K0-5AL" secondAttribute="bottom" constant="16" id="CE2-jm-RpV"/>
                                     <constraint firstItem="A7I-K0-5AL" firstAttribute="leading" secondItem="due-Kf-el9" secondAttribute="leading" constant="8" id="GeM-jz-RZe"/>
                                     <constraint firstItem="p4x-F4-w1f" firstAttribute="height" secondItem="A7I-K0-5AL" secondAttribute="height" id="HQA-RT-6TS"/>
-                                    <constraint firstItem="WJn-IL-MvO" firstAttribute="top" secondItem="UE9-Ey-LlH" secondAttribute="bottom" constant="16.999999999999943" id="I4I-Ta-uEW"/>
+                                    <constraint firstItem="WJn-IL-MvO" firstAttribute="top" secondItem="UE9-Ey-LlH" secondAttribute="bottom" constant="8" id="I4I-Ta-uEW"/>
                                     <constraint firstAttribute="trailing" secondItem="A7I-K0-5AL" secondAttribute="trailing" constant="8" id="Jd8-fv-cqS"/>
                                     <constraint firstItem="UE9-Ey-LlH" firstAttribute="top" secondItem="fUs-Sp-lwX" secondAttribute="bottom" constant="20" id="Peb-2X-0JT"/>
                                     <constraint firstItem="sUC-nF-IiA" firstAttribute="leading" secondItem="due-Kf-el9" secondAttribute="leading" constant="8" id="Qbn-R4-Rg9"/>
@@ -947,7 +934,7 @@
                                     <constraint firstItem="yLS-cn-Hbl" firstAttribute="centerY" secondItem="0V4-dR-ZjO" secondAttribute="centerY" id="gEL-9w-cc7"/>
                                     <constraint firstItem="p4x-F4-w1f" firstAttribute="trailing" secondItem="A7I-K0-5AL" secondAttribute="trailing" constant="-15" id="gNq-gA-TCW"/>
                                     <constraint firstItem="fUs-Sp-lwX" firstAttribute="centerX" secondItem="due-Kf-el9" secondAttribute="centerX" id="hyf-np-1nU"/>
-                                    <constraint firstItem="fUs-Sp-lwX" firstAttribute="top" secondItem="0V4-dR-ZjO" secondAttribute="bottom" constant="20" id="k5I-O0-gyC"/>
+                                    <constraint firstItem="fUs-Sp-lwX" firstAttribute="top" secondItem="0V4-dR-ZjO" secondAttribute="bottom" constant="16" id="k5I-O0-gyC"/>
                                     <constraint firstItem="p4x-F4-w1f" firstAttribute="leading" secondItem="A7I-K0-5AL" secondAttribute="leading" constant="15" id="uMl-gG-j7I"/>
                                     <constraint firstItem="p4x-F4-w1f" firstAttribute="centerY" secondItem="A7I-K0-5AL" secondAttribute="centerY" id="uaE-OS-I2C"/>
                                     <constraint firstAttribute="bottom" secondItem="sUC-nF-IiA" secondAttribute="bottom" constant="20" id="vQg-q6-8OA"/>
@@ -1366,7 +1353,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="30B33C0D-ACAA-4475-8D34-7493ECB94A9A" width="138" height="138">
+        <image name="56C47902-D5AF-4E76-AB66-D37B62BAAF60" width="138" height="138">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
