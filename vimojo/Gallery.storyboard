@@ -13,7 +13,7 @@
         <!--All Videos Gallery View Controller-->
         <scene sceneID="ZkM-v6-6Pg">
             <objects>
-                <collectionViewController id="XPu-N1-91P" customClass="AllVideosGalleryViewController" customModule="vimojo" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="XPu-N1-91P" customClass="AllVideosGalleryViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="cXa-TY-5cw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,7 +90,7 @@
         <!--Gallery View Controller-->
         <scene sceneID="Giy-S5-nhc">
             <objects>
-                <tabBarController storyboardIdentifier="GalleryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lf3-M1-2rZ" customClass="GalleryViewController" customModule="vimojo" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="GalleryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lf3-M1-2rZ" customClass="GalleryViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="CAd-Oi-90r">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -109,7 +109,7 @@
         <!--Custom Clips Gallery View Controller-->
         <scene sceneID="rIj-gT-8YQ">
             <objects>
-                <collectionViewController id="BV8-2G-Uwe" customClass="CustomClipsGalleryViewController" customModule="vimojo" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="BV8-2G-Uwe" customClass="CustomClipsGalleryViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Za4-lz-22D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -186,7 +186,7 @@
         <!--Custom Exported Videos Gallery View Controller-->
         <scene sceneID="5VX-n7-Yv7">
             <objects>
-                <collectionViewController id="Cy9-0N-BbX" customClass="CustomExportedVideosGalleryViewController" customModule="vimojo" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="Cy9-0N-BbX" customClass="CustomExportedVideosGalleryViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="OYy-vV-Oau">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -264,9 +264,9 @@
         <scene sceneID="yex-IS-Gct">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ljy-nI-TqT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="All" id="TFz-IG-Bj4"/>
+                    <tabBarItem key="tabBarItem" title="All" image="activity_clip_gallery_all_normal" id="TFz-IG-Bj4"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="F12-CU-7p9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="F12-CU-7p9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.94509803920000002" green="0.29411764709999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -284,9 +284,9 @@
         <scene sceneID="nUo-6N-sN3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="upQ-tj-Jr2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Edited" id="LXW-Ke-aqE"/>
+                    <tabBarItem key="tabBarItem" title="Edited" image="activity_clip_gallery_edited_normal" id="LXW-Ke-aqE"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hXI-Nr-XFG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hXI-Nr-XFG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.94509803920000002" green="0.29411764709999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -304,9 +304,9 @@
         <scene sceneID="CR7-qd-n9u">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M7s-cR-vC0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Clips" id="ZSr-jX-aG6"/>
+                    <tabBarItem key="tabBarItem" title="Clips" image="activity_clip_gallery_clips_normal" id="ZSr-jX-aG6"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ZRY-11-SkX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZRY-11-SkX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.94509803920000002" green="0.29411764709999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -321,4 +321,9 @@
             <point key="canvasLocation" x="-226" y="1945"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="activity_clip_gallery_all_normal" width="22" height="22"/>
+        <image name="activity_clip_gallery_clips_normal" width="20" height="22"/>
+        <image name="activity_clip_gallery_edited_normal" width="16" height="22"/>
+    </resources>
 </document>
