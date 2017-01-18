@@ -67,9 +67,9 @@ class SettingsTransition {
         var transitions:[String] = []
         
         transitions.append(Utils().getStringByKeyFromSettings(SettingsConstants().NO_TRANSITION))
-        transitions.append(Utils().getStringByKeyFromSettings(SettingsConstants().ONE_SECOND_TRANSITION))
-        transitions.append(Utils().getStringByKeyFromSettings(SettingsConstants().HALF_SECOND_TRANSITION))
         transitions.append(Utils().getStringByKeyFromSettings(SettingsConstants().QUARTER_SECOND_TRANSITION))
+        transitions.append(Utils().getStringByKeyFromSettings(SettingsConstants().HALF_SECOND_TRANSITION))
+        transitions.append(Utils().getStringByKeyFromSettings(SettingsConstants().ONE_SECOND_TRANSITION))
         
         return transitions
     }
