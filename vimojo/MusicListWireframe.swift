@@ -63,12 +63,13 @@ class MusicListWireframe {
     }
     
     func presentEditor(){
-        removeController()
-        
-        guard let wireframe = editorRoomWireframe else{
-            return
+        if configuration.VOICE_OVER_FEATURE{
+            removeController()
         }
-//        wireframe.editingRoomViewController?.eventHandler?.pushEditor()
+        
+        guard let wireframe = editorRoomWireframe else{return}
+        
+        wireframe.editingRoomViewController?.selectedIndex = 0
     }
     
     func presentSettings(){
