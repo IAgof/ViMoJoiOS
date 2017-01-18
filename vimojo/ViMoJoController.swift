@@ -25,6 +25,12 @@ ViMoJoInterface {
 //                                                         name: NSNotification.Name.UIDeviceOrientationDidChange,
 //                                                         object: nil)
         UIApplication.shared.setStatusBarHidden(true, with: .none)
+        
+        DPTheme.customizeNavigationBar(barColor: configuration.mainColor,
+                                       textColor: configuration.plainButtonColor,
+                                       fontName: configuration.fontName,
+                                       fontSize: DPTheme.kDefaultNavigationBarFontSize,
+                                       buttonColor: configuration.plainButtonColor)
     }
     
     override public func viewWillAppear(_ animated: Bool) {

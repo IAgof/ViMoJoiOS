@@ -13,7 +13,7 @@ var configuration:ConfigurationProtocol = RTVEConfiguration()
 final class RTVEConfiguration: ConfigurationProtocol {
     internal var fontName: String
     internal var mainColor: UIColor
-    internal var mainColorWithOpacity: UIColor
+    internal var plainButtonColor: UIColor
     internal var secondColor: UIColor
     internal var secondColorWithOpacity: UIColor
     internal var VOICE_OVER_FEATURE: Bool
@@ -22,7 +22,7 @@ final class RTVEConfiguration: ConfigurationProtocol {
     init() {
         fontName = "Helvetica"
         mainColor = #colorLiteral(red: 1, green: 0.6156862745, blue: 0.003921568627, alpha: 1)
-        mainColorWithOpacity = #colorLiteral(red: 1, green: 0.6156862745, blue: 0.003921568627, alpha: 0.5)
+        plainButtonColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         secondColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         secondColorWithOpacity = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.5)
         VOICE_OVER_FEATURE = true

@@ -13,7 +13,7 @@ var configuration:ConfigurationProtocol = ViMoJoConfiguration()
 final class ViMoJoConfiguration: ConfigurationProtocol {
     internal var fontName: String
     internal var mainColor: UIColor
-    internal var mainColorWithOpacity: UIColor
+    internal var plainButtonColor: UIColor
     internal var secondColor: UIColor
     internal var secondColorWithOpacity: UIColor
     internal var VOICE_OVER_FEATURE: Bool
@@ -22,7 +22,7 @@ final class ViMoJoConfiguration: ConfigurationProtocol {
     init() {
         fontName = "Helvetica"
         mainColor = #colorLiteral(red: 0.9490196078, green: 0.2941176471, blue: 0.3176470588, alpha: 1)
-        mainColorWithOpacity = #colorLiteral(red: 0.9490196078, green: 0.2941176471, blue: 0.3176470588, alpha: 0.5)
+        plainButtonColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         secondColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         secondColorWithOpacity = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.5)
         VOICE_OVER_FEATURE = false

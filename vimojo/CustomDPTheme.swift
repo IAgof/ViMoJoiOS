@@ -26,6 +26,12 @@ class CustomDPTheme {
         }
         
         DPTheme.customizeTabBar(barColor: #colorLiteral(red: 0.9529411765, green: 0.9529411765, blue: 0.9529411765, alpha: 1), textColor: configuration.mainColor)
+        
+        DPTheme.customizeNavigationBar(barColor: configuration.mainColor,
+                                       textColor: configuration.plainButtonColor,
+                                       fontName: configuration.fontName,
+                                       fontSize: DPTheme.kDefaultNavigationBarFontSize,
+                                       buttonColor: configuration.plainButtonColor)
     }
 }
 

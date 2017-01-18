@@ -49,16 +49,23 @@
                                                     <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_drawer_logo" highlightedImage="activity_drawer_logo" translatesAutoresizingMaskIntoConstraints="NO" id="skc-l2-3CN">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.94712263350000003" green="0.29490819569999999" blue="0.31749987600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
+                                                <constraint firstItem="skc-l2-3CN" firstAttribute="leading" secondItem="mw6-BE-9sC" secondAttribute="leading" id="BRY-xR-fPc"/>
+                                                <constraint firstAttribute="bottom" secondItem="skc-l2-3CN" secondAttribute="bottom" id="Esn-c0-nfE"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="eFL-su-lME" secondAttribute="bottom" constant="8" id="Koh-ie-1IU"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="NYU-P4-Spu" secondAttribute="trailing" id="V9J-mE-hDx"/>
                                                 <constraint firstItem="GWp-Cb-lNv" firstAttribute="top" secondItem="mw6-BE-9sC" secondAttribute="topMargin" id="VaO-w8-kVS"/>
                                                 <constraint firstItem="NYU-P4-Spu" firstAttribute="leading" secondItem="eFL-su-lME" secondAttribute="leading" id="Vm7-pn-GNV"/>
                                                 <constraint firstItem="NYU-P4-Spu" firstAttribute="leading" secondItem="mw6-BE-9sC" secondAttribute="leadingMargin" id="ZzD-a1-qIL"/>
                                                 <constraint firstItem="GWp-Cb-lNv" firstAttribute="trailing" secondItem="mw6-BE-9sC" secondAttribute="trailingMargin" id="eao-sT-oah"/>
+                                                <constraint firstAttribute="trailing" secondItem="skc-l2-3CN" secondAttribute="trailing" id="f7z-Re-fHV"/>
                                                 <constraint firstItem="eFL-su-lME" firstAttribute="top" secondItem="NYU-P4-Spu" secondAttribute="bottom" constant="3" id="ity-0N-0tb"/>
+                                                <constraint firstItem="skc-l2-3CN" firstAttribute="top" secondItem="mw6-BE-9sC" secondAttribute="top" id="osP-Kk-stv"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -161,11 +168,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J8W-zh-Wqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="661.60000000000002" y="1076.311844077961"/>
+            <point key="canvasLocation" x="660" y="1075.3521126760563"/>
         </scene>
     </scenes>
     <resources>
         <image name="activity_drawer_close" width="26" height="26"/>
+        <image name="activity_drawer_logo" width="62" height="32"/>
         <image name="activity_drawer_new_project_normal" width="44" height="37"/>
         <image name="activity_drawer_new_project_pressed" width="44" height="37"/>
         <image name="activity_drawer_options_normal" width="29" height="30"/>

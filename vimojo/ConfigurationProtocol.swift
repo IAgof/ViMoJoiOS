@@ -11,7 +11,7 @@ import Foundation
 protocol ConfigurationProtocol {
     var fontName:String{get}
     var mainColor:UIColor{get}
-    var mainColorWithOpacity:UIColor{get}
+    var plainButtonColor:UIColor{get}
     var secondColor:UIColor{get}
     var secondColorWithOpacity:UIColor{get}
     
