@@ -38,6 +38,8 @@ class DuplicateViewController: ViMoJoController,DuplicateInterface,DuplicatePres
         eventHandler?.viewDidLoad()
         numberOfDuplicates.adjustsFontSizeToFitWidth = true
         wireframe?.presentPlayerInterface()
+        
+        numberOfDuplicates.textColor = configuration.mainColor
     }
     
     override func viewWillDisappear(_ animated: Bool) {
