@@ -25,7 +25,6 @@ class EditorPresenter: NSObject {
     //MARK: - Variables
     var selectedCellIndexPath = IndexPath(row: 0, section: 0)
     var videoToRemove = -1
-    let NO_SELECTED_CELL = -1
     var stopList:[Double] = []
     var isGoingToExpandPlayer = false
     
@@ -188,9 +187,13 @@ extension EditorPresenter:EditorPresenterInterface{
     func pushAddFloating() {
         let title = Utils().getStringByKeyFromEditor(EditorTextConstants.ADD_TITLE)
 
-        let addOptions = [option_video,
-                      option_gallery,
-                      option_add_text]
+        var addOptions:[String] = []
+        addOptions.append(option_video)
+        addOptions.append(option_gallery)
+       
+        if interactor?.getNumberOfClips() != 0{
+            addOptions.append(option_add_text)
+        }
         
         delegate?.createAlertWithAddOptions(title: title, options: addOptions)
     }
