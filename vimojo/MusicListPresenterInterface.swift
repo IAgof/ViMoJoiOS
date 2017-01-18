@@ -15,6 +15,7 @@ protocol MusicListPresenterInterface {
     func viewDidAppear()
    
     func pushBackButton()
+    func pushOptions()
     func didSelectMusicAtIndexPath(_ indexPath:IndexPath)
     func cancelDetailButtonPushed()
     func acceptDetailButtonPushed()

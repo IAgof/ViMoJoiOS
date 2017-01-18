@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
     var appDependencies:AppDependencies!
     var initState = "firstTime"
     var mixpanel:Mixpanel?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         RealmMigrationsUseCase().updateMigrationDefault()
         

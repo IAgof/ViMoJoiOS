@@ -22,7 +22,6 @@ class SettingsViewController: ViMoJoController,
     
     //MARK: - Outlets
     @IBOutlet weak var settingsTableView: UITableView!
-    @IBOutlet weak var settingsNavBar: UINavigationItem!
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -35,7 +34,6 @@ class SettingsViewController: ViMoJoController,
     
     //MARK: - UITableview datasource
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        tableView.sectionIndexColor = UIColor.red
         
         return self.sections[section]
     }
@@ -46,7 +44,7 @@ class SettingsViewController: ViMoJoController,
         
         let label = UILabel(frame: CGRect(x: 8, y: 0, width: tableView.bounds.size.width, height: 30))
         label.text = self.sections[section]
-        label.textColor = mainColor
+        label.textColor = configuration.mainColor
         returnedView.addSubview(label)
         
         return returnedView
@@ -113,10 +111,6 @@ extension SettingsViewController:SettingsPresenterDelegate{
     
     func removeSeparatorTable() {
         settingsTableView.separatorStyle = .none
-    }
-    
-    func setNavBarTitle(_ title:String){
-        settingsNavBar.title = title
     }
     
     func reloadTableData() {

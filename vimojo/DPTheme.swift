@@ -36,7 +36,11 @@ class DPTheme: NSObject {
                     .lightContent, animated: false)
             }
             
-            self.customizeNavigationBar(barColor: maincolor, textColor: secondaryColor, fontName: fontName, fontSize: kDefaultNavigationBarFontSize, buttonColor: secondaryColor)
+//            self.customizeNavigationBar(barColor: maincolor,
+//                                        textColor: secondaryColor,
+//                                        fontName: fontName,
+//                                        fontSize: kDefaultNavigationBarFontSize,
+//                                        buttonColor: secondaryColor)
             self.customizeTabBar(barColor: maincolor, textColor: secondaryColor, fontName: fontName, fontSize: kDefaultTabBarFontSize)
             self.customizeSwitch(onColor: maincolor)
             self.customizeSearchBar(barColor: maincolor, tintColor: secondaryColor)
@@ -73,15 +77,19 @@ class DPTheme: NSObject {
         fontName: String,
         fontSize: CGFloat,
         buttonColor: UIColor) {
-            UINavigationBar.appearance().barTintColor = barColor
-            UINavigationBar.appearance().tintColor = buttonColor
-            UINavigationBar.appearance().backgroundColor = barColor
-            let font = UIFont(name: fontName, size: fontSize)
-            if ((font) != nil) {
-                UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: textColor,
-                    NSFontAttributeName: font!
-                ]
-            }
+        
+        UINavigationBar.appearance().barTintColor = barColor
+        UINavigationBar.appearance().tintColor = buttonColor
+        UINavigationBar.appearance().backgroundColor = barColor
+
+        UIButton.appearance(whenContainedInInstancesOf: [object_getClass(UINavigationBar.self) as! UIAppearanceContainer.Type]).tintColor = buttonColor
+        
+        let font = UIFont(name: fontName, size: fontSize)
+        if ((font) != nil) {
+            UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: textColor,
+                                                                NSFontAttributeName: font!
+            ]
+        }
     }
     
     
@@ -127,7 +135,8 @@ class DPTheme: NSObject {
         buttonColor: UIColor,
         selectedButtonColor:UIColor) {
         UIButton.appearance().setTitleColor(buttonColor, for: .normal)
-        UIButton.appearance().setTitleColor(selectedButtonColor, for: .selected)
+        UIButton.appearance().setTitleColor(buttonColor, for: .selected)
+        UIButton.appearance().tintColor = selectedButtonColor
     }
     
     
@@ -184,6 +193,7 @@ class DPTheme: NSObject {
         sliderColor: UIColor,
         maxTrackColor:UIColor) {
         UISlider.appearance().minimumTrackTintColor = sliderColor
+        UISlider.appearance().tintColor = sliderColor
         UISlider.appearance().maximumTrackTintColor = maxTrackColor
     }
     

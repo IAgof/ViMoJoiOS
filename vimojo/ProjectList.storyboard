@@ -14,7 +14,7 @@
         <!--Project List View Controller-->
         <scene sceneID="qfe-Yh-yvp">
             <objects>
-                <viewController storyboardIdentifier="ProjectListViewController" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kao-ji-l7I" customClass="ProjectListViewController" customModule="vimojo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProjectListViewController" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kao-ji-l7I" customClass="ProjectListViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j7X-Tm-9iT"/>
                         <viewControllerLayoutGuide type="bottom" id="wdA-wc-ssx"/>
@@ -32,7 +32,7 @@
                                 <items>
                                     <navigationItem id="TjX-yv-LUT">
                                         <barButtonItem key="leftBarButtonItem" image="activity_edit_back" id="UMC-RI-4di">
-                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="pushBackBarButton:" destination="kao-ji-l7I" id="QdR-IZ-AhM"/>
                                             </connections>
@@ -44,7 +44,7 @@
                                 <rect key="frame" x="-4" y="44" width="383" height="623"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="projectListCell" id="qX6-da-hEj" customClass="ProjectListViewCell" customModule="vimojo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="projectListCell" id="qX6-da-hEj" customClass="ProjectListViewCell" customModule="RTVE" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="383" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qX6-da-hEj" id="Pwh-k7-6XL">
@@ -156,7 +156,6 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="navBar" destination="TjX-yv-LUT" id="Bgi-OT-9OK"/>
                         <outlet property="tableView" destination="HBx-j6-L0g" id="0IN-ff-9Qb"/>
                     </connections>
                 </viewController>

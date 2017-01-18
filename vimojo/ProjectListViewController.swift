@@ -16,7 +16,6 @@ class ProjectListViewController:ViMoJoController{
 
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var navBar: UINavigationItem!
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -33,11 +32,7 @@ extension ProjectListViewController:ProjectListPresenterDelegate{
     func reloadTableData() {
         tableView.reloadData()
     }
-    
-    func setNavBarTitle(_ title: String) {
         
-    }
-    
     func setItems(_ items: [ProjectListViewModel]) {
         self.items = items
     }

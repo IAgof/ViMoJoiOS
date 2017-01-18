@@ -19,6 +19,9 @@ class SettingsProvider:NSObject{
         let camera = CameraSettings(project: project)
         let ftpConfiguration = SettinsFTP()
         let ftpConfigurationBN = SettingsFTPBreakingNews()
+        var settings:[[SettingsContent]] = [[]]
+
+        settings.removeAll()
         
         //MARK: - MY_ACCOUNT_SECTION
         let nameSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().NAME),
@@ -32,6 +35,10 @@ class SettingsProvider:NSObject{
         let emailSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().EMAIL_PREFERENCE),
                                            subTitle: user.email,
                                            action: SettingsEmailAction(delegate: delegate))
+        
+        let accountSettings = [nameSetting,userNameSetting,emailSetting]
+        settings.append(accountSettings)
+        
         //MARK: - CAMERA SECTION
         let resolutionSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().RESOLUTION),
                                                 subTitle: AVResolutionParse().parseResolutionToView(camera.resolution),
@@ -47,6 +54,9 @@ class SettingsProvider:NSObject{
                                                 subTitle: SettingsTransition(project: project).getTransitionToView(),
                                                 action: SettingsTransitionAction(delegate: delegate,
                                                                                  project:project))
+        let cameraSettings = [resolutionSetting,qualitySetting,transitionSetting]
+        settings.append(cameraSettings)
+        
         //MARK: - MORE INFOR SECTION
         let AboutUsSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().ABOUT_US_TITLE),
                                              action: SettingsDetailTextAction(delegate: delegate,
@@ -67,64 +77,75 @@ class SettingsProvider:NSObject{
         let legalAdviceSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().LEGAL_ADVICE_TITLE),
                                                  action: SettingsDetailTextAction(delegate: delegate,
                                                     textContent: Utils().getStringByKeyFromSettings(SettingsConstants().LEGAL_ADVICE_CONTENT)))
-        //MARK: - FTP SECTION
-        let ftpHostSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().HOST_FTP),
-                                             subTitle: ftpConfiguration.host,
-                                             action: SettingsFTPHostAction(delegate: delegate))
         
-        let ftpUserNameSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().FTP_USERNAME),
-                                             subTitle: ftpConfiguration.username,
-                                             action: SettingsFTPUsernameAction(delegate: delegate))
+        let moreInfoSettings = [AboutUsSetting,privacyPolicySetting,termsOfServiceSetting,licensesSetting,legalAdviceSetting]
+        settings.append(moreInfoSettings)
         
-        let ftpPasswordSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().PASSWORD_FTP),
-                                             subTitle: ftpConfiguration.passwordToView,
-                                             action: SettingsFTPPasswordAction(delegate: delegate))
-        
-        let ftpEditedDestinationSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().EDITED_VIDEO_DESTINATION),
-                                             subTitle: ftpConfiguration.editedVideoPath,
-                                             action: SettingsFTPEditedDestination(delegate: delegate))
-        
-        let ftpUneditedDestinationSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().UNEDITED_VIDEO_DESTINATION),
-                                             subTitle: ftpConfiguration.uneditedVideoPath,
-                                             action: SettingsFTPUneditedDestination(delegate: delegate))
-        
-        //MARK: - FTP BREAKING NEWS SECTION
-        let ftpBNHostSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().HOST_FTP),
-                                             subTitle: ftpConfigurationBN.host,
-                                             action: SettingsFTPBreakignNewsHostAction(delegate: delegate))
-        
-        let ftpBNUserNameSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().FTP_USERNAME),
-                                                 subTitle: ftpConfigurationBN.username,
-                                                 action: SettingsFTPBreakingNewsUsernameAction(delegate: delegate))
-        
-        let ftpBNPasswordSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().PASSWORD_FTP),
-                                                 subTitle: ftpConfigurationBN.passwordToView,
-                                                 action: SettingsFTPBreakignNewsPasswordAction(delegate: delegate))
-        
-        let ftpBNEditedDestinationSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().EDITED_VIDEO_DESTINATION),
-                                                          subTitle: ftpConfigurationBN.editedVideoPath,
-                                                          action: SettingsFTPBreakingNewsEditedDestination(delegate: delegate))
-        
-        let ftpBNUneditedDestinationSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().UNEDITED_VIDEO_DESTINATION),
-                                                            subTitle: ftpConfigurationBN.uneditedVideoPath,
-                                                            action: SettingsFTPBreakingNewsUneditedDestination(delegate: delegate))
-        
-        let settings = [[nameSetting,userNameSetting,emailSetting],
-                        [resolutionSetting,qualitySetting,transitionSetting],
-                        [AboutUsSetting,privacyPolicySetting,termsOfServiceSetting,licensesSetting,legalAdviceSetting],
-                        [ftpHostSetting,ftpUserNameSetting,ftpPasswordSetting,ftpEditedDestinationSetting,ftpUneditedDestinationSetting],
-                        [ftpBNHostSetting,ftpBNUserNameSetting,ftpBNPasswordSetting,ftpBNEditedDestinationSetting,ftpBNUneditedDestinationSetting]]
-        
+        if configuration.FTP_FEATURE{
+            //MARK: - FTP SECTION
+            let ftpHostSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().HOST_FTP),
+                                                 subTitle: ftpConfiguration.host,
+                                                 action: SettingsFTPHostAction(delegate: delegate))
+            
+            let ftpUserNameSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().FTP_USERNAME),
+                                                     subTitle: ftpConfiguration.username,
+                                                     action: SettingsFTPUsernameAction(delegate: delegate))
+            
+            let ftpPasswordSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().PASSWORD_FTP),
+                                                     subTitle: ftpConfiguration.passwordToView,
+                                                     action: SettingsFTPPasswordAction(delegate: delegate))
+            
+            let ftpEditedDestinationSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().EDITED_VIDEO_DESTINATION),
+                                                              subTitle: ftpConfiguration.editedVideoPath,
+                                                              action: SettingsFTPEditedDestination(delegate: delegate))
+            
+            let ftpUneditedDestinationSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().UNEDITED_VIDEO_DESTINATION),
+                                                                subTitle: ftpConfiguration.uneditedVideoPath,
+                                                                action: SettingsFTPUneditedDestination(delegate: delegate))
+            
+            
+            //MARK: - FTP BREAKING NEWS SECTION
+            let ftpBNHostSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().HOST_FTP),
+                                                   subTitle: ftpConfigurationBN.host,
+                                                   action: SettingsFTPBreakignNewsHostAction(delegate: delegate))
+            
+            let ftpBNUserNameSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().FTP_USERNAME),
+                                                       subTitle: ftpConfigurationBN.username,
+                                                       action: SettingsFTPBreakingNewsUsernameAction(delegate: delegate))
+            
+            let ftpBNPasswordSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().PASSWORD_FTP),
+                                                       subTitle: ftpConfigurationBN.passwordToView,
+                                                       action: SettingsFTPBreakignNewsPasswordAction(delegate: delegate))
+            
+            let ftpBNEditedDestinationSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().EDITED_VIDEO_DESTINATION),
+                                                                subTitle: ftpConfigurationBN.editedVideoPath,
+                                                                action: SettingsFTPBreakingNewsEditedDestination(delegate: delegate))
+            
+            let ftpBNUneditedDestinationSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().UNEDITED_VIDEO_DESTINATION),
+                                                                  subTitle: ftpConfigurationBN.uneditedVideoPath,
+                                                                  action: SettingsFTPBreakingNewsUneditedDestination(delegate: delegate))
+            
+            let ftpSettings = [ftpHostSetting,ftpUserNameSetting,ftpPasswordSetting,ftpEditedDestinationSetting,ftpUneditedDestinationSetting]
+            let ftpBNSettings = [ftpBNHostSetting,ftpBNUserNameSetting,ftpBNPasswordSetting,ftpBNEditedDestinationSetting,ftpBNUneditedDestinationSetting]
+            settings.append(ftpSettings)
+            settings.append(ftpBNSettings)
+        }
+
         return settings
     }
     
     func getSections()->[String]{
-        return [
-            Utils().getStringByKeyFromSettings(SettingsConstants().MY_ACCOUNT_SECTION),
-            Utils().getStringByKeyFromSettings(SettingsConstants().CAMERA_SECTION),
-            Utils().getStringByKeyFromSettings(SettingsConstants().MORE_INFO_SECTION),
-            Utils().getStringByKeyFromSettings(SettingsConstants().FTP1_SECTION_TITLE),
-            Utils().getStringByKeyFromSettings(SettingsConstants().FTP2_SECTION_TITLE)
-        ]
+        var sections:[String] = []
+        
+        sections.append(Utils().getStringByKeyFromSettings(SettingsConstants().MY_ACCOUNT_SECTION))
+        sections.append(Utils().getStringByKeyFromSettings(SettingsConstants().CAMERA_SECTION))
+        sections.append(Utils().getStringByKeyFromSettings(SettingsConstants().MORE_INFO_SECTION))
+        
+        if configuration.FTP_FEATURE{
+            sections.append( Utils().getStringByKeyFromSettings(SettingsConstants().FTP1_SECTION_TITLE))
+            sections.append(Utils().getStringByKeyFromSettings(SettingsConstants().FTP2_SECTION_TITLE))
+        }
+
+        return sections
     }
 }

@@ -12,9 +12,9 @@ import UIKit
 class CustomDPTheme {
     func configureTheme(){  
         DPTheme.setupTheme(
-            maincolor: mainColor,
-            secondaryColor: secondColor,
-            fontName: fontName,
+            maincolor: configuration.mainColor,
+            secondaryColor: configuration.secondColor,
+            fontName: configuration.fontName,
             lightStatusBar: false)
         
         if let sliderImage = UIImage(named: "common_icon_seek_bar_normal"){
@@ -25,12 +25,18 @@ class CustomDPTheme {
             DPTheme.customizeSliderThumbImageHighlighted(sliderThumbImage: sliderImageHighlighted)
         }
         
-        DPTheme.customizeTabBar(barColor: #colorLiteral(red: 0.9529411765, green: 0.9529411765, blue: 0.9529411765, alpha: 1), textColor: mainColor)
+        DPTheme.customizeTabBar(barColor: #colorLiteral(red: 0.9529411765, green: 0.9529411765, blue: 0.9529411765, alpha: 1), textColor: configuration.mainColor)
+        
+        DPTheme.customizeNavigationBar(barColor: configuration.mainColor,
+                                       textColor: configuration.plainButtonColor,
+                                       fontName: configuration.fontName,
+                                       fontSize: DPTheme.kDefaultNavigationBarFontSize,
+                                       buttonColor: configuration.plainButtonColor)
     }
 }
 
 extension UIAlertController{
     func setTintColor(){
-        self.view.tintColor = mainColor
+        self.view.tintColor = configuration.mainColor
     }
 }

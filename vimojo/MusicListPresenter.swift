@@ -67,6 +67,10 @@ class MusicListPresenter:MusicListPresenterInterface{
         wireframe?.removeController()
     }
     
+    func pushOptions() {
+        wireframe?.presentSettings()
+    }
+    
     func setMusicDetailInterface(_ eventHandler: MusicDetailInterface) {
         self.detailEventHandler = eventHandler
     }

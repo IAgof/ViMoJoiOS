@@ -19,7 +19,6 @@ protocol SettingsPresenterDelegate{
     func registerClass()
     func reloadTableData()
     func removeSeparatorTable()
-    func setNavBarTitle(_ title:String)
     func addFooter()
     
     func setSectionsArray(_ sections:[String])

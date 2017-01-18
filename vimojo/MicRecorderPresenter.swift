@@ -236,7 +236,7 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
             let trackModel = TrackModel(maxValue: maxTime,
                                         lowerValue: lowerValue,
                                         upperValue: time,
-                                        color: mainColor.cgColor)
+                                        color: configuration.mainColor.cgColor)
             debugPrint(trackModel)
 
             delegate?.updateRecordedTrackArea(position: position,
@@ -356,7 +356,7 @@ extension MicRecorderPresenter:MicRecorderInteractorDelegate{
         let trackModel = TrackModel(maxValue: Float(videoTotalTime),
                                     lowerValue: Float(micRecordedRange.start.seconds),
                                     upperValue: Float(micRecordedRange.end.seconds),
-                                    color: mainColor.cgColor)
+                                    color: configuration.mainColor.cgColor)
         debugPrint(trackModel)
         delegate?.setRecordedTrackArea(value: trackModel)
     }

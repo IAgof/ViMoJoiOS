@@ -13,7 +13,7 @@
         <!--Menu-->
         <scene sceneID="28G-o8-Joi">
             <objects>
-                <tableViewController storyboardIdentifier="DrawerMenuTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="s83-2h-qSy" customClass="DrawerMenuTableViewController" customModule="vimojo" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DrawerMenuTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="s83-2h-qSy" customClass="DrawerMenuTableViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7YA-3h-seG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                         <sections>
                             <tableViewSection id="ROc-Cg-GGe">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DrawerProfileTableViewCell" rowHeight="120" id="QIE-Zj-dmi" customClass="DrawerProfileTableViewCell" customModule="vimojo" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DrawerProfileTableViewCell" rowHeight="120" id="QIE-Zj-dmi" customClass="DrawerProfileTableViewCell" customModule="RTVE" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QIE-Zj-dmi" id="mw6-BE-9sC">
@@ -49,16 +49,23 @@
                                                     <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_drawer_logo" highlightedImage="activity_drawer_logo" translatesAutoresizingMaskIntoConstraints="NO" id="skc-l2-3CN">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.94712263350000003" green="0.29490819569999999" blue="0.31749987600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
+                                                <constraint firstItem="skc-l2-3CN" firstAttribute="leading" secondItem="mw6-BE-9sC" secondAttribute="leading" id="BRY-xR-fPc"/>
+                                                <constraint firstAttribute="bottom" secondItem="skc-l2-3CN" secondAttribute="bottom" id="Esn-c0-nfE"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="eFL-su-lME" secondAttribute="bottom" constant="8" id="Koh-ie-1IU"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="NYU-P4-Spu" secondAttribute="trailing" id="V9J-mE-hDx"/>
                                                 <constraint firstItem="GWp-Cb-lNv" firstAttribute="top" secondItem="mw6-BE-9sC" secondAttribute="topMargin" id="VaO-w8-kVS"/>
                                                 <constraint firstItem="NYU-P4-Spu" firstAttribute="leading" secondItem="eFL-su-lME" secondAttribute="leading" id="Vm7-pn-GNV"/>
                                                 <constraint firstItem="NYU-P4-Spu" firstAttribute="leading" secondItem="mw6-BE-9sC" secondAttribute="leadingMargin" id="ZzD-a1-qIL"/>
                                                 <constraint firstItem="GWp-Cb-lNv" firstAttribute="trailing" secondItem="mw6-BE-9sC" secondAttribute="trailingMargin" id="eao-sT-oah"/>
+                                                <constraint firstAttribute="trailing" secondItem="skc-l2-3CN" secondAttribute="trailing" id="f7z-Re-fHV"/>
                                                 <constraint firstItem="eFL-su-lME" firstAttribute="top" secondItem="NYU-P4-Spu" secondAttribute="bottom" constant="3" id="ity-0N-0tb"/>
+                                                <constraint firstItem="skc-l2-3CN" firstAttribute="top" secondItem="mw6-BE-9sC" secondAttribute="top" id="osP-Kk-stv"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -155,14 +162,18 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Menu" id="riH-7R-M5n"/>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="userContentView" destination="mw6-BE-9sC" id="Uk3-le-s56"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J8W-zh-Wqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="661.60000000000002" y="1076.311844077961"/>
+            <point key="canvasLocation" x="660" y="1075.3521126760563"/>
         </scene>
     </scenes>
     <resources>
         <image name="activity_drawer_close" width="26" height="26"/>
+        <image name="activity_drawer_logo" width="62" height="32"/>
         <image name="activity_drawer_new_project_normal" width="44" height="37"/>
         <image name="activity_drawer_new_project_pressed" width="44" height="37"/>
         <image name="activity_drawer_options_normal" width="29" height="30"/>

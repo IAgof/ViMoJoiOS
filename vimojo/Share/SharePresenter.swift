@@ -29,7 +29,6 @@ class SharePresenter:NSObject,SharePresenterInterface{
     //LifeCicle
     func viewDidLoad() {
         delegate!.createShareInterface()
-        delegate?.setNavBarTitle(Utils().getStringByKeyFromShare(ShareConstants().SHARE_YOUR_VIDEO))
         
         interactor?.findSocialNetworks()
         delegate?.removeSeparatorTable()

@@ -22,7 +22,6 @@ protocol ProjectListPresenterInterface {
 
 protocol ProjectListPresenterDelegate{
     func reloadTableData()
-    func setNavBarTitle(_ title:String)
     
     func setItems(_ items:[ProjectListViewModel])
 }
