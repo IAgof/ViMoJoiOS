@@ -55,13 +55,13 @@
                                         <rect key="frame" x="250" y="126" width="68" height="68"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbb-jx-SNd">
-                                        <rect key="frame" x="8" y="8" width="111" height="28"/>
+                                        <rect key="frame" x="8" y="8" width="255" height="28"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="08T-D0-KZt">
-                                                <rect key="frame" x="16" y="4" width="79" height="20"/>
+                                                <rect key="frame" x="16" y="4" width="223" height="20"/>
                                                 <subviews>
-                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dra-Hy-CZB">
-                                                        <rect key="frame" x="-7.5" y="0.0" width="0.0" height="20"/>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dra-Hy-CZB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="14" height="20"/>
                                                         <state key="normal" image="activity_rec_micro_connected_normal"/>
                                                         <state key="selected" image="activity_rec_micro_connected_pressed"/>
                                                         <state key="highlighted" image="activity_rec_micro_connected_pressed"/>
@@ -69,8 +69,8 @@
                                                             <action selector="pushMic:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="1XL-EH-hY0"/>
                                                         </connections>
                                                     </button>
-                                                    <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nAM-ZC-cFG" customClass="AudioLevelBarView" customModule="AudioLevelBar">
-                                                        <rect key="frame" x="-7.5" y="0.0" width="0.0" height="20"/>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAM-ZC-cFG" customClass="AudioLevelBarView" customModule="AudioLevelBar">
+                                                        <rect key="frame" x="29" y="0.0" width="100" height="20"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="jXh-V8-j9e"/>
@@ -92,7 +92,7 @@
                                                         </variation>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veW-ha-Wav">
-                                                        <rect key="frame" x="0.0" y="0.0" width="19" height="20"/>
+                                                        <rect key="frame" x="144" y="0.0" width="19" height="20"/>
                                                         <state key="normal" image="activity_rec_battery_100"/>
                                                         <state key="selected" image="activity_rec_battery_100_pressed"/>
                                                         <state key="highlighted" image="activity_rec_battery_100_pressed"/>
@@ -101,7 +101,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8j-Vd-5dC">
-                                                        <rect key="frame" x="34" y="0.0" width="11" height="20"/>
+                                                        <rect key="frame" x="178" y="0.0" width="11" height="20"/>
                                                         <state key="normal" image="activity_rec_memory"/>
                                                         <state key="selected" image="activity_rec_memory_pressed"/>
                                                         <state key="highlighted" image="activity_rec_memory_pressed"/>
@@ -110,7 +110,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6R-qJ-vTS">
-                                                        <rect key="frame" x="60" y="0.0" width="19" height="20"/>
+                                                        <rect key="frame" x="204" y="0.0" width="19" height="20"/>
                                                         <state key="normal" image="activity_rec_resolution_1080"/>
                                                         <state key="selected" image="activity_rec_resolution_1080_pressed"/>
                                                         <state key="highlighted" image="activity_rec_resolution_1080_pressed"/>
@@ -268,11 +268,11 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iei-TN-55D" customClass="ResolutionsSelectorView" customModule="ResolutionSelector">
-                                        <rect key="frame" x="159" y="58" width="250" height="204"/>
+                                        <rect key="frame" x="159" y="97" width="250" height="126"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" priority="500" constant="250" id="8aS-al-yYC"/>
-                                            <constraint firstAttribute="height" priority="500" constant="250" id="ZjV-Ep-lsv"/>
+                                            <constraint firstAttribute="height" priority="250" constant="250" id="ZjV-Ep-lsv"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="validateImageNormal" value="activity_edit_accept_normal"/>
@@ -394,7 +394,7 @@
                                         </variation>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yzi-0I-GIh">
-                                        <rect key="frame" x="244.5" y="8" width="79" height="28.5"/>
+                                        <rect key="frame" x="271" y="8" width="79" height="28.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="KEV-WL-wpU">
                                                 <rect key="frame" x="4" y="4" width="71" height="20.5"/>
@@ -442,7 +442,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijC-dC-TM0">
-                                        <rect key="frame" x="244.5" y="8" width="79" height="28.5"/>
+                                        <rect key="frame" x="271" y="8" width="79" height="28.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="QcR-og-2Mj">
                                                 <rect key="frame" x="4" y="4" width="71" height="20.5"/>
@@ -536,7 +536,6 @@
                                     <constraint firstItem="Vuo-zZ-7lL" firstAttribute="centerX" secondItem="jhg-e3-51Y" secondAttribute="centerX" constant="8" id="T4c-Sj-08X"/>
                                     <constraint firstItem="WEb-ih-mOX" firstAttribute="centerX" secondItem="jhg-e3-51Y" secondAttribute="centerX" constant="8" id="TWU-FV-i1O"/>
                                     <constraint firstItem="jhg-e3-51Y" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Vuo-zZ-7lL" secondAttribute="bottom" constant="8" id="Ts8-rl-eJd"/>
-                                    <constraint firstItem="Dnm-Zp-iJ8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Iei-TN-55D" secondAttribute="bottom" constant="8" id="TuT-hW-GgX"/>
                                     <constraint firstItem="RTG-lk-0Ju" firstAttribute="centerX" secondItem="Dnm-Zp-iJ8" secondAttribute="centerX" id="TxM-kB-ylt"/>
                                     <constraint firstItem="UfD-Ey-QnE" firstAttribute="bottom" secondItem="c5M-wT-ZUe" secondAttribute="bottom" id="UsB-xA-5M4"/>
                                     <constraint firstItem="c5M-wT-ZUe" firstAttribute="centerX" secondItem="YP7-c0-irG" secondAttribute="centerX" id="V26-te-Uai"/>
@@ -551,6 +550,7 @@
                                     <constraint firstItem="5X8-bB-gAq" firstAttribute="centerX" secondItem="hax-3B-Lc5" secondAttribute="centerX" id="cV5-sC-Q42"/>
                                     <constraint firstItem="5X8-bB-gAq" firstAttribute="centerY" secondItem="hax-3B-Lc5" secondAttribute="centerY" id="csZ-vH-JeJ"/>
                                     <constraint firstItem="WEb-ih-mOX" firstAttribute="centerY" secondItem="hax-3B-Lc5" secondAttribute="centerY" id="czu-s8-ClL"/>
+                                    <constraint firstItem="RTG-lk-0Ju" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Iei-TN-55D" secondAttribute="bottom" constant="8" id="d2f-Mk-iAJ"/>
                                     <constraint firstAttribute="trailing" secondItem="nbb-jx-SNd" secondAttribute="trailing" constant="8" id="dBy-9I-FoA"/>
                                     <constraint firstItem="Vuo-zZ-7lL" firstAttribute="centerY" secondItem="hax-3B-Lc5" secondAttribute="centerY" id="db7-Hm-GNc">
                                         <variation key="heightClass=compact" constant="0.0"/>
