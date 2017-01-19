@@ -36,9 +36,7 @@ class SettingsWireframe : NSObject {
         
         self.prevController = prevController
 
-        prevController.show(viewController, sender: nil)
-        
-//        prevController.present(viewController, animated: true, completion: nil)
+        prevController.show(viewController, sender: nil)        
     }
     
     func settingsViewControllerFromStoryboard() -> SettingsViewController {

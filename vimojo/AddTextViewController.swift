@@ -47,8 +47,7 @@ class AddTextViewController: ViMoJoController {
     @IBAction func acceptButtonPushed(_ sender: AnyObject) {
         eventHandler?.pushAcceptHandler()
     }
-    
-    @IBAction func pushBackBarButton(_ sender: AnyObject) {
+    override func pushBack() {
         eventHandler?.pushBack()
     }
     
@@ -73,6 +72,9 @@ class AddTextViewController: ViMoJoController {
         setPlayerPlayButtonState(state: false)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        configureNavigationBarWithBackButton()
+    }
     func addObserverToShowAndHideKeyboard(){
         NotificationCenter.default.addObserver(self, selector: #selector(AddTextViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(AddTextViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)

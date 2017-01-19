@@ -63,11 +63,32 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         playerView.layoutSubviews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        configureNavigationBarWithDrawerAndEditorOptions()
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         eventHandler?.viewWillDisappear()
     }
     
+    func configureNavigationBarWithDrawerAndEditorOptions(){
+        
+        
+        let sideSliderIcon = #imageLiteral(resourceName: "activity_edit_drawer")
+        let optionsIcon = #imageLiteral(resourceName: "activity_edit_options")
+        let duplicateIcon = #imageLiteral(resourceName: "activity_edit_clips_duplicate")
+        let splitIcon = #imageLiteral(resourceName: "activity_edit_clips_split")
+        
+        let showSideSliderItem = UIBarButtonItem(image: sideSliderIcon, style: .plain, target: self, action: #selector(pushShowDrawer))
+        let duplicateItem = UIBarButtonItem(image: duplicateIcon, style: .plain, target: self, action: #selector(pushDuplicateClip(_:)))
+        let splitItem = UIBarButtonItem(image: splitIcon, style: .plain, target: self, action: #selector(pushDivideClip(_:)))
+        let optionsItem = UIBarButtonItem(image: optionsIcon, style: .plain, target: self, action: #selector(pushOptions))
+        
+        UIApplication.topViewController()?.navigationItem.leftBarButtonItem = showSideSliderItem
+        UIApplication.topViewController()?.navigationItem.rightBarButtonItems = [optionsItem,splitItem,duplicateItem]
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -162,6 +183,10 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     }
     
     @IBAction func pushOptionsButton(_ sender: Any) {
+        eventHandler?.pushOptions()
+    }
+    
+    override func pushOptions() {
         eventHandler?.pushOptions()
     }
     

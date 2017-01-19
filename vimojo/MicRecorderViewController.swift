@@ -56,10 +56,10 @@ class MicRecorderViewController: ViMoJoController,PlayerViewSetter{
         sliderValueLabel.text = "\(Int(mixAudioSlider.value * 100))%"
         eventHandler?.mixVolumeUpdate(mixAudioSlider.value)
     }
-
-    @IBAction func pushBackButton(_ sender: AnyObject) {
+    override func pushBack() {
         eventHandler?.pushBackButton()
     }
+    
     @IBAction func deleteVoiceOverTrackPushed(_ sender: Any) {
         eventHandler?.removeVoiceOverTrack()
     }
@@ -110,6 +110,7 @@ class MicRecorderViewController: ViMoJoController,PlayerViewSetter{
         super.viewWillAppear(animated)
         
         eventHandler?.viewWillAppear()
+        configureNavigationBarWithBackButton()
     }
     
     override func viewDidAppear(_ animated: Bool) {

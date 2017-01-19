@@ -58,7 +58,7 @@ class EditingRoomWireframe : NSObject {
         if let viewControllerToPresent = drawerWireframe?.getDrawerController(viewController: viewController){
             viewControllerToPresent.forceOrientation(orientation: .verticalOnly)
             viewController.selectedIndex = 0
-            prevController.present(viewControllerToPresent, animated: true, completion: nil)
+            prevController.show(viewControllerToPresent, sender: nil)
         }
     }
     
@@ -71,7 +71,7 @@ class EditingRoomWireframe : NSObject {
             viewController.selectedIndex = 2
             viewControllerToPresent.forceOrientation(orientation: .verticalOnly)
 
-            prevController.present(viewControllerToPresent, animated: true, completion: nil)
+            prevController.show(viewControllerToPresent, sender: nil)
         }
     }
     
@@ -82,9 +82,7 @@ class EditingRoomWireframe : NSObject {
         
         if let viewControllerToPresent = drawerWireframe?.getDrawerController(viewController: viewController){
             viewControllerToPresent.forceOrientation(orientation: .verticalOnly)
-            prevController.present(viewControllerToPresent, animated: true, completion: {
-                self.galleryWireframe?.presentGalleryFromViewController(viewControllerToPresent)
-            })
+            prevController.show(viewControllerToPresent, sender: nil)
         }
     }
     
@@ -105,11 +103,7 @@ class EditingRoomWireframe : NSObject {
     
     func goPrevController(){
         if let controller = prevController{
-            if controller.isBeingPresented{
-                self.editingRoomViewController?.present(controller, animated: true, completion: nil)
-            }else{
-                self.editingRoomViewController?.dismiss(animated: true, completion: nil)
-            }
+            editingRoomViewController?.navigationController?.popToViewController(controller, animated: true)
         }
     }
     
@@ -122,6 +116,12 @@ class EditingRoomWireframe : NSObject {
     func navigateToSettings(){
         if let controller = editingRoomViewController{
             settingsWireframe?.presentSettingsInterfaceFromViewController(controller)
+        }
+    }
+    
+    func navigateToGallery(){
+        if let controller = editingRoomViewController{
+            galleryWireframe?.presentGalleryFromViewController(controller)
         }
     }
     
@@ -139,7 +139,6 @@ class EditingRoomWireframe : NSObject {
         }else{
             if let newController = musicListWireframe?.musicViewControllerFromStoryboard(){
                 controllers.append(newController)
-                newController.configureNavigationBarWithDrawerAndOptions()
             }
         }
         
@@ -149,17 +148,7 @@ class EditingRoomWireframe : NSObject {
         
         editingRoomViewController?.viewControllers = controllers
     }
-    
-    func presentChildController(_ controller:UIViewController){
-        
 
-    }
-    
-    func cycleFromViewController(_ oldViewController: UIViewController,
-                                 toViewController newViewController: UIViewController) {
-
-    }
-    
     func presentSettingsInterface(){
         settingsWireframe?.presentSettingsInterfaceFromViewController(editingRoomViewController!)
     }

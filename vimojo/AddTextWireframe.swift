@@ -67,6 +67,6 @@ class AddTextWireframe : NSObject {
     }
     
     func goPrevController(){
-        addTextViewController?.dismiss(animated: true, completion: nil)
+        addTextViewController?.navigationController?.popViewController()
     }
 }

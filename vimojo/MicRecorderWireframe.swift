@@ -56,7 +56,7 @@ class MicRecorderWireframe {
     
     
     func removeController(){
-        micRecorderViewController?.dismiss(animated: true, completion: nil)
+        micRecorderViewController?.navigationController?.popViewController()
     }
     
     func presentEditor(){

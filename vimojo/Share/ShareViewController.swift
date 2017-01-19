@@ -69,6 +69,10 @@ UITableViewDelegate, UITableViewDataSource
         eventHandler?.viewWillDisappear()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        configureNavigationBarWithDrawerAndOptions()
+    }
+    
     //MARK: - View Init
     func createShareInterface(){
         let nib = UINib.init(nibName: shareNibName, bundle: nil)
@@ -98,7 +102,7 @@ UITableViewDelegate, UITableViewDataSource
         eventHandler?.pushGenericShare()
     }
     
-    @IBAction func pushOptionsButton(_ sender: Any) {
+    override func pushOptions() {
         eventHandler?.pushOptions()
     }
     

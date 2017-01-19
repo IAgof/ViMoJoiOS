@@ -37,7 +37,7 @@ class RecordWireframe : NSObject {
         let viewController = RecordViewControllerFromStoryboard()
         if let viewControllerToPresent = drawerWireframe?.getDrawerController(viewController: viewController){
             viewControllerToPresent.forceOrientation(orientation: .lanscapeOnly)
-            prevController.present(viewControllerToPresent, animated: true, completion: nil)
+            prevController.show(viewControllerToPresent, sender: nil)
         }
     }
     

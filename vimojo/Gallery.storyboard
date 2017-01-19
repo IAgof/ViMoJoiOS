@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--All Videos Gallery View Controller-->
+        <!--All-->
         <scene sceneID="ZkM-v6-6Pg">
             <objects>
                 <collectionViewController id="XPu-N1-91P" customClass="AllVideosGalleryViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
@@ -25,7 +25,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <label key="backgroundView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Photos Available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3gf-pk-JeW">
-                            <rect key="frame" x="0.0" y="-64" width="375" height="667"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -65,6 +65,7 @@
                             </collectionViewCell>
                         </cells>
                     </collectionView>
+                    <tabBarItem key="tabBarItem" title="All" image="activity_clip_gallery_all_normal" id="n8G-4j-vyX"/>
                     <navigationItem key="navigationItem" id="BlI-9j-sCH">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Ztd-rr-cIa">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -97,16 +98,16 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="ljy-nI-TqT" kind="relationship" relationship="viewControllers" id="nFw-Wh-nZz"/>
-                        <segue destination="upQ-tj-Jr2" kind="relationship" relationship="viewControllers" id="BTx-iV-Y96"/>
-                        <segue destination="M7s-cR-vC0" kind="relationship" relationship="viewControllers" id="a6T-yI-chJ"/>
+                        <segue destination="XPu-N1-91P" kind="relationship" relationship="viewControllers" id="CPf-PR-Yvm"/>
+                        <segue destination="Cy9-0N-BbX" kind="relationship" relationship="viewControllers" id="Bpw-A3-TYA"/>
+                        <segue destination="BV8-2G-Uwe" kind="relationship" relationship="viewControllers" id="9ps-Kf-0ht"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Up-FG-mZy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-942" y="839"/>
         </scene>
-        <!--Custom Clips Gallery View Controller-->
+        <!--Clips-->
         <scene sceneID="rIj-gT-8YQ">
             <objects>
                 <collectionViewController id="BV8-2G-Uwe" customClass="CustomClipsGalleryViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
@@ -121,7 +122,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <label key="backgroundView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Photos Available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y6W-vN-hDp">
-                            <rect key="frame" x="0.0" y="-64" width="375" height="667"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -161,6 +162,7 @@
                             </collectionViewCell>
                         </cells>
                     </collectionView>
+                    <tabBarItem key="tabBarItem" title="Clips" image="activity_clip_gallery_clips_normal" id="iS2-X5-wJ3"/>
                     <navigationItem key="navigationItem" id="zRU-dc-deb">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="MMr-Ng-B77">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -183,7 +185,7 @@
             </objects>
             <point key="canvasLocation" x="586" y="1945"/>
         </scene>
-        <!--Custom Exported Videos Gallery View Controller-->
+        <!--Edit-->
         <scene sceneID="5VX-n7-Yv7">
             <objects>
                 <collectionViewController id="Cy9-0N-BbX" customClass="CustomExportedVideosGalleryViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
@@ -198,7 +200,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <label key="backgroundView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Photos Available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hUy-jz-rpS">
-                            <rect key="frame" x="0.0" y="-64" width="375" height="667"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -238,6 +240,7 @@
                             </collectionViewCell>
                         </cells>
                     </collectionView>
+                    <tabBarItem key="tabBarItem" title="Edit" image="activity_clip_gallery_edited_normal" id="Uxr-W5-8YD"/>
                     <navigationItem key="navigationItem" id="WhP-sK-1gA">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="CBW-KP-qW6">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -259,66 +262,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGw-nl-TuI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="586" y="1242"/>
-        </scene>
-        <!--All-->
-        <scene sceneID="yex-IS-Gct">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ljy-nI-TqT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="All" image="activity_clip_gallery_all_normal" id="TFz-IG-Bj4"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="F12-CU-7p9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.94509803920000002" green="0.29411764709999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="XPu-N1-91P" kind="relationship" relationship="rootViewController" id="6zK-XM-uOh"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5rQ-aV-lK2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-226" y="528"/>
-        </scene>
-        <!--Edited-->
-        <scene sceneID="nUo-6N-sN3">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="upQ-tj-Jr2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Edited" image="activity_clip_gallery_edited_normal" id="LXW-Ke-aqE"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hXI-Nr-XFG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.94509803920000002" green="0.29411764709999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Cy9-0N-BbX" kind="relationship" relationship="rootViewController" id="vQG-IS-onS"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9kr-vA-gH5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-226" y="1242"/>
-        </scene>
-        <!--Clips-->
-        <scene sceneID="CR7-qd-n9u">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M7s-cR-vC0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Clips" image="activity_clip_gallery_clips_normal" id="ZSr-jX-aG6"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZRY-11-SkX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.94509803920000002" green="0.29411764709999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BV8-2G-Uwe" kind="relationship" relationship="rootViewController" id="wwX-Jk-G0d"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S6R-pB-iOY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-226" y="1945"/>
         </scene>
     </scenes>
     <resources>

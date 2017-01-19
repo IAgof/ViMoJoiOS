@@ -23,7 +23,6 @@ class EditorWireframe : NSObject {
     var duplicateWireframe:DuplicateWireframe?
     var splitWireframe:SplitWireframe?
     var addTextWireframe:AddTextWireframe?
-    var galleryWireframe:GalleryWireframe?
     var editingRoomWireframe:EditingRoomWireframe?
     
     func presentEditorInterfaceFromWindow(_ window: UIWindow) {
@@ -85,9 +84,7 @@ class EditorWireframe : NSObject {
     }
     
     func presentGallery(){
-        if let controller = editorViewController{
-            galleryWireframe?.presentGalleryFromViewController(controller)
-        }
+        editingRoomWireframe?.navigateToGallery()
     }
     
     func presentRecorder(){

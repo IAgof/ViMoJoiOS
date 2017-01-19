@@ -21,9 +21,10 @@ class ProjectListViewController:ViMoJoController{
     override func viewDidLoad() {
         eventHandler?.viewDidLoad()
     }
-    
-    //MARK: - Actions
-    @IBAction func pushBackBarButton(_ sender: AnyObject) {
+    override func viewWillAppear(_ animated: Bool) {
+        configureNavigationBarWithBackButton()
+    }
+    override func pushBack() {
         eventHandler?.pushBack()
     }
 }

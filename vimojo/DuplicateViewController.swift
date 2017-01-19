@@ -46,6 +46,9 @@ class DuplicateViewController: ViMoJoController,DuplicateInterface,DuplicatePres
         eventHandler?.viewWillDissappear()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        configureNavigationBarWithBackButton()
+    }
     //MARK: - Actions
     @IBAction func pushCancelButton(_ sender: AnyObject) {
         eventHandler?.pushCancelHandler()
@@ -55,7 +58,7 @@ class DuplicateViewController: ViMoJoController,DuplicateInterface,DuplicatePres
         eventHandler?.pushAcceptHandler()
     }
     
-    @IBAction func pushBackBarButton(_ sender: AnyObject) {
+    override func pushBack() {
         eventHandler?.pushBack()
     }
     

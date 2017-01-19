@@ -43,6 +43,10 @@ class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDel
         eventHandler?.viewWillDissappear()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        configureNavigationBarWithBackButton()
+    }
+    
     //MARK: - Actions
     @IBAction func pushCancelButton(_ sender: AnyObject) {
         eventHandler?.pushCancelHandler()
@@ -52,10 +56,10 @@ class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDel
         eventHandler?.pushAcceptHandler()
     }
     
-    @IBAction func pushBackBarButton(_ sender: AnyObject) {
+    override func pushBack() {
         eventHandler?.pushBack()
     }
-
+    
     @IBAction func pushExpandButton(_ sender: AnyObject) {
         eventHandler?.expandPlayer()
     }
