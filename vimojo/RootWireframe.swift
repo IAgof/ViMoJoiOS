@@ -13,10 +13,10 @@ import KYDrawerController
 class RootWireframe : NSObject {
     
     func showRootViewController(_ viewController: UIViewController, inWindow: UIWindow) {
-//        let navigationController = navigationControllerFromWindow(inWindow)
-//        navigationController.viewControllers = [viewController]
+        let navigationController = navigationControllerFromWindow(inWindow)
+        navigationController.viewControllers = [viewController]
 
-        inWindow.rootViewController = viewController
+        inWindow.rootViewController = navigationController
         inWindow.makeKeyAndVisible()
     }
     

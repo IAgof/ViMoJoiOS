@@ -36,9 +36,9 @@ class SettingsWireframe : NSObject {
         
         self.prevController = prevController
 
-//        prevController.show(viewController, sender: nil)
+        prevController.show(viewController, sender: nil)
         
-        prevController.present(viewController, animated: true, completion: nil)
+//        prevController.present(viewController, animated: true, completion: nil)
     }
     
     func settingsViewControllerFromStoryboard() -> SettingsViewController {
@@ -63,14 +63,7 @@ class SettingsWireframe : NSObject {
     }
     
     func goPrevController(){
-        if let controller = prevController{
-            if controller.isBeingPresented{
-                self.settingsViewController?.present(controller, animated: true, completion: nil)
-            }else{
-                self.settingsViewController?.dismiss(animated: true, completion: nil)
-            }
-        }
-        
+        self.settingsViewController?.navigationController?.popViewController()
     }
     
     func goToAppleStoreURL(_ url:URL){

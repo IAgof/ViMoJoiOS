@@ -36,11 +36,11 @@ class DPTheme: NSObject {
                     .lightContent, animated: false)
             }
             
-//            self.customizeNavigationBar(barColor: maincolor,
-//                                        textColor: secondaryColor,
-//                                        fontName: fontName,
-//                                        fontSize: kDefaultNavigationBarFontSize,
-//                                        buttonColor: secondaryColor)
+            self.customizeNavigationBar(barColor: maincolor,
+                                        textColor: secondaryColor,
+                                        fontName: fontName,
+                                        fontSize: kDefaultNavigationBarFontSize,
+                                        buttonColor: secondaryColor)
             self.customizeTabBar(barColor: maincolor, textColor: secondaryColor, fontName: fontName, fontSize: kDefaultTabBarFontSize)
             self.customizeSwitch(onColor: maincolor)
             self.customizeSearchBar(barColor: maincolor, tintColor: secondaryColor)

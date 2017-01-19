@@ -97,7 +97,11 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     
     //MARK: - Constants
     let cornerRadius = CGFloat(4)
-
+    
+    override var isStatusBarHidden: Bool{
+        return true
+    }
+    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,6 +112,20 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         
         configureRotationObserver()
         UIApplication.shared.isIdleTimerDisabled = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("Recorder view will appear")
+        eventHandler?.viewWillAppear()
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        eventHandler?.viewWillDisappear()
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     func configureViews(){
@@ -155,18 +173,6 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
                                                                  selector: #selector(RecordController.checkOrientation),
                                                                  name: NSNotification.Name.UIDeviceOrientationDidChange,
                                                                  object: nil)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("Recorder view will appear")
-        eventHandler?.viewWillAppear()
-        
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        eventHandler?.viewWillDisappear()
     }
     
     override func didReceiveMemoryWarning() {

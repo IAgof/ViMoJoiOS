@@ -16,6 +16,13 @@ ViMoJoInterface {
 
     let tracker = ViMoJoTracker()
     var forcePortrait = false
+    var isStatusBarHidden:Bool{
+        return false
+    }
+    
+    override public var prefersStatusBarHidden: Bool{
+        return isStatusBarHidden
+    }
     
     override public func viewDidLoad() {
         print("View did load in \n \(self)")
@@ -23,9 +30,7 @@ ViMoJoInterface {
 //        NotificationCenter.default.addObserver(self,
 //                                                         selector: #selector(ViMoJoController.hideStatusBarAlways),
 //                                                         name: NSNotification.Name.UIDeviceOrientationDidChange,
-//                                                         object: nil)
-        UIApplication.shared.setStatusBarHidden(true, with: .none)
-        
+//                                                         object: nil)        
         DPTheme.customizeNavigationBar(barColor: configuration.mainColor,
                                        textColor: configuration.plainButtonColor,
                                        fontName: configuration.fontName,
@@ -48,10 +53,6 @@ ViMoJoInterface {
         print("View will dissappear in \n \(self)")
 
         tracker.sendTimeInActivity(getControllerName())
-    }
-
-    override public var prefersStatusBarHidden : Bool {
-        return true
     }
 
     func getControllerName()->String{

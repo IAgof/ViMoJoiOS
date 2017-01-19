@@ -33,13 +33,6 @@ class RecordWireframe : NSObject {
         }
     }
     
-    func setRecordViewControllerAsRootController() {
-        let appdelegate = UIApplication.shared.delegate as! AppDelegate
-        let homeViewController =  RecordViewControllerFromStoryboard()
-        let nav = UINavigationController(rootViewController: homeViewController)
-        appdelegate.window!.rootViewController = nav
-    }
-    
     func presentRecordInterfaceFromViewController(_ prevController:UIViewController) {
         let viewController = RecordViewControllerFromStoryboard()
         if let viewControllerToPresent = drawerWireframe?.getDrawerController(viewController: viewController){
