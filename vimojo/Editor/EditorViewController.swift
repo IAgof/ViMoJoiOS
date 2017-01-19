@@ -65,6 +65,8 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationBarWithDrawerAndEditorOptions()
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
     }
     
     override func viewWillDisappear(_ animated: Bool) {

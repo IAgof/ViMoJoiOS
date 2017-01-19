@@ -15,7 +15,10 @@ class EditingRoomViewController: UITabBarController {
     override func viewDidLoad() {
         eventHandler?.loadView()
     }
-    
+        
+    override public var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
 }
 
 extension EditingRoomViewController:UITabBarControllerDelegate{

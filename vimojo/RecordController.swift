@@ -119,6 +119,9 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         print("Recorder view will appear")
         eventHandler?.viewWillAppear()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        let value = UIInterfaceOrientation.landscapeRight.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -371,6 +374,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.landscape
     }
+    
     override var shouldAutorotate : Bool {
         return true
     }
