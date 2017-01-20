@@ -72,11 +72,6 @@ ViMoJoInterface {
 extension ViMoJoController{
     
     override public var supportedInterfaceOrientations : UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .pad
-        {
-            return UIInterfaceOrientationMask.portrait
-        }else{
-            return UIInterfaceOrientationMask.all
-        }
+        return UIInterfaceOrientationMask.all
     }
 }

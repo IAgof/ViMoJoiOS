@@ -367,10 +367,6 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         print("Orientation You have moved: \(text)")
     }
     
-    func forceOrientation(_ orientationValue: Int) {
-        UIDevice.current.setValue(orientationValue, forKey: "orientation")
-    }
-    
     override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.landscape
     }
