@@ -77,6 +77,7 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
     
     func viewWillAppear() {
         interactor?.loadVoiceOverAudios()
+        playerPresenter?.removeFinishObserver()
     }
     
     func viewDidAppear() {

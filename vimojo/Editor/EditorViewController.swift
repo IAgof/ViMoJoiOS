@@ -389,7 +389,7 @@ extension EditorViewController:PlayerViewFinishedDelegate{
     }
     
     func playerSeeksTo(_ value:Float){
-        
+        eventHandler?.seekBarUpdateHandler(value)
     }
 }
 extension EditorViewController:VideonaRangeSliderDelegate{
