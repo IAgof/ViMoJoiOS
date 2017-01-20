@@ -75,6 +75,7 @@ class AddTextViewController: ViMoJoController {
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationBarWithBackButton()
     }
+
     func addObserverToShowAndHideKeyboard(){
         NotificationCenter.default.addObserver(self, selector: #selector(AddTextViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(AddTextViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -229,14 +230,14 @@ extension AddTextViewController:UITextViewDelegate{
 //MARK: Keyboard handler
 extension AddTextViewController{
     func keyboardWillShow(_ notification: Notification) {
-        if self.view.frame.origin.y == 0{
-            self.view.frame.origin.y -= (addTextTextView.frame.height / 2)
+        if self.navigationController?.view.frame.origin.y == 0{
+            self.navigationController?.view.frame.origin.y -= (addTextTextView.frame.height / 2)
         }
     }
     
     func keyboardWillHide(_ notification: Notification) {
-        if self.view.frame.origin.y == (-(addTextTextView.frame.height / 2)){
-            self.view.frame.origin.y += (addTextTextView.frame.height / 2)
+        if self.navigationController?.view.frame.origin.y == (-(addTextTextView.frame.height / 2)){
+            self.navigationController?.view.frame.origin.y += (addTextTextView.frame.height / 2)
         }
     }
     
