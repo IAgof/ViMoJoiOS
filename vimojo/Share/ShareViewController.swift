@@ -194,7 +194,9 @@ extension ShareViewController:SharePresenterDelegate{
     }
     
     func dissmissAlertWaitToExport(){
-        alertController?.dismiss(animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.alertController?.dismiss(animated: true, completion: nil)
+        }
     }
     
     func showShareGeneric(_ movieURL:URL) {
