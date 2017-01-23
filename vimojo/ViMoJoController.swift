@@ -15,7 +15,10 @@ public class ViMoJoController: UIViewController,
 ViMoJoInterface {
 
     let tracker = ViMoJoTracker()
-    var forcePortrait = false
+    var forcePortrait:Bool{
+        return false
+    }
+
     var isStatusBarHidden:Bool{
         return false
     }
@@ -72,6 +75,10 @@ ViMoJoInterface {
 extension ViMoJoController{
     
     override public var supportedInterfaceOrientations : UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.all
+        if forcePortrait{
+            return UIInterfaceOrientationMask.portrait
+        }else{
+            return UIInterfaceOrientationMask.all
+        }
     }
 }

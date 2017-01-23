@@ -27,7 +27,10 @@ class AddTextViewController: ViMoJoController {
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var expandPlayerButton: UIButton!
 
-    
+    override var forcePortrait: Bool{
+        return true
+    }
+
     @IBAction func topTextButtonPushed(_ sender: AnyObject) {
         eventHandler?.topButtonPushed()
     }

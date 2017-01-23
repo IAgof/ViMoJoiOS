@@ -33,6 +33,11 @@ class DuplicateViewController: ViMoJoController,DuplicateInterface,DuplicatePres
     @IBOutlet weak var thumbLeft: UIImageView!
     @IBOutlet weak var expandPlayerButton: UIButton!
 
+    
+    override var forcePortrait: Bool{
+        return true
+    }
+
     //MARK: - LifeCycle
     override func viewDidLoad() {
         eventHandler?.viewDidLoad()

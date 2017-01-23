@@ -17,7 +17,6 @@ class DrawerMenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userContentView.backgroundColor = configuration.mainColor
-        
     }
 
     override func viewWillAppear(_ animated: Bool) {

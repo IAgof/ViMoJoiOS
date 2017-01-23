@@ -25,12 +25,12 @@ class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDel
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var acceptButton: UIButton!
     @IBOutlet weak var expandPlayerButton: UIButton!
-
     @IBOutlet weak var splitYourClipLabel: UILabel!
-
-    
     @IBOutlet weak var splitRangeSlider: TTRangeSlider!
 
+    override var forcePortrait: Bool{
+        return true
+    }
 
     //MARK: - LifeCycle
     override func viewDidLoad() {
