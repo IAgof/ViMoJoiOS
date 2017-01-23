@@ -24,6 +24,7 @@ protocol MusicListPresenterInterface {
 
     func getMusicList()
     func updatePlayerLayer()
+    func playerHasLoaded()
 
 }
 

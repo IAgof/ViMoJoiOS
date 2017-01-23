@@ -143,3 +143,18 @@ extension MusicListViewController:PlayerViewSetter{
         self.playerView.addSubview(player)
     }
 }
+
+extension MusicListViewController:PlayerViewFinishedDelegate{
+    func playerHasLoaded(){
+        eventHandler?.playerHasLoaded()
+    }
+    func playerStartsToPlay(){
+        
+    }
+    func playerPause(){
+        
+    }
+    func playerSeeksTo(_ value:Float){
+        
+    }
+}
