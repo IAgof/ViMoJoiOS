@@ -49,15 +49,6 @@
                                             <constraint firstAttribute="width" secondItem="KqX-gu-Zf5" secondAttribute="height" multiplier="169:95" id="GTt-jC-0Wm"/>
                                         </constraints>
                                     </view>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BA5-Lb-W8H">
-                                        <rect key="frame" x="77.666666666666657" y="309" width="76.999999999999972" height="77"/>
-                                        <state key="normal" image="activity_edit_duplicate_clip_minus_normal"/>
-                                        <state key="selected" image="button_edit_decrement_clips_pressed"/>
-                                        <state key="highlighted" image="activity_edit_duplicate_clip_minus_pressed"/>
-                                        <connections>
-                                            <action selector="pushLessClips:" destination="qOb-Qv-UDy" eventType="touchUpInside" id="Ycz-Gs-oKD"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIa-H9-jEv">
                                         <rect key="frame" x="170.66666666666666" y="310" width="74" height="75"/>
                                         <constraints>
@@ -110,6 +101,15 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         </variation>
                                     </label>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BA5-Lb-W8H">
+                                        <rect key="frame" x="170" y="393" width="77" height="77"/>
+                                        <state key="normal" image="activity_edit_duplicate_clip_minus_normal"/>
+                                        <state key="selected" image="button_edit_decrement_clips_pressed"/>
+                                        <state key="highlighted" image="activity_edit_duplicate_clip_minus_pressed"/>
+                                        <connections>
+                                            <action selector="pushLessClips:" destination="qOb-Qv-UDy" eventType="touchUpInside" id="Ycz-Gs-oKD"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -126,6 +126,8 @@
                                     <constraint firstItem="3U5-iX-HyG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="QPo-sx-2xK" secondAttribute="top" constant="169" id="MOS-b0-rfE">
                                         <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                                     </constraint>
+                                    <constraint firstItem="BA5-Lb-W8H" firstAttribute="top" secondItem="YIa-H9-jEv" secondAttribute="bottom" constant="8" id="N6D-Wd-LDF"/>
+                                    <constraint firstItem="BA5-Lb-W8H" firstAttribute="centerX" secondItem="YIa-H9-jEv" secondAttribute="centerX" id="Ofg-gW-6dp"/>
                                     <constraint firstItem="KqX-gu-Zf5" firstAttribute="centerY" secondItem="uhe-GL-M2w" secondAttribute="centerY" id="Q1o-Jz-8UK"/>
                                     <constraint firstItem="qTL-Ct-FfM" firstAttribute="centerY" secondItem="uhe-GL-M2w" secondAttribute="centerY" id="T7M-Qa-uS1"/>
                                     <constraint firstAttribute="trailing" secondItem="KqX-gu-Zf5" secondAttribute="trailing" constant="20" id="TKi-75-unN">
@@ -150,7 +152,6 @@
                                         <variation key="heightClass=regular-widthClass=compact" constant="40"/>
                                         <variation key="heightClass=regular-widthClass=regular" constant="50"/>
                                     </constraint>
-                                    <constraint firstItem="YIa-H9-jEv" firstAttribute="leading" secondItem="BA5-Lb-W8H" secondAttribute="trailing" constant="16" id="icg-US-IiP"/>
                                     <constraint firstAttribute="width" constant="250" id="j3v-cD-0zC"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="YIa-H9-jEv" secondAttribute="bottom" constant="55" id="kDj-Nk-YmO">
                                         <variation key="heightClass=regular-widthClass=regular" constant="8"/>
@@ -158,7 +159,6 @@
                                     <constraint firstItem="qTL-Ct-FfM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3U5-iX-HyG" secondAttribute="bottom" constant="66" id="kvk-Jc-Ua9">
                                         <variation key="heightClass=regular-widthClass=regular" constant="10"/>
                                     </constraint>
-                                    <constraint firstItem="YIa-H9-jEv" firstAttribute="centerY" secondItem="BA5-Lb-W8H" secondAttribute="centerY" id="ovG-5u-44u"/>
                                     <constraint firstItem="3U5-iX-HyG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="QPo-sx-2xK" secondAttribute="top" constant="37" id="rYe-XS-Nai">
                                         <variation key="heightClass=regular-widthClass=regular" constant="60"/>
                                     </constraint>
@@ -240,6 +240,7 @@
                             <constraint firstItem="QG1-p9-8FA" firstAttribute="leading" secondItem="DMs-hy-0hf" secondAttribute="leadingMargin" constant="90" id="iNq-MD-Fha">
                                 <variation key="heightClass=regular-widthClass=regular" constant="-20"/>
                             </constraint>
+                            <constraint firstItem="1nl-TN-WbQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BA5-Lb-W8H" secondAttribute="bottom" constant="8" id="jJM-WT-SOs"/>
                             <constraint firstItem="Ue1-UA-7yv" firstAttribute="trailing" secondItem="DMs-hy-0hf" secondAttribute="trailingMargin" id="jRX-Lv-jXW"/>
                             <constraint firstItem="Ue1-UA-7yv" firstAttribute="top" secondItem="QPo-sx-2xK" secondAttribute="bottom" constant="3" id="k1K-hY-DsU"/>
                             <constraint firstItem="QG1-p9-8FA" firstAttribute="leading" secondItem="DMs-hy-0hf" secondAttribute="leadingMargin" constant="-20" id="o4H-e7-Ynd">
@@ -727,7 +728,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1GJ-Zq-Gsi" id="Frk-6I-rFX">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
