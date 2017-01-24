@@ -61,7 +61,7 @@ class DuplicateWireframe : NSObject {
     }
     
     func goPrevController(){
-        duplicateViewController?.dismiss(animated: true, completion: nil)
+        self.duplicateViewController?.navigationController?.popViewController()
     }
    
     func presentExpandPlayer(){

@@ -69,6 +69,10 @@ UITableViewDelegate, UITableViewDataSource
         eventHandler?.viewWillDisappear()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        configureNavigationBarWithDrawerAndOptions()
+    }
+    
     //MARK: - View Init
     func createShareInterface(){
         let nib = UINib.init(nibName: shareNibName, bundle: nil)
@@ -98,7 +102,7 @@ UITableViewDelegate, UITableViewDataSource
         eventHandler?.pushGenericShare()
     }
     
-    @IBAction func pushOptionsButton(_ sender: Any) {
+    override func pushOptions() {
         eventHandler?.pushOptions()
     }
     
@@ -181,7 +185,7 @@ extension ShareViewController:SharePresenterDelegate{
 
         let activityIndicator = UIActivityIndicatorView.init(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
         
-        activityIndicator.center = CGPoint(x: 130.5, y: 65);
+        activityIndicator.center = CGPoint(x: 130.5, y: 67);
         activityIndicator.startAnimating()
         
         alertC.view.addSubview(activityIndicator)
@@ -190,7 +194,9 @@ extension ShareViewController:SharePresenterDelegate{
     }
     
     func dissmissAlertWaitToExport(){
-        alertController?.dismiss(animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.alertController?.dismiss(animated: true, completion: nil)
+        }
     }
     
     func showShareGeneric(_ movieURL:URL) {

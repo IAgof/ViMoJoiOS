@@ -97,7 +97,11 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     
     //MARK: - Constants
     let cornerRadius = CGFloat(4)
-
+    
+    override var isStatusBarHidden: Bool{
+        return true
+    }
+    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,6 +112,23 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         
         configureRotationObserver()
         UIApplication.shared.isIdleTimerDisabled = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("Recorder view will appear")
+        eventHandler?.viewWillAppear()
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        let value = UIInterfaceOrientation.landscapeRight.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        eventHandler?.viewWillDisappear()
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     func configureViews(){
@@ -155,18 +176,6 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
                                                                  selector: #selector(RecordController.checkOrientation),
                                                                  name: NSNotification.Name.UIDeviceOrientationDidChange,
                                                                  object: nil)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("Recorder view will appear")
-        eventHandler?.viewWillAppear()
-        
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        eventHandler?.viewWillDisappear()
     }
     
     override func didReceiveMemoryWarning() {
@@ -358,13 +367,10 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         print("Orientation You have moved: \(text)")
     }
     
-    func forceOrientation(_ orientationValue: Int) {
-        UIDevice.current.setValue(orientationValue, forKey: "orientation")
-    }
-    
     override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.landscape
     }
+    
     override var shouldAutorotate : Bool {
         return true
     }
@@ -674,7 +680,7 @@ extension RecordController:RecordPresenterDelegate {
     
     func setSelectedMicButton(_ state: Bool) {
         micButton.isHidden = !state
-        micButton.isSelected = state
+        micButton.isSelected = !state
     }
     
     func showFocusView() {

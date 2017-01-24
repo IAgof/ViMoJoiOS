@@ -42,6 +42,6 @@ class GalleryWireframe : NSObject {
     }
     
     func goPrevController(){
-        galleryViewController?.dismiss(animated: true, completion: nil)
+        galleryViewController?.navigationController?.popViewController()
     }
 }

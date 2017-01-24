@@ -29,31 +29,11 @@ class MusicListViewController:EditingRoomItemController{
         super.viewWillAppear(animated)
         
         eventHandler?.viewWillAppear()
-    }
-    
-    func configureDefaultNavigationBar(){
-        for view in self.view.subviews{
-            if let navBar = view as? UINavigationBar{
-                let backIcon = #imageLiteral(resourceName: "activity_edit_back")
-                
-                let backItem = UIBarButtonItem(image: backIcon, style: .plain, target: self, action: #selector(self.pushBack))
-                navBar.items?[0].leftBarButtonItem = backItem
-            }
-        }
-    }
-    
-    func configureNavigationBarWithDrawerAndOptions(){
-        for view in self.view.subviews{
-            if let navBar = view as? UINavigationBar{
-                let sideSliderIcon = #imageLiteral(resourceName: "activity_edit_drawer")
-                let optionsIcon = #imageLiteral(resourceName: "activity_edit_options")
-                
-                let showSideSliderItem = UIBarButtonItem(image: sideSliderIcon, style: .plain, target: self, action: #selector(self.showSideDrawer(_:)))
-                let optionsItem = UIBarButtonItem(image: optionsIcon, style: .plain, target: self, action: #selector(self.pushOptions))
-                
-                navBar.items?[0].leftBarButtonItem = showSideSliderItem
-                navBar.items?[0].rightBarButtonItem = optionsItem
-            }
+        
+        if configuration.VOICE_OVER_FEATURE{
+            configureNavigationBarWithBackButton()
+        }else{
+            configureNavigationBarWithDrawerAndOptions()
         }
     }
     
@@ -66,11 +46,11 @@ class MusicListViewController:EditingRoomItemController{
         eventHandler?.viewWillDisappear()
     }
     
-    func pushOptions(){
+    override func pushOptions(){
         eventHandler?.pushOptions()
     }
     
-    func pushBack(){
+    override func pushBack(){
         eventHandler?.pushBackButton()
     }
     
@@ -161,5 +141,20 @@ extension MusicListViewController:PlayerViewSetter{
     //MARK: - Player setter
     func addPlayerAsSubview(_ player: PlayerView) {
         self.playerView.addSubview(player)
+    }
+}
+
+extension MusicListViewController:PlayerViewFinishedDelegate{
+    func playerHasLoaded(){
+        eventHandler?.playerHasLoaded()
+    }
+    func playerStartsToPlay(){
+        
+    }
+    func playerPause(){
+        
+    }
+    func playerSeeksTo(_ value:Float){
+        
     }
 }

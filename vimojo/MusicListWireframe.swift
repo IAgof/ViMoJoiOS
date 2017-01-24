@@ -22,14 +22,12 @@ class MusicListWireframe {
     
     func presentMusicInterfaceFromWindow(_ window: UIWindow) {
         let viewController = musicViewControllerFromStoryboard()
-        viewController.configureDefaultNavigationBar()
 
         rootWireframe?.showRootViewController(viewController, inWindow: window)
     }
     
     func presentMusicListInterface(){
         let viewController = musicViewControllerFromStoryboard()
-        viewController.configureDefaultNavigationBar()
         
         guard let prevController = UIApplication.topViewController() else{
             return
@@ -59,16 +57,17 @@ class MusicListWireframe {
     }
     
     func removeController(){
-        musicListViewController?.dismiss(animated: true, completion: nil)
+        musicListViewController?.navigationController?.popViewController()
     }
     
     func presentEditor(){
-        removeController()
-        
-        guard let wireframe = editorRoomWireframe else{
-            return
+        if configuration.VOICE_OVER_FEATURE{
+            removeController()
         }
-//        wireframe.editingRoomViewController?.eventHandler?.pushEditor()
+        
+        guard let wireframe = editorRoomWireframe else{return}
+        
+        wireframe.editingRoomViewController?.selectedIndex = 0
     }
     
     func presentSettings(){

@@ -23,32 +23,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="he0-Ve-WFE">
-                                <rect key="frame" x="-4" y="0.0" width="383" height="44"/>
-                                <color key="barTintColor" red="0.94509803920000002" green="0.29411764709999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem id="TjX-yv-LUT">
-                                        <barButtonItem key="leftBarButtonItem" image="activity_edit_back" id="UMC-RI-4di">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <action selector="pushBackBarButton:" destination="kao-ji-l7I" id="QdR-IZ-AhM"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HBx-j6-L0g">
-                                <rect key="frame" x="-4" y="44" width="383" height="623"/>
+                                <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="projectListCell" id="qX6-da-hEj" customClass="ProjectListViewCell" customModule="RTVE" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="383" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qX6-da-hEj" id="Pwh-k7-6XL">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="149.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="149"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQe-gG-3QX">
@@ -145,11 +128,8 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="HBx-j6-L0g" firstAttribute="leading" secondItem="qoT-7s-qSP" secondAttribute="leadingMargin" constant="-20" id="Bvn-1Z-wOg"/>
-                            <constraint firstItem="he0-Ve-WFE" firstAttribute="leading" secondItem="qoT-7s-qSP" secondAttribute="leadingMargin" constant="-20" id="Rzh-2s-L6F"/>
-                            <constraint firstItem="HBx-j6-L0g" firstAttribute="top" secondItem="he0-Ve-WFE" secondAttribute="bottom" id="UnZ-y5-Nfs"/>
-                            <constraint firstItem="he0-Ve-WFE" firstAttribute="top" secondItem="j7X-Tm-9iT" secondAttribute="bottom" id="ZwE-0V-scf"/>
+                            <constraint firstItem="HBx-j6-L0g" firstAttribute="top" secondItem="j7X-Tm-9iT" secondAttribute="bottom" id="FJ7-kn-kXc"/>
                             <constraint firstItem="wdA-wc-ssx" firstAttribute="top" secondItem="HBx-j6-L0g" secondAttribute="bottom" id="caj-jz-nHT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="he0-Ve-WFE" secondAttribute="trailing" constant="-20" id="ojO-k0-gEf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HBx-j6-L0g" secondAttribute="trailing" constant="-20" id="z9h-uc-abr"/>
                         </constraints>
                     </view>
@@ -165,7 +145,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="activity_edit_back" width="20" height="16"/>
         <image name="activity_gallery_projects_duplicate_normal" width="15" height="15"/>
         <image name="activity_gallery_projects_duplicate_pressed" width="15" height="15"/>
         <image name="activity_gallery_projects_share_normal" width="15" height="15"/>

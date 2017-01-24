@@ -27,7 +27,10 @@ class AddTextViewController: ViMoJoController {
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var expandPlayerButton: UIButton!
 
-    
+    override var forcePortrait: Bool{
+        return true
+    }
+
     @IBAction func topTextButtonPushed(_ sender: AnyObject) {
         eventHandler?.topButtonPushed()
     }
@@ -47,8 +50,7 @@ class AddTextViewController: ViMoJoController {
     @IBAction func acceptButtonPushed(_ sender: AnyObject) {
         eventHandler?.pushAcceptHandler()
     }
-    
-    @IBAction func pushBackBarButton(_ sender: AnyObject) {
+    override func pushBack() {
         eventHandler?.pushBack()
     }
     
@@ -71,6 +73,10 @@ class AddTextViewController: ViMoJoController {
 
     override func viewWillDisappear(_ animated: Bool) {
         setPlayerPlayButtonState(state: false)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        configureNavigationBarWithBackButton()
     }
 
     func addObserverToShowAndHideKeyboard(){
@@ -227,14 +233,14 @@ extension AddTextViewController:UITextViewDelegate{
 //MARK: Keyboard handler
 extension AddTextViewController{
     func keyboardWillShow(_ notification: Notification) {
-        if self.view.frame.origin.y == 0{
-            self.view.frame.origin.y -= (addTextTextView.frame.height / 2)
+        if self.navigationController?.view.frame.origin.y == 0{
+            self.navigationController?.view.frame.origin.y -= (addTextTextView.frame.height / 2)
         }
     }
     
     func keyboardWillHide(_ notification: Notification) {
-        if self.view.frame.origin.y == (-(addTextTextView.frame.height / 2)){
-            self.view.frame.origin.y += (addTextTextView.frame.height / 2)
+        if self.navigationController?.view.frame.origin.y == (-(addTextTextView.frame.height / 2)){
+            self.navigationController?.view.frame.origin.y += (addTextTextView.frame.height / 2)
         }
     }
     

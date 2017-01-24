@@ -64,7 +64,7 @@ class RecordPresenter: NSObject
         case seventyFivePercent = "activity_rec_battery_charging_pressed"
         case fiftyPercent = "activity_rec_battery_50_pressed"
         case twentyFivePercent = "activity_rec_battery_25_pressed"
-        case empty = "activity_rec_battery_0_pressed"
+        case empty = "activity_rec_battery_0"
     }
 
     
@@ -99,33 +99,11 @@ class RecordPresenter: NSObject
         cameraInteractor?.setResolution()
         cameraInteractor?.startCamera()
         
-        self.setUpOrientationToForce()
-        
         if let resolution = interactor?.getResolution(){
             delegate?.setResolutionToView(resolution)
         }
         
         self.updateThumbnail()
-    }
-    
-    func setUpOrientationToForce(){
-        switch UIDevice.current.orientation{
-        case .portrait,.portraitUpsideDown,.landscapeRight,.landscapeLeft:
-            if (lastOrientationEnabled != UIDeviceOrientation.portrait.rawValue) &&
-            (lastOrientationEnabled != UIDeviceOrientation.portraitUpsideDown.rawValue){
-                
-                if let value = lastOrientationEnabled{
-                    delegate?.forceOrientation(value)
-                }else{
-                    delegate?.forceOrientation(UIInterfaceOrientation.landscapeRight.rawValue)
-                }
-            }else{
-                delegate?.forceOrientation(UIInterfaceOrientation.landscapeRight.rawValue)
-            }
-            break
-        default:
-            break
-        }
     }
     
     func pushRecord() {

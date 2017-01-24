@@ -64,7 +64,7 @@ class SplitWireframe : NSObject {
     }
     
     func goPrevController(){
-        splitViewController?.dismiss(animated: true, completion: nil)
+        self.splitViewController?.navigationController?.popViewController()
     }
     
     func presentExpandPlayer(){

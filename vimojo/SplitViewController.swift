@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import NMRangeSlider
+import TTRangeSlider
 import VideonaPlayer
 import AVFoundation
 import VideonaSplit
@@ -25,21 +25,26 @@ class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDel
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var acceptButton: UIButton!
     @IBOutlet weak var expandPlayerButton: UIButton!
-
     @IBOutlet weak var splitYourClipLabel: UILabel!
-    @IBOutlet weak var timeToCutLabel: UILabel!
-    
-    @IBOutlet weak var splitRangeSlider: NMRangeSlider!
+    @IBOutlet weak var splitRangeSlider: TTRangeSlider!
 
+    override var forcePortrait: Bool{
+        return true
+    }
 
     //MARK: - LifeCycle
     override func viewDidLoad() {
         eventHandler?.viewDidLoad()
         wireframe?.presentPlayerInterface()
+        splitRangeSlider.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         eventHandler?.viewWillDissappear()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        configureNavigationBarWithBackButton()
     }
     
     //MARK: - Actions
@@ -51,18 +56,8 @@ class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDel
         eventHandler?.pushAcceptHandler()
     }
     
-    @IBAction func pushBackBarButton(_ sender: AnyObject) {
+    override func pushBack() {
         eventHandler?.pushBack()
-    }
-    
-    @IBAction func labelSliderChanged(_ sender: NMRangeSlider) {
-        
-        eventHandler?.setSplitValue(splitRangeSlider.upperValue)
-    }
-    
-    @IBAction func labelSliderPushed(_ sender: NMRangeSlider) {
-        
-        eventHandler?.setSplitValue(splitRangeSlider.upperValue)
     }
     
     @IBAction func pushExpandButton(_ sender: AnyObject) {
@@ -71,37 +66,33 @@ class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDel
     
     //MARK: - Interface
     func configureRangeSlider(_ splitValue: Float,
-                              maximumValue:Float) {
+                              maximumValue:Float)
+    {
         
         self.configureUIRangeSlider()
         
-        splitRangeSlider.maximumValue = maximumValue
-        splitRangeSlider.minimumValue = 0.0
+        splitRangeSlider.maxValue = maximumValue
+        splitRangeSlider.minValue = 0.0
         
-        splitRangeSlider.lowerHandleHidden = true
-        splitRangeSlider.upperValue = splitValue
-        
-        Utils().debugLog("maximum value\(splitRangeSlider.maximumValue) \n upper value\(splitRangeSlider.upperValue)")
+        splitRangeSlider.selectedMaximum = splitValue
+        splitRangeSlider.selectedMinimum = 0
     }
-    
+
     func configureUIRangeSlider(){
-
-        var trackBackgroundImage = UIImage(named: "button_edit_seekbar_background_split")
-        trackBackgroundImage = trackBackgroundImage?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 5.0, 0.0, 5.0))
-        splitRangeSlider.trackBackgroundImage = trackBackgroundImage
+        splitRangeSlider.tintColor = configuration.secondColorWithOpacity
+        splitRangeSlider.backgroundColor = configuration.secondColorWithOpacity
+        splitRangeSlider.maxLabelColour = configuration.secondColor
+        splitRangeSlider.lineHeight = 0
         
-        var handleImage = UIImage(named: "button_edit_thumb_seekbar_advance_split_normal")
-        handleImage = handleImage?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 2, 0.0, 2))
-        splitRangeSlider.upperHandleImageNormal = handleImage
-
-        let handleImagePressed = UIImage(named: "button_edit_thumb_seekbar_advance_split_pressed")
-        handleImage = handleImage?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 2, 0.0, 2))
-        splitRangeSlider.upperHandleImageHighlighted = handleImagePressed
+        let handleImage = UIImage(named: "button_edit_thumb_seekbar_advance_split_normal")
+        splitRangeSlider.handleImage = handleImage
         
+        let formatter = TimeNumberFormatter()
+        self.splitRangeSlider.numberFormatterOverride = formatter
     }
     
     func setSliderValue(_ value:Float){
-        splitRangeSlider.upperValue = value
+        splitRangeSlider.selectedMaximum = value
     }
     
     func bringToFrontExpandPlayerButton(){
@@ -114,11 +105,7 @@ class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDel
         playerHandler?.layoutSubViews()
     }
     
-    //MARK: - Presenter delegate
-    func setSplitValueText(_ text: String) {
-        self.timeToCutLabel.text = text
-    }
-    
+    //MARK: - Presenter delegate    
     func acceptFinished() {
         ViMoJoTracker.sharedInstance.trackClipSplitted()
         
@@ -153,5 +140,12 @@ class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDel
     //MARK: - Player setter
     func addPlayerAsSubview(_ player: PlayerView) {
         self.playerView.addSubview(player)
+    }
+}
+
+extension SplitViewController:TTRangeSliderDelegate{
+    func rangeSlider(_ sender: TTRangeSlider!, didChangeSelectedMinimumValue selectedMinimum: Float, andMaximumValue selectedMaximum: Float) {
+        debugPrint("Maximum value \(selectedMaximum)")
+        eventHandler?.setSplitValue(selectedMaximum)
     }
 }

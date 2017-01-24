@@ -30,13 +30,13 @@ class MusicListPresenter:MusicListPresenterInterface{
     
     //MARK: - Interface
     func viewDidLoad() {
-        wireframe?.presentPlayerInterface()
-        
-        interactor?.getVideoComposition()        
+                
     }
     
     func viewWillAppear() {
-//        controller?.bringToFrontExpandPlayerButton()
+        wireframe?.presentPlayerInterface()
+        
+        interactor?.getVideoComposition()
     }
     
     func viewDidAppear() {
@@ -61,6 +61,8 @@ class MusicListPresenter:MusicListPresenterInterface{
         if !isMusicSet {
             interactor?.setMusicToProject(NO_MUSIC_SELECTED)
         }
+        
+        lastMusicSelected = NO_MUSIC_SELECTED
     }
     
     func pushBackButton() {
@@ -84,7 +86,7 @@ class MusicListPresenter:MusicListPresenterInterface{
         
         interactor?.setMusicToProject(lastMusicSelected)
         
-        interactor?.getVideoComposition()
+        interactor?.getVideoComposition()        
     }
     
     func cancelDetailButtonPushed() {
@@ -133,6 +135,12 @@ class MusicListPresenter:MusicListPresenterInterface{
 
     func getMusicList(){
         interactor?.getMusicList()
+    }
+    
+    func playerHasLoaded() {
+        if lastMusicSelected != NO_MUSIC_SELECTED{
+            playerPresenter?.pushPlayButton()
+        }
     }
 }
 

@@ -33,17 +33,27 @@ class DuplicateViewController: ViMoJoController,DuplicateInterface,DuplicatePres
     @IBOutlet weak var thumbLeft: UIImageView!
     @IBOutlet weak var expandPlayerButton: UIButton!
 
+    
+    override var forcePortrait: Bool{
+        return true
+    }
+
     //MARK: - LifeCycle
     override func viewDidLoad() {
         eventHandler?.viewDidLoad()
         numberOfDuplicates.adjustsFontSizeToFitWidth = true
         wireframe?.presentPlayerInterface()
+        
+        numberOfDuplicates.textColor = configuration.mainColor
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         eventHandler?.viewWillDissappear()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        configureNavigationBarWithBackButton()
+    }
     //MARK: - Actions
     @IBAction func pushCancelButton(_ sender: AnyObject) {
         eventHandler?.pushCancelHandler()
@@ -53,7 +63,7 @@ class DuplicateViewController: ViMoJoController,DuplicateInterface,DuplicatePres
         eventHandler?.pushAcceptHandler()
     }
     
-    @IBAction func pushBackBarButton(_ sender: AnyObject) {
+    override func pushBack() {
         eventHandler?.pushBack()
     }
     

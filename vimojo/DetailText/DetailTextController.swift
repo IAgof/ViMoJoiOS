@@ -19,10 +19,6 @@ class DetailTextController: ViMoJoController,DetailTextPresenterDelegate{
         }
     }
     
-    @IBAction func pushBack(_ sender: AnyObject) {
-        eventHandler?.pushBack()
-    }
-    
     func setTextToTextView(_ text: String) {
         detailTextFiled.text = text
     }
@@ -34,6 +30,13 @@ class DetailTextController: ViMoJoController,DetailTextPresenterDelegate{
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        configureNavigationBarWithBackButton()
+    }
+    override func pushBack() {
+        eventHandler?.pushBack()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

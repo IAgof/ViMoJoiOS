@@ -175,7 +175,6 @@ class AppDependencies {
         editorWireframe.splitWireframe = splitWireframe
         editorWireframe.fullScreenPlayerWireframe = fullScreenPlayerWireframe
         editorWireframe.addTextWireframe = addTextWireframe
-        editorWireframe.galleryWireframe = galleryWireframe
         editorWireframe.editingRoomWireframe = editorRoomWireframe
         
         editorInteractor.delegate = editorPresenter

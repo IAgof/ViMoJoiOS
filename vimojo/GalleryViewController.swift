@@ -23,14 +23,10 @@ class GalleryViewController: UITabBarController {
         self.tabBar.tintColor = configuration.mainColor
         
         for controller in self.viewControllers!{
-            if let galleryController = controller.childViewControllers[0] as? VideosGalleryViewController{
+            if let galleryController = controller as? VideosGalleryViewController{
                 galleryController.delegate = self
             }
         }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
     }
 }
 

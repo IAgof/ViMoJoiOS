@@ -30,13 +30,13 @@ class MusicViewController: EditingRoomItemController,MusicViewInterface,MusicPre
         super.viewDidLoad()
         
         eventHandler?.viewDidLoad()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         eventHandler?.viewWillAppear()
+        configureNavigationBarWithDrawerAndOptions()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -66,7 +66,7 @@ class MusicViewController: EditingRoomItemController,MusicViewInterface,MusicPre
         eventHandler?.pushMicHandler()
     }
     
-    @IBAction func pushOptionsButton(_ sender: Any) {
+    override func pushOptions() {
         eventHandler?.pushOptions()
     }
     
