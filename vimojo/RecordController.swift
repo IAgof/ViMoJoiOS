@@ -368,7 +368,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     }
     
     override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.landscape
+        return UIInterfaceOrientationMask.landscapeLeft
     }
     
     override var shouldAutorotate : Bool {

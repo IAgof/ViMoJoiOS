@@ -42,6 +42,6 @@ extension GalleryViewController:VideoGalleryDelegate{
 
 extension GalleryViewController:SaveVideosFromGalleryDelegate{
     func saveVideosDone() {
-        wireframe?.goPrevController()
+        wireframe?.presentEditingRoomInterface()
     }
 }
