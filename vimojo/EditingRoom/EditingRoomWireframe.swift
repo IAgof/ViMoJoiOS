@@ -25,7 +25,8 @@ class EditingRoomWireframe : NSObject {
     var recordWireframe : RecordWireframe?
     var galleryWireframe:GalleryWireframe?
     var musicListWireframe:MusicListWireframe?
-
+    var goToRecordOrGalleryWireframe:GoToRecordOrGalleryWireframe?
+    
     //MARK: - Variables
     weak var currentViewController: UIViewController?
     var prevController:UIViewController?
@@ -122,6 +123,12 @@ class EditingRoomWireframe : NSObject {
     func navigateToGallery(){
         if let controller = editingRoomViewController{
             galleryWireframe?.presentGalleryFromViewController(controller)
+        }
+    }
+    
+    func navigateToRecordOrGallery(){
+        if let controller = editingRoomViewController{
+            goToRecordOrGalleryWireframe?.presentInterfaceFromViewController(controller)
         }
     }
     

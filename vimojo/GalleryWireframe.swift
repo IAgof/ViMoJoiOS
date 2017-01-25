@@ -17,6 +17,8 @@ class GalleryWireframe : NSObject {
     var prevController:UIViewController?
     var interactor:SaveVideosFromGalleryInterface?
     
+    var editingRoomWireframe:EditingRoomWireframe?
+    
     func presentGalleryFromViewController(_ prevController:UIViewController) {
         let viewController = galleryViewControllerFromStoryboard()
         viewController.wireframe = self
@@ -43,5 +45,11 @@ class GalleryWireframe : NSObject {
     
     func goPrevController(){
         galleryViewController?.navigationController?.popViewController()
+    }
+    
+    func presentEditingRoomInterface(){
+        if let controllerExist = galleryViewController{
+            editingRoomWireframe?.presentEditingRoomInterfaceFromViewController(controllerExist)
+        }
     }
 }

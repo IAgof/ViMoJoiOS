@@ -94,4 +94,8 @@ class EditorWireframe : NSObject {
     func presentSettings(){
         editingRoomWireframe?.navigateToSettings()
     }
+    
+    func presentGoToRecordOrGallery(){
+        editingRoomWireframe?.navigateToRecordOrGallery()
+    }
 }
