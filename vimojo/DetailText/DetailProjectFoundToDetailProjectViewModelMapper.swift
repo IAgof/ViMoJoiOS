@@ -14,11 +14,11 @@ class DetailProjectFoundToDetailProjectViewModelMapper:Mapper {
 
     func map(from: DetailProjectFound) -> DetailProjectViewModel {
         let durationString = getStringByKeyFromDetailProject(key: "duration_label").appending(from.duration)
-        let sizeString = getStringByKeyFromDetailProject(key: "size_label").appending("\(numberToMega(number: Float(from.size))) Mb")
+        let sizeString = getStringByKeyFromDetailProject(key: "size_label").appending(sizeFormatter(number: Float(from.size)))
         let qualityString = getStringByKeyFromDetailProject(key: "quality_label").appending(from.quality)
         let formatString = getStringByKeyFromDetailProject(key: "format_label").appending(from.format)
-        let bitrateString = getStringByKeyFromDetailProject(key: "bitrate_label").appending("\(numberToMega(number:from.bitrate)) Mb/s")
-        let frameRateString = getStringByKeyFromDetailProject(key: "frame_rate_label").appending("\(Int(from.frameRate)) fps")
+        let bitrateString = getStringByKeyFromDetailProject(key: "bitrate_label").appending(bitRateFormatter(number: from.bitrate))
+        let frameRateString = getStringByKeyFromDetailProject(key: "frame_rate_label").appending(frameRateFormatter(number: from.frameRate))
         
         return DetailProjectViewModel(thumbImage: from.thumbImage,
                                       projectName: from.projectName,
@@ -38,5 +38,37 @@ class DetailProjectFoundToDetailProjectViewModelMapper:Mapper {
         let result:Int = Int(number)/1024/1024
         
         return result
+    }
+    
+    func numberToKilo(number:Float)->Int{
+        let result:Int = Int(number)/1024
+        
+        return result
+    }
+    
+    func bitRateFormatter(number:Float)->String{
+        let megaNumber = numberToMega(number: number)
+        if megaNumber > 0 {
+            return "\(megaNumber) Mb/s"
+        }else{
+            return "\(numberToKilo(number: number)) Kb/s"
+        }
+    }
+    
+    func sizeFormatter(number:Float)->String{
+        let megaNumber = numberToMega(number: number)
+        if megaNumber > 0 {
+            return "\(megaNumber) Mb"
+        }else{
+            return "\(numberToKilo(number: number)) Kb"
+        }
+    }
+
+    func frameRateFormatter(number:Float)->String{
+        if number != 0{
+            return "\(Int(number.rounded())) fps"
+        }else{
+            return "\(30) fps"
+        }
     }
 }
