@@ -35,8 +35,8 @@ class DetailProjectInteractor:DetailProjectInteractorInterface {
             let projectFoundParams = DetailProjectFound(thumbImage: thumbImage,
                                                         projectName: project.getTitle(),
                                                         size: getProjectSize(filePath:exportedPath),
-                                                        duration: Utils().hourToString(project.getDuration()),
-                                                        quality: project.getProfile().getQuality(),
+                                                        duration: project.getDuration(),
+                                                        quality: project.getProfile().getResolution(),
                                                         format: "m4v",
                                                         bitrate: videoParameters.bitrate,
                                                         frameRate: videoParameters.frameRate)

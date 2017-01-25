@@ -108,6 +108,8 @@
 		A93B5C971E38AADC009E0279 /* DetailProject.strings in Resources */ = {isa = PBXBuildFile; fileRef = A93B5C951E38A7F9009E0279 /* DetailProject.strings */; };
 		A93B5C991E38C016009E0279 /* DetailProjectFoundToDetailProjectViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93B5C981E38C016009E0279 /* DetailProjectFoundToDetailProjectViewModelMapper.swift */; };
 		A93B5C9A1E38C016009E0279 /* DetailProjectFoundToDetailProjectViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93B5C981E38C016009E0279 /* DetailProjectFoundToDetailProjectViewModelMapper.swift */; };
+		A93B5C9C1E38F76A009E0279 /* EstimationByQualityAndDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93B5C9B1E38F76A009E0279 /* EstimationByQualityAndDuration.swift */; };
+		A93B5C9D1E38F76A009E0279 /* EstimationByQualityAndDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93B5C9B1E38F76A009E0279 /* EstimationByQualityAndDuration.swift */; };
 		A93BCE431D7D599900421BD0 /* ViMoJoTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE421D7D599900421BD0 /* ViMoJoTracker.swift */; };
 		A93BCE4C1D7D5C7400421BD0 /* ConfigPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE4A1D7D5C7400421BD0 /* ConfigPreferences.swift */; };
 		A93BCE4D1D7D5C7400421BD0 /* AnalitycsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE4B1D7D5C7400421BD0 /* AnalitycsConstants.swift */; };
@@ -774,6 +776,7 @@
 		A93B5C941E38A7F9009E0279 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/DetailProject.strings; sourceTree = "<group>"; };
 		A93B5C961E38A803009E0279 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/DetailProject.strings; sourceTree = "<group>"; };
 		A93B5C981E38C016009E0279 /* DetailProjectFoundToDetailProjectViewModelMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailProjectFoundToDetailProjectViewModelMapper.swift; path = DetailText/DetailProjectFoundToDetailProjectViewModelMapper.swift; sourceTree = "<group>"; };
+		A93B5C9B1E38F76A009E0279 /* EstimationByQualityAndDuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EstimationByQualityAndDuration.swift; path = DetailText/EstimationByQualityAndDuration.swift; sourceTree = "<group>"; };
 		A93BCE031D7D577300421BD0 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = ../GPUImageForViMojoApp/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 		A93BCE421D7D599900421BD0 /* ViMoJoTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViMoJoTracker.swift; sourceTree = "<group>"; };
 		A93BCE4A1D7D5C7400421BD0 /* ConfigPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigPreferences.swift; sourceTree = "<group>"; };
@@ -1225,12 +1228,12 @@
 			name = RTVE;
 			sourceTree = "<group>";
 		};
-		A9320CBE1E2D26C7004DC8A1 /* Configuration Protocol */ = {
+		A9320CBE1E2D26C7004DC8A1 /* vg */ = {
 			isa = PBXGroup;
 			children = (
 				A9320CBF1E2D26D3004DC8A1 /* ConfigurationProtocol.swift */,
 			);
-			name = "Configuration Protocol";
+			name = vg;
 			sourceTree = "<group>";
 		};
 		A9325FB31E09256800400AD6 /* Export Temporal Video */ = {
@@ -1541,8 +1544,9 @@
 			isa = PBXGroup;
 			children = (
 				A97243F21E37A90C00BD5E9B /* DetailProjectPresenter.swift */,
-				A93B5C981E38C016009E0279 /* DetailProjectFoundToDetailProjectViewModelMapper.swift */,
 				A97243F31E37A90C00BD5E9B /* DetailProjectPresenterInterface.swift */,
+				A93B5C981E38C016009E0279 /* DetailProjectFoundToDetailProjectViewModelMapper.swift */,
+				A93B5C9B1E38F76A009E0279 /* EstimationByQualityAndDuration.swift */,
 			);
 			name = Presenter;
 			sourceTree = "<group>";
@@ -2089,7 +2093,7 @@
 		A9B3865B1D7D55440065D3EC /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				A9320CBE1E2D26C7004DC8A1 /* Configuration Protocol */,
+				A9320CBE1E2D26C7004DC8A1 /* vg */,
 				A93BCE491D7D5C6B00421BD0 /* Constants */,
 				A9325FBE1E0950AB00400AD6 /* Extension */,
 				A93BCE591D7D7A0700421BD0 /* NSLocale */,
@@ -3005,6 +3009,7 @@
 				A95BE9871D990A4A00602DCD /* SettingsProvider.swift in Sources */,
 				A97243F01E37A8FF00BD5E9B /* DetailProjectInteractorInterface.swift in Sources */,
 				A9E90D631DE70FB2002B9DA3 /* RealmVideo.swift in Sources */,
+				A93B5C9C1E38F76A009E0279 /* EstimationByQualityAndDuration.swift in Sources */,
 				A9A2073A1DED929F004AAEE2 /* ProjectListCellView.swift in Sources */,
 				A9B386601D7D55660065D3EC /* ViMoJoInterface.swift in Sources */,
 				A9B386381D7D53450065D3EC /* ClipsAlbum.swift in Sources */,
@@ -3263,6 +3268,7 @@
 				A9D077A71E2F80B1003AE96B /* SettingsProvider.swift in Sources */,
 				A97243F11E37A8FF00BD5E9B /* DetailProjectInteractorInterface.swift in Sources */,
 				A9D077A81E2F80B1003AE96B /* RealmVideo.swift in Sources */,
+				A93B5C9D1E38F76A009E0279 /* EstimationByQualityAndDuration.swift in Sources */,
 				A9D077A91E2F80B1003AE96B /* ProjectListCellView.swift in Sources */,
 				A9D077AA1E2F80B1003AE96B /* ViMoJoInterface.swift in Sources */,
 				A9D077AB1E2F80B1003AE96B /* ClipsAlbum.swift in Sources */,

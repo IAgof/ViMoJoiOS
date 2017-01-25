@@ -12,7 +12,7 @@ struct DetailProjectFound {
     let thumbImage:UIImage
     let projectName:String
     let size:UInt64
-    let duration:String
+    let duration:Double
     let quality:String
     let format:String
     let bitrate:Float
