@@ -15,6 +15,9 @@ protocol ProjectListInteractorInterface {
     func duplicateProjectAction(projectNumber:Int)
     func editProjectAction(projectNumber:Int)
     func shareProjectAction(projectNumber:Int)
+    func setProjectSelected(projectNumber: Int) 
+    
+    var selectedProjectUUID:String{get set}
 }
 
 protocol ProjectListInteractorDelegate {

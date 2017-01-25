@@ -77,7 +77,7 @@ extension ProjectListViewController:UITableViewDataSource{
 
 extension ProjectListViewController{
     @IBAction func pushEditProjectButton(sender:UIButton){
-        eventHandler?.editProject(projectNumber: sender.tag)
+        eventHandler?.detailProject(projectNumber: sender.tag)
     }
     
     @IBAction func pushRemoveProjectButton(sender:UIButton){

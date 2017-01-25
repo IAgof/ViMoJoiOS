@@ -42,6 +42,12 @@ class ProjectListPresenter:NSObject,ProjectListPresenterInterface{
     func duplicateProject(projectNumber: Int) {
         interactor?.duplicateProjectAction(projectNumber: projectNumber)
     }
+    
+    func detailProject(projectNumber: Int) {
+        interactor?.setProjectSelected(projectNumber: projectNumber)
+        
+        wireframe?.presentDetailProjectInterface()
+    }
 }
 
 extension ProjectListPresenter:ProjectListInteractorDelegate{

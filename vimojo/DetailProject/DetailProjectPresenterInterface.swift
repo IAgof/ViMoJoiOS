@@ -9,9 +9,13 @@
 import Foundation
 
 protocol DetailProjectPresenterInterface {
-    
+    func viewDidLoad()
+    func viewWillDissappear()
+    func accept()
+    func cancel()
 }
 
 protocol DetailProjectPresenterDelegate {
-    
+    func displayParams(viewModel: DetailProjectViewModel)
+    func setButtonsContainerIsHidden(isHidden:Bool)
 }

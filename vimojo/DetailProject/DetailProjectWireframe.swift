@@ -7,66 +7,69 @@
 //
 
 import Foundation
+
+class DetailProjectWireframe : VimojoWireframeInterface {
+    typealias viewControllerType = DetailProjectViewController
+    typealias presenterType = DetailProjectPresenter
     
-class GoToRecordOrGalleryWireframe : VimojoWireframeInterface {
-        typealias viewControllerType = DetailProjectViewController
+    var rootWireframe : RootWireframe?
+    var viewController : viewControllerType?
+    var presenter: presenterType?
     
-        var rootWireframe : RootWireframe?
-        var viewController : DetailProjectViewController?
-        var prevController:UIViewController?
-        var viewControllerIdentifier: String
-        var storyboardName: String
+    var prevController:UIViewController?
+    var viewControllerIdentifier: String
+    var storyboardName: String
     
-        var galleryWireframe:GalleryWireframe?
-        var recordWireframe:RecordWireframe?
-        var drawerWireframe:DrawerMenuWireframe?
+    private var videoSelectedUUID:String?
     
-        init() {
-                viewControllerIdentifier = "DetailProjectViewController"
-                    storyboardName = "ProjectList"
-            }
-    
-        func presentInterfaceFromWindow(_ window: UIWindow) {
-                let viewController = viewControllerFromStoryboard()
-        
-                rootWireframe?.showRootViewController(viewController, inWindow: window)
-            }
-    
-        func presentInterfaceFromViewController(_ prevController: UIViewController) {
-                let viewController = viewControllerFromStoryboard()
-        
-                self.prevController = prevController
-        
-                prevController.show(viewController, sender: nil)
-            }
-    
-        func viewControllerFromStoryboard() -> GoToRecordOrGalleryWireframe.viewControllerType {
-                let storyboard = getStoryboard()
-                let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerIdentifier) as! GoToRecordOrGalleryWireframe.viewControllerType
-        
-                self.viewController = viewController
-        
-                return viewController
-            }
-    
-        func getStoryboard() -> UIStoryboard{
-                let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
-                return storyboard
-            }
-    
-        func goPrevController(){
-                self.viewController?.navigationController?.popViewController()
-            }
-    
-        func presentGallery(){
-                if let controllerExist = viewController{
-                        galleryWireframe?.presentGalleryFromViewController(controllerExist)
-                    }
-            }
-        
-        func presentRecorder() {
-                if let controllerExist = viewController{
-                      recordWireframe?.presentRecordInterfaceFromViewController(controllerExist)
-                    }
-            }
+    init() {
+        viewControllerIdentifier = "DetailProjectViewController"
+        storyboardName = "ProjectList"
     }
+    
+    func presentInterfaceFromWindow(_ window: UIWindow) {
+        let viewController = viewControllerFromStoryboard()
+        
+        rootWireframe?.showRootViewController(viewController, inWindow: window)
+    }
+    
+    func presentInterfaceFromViewController(_ prevController: UIViewController,
+                                            videoUUID:String) {
+        self.videoSelectedUUID = videoUUID
+        
+        presentInterfaceFromViewController(prevController)
+    }
+    
+    func presentInterfaceFromViewController(_ prevController: UIViewController) {
+        let viewController = viewControllerFromStoryboard()
+        
+        self.prevController = prevController
+        
+        viewController.eventHandler = presenter
+        
+        presenter?.delegate = viewController
+        if let uuid = videoSelectedUUID{
+            presenter?.interactor?.videoUUID = uuid
+        }
+        
+        prevController.show(viewController, sender: nil)
+    }
+    
+    func viewControllerFromStoryboard() -> DetailProjectWireframe.viewControllerType {
+        let storyboard = getStoryboard()
+        let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerIdentifier) as! DetailProjectWireframe.viewControllerType
+        
+        self.viewController = viewController
+        
+        return viewController
+    }
+    
+    func getStoryboard() -> UIStoryboard{
+        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
+        return storyboard
+    }
+    
+    func goPrevController(){
+        self.viewController?.navigationController?.popViewController()
+    }
+}
