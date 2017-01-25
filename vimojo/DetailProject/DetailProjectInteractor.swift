@@ -14,7 +14,8 @@ import AVFoundation
 class DetailProjectInteractor:DetailProjectInteractorInterface {
     var delegate:DetailProjectInteractorDelegate?
     var videoUUID:String = ""
-
+    var projectName: String = ""
+    
     private struct VideoParameters {
         let bitrate:Float
         let frameRate:Float
@@ -96,5 +97,13 @@ class DetailProjectInteractor:DetailProjectInteractorInterface {
             return VideoParameters(bitrate: 0, frameRate: 0)
             }
         }else{return VideoParameters(bitrate: 0, frameRate: 0)}
+    }
+    
+    func saveProjectName() {
+        if let project = ProjectRealmRepository().getProjectByUUID(uuid: videoUUID){
+            project.setTitle(projectName)
+            
+            ProjectRealmRepository().update(item: project)
+        }
     }
 }

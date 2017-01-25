@@ -20,15 +20,23 @@ extension DetailProjectPresenter:DetailProjectPresenterInterface{
     }
     
     func viewWillDissappear() {
-    
+        interactor?.projectName = ""
     }
     
     func accept() {
-        
+        interactor?.saveProjectName()
+        wireframe?.goPrevController()
     }
     
     func cancel() {
-        
+        wireframe?.goPrevController()
+    }
+    func pushBack() {
+        wireframe?.goPrevController()
+    }
+    
+    func projectNameChange(name: String) {
+        interactor?.projectName = name
     }
 }
 

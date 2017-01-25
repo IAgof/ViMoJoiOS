@@ -18,11 +18,9 @@ class ProjectListViewController:ViMoJoController{
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: - LifeCycle
-    override func viewDidLoad() {
-        eventHandler?.viewDidLoad()
-    }
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationBarWithBackButton()
+        eventHandler?.viewWillAppear()
     }
     override func pushBack() {
         eventHandler?.pushBack()

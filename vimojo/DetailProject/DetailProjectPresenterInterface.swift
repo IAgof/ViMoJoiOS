@@ -13,6 +13,9 @@ protocol DetailProjectPresenterInterface {
     func viewWillDissappear()
     func accept()
     func cancel()
+    func pushBack()
+    
+    func projectNameChange(name:String)
 }
 
 protocol DetailProjectPresenterDelegate {

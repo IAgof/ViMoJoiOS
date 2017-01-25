@@ -24,6 +24,8 @@ class DetailProjectViewController: ViMoJoController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        projectNameTextField.delegate = self
+        configureNavigationBarWithBackButton()
         eventHandler?.viewDidLoad()
     }
     
@@ -39,6 +41,13 @@ class DetailProjectViewController: ViMoJoController {
     
     @IBAction func pushCancelButton(_ sender: Any) {
         eventHandler?.cancel()
+    }
+    @IBAction func projectNameEditingChanged(_ sender: Any) {
+        guard let text = projectNameTextField.text else{return}
+        eventHandler?.projectNameChange(name: text)
+    }
+    override func pushBack() {
+        eventHandler?.pushBack()
     }
 }
 
@@ -56,5 +65,17 @@ extension DetailProjectViewController:DetailProjectPresenterDelegate{
     
     func setButtonsContainerIsHidden(isHidden: Bool) {
         cancelAndAcceptViewContainer.isHidden = isHidden
+    }
+}
+
+extension DetailProjectViewController:UITextFieldDelegate{
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        cancelAndAcceptViewContainer.isHidden = false
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

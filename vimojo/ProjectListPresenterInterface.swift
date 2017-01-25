@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ProjectListPresenterInterface {
-    func viewDidLoad()
+    func viewWillAppear()
     
     func removeProject(projectNumber:Int)
     func duplicateProject(projectNumber:Int)

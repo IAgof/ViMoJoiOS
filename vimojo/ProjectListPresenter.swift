@@ -14,11 +14,11 @@ class ProjectListPresenter:NSObject,ProjectListPresenterInterface{
     var interactor: ProjectListInteractorInterface?
     
     var wireframe: ProjectListWireframe?
-
-    func viewDidLoad() {
+    
+    func viewWillAppear() {
         interactor?.findProjects()
     }
-    
+
     func reloadData(){
         interactor?.findProjects()
     }
