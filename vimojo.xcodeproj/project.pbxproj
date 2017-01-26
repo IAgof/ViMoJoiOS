@@ -26,6 +26,10 @@
 		A907FE7C1E26366500E6D2F6 /* RecordedTrackAreaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A907FE7B1E26366500E6D2F6 /* RecordedTrackAreaViewModel.swift */; };
 		A9148DDC1E1D3ECE006DC511 /* DPTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9148DDA1E1D3ECE006DC511 /* DPTheme.swift */; };
 		A9148DDD1E1D3ECE006DC511 /* CustomDPTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9148DDB1E1D3ECE006DC511 /* CustomDPTheme.swift */; };
+		A91577AD1E3954D000381647 /* acousticbreeze.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A91577A91E3954D000381647 /* acousticbreeze.mp3 */; };
+		A91577AE1E3954D000381647 /* goinghigher.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A91577AA1E3954D000381647 /* goinghigher.mp3 */; };
+		A91577AF1E3954D000381647 /* jazzyfrenchy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A91577AB1E3954D000381647 /* jazzyfrenchy.mp3 */; };
+		A91577B01E3954D000381647 /* ukulele.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A91577AC1E3954D000381647 /* ukulele.mp3 */; };
 		A915E8D51E1BC00E00A37F5F /* RealmMigrationsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915E8D41E1BC00E00A37F5F /* RealmMigrationsUseCase.swift */; };
 		A91760AA1D9146B5008915DA /* EditingRoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A31D9146B5008915DA /* EditingRoomPresenter.swift */; };
 		A91760AB1D9146B5008915DA /* EditingRoomPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A41D9146B5008915DA /* EditingRoomPresenterInterface.swift */; };
@@ -95,6 +99,12 @@
 		A91D63041DDF1F3A00D226B8 /* GetCompositionForVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91D63031DDF1F3A00D226B8 /* GetCompositionForVideo.swift */; };
 		A91D63061DDF22F600D226B8 /* SetTrimParametersToVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91D63051DDF22F600D226B8 /* SetTrimParametersToVideo.swift */; };
 		A91D63081DDF234C00D226B8 /* TrimParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91D63071DDF234C00D226B8 /* TrimParameters.swift */; };
+		A92627331E390E7500008BD6 /* GoToRecordOrGalleryWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92627311E390E7500008BD6 /* GoToRecordOrGalleryWireframe.swift */; };
+		A92627341E390E7500008BD6 /* GoToRecordOrGalleryWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92627311E390E7500008BD6 /* GoToRecordOrGalleryWireframe.swift */; };
+		A92627351E390E7500008BD6 /* GoToRecordOrGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92627321E390E7500008BD6 /* GoToRecordOrGalleryViewController.swift */; };
+		A92627361E390E7500008BD6 /* GoToRecordOrGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92627321E390E7500008BD6 /* GoToRecordOrGalleryViewController.swift */; };
+		A926273A1E390FF700008BD6 /* MusicProviderForRTVE.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92627371E390FF700008BD6 /* MusicProviderForRTVE.swift */; };
+		A926273B1E390FF700008BD6 /* MusicProviderForVimojo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92627381E390FF700008BD6 /* MusicProviderForVimojo.swift */; };
 		A9320B861E2CD65F004DC8A1 /* ViMoJoConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9320B851E2CD65F004DC8A1 /* ViMoJoConfiguration.swift */; };
 		A9320CC01E2D26D3004DC8A1 /* ConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9320CBF1E2D26D3004DC8A1 /* ConfigurationProtocol.swift */; };
 		A9320CC61E2D3AB4004DC8A1 /* Editor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95737CC1E0BDCF8006F2AB7 /* Editor.storyboard */; };
@@ -268,10 +278,6 @@
 		A9B7F8E21DBE56EE00F24E78 /* SettingsCameraSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7F8E11DBE56EE00F24E78 /* SettingsCameraSettings.swift */; };
 		A9B7F8E41DBE570400F24E78 /* SettingsFTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7F8E31DBE570400F24E78 /* SettingsFTP.swift */; };
 		A9C5FB691DD5B5BC00057A1B /* GalleryFetchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C5FB681DD5B5BC00057A1B /* GalleryFetchOptions.swift */; };
-		A9C695921DA2411400597646 /* FREE_THE_COLD_WIND.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A9C6958E1DA2411400597646 /* FREE_THE_COLD_WIND.mp3 */; };
-		A9C695931DA2411400597646 /* GALLOPING.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A9C6958F1DA2411400597646 /* GALLOPING.mp3 */; };
-		A9C695941DA2411400597646 /* SORROW_AND_SADNESS.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A9C695901DA2411400597646 /* SORROW_AND_SADNESS.mp3 */; };
-		A9C695951DA2411400597646 /* WE_BEAT_AS_ONE.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A9C695911DA2411400597646 /* WE_BEAT_AS_ONE.mp3 */; };
 		A9CD46DF1E30F016004EE7EB /* ConfigureNavBarVimojoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CD46DE1E30F016004EE7EB /* ConfigureNavBarVimojoExtension.swift */; };
 		A9CD46E31E3102BC004EE7EB /* ConfigureNavBarVimojoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CD46DE1E30F016004EE7EB /* ConfigureNavBarVimojoExtension.swift */; };
 		A9CDB9BF1DDDCDEF000313DE /* TrimRangeBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CDB9BE1DDDCDEF000313DE /* TrimRangeBarViewModel.swift */; };
@@ -691,6 +697,10 @@
 		A907FE7B1E26366500E6D2F6 /* RecordedTrackAreaViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordedTrackAreaViewModel.swift; sourceTree = "<group>"; };
 		A9148DDA1E1D3ECE006DC511 /* DPTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPTheme.swift; sourceTree = "<group>"; };
 		A9148DDB1E1D3ECE006DC511 /* CustomDPTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDPTheme.swift; sourceTree = "<group>"; };
+		A91577A91E3954D000381647 /* acousticbreeze.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = acousticbreeze.mp3; sourceTree = "<group>"; };
+		A91577AA1E3954D000381647 /* goinghigher.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = goinghigher.mp3; sourceTree = "<group>"; };
+		A91577AB1E3954D000381647 /* jazzyfrenchy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jazzyfrenchy.mp3; sourceTree = "<group>"; };
+		A91577AC1E3954D000381647 /* ukulele.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ukulele.mp3; sourceTree = "<group>"; };
 		A915E8D41E1BC00E00A37F5F /* RealmMigrationsUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmMigrationsUseCase.swift; sourceTree = "<group>"; };
 		A91760A31D9146B5008915DA /* EditingRoomPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditingRoomPresenter.swift; path = EditingRoom/EditingRoomPresenter.swift; sourceTree = "<group>"; };
 		A91760A41D9146B5008915DA /* EditingRoomPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditingRoomPresenterInterface.swift; path = EditingRoom/EditingRoomPresenterInterface.swift; sourceTree = "<group>"; };
@@ -763,6 +773,11 @@
 		A91D63051DDF22F600D226B8 /* SetTrimParametersToVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTrimParametersToVideo.swift; sourceTree = "<group>"; };
 		A91D63071DDF234C00D226B8 /* TrimParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrimParameters.swift; sourceTree = "<group>"; };
 		A921D9661DC1DEA9003631E8 /* Rebekka.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rebekka.xcodeproj; path = "../FTP_Client_Rebekka/rebekka-source/Rebekka.xcodeproj"; sourceTree = "<group>"; };
+		A92627311E390E7500008BD6 /* GoToRecordOrGalleryWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoToRecordOrGalleryWireframe.swift; sourceTree = "<group>"; };
+		A92627321E390E7500008BD6 /* GoToRecordOrGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoToRecordOrGalleryViewController.swift; sourceTree = "<group>"; };
+		A92627371E390FF700008BD6 /* MusicProviderForRTVE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicProviderForRTVE.swift; sourceTree = "<group>"; };
+		A92627381E390FF700008BD6 /* MusicProviderForVimojo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicProviderForVimojo.swift; sourceTree = "<group>"; };
+		A92627461E394FA600008BD6 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = es; path = es.lproj/Editor.storyboard; sourceTree = "<group>"; };
 		A9320B851E2CD65F004DC8A1 /* ViMoJoConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViMoJoConfiguration.swift; path = vimojo/ViMoJoConfiguration.swift; sourceTree = "<group>"; };
 		A9320CAE1E2CE1E5004DC8A1 /* RTVEConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RTVEConfiguration.swift; path = vimojo/RTVEConfiguration.swift; sourceTree = "<group>"; };
 		A9320CB81E2CE7AC004DC8A1 /* RTVELaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RTVELaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -798,7 +813,6 @@
 		A95632021E31199400C5EFF4 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Gallery.strings; sourceTree = "<group>"; };
 		A95737C81E0BC892006F2AB7 /* ShareVideoPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareVideoPath.swift; sourceTree = "<group>"; };
 		A95737CB1E0BDCF8006F2AB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Editor.storyboard; sourceTree = "<group>"; };
-		A95737D01E0BDD23006F2AB7 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Editor.strings; sourceTree = "<group>"; };
 		A95BE9741D990A4A00602DCD /* SettingsContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsContent.swift; path = Settings/SettingsContent.swift; sourceTree = "<group>"; };
 		A95BE9751D990A4A00602DCD /* SettingsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsInteractor.swift; path = Settings/SettingsInteractor.swift; sourceTree = "<group>"; };
 		A95BE9761D990A4A00602DCD /* SettingsInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsInteractorInterface.swift; path = Settings/SettingsInteractorInterface.swift; sourceTree = "<group>"; };
@@ -1102,6 +1116,17 @@
 			name = Theme;
 			sourceTree = "<group>";
 		};
+		A91577A81E39546700381647 /* Music Songs */ = {
+			isa = PBXGroup;
+			children = (
+				A91577A91E3954D000381647 /* acousticbreeze.mp3 */,
+				A91577AA1E3954D000381647 /* goinghigher.mp3 */,
+				A91577AB1E3954D000381647 /* jazzyfrenchy.mp3 */,
+				A91577AC1E3954D000381647 /* ukulele.mp3 */,
+			);
+			name = "Music Songs";
+			sourceTree = "<group>";
+		};
 		A91760D01D9146F4008915DA /* FullScreenPlayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1218,9 +1243,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		A926272D1E390E5500008BD6 /* Go To Record Or Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				A92627311E390E7500008BD6 /* GoToRecordOrGalleryWireframe.swift */,
+				A92627321E390E7500008BD6 /* GoToRecordOrGalleryViewController.swift */,
+			);
+			name = "Go To Record Or Gallery";
+			sourceTree = "<group>";
+		};
 		A9320CAD1E2CE1A4004DC8A1 /* RTVE */ = {
 			isa = PBXGroup;
 			children = (
+				A9C695831DA23AEE00597646 /* Music Songs */,
+				A92627371E390FF700008BD6 /* MusicProviderForRTVE.swift */,
 				A9320CAE1E2CE1E5004DC8A1 /* RTVEConfiguration.swift */,
 				A9320CB81E2CE7AC004DC8A1 /* RTVELaunchScreen.storyboard */,
 				A9D076D41E2F7F97003AE96B /* RTVE.xcassets */,
@@ -1933,7 +1969,6 @@
 			isa = PBXGroup;
 			children = (
 				A9A4190C1DB510C300FB642E /* AddText */,
-				A9EDDD5A1DEC80CC001F7DD9 /* Project List */,
 				A97243D21E37A09B00BD5E9B /* Detail Project */,
 				A95BE98C1D990C3700602DCD /* DetailText */,
 				A97307631DF048EB00451244 /* DrawerMenu */,
@@ -1942,9 +1977,11 @@
 				A9058DCC1D9035C80048F484 /* Editor */,
 				A91760D01D9146F4008915DA /* FullScreenPlayer */,
 				A91C693D1DCB596900AF2576 /* Gallery */,
+				A926272D1E390E5500008BD6 /* Go To Record Or Gallery */,
 				A988DEEC1DACEF6E0030E285 /* Music List */,
 				A988DF001DAD1DE40030E285 /* Music Mic recorder */,
 				A91760FB1D916F3F008915DA /* Music Selector */,
+				A9EDDD5A1DEC80CC001F7DD9 /* Project List */,
 				A93BCE401D7D598600421BD0 /* Recorder */,
 				A95078C71DE5F1CD00FD250B /* Repository */,
 				A95BE96D1D9909F100602DCD /* Settings */,
@@ -2097,7 +2134,6 @@
 				A93BCE491D7D5C6B00421BD0 /* Constants */,
 				A9325FBE1E0950AB00400AD6 /* Extension */,
 				A93BCE591D7D7A0700421BD0 /* NSLocale */,
-				A9C695831DA23AEE00597646 /* Music Songs */,
 				A9148DE11E1D3ED6006DC511 /* Theme */,
 				A93BCE541D7D792300421BD0 /* Use case */,
 				A9B3865C1D7D554E0065D3EC /* ViMoJo as Module */,
@@ -2186,6 +2222,7 @@
 				A9C695911DA2411400597646 /* WE_BEAT_AS_ONE.mp3 */,
 			);
 			name = "Music Songs";
+			path = vimojo;
 			sourceTree = "<group>";
 		};
 		A9C695961DA2466D00597646 /* View */ = {
@@ -2293,6 +2330,8 @@
 		A9D076D11E2F7F7C003AE96B /* Vimojo */ = {
 			isa = PBXGroup;
 			children = (
+				A91577A81E39546700381647 /* Music Songs */,
+				A92627381E390FF700008BD6 /* MusicProviderForVimojo.swift */,
 				A9320B851E2CD65F004DC8A1 /* ViMoJoConfiguration.swift */,
 				A9B385F21D7D51380065D3EC /* VimojoLaunchScreen.storyboard */,
 				A9D076D21E2F7F84003AE96B /* Vimojo.xcassets */,
@@ -2526,31 +2565,31 @@
 			files = (
 				A93BCE741D7D88EE00421BD0 /* activity_record_rec_circle.png in Resources */,
 				A906CCDB1DB0D03700AC8FFB /* MicRecorder.strings in Resources */,
+				A91577B01E3954D000381647 /* ukulele.mp3 in Resources */,
 				A9B385F41D7D51380065D3EC /* VimojoLaunchScreen.storyboard in Resources */,
 				A95631FA1E31199100C5EFF4 /* Gallery.storyboard in Resources */,
 				A93BCE781D7D93B700421BD0 /* water_mark.png in Resources */,
 				A93BCE5E1D7D7A1300421BD0 /* iso639_2.bundle in Resources */,
-				A9C695941DA2411400597646 /* SORROW_AND_SADNESS.mp3 in Resources */,
 				A9334EEF1DAAB96A00762D8A /* MusicListView.xib in Resources */,
 				A91761131D916F48008915DA /* ShareCell.xib in Resources */,
 				A93B5C931E38A7F9009E0279 /* DetailProject.strings in Resources */,
 				A9334EF31DAABBFC00762D8A /* MusicListCell.xib in Resources */,
-				A9C695931DA2411400597646 /* GALLOPING.mp3 in Resources */,
 				A97B537F1E0AA0290001B288 /* ProjectList.strings in Resources */,
 				A964DE2A1DD1DBA700E6C7DA /* Record.storyboard in Resources */,
 				A9950CC41E1AA121009367E7 /* GoogleService-Info.plist in Resources */,
+				A91577AE1E3954D000381647 /* goinghigher.mp3 in Resources */,
 				A96441111DA3E59700CAD950 /* Settings.strings in Resources */,
 				A94D43031E2E3BEC00CE4F3B /* Drawer.storyboard in Resources */,
 				A9D076D31E2F7F84003AE96B /* Vimojo.xcassets in Resources */,
 				A97772C11DC2451200EA9291 /* EditorStrings.strings in Resources */,
 				A9D078011E2F8315003AE96B /* Assets.xcassets in Resources */,
+				A91577AF1E3954D000381647 /* jazzyfrenchy.mp3 in Resources */,
 				A9B385EF1D7D51380065D3EC /* Main.storyboard in Resources */,
 				A9320CC61E2D3AB4004DC8A1 /* Editor.storyboard in Resources */,
 				A9A2073C1DED94BB004AAEE2 /* ProjectList.storyboard in Resources */,
 				A9CFA5E61D991DBE0037B1F5 /* VideonaFooterView.xib in Resources */,
-				A9C695921DA2411400597646 /* FREE_THE_COLD_WIND.mp3 in Resources */,
+				A91577AD1E3954D000381647 /* acousticbreeze.mp3 in Resources */,
 				A91761321D916F53008915DA /* MusicDetailView.xib in Resources */,
-				A9C695951DA2411400597646 /* WE_BEAT_AS_ONE.mp3 in Resources */,
 				A97772B71DC244E700EA9291 /* Share.strings in Resources */,
 				A93BCE761D7D92C300421BD0 /* filter_free.png in Resources */,
 			);
@@ -2826,6 +2865,7 @@
 				A9A419171DB5110C00FB642E /* AddTextPresenterInterface.swift in Sources */,
 				A900C7591DC35FB500A65730 /* ShareFTPBreakingNewsInteractor.swift in Sources */,
 				A9148DDD1E1D3ECE006DC511 /* CustomDPTheme.swift in Sources */,
+				A926273B1E390FF700008BD6 /* MusicProviderForVimojo.swift in Sources */,
 				A980A5311E23D8C500D50034 /* AudioRealmRepository.swift in Sources */,
 				A91760AA1D9146B5008915DA /* EditingRoomPresenter.swift in Sources */,
 				A95737C91E0BC892006F2AB7 /* ShareVideoPath.swift in Sources */,
@@ -2874,6 +2914,7 @@
 				A988DEFA1DACF35D0030E285 /* MusicListViewController.swift in Sources */,
 				A917611E1D916F48008915DA /* ShareViewController.swift in Sources */,
 				A9645EA41DC0D298000944CB /* ShareViewModel.swift in Sources */,
+				A92627351E390E7500008BD6 /* GoToRecordOrGalleryViewController.swift in Sources */,
 				A93BCE531D7D785100421BD0 /* SettingsConstants.swift in Sources */,
 				A9B386321D7D53230065D3EC /* CameraInteractor.swift in Sources */,
 				A95BE9811D990A4A00602DCD /* SettingsContent.swift in Sources */,
@@ -2962,6 +3003,7 @@
 				A9CDB9C41DDDD63B000313DE /* GetMiddleRangeSliderValueWorker.swift in Sources */,
 				A988DEF21DACEF9B0030E285 /* MusicListPresenterInterface.swift in Sources */,
 				A91761171D916F48008915DA /* ShareInteractor.swift in Sources */,
+				A92627331E390E7500008BD6 /* GoToRecordOrGalleryWireframe.swift in Sources */,
 				A988DF041DAD1E090030E285 /* MicRecorderPresenter.swift in Sources */,
 				A91760AC1D9146B5008915DA /* EditingRoomViewController.swift in Sources */,
 				A91760ED1D914840008915DA /* SplitWireframe.swift in Sources */,
@@ -3133,6 +3175,7 @@
 				A9D077251E2F80B1003AE96B /* ShareViewController.swift in Sources */,
 				A9D077261E2F80B1003AE96B /* ShareViewModel.swift in Sources */,
 				A9D077271E2F80B1003AE96B /* SettingsConstants.swift in Sources */,
+				A92627361E390E7500008BD6 /* GoToRecordOrGalleryViewController.swift in Sources */,
 				A9D077281E2F80B1003AE96B /* CameraInteractor.swift in Sources */,
 				A9D077291E2F80B1003AE96B /* SettingsContent.swift in Sources */,
 				A9D0772A1E2F80B1003AE96B /* RecordPresenterInterfaceIO.swift in Sources */,
@@ -3191,6 +3234,7 @@
 				A9D0775D1E2F80B1003AE96B /* ApplyTextOverlayToVideoCompositionUseCase.swift in Sources */,
 				A9D0775E1E2F80B1003AE96B /* DrawerMenuTableViewController.swift in Sources */,
 				A9D0775F1E2F80B1003AE96B /* AnalitycsConstants.swift in Sources */,
+				A926273A1E390FF700008BD6 /* MusicProviderForRTVE.swift in Sources */,
 				A9D077601E2F80B1003AE96B /* DPTheme.swift in Sources */,
 				A9D077611E2F80B1003AE96B /* GetPHAssetFromUrl.swift in Sources */,
 				A9D077621E2F80B1003AE96B /* ThumbnailListInteractor.swift in Sources */,
@@ -3221,6 +3265,7 @@
 				A9D0777B1E2F80B1003AE96B /* MusicListPresenterInterface.swift in Sources */,
 				A9D0777C1E2F80B1003AE96B /* ShareInteractor.swift in Sources */,
 				A9D0777D1E2F80B1003AE96B /* MicRecorderPresenter.swift in Sources */,
+				A92627341E390E7500008BD6 /* GoToRecordOrGalleryWireframe.swift in Sources */,
 				A9D0777E1E2F80B1003AE96B /* EditingRoomViewController.swift in Sources */,
 				A9D0777F1E2F80B1003AE96B /* SplitWireframe.swift in Sources */,
 				A9D077801E2F80B1003AE96B /* GalleryWireframe.swift in Sources */,
@@ -3363,7 +3408,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A95737CB1E0BDCF8006F2AB7 /* Base */,
-				A95737D01E0BDD23006F2AB7 /* es */,
+				A92627461E394FA600008BD6 /* es */,
 			);
 			name = Editor.storyboard;
 			sourceTree = "<group>";

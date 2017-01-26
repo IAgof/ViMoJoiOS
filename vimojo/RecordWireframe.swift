@@ -19,6 +19,7 @@ class RecordWireframe : NSObject {
     var editorRoomWireframe: EditingRoomWireframe?
     var settingsWireframe : SettingsWireframe?
     var drawerWireframe : DrawerMenuWireframe?
+    var galleryWireframe: GalleryWireframe?
     
     func presentRecordInterfaceFromWindow(_ window: UIWindow) {
         let viewController = RecordViewControllerFromStoryboard()
@@ -26,11 +27,14 @@ class RecordWireframe : NSObject {
         viewController.eventHandler = recordPresenter
         recordViewController = viewController
         recordPresenter?.delegate = viewController
-        
-        if let viewControllerToPresent = drawerWireframe?.getDrawerController(viewController: viewController){
-            viewControllerToPresent.forceOrientation(orientation: .lanscapeOnly)
-            rootWireframe?.showRootViewController(viewControllerToPresent, inWindow: window)
-        }
+
+        rootWireframe?.showRootViewController(viewController, inWindow: window)
+
+        //TODO: remove drawer from record controller, to prevent no exit on settings and gallery
+//        if let viewControllerToPresent = drawerWireframe?.getDrawerController(viewController: viewController){
+//            viewControllerToPresent.forceOrientation(orientation: .lanscapeOnly)
+//            rootWireframe?.showRootViewController(viewControllerToPresent, inWindow: window)
+//        }
     }
     
     func presentRecordInterfaceFromViewController(_ prevController:UIViewController) {
@@ -61,8 +65,10 @@ class RecordWireframe : NSObject {
         editorRoomWireframe?.presentEditingRoomInterfaceFromViewController(recordViewController!)
     }
     
-    func presentGalleryInsideEditorRoomInterface(){
-        editorRoomWireframe?.presentEditingRoomFromViewControllerShowGallery(recordViewController!)
+    func presentGallery(){
+        if let controllerExist = recordViewController{
+            galleryWireframe?.presentGalleryFromViewController(controllerExist)
+        }
     }
     
     func presentShareInterfaceInsideEditorRoom(){

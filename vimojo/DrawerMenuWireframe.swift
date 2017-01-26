@@ -14,7 +14,8 @@ class DrawerMenuWireframe {
 
     var projectSelectorWireframe: ProjectListWireframe?
     var settingsWireframe: SettingsWireframe?
-
+    var goToRecordOrGalleryWireframe:GoToRecordOrGalleryWireframe?
+    
     func getDrawerController(viewController:UIViewController)->KYDrawerController{
        
         let drawerController = KYDrawerController(drawerDirection: .left, drawerWidth: 300)
@@ -51,6 +52,12 @@ class DrawerMenuWireframe {
     func presentSettings(){
         if let controller = UIApplication.topViewController(){
             settingsWireframe?.presentSettingsInterfaceFromViewController(controller)
+        }
+    }
+    
+    func presentGoToRecordOrGalleryWireframe(){
+        if let controller = UIApplication.topViewController(){
+            goToRecordOrGalleryWireframe?.presentInterfaceFromViewController(controller)
         }
     }
 }

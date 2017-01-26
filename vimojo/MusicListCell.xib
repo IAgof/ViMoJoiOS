@@ -27,14 +27,14 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOy-Pc-kB9">
-                        <rect key="frame" x="79" y="16" width="79" height="21"/>
+                        <rect key="frame" x="79" y="8" width="79" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqY-vB-h6W">
-                        <rect key="frame" x="79" y="41" width="43" height="17"/>
-                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqY-vB-h6W">
+                        <rect key="frame" x="79" y="31" width="38" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
                         <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -46,8 +46,8 @@
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="rOy-Pc-kB9" secondAttribute="trailing" constant="10" id="I1I-CS-3n5"/>
                     <constraint firstItem="e1e-fy-RKY" firstAttribute="top" secondItem="JuG-TI-MLG" secondAttribute="topMargin" id="JXK-WZ-XVW"/>
                     <constraint firstItem="hqY-vB-h6W" firstAttribute="leading" secondItem="rOy-Pc-kB9" secondAttribute="leading" id="Rp7-3T-6nY"/>
-                    <constraint firstItem="hqY-vB-h6W" firstAttribute="top" secondItem="rOy-Pc-kB9" secondAttribute="bottom" constant="4" id="Vg1-TZ-Uc0"/>
-                    <constraint firstItem="rOy-Pc-kB9" firstAttribute="top" secondItem="e1e-fy-RKY" secondAttribute="top" constant="8" id="fbx-Qd-a3p"/>
+                    <constraint firstItem="hqY-vB-h6W" firstAttribute="top" secondItem="rOy-Pc-kB9" secondAttribute="bottom" constant="2" id="Vg1-TZ-Uc0"/>
+                    <constraint firstItem="rOy-Pc-kB9" firstAttribute="top" secondItem="e1e-fy-RKY" secondAttribute="top" id="fbx-Qd-a3p"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="hqY-vB-h6W" secondAttribute="trailing" constant="8" id="twM-3D-1xA"/>
                     <constraint firstItem="e1e-fy-RKY" firstAttribute="leading" secondItem="JuG-TI-MLG" secondAttribute="leadingMargin" id="xeK-FE-xBv"/>
                 </constraints>
