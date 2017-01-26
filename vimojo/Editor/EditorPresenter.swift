@@ -109,11 +109,7 @@ extension EditorPresenter:EditorPresenterInterface{
     
     func viewWillAppear() {
         updatePlayerView()
-        
-        if interactor?.getNumberOfClips() == 0{
-            self.pushAddFloating()
-        }
-        
+                
         if !isGoingToExpandPlayer{
             self.loadView()
             
@@ -284,7 +280,11 @@ extension EditorPresenter:EditorPresenterInterface{
     func removeVideoClipAfterConfirmation() {
         interactor?.removeVideo(videoToRemove)
         
-        self.reloadPositionNumberAfterMovement()
+        if interactor?.getNumberOfClips() == 0{
+            wireframe?.presentGoToRecordOrGallery()
+        }else{
+            self.reloadPositionNumberAfterMovement()
+        }
     }
     
     func rangeMiddleValueChanged(_ value: Double) {

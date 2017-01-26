@@ -27,8 +27,11 @@ extension ViMoJoController{
         let showSideSliderItem = UIBarButtonItem(image: sideSliderIcon, style: .plain, target: self, action: #selector(pushShowDrawer))
         let optionsItem = UIBarButtonItem(image: optionsIcon, style: .plain, target: self, action: #selector(pushOptions))
         
-        UIApplication.topViewController()?.navigationItem.leftBarButtonItem = showSideSliderItem
-        UIApplication.topViewController()?.navigationItem.rightBarButtonItems = [optionsItem]
+        if let topController = UIApplication.topViewController(){
+            topController.navigationItem.leftBarButtonItems = [showSideSliderItem]
+            topController.navigationItem.rightBarButtonItems = [optionsItem]
+
+        }
     }
     
     func pushBack(){
@@ -44,7 +47,11 @@ extension ViMoJoController{
         var parent = self.parent
         while parent != nil {
             if let drawer = parent as? KYDrawerController{
-                drawer.setDrawerState(.opened, animated: true)
+                if drawer.drawerState == .opened{
+                    drawer.setDrawerState(.closed, animated: true)
+                }else{
+                    drawer.setDrawerState(.opened, animated: true)
+                }
             }
             parent = parent?.parent
         }

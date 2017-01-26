@@ -460,7 +460,7 @@ class RecordPresenter: NSObject
             if nClips > 0{
                 recordWireframe?.presentEditorRoomInterface()
             }else{
-                recordWireframe?.presentGalleryInsideEditorRoomInterface()
+                recordWireframe?.presentGallery()
             }
         }
     }

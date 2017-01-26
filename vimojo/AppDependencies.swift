@@ -45,6 +45,7 @@ class AppDependencies {
     
     var projectListWireframe = ProjectListWireframe()
     var detailProjectWireframe = DetailProjectWireframe()
+    var goToRecordOrGalleryWireframe = GoToRecordOrGalleryWireframe()
     
     init(){
         configureDependencies()
@@ -124,6 +125,7 @@ class AppDependencies {
         drawerWireframe.presenter = drawerPresenter
         drawerWireframe.projectSelectorWireframe = projectListWireframe
         drawerWireframe.settingsWireframe = settingsWireframe
+        drawerWireframe.goToRecordOrGalleryWireframe = goToRecordOrGalleryWireframe
         
         //RECORD MODULE
         recordPresenter.recordWireframe = recordWireframe
@@ -134,7 +136,8 @@ class AppDependencies {
         recordWireframe.editorRoomWireframe = editorRoomWireframe
         recordWireframe.settingsWireframe = settingsWireframe
         recordWireframe.drawerWireframe = drawerWireframe
-
+        recordWireframe.galleryWireframe = galleryWireframe
+        
         recordInteractor.project = project
         recordInteractor.delegate = recordPresenter
         
@@ -164,6 +167,7 @@ class AppDependencies {
         editorRoomWireframe.recordWireframe = recordWireframe
         editorRoomWireframe.galleryWireframe = galleryWireframe
         editorRoomWireframe.musicListWireframe = musicListWireframe
+        editorRoomWireframe.goToRecordOrGalleryWireframe = goToRecordOrGalleryWireframe
         
         //EDITOR MODULE
         editorPresenter.wireframe = editorWireframe
@@ -310,6 +314,7 @@ class AppDependencies {
         //GALLERY MODULE
         galleryWireframe.rootWireframe = rootWireframe
         galleryWireframe.interactor = gallerySaveVideosInteractor
+        galleryWireframe.editingRoomWireframe = editorRoomWireframe
         
         //PROJECT LIST MODULE
         projectListPresenter.wireframe = projectListWireframe
@@ -330,6 +335,12 @@ class AppDependencies {
         
         detailProjectWireframe.rootWireframe = rootWireframe
         detailProjectWireframe.presenter = detailProjectPresenter
+        
+        //GO TO RECORD OR GALLERY MODULE
+        goToRecordOrGalleryWireframe.rootWireframe = rootWireframe
+        goToRecordOrGalleryWireframe.galleryWireframe = galleryWireframe
+        goToRecordOrGalleryWireframe.recordWireframe = recordWireframe
+        goToRecordOrGalleryWireframe.drawerWireframe = drawerWireframe
     }
         
     func installRecordToRootViewControllerIntoWindow(_ window: UIWindow){

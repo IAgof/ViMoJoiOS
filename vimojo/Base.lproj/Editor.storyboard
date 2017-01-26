@@ -324,6 +324,87 @@
             </objects>
             <point key="canvasLocation" x="3948" y="142"/>
         </scene>
+        <!--Go To Record Or Gallery View Controller-->
+        <scene sceneID="8ZD-EK-CVh">
+            <objects>
+                <viewController storyboardIdentifier="GoToRecordOrGalleryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cDW-IT-zxd" customClass="GoToRecordOrGalleryViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wOr-ns-XVY"/>
+                        <viewControllerLayoutGuide type="bottom" id="mOw-r1-ozY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eo1-2A-F2k">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="KXr-zf-Jkq">
+                                <rect key="frame" x="20" y="20" width="374" height="716"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EWa-dx-OAH">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="358"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pb-qN-bby">
+                                                <rect key="frame" x="122" y="114" width="130" height="130"/>
+                                                <state key="normal" image="activity_edit_no_clips_gallery"/>
+                                                <connections>
+                                                    <action selector="pushGoToGallery:" destination="cDW-IT-zxd" eventType="touchUpInside" id="Z8Y-Px-BCm"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gallery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5p-rY-vk9">
+                                                <rect key="frame" x="160.33333333333334" y="251.99999999999997" width="53.333333333333314" height="20.333333333333286"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="x5p-rY-vk9" firstAttribute="centerX" secondItem="8pb-qN-bby" secondAttribute="centerX" id="FV9-9T-ZwF"/>
+                                            <constraint firstItem="8pb-qN-bby" firstAttribute="centerX" secondItem="EWa-dx-OAH" secondAttribute="centerX" id="ONp-bl-nHC"/>
+                                            <constraint firstItem="8pb-qN-bby" firstAttribute="centerY" secondItem="EWa-dx-OAH" secondAttribute="centerY" id="dB8-BU-Faf"/>
+                                            <constraint firstItem="x5p-rY-vk9" firstAttribute="top" secondItem="8pb-qN-bby" secondAttribute="bottom" constant="8" id="p5k-vm-1C5"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SAT-VA-TbH">
+                                        <rect key="frame" x="0.0" y="358" width="374" height="358"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NX5-47-AzF">
+                                                <rect key="frame" x="122" y="114" width="130" height="130"/>
+                                                <state key="normal" image="activity_edit_no_clips_camera"/>
+                                                <connections>
+                                                    <action selector="pushGoToRecordVideo:" destination="cDW-IT-zxd" eventType="touchUpInside" id="5yR-lc-5OD"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPc-N0-rJJ">
+                                                <rect key="frame" x="165" y="252" width="44" height="20.333333333333371"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="NX5-47-AzF" firstAttribute="centerY" secondItem="SAT-VA-TbH" secondAttribute="centerY" id="9Xd-EQ-MLg"/>
+                                            <constraint firstItem="NX5-47-AzF" firstAttribute="centerX" secondItem="SAT-VA-TbH" secondAttribute="centerX" id="9ap-jk-2xg"/>
+                                            <constraint firstItem="YPc-N0-rJJ" firstAttribute="top" secondItem="NX5-47-AzF" secondAttribute="bottom" constant="8" id="HUI-WE-Nm6"/>
+                                            <constraint firstItem="YPc-N0-rJJ" firstAttribute="centerX" secondItem="NX5-47-AzF" secondAttribute="centerX" id="uwL-Ja-cI6"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.29411764709999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="mOw-r1-ozY" firstAttribute="top" secondItem="KXr-zf-Jkq" secondAttribute="bottom" id="GVu-me-gXt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KXr-zf-Jkq" secondAttribute="trailing" id="M2e-16-fZK"/>
+                            <constraint firstItem="KXr-zf-Jkq" firstAttribute="top" secondItem="wOr-ns-XVY" secondAttribute="bottom" id="qou-O4-Csf"/>
+                            <constraint firstItem="KXr-zf-Jkq" firstAttribute="leading" secondItem="eo1-2A-F2k" secondAttribute="leadingMargin" id="sEP-Xd-TzU"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kRR-Qp-Hhq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4690" y="142"/>
+        </scene>
         <!--Edit-->
         <scene sceneID="JAf-7c-PQM">
             <objects>
@@ -963,6 +1044,8 @@
         <image name="activity_edit_duplicate_clip_plus_normal" width="74" height="75"/>
         <image name="activity_edit_duplicate_clip_plus_pressed" width="74" height="75"/>
         <image name="activity_edit_floating_button" width="72" height="72"/>
+        <image name="activity_edit_no_clips_camera" width="130" height="130"/>
+        <image name="activity_edit_no_clips_gallery" width="130" height="130"/>
         <image name="activity_edit_share_normal" width="24" height="26"/>
         <image name="activity_edit_sound_micro_normal" width="109" height="109"/>
         <image name="activity_edit_sound_micro_pressed" width="109" height="109"/>

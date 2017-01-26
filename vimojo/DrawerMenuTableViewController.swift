@@ -54,6 +54,7 @@ extension DrawerMenuTableViewController: DrawerMenuPresenterDelegate{
 
 extension DrawerMenuTableViewController:KYDrawerControllerDelegate{
     func viewWillAppear() {
+        closeDrawer()
         if let cell = self.tableView.cellForRow(at: IndexPath(item: 0, section: 0)) as? DrawerProfileTableViewCell{
             cell.configureView()
         }
