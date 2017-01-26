@@ -80,12 +80,14 @@ class MusicListInteractor: MusicListInteractorInterface {
         if index == -1 {
             project.setMusic(music)
             project.isMusicSet = false
+            project.projectOutputAudioLevel = 1
             
         }else{
             music = musicList[index]
             
             project.setMusic(music)
             project.isMusicSet = true
+            project.projectOutputAudioLevel = 0
         }
         
         project.updateModificationDate()
@@ -108,6 +110,21 @@ class MusicListInteractor: MusicListInteractorInterface {
                 delegate?.setVideoComposition(actualComposition!)
             }
         }
+    }
+    
+    func updateAudioMix(withParameter param: MixAudioModel) {
+        guard let project = project else{return}
+        
+        project.projectOutputAudioLevel = param.videoVolume
+        let music = project.getMusic()
+        music.audioLevel = param.audioVolume
+        
+        let composition = GetActualProjectAVCompositionUseCase().getComposition(project: project)
+        if let audioMix = composition.audioMix{
+            delegate?.setAudioMix(audioMix: audioMix)
+        }
+        project.updateModificationDate()
+        ProjectRealmRepository().update(item: project)
     }
     
     //MARK: - Inner functions

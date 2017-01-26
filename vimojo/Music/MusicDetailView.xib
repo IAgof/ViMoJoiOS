@@ -74,9 +74,27 @@
                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                     </variation>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ImI-Xi-DLM">
+                    <rect key="frame" x="2" y="157" width="298" height="129"/>
+                    <subviews>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="activity_edit_sound_normal" maximumValueImage="activity_edit_sound_voiceover_mix_micro" translatesAutoresizingMaskIntoConstraints="NO" id="s81-bV-bEi">
+                            <rect key="frame" x="-2" y="50" width="302" height="31"/>
+                            <color key="minimumTrackTintColor" red="0.94901960780000005" green="0.29411764709999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="mixMusixAudioSliderChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="NTu-2G-1eo"/>
+                            </connections>
+                        </slider>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="s81-bV-bEi" firstAttribute="leading" secondItem="ImI-Xi-DLM" secondAttribute="leading" id="Lg7-8M-4KM"/>
+                        <constraint firstAttribute="trailing" secondItem="s81-bV-bEi" secondAttribute="trailing" id="dVI-Xm-4ev"/>
+                        <constraint firstItem="s81-bV-bEi" firstAttribute="centerY" secondItem="ImI-Xi-DLM" secondAttribute="centerY" id="zpb-2j-7Fj"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="PiH-7b-pqe" firstAttribute="top" secondItem="ImI-Xi-DLM" secondAttribute="bottom" id="0sW-JM-ZVv"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eED-nV-dui" secondAttribute="trailing" constant="8" id="39q-ga-sNC"/>
                 <constraint firstItem="Fkh-td-DDL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Akw-qV-hu7">
                     <variation key="heightClass=regular-widthClass=regular" constant="40"/>
@@ -85,8 +103,11 @@
                     <variation key="heightClass=regular-widthClass=regular" constant="40"/>
                 </constraint>
                 <constraint firstItem="PiH-7b-pqe" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="MCG-4l-g5n"/>
+                <constraint firstAttribute="trailing" secondItem="ImI-Xi-DLM" secondAttribute="trailing" id="MZ1-T4-oWo"/>
+                <constraint firstItem="ImI-Xi-DLM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="2" id="NGn-mA-iqX"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6La-Tv-Yr1" secondAttribute="trailing" constant="8" id="Vc0-iE-vIb"/>
                 <constraint firstAttribute="bottom" secondItem="JuB-TN-Waf" secondAttribute="bottom" constant="16" id="WVl-Lu-Ca1"/>
+                <constraint firstItem="ImI-Xi-DLM" firstAttribute="top" secondItem="84S-zW-oLf" secondAttribute="bottom" constant="-1" id="Xwr-3J-IXo"/>
                 <constraint firstAttribute="bottom" secondItem="Fkh-td-DDL" secondAttribute="bottom" constant="16" id="b4M-Wx-l5j"/>
                 <constraint firstItem="eED-nV-dui" firstAttribute="leading" secondItem="6La-Tv-Yr1" secondAttribute="leading" id="cS3-tw-xMD"/>
                 <constraint firstItem="84S-zW-oLf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="hXD-mk-ScU"/>
@@ -116,8 +137,10 @@
                 <outlet property="acceptButton" destination="JuB-TN-Waf" id="QyU-cr-5UA"/>
                 <outlet property="authorLabel" destination="eED-nV-dui" id="L5G-8P-9xz"/>
                 <outlet property="cancelButton" destination="Fkh-td-DDL" id="rKA-0k-KkE"/>
+                <outlet property="mixMusixAudioSlider" destination="s81-bV-bEi" id="Gm5-Gz-a1u"/>
                 <outlet property="musicImage" destination="84S-zW-oLf" id="JX1-eC-uOT"/>
                 <outlet property="removeButton" destination="PiH-7b-pqe" id="cbA-WW-4ll"/>
+                <outlet property="sliderContainerView" destination="ImI-Xi-DLM" id="j7z-b6-Rrx"/>
                 <outlet property="titleLabel" destination="6La-Tv-Yr1" id="xgs-He-GbK"/>
             </connections>
             <point key="canvasLocation" x="503" y="30"/>
@@ -130,6 +153,8 @@
         <image name="activity_edit_cancel_pressed" width="15" height="15"/>
         <image name="activity_edit_clip_delete_music_pressed" width="32" height="32"/>
         <image name="activity_edit_music_selected_freethecoldwind" width="117" height="118"/>
+        <image name="activity_edit_sound_normal" width="21" height="19"/>
+        <image name="activity_edit_sound_voiceover_mix_micro" width="12" height="21"/>
         <image name="activy_sound_music_delete_normal" width="31" height="38"/>
         <image name="activy_sound_music_delete_pressed" width="31" height="38"/>
     </resources>

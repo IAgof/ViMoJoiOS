@@ -54,7 +54,7 @@ public class RealmProjectToProjectMapper:Mapper{
             print("Cant get music")
             return
         }
-        music.volume = realmProject.musicVolume
+        music.audioLevel = Float(realmProject.musicVolume)
         
         project.setMusic(music)
     }

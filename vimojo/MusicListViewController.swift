@@ -135,6 +135,10 @@ extension MusicListViewController:MusicDetailViewDelegate{
     func removeDetailButtonPushed() {
         eventHandler?.removeDetailButtonPushed()
     }
+    
+    func mixAudioChanged(withValue value: Float) {
+        eventHandler?.setMixAudioValue(mixAudioValue: value)
+    }
 }
 
 extension MusicListViewController:PlayerViewSetter{

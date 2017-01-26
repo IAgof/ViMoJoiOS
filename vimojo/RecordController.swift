@@ -184,15 +184,8 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     }
     
     //MARK: - View Config
-    func forceLandsCapeOnInit(){
-        //Force landscape mode
-        let value = UIInterfaceOrientation.landscapeLeft.rawValue
-        UIDevice.current.setValue(value, forKey: "orientation")
-    }
-    
     func configureView() {
         self.navigationController?.isNavigationBarHidden = true
-        self.forceLandsCapeOnInit()
         
         configureTapDisplay()
         configurePinchDisplay()
@@ -216,7 +209,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     }
     
     override var preferredInterfaceOrientationForPresentation : UIInterfaceOrientation {
-        return UIInterfaceOrientation.landscapeLeft
+        return UIInterfaceOrientation.landscapeRight
     }
     
     //MARK: - Button Actions
@@ -368,7 +361,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     }
     
     override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.landscapeLeft
+        return UIInterfaceOrientationMask.landscapeRight
     }
     
     override var shouldAutorotate : Bool {

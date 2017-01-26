@@ -21,11 +21,11 @@ protocol MusicListPresenterInterface {
     func acceptDetailButtonPushed()
     func removeDetailButtonPushed()
     func setMusicDetailInterface(_ eventHandler:MusicDetailInterface)
-
+    func setMixAudioValue(mixAudioValue value:Float)
     func getMusicList()
     func updatePlayerLayer()
     func playerHasLoaded()
-
+    
 }
 
 protocol MusicListPresenterDelegate {

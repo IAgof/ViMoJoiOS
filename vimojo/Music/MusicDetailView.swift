@@ -13,10 +13,12 @@ protocol MusicDetailViewDelegate {
     func cancelButtonPushed()
     func acceptButtonPushed()
     func removeDetailButtonPushed()
+    func mixAudioChanged(withValue value:Float)
 }
 protocol MusicDetailInterface {
     func showAcceptOrCancelButton()
     func showRemoveButton()
+    func mixAudioSlider(isHidden state:Bool)
 }
 
 class MusicDetailView: UIView,MusicDetailInterface {
@@ -28,6 +30,8 @@ class MusicDetailView: UIView,MusicDetailInterface {
     @IBOutlet weak var removeButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var mixMusixAudioSlider: UISlider!
+    @IBOutlet weak var sliderContainerView: UIView!
     
     //MARK: - Variables
     var delegate:MusicDetailViewDelegate?
@@ -80,6 +84,10 @@ class MusicDetailView: UIView,MusicDetailInterface {
         delegate?.removeDetailButtonPushed()
     }
     
+    @IBAction func mixMusixAudioSliderChanged(_ sender: Any) {
+        delegate?.mixAudioChanged(withValue: mixMusixAudioSlider.value)
+    }
+    
     //MARK: - Show Actions
     func showAcceptOrCancelButton(){
         acceptButton.isHidden = false
@@ -93,5 +101,9 @@ class MusicDetailView: UIView,MusicDetailInterface {
         cancelButton.isHidden = true
         
         removeButton.isHidden = false
+    }
+    
+    func mixAudioSlider(isHidden state: Bool) {
+        sliderContainerView.isHidden = state
     }
 }

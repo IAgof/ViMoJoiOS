@@ -24,7 +24,9 @@ class MusicListPresenter:MusicListPresenterInterface{
     //MARK: - Variables
     var lastMusicSelected:Int = -1
     var isMusicSet:Bool = false
-
+    var videoVolume:Float = 1.0
+    var audioVolume:Float = 1.0
+    
     //MARK: - Constants
     let NO_MUSIC_SELECTED = -1
     
@@ -75,6 +77,15 @@ class MusicListPresenter:MusicListPresenterInterface{
     
     func setMusicDetailInterface(_ eventHandler: MusicDetailInterface) {
         self.detailEventHandler = eventHandler
+    }
+    
+    func setMixAudioValue(mixAudioValue value: Float) {
+        let mixAudio = MixAudioModel(sliderValue: value)
+        
+        audioVolume = mixAudio.audioVolume
+        videoVolume = mixAudio.videoVolume
+        
+        interactor?.updateAudioMix(withParameter: mixAudio)
     }
     
     func didSelectMusicAtIndexPath(_ indexPath: IndexPath) {
@@ -156,5 +167,9 @@ extension MusicListPresenter:MusicListInteractorDelegate{
     
     func setVideoComposition(_ composition: VideoComposition) {
         playerPresenter?.createVideoPlayer(composition)
+    }
+    
+    func setAudioMix(audioMix value: AVAudioMix) {
+        playerPresenter?.setAudioMix(audioMix: value)
     }
 }
