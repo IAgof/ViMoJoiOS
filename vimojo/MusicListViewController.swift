@@ -72,10 +72,8 @@ extension MusicListViewController:MusicListPresenterDelegate{
         self.musicListView?.musicViewModelList = list
     }
     
-    func showDetailView(_ title:String,
-                        author:String,
-                        image:UIImage){
-        self.setUpDetailView(title, author: author, image: image)
+    func showDetailView(musicDetailViewModel detail: MusicDetailViewModel){
+        self.setUpDetailView(musicDetailViewModel: detail)
     }
     
     func hideDetailView(){
@@ -97,9 +95,7 @@ extension MusicListViewController:MusicListPresenterDelegate{
         musicListView?.removeFromSuperview()
     }
     
-    func setUpDetailView(_ title:String,
-                         author:String,
-                         image:UIImage){
+    func setUpDetailView(musicDetailViewModel detail: MusicDetailViewModel){
         
         let view = MusicDetailView.instanceFromNib()
         
@@ -109,10 +105,7 @@ extension MusicListViewController:MusicListPresenterDelegate{
         
         detailMusicView?.delegate = self
         
-        detailMusicView?.initParams(title,
-                                    author: author,
-                                    image: image,
-                                    frame: musicContainer.frame)
+        detailMusicView?.initParams(musicDetailViewModel: detail, frame: musicContainer.frame)
         
         musicContainer.addSubview(detailMusicView!)
     }

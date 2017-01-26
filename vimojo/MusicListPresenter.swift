@@ -160,9 +160,8 @@ extension MusicListPresenter:MusicListInteractorDelegate{
     func setMusicModelList(_ list: [MusicViewModel]) {
         delegate?.setMusicList(list)
     }
-    
-    func setMusicDetailParams(_ title: String, author: String, image: UIImage) {
-        delegate?.showDetailView(title, author: author, image: image)
+    func setMusicDetailParams(musicDetailViewModel detail: MusicDetailViewModel) {
+        delegate?.showDetailView(musicDetailViewModel: detail)
     }
     
     func setVideoComposition(_ composition: VideoComposition) {

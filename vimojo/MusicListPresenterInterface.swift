@@ -34,8 +34,6 @@ protocol MusicListPresenterDelegate {
     func showTableView()
     func hideTableView()
     
-    func showDetailView(_ title:String,
-                        author:String,
-                        image:UIImage)
+    func showDetailView(musicDetailViewModel detail: MusicDetailViewModel)
     func hideDetailView()
 }
