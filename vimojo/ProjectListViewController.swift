@@ -18,11 +18,9 @@ class ProjectListViewController:ViMoJoController{
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: - LifeCycle
-    override func viewDidLoad() {
-        eventHandler?.viewDidLoad()
-    }
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationBarWithBackButton()
+        eventHandler?.viewWillAppear()
     }
     override func pushBack() {
         eventHandler?.pushBack()
@@ -77,7 +75,7 @@ extension ProjectListViewController:UITableViewDataSource{
 
 extension ProjectListViewController{
     @IBAction func pushEditProjectButton(sender:UIButton){
-        eventHandler?.editProject(projectNumber: sender.tag)
+        eventHandler?.detailProject(projectNumber: sender.tag)
     }
     
     @IBAction func pushRemoveProjectButton(sender:UIButton){

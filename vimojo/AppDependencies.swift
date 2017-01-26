@@ -44,6 +44,7 @@ class AppDependencies {
     var galleryWireframe = GalleryWireframe()
     
     var projectListWireframe = ProjectListWireframe()
+    var detailProjectWireframe = DetailProjectWireframe()
     var goToRecordOrGalleryWireframe = GoToRecordOrGalleryWireframe()
     
     init(){
@@ -111,6 +112,9 @@ class AppDependencies {
         
         let projectListPresenter = ProjectListPresenter()
         let projectListInteractor = ProjectListInteractor(project: project)
+        
+        let detailProjectPresenter = DetailProjectPresenter()
+        let detailProjectInteractor = DetailProjectInteractor()
         
         //DRAWER MODULE
         drawerPresenter.interactor = drawerInteractor
@@ -321,6 +325,16 @@ class AppDependencies {
         projectListWireframe.presenter = projectListPresenter
         projectListWireframe.editorRoomWireframe = editorRoomWireframe
         projectListWireframe.rootWireframe = rootWireframe
+        projectListWireframe.detailProjectWireframe = detailProjectWireframe
+        
+        //DETAIL PROJECT  VIEW MODULE
+        detailProjectPresenter.wireframe = detailProjectWireframe
+        detailProjectPresenter.interactor = detailProjectInteractor
+        
+        detailProjectInteractor.delegate = detailProjectPresenter
+        
+        detailProjectWireframe.rootWireframe = rootWireframe
+        detailProjectWireframe.presenter = detailProjectPresenter
         
         //GO TO RECORD OR GALLERY MODULE
         goToRecordOrGalleryWireframe.rootWireframe = rootWireframe

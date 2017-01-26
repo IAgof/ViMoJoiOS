@@ -14,6 +14,7 @@ class ProjectListInteractor: ProjectListInteractorInterface {
     var delegate:ProjectListInteractorDelegate?
     var projectList:[Project] = []
     var project:Project
+    var selectedProjectUUID: String = ""
     
     init(project:Project) {
         self.project = project
@@ -29,7 +30,6 @@ class ProjectListInteractor: ProjectListInteractorInterface {
         
         delegate?.setItemsView(projectViewModelList)
     }
-    
     
     func setProjectViewModel(project:Project)->ProjectListViewModel{
         let duration = Utils().hourToString(project.getDuration())
@@ -101,6 +101,12 @@ class ProjectListInteractor: ProjectListInteractorInterface {
                                                     newProject: projectToLoad)
             
             delegate?.shareProjectFinished()
+        }
+    }
+    
+    func setProjectSelected(projectNumber: Int) {
+        if self.projectList.indices.contains(projectNumber){
+            self.selectedProjectUUID = self.projectList[projectNumber].uuid
         }
     }
 }

@@ -43,7 +43,7 @@ class ShareYoutubeInteractor: ShareActionInterface{
         
         let headers = ["Authorization": "Bearer \(token)"]
         
-        let title = "Videona-\(Utils().giveMeTimeNow())"
+        let title = "Vimojo-\(Utils().giveMeTimeNow())"
         let description = Utils().getStringByKeyFromShare(ShareConstants().YOUTUBE_DESCRIPTION)
         
         guard let path = mediaPath else {return}

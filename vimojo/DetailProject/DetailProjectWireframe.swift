@@ -1,5 +1,5 @@
 //
-//  GoToRecordOrGalleryWireframe.swift
+//  DetailProjectWireframe.swift
 //  vimojo
 //
 //  Created by Alejandro Arjonilla Garcia on 24/1/17.
@@ -8,25 +8,23 @@
 
 import Foundation
 
-
-class GoToRecordOrGalleryWireframe : VimojoWireframeInterface {
-    typealias presenterType = GoToRecordOrGalleryViewController
-
-    typealias viewControllerType = GoToRecordOrGalleryViewController
+class DetailProjectWireframe : VimojoWireframeInterface {
+    typealias viewControllerType = DetailProjectViewController
+    typealias presenterType = DetailProjectPresenter
     
     var rootWireframe : RootWireframe?
-    var viewController : GoToRecordOrGalleryViewController?
+    var viewController : viewControllerType?
+    var presenter: presenterType?
+    
     var prevController:UIViewController?
     var viewControllerIdentifier: String
     var storyboardName: String
     
-    var galleryWireframe:GalleryWireframe?
-    var recordWireframe:RecordWireframe?
-    var drawerWireframe:DrawerMenuWireframe?
+    private var videoSelectedUUID:String?
     
     init() {
-        viewControllerIdentifier = "GoToRecordOrGalleryViewController"
-        storyboardName = "Editor"
+        viewControllerIdentifier = "DetailProjectViewController"
+        storyboardName = "ProjectList"
     }
     
     func presentInterfaceFromWindow(_ window: UIWindow) {
@@ -35,20 +33,33 @@ class GoToRecordOrGalleryWireframe : VimojoWireframeInterface {
         rootWireframe?.showRootViewController(viewController, inWindow: window)
     }
     
+    func presentInterfaceFromViewController(_ prevController: UIViewController,
+                                            videoUUID:String) {
+        self.videoSelectedUUID = videoUUID
+        
+        presentInterfaceFromViewController(prevController)
+    }
+    
     func presentInterfaceFromViewController(_ prevController: UIViewController) {
         let viewController = viewControllerFromStoryboard()
         
         self.prevController = prevController
         
+        viewController.eventHandler = presenter
+        
+        presenter?.delegate = viewController
+        if let uuid = videoSelectedUUID{
+            presenter?.interactor?.videoUUID = uuid
+        }
+        
         prevController.show(viewController, sender: nil)
     }
     
-    func viewControllerFromStoryboard() -> GoToRecordOrGalleryWireframe.viewControllerType {
+    func viewControllerFromStoryboard() -> DetailProjectWireframe.viewControllerType {
         let storyboard = getStoryboard()
-        let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerIdentifier) as! GoToRecordOrGalleryWireframe.viewControllerType
+        let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerIdentifier) as! DetailProjectWireframe.viewControllerType
         
         self.viewController = viewController
-        self.viewController?.wireframe = self
         
         return viewController
     }
@@ -61,17 +72,4 @@ class GoToRecordOrGalleryWireframe : VimojoWireframeInterface {
     func goPrevController(){
         self.viewController?.navigationController?.popViewController()
     }
-    
-    func presentGallery(){
-        if let controllerExist = viewController{
-            galleryWireframe?.presentGalleryFromViewController(controllerExist)
-        }
-    }
-    
-    func presentRecorder() {
-        if let controllerExist = viewController{
-          recordWireframe?.presentRecordInterfaceFromViewController(controllerExist)
-        }
-    }
 }
-

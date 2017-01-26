@@ -14,11 +14,11 @@ class ProjectListPresenter:NSObject,ProjectListPresenterInterface{
     var interactor: ProjectListInteractorInterface?
     
     var wireframe: ProjectListWireframe?
-
-    func viewDidLoad() {
+    
+    func viewWillAppear() {
         interactor?.findProjects()
     }
-    
+
     func reloadData(){
         interactor?.findProjects()
     }
@@ -41,6 +41,12 @@ class ProjectListPresenter:NSObject,ProjectListPresenterInterface{
     
     func duplicateProject(projectNumber: Int) {
         interactor?.duplicateProjectAction(projectNumber: projectNumber)
+    }
+    
+    func detailProject(projectNumber: Int) {
+        interactor?.setProjectSelected(projectNumber: projectNumber)
+        
+        wireframe?.presentDetailProjectInterface()
     }
 }
 

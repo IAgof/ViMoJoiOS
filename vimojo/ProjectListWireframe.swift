@@ -19,6 +19,7 @@ class ProjectListWireframe : NSObject {
     
     var prevController:UIViewController?
     var editorRoomWireframe: EditingRoomWireframe?
+    var detailProjectWireframe: DetailProjectWireframe?
     
     func presentInterfaceFromWindow(_ window: UIWindow) {
         let viewController = viewControllerFromStoryboard()
@@ -63,6 +64,15 @@ class ProjectListWireframe : NSObject {
     func presentShareInterface(){
         if viewController != nil{
             editorRoomWireframe?.presentEditingRoomFromViewControllerAndExportVideo(viewController!)
+        }
+    }
+    
+    func presentDetailProjectInterface(){
+        if let viewControllerExist = viewController{
+            if let uuid = presenter?.interactor?.selectedProjectUUID{
+                detailProjectWireframe?.presentInterfaceFromViewController(viewControllerExist,
+                                                                           videoUUID: uuid)
+            }
         }
     }
 }

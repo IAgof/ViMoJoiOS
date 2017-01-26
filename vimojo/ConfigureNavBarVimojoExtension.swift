@@ -28,8 +28,8 @@ extension ViMoJoController{
         let optionsItem = UIBarButtonItem(image: optionsIcon, style: .plain, target: self, action: #selector(pushOptions))
         
         if let topController = UIApplication.topViewController(){
-            topController.navigationItem.leftBarButtonItem = showSideSliderItem
-            topController.navigationItem.rightBarButtonItem = optionsItem
+            topController.navigationItem.leftBarButtonItems = [showSideSliderItem]
+            topController.navigationItem.rightBarButtonItems = [optionsItem]
 
         }
     }

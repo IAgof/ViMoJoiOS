@@ -46,7 +46,9 @@ class FullScreenPlayerWireframe : NSObject {
         let avController = AVPlayerViewController()
         avController.player = player
         
-        prevController.show(avController, sender: nil)
+       if let controller = UIApplication.topViewController(){
+            controller.showDetailViewController(avController, sender: nil)
+        }
     }
     
     func fullScreenPlayerViewControllerFromStoryboard() -> FullScreenPlayerViewController {

@@ -23,7 +23,6 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
     
     func didSelectAtIndexPath(indexPath: IndexPath) {
         if indexPath.section == optionsSection{
-            delegate?.closeDrawer()
             if let row = cellType(rawValue: indexPath.item){
                 switch row {
                 case .projects:
