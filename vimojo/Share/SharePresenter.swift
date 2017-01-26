@@ -53,6 +53,7 @@ class SharePresenter:NSObject,SharePresenterInterface{
         if !isGoingToExpandPlayer{
             playerPresenter?.onVideoStops()
         }
+        delegate?.dissmissAlertWaitToExport()
     }
     
     func setVideoExportedPath(_ url: URL) {
@@ -121,7 +122,9 @@ extension SharePresenter:ShareInteractorDelegate{
     }
     
     func setPlayerUrl(videoURL: URL) {
-        delegate?.dissmissAlertWaitToExport()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.delegate?.dissmissAlertWaitToExport()
+        }
         
         self.videoURL = videoURL
         
