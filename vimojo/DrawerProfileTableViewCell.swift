@@ -12,6 +12,7 @@ class DrawerProfileTableViewCell: UITableViewCell {
     
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var photoButton: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,5 +35,6 @@ class DrawerProfileTableViewCell: UITableViewCell {
         
         usernameLabel.adjustsFontSizeToFitWidth = true
         emailLabel.adjustsFontSizeToFitWidth = true
+        photoButton.setImage(user.image, for: .normal)
     }
 }

@@ -23,4 +23,12 @@ class DrawerMenuInteractor: DrawerMenuInteractorInterface {
             CreateNewProjectUseCase().create(project: project!)
         }
     }
+    
+    func saveUserPhoto(image: UIImage) {
+        let imageData = UIImageJPEGRepresentation(image, 1.0)
+        
+        UserDefaults.standard.set(imageData, forKey: SettingsConstants().SETTINGS_PHOTO_USER)
+        
+        delegate?.imageIsSave()
+    }
 }

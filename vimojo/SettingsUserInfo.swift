@@ -12,6 +12,8 @@ struct userInfo {
     var name:String
     var userName:String
     var email:String
+    var image:UIImage
+    
     init(){
         let defaults = UserDefaults.standard
         
@@ -34,6 +36,17 @@ struct userInfo {
             email = emailSaved!
         }else{
             email = ""
+        }
+        
+        let photoSavedData = defaults.data(forKey: SettingsConstants().SETTINGS_PHOTO_USER)
+        if let photoWithData = photoSavedData{
+            if let photoSaved = UIImage(data:photoWithData){
+                image = photoSaved
+            }else{
+                image = #imageLiteral(resourceName: "activity_project_gallery_no_videos")
+            }
+        }else{
+            image = #imageLiteral(resourceName: "activity_project_gallery_no_videos")
         }
     }
 }

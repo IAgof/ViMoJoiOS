@@ -160,6 +160,12 @@
 		A9645EA21DC0D27D000944CB /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9645EA11DC0D27D000944CB /* SettingsModel.swift */; };
 		A9645EA41DC0D298000944CB /* ShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9645EA31DC0D298000944CB /* ShareViewModel.swift */; };
 		A964DE2A1DD1DBA700E6C7DA /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A964DE291DD1DBA700E6C7DA /* Record.storyboard */; };
+		A967894D1E3B558E00A8B37A /* DrawerMenu.strings in Resources */ = {isa = PBXBuildFile; fileRef = A96789501E3B558E00A8B37A /* DrawerMenu.strings */; };
+		A967894E1E3B558E00A8B37A /* DrawerMenu.strings in Resources */ = {isa = PBXBuildFile; fileRef = A96789501E3B558E00A8B37A /* DrawerMenu.strings */; };
+		A96789531E3B55DF00A8B37A /* DrawerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96789521E3B55DF00A8B37A /* DrawerConstants.swift */; };
+		A96789541E3B55DF00A8B37A /* DrawerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96789521E3B55DF00A8B37A /* DrawerConstants.swift */; };
+		A96789561E3B588700A8B37A /* TakePhotoFromOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96789551E3B588700A8B37A /* TakePhotoFromOptions.swift */; };
+		A96789571E3B588700A8B37A /* TakePhotoFromOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96789551E3B588700A8B37A /* TakePhotoFromOptions.swift */; };
 		A9693B7D1DB7C8CD00B00DD1 /* AddTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9693B7C1DB7C8CD00B00DD1 /* AddTextModel.swift */; };
 		A96E15F01DA257A400CF81E8 /* MusicModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96E15EF1DA257A400CF81E8 /* MusicModels.swift */; };
 		A97243D71E37A5C000BD5E9B /* DetailProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97243D61E37A5C000BD5E9B /* DetailProjectViewController.swift */; };
@@ -839,6 +845,10 @@
 		A9645EA11DC0D27D000944CB /* SettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		A9645EA31DC0D298000944CB /* ShareViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewModel.swift; sourceTree = "<group>"; };
 		A964DE291DD1DBA700E6C7DA /* Record.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Record.storyboard; sourceTree = "<group>"; };
+		A967894F1E3B558E00A8B37A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/DrawerMenu.strings; sourceTree = "<group>"; };
+		A96789511E3B558F00A8B37A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/DrawerMenu.strings; sourceTree = "<group>"; };
+		A96789521E3B55DF00A8B37A /* DrawerConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerConstants.swift; sourceTree = "<group>"; };
+		A96789551E3B588700A8B37A /* TakePhotoFromOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePhotoFromOptions.swift; sourceTree = "<group>"; };
 		A9693B7C1DB7C8CD00B00DD1 /* AddTextModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTextModel.swift; sourceTree = "<group>"; };
 		A96E15EF1DA257A400CF81E8 /* MusicModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicModels.swift; sourceTree = "<group>"; };
 		A97243D61E37A5C000BD5E9B /* DetailProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailProjectViewController.swift; path = DetailProject/DetailProjectViewController.swift; sourceTree = "<group>"; };
@@ -2174,6 +2184,9 @@
 			isa = PBXGroup;
 			children = (
 				A9B54BA81DFEF4CB00388002 /* DrawerMenuInteractorInterface.swift */,
+				A96789521E3B55DF00A8B37A /* DrawerConstants.swift */,
+				A96789551E3B588700A8B37A /* TakePhotoFromOptions.swift */,
+				A96789501E3B558E00A8B37A /* DrawerMenu.strings */,
 				A9B54BAA1DFEF4D300388002 /* DrawerMenuInteractor.swift */,
 			);
 			name = "App Logic";
@@ -2590,6 +2603,7 @@
 				A910AD171E3A315400A4EC90 /* MusicProvider.strings in Resources */,
 				A9D076D31E2F7F84003AE96B /* Vimojo.xcassets in Resources */,
 				A910ACFF1E3A2EC200A4EC90 /* ukulele.mp3 in Resources */,
+				A967894D1E3B558E00A8B37A /* DrawerMenu.strings in Resources */,
 				A97772C11DC2451200EA9291 /* EditorStrings.strings in Resources */,
 				A9D078011E2F8315003AE96B /* Assets.xcassets in Resources */,
 				A9B385EF1D7D51380065D3EC /* Main.storyboard in Resources */,
@@ -2624,6 +2638,7 @@
 				A9D077D31E2F80B1003AE96B /* MusicListView.xib in Resources */,
 				A9D077FA1E2F80DD003AE96B /* RTVE.xcassets in Resources */,
 				A93B5C971E38AADC009E0279 /* DetailProject.strings in Resources */,
+				A967894E1E3B558E00A8B37A /* DrawerMenu.strings in Resources */,
 				A9D077D41E2F80B1003AE96B /* ShareCell.xib in Resources */,
 				A9D077D51E2F80B1003AE96B /* MusicListCell.xib in Resources */,
 				A9D077D61E2F80B1003AE96B /* GALLOPING.mp3 in Resources */,
@@ -2983,6 +2998,7 @@
 				A973076A1DF04FA100451244 /* DrawerMenuTableViewController.swift in Sources */,
 				A93BCE4D1D7D5C7400421BD0 /* AnalitycsConstants.swift in Sources */,
 				A9148DDC1E1D3ECE006DC511 /* DPTheme.swift in Sources */,
+				A96789561E3B588700A8B37A /* TakePhotoFromOptions.swift in Sources */,
 				A9325FB21E091FB900400AD6 /* GetPHAssetFromUrl.swift in Sources */,
 				A91760C21D9146BF008915DA /* ThumbnailListInteractor.swift in Sources */,
 				A91B8C9A1DE885790040CA57 /* CheckCameraPermissionUseCase.swift in Sources */,
@@ -3013,6 +3029,7 @@
 				A91761171D916F48008915DA /* ShareInteractor.swift in Sources */,
 				A988DF041DAD1E090030E285 /* MicRecorderPresenter.swift in Sources */,
 				A91760AC1D9146B5008915DA /* EditingRoomViewController.swift in Sources */,
+				A96789531E3B55DF00A8B37A /* DrawerConstants.swift in Sources */,
 				A91760ED1D914840008915DA /* SplitWireframe.swift in Sources */,
 				A91C69521DCB59D200AF2576 /* GalleryWireframe.swift in Sources */,
 				A91760E11D914827008915DA /* TrimWireframe.swift in Sources */,
@@ -3122,6 +3139,7 @@
 				A9D076EB1E2F80B1003AE96B /* AudioRepository.swift in Sources */,
 				A9D076EC1E2F80B1003AE96B /* DuplicateWireframe.swift in Sources */,
 				A97243EF1E37A8FF00BD5E9B /* DetailProjectInteractor.swift in Sources */,
+				A96789571E3B588700A8B37A /* TakePhotoFromOptions.swift in Sources */,
 				A97243F71E37A90C00BD5E9B /* DetailProjectPresenterInterface.swift in Sources */,
 				A9D076ED1E2F80B1003AE96B /* SocialNetwork.swift in Sources */,
 				A9D076EE1E2F80B1003AE96B /* AddTextModel.swift in Sources */,
@@ -3348,6 +3366,7 @@
 				A9D077BE1E2F80B1003AE96B /* SettingsViewController.swift in Sources */,
 				A9D077BF1E2F80B1003AE96B /* SettingsQualityAction.swift in Sources */,
 				A9D077C01E2F80B1003AE96B /* DetailTextPresenter.swift in Sources */,
+				A96789541E3B55DF00A8B37A /* DrawerConstants.swift in Sources */,
 				A9D077C11E2F80B1003AE96B /* CreateDefaultProjectUseCase.swift in Sources */,
 				A9D077C21E2F80B1003AE96B /* MicRecorderViewModel.swift in Sources */,
 				A9CD46E31E3102BC004EE7EB /* ConfigureNavBarVimojoExtension.swift in Sources */,
@@ -3438,6 +3457,15 @@
 				A96441141DA3E59A00CAD950 /* es */,
 			);
 			name = Settings.strings;
+			sourceTree = "<group>";
+		};
+		A96789501E3B558E00A8B37A /* DrawerMenu.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A967894F1E3B558E00A8B37A /* Base */,
+				A96789511E3B558F00A8B37A /* es */,
+			);
+			name = DrawerMenu.strings;
 			sourceTree = "<group>";
 		};
 		A97772BB1DC244E700EA9291 /* Share.strings */ = {
