@@ -19,12 +19,12 @@ protocol MusicListInteractorInterface {
     func getMusicDetailParams(_ index:Int)
 
     func getMusic()
+    func updateAudioMix(withParameter param:MixAudioModel)
 }
 
 protocol MusicListInteractorDelegate {
     func setMusicModelList(_ list:[MusicViewModel])
-    func setMusicDetailParams(_ title:String,
-                              author:String,
-                              image:UIImage)
+    func setMusicDetailParams(musicDetailViewModel detail:MusicDetailViewModel)
     func setVideoComposition(_ composition: VideoComposition)
+    func setAudioMix(audioMix value:AVAudioMix)
 }

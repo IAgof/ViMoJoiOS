@@ -13,6 +13,7 @@ protocol MusicDetailViewDelegate {
     func cancelButtonPushed()
     func acceptButtonPushed()
     func removeDetailButtonPushed()
+    func mixAudioChanged(withValue value:Float)
 }
 protocol MusicDetailInterface {
     func showAcceptOrCancelButton()
@@ -28,6 +29,8 @@ class MusicDetailView: UIView,MusicDetailInterface {
     @IBOutlet weak var removeButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var mixMusicAudioSlider: UISlider!
+    @IBOutlet weak var sliderContainerView: UIView!
     
     //MARK: - Variables
     var delegate:MusicDetailViewDelegate?
@@ -37,14 +40,12 @@ class MusicDetailView: UIView,MusicDetailInterface {
         return UINib(nibName: "MusicDetailView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
     }
     
-    func initParams(_ title:String,
-         author:String,
-         image:UIImage,
+    func initParams(musicDetailViewModel detail: MusicDetailViewModel,
          frame:CGRect) {
         
-        musicImage.image = image
-        titleLabel.text = title
-        authorLabel.text = author
+        musicImage.image = detail.image
+        titleLabel.text = detail.title
+        authorLabel.text = detail.author
         
         titleLabel.adjustsFontSizeToFitWidth = true
         authorLabel.adjustsFontSizeToFitWidth = true
@@ -52,7 +53,12 @@ class MusicDetailView: UIView,MusicDetailInterface {
         let offset = CGFloat(10)
         self.frame = CGRect(x: (offset/2), y: 0, width: (frame.width - offset), height: (frame.height - offset) )
         
+        self.mixMusicAudioSlider.value = detail.sliderValue
         self.applyPlainShadow()
+        
+        if configuration.VOICE_OVER_FEATURE {
+            self.sliderContainerView.isHidden = true
+        }
     }
     
     func applyPlainShadow() {
@@ -78,6 +84,10 @@ class MusicDetailView: UIView,MusicDetailInterface {
     }
     @IBAction func pushRemoveButton(_ sender: AnyObject) {
         delegate?.removeDetailButtonPushed()
+    }
+    
+    @IBAction func mixMusixAudioSliderChanged(_ sender: Any) {
+        delegate?.mixAudioChanged(withValue: mixMusicAudioSlider.value)
     }
     
     //MARK: - Show Actions

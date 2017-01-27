@@ -48,13 +48,15 @@ class MusicListInteractor: MusicListInteractorInterface {
     func getMusicDetailParams(_ index:Int) {
         let title = musicList[index].getMusicTitle()
         let author = musicList[index].getAuthor()
-        
+        var viewModel = MusicDetailViewModel(image: UIImage(), title: title, author: author, sliderValue: 1)
+
         guard let image = UIImage(named: musicList[index].musicSelectedResourceId) else{
-            delegate?.setMusicDetailParams(title, author: author, image: UIImage())
+            delegate?.setMusicDetailParams(musicDetailViewModel: viewModel)
             return
         }
-        delegate?.setMusicDetailParams(title, author: author, image: image)
-        
+
+        viewModel.image = image
+        delegate?.setMusicDetailParams(musicDetailViewModel: viewModel)
     }
     
     func getMusic(){
@@ -62,12 +64,15 @@ class MusicListInteractor: MusicListInteractorInterface {
         
         let title = music.getMusicTitle()
         let author = music.getAuthor()
-        
+        var viewModel = MusicDetailViewModel(image: UIImage(), title: title, author: author, sliderValue: music.audioLevel)
+
         guard let image = UIImage(named: music.musicSelectedResourceId) else{
-            delegate?.setMusicDetailParams(title, author: author, image: UIImage())
+            delegate?.setMusicDetailParams(musicDetailViewModel: viewModel)
             return
         }
-        delegate?.setMusicDetailParams(title, author: author, image: image)
+        
+        viewModel.image = image
+        delegate?.setMusicDetailParams(musicDetailViewModel: viewModel)
     }
     
     func setMusicToProject(_ index: Int) {
@@ -80,12 +85,14 @@ class MusicListInteractor: MusicListInteractorInterface {
         if index == -1 {
             project.setMusic(music)
             project.isMusicSet = false
+            project.projectOutputAudioLevel = 1
             
         }else{
             music = musicList[index]
             
             project.setMusic(music)
             project.isMusicSet = true
+            project.projectOutputAudioLevel = 0
         }
         
         project.updateModificationDate()
@@ -108,6 +115,21 @@ class MusicListInteractor: MusicListInteractorInterface {
                 delegate?.setVideoComposition(actualComposition!)
             }
         }
+    }
+    
+    func updateAudioMix(withParameter param: MixAudioModel) {
+        guard let project = project else{return}
+        
+        project.projectOutputAudioLevel = param.videoVolume
+        let music = project.getMusic()
+        music.audioLevel = param.audioVolume
+        
+        let composition = GetActualProjectAVCompositionUseCase().getComposition(project: project)
+        if let audioMix = composition.audioMix{
+            delegate?.setAudioMix(audioMix: audioMix)
+        }
+        project.updateModificationDate()
+        ProjectRealmRepository().update(item: project)
     }
     
     //MARK: - Inner functions

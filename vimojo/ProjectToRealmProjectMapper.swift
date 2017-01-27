@@ -33,7 +33,7 @@ public class ProjectToRealmProjectMapper:Mapper{
         
         if from.isMusicSet{
             realmProject.musicTitle = from.getMusic().getTitle()
-            realmProject.musicVolume = from.getMusic().volume
+            realmProject.musicVolume = Double(from.getMusic().audioLevel)
         }
         
         for video in from.getVideoList(){
