@@ -322,6 +322,17 @@ class RecordPresenter: NSObject
         }
     }
     
+    func pushAutoModes() {
+        hideFocusIfYouCan()
+        hideISOConfigIfYouCan()
+        hideZoomViewIfYouCan()
+        hideWBConfigIfYouCan()
+        hideFocusIfYouCan()
+        hideExposureModesIfYouCan()
+        
+        delegate?.setAutoAllModes()
+    }
+    
     func pushCloseBatteryButton() {
         hideBatteryViewIfYouCan()
     }
