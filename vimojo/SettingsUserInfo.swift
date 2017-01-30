@@ -43,10 +43,10 @@ struct userInfo {
             if let photoSaved = UIImage(data:photoWithData){
                 image = photoSaved
             }else{
-                image = #imageLiteral(resourceName: "no_photo_user.png")
+                image = #imageLiteral(resourceName: "activity_drawer_no_user_photo")
             }
         }else{
-            image = #imageLiteral(resourceName: "no_photo_user.png")
+            image = #imageLiteral(resourceName: "activity_drawer_no_user_photo")
         }
     }
 }
