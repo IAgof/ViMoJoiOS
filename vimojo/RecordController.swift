@@ -48,6 +48,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var focusButton: UIButton!
     @IBOutlet weak var whiteBalanceButton: UIButton!
     @IBOutlet weak var exposureModesButton: UIButton!
+    @IBOutlet weak var autoModesButton: UIButton!
 
 
     //MARK: - Custom
@@ -255,6 +256,9 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         
     }
     
+    @IBAction func pushAutoModes(_ sender: Any) {
+        eventHandler?.pushAutoModes()
+    }
     
     @IBAction func pushWhiteBalance(_ sender: AnyObject) {
         eventHandler?.pushConfigMode(VideoModeConfigurations.whiteBalance)
@@ -772,6 +776,14 @@ extension RecordController:RecordPresenterDelegate {
     
     func hideSecondaryRecordChronometerContainer() {
         fadeOutView([secondaryChronometerContainer])
+    }
+    
+    func setAutoAllModes() {
+        zoomView.setZoomSliderValue(1)
+        isoConfigurationView.setAutoISO()
+        wbConfigurationView.setAutoWB()
+        focusView.setAutoFocus()
+        expositionModesView.setAutoExposure()
     }
 }
 

@@ -35,6 +35,7 @@ protocol RecordPresenterInterface{
     func pushMic()
     func pushFocus()
     func pushExposureModes()
+    func pushAutoModes()
     
     func pushConfigMode(_ modePushed:VideoModeConfigurations)
     
@@ -140,4 +141,6 @@ protocol RecordPresenterDelegate {
     
     func showSecondaryRecordChronometerContainer()
     func hideSecondaryRecordChronometerContainer()
+    
+    func setAutoAllModes()
 }
