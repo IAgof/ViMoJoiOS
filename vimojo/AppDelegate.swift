@@ -31,12 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
         CustomDPTheme().configureTheme()
 
         //MIXPANEL
-        #if DEBUG
-        
-        #else
-            mixpanel = Mixpanel.sharedInstance(withToken: AnalyticsConstants().MIXPANEL_TOKEN)
-        #endif
-                
+        mixpanel = Mixpanel.sharedInstance(withToken: AnalyticsConstants().MIXPANEL_TOKEN)
+            
         self.configureGoogleSignIn()
         
         // Optional: configure GAI options.
@@ -52,7 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
         CheckMicPermissionUseCase().askIfNeeded()
         CheckPhotoRollPermissionUseCase().askIfNeeded()
         CheckCameraPermissionUseCase().askIfNeeded()
-        
         
         return true
     }
@@ -111,8 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!,
                 withError error: Error!){
-        // Perform any operations when the user disconnects from app here.
-        // ...
+
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -125,7 +119,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
         
         let currentAppVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
         let previousVersion = defaults.string(forKey: "appVersion")
-        
         if previousVersion == nil {
             // first launch
             defaults.set(currentAppVersion, forKey: "appVersion")
@@ -134,9 +127,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
             Utils().debugLog("setupStartApp First time")
             initState = "firstTime"
             
-            trackUserProfile();
-            trackCreatedSuperProperty();
-            trackAppStartupProperties(true);
+            ViMoJoTracker.sharedInstance.trackUserProfile();
+            ViMoJoTracker.sharedInstance.trackCreatedSuperProperty();
+            ViMoJoTracker.sharedInstance.trackAppStartupProperties(true);
                         
             appDependencies.installRecordToRootViewControllerIntoWindow(window!)
         } else if previousVersion == currentAppVersion {
@@ -144,7 +137,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
             Utils().debugLog("setupStartApp Same version")
             initState = "returning"
             
-            trackAppStartupProperties(false);
+            ViMoJoTracker.sharedInstance.trackAppStartupProperties(false);
             
             appDependencies.installRecordToRootViewControllerIntoWindow(window!)
 //            appDependencies.installEditorRoomToRootViewControllerIntoWindow(window!)
@@ -157,75 +150,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
             Utils().debugLog("setupStartApp Update to \(currentAppVersion)")
             initState = "upgrade"
             
-            trackUserProfile();
-            trackAppStartupProperties(false);
+            ViMoJoTracker.sharedInstance.trackUserProfile()
+            ViMoJoTracker.sharedInstance.trackAppStartupProperties(false)
             appDependencies.installRecordToRootViewControllerIntoWindow(window!)
         }
-    }
-    
-    //MARK: - Mixpanel
-    
-    func sendStartupAppTracking() {
-        let initAppProperties = [AnalyticsConstants().TYPE:AnalyticsConstants().TYPE_ORGANIC,
-                                 AnalyticsConstants().INIT_STATE:initState,
-                                 //                                 AnalyticsConstants().DOUBLE_HOUR_AND_MINUTES: Utils().getDoubleHourAndMinutes()]
-        ]
-        mixpanel?.track(AnalyticsConstants().APP_STARTED, properties: initAppProperties as [AnyHashable: Any])
-    }
-    
-    func trackAppStartupProperties(_ state:Bool) {
-        Utils().debugLog("trackAppStartupProperties")
-        mixpanel!.identify(Utils().udid)
         
-        var appUseCount:Int
-        let properties = mixpanel!.currentSuperProperties()
-        if let count = properties[AnalyticsConstants().APP_USE_COUNT]{
-            appUseCount = count as! Int
-        }else{
-            appUseCount = 0
-        }
-        appUseCount += 1
-        
-        Utils().debugLog("App USE COUNT \(appUseCount)")
-        
-        let appStartupSuperProperties = [AnalyticsConstants().APP_USE_COUNT:NSNumber.init(value: Int32(appUseCount) as Int32),
-                                         AnalyticsConstants().FIRST_TIME:state,
-                                         AnalyticsConstants().APP: AnalyticsConstants().APP_NAME] as [String : Any]
-        mixpanel?.registerSuperProperties(appStartupSuperProperties as [AnyHashable: Any])
-    }
-    
-    func trackUserProfile() {
-        Utils().debugLog("The user id is = \(Utils().udid)")
-        
-        mixpanel!.identify(Utils().udid)
-        let userProfileProperties = [AnalyticsConstants().CREATED:Utils().giveMeTimeNow()]
-        mixpanel?.people.setOnce(userProfileProperties)
-    }
-    
-    func trackUserProfileGeneralTraits() {
-        mixpanel!.identify(Utils().udid)
-        
-        Utils().debugLog("trackUserProfileGeneralTraits")
-        
-        let increment:NSNumber = NSNumber.init(value: 1 as Int)
-        Utils().debugLog("App USE COUNT Increment by: \(increment)")
-        
-        mixpanel?.people.increment(AnalyticsConstants().APP_USE_COUNT,by: increment)
-        
-        let locale = Locale.preferredLanguages[0]
-        
-        //        let lang = NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode)
-        let langISO = (Locale.current as NSLocale).iso639_2LanguageCode()
-        let userProfileProperties = [AnalyticsConstants().TYPE:AnalyticsConstants().USER_TYPE_FREE,
-                                     AnalyticsConstants().LOCALE:locale,
-                                     AnalyticsConstants().LANG: langISO!] as [AnyHashable: Any]
-        
-        mixpanel?.people.set(userProfileProperties)
-    }
-    
-    func trackCreatedSuperProperty() {
-        let createdSuperProperty = [AnalyticsConstants().CREATED: Utils().giveMeTimeNow()]
-        mixpanel?.registerSuperPropertiesOnce(createdSuperProperty)
+        ViMoJoTracker.sharedInstance.sendStartupAppTracking(initState: initState)
     }
 }
 

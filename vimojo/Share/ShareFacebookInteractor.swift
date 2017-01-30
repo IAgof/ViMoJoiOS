@@ -12,14 +12,17 @@ import VideonaProject
 
 class ShareFacebookInteractor:NSObject, ShareActionInterface{
     var delegate:ShareActionDelegate
-
-    // Facebook Delegate Methods
-    init(delegate:ShareActionDelegate){
-        self.delegate = delegate
-    }
+    var shareProject: Project
     
-    func share(_ sharePath:ShareVideoPath){
-        
+    // Facebook Delegate Methods
+    init(delegate:ShareActionDelegate,
+         shareProject project:Project){
+        self.delegate = delegate
+        self.shareProject = project
+    }
+    func share(_ sharePath: ShareVideoPath) {
+        trackShare()
+
         let url = ShareUtils().getLastAssetURL()
         
         let video: FBSDKShareVideo = FBSDKShareVideo()
@@ -43,7 +46,11 @@ class ShareFacebookInteractor:NSObject, ShareActionInterface{
         dialog.show()
         
     }
-    
+    func trackShare() {
+        ViMoJoTracker.sharedInstance.trackVideoShared("Facebook",
+                                                      videoDuration: shareProject.getDuration(),
+                                                      numberOfClips: shareProject.getVideoList().count)
+    }
 }
 
 extension ShareFacebookInteractor:FBSDKLoginButtonDelegate{

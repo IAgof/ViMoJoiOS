@@ -69,7 +69,10 @@ class ExporterInteractor:NSObject{
                         videoURL in
 
                         self.project?.setExportedPath(path: exportPath)
-
+                        if let project = self.project {
+                            ViMoJoTracker.sharedInstance.sendExportedVideoMetadataTracking(project.getDuration(),
+                                                                                           numberOfClips: project.getVideoList().count)
+                        }
                         completionHandler(videoURL)
                     })
                 }

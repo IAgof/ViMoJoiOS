@@ -123,8 +123,6 @@ class DuplicateViewController: ViMoJoController,DuplicateInterface,DuplicatePres
     }
     
     func acceptFinished() {
-        //        ViMoJoTracker.sharedInstance.trackClipDuplicated(3)
-
         wireframe?.goPrevController()
     }
     
@@ -142,6 +140,10 @@ class DuplicateViewController: ViMoJoController,DuplicateInterface,DuplicatePres
     
     func updatePlayerOnView(_ composition: VideoComposition) {
         self.playerHandler?.createVideoPlayer(composition)
+    }
+    
+    func trackNumberOfDuplicates(numberOfDuplicates number: Int) {
+        ViMoJoTracker.sharedInstance.trackClipDuplicated(number)
     }
     
     //MARK: - Player setter

@@ -59,7 +59,7 @@ ViMoJoInterface {
     }
 
     func getControllerName()->String{
-        return String(describing: object_getClass(self))
+        return String(describing: type(of: self))
     }
     
     func getTrackerObject() -> ViMoJoTracker {

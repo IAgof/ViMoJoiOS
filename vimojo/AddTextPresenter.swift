@@ -54,6 +54,8 @@ extension AddTextPresenter:AddTextPresenterInterface{
         interactor?.setParametersToVideo(textOnLabel,
                                          position: lastButtonPushed.rawValue)
 
+        ViMoJoTracker.sharedInstance.trackClipAddedText(position: String(lastButtonPushed.rawValue),
+                                                        textLength: textOnLabel.characters.count)
         delegate?.acceptFinished()
     }
     

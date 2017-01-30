@@ -77,7 +77,9 @@ class ShareInteractor: NSObject,ShareInteractorInterface {
     }
     
     func findSocialNetworks(){
-        socialNetworks = SocialNetworkProvider().getSocialNetworks(self)
+        guard let project = project else{return}
+        
+        socialNetworks = SocialNetworkProvider().getSocialNetworks(self,project: project)
         
         var shareViewModelObjects:[ShareViewModel] = []
         

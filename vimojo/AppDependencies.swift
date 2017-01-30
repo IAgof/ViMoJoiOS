@@ -49,6 +49,7 @@ class AppDependencies {
     
     init(){
         configureDependencies()
+        ViMoJoTracker.sharedInstance.project = project
     }
 
     func configureDependencies(){

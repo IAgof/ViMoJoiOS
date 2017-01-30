@@ -717,11 +717,6 @@ class RecordPresenter: NSObject
                                                                   result: AnalyticsConstants().START)
     }
     
-    func trackExported(_ videoTotalTime:Double) {
-        ViMoJoTracker.sharedInstance.sendExportedVideoMetadataTracking(videoTotalTime,
-                                                                              numberOfClips: (interactor?.getNumberOfClipsInProject())!)
-    }
-    
     func trackStopRecord(){
         ViMoJoTracker.sharedInstance.sendUserInteractedTracking((delegate?.getControllerName())!,
                                                                   recording: isRecording,
@@ -739,7 +734,6 @@ class RecordPresenter: NSObject
     //MARK: - Camera delegate
     func trackVideoRecorded(_ videoLenght:Double) {
         ViMoJoTracker.sharedInstance.trackTotalVideosRecordedSuperProperty()
-        ViMoJoTracker.sharedInstance.sendVideoRecordedTracking(videoLenght)
         ViMoJoTracker.sharedInstance.updateTotalVideosRecorded()
     }
     

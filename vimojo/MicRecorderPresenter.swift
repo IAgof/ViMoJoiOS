@@ -109,7 +109,8 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
     func acceptPushed() {
         interactor?.setVoiceOverToProject(videoVolume,audioVolume: audioVolume)
         resetAudioParams()
-
+        ViMoJoTracker.sharedInstance.trackVoiceOverAdded()
+        
         wireframe?.presentEditor()
     }
 

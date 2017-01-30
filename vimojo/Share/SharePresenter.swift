@@ -80,9 +80,6 @@ class SharePresenter:NSObject,SharePresenterInterface{
         if let path = videoURL?.absoluteString{
             interactor?.shareVideo(indexPath, videoPath: path)
         }
-        
-        //TODO: Hacer algo con el interactor delegate para hacerle el tracking
-        //        trackVideoShared(socialNetwork)
     }
     
     func postToYoutube(_ token:String){
@@ -101,18 +98,6 @@ class SharePresenter:NSObject,SharePresenterInterface{
         if let videoURL = interactor?.getShareExportURL(){
             self.delegate?.showShareGeneric(videoURL)
         }
-    }
-    
-    //MARK: - Mixpanel Tracking
-    func trackVideoShared(_ socialNetworkName: String) {
-        if let url = videoURL{
-            let duration = AVAsset(url: url).duration.seconds
-            
-            ViMoJoTracker.sharedInstance.trackVideoShared(socialNetworkName,
-                                                          videoDuration: duration,
-                                                          numberOfClips: numberOfClips)
-        }
-        
     }
 }
 
