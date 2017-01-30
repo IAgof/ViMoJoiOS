@@ -43,8 +43,26 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
     func exitPushed() {
         delegate?.closeDrawer()
     }
+    
+    func imagePushed() {
+        delegate?.presentAlertWithOptions()
+    }
+    
+    func takePhoto() {
+        delegate?.presentPickerController(withOptionSelected: .camera)
+    }
+    
+    func takeFromGallery() {
+        delegate?.presentPickerController(withOptionSelected: .gallery)
+    }
+    
+    func saveImageSelected(image: UIImage) {
+        interactor?.saveUserPhoto(image: image)
+    }
 }
 
 extension DrawerMenuPresenter:DrawerMenuInteractorDelegate{
-    
+    func imageIsSave() {
+        delegate?.updateProfileCell()
+    }
 }

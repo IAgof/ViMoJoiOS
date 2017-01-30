@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,15 +22,15 @@
                         <sections>
                             <tableViewSection id="ROc-Cg-GGe">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DrawerProfileTableViewCell" rowHeight="184" id="QIE-Zj-dmi" customClass="DrawerProfileTableViewCell" customModule="RTVE" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="184"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DrawerProfileTableViewCell" rowHeight="250" id="QIE-Zj-dmi" customClass="DrawerProfileTableViewCell" customModule="RTVE" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QIE-Zj-dmi" id="mw6-BE-9sC">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="183"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="249"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alberto Perez Sanchez" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYU-P4-Spu">
-                                                    <rect key="frame" x="8" y="117.5" width="304" height="26"/>
+                                                    <rect key="frame" x="8" y="183.5" width="304" height="26"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                     <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -44,20 +45,44 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a.perez@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFL-su-lME">
-                                                    <rect key="frame" x="8" y="146.5" width="151" height="21"/>
+                                                    <rect key="frame" x="8" y="212.5" width="151" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_drawer_logo" highlightedImage="activity_drawer_logo" translatesAutoresizingMaskIntoConstraints="NO" id="skc-l2-3CN">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="183.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="249.5"/>
+                                                    <gestureRecognizers/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="beB-ze-iWV">
+                                                    <rect key="frame" x="8" y="67.5" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="g0c-EH-YbQ"/>
+                                                        <constraint firstAttribute="width" secondItem="beB-ze-iWV" secondAttribute="height" multiplier="1:1" id="rcJ-3x-OkX"/>
+                                                    </constraints>
+                                                    <state key="normal" image="no_photo_user.png"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="50"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" red="0.91736459159999995" green="0.92058907670000001" blue="0.93026253169999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="0.0"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="imagePushed:" destination="s83-2h-qSy" eventType="touchUpInside" id="O6s-6S-mJE"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.94712263350000003" green="0.29490819569999999" blue="0.31749987600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="skc-l2-3CN" firstAttribute="leading" secondItem="mw6-BE-9sC" secondAttribute="leading" id="BRY-xR-fPc"/>
                                                 <constraint firstAttribute="bottom" secondItem="skc-l2-3CN" secondAttribute="bottom" id="Esn-c0-nfE"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="eFL-su-lME" secondAttribute="bottom" constant="8" id="Koh-ie-1IU"/>
+                                                <constraint firstItem="NYU-P4-Spu" firstAttribute="top" secondItem="beB-ze-iWV" secondAttribute="bottom" constant="16" id="SYx-Kv-YE4"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="NYU-P4-Spu" secondAttribute="trailing" id="V9J-mE-hDx"/>
                                                 <constraint firstItem="GWp-Cb-lNv" firstAttribute="top" secondItem="mw6-BE-9sC" secondAttribute="topMargin" constant="64" id="VaO-w8-kVS"/>
                                                 <constraint firstItem="NYU-P4-Spu" firstAttribute="leading" secondItem="eFL-su-lME" secondAttribute="leading" id="Vm7-pn-GNV"/>
@@ -66,10 +91,12 @@
                                                 <constraint firstAttribute="trailing" secondItem="skc-l2-3CN" secondAttribute="trailing" id="f7z-Re-fHV"/>
                                                 <constraint firstItem="eFL-su-lME" firstAttribute="top" secondItem="NYU-P4-Spu" secondAttribute="bottom" constant="3" id="ity-0N-0tb"/>
                                                 <constraint firstItem="skc-l2-3CN" firstAttribute="top" secondItem="mw6-BE-9sC" secondAttribute="top" id="osP-Kk-stv"/>
+                                                <constraint firstItem="beB-ze-iWV" firstAttribute="leading" secondItem="mw6-BE-9sC" secondAttribute="leadingMargin" id="zRd-Fv-hfd"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="emailLabel" destination="eFL-su-lME" id="ygN-yx-SFH"/>
+                                            <outlet property="photoButton" destination="beB-ze-iWV" id="McH-Ni-aiz"/>
                                             <outlet property="usernameLabel" destination="NYU-P4-Spu" id="pAs-Jj-RUl"/>
                                         </connections>
                                     </tableViewCell>
@@ -78,7 +105,7 @@
                             <tableViewSection id="595-sg-zcl">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="80" id="Vqg-F1-yRG">
-                                        <rect key="frame" x="0.0" y="184" width="320" height="80"/>
+                                        <rect key="frame" x="0.0" y="250" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vqg-F1-yRG" id="TdX-ag-Axc">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
@@ -103,7 +130,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="80" id="gI3-LE-IrV">
-                                        <rect key="frame" x="0.0" y="264" width="320" height="80"/>
+                                        <rect key="frame" x="0.0" y="330" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gI3-LE-IrV" id="yNs-Fz-DKX">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
@@ -128,7 +155,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="80" id="aHk-Cz-4P7">
-                                        <rect key="frame" x="0.0" y="344" width="320" height="80"/>
+                                        <rect key="frame" x="0.0" y="410" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aHk-Cz-4P7" id="nTp-Be-0SI">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
@@ -180,5 +207,6 @@
         <image name="activity_drawer_options_pressed" width="29" height="30"/>
         <image name="activity_drawer_projects_normal" width="34" height="27"/>
         <image name="activity_drawer_projects_pressed" width="34" height="27"/>
+        <image name="no_photo_user.png" width="512" height="512"/>
     </resources>
 </document>

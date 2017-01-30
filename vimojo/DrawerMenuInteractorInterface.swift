@@ -10,8 +10,9 @@ import Foundation
 
 protocol DrawerMenuInteractorInterface {
     func createNewProject()
+    func saveUserPhoto(image:UIImage)
 }
 
 protocol DrawerMenuInteractorDelegate {
-    
+    func imageIsSave()
 }

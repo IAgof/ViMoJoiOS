@@ -43,6 +43,7 @@ class SettingsConstants: NSObject {
     let SETTINGS_NAME = "settingsName"
     let SETTINGS_USERNAME = "settingsUserName"
     let SETTINGS_MAIL = "settingsEmail"
+    let SETTINGS_PHOTO_USER = "settingsPhotoUser"
 
     //MARK: - CAMERA_SECTION
     let CAMERA_SECTION = "title_camera_section"
