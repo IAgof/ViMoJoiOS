@@ -13,12 +13,17 @@ import VideonaProject
 
 class ShareTwitterInteractor: ShareActionInterface {
     var delegate:ShareActionDelegate
-
-    init(delegate:ShareActionDelegate){
+    var shareProject: Project
+    
+    init(delegate:ShareActionDelegate,
+         shareProject project:Project){
         self.delegate = delegate
+        self.shareProject = project
     }
     
-    func share(_ sharePath:ShareVideoPath){
+    func share(_ sharePath: ShareVideoPath) {
+        trackShare()
+
         let videoURL = URL(fileURLWithPath: sharePath.documentsPath)
         let accountStore:ACAccountStore = ACAccountStore.init()
         let accountType:ACAccountType = accountStore.accountType(withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)
@@ -118,5 +123,11 @@ class ShareTwitterInteractor: ShareActionInterface {
             print(error)
             return ("","")
         }
+    }
+    
+    func trackShare() {
+        ViMoJoTracker.sharedInstance.trackVideoShared("Twitter",
+                                                      videoDuration: shareProject.getDuration(),
+                                                      numberOfClips: shareProject.getVideoList().count)
     }
 }

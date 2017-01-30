@@ -17,13 +17,13 @@ class AnalyticsConstants {
     #if DEBUG
     let MIXPANEL_TOKEN = "c6617213110cd2513dfc0ad97dbaee66"
     #else
-    let MIXPANEL_TOKEN = "985b2aeb535dbc92b81fb5cce7ad1212"
+    let MIXPANEL_TOKEN = "6f46145c03bf5cf5104bb3536059d994"
     #endif
     
     /**
      * App Name
      */
-    let APP_NAME = "Videona"
+    let APP_NAME = "Vimojo"
 
     /**
      * Event Names
@@ -118,20 +118,25 @@ class AnalyticsConstants {
     let LINK = "link"
     let SOURCE_APP = "sourceApp"
     let DESTINATION = "destination"
-    let SOURCE_APP_VIDEONA = "Videona"
+    let SOURCE_APP_VIDEONA = "Vimojo"
     let DESTINATION_KAMARADA_PLAY = "Kamarada Google Play"
     let DESTINATION_KAMARADA_ITUNES = "Kamarada Itunes"
     
     /**
      * Edit Events properties and values
      */
-    let EDIT_ACTION = "editAction"
-    let EDIT_ACTION_REORDER = "Reorder"
-    let EDIT_ACTION_TRIM = "Trim"
-    let EDIT_ACTION_SPLIT = "Split"
-    let EDIT_ACTION_DUPLICATE = "Duplicate"
-    let EDIT_ACTION_MUSIC_SET = "Music set"
-    let NUMBER_OF_DUPLICATES = "numberOfDuplicates"
-    let MUSIC_TITLE = "musicTitle"
+    let EDIT_ACTION = "editAction";
+    let EDIT_ACTION_REORDER = "Reorder";
+    let EDIT_ACTION_TRIM = "Trim";
+    let EDIT_ACTION_SPLIT = "Split";
+    let EDIT_ACTION_DUPLICATE = "Duplicate";
+    let EDIT_ACTION_MUSIC_SET = "Music set";
+    let EDIT_ACTION_TEXT = "Text to video";
+    let EDIT_ACTION_VOICE_OVER = "Voice over set";
+    let TEXT_POSITION = "Text position";
+    let TEXT_LENGTH = "Text length";
+    let NUMBER_OF_DUPLICATES = "numberOfDuplicates";
+    let MUSIC_TITLE = "musicTitle";
+    let VOLUME_SET = "volume";
 }
 

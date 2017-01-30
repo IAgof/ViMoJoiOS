@@ -18,12 +18,17 @@ class ShareFTPBreakingNewsInteractor: ShareActionInterface {
     }
     
     var delegate: ShareActionDelegate
+    var shareProject: Project
     
-    init(delegate:ShareActionDelegate){
+    init(delegate:ShareActionDelegate,
+         shareProject project:Project){
         self.delegate = delegate
+        self.shareProject = project
     }
     
     func share(_ sharePath: ShareVideoPath) {
+        trackShare()
+        
         let title = Utils().getStringByKeyFromShare(ShareConstants().FTP_INPUT_FILENAME_TITLE)
         let message = Utils().getStringByKeyFromShare(ShareConstants().FTP_INPUT_FILENAME_PLACEHOLDER)
         let alertController = ShareUtils().createAlertViewWithInputText(title, message: message, completion: {
@@ -36,6 +41,12 @@ class ShareFTPBreakingNewsInteractor: ShareActionInterface {
         if let controller = UIApplication.topViewController(){
             controller.present(alertController, animated: true, completion: nil)
         }
+    }
+    
+    func trackShare() {
+        ViMoJoTracker.sharedInstance.trackVideoShared("FTP2",
+                                                      videoDuration: shareProject.getDuration(),
+                                                      numberOfClips: shareProject.getVideoList().count)
     }
     
     fileprivate func createFTPUpload(_ fileData:FTPfileData){

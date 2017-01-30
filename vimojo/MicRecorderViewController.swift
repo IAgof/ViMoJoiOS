@@ -43,12 +43,10 @@ class MicRecorderViewController: ViMoJoController,PlayerViewSetter{
     
     //MARK: - Actions
     @IBAction func acceptButtonPushed(_ sender: AnyObject) {
-        //TODO: assign function on eventhandler
         eventHandler?.acceptPushed()
     }
     
     @IBAction func cancelButtonPushed(_ sender: AnyObject) {
-        //TODO: assign function on eventhandler
         eventHandler?.cancelPushed()
     }
     

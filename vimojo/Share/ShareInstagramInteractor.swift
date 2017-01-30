@@ -12,12 +12,15 @@ import VideonaProject
 
 class ShareInstagramInteractor:ShareActionInterface{
     var delegate:ShareActionDelegate
+    var shareProject: Project
     
-    init(delegate:ShareActionDelegate){
+    init(delegate:ShareActionDelegate,
+         shareProject project:Project){
         self.delegate = delegate
+        self.shareProject = project
     }
-    
-    func share(_ sharePath:ShareVideoPath){
+    func share(_ sharePath: ShareVideoPath) {
+        trackShare()
         
         let url = NSURL(fileURLWithPath: sharePath.cameraRollPath)
         GetPHAssetFromUrl().PHAssetForFileURL(url: url, completion: {
@@ -42,5 +45,11 @@ class ShareInstagramInteractor:ShareActionInterface{
                                                                 message: message)
             }
         })
+    }
+    
+    func trackShare() {
+        ViMoJoTracker.sharedInstance.trackVideoShared("Instagram",
+                                                      videoDuration: shareProject.getDuration(),
+                                                      numberOfClips: shareProject.getVideoList().count)
     }
 }

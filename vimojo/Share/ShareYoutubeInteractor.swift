@@ -15,14 +15,18 @@ class ShareYoutubeInteractor: ShareActionInterface{
     var viewControllerOnTop:UIViewController?
     var mediaPath:String?
     var delegate:ShareActionDelegate
+    var shareProject: Project
     
-    init(delegate:ShareActionDelegate){
+    init(delegate:ShareActionDelegate,
+         shareProject project:Project){
         self.delegate = delegate
+        self.shareProject = project
         
         viewControllerOnTop = UIApplication.topViewController()
     }
+
     
-    func share(_ sharePath:ShareVideoPath){
+    func share(_ sharePath: ShareVideoPath) {
         let youtubeScope = "https://www.googleapis.com/auth/youtube.upload"
         let youtubeScope2 = "https://www.googleapis.com/auth/youtube"
         let youtubeScope3 = "https://www.googleapis.com/auth/youtubepartner"
@@ -36,11 +40,17 @@ class ShareYoutubeInteractor: ShareActionInterface{
         mediaPath = sharePath.documentsPath
     }
     
+    func trackShare() {
+        ViMoJoTracker.sharedInstance.trackVideoShared("Youtube",
+                                                      videoDuration: shareProject.getDuration(),
+                                                      numberOfClips: shareProject.getVideoList().count)
+    }
     
     
     //MARK: - Youtube upload
     func postVideoToYouTube( _ token:String, callback: @escaping (Bool) -> Void){
-        
+        trackShare()
+
         let headers = ["Authorization": "Bearer \(token)"]
         
         let title = "Vimojo-\(Utils().giveMeTimeNow())"

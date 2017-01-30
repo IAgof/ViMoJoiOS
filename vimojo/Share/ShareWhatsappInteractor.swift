@@ -12,21 +12,25 @@ import VideonaProject
 
 class ShareWhatsappInteractor: ShareActionInterface {
     var delegate:ShareActionDelegate
+    var shareProject: Project
 
     var documentationInteractionController:UIDocumentInteractionController!
     
-    init(delegate:ShareActionDelegate){
+    init(delegate:ShareActionDelegate,
+         shareProject project:Project){
         self.delegate = delegate
+        self.shareProject = project
     }
     
-    func share(_ sharePath:ShareVideoPath){
+    func share(_ sharePath: ShareVideoPath) {
         var debug = false
         #if DEBUG
             debug = true
         #endif
         //NSURL(string: urlString!) {
         if (UIApplication.shared.canOpenURL(URL(string: "whatsapp://app")!)) || debug {
-            
+            trackShare()
+
             let movie:URL = URL(fileURLWithPath: sharePath.documentsPath)
             guard let viewController = UIApplication.topViewController() else{return}
             
@@ -58,5 +62,11 @@ class ShareWhatsappInteractor: ShareActionInterface {
             ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Whatsapp",
                                                             message: message)
         }
+    }
+    
+    func trackShare() {
+        ViMoJoTracker.sharedInstance.trackVideoShared("Whatsapp",
+                                                      videoDuration: shareProject.getDuration(),
+                                                      numberOfClips: shareProject.getVideoList().count)
     }
 }

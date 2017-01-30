@@ -26,11 +26,6 @@ class ViMoJoTracker {
     }
 
     func sendTimeInActivity(_ controllerName:String) {
-        Utils().debugLog("Sending AnalyticsConstants().TIME_IN_ACTIVITY")
-        //NOT WORKING -- falta el comienzo time_event para arrancar el contador
-
-        Utils().debugLog("what class is \(controllerName)")
-
         let viewProperties = [AnalyticsConstants().ACTIVITY:controllerName]
         mixpanel.track(AnalyticsConstants().TIME_IN_ACTIVITY, properties: viewProperties)
         mixpanel.flush()
@@ -72,7 +67,6 @@ class ViMoJoTracker {
     func trackMailTraits() {
         Utils().debugLog("trackMailTraits")
         
-        
         let userProfileProperties = [AnalyticsConstants().ACCOUNT_MAIL:getPreferenceStringSaved(SettingsConstants().SETTINGS_MAIL)] as [AnyHashable: Any]
         
         mixpanel.people.set(userProfileProperties)
@@ -101,7 +95,6 @@ class ViMoJoTracker {
                                     isRecording:Bool,
                                     combined:Bool,
                                     filtersCombined:[String]) {
-        //JSON properties
         let userInteractionsProperties =
             [
                 AnalyticsConstants().TYPE: type,
@@ -147,20 +140,17 @@ class ViMoJoTracker {
         
         mixpanel.identify(Utils().udid)
         
-        guard let resolution = project?.getProfile().getResolution() else {return}
-
         //JSON properties
         let socialNetworkProperties =
             [
                 AnalyticsConstants().SOCIAL_NETWORK : socialNetwork,
                 AnalyticsConstants().VIDEO_LENGTH: videoDuration,
-                AnalyticsConstants().RESOLUTION: resolution,
+                AnalyticsConstants().RESOLUTION: getResolutionFromProject(),
                 AnalyticsConstants().NUMBER_OF_CLIPS: numberOfClips,
                 AnalyticsConstants().TOTAL_VIDEOS_SHARED: getPreferenceIntSaved(ConfigPreferences().TOTAL_VIDEOS_SHARED),
                 AnalyticsConstants().DOUBLE_HOUR_AND_MINUTES: Utils().getDoubleHourAndMinutes(),
                 ] as [String : Any]
         mixpanel.track(AnalyticsConstants().VIDEO_SHARED, properties: socialNetworkProperties as [AnyHashable: Any])
-        
         mixpanel.people.increment(AnalyticsConstants().TOTAL_VIDEOS_SHARED,by: NSNumber.init(value: Int32(1) as Int32))
         mixpanel.people.set(AnalyticsConstants().LAST_VIDEO_SHARED,to: Utils().giveMeTimeNow())
     }
@@ -177,8 +167,6 @@ class ViMoJoTracker {
         }
         
         numPreviousVideosShared += 1
-        
-        //JSON properties
         
         let updateSuperProperties = [AnalyticsConstants().TOTAL_VIDEOS_SHARED: numPreviousVideosShared]
         
@@ -198,8 +186,6 @@ class ViMoJoTracker {
         
         numPreviousVideosRecorded += 1
         
-        //JSON properties
-        
         let totalVideoRecordedSuperProperty = [AnalyticsConstants().TOTAL_VIDEOS_RECORDED: numPreviousVideosRecorded]
         
         mixpanel.registerSuperProperties(totalVideoRecordedSuperProperty)
@@ -208,17 +194,15 @@ class ViMoJoTracker {
     func sendVideoRecordedTracking(_ videoLenght:Double) {
         
         let totalVideosRecorded = getPreferenceIntSaved(ConfigPreferences().TOTAL_VIDEOS_RECORDED)
-        guard let resolution = project?.getProfile().getResolution() else {return}
-        
-        //JSON properties
+
         let videoRecordedProperties =
             [
                 AnalyticsConstants().VIDEO_LENGTH: videoLenght,
-                AnalyticsConstants().RESOLUTION: resolution,
+                AnalyticsConstants().RESOLUTION: getResolutionFromProject(),
                 AnalyticsConstants().TOTAL_VIDEOS_RECORDED: totalVideosRecorded,
                 AnalyticsConstants().DOUBLE_HOUR_AND_MINUTES: Utils().getDoubleHourAndMinutes()
         ] as [String : Any]
-        mixpanel.track(AnalyticsConstants().VIDEO_RECORDED, properties: videoRecordedProperties as [AnyHashable: Any])
+        mixpanel.track(AnalyticsConstants().VIDEO_RECORDED, properties: videoRecordedProperties)
         self.updateUserProfileProperties()
     }
     
@@ -226,16 +210,15 @@ class ViMoJoTracker {
     func sendExportedVideoMetadataTracking(_ videoLenght:Double,
                                            numberOfClips:Int) {
         
-        guard let resolution = project?.getProfile().getResolution() else {return}
 
         let videoRecordedProperties =
             [
                 AnalyticsConstants().VIDEO_LENGTH: videoLenght,
-                AnalyticsConstants().RESOLUTION: resolution,
+                AnalyticsConstants().RESOLUTION: getResolutionFromProject(),
                 AnalyticsConstants().NUMBER_OF_CLIPS:numberOfClips ,
                 AnalyticsConstants().DOUBLE_HOUR_AND_MINUTES: Utils().getDoubleHourAndMinutes(),
                 ] as [String : Any]
-        mixpanel.track(AnalyticsConstants().VIDEO_EXPORTED, properties: videoRecordedProperties as [AnyHashable: Any])
+        mixpanel.track(AnalyticsConstants().VIDEO_EXPORTED, properties: videoRecordedProperties)
     }
     
     func updateUserProfileProperties() {
@@ -243,88 +226,104 @@ class ViMoJoTracker {
         mixpanel.identify(Utils().udid)
         
         guard let quality = project?.getProfile().getQuality() else {return}
-        guard let resolution = project?.getProfile().getResolution() else {return}
 
         //JSON properties
         let userProfileProperties =
             [
-                AnalyticsConstants().RESOLUTION: resolution,
+                AnalyticsConstants().RESOLUTION: getResolutionFromProject(),
                 AnalyticsConstants().QUALITY: quality,
                 ]
         
         mixpanel.people.set(userProfileProperties)
         mixpanel.people.increment(AnalyticsConstants().TOTAL_VIDEOS_RECORDED,by: NSNumber.init(value: Int32(1) as Int32))
         mixpanel.people.set([AnalyticsConstants().LAST_VIDEO_RECORDED:Utils().giveMeTimeNow()])
-        
     }
     
     //MARK: - Editor
     func trackClipsReordered() {
-//        let project = project?
-//        
-//        let eventProperties =
-//            [
-//                AnalyticsConstants().EDIT_ACTION: AnalyticsConstants().EDIT_ACTION_REORDER,
-//                AnalyticsConstants().NUMBER_OF_CLIPS: project.numberOfClips(),
-//                AnalyticsConstants().VIDEO_LENGTH: project.getDuration()
-//                ]
-//        
-//        mixpanel.track(AnalyticsConstants().VIDEO_EDITED, properties: eventProperties as [NSObject : AnyObject])
+        var eventProperties =
+            [
+                AnalyticsConstants().EDIT_ACTION: AnalyticsConstants().EDIT_ACTION_REORDER
+                ] as [String : Any]
+        addProjectEventProperties(objectJSON: &eventProperties)
+
+        mixpanel.track(AnalyticsConstants().VIDEO_EDITED, properties: eventProperties)
     }
     
     func trackClipTrimmed() {
-//        let project = project?
-//        
-//        let eventProperties =
-//            [
-//                AnalyticsConstants().EDIT_ACTION: AnalyticsConstants().EDIT_ACTION_TRIM,
-//                AnalyticsConstants().NUMBER_OF_CLIPS: project.numberOfClips(),
-//                AnalyticsConstants().VIDEO_LENGTH: project.getDuration()
-//        ]
-//        
-//        mixpanel.track(AnalyticsConstants().VIDEO_EDITED, properties: eventProperties as [NSObject : AnyObject])
+        var eventProperties =
+            [
+                AnalyticsConstants().EDIT_ACTION: AnalyticsConstants().EDIT_ACTION_TRIM
+        ] as [String : Any]
+        addProjectEventProperties(objectJSON: &eventProperties)
+
+        mixpanel.track(AnalyticsConstants().VIDEO_EDITED, properties: eventProperties )
     }
 
     func trackClipSplitted() {
-//        let project = project?
-//
-//        let eventProperties =
-//            [
-//                AnalyticsConstants().EDIT_ACTION: AnalyticsConstants().EDIT_ACTION_SPLIT,
-//                AnalyticsConstants().NUMBER_OF_CLIPS: project.numberOfClips(),
-//                AnalyticsConstants().VIDEO_LENGTH: project.getDuration()
-//        ]
-//        
-//        mixpanel.track(AnalyticsConstants().VIDEO_EDITED, properties: eventProperties as [NSObject : AnyObject])
+        var eventProperties =
+            [
+                AnalyticsConstants().EDIT_ACTION: AnalyticsConstants().EDIT_ACTION_SPLIT
+                ] as [String : Any]
+        addProjectEventProperties(objectJSON: &eventProperties)
+
+        mixpanel.track(AnalyticsConstants().VIDEO_EDITED, properties: eventProperties)
     }
 
     func trackClipDuplicated(_ nDuplicates:Int) {
-//        let project = project?
-//
-//        let eventProperties =
-//            [
-//                AnalyticsConstants().EDIT_ACTION: AnalyticsConstants().EDIT_ACTION_DUPLICATE,
-//                AnalyticsConstants().NUMBER_OF_DUPLICATES: nDuplicates,
-//                AnalyticsConstants().VIDEO_LENGTH: project.getDuration()
-//        ]
-//        
-//        mixpanel.track(AnalyticsConstants().VIDEO_EDITED, properties: eventProperties as [NSObject : AnyObject])
+        var eventProperties =
+            [
+                AnalyticsConstants().EDIT_ACTION: AnalyticsConstants().EDIT_ACTION_DUPLICATE,
+                AnalyticsConstants().NUMBER_OF_DUPLICATES: nDuplicates
+        ] as [String : Any]
+        addProjectEventProperties(objectJSON: &eventProperties)
+        mixpanel.track(AnalyticsConstants().VIDEO_EDITED, properties: eventProperties)
     }
     
     func trackMusicSet() {
-//        let project = project?
-//
-//        let musicTitle = project.getMusic().getTitle();
-//
-//        let eventProperties =
-//            [
-//                AnalyticsConstants().EDIT_ACTION: AnalyticsConstants().EDIT_ACTION_MUSIC_SET,
-//                AnalyticsConstants().NUMBER_OF_CLIPS: project.numberOfClips(),
-//                AnalyticsConstants().VIDEO_LENGTH: project.getDuration(),
-//                AnalyticsConstants().MUSIC_TITLE: musicTitle
-//        ]
-//        
-//        mixpanel.track(AnalyticsConstants().VIDEO_EDITED, properties: eventProperties as [NSObject : AnyObject])
+        guard let project = project else{return}
+
+        let musicTitle = project.getMusic().getTitle();
+
+        var eventProperties =
+            [
+                AnalyticsConstants().EDIT_ACTION: AnalyticsConstants().EDIT_ACTION_MUSIC_SET,
+                AnalyticsConstants().MUSIC_TITLE: musicTitle
+        ] as [String : Any]
+        addProjectEventProperties(objectJSON: &eventProperties)
+        mixpanel.track(AnalyticsConstants().VIDEO_EDITED, properties: eventProperties)
+    }
+    
+    func trackClipAddedText(position:String,
+                            textLength:Int) {
+        var eventProperties =
+            [
+                AnalyticsConstants().EDIT_ACTION: AnalyticsConstants().EDIT_ACTION_TEXT,
+                AnalyticsConstants().TEXT_POSITION: position,
+                AnalyticsConstants().TEXT_LENGTH: textLength
+                ] as [String : Any]
+        addProjectEventProperties(objectJSON: &eventProperties)
+        mixpanel.track(AnalyticsConstants().VIDEO_EDITED, properties: eventProperties)
+    }
+    
+    func trackVoiceOverAdded() {
+        guard let project = project else{return}
+        guard let volume = project.voiceOver.first?.audioLevel else{return}
+        
+        var eventProperties =
+            [
+                AnalyticsConstants().EDIT_ACTION: AnalyticsConstants().EDIT_ACTION_VOICE_OVER,
+                AnalyticsConstants().VOLUME_SET: volume
+                ] as [String : Any]
+        addProjectEventProperties(objectJSON: &eventProperties)
+        mixpanel.track(AnalyticsConstants().VIDEO_EDITED, properties: eventProperties)
+    }
+    
+    func addProjectEventProperties(objectJSON:inout [String : Any]){
+        guard let project = project else{return}
+
+        objectJSON[AnalyticsConstants().NUMBER_OF_CLIPS] = project.numberOfClips()
+        objectJSON[AnalyticsConstants().VIDEO_LENGTH] = project.getDuration()
     }
     
     //MARK: - Google Analytics
@@ -357,6 +356,10 @@ class ViMoJoTracker {
         return preferenceSaved
     }
     
+    func getResolutionFromProject()->String{
+        guard let resolution = project?.getProfile().getResolution() else {return ""}
+        return AVResolutionParse().parseResolutionToView(resolution)
+    }
     //MARK: - Update params
     func updateTotalVideosRecorded() {
         var numTotalVideosRecorded = preferences.integer(forKey: ConfigPreferences().TOTAL_VIDEOS_RECORDED)
@@ -369,5 +372,68 @@ class ViMoJoTracker {
         var totalVideosShared = preferences.integer(forKey: ConfigPreferences().TOTAL_VIDEOS_SHARED)
         totalVideosShared += 1
         preferences.set(totalVideosShared, forKey: ConfigPreferences().TOTAL_VIDEOS_SHARED)
+    }
+    
+    //MARK: - Start app
+    func sendStartupAppTracking(initState state:String) {
+        let initAppProperties = [AnalyticsConstants().TYPE:AnalyticsConstants().TYPE_ORGANIC,
+                                 AnalyticsConstants().INIT_STATE:state,
+                                 AnalyticsConstants().DOUBLE_HOUR_AND_MINUTES: Utils().getDoubleHourAndMinutes()] as [String : Any]
+        mixpanel.track(AnalyticsConstants().APP_STARTED, properties: initAppProperties)
+    }
+    
+    func trackAppStartupProperties(_ state:Bool) {
+        Utils().debugLog("trackAppStartupProperties")
+        mixpanel.identify(Utils().udid)
+        
+        var appUseCount:Int
+        let properties = mixpanel.currentSuperProperties()
+        if let count = properties[AnalyticsConstants().APP_USE_COUNT]{
+            appUseCount = count as! Int
+        }else{
+            appUseCount = 0
+        }
+        appUseCount += 1
+        
+        Utils().debugLog("App USE COUNT \(appUseCount)")
+        
+        let appStartupSuperProperties = [AnalyticsConstants().APP_USE_COUNT:NSNumber.init(value: Int32(appUseCount) as Int32),
+                                         AnalyticsConstants().FIRST_TIME:state,
+                                         AnalyticsConstants().APP: AnalyticsConstants().APP_NAME] as [String : Any]
+        mixpanel.registerSuperProperties(appStartupSuperProperties as [AnyHashable: Any])
+    }
+    
+    func trackUserProfile() {
+        Utils().debugLog("The user id is = \(Utils().udid)")
+        
+        mixpanel.identify(Utils().udid)
+        let userProfileProperties = [AnalyticsConstants().CREATED:Utils().giveMeTimeNow()]
+        mixpanel.people.setOnce(userProfileProperties)
+    }
+    
+    func trackUserProfileGeneralTraits() {
+        mixpanel.identify(Utils().udid)
+        
+        Utils().debugLog("trackUserProfileGeneralTraits")
+        
+        let increment:NSNumber = NSNumber.init(value: 1 as Int)
+        Utils().debugLog("App USE COUNT Increment by: \(increment)")
+        
+        mixpanel.people.increment(AnalyticsConstants().APP_USE_COUNT,by: increment)
+        
+        let locale = Locale.preferredLanguages[0]
+        
+        //        let lang = NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode)
+        let langISO = (Locale.current as NSLocale).iso639_2LanguageCode()
+        let userProfileProperties = [AnalyticsConstants().TYPE:AnalyticsConstants().USER_TYPE_FREE,
+                                     AnalyticsConstants().LOCALE:locale,
+                                     AnalyticsConstants().LANG: langISO!] as [AnyHashable: Any]
+        
+        mixpanel.people.set(userProfileProperties)
+    }
+    
+    func trackCreatedSuperProperty() {
+        let createdSuperProperty = [AnalyticsConstants().CREATED: Utils().giveMeTimeNow()]
+        mixpanel.registerSuperPropertiesOnce(createdSuperProperty)
     }
 }
