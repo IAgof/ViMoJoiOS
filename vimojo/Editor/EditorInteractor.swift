@@ -10,7 +10,7 @@ import Foundation
 import AssetsLibrary
 import AVFoundation
 import VideonaProject
-
+import Photos
 
 class EditorInteractor: NSObject,EditorInteractorInterface {
     
@@ -28,11 +28,15 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
     }
     
     func getListData(){
+        updateListDataParams()
+        self.getVideoListToView()
+    }
+    
+    func updateListDataParams(){
         guard let videosList = project?.getVideoList() else{return}
         
         self.videosList = videosList
         self.updateProjectForSplitAndDuplicateChanges()
-        self.getVideoList() 
         self.getStopTimeList()
     }
     
@@ -60,27 +64,23 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         let layer = GetActualProjectTextCALayerAnimationUseCase().getCALayerAnimation(project: actualProject)
         videonaComposition.layerAnimation = layer
         
-        delegate?.setComposition(videonaComposition)
+        DispatchQueue.main.async {
+            self.delegate?.setComposition(videonaComposition)
+        }
     }
     
-    func getVideoList(){
-        var videoList:[EditorViewModel] = []
+    
+    func getVideoListToView(){
+        var videoListToView:[EditorViewModel] = []
         
         for video in self.videosList{
-
-            ThumbnailListInteractor(videoURL: video.videoURL,
-                diameter: Utils().thumbnailEditorListDiameter).getThumbnailImage({
-                    thumb in
-                    
-                    let timeToString = self.hourToString(video.getStopTime() - video.getStartTime())
-                    let newVideo = EditorViewModel(
-                        image: thumb,
-                        timeText: timeToString,
-                        positionText: "\(video.getPosition())")
-                    videoList.append(newVideo)
-                })
+            let timeToString = self.hourToString(video.getStopTime() - video.getStartTime())
+            videoListToView.append(EditorViewModel(
+                phAsset: video.videoPHAsset,
+                timeText: timeToString,
+                positionText: "\(video.getPosition())"))
         }
-        delegate?.setVideoList(videoList)
+        self.delegate?.setVideoList(videoListToView)
     }
     
     func hourToString(_ time:Double) -> String {
@@ -101,15 +101,7 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         
         delegate?.setStopTimeList(stopTimeList)
     }
-    
-    func updateNewVideoValues(){
-        guard let videoList = project?.getVideoList() else{return}
-        
-        videoList.last?.mediaRecordedFinished()
-        
-        delegate?.updateViewList()
-    }
-    
+
     func getNewTitle() -> String {
         return "\(Utils().giveMeTimeNow())videonaClip.m4v"
     }
@@ -143,21 +135,6 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         return Float(totalTimeComposition)
     }
     
-    func reloadPositionNumberAfterMovement() {
-        guard let videoList = project?.getVideoList() else{return}
-        guard let actualProject = project else{return}
-
-        if !videoList.isEmpty {
-            for videoPosition in 1...(videoList.count) {
-                videoList[videoPosition - 1].setPosition(videoPosition)
-            }
-            
-            actualProject.setVideoList(videoList)            
-            actualProject.updateModificationDate()
-            ProjectRealmRepository().update(item: actualProject)
-        }
-    }
-    
     func removeVideo(_ index:Int){
         guard var videoList = project?.getVideoList() else{return}
         
@@ -167,6 +144,8 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         actualProject.setVideoList(videoList)
         
         actualProject.updateModificationDate()
+        self.getListData()
+        self.getComposition()
         ProjectRealmRepository().update(item: actualProject)
     }
     
@@ -177,12 +156,18 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
     func moveClipToPosition(_ sourcePosition:Int,
                             destionationPosition:Int){
         guard var videoList = project?.getVideoList() else{return}
-        
+        guard let actualProject = project else{return}
+
         let videoToMove = videoList[sourcePosition]
         videoList.remove(at: sourcePosition)
         videoList.insert(videoToMove, at: destionationPosition)
         
-        project?.setVideoList(videoList)
+        actualProject.setVideoList(videoList)
+        actualProject.reorderVideoList()
+        
+        self.getComposition()
+        updateListDataParams()
+        ProjectRealmRepository().update(item: actualProject)
     }
     
     func getNumberOfClips() -> Int {

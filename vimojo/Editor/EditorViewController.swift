@@ -11,6 +11,7 @@ import MobileCoreServices
 import VideonaPlayer
 import VideonaRangeSlider
 import VideonaProject
+import Photos
 
 class EditorViewController: EditingRoomItemController,EditorPresenterDelegate,FullScreenWireframeDelegate,
 UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UINavigationControllerDelegate{
@@ -27,7 +28,9 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     
     var videoList: [EditorViewModel] = []{
         didSet {
+            DispatchQueue.main.async {
                 self.thumbnailClipsCollectionView.reloadData()
+            }
         }
     }
     
@@ -103,20 +106,32 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifierCell, for: indexPath) as! EditorClipsCell
+        let indexItem = indexPath.item
         
-        
-        if  videoList.indices.contains(indexPath.item){
-            cell.thumbnailImageView.image = videoList[indexPath.item].image
-            cell.timeLabel.text = videoList[indexPath.item].timeText
-            cell.positionNumberLabel.text = videoList[indexPath.item].positionText
+        if  videoList.indices.contains(indexItem){
+            PHImageManager.default().requestImage(for: videoList[indexItem].phAsset,
+                                                  targetSize: cell.thumbnailImageView.size,
+                                                  contentMode: .aspectFill,
+                                                  options: nil,
+                                                  resultHandler: {(result, info)in
+                                                    if let image = result {
+                                                        DispatchQueue.main.async {
+                                                            cell.thumbnailImageView.image = image
+                                                        }
+                                                    }
+            })
+            
+            cell.timeLabel.text = videoList[indexItem].timeText
+            cell.positionNumberLabel.text = "\(indexItem + 1)"
         }
         
-        eventHandler?.cellForItemAtIndexPath(indexPath)
-    
-        cell.removeClipButton.tag = indexPath.row
+        let selectedBackgroundView = UIView()
+        selectedBackgroundView.backgroundColor = configuration.mainColor
+        cell.selectedBackgroundView = selectedBackgroundView
         
+        cell.removeClipButton.tag = indexItem
         cell.removeClipButton.addTarget(self, action: #selector(EditorViewController.pushRemoveVideoClip(_:)), for: UIControlEvents.touchUpInside)
-
+        
         return cell
     }
     
@@ -125,7 +140,6 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
                         layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAt indexPath: IndexPath) -> CGSize {
        
-//        let size = Utils().thumbnailEditorListDiameter
         let size = (collectionView.frame.width/4) - 4
         
         return CGSize(width: size,
@@ -134,8 +148,6 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     
     // MARK: - UICollectionViewDelegate protocol
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // handle tap events
-        
         eventHandler?.didSelectItemAtIndexPath(indexPath)
     }
     
@@ -143,13 +155,8 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     func collectionView(_ collectionView: UICollectionView,
                         moveItemAt sourceIndexPath: IndexPath,
                                             to destinationIndexPath: IndexPath) {
-        // move your data order
-        
-        //        Utils().debugLog("Move item at index \n sourceIndexPath: \(sourceIndexPath.item) \n destinationIndexPath \(destinationIndexPath.item)")
-        
         eventHandler?.moveItemAtIndexPath(sourceIndexPath,
                                           toIndexPath: destinationIndexPath)
-        
     }
     
     //MARK: - Actions
@@ -194,18 +201,16 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     
     //MARK: - Interface
     func deselectCell(_ indexPath:IndexPath) {
-        if (thumbnailClipsCollectionView.cellForItem(at: indexPath) != nil){
-            let lastCell = thumbnailClipsCollectionView.cellForItem(at: indexPath) as! EditorClipsCell
-            lastCell.isClipSelected = false
+        if let cell = (thumbnailClipsCollectionView.cellForItem(at: indexPath)){
+            cell.isSelected = false
+            
         }
     }
     
     func selectCell(_ indexPath:IndexPath) {
         // Select cell
         if let cell = (thumbnailClipsCollectionView.cellForItem(at: indexPath)){
-            let editorCell = cell as! EditorClipsCell
-            
-            editorCell.isClipSelected = true
+            cell.isSelected = true
         }
     }
     
