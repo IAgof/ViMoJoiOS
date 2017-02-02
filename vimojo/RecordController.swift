@@ -129,6 +129,9 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         super.viewWillDisappear(animated)
         eventHandler?.viewWillDisappear()
         
+        let value = UIInterfaceOrientation.landscapeRight.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
+        
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
