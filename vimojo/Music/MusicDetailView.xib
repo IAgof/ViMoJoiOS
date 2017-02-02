@@ -66,7 +66,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Happy and light music featuring ukulele, finger snapping, pizzicato strings and drums." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eED-nV-dui">
-                    <rect key="frame" x="138" y="69" width="154" height="72"/>
+                    <rect key="frame" x="138" y="83.5" width="154" height="72"/>
                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                     <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -91,6 +91,12 @@
                         <constraint firstItem="s81-bV-bEi" firstAttribute="centerY" secondItem="ImI-Xi-DLM" secondAttribute="centerY" id="zpb-2j-7Fj"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration: 00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Azy-OS-2lU">
+                    <rect key="frame" x="138" y="65" width="90" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -99,6 +105,8 @@
                 <constraint firstItem="Fkh-td-DDL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Akw-qV-hu7">
                     <variation key="heightClass=regular-widthClass=regular" constant="40"/>
                 </constraint>
+                <constraint firstItem="eED-nV-dui" firstAttribute="top" secondItem="Azy-OS-2lU" secondAttribute="bottom" constant="4" id="H8m-OB-Ecu"/>
+                <constraint firstItem="Azy-OS-2lU" firstAttribute="leading" secondItem="6La-Tv-Yr1" secondAttribute="leading" id="KX8-IP-ddK"/>
                 <constraint firstAttribute="trailing" secondItem="JuB-TN-Waf" secondAttribute="trailing" constant="8" id="KXS-kA-hsm">
                     <variation key="heightClass=regular-widthClass=regular" constant="40"/>
                 </constraint>
@@ -112,8 +120,8 @@
                 <constraint firstItem="eED-nV-dui" firstAttribute="leading" secondItem="6La-Tv-Yr1" secondAttribute="leading" id="cS3-tw-xMD"/>
                 <constraint firstItem="84S-zW-oLf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="hXD-mk-ScU"/>
                 <constraint firstItem="6La-Tv-Yr1" firstAttribute="leading" secondItem="84S-zW-oLf" secondAttribute="trailing" constant="12" id="i3a-gB-iUJ"/>
+                <constraint firstItem="Azy-OS-2lU" firstAttribute="top" secondItem="6La-Tv-Yr1" secondAttribute="bottom" constant="4" id="ktb-uG-bxQ"/>
                 <constraint firstItem="eED-nV-dui" firstAttribute="top" secondItem="6La-Tv-Yr1" secondAttribute="bottom" constant="7" id="mP1-GQ-oXk"/>
-                <constraint firstItem="eED-nV-dui" firstAttribute="top" secondItem="6La-Tv-Yr1" secondAttribute="bottom" constant="8" id="ndS-Ex-48r"/>
                 <constraint firstItem="PiH-7b-pqe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="84S-zW-oLf" secondAttribute="bottom" constant="8" id="pOM-6C-6Bm"/>
                 <constraint firstItem="84S-zW-oLf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" priority="300" constant="40" id="pnw-6d-6UK"/>
                 <constraint firstItem="JuB-TN-Waf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="84S-zW-oLf" secondAttribute="bottom" constant="25" id="vm3-sV-MhC"/>
@@ -137,6 +145,7 @@
                 <outlet property="acceptButton" destination="JuB-TN-Waf" id="QyU-cr-5UA"/>
                 <outlet property="authorLabel" destination="eED-nV-dui" id="L5G-8P-9xz"/>
                 <outlet property="cancelButton" destination="Fkh-td-DDL" id="rKA-0k-KkE"/>
+                <outlet property="durationLabel" destination="Azy-OS-2lU" id="DPy-M8-DKF"/>
                 <outlet property="mixMusicAudioSlider" destination="s81-bV-bEi" id="Gm5-Gz-a1u"/>
                 <outlet property="musicImage" destination="84S-zW-oLf" id="JX1-eC-uOT"/>
                 <outlet property="removeButton" destination="PiH-7b-pqe" id="cbA-WW-4ll"/>

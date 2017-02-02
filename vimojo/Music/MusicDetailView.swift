@@ -31,6 +31,7 @@ class MusicDetailView: UIView,MusicDetailInterface {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var mixMusicAudioSlider: UISlider!
     @IBOutlet weak var sliderContainerView: UIView!
+    @IBOutlet weak var durationLabel: UILabel!
     
     //MARK: - Variables
     var delegate:MusicDetailViewDelegate?
@@ -46,6 +47,7 @@ class MusicDetailView: UIView,MusicDetailInterface {
         musicImage.image = detail.image
         titleLabel.text = detail.title
         authorLabel.text = detail.author
+        durationLabel.text = detail.duration
         
         titleLabel.adjustsFontSizeToFitWidth = true
         authorLabel.adjustsFontSizeToFitWidth = true
