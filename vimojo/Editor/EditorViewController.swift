@@ -109,17 +109,17 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         let indexItem = indexPath.item
         
         if  videoList.indices.contains(indexItem){
-            PHImageManager.default().requestImage(for: videoList[indexItem].phAsset,
-                                                  targetSize: cell.thumbnailImageView.size,
-                                                  contentMode: .aspectFill,
-                                                  options: nil,
-                                                  resultHandler: {(result, info)in
-                                                    if let image = result {
-                                                        DispatchQueue.main.async {
-                                                            cell.thumbnailImageView.image = image
+            DispatchQueue.main.async{
+                PHImageManager.default().requestImage(for: self.videoList[indexItem].phAsset,
+                                                      targetSize: cell.thumbnailImageView.size,
+                                                      contentMode: .aspectFill,
+                                                      options: nil,
+                                                      resultHandler: {(result, info)in
+                                                        if let image = result {
+                                                                cell.thumbnailImageView.image = image
                                                         }
-                                                    }
-            })
+                })
+            }
             
             cell.timeLabel.text = videoList[indexItem].timeText
             cell.positionNumberLabel.text = "\(indexItem + 1)"

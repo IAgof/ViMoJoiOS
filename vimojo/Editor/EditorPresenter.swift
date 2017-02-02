@@ -248,6 +248,8 @@ extension EditorPresenter:EditorPresenterInterface{
     
     func removeVideoClipAfterConfirmation() {
         interactor?.removeVideo(videoToRemove)
+        let prevItemSelected = max(videoToRemove - 1, 0)
+        selectedCellIndexPath = IndexPath(item: prevItemSelected, section: 0)
         
         if interactor?.getNumberOfClips() == 0{
             wireframe?.presentGoToRecordOrGallery()
