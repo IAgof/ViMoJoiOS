@@ -54,7 +54,7 @@ class AppDependencies {
 
     func configureDependencies(){
         
-        project =  CreateDefaultProjectUseCase().loadOrCreateProject()
+        project =  CreateDefaultProjectUseCase.loadOrCreateProject()
         
         guard var project = self.project else{
             print("Cant load project in configure dependencies")
@@ -342,6 +342,7 @@ class AppDependencies {
         goToRecordOrGalleryWireframe.galleryWireframe = galleryWireframe
         goToRecordOrGalleryWireframe.recordWireframe = recordWireframe
         goToRecordOrGalleryWireframe.drawerWireframe = drawerWireframe
+        goToRecordOrGalleryWireframe.project = project
     }
         
     func installRecordToRootViewControllerIntoWindow(_ window: UIWindow){

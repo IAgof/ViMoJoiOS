@@ -79,6 +79,9 @@ class ProjectListInteractor: ProjectListInteractorInterface {
     func editProjectAction(projectNumber: Int) {
         if self.projectList.indices.contains(projectNumber){
             let projectToLoad = projectList[projectNumber]
+            projectToLoad.updateModificationDate()
+            ProjectRealmRepository().update(item: projectToLoad)
+            
             ReloadProjectWithProjectAction().reload(actualProject: project,
                                                     newProject: projectToLoad)
             
@@ -97,6 +100,9 @@ class ProjectListInteractor: ProjectListInteractorInterface {
     func shareProjectAction(projectNumber: Int) {
         if self.projectList.indices.contains(projectNumber){
             let projectToLoad = projectList[projectNumber]
+            projectToLoad.updateModificationDate()
+            ProjectRealmRepository().update(item: projectToLoad)
+            
             ReloadProjectWithProjectAction().reload(actualProject: project,
                                                     newProject: projectToLoad)
             
