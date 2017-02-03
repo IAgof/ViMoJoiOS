@@ -12,7 +12,13 @@ class ProjectListViewController:ViMoJoController{
     var eventHandler: ProjectListPresenterInterface?
     let reuseIdentifierCell = "projectListCell"
   
-    var items :[ProjectListViewModel] = []
+    var items :[ProjectListViewModel] = []{
+        didSet{
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
 
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -28,10 +34,6 @@ class ProjectListViewController:ViMoJoController{
 }
 
 extension ProjectListViewController:ProjectListPresenterDelegate{
-    func reloadTableData() {
-        tableView.reloadData()
-    }
-        
     func setItems(_ items: [ProjectListViewModel]) {
         self.items = items
     }
@@ -56,7 +58,10 @@ extension ProjectListViewController:UITableViewDataSource{
         cell.titleLabel.text = item.title
         cell.dateLabel.text = item.date
         cell.durationLabel.text = item.duration
-        cell.thumbnailImageView.image = item.thumbImage
+        
+        DispatchQueue.main.async {
+            cell.thumbnailImageView.image = item.getVideoThumbnail()
+        }
         
         cell.editProjectButton.addTarget(self, action: #selector(pushEditProjectButton(sender:)), for: UIControlEvents.touchUpInside)
         cell.removeProjectButton.addTarget(self, action: #selector(pushRemoveProjectButton(sender:)), for: UIControlEvents.touchUpInside)

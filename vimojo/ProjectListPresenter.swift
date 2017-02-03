@@ -51,9 +51,16 @@ class ProjectListPresenter:NSObject,ProjectListPresenterInterface{
 }
 
 extension ProjectListPresenter:ProjectListInteractorDelegate{
-    func setItemsView(_ items: [ProjectListViewModel]) {
-        delegate?.setItems(items)
-        delegate?.reloadTableData()
+    func setItemsView(_ items: [ProjectFound]) {
+        var viewModelList:[ProjectListViewModel] = []
+       
+        for projectFound in items{
+           viewModelList.append(ProjectListViewModel(videoURL: projectFound.videoURL,
+                                 title: projectFound.title,
+                                 date: projectFound.date,
+                                 duration: projectFound.duration))
+        }
+        delegate?.setItems(viewModelList)
     }
     
     func editProjectFinished() {
