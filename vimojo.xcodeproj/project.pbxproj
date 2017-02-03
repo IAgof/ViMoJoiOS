@@ -99,6 +99,299 @@
 		A91B8C981DE8845D0040CA57 /* CheckPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B8C971DE8845D0040CA57 /* CheckPermission.swift */; };
 		A91B8C9A1DE885790040CA57 /* CheckCameraPermissionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B8C991DE885790040CA57 /* CheckCameraPermissionUseCase.swift */; };
 		A91B8C9C1DE8864D0040CA57 /* CheckPhotoRollPermissionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B8C9B1DE8864D0040CA57 /* CheckPhotoRollPermissionUseCase.swift */; };
+		A91BDB9A1E4378E200BE4F1C /* SettingsTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A903863F1DF1A64B00C01244 /* SettingsTransition.swift */; };
+		A91BDB9B1E4378E200BE4F1C /* SettingsFTPHostAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F341DC0B77500907196 /* SettingsFTPHostAction.swift */; };
+		A91BDB9C1E4378E200BE4F1C /* MusicInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761291D916F53008915DA /* MusicInteractorInterface.swift */; };
+		A91BDB9D1E4378E200BE4F1C /* RecordedTrackAreaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A907FE7B1E26366500E6D2F6 /* RecordedTrackAreaViewModel.swift */; };
+		A91BDB9E1E4378E200BE4F1C /* SettingTransitionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90386461DF1AC5600C01244 /* SettingTransitionAction.swift */; };
+		A91BDB9F1E4378E200BE4F1C /* ResolutionsImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E11F51D941C84004A0E96 /* ResolutionsImages.swift */; };
+		A91BDBA11E4378E200BE4F1C /* ProjectRealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D6F1DE729A1002B9DA3 /* ProjectRealmRepository.swift */; };
+		A91BDBA21E4378E200BE4F1C /* ProjectToRealmProjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D601DE70BFE002B9DA3 /* ProjectToRealmProjectMapper.swift */; };
+		A91BDBA31E4378E200BE4F1C /* MicRecorderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DF091DAD1E230030E285 /* MicRecorderInteractor.swift */; };
+		A91BDBA41E4378E200BE4F1C /* SettingsFTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7F8E31DBE570400F24E78 /* SettingsFTP.swift */; };
+		A91BDBA51E4378E200BE4F1C /* FullScreenPlayerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760D51D9146FE008915DA /* FullScreenPlayerWireframe.swift */; };
+		A91BDBA61E4378E200BE4F1C /* EditorTextConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B41D9146BF008915DA /* EditorTextConstants.swift */; };
+		A91BDBA71E4378E200BE4F1C /* DetailTextWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9931D990C4100602DCD /* DetailTextWireframe.swift */; };
+		A91BDBA81E4378E200BE4F1C /* AudioRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A980A5321E23D8E900D50034 /* AudioRepository.swift */; };
+		A91BDBA91E4378E200BE4F1C /* DetailProjectInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97243EC1E37A8FF00BD5E9B /* DetailProjectInteractor.swift */; };
+		A91BDBAA1E4378E200BE4F1C /* DetailProjectPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97243F31E37A90C00BD5E9B /* DetailProjectPresenterInterface.swift */; };
+		A91BDBAB1E4378E200BE4F1C /* DuplicateWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760E41D914835008915DA /* DuplicateWireframe.swift */; };
+		A91BDBAC1E4378E200BE4F1C /* SocialNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917610D1D916F48008915DA /* SocialNetwork.swift */; };
+		A91BDBAD1E4378E200BE4F1C /* AddTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9693B7C1DB7C8CD00B00DD1 /* AddTextModel.swift */; };
+		A91BDBAE1E4378E200BE4F1C /* ShareWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917610B1D916F48008915DA /* ShareWireframe.swift */; };
+		A91BDBAF1E4378E200BE4F1C /* ChangeFilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3864C1D7D53BA0065D3EC /* ChangeFilterInteractor.swift */; };
+		A91BDBB01E4378E200BE4F1C /* ProjectListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A207351DED8C84004AAEE2 /* ProjectListViewModel.swift */; };
+		A91BDBB11E4378E200BE4F1C /* MusicDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761261D916F53008915DA /* MusicDetailView.swift */; };
+		A91BDBB21E4378E200BE4F1C /* MusicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9334EF01DAAB97C00762D8A /* MusicListView.swift */; };
+		A91BDBB31E4378E200BE4F1C /* MicRecorderWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DF0B1DAD1E2B0030E285 /* MicRecorderWireframe.swift */; };
+		A91BDBB41E4378E200BE4F1C /* MixAudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A268D21E28F29600B65010 /* MixAudioModel.swift */; };
+		A91BDBB51E4378E200BE4F1C /* AddTextPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A419111DB5110C00FB642E /* AddTextPresenterInterface.swift */; };
+		A91BDBB61E4378E200BE4F1C /* ShareFTPBreakingNewsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C7581DC35FB500A65730 /* ShareFTPBreakingNewsInteractor.swift */; };
+		A91BDBB71E4378E200BE4F1C /* CustomDPTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9148DDB1E1D3ECE006DC511 /* CustomDPTheme.swift */; };
+		A91BDBB81E4378E200BE4F1C /* AudioRealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A980A5301E23D8C500D50034 /* AudioRealmRepository.swift */; };
+		A91BDBB91E4378E200BE4F1C /* EditingRoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A31D9146B5008915DA /* EditingRoomPresenter.swift */; };
+		A91BDBBA1E4378E200BE4F1C /* ShareVideoPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95737C81E0BC892006F2AB7 /* ShareVideoPath.swift */; };
+		A91BDBBB1E4378E200BE4F1C /* DetailProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97243D61E37A5C000BD5E9B /* DetailProjectViewController.swift */; };
+		A91BDBBC1E4378E200BE4F1C /* SettingsFTPBreakingNewsUneditedDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C7541DC35DA100A65730 /* SettingsFTPBreakingNewsUneditedDestination.swift */; };
+		A91BDBBD1E4378E200BE4F1C /* DetailTextInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE98E1D990C4100602DCD /* DetailTextInteractor.swift */; };
+		A91BDBBE1E4378E200BE4F1C /* MicRecorderConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A906CCDF1DB0D06B00AC8FFB /* MicRecorderConstants.swift */; };
+		A91BDBBF1E4378E200BE4F1C /* VideoRealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D851DE74289002B9DA3 /* VideoRealmRepository.swift */; };
+		A91BDBC01E4378E200BE4F1C /* AudioToRealmAudioMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A980A52E1E23D85900D50034 /* AudioToRealmAudioMapper.swift */; };
+		A91BDBC11E4378E200BE4F1C /* SettingsResolutionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F2E1DC0A6B700907196 /* SettingsResolutionAction.swift */; };
+		A91BDBC21E4378E200BE4F1C /* EditorClipsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760AF1D9146BF008915DA /* EditorClipsCell.swift */; };
+		A91BDBC31E4378E200BE4F1C /* EditorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B21D9146BF008915DA /* EditorPresenter.swift */; };
+		A91BDBC41E4378E200BE4F1C /* SettingsFTPBreakingNewsHostAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C7501DC35D1000A65730 /* SettingsFTPBreakingNewsHostAction.swift */; };
+		A91BDBC51E4378E200BE4F1C /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B51D9146BF008915DA /* EditorViewController.swift */; };
+		A91BDBC61E4378E200BE4F1C /* ProjectListConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97B53831E0AA0B50001B288 /* ProjectListConstants.swift */; };
+		A91BDBC71E4378E200BE4F1C /* RecorderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3862D1D7D53230065D3EC /* RecorderInteractor.swift */; };
+		A91BDBC81E4378E200BE4F1C /* GetVoiceOverComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A980A57A1E23F34300D50034 /* GetVoiceOverComposition.swift */; };
+		A91BDBC91E4378E200BE4F1C /* DuplicateProjectOnProjectListAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992B7B71DEDC71800BAFC75 /* DuplicateProjectOnProjectListAction.swift */; };
+		A91BDBCA1E4378E200BE4F1C /* ConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9320CBF1E2D26D3004DC8A1 /* ConfigurationProtocol.swift */; };
+		A91BDBCB1E4378E200BE4F1C /* MusicProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917612C1D916F53008915DA /* MusicProvider.swift */; };
+		A91BDBCC1E4378E200BE4F1C /* DrawerMenuInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B54BA81DFEF4CB00388002 /* DrawerMenuInteractorInterface.swift */; };
+		A91BDBCD1E4378E200BE4F1C /* RecorderInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3862C1D7D53230065D3EC /* RecorderInteractorInterface.swift */; };
+		A91BDBCE1E4378E200BE4F1C /* RecordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386201D7D52E30065D3EC /* RecordPresenter.swift */; };
+		A91BDBCF1E4378E200BE4F1C /* ShareWhatsappInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917610A1D916F48008915DA /* ShareWhatsappInteractor.swift */; };
+		A91BDBD01E4378E200BE4F1C /* AddWatermarkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A955D6331D9A88EB00604567 /* AddWatermarkUseCase.swift */; };
+		A91BDBD11E4378E200BE4F1C /* MicRecorderInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DF071DAD1E1C0030E285 /* MicRecorderInteractorInterface.swift */; };
+		A91BDBD21E4378E200BE4F1C /* SharePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761051D916F48008915DA /* SharePresenter.swift */; };
+		A91BDBD31E4378E200BE4F1C /* FTPErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C7451DC3575700A65730 /* FTPErrorType.swift */; };
+		A91BDBD41E4378E200BE4F1C /* CreateNewProjectUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EDDD551DEC5977001F7DD9 /* CreateNewProjectUseCase.swift */; };
+		A91BDBD51E4378E200BE4F1C /* DrawerMenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B54BAA1DFEF4D300388002 /* DrawerMenuInteractor.swift */; };
+		A91BDBD61E4378E200BE4F1C /* DuplicateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760E21D914835008915DA /* DuplicateViewController.swift */; };
+		A91BDBD71E4378E200BE4F1C /* CameraInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3862F1D7D53230065D3EC /* CameraInteractorInterface.swift */; };
+		A91BDBD81E4378E200BE4F1C /* GetCompositionForVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91D63031DDF1F3A00D226B8 /* GetCompositionForVideo.swift */; };
+		A91BDBD91E4378E200BE4F1C /* SettingsFTPPasswordAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F3A1DC0BE8000907196 /* SettingsFTPPasswordAction.swift */; };
+		A91BDBDA1E4378E200BE4F1C /* MicRecorderPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DF051DAD1E110030E285 /* MicRecorderPresenterInterface.swift */; };
+		A91BDBDB1E4378E200BE4F1C /* MusicModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96E15EF1DA257A400CF81E8 /* MusicModels.swift */; };
+		A91BDBDC1E4378E200BE4F1C /* SettingsFTPBreakingNewsUsernameAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C7561DC35DC300A65730 /* SettingsFTPBreakingNewsUsernameAction.swift */; };
+		A91BDBDD1E4378E200BE4F1C /* CheckPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B8C971DE8845D0040CA57 /* CheckPermission.swift */; };
+		A91BDBDE1E4378E200BE4F1C /* GalleryFetchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C5FB681DD5B5BC00057A1B /* GalleryFetchOptions.swift */; };
+		A91BDBDF1E4378E200BE4F1C /* RecordWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386281D7D52F40065D3EC /* RecordWireframe.swift */; };
+		A91BDBE01E4378E200BE4F1C /* VimojoWireframeInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97243F81E37AA4C00BD5E9B /* VimojoWireframeInterface.swift */; };
+		A91BDBE11E4378E200BE4F1C /* ProjectListInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A207291DED8723004AAEE2 /* ProjectListInteractorInterface.swift */; };
+		A91BDBE21E4378E200BE4F1C /* ExportTemporalVideoToShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9325FAC1E091E1D00400AD6 /* ExportTemporalVideoToShare.swift */; };
+		A91BDBE31E4378E200BE4F1C /* ExportedAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386371D7D53450065D3EC /* ExportedAlbum.swift */; };
+		A91BDBE41E4378E200BE4F1C /* EditorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B01D9146BF008915DA /* EditorInteractor.swift */; };
+		A91BDBE51E4378E200BE4F1C /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DEF91DACF35D0030E285 /* MusicListViewController.swift */; };
+		A91BDBE61E4378E200BE4F1C /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761091D916F48008915DA /* ShareViewController.swift */; };
+		A91BDBE71E4378E200BE4F1C /* ShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9645EA31DC0D298000944CB /* ShareViewModel.swift */; };
+		A91BDBE81E4378E200BE4F1C /* GoToRecordOrGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910AD0B1E3A2F6B00A4EC90 /* GoToRecordOrGalleryViewController.swift */; };
+		A91BDBE91E4378E200BE4F1C /* SettingsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE521D7D785100421BD0 /* SettingsConstants.swift */; };
+		A91BDBEA1E4378E200BE4F1C /* CameraInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3862E1D7D53230065D3EC /* CameraInteractor.swift */; };
+		A91BDBEB1E4378E200BE4F1C /* SettingsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9741D990A4A00602DCD /* SettingsContent.swift */; };
+		A91BDBEC1E4378E200BE4F1C /* RecordPresenterInterfaceIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386211D7D52E30065D3EC /* RecordPresenterInterfaceIO.swift */; };
+		A91BDBED1E4378E200BE4F1C /* RecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386241D7D52EA0065D3EC /* RecordController.swift */; };
+		A91BDBEE1E4378E200BE4F1C /* FullScreenPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760D41D9146FE008915DA /* FullScreenPlayerViewController.swift */; };
+		A91BDBEF1E4378E200BE4F1C /* SettingsFTPBreakingNewsPasswordAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C7521DC35D6900A65730 /* SettingsFTPBreakingNewsPasswordAction.swift */; };
+		A91BDBF01E4378E200BE4F1C /* DetailTextInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE98F1D990C4100602DCD /* DetailTextInteractorInterface.swift */; };
+		A91BDBF11E4378E200BE4F1C /* SetTrimParametersToVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91D63051DDF22F600D226B8 /* SetTrimParametersToVideo.swift */; };
+		A91BDBF21E4378E200BE4F1C /* SettingsPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9791D990A4A00602DCD /* SettingsPresenterInterface.swift */; };
+		A91BDBF31E4378E200BE4F1C /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760E91D914840008915DA /* SplitViewController.swift */; };
+		A91BDBF41E4378E200BE4F1C /* SettingsFTPUsernameAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F361DC0BDF600907196 /* SettingsFTPUsernameAction.swift */; };
+		A91BDBF51E4378E200BE4F1C /* RealmProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D571DE7070E002B9DA3 /* RealmProject.swift */; };
+		A91BDBF61E4378E200BE4F1C /* MusicPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917612A1D916F53008915DA /* MusicPresenter.swift */; };
+		A91BDBF71E4378E200BE4F1C /* AddTextPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A419121DB5110C00FB642E /* AddTextPresenter.swift */; };
+		A91BDBF81E4378E200BE4F1C /* DrawerMenuPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B54BA21DFEE98300388002 /* DrawerMenuPresenterInterface.swift */; };
+		A91BDBF91E4378E200BE4F1C /* MusicProviderForVimojo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910AD081E3A2F1200A4EC90 /* MusicProviderForVimojo.swift */; };
+		A91BDBFA1E4378E200BE4F1C /* TrimViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760DE1D914827008915DA /* TrimViewController.swift */; };
+		A91BDBFB1E4378E200BE4F1C /* SaveVideosFromGalleryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E611701DCB6D8600F221AB /* SaveVideosFromGalleryInteractor.swift */; };
+		A91BDBFC1E4378E200BE4F1C /* RealmAudioToAudioMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A980A52C1E23D37800D50034 /* RealmAudioToAudioMapper.swift */; };
+		A91BDBFD1E4378E200BE4F1C /* RecorderConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3862A1D7D531B0065D3EC /* RecorderConstants.swift */; };
+		A91BDBFE1E4378E200BE4F1C /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D6B1DE72662002B9DA3 /* ProfileRepository.swift */; };
+		A91BDBFF1E4378E200BE4F1C /* CustomExportedVideosGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C69481DCB59A000AF2576 /* CustomExportedVideosGalleryViewController.swift */; };
+		A91BDC001E4378E200BE4F1C /* FullScreenPlayerPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760D31D9146FE008915DA /* FullScreenPlayerPresenterInterface.swift */; };
+		A91BDC011E4378E200BE4F1C /* EditorPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B31D9146BF008915DA /* EditorPresenterInterface.swift */; };
+		A91BDC021E4378E200BE4F1C /* SettingsUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7F8DF1DBE56D300F24E78 /* SettingsUserInfo.swift */; };
+		A91BDC031E4378E200BE4F1C /* MicRecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DF011DAD1DFC0030E285 /* MicRecorderViewController.swift */; };
+		A91BDC041E4378E200BE4F1C /* PeriodistaCelularConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91BDB911E4378BC00BE4F1C /* PeriodistaCelularConfiguration.swift */; };
+		A91BDC051E4378E200BE4F1C /* SettingsDetailTextAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F301DC0AD5A00907196 /* SettingsDetailTextAction.swift */; };
+		A91BDC061E4378E200BE4F1C /* TrimParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91D63071DDF234C00D226B8 /* TrimParameters.swift */; };
+		A91BDC071E4378E200BE4F1C /* AddTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A419101DB5110C00FB642E /* AddTextViewController.swift */; };
+		A91BDC081E4378E200BE4F1C /* ShareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760FD1D916F48008915DA /* ShareCell.swift */; };
+		A91BDC091E4378E200BE4F1C /* NSLocale+ISO639_2.m in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE5D1D7D7A1300421BD0 /* NSLocale+ISO639_2.m */; };
+		A91BDC0A1E4378E200BE4F1C /* DrawerProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B54B991DFEA8C100388002 /* DrawerProfileTableViewCell.swift */; };
+		A91BDC0B1E4378E200BE4F1C /* DetailProjectFoundToDetailProjectViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93B5C981E38C016009E0279 /* DetailProjectFoundToDetailProjectViewModelMapper.swift */; };
+		A91BDC0C1E4378E200BE4F1C /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9751D990A4A00602DCD /* SettingsInteractor.swift */; };
+		A91BDC0D1E4378E200BE4F1C /* MusicInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761281D916F53008915DA /* MusicInteractor.swift */; };
+		A91BDC0E1E4378E200BE4F1C /* SettingsFTPEditedDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F3C1DC0BEBF00907196 /* SettingsFTPEditedDestination.swift */; };
+		A91BDC0F1E4378E200BE4F1C /* ReloadProjectWithProjectAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992B7BC1DEDD9DE00BAFC75 /* ReloadProjectWithProjectAction.swift */; };
+		A91BDC101E4378E200BE4F1C /* SettingsFTPBreakingNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C74A1DC358F500A65730 /* SettingsFTPBreakingNews.swift */; };
+		A91BDC111E4378E200BE4F1C /* SharePresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761061D916F48008915DA /* SharePresenterInterface.swift */; };
+		A91BDC121E4378E200BE4F1C /* DrawerMenuWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B54B921DFE96D500388002 /* DrawerMenuWireframe.swift */; };
+		A91BDC131E4378E200BE4F1C /* MusicListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DEED1DACEF800030E285 /* MusicListInteractor.swift */; };
+		A91BDC141E4378E200BE4F1C /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95078CF1DE5F38800FD250B /* Mapper.swift */; };
+		A91BDC151E4378E200BE4F1C /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9645EA11DC0D27D000944CB /* SettingsModel.swift */; };
+		A91BDC161E4378E200BE4F1C /* DuplicateInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760E31D914835008915DA /* DuplicateInterface.swift */; };
+		A91BDC171E4378E200BE4F1C /* DetailProjectFound.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97244001E37AD6C00BD5E9B /* DetailProjectFound.swift */; };
+		A91BDC181E4378E200BE4F1C /* ShareYoutubeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917610C1D916F48008915DA /* ShareYoutubeInteractor.swift */; };
+		A91BDC191E4378E200BE4F1C /* MusicListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DEF31DACEFA40030E285 /* MusicListPresenter.swift */; };
+		A91BDC1A1E4378E200BE4F1C /* ProjectRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D511DE7067F002B9DA3 /* ProjectRepository.swift */; };
+		A91BDC1B1E4378E200BE4F1C /* CameraRecorderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386511D7D53D10065D3EC /* CameraRecorderInteractor.swift */; };
+		A91BDC1C1E4378E200BE4F1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B385E91D7D51380065D3EC /* AppDelegate.swift */; };
+		A91BDC1D1E4378E200BE4F1C /* ProjectListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2072B1DED872B004AAEE2 /* ProjectListInteractor.swift */; };
+		A91BDC1E1E4378E200BE4F1C /* TimerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3863F1D7D53880065D3EC /* TimerInteractor.swift */; };
+		A91BDC1F1E4378E200BE4F1C /* ShareConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760FF1D916F48008915DA /* ShareConstants.swift */; };
+		A91BDC201E4378E200BE4F1C /* ProfileSharedPreferencesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D6D1DE726A2002B9DA3 /* ProfileSharedPreferencesRepository.swift */; };
+		A91BDC211E4378E200BE4F1C /* AddTextInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A419141DB5110C00FB642E /* AddTextInteractor.swift */; };
+		A91BDC221E4378E200BE4F1C /* RealmMigrationsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915E8D41E1BC00E00A37F5F /* RealmMigrationsUseCase.swift */; };
+		A91BDC231E4378E200BE4F1C /* ApplyTextOverlayToVideoCompositionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1E5B51DB636DC003BF354 /* ApplyTextOverlayToVideoCompositionUseCase.swift */; };
+		A91BDC241E4378E200BE4F1C /* DrawerMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97307691DF04FA100451244 /* DrawerMenuTableViewController.swift */; };
+		A91BDC251E4378E200BE4F1C /* AnalitycsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE4B1D7D5C7400421BD0 /* AnalitycsConstants.swift */; };
+		A91BDC261E4378E200BE4F1C /* DPTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9148DDA1E1D3ECE006DC511 /* DPTheme.swift */; };
+		A91BDC271E4378E200BE4F1C /* TakePhotoFromOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96789551E3B588700A8B37A /* TakePhotoFromOptions.swift */; };
+		A91BDC281E4378E200BE4F1C /* GetPHAssetFromUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9325FB11E091FB900400AD6 /* GetPHAssetFromUrl.swift */; };
+		A91BDC291E4378E200BE4F1C /* ThumbnailListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B81D9146BF008915DA /* ThumbnailListInteractor.swift */; };
+		A91BDC2A1E4378E200BE4F1C /* CheckCameraPermissionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B8C991DE885790040CA57 /* CheckCameraPermissionUseCase.swift */; };
+		A91BDC2B1E4378E200BE4F1C /* VideoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D831DE7427B002B9DA3 /* VideoRepository.swift */; };
+		A91BDC2C1E4378E200BE4F1C /* CustomClipsGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C69491DCB59A000AF2576 /* CustomClipsGalleryViewController.swift */; };
+		A91BDC2D1E4378E200BE4F1C /* MusicPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917612B1D916F53008915DA /* MusicPresenterInterface.swift */; };
+		A91BDC2E1E4378E200BE4F1C /* SettingsActionInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FEF9771DBF8B0A00A56611 /* SettingsActionInterface.swift */; };
+		A91BDC2F1E4378E200BE4F1C /* SplitViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760E81D914840008915DA /* SplitViewInterface.swift */; };
+		A91BDC301E4378E200BE4F1C /* AllVideosGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C69471DCB59A000AF2576 /* AllVideosGalleryViewController.swift */; };
+		A91BDC311E4378E200BE4F1C /*  GetSeekTimeFromValueOnVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CDB9C11DDDCF1A000313DE /*  GetSeekTimeFromValueOnVideo.swift */; };
+		A91BDC321E4378E200BE4F1C /* SettingsUsernameAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FEF97B1DBF8B3A00A56611 /* SettingsUsernameAction.swift */; };
+		A91BDC331E4378E200BE4F1C /* ViMoJoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3865D1D7D55660065D3EC /* ViMoJoController.swift */; };
+		A91BDC341E4378E200BE4F1C /* CameraRecorderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386521D7D53D10065D3EC /* CameraRecorderInterface.swift */; };
+		A91BDC351E4378E200BE4F1C /* VideoToRealmVideoMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D811DE7426C002B9DA3 /* VideoToRealmVideoMapper.swift */; };
+		A91BDC361E4378E200BE4F1C /* EditingRoomItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95F23C31E013E3000864755 /* EditingRoomItemController.swift */; };
+		A91BDC371E4378E200BE4F1C /* ConfigPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE4A1D7D5C7400421BD0 /* ConfigPreferences.swift */; };
+		A91BDC381E4378E200BE4F1C /* ProjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2072D1DED8732004AAEE2 /* ProjectListViewController.swift */; };
+		A91BDC391E4378E200BE4F1C /* FullScreenPlayerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760D21D9146FE008915DA /* FullScreenPlayerPresenter.swift */; };
+		A91BDC3A1E4378E200BE4F1C /* CheckMicPermissionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B8C921DE884460040CA57 /* CheckMicPermissionUseCase.swift */; };
+		A91BDC3B1E4378E200BE4F1C /* RealmVideoToVideoMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D7F1DE7425A002B9DA3 /* RealmVideoToVideoMapper.swift */; };
+		A91BDC3C1E4378E200BE4F1C /* ExporterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386481D7D53B20065D3EC /* ExporterInteractor.swift */; };
+		A91BDC3D1E4378E200BE4F1C /* AddTextInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A419131DB5110C00FB642E /* AddTextInteractorInterface.swift */; };
+		A91BDC3E1E4378E200BE4F1C /* DrawerMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B54BA41DFEE98B00388002 /* DrawerMenuPresenter.swift */; };
+		A91BDC3F1E4378E200BE4F1C /* EditingRoomPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A41D9146B5008915DA /* EditingRoomPresenterInterface.swift */; };
+		A91BDC401E4378E200BE4F1C /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386551D7D54CF0065D3EC /* AppDependencies.swift */; };
+		A91BDC411E4378E200BE4F1C /* GetMiddleRangeSliderValueWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CDB9C31DDDD63B000313DE /* GetMiddleRangeSliderValueWorker.swift */; };
+		A91BDC421E4378E200BE4F1C /* MusicListPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DEF11DACEF9B0030E285 /* MusicListPresenterInterface.swift */; };
+		A91BDC431E4378E200BE4F1C /* ShareInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761021D916F48008915DA /* ShareInteractor.swift */; };
+		A91BDC441E4378E200BE4F1C /* MicRecorderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DF031DAD1E090030E285 /* MicRecorderPresenter.swift */; };
+		A91BDC451E4378E200BE4F1C /* EditingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A51D9146B5008915DA /* EditingRoomViewController.swift */; };
+		A91BDC461E4378E200BE4F1C /* DrawerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96789521E3B55DF00A8B37A /* DrawerConstants.swift */; };
+		A91BDC471E4378E200BE4F1C /* SplitWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760EA1D914840008915DA /* SplitWireframe.swift */; };
+		A91BDC481E4378E200BE4F1C /* GalleryWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C69511DCB59D200AF2576 /* GalleryWireframe.swift */; };
+		A91BDC491E4378E200BE4F1C /* TrimWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760DF1D914827008915DA /* TrimWireframe.swift */; };
+		A91BDC4A1E4378E200BE4F1C /* MusicViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917612E1D916F53008915DA /* MusicViewInterface.swift */; };
+		A91BDC4B1E4378E200BE4F1C /* Specification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95078CD1DE5F35100FD250B /* Specification.swift */; };
+		A91BDC4C1E4378E200BE4F1C /* SaveVideosFromGalleryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E611751DCB6DCE00F221AB /* SaveVideosFromGalleryInterface.swift */; };
+		A91BDC4D1E4378E200BE4F1C /* ShareInstagramInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761011D916F48008915DA /* ShareInstagramInteractor.swift */; };
+		A91BDC4E1E4378E200BE4F1C /* DetailTextController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE98D1D990C4100602DCD /* DetailTextController.swift */; };
+		A91BDC4F1E4378E200BE4F1C /* UIApplicationExtensionGetTopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F221DC092A100907196 /* UIApplicationExtensionGetTopController.swift */; };
+		A91BDC501E4378E200BE4F1C /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C694D1DCB59AA00AF2576 /* GalleryViewController.swift */; };
+		A91BDC511E4378E200BE4F1C /* SettingsFTPBreakingNewsEditedDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C74D1DC35CBD00A65730 /* SettingsFTPBreakingNewsEditedDestination.swift */; };
+		A91BDC521E4378E200BE4F1C /* DateCompareExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9325FC21E0950B600400AD6 /* DateCompareExtension.swift */; };
+		A91BDC531E4378E200BE4F1C /* SettingsEmailAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F271DC0937300907196 /* SettingsEmailAction.swift */; };
+		A91BDC541E4378E200BE4F1C /* ShareFacebookInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761001D916F48008915DA /* ShareFacebookInteractor.swift */; };
+		A91BDC551E4378E200BE4F1C /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386591D7D55340065D3EC /* RootWireframe.swift */; };
+		A91BDC561E4378E200BE4F1C /* RealmAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A980A5281E23D18B00D50034 /* RealmAudio.swift */; };
+		A91BDC571E4378E200BE4F1C /* SocialNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917610E1D916F48008915DA /* SocialNetworkProvider.swift */; };
+		A91BDC581E4378E200BE4F1C /* EditorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A964410C1DA3015B00CAD950 /* EditorModel.swift */; };
+		A91BDC591E4378E200BE4F1C /* CheckPhotoRollPermissionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B8C9B1DE8864D0040CA57 /* CheckPhotoRollPermissionUseCase.swift */; };
+		A91BDC5A1E4378E200BE4F1C /* UIViewFadeViewsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973B34F1E27A38E00EC84AD /* UIViewFadeViewsExtension.swift */; };
+		A91BDC5B1E4378E200BE4F1C /* ViMoJoTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE421D7D599900421BD0 /* ViMoJoTracker.swift */; };
+		A91BDC5C1E4378E200BE4F1C /* ShareTwitterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761081D916F48008915DA /* ShareTwitterInteractor.swift */; };
+		A91BDC5D1E4378E200BE4F1C /* SettingsNameAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F241DC092C800907196 /* SettingsNameAction.swift */; };
+		A91BDC5E1E4378E200BE4F1C /* EditorWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B71D9146BF008915DA /* EditorWireframe.swift */; };
+		A91BDC5F1E4378E200BE4F1C /* DetailProjectWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97243E21E37A8B300BD5E9B /* DetailProjectWireframe.swift */; };
+		A91BDC601E4378E200BE4F1C /* SettingsInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9761D990A4A00602DCD /* SettingsInteractorInterface.swift */; };
+		A91BDC611E4378E200BE4F1C /* ThumbnailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3863C1D7D53740065D3EC /* ThumbnailInteractor.swift */; };
+		A91BDC621E4378E200BE4F1C /* SettingsCameraSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7F8E11DBE56EE00F24E78 /* SettingsCameraSettings.swift */; };
+		A91BDC631E4378E200BE4F1C /* ShareActionInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AE3A4E1DC0CFA300A5A878 /* ShareActionInterface.swift */; };
+		A91BDC641E4378E200BE4F1C /* MusicListInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DEEF1DACEF8E0030E285 /* MusicListInteractorInterface.swift */; };
+		A91BDC651E4378E200BE4F1C /* RemoveFilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3864B1D7D53BA0065D3EC /* RemoveFilterInteractor.swift */; };
+		A91BDC661E4378E200BE4F1C /* DetailProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97243FD1E37ABD500BD5E9B /* DetailProjectViewModel.swift */; };
+		A91BDC671E4378E200BE4F1C /* AddTextWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A4190F1DB5110C00FB642E /* AddTextWireframe.swift */; };
+		A91BDC681E4378E200BE4F1C /* RealmProjectToProjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D661DE71E45002B9DA3 /* RealmProjectToProjectMapper.swift */; };
+		A91BDC691E4378E200BE4F1C /* EditingRoomViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A61D9146B5008915DA /* EditingRoomViewInterface.swift */; };
+		A91BDC6A1E4378E200BE4F1C /* ProjectListPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A207251DED870D004AAEE2 /* ProjectListPresenterInterface.swift */; };
+		A91BDC6B1E4378E200BE4F1C /* ProjectListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A207271DED871B004AAEE2 /* ProjectListPresenter.swift */; };
+		A91BDC6C1E4378E200BE4F1C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95078CB1DE5F1E100FD250B /* Repository.swift */; };
+		A91BDC6D1E4378E200BE4F1C /* FlashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386441D7D53960065D3EC /* FlashInteractor.swift */; };
+		A91BDC6E1E4378E200BE4F1C /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761251D916F53008915DA /* MusicCell.swift */; };
+		A91BDC6F1E4378E200BE4F1C /* MusicWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917612F1D916F53008915DA /* MusicWireframe.swift */; };
+		A91BDC701E4378E200BE4F1C /* SettingsFTPUneditedDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F3E1DC0BEEF00907196 /* SettingsFTPUneditedDestination.swift */; };
+		A91BDC711E4378E200BE4F1C /* SettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE97A1D990A4A00602DCD /* SettingsProvider.swift */; };
+		A91BDC721E4378E200BE4F1C /* DetailProjectInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97243ED1E37A8FF00BD5E9B /* DetailProjectInteractorInterface.swift */; };
+		A91BDC731E4378E200BE4F1C /* RealmVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E90D621DE70FB2002B9DA3 /* RealmVideo.swift */; };
+		A91BDC741E4378E200BE4F1C /* EstimationByQualityAndDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93B5C9B1E38F76A009E0279 /* EstimationByQualityAndDuration.swift */; };
+		A91BDC751E4378E200BE4F1C /* ProjectListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A207391DED929F004AAEE2 /* ProjectListCellView.swift */; };
+		A91BDC761E4378E200BE4F1C /* ViMoJoInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3865E1D7D55660065D3EC /* ViMoJoInterface.swift */; };
+		A91BDC771E4378E200BE4F1C /* ClipsAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386361D7D53450065D3EC /* ClipsAlbum.swift */; };
+		A91BDC781E4378E200BE4F1C /* MusicDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910AD201E3A702E00A4EC90 /* MusicDetailViewModel.swift */; };
+		A91BDC791E4378E200BE4F1C /* MusicListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988DEF51DACEFAE0030E285 /* MusicListWireframe.swift */; };
+		A91BDC7A1E4378E200BE4F1C /* SettingsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FEF97F1DBF9CB400A56611 /* SettingsUtils.swift */; };
+		A91BDC7B1E4378E200BE4F1C /* ProjectListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A207231DED86FD004AAEE2 /* ProjectListWireframe.swift */; };
+		A91BDC7C1E4378E200BE4F1C /* ShareInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761031D916F48008915DA /* ShareInteractorInterface.swift */; };
+		A91BDC7D1E4378E200BE4F1C /* RemoveProjectOnProjectListAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A207411DEDAF84004AAEE2 /* RemoveProjectOnProjectListAction.swift */; };
+		A91BDC7E1E4378E200BE4F1C /* AddFilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3864A1D7D53BA0065D3EC /* AddFilterInteractor.swift */; };
+		A91BDC7F1E4378E200BE4F1C /* SettingsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE97C1D990A4A00602DCD /* SettingsWireframe.swift */; };
+		A91BDC801E4378E200BE4F1C /* TimerInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386401D7D53880065D3EC /* TimerInteractorInterface.swift */; };
+		A91BDC811E4378E200BE4F1C /* FullScreenPlayerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760D11D9146FE008915DA /* FullScreenPlayerInterface.swift */; };
+		A91BDC821E4378E200BE4F1C /* DetailTextPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9921D990C4100602DCD /* DetailTextPresenterInterface.swift */; };
+		A91BDC831E4378E200BE4F1C /* TrimRangeBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CDB9BE1DDDCDEF000313DE /* TrimRangeBarViewModel.swift */; };
+		A91BDC841E4378E200BE4F1C /* ShareUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761071D916F48008915DA /* ShareUtils.swift */; };
+		A91BDC851E4378E200BE4F1C /* TwitterVideoUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = A91761101D916F48008915DA /* TwitterVideoUpload.m */; };
+		A91BDC861E4378E200BE4F1C /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917612D1D916F53008915DA /* MusicViewController.swift */; };
+		A91BDC871E4378E200BE4F1C /* GoToRecordOrGalleryWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910AD0C1E3A2F6B00A4EC90 /* GoToRecordOrGalleryWireframe.swift */; };
+		A91BDC881E4378E200BE4F1C /* EditorInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B11D9146BF008915DA /* EditorInteractorInterface.swift */; };
+		A91BDC891E4378E200BE4F1C /* EditingRoomWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A71D9146B5008915DA /* EditingRoomWireframe.swift */; };
+		A91BDC8A1E4378E200BE4F1C /* DetailProjectPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97243F21E37A90C00BD5E9B /* DetailProjectPresenter.swift */; };
+		A91BDC8B1E4378E200BE4F1C /* ShareFTPInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99C7CF61DC0F8FA00F2E03A /* ShareFTPInteractor.swift */; };
+		A91BDC8C1E4378E200BE4F1C /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9781D990A4A00602DCD /* SettingsPresenter.swift */; };
+		A91BDC8D1E4378E200BE4F1C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE97B1D990A4A00602DCD /* SettingsViewController.swift */; };
+		A91BDC8E1E4378E200BE4F1C /* SettingsQualityAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F2C1DC099BE00907196 /* SettingsQualityAction.swift */; };
+		A91BDC8F1E4378E200BE4F1C /* DetailTextPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9911D990C4100602DCD /* DetailTextPresenter.swift */; };
+		A91BDC901E4378E200BE4F1C /* CreateDefaultProjectUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99A01591DE84DF40019CF7E /* CreateDefaultProjectUseCase.swift */; };
+		A91BDC911E4378E200BE4F1C /* MicRecorderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A09073A2322E361D5AF3A8 /* MicRecorderViewModel.swift */; };
+		A91BDC921E4378E200BE4F1C /* ConfigureNavBarVimojoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CD46DE1E30F016004EE7EB /* ConfigureNavBarVimojoExtension.swift */; };
+		A91BDC941E4378E200BE4F1C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED004F1D9178CB00969F31 /* Alamofire.framework */; };
+		A91BDC951E4378E200BE4F1C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00571D917B7200969F31 /* FBSDKCoreKit.framework */; };
+		A91BDC961E4378E200BE4F1C /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00591D917B7200969F31 /* FBSDKShareKit.framework */; };
+		A91BDC971E4378E200BE4F1C /* RebekkaTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A921D9701DC1DEA9003631E8 /* RebekkaTouch.framework */; };
+		A91BDC981E4378E200BE4F1C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00581D917B7200969F31 /* FBSDKLoginKit.framework */; };
+		A91BDC991E4378E200BE4F1C /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93BCE0C1D7D577300421BD0 /* GPUImage.framework */; };
+		A91BDC9A1E4378E200BE4F1C /* Pods_vimojo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB586E6DDDB51926A3B11FCA /* Pods_vimojo.framework */; };
+		A91BDC9B1E4378E200BE4F1C /* Pods_vimojo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB586E6DDDB51926A3B11FCA /* Pods_vimojo.framework */; };
+		A91BDC9D1E4378E200BE4F1C /* activity_record_rec_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE731D7D88EE00421BD0 /* activity_record_rec_circle.png */; };
+		A91BDC9E1E4378E200BE4F1C /* jazzyfrenchy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A910ACFA1E3A2EC200A4EC90 /* jazzyfrenchy.mp3 */; };
+		A91BDC9F1E4378E200BE4F1C /* MicRecorder.strings in Resources */ = {isa = PBXBuildFile; fileRef = A906CCDD1DB0D03700AC8FFB /* MicRecorder.strings */; };
+		A91BDCA01E4378E200BE4F1C /* VimojoLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B385F21D7D51380065D3EC /* VimojoLaunchScreen.storyboard */; };
+		A91BDCA11E4378E200BE4F1C /* Gallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95631FD1E31199100C5EFF4 /* Gallery.storyboard */; };
+		A91BDCA21E4378E200BE4F1C /* water_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE771D7D93B700421BD0 /* water_mark.png */; };
+		A91BDCA31E4378E200BE4F1C /* iso639_2.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE5B1D7D7A1300421BD0 /* iso639_2.bundle */; };
+		A91BDCA41E4378E200BE4F1C /* MusicListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9334EEE1DAAB96A00762D8A /* MusicListView.xib */; };
+		A91BDCA51E4378E200BE4F1C /* no_photo_user.png in Resources */ = {isa = PBXBuildFile; fileRef = A96789971E3B808200A8B37A /* no_photo_user.png */; };
+		A91BDCA61E4378E200BE4F1C /* ShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91760FE1D916F48008915DA /* ShareCell.xib */; };
+		A91BDCA71E4378E200BE4F1C /* DetailProject.strings in Resources */ = {isa = PBXBuildFile; fileRef = A93B5C951E38A7F9009E0279 /* DetailProject.strings */; };
+		A91BDCA81E4378E200BE4F1C /* MusicListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9334EF21DAABBFC00762D8A /* MusicListCell.xib */; };
+		A91BDCA91E4378E200BE4F1C /* ProjectList.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97B53811E0AA0290001B288 /* ProjectList.strings */; };
+		A91BDCAA1E4378E200BE4F1C /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A964DE291DD1DBA700E6C7DA /* Record.storyboard */; };
+		A91BDCAB1E4378E200BE4F1C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9950CC31E1AA121009367E7 /* GoogleService-Info.plist */; };
+		A91BDCAC1E4378E200BE4F1C /* Settings.strings in Resources */ = {isa = PBXBuildFile; fileRef = A96441131DA3E59700CAD950 /* Settings.strings */; };
+		A91BDCAD1E4378E200BE4F1C /* goinghigher.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A910ACF91E3A2EC200A4EC90 /* goinghigher.mp3 */; };
+		A91BDCAE1E4378E200BE4F1C /* Drawer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B54B9D1DFEAD5E00388002 /* Drawer.storyboard */; };
+		A91BDCAF1E4378E200BE4F1C /* MusicProvider.strings in Resources */ = {isa = PBXBuildFile; fileRef = A910AD141E3A315400A4EC90 /* MusicProvider.strings */; };
+		A91BDCB01E4378E200BE4F1C /* Vimojo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9D076D21E2F7F84003AE96B /* Vimojo.xcassets */; };
+		A91BDCB11E4378E200BE4F1C /* ukulele.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A910ACFB1E3A2EC200A4EC90 /* ukulele.mp3 */; };
+		A91BDCB21E4378E200BE4F1C /* DrawerMenu.strings in Resources */ = {isa = PBXBuildFile; fileRef = A96789501E3B558E00A8B37A /* DrawerMenu.strings */; };
+		A91BDCB31E4378E200BE4F1C /* EditorStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97772C51DC2451200EA9291 /* EditorStrings.strings */; };
+		A91BDCB41E4378E200BE4F1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9F03D361E1E542D00DE2880 /* Assets.xcassets */; };
+		A91BDCB51E4378E200BE4F1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B385ED1D7D51380065D3EC /* Main.storyboard */; };
+		A91BDCB61E4378E200BE4F1C /* Editor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95737CC1E0BDCF8006F2AB7 /* Editor.storyboard */; };
+		A91BDCB71E4378E200BE4F1C /* ProjectList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9A2073B1DED94BB004AAEE2 /* ProjectList.storyboard */; };
+		A91BDCB81E4378E200BE4F1C /* VideonaFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CFA5E51D991DBE0037B1F5 /* VideonaFooterView.xib */; };
+		A91BDCB91E4378E200BE4F1C /* acousticbreeze.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A910ACF81E3A2EC200A4EC90 /* acousticbreeze.mp3 */; };
+		A91BDCBA1E4378E200BE4F1C /* MusicDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91761271D916F53008915DA /* MusicDetailView.xib */; };
+		A91BDCBB1E4378E200BE4F1C /* Share.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97772BB1DC244E700EA9291 /* Share.strings */; };
+		A91BDCBC1E4378E200BE4F1C /* filter_free.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE751D7D92C300421BD0 /* filter_free.png */; };
+		A91BDCC21E4378E200BE4F1C /* RebekkaTouch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A921D9701DC1DEA9003631E8 /* RebekkaTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A91BDCC31E4378E200BE4F1C /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A93BCE0C1D7D577300421BD0 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A91BDCCA1E4379B100BE4F1C /* PeriodistaCelular.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91BDCC91E4379B100BE4F1C /* PeriodistaCelular.storyboard */; };
+		A91BDCCC1E437A8200BE4F1C /* PeriodistaCelular.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91BDCCB1E437A8200BE4F1C /* PeriodistaCelular.xcassets */; };
+		A91BDCCE1E437BBF00BE4F1C /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = A91BDCCD1E437BBF00BE4F1C /* Splash.png */; };
 		A91C694A1DCB59A000AF2576 /* AllVideosGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C69471DCB59A000AF2576 /* AllVideosGalleryViewController.swift */; };
 		A91C694B1DCB59A000AF2576 /* CustomExportedVideosGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C69481DCB59A000AF2576 /* CustomExportedVideosGalleryViewController.swift */; };
 		A91C694C1DCB59A000AF2576 /* CustomClipsGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C69491DCB59A000AF2576 /* CustomClipsGalleryViewController.swift */; };
@@ -591,6 +884,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A91BDB951E4378E200BE4F1C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A93BCE031D7D577300421BD0 /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCE209E41943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
+		A91BDB971E4378E200BE4F1C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A921D9661DC1DEA9003631E8 /* Rebekka.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 47FFC2DB1B09297E00D3EDFE;
+			remoteInfo = RebekkaTouch;
+		};
 		A921D96D1DC1DEA9003631E8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A921D9661DC1DEA9003631E8 /* Rebekka.xcodeproj */;
@@ -657,6 +964,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		A91BDCC11E4378E200BE4F1C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A91BDCC21E4378E200BE4F1C /* RebekkaTouch.framework in Embed Frameworks */,
+				A91BDCC31E4378E200BE4F1C /* GPUImage.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A9D077EC1E2F80B1003AE96B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -782,6 +1101,12 @@
 		A91B8C971DE8845D0040CA57 /* CheckPermission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckPermission.swift; sourceTree = "<group>"; };
 		A91B8C991DE885790040CA57 /* CheckCameraPermissionUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckCameraPermissionUseCase.swift; sourceTree = "<group>"; };
 		A91B8C9B1DE8864D0040CA57 /* CheckPhotoRollPermissionUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckPhotoRollPermissionUseCase.swift; sourceTree = "<group>"; };
+		A91BDB911E4378BC00BE4F1C /* PeriodistaCelularConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodistaCelularConfiguration.swift; sourceTree = "<group>"; };
+		A91BDCC71E4378E200BE4F1C /* Periodista Celular.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Periodista Celular.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A91BDCC81E4378E300BE4F1C /* periodistaCelular-info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "periodistaCelular-info.plist"; path = "/Users/Alejandro/Desktop/Repos/Vimojo_xCode8/periodistaCelular-info.plist"; sourceTree = "<absolute>"; };
+		A91BDCC91E4379B100BE4F1C /* PeriodistaCelular.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PeriodistaCelular.storyboard; sourceTree = "<group>"; };
+		A91BDCCB1E437A8200BE4F1C /* PeriodistaCelular.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PeriodistaCelular.xcassets; sourceTree = "<group>"; };
+		A91BDCCD1E437BBF00BE4F1C /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Splash.png; sourceTree = "<group>"; };
 		A91C69471DCB59A000AF2576 /* AllVideosGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllVideosGalleryViewController.swift; sourceTree = "<group>"; };
 		A91C69481DCB59A000AF2576 /* CustomExportedVideosGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomExportedVideosGalleryViewController.swift; sourceTree = "<group>"; };
 		A91C69491DCB59A000AF2576 /* CustomClipsGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomClipsGalleryViewController.swift; sourceTree = "<group>"; };
@@ -931,7 +1256,7 @@
 		A9B385E91D7D51380065D3EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9B385EE1D7D51380065D3EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9B385F31D7D51380065D3EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/VimojoLaunchScreen.storyboard; sourceTree = "<group>"; };
-		A9B385F51D7D51380065D3EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9B385F51D7D51380065D3EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = vimojo/Info.plist; sourceTree = "<group>"; };
 		A9B385FA1D7D51380065D3EC /* vimojoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vimojoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B385FE1D7D51380065D3EC /* vimojoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vimojoTests.swift; sourceTree = "<group>"; };
 		A9B386001D7D51380065D3EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -984,7 +1309,7 @@
 		A9D076D21E2F7F84003AE96B /* Vimojo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Vimojo.xcassets; sourceTree = "<group>"; };
 		A9D076D41E2F7F97003AE96B /* RTVE.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = RTVE.xcassets; sourceTree = "<group>"; };
 		A9D077F21E2F80B1003AE96B /* RTVE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RTVE.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9D077F31E2F80B1003AE96B /* vimojo copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "vimojo copy2-Info.plist"; path = "/Users/Alejandro/Desktop/Repos/Vimojo_xCode8/vimojo copy2-Info.plist"; sourceTree = "<absolute>"; };
+		A9D077F31E2F80B1003AE96B /* RTVE-info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "RTVE-info.plist"; path = "/Users/Alejandro/Desktop/Repos/Vimojo_xCode8/RTVE-info.plist"; sourceTree = "<absolute>"; };
 		A9E611701DCB6D8600F221AB /* SaveVideosFromGalleryInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveVideosFromGalleryInteractor.swift; sourceTree = "<group>"; };
 		A9E611751DCB6DCE00F221AB /* SaveVideosFromGalleryInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveVideosFromGalleryInterface.swift; sourceTree = "<group>"; };
 		A9E90D511DE7067F002B9DA3 /* ProjectRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectRepository.swift; sourceTree = "<group>"; };
@@ -1015,6 +1340,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A91BDC931E4378E200BE4F1C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A91BDC941E4378E200BE4F1C /* Alamofire.framework in Frameworks */,
+				A91BDC951E4378E200BE4F1C /* FBSDKCoreKit.framework in Frameworks */,
+				A91BDC961E4378E200BE4F1C /* FBSDKShareKit.framework in Frameworks */,
+				A91BDC971E4378E200BE4F1C /* RebekkaTouch.framework in Frameworks */,
+				A91BDC981E4378E200BE4F1C /* FBSDKLoginKit.framework in Frameworks */,
+				A91BDC991E4378E200BE4F1C /* GPUImage.framework in Frameworks */,
+				A91BDC9A1E4378E200BE4F1C /* Pods_vimojo.framework in Frameworks */,
+				A91BDC9B1E4378E200BE4F1C /* Pods_vimojo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A9B385E31D7D51380065D3EC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1213,6 +1553,18 @@
 			name = "Music Selector";
 			sourceTree = "<group>";
 		};
+		A91BDB8D1E43775B00BE4F1C /* Periodista celular */ = {
+			isa = PBXGroup;
+			children = (
+				A91BDCC81E4378E300BE4F1C /* periodistaCelular-info.plist */,
+				A91BDCCD1E437BBF00BE4F1C /* Splash.png */,
+				A91BDB911E4378BC00BE4F1C /* PeriodistaCelularConfiguration.swift */,
+				A91BDCC91E4379B100BE4F1C /* PeriodistaCelular.storyboard */,
+				A91BDCCB1E437A8200BE4F1C /* PeriodistaCelular.xcassets */,
+			);
+			name = "Periodista celular";
+			sourceTree = "<group>";
+		};
 		A91C693D1DCB596900AF2576 /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
@@ -1273,6 +1625,7 @@
 		A9320CAD1E2CE1A4004DC8A1 /* RTVE */ = {
 			isa = PBXGroup;
 			children = (
+				A9D077F31E2F80B1003AE96B /* RTVE-info.plist */,
 				A9C695831DA23AEE00597646 /* Music Songs */,
 				A9320CAE1E2CE1E5004DC8A1 /* RTVEConfiguration.swift */,
 				A910AD061E3A2F0B00A4EC90 /* MusicProviderForRTVE.swift */,
@@ -1927,7 +2280,6 @@
 				A9B385E71D7D51380065D3EC /* Products */,
 				5354C373A4B21404086FF983 /* Frameworks */,
 				BCC440BCA8009FA05E7A4053 /* Pods */,
-				A9D077F31E2F80B1003AE96B /* vimojo copy2-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1937,6 +2289,7 @@
 				A9B385E61D7D51380065D3EC /* vimojo.app */,
 				A9B385FA1D7D51380065D3EC /* vimojoTests.xctest */,
 				A9D077F21E2F80B1003AE96B /* RTVE.app */,
+				A91BDCC71E4378E200BE4F1C /* Periodista Celular.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1953,7 +2306,6 @@
 				A9B3865B1D7D55440065D3EC /* Common */,
 				A9B386181D7D519E0065D3EC /* Modules */,
 				A9B386171D7D51940065D3EC /* StoryBoard */,
-				A9B385F51D7D51380065D3EC /* Info.plist */,
 				A9F03D361E1E542D00DE2880 /* Assets.xcassets */,
 				A9950CC31E1AA121009367E7 /* GoogleService-Info.plist */,
 			);
@@ -2345,6 +2697,7 @@
 		A9D076D01E2F7F74003AE96B /* Targets */ = {
 			isa = PBXGroup;
 			children = (
+				A91BDB8D1E43775B00BE4F1C /* Periodista celular */,
 				A9D076D11E2F7F7C003AE96B /* Vimojo */,
 				A9320CAD1E2CE1A4004DC8A1 /* RTVE */,
 			);
@@ -2358,6 +2711,7 @@
 				A9320B851E2CD65F004DC8A1 /* ViMoJoConfiguration.swift */,
 				A910AD081E3A2F1200A4EC90 /* MusicProviderForVimojo.swift */,
 				A9B385F21D7D51380065D3EC /* VimojoLaunchScreen.storyboard */,
+				A9B385F51D7D51380065D3EC /* Info.plist */,
 				A9D076D21E2F7F84003AE96B /* Vimojo.xcassets */,
 			);
 			name = Vimojo;
@@ -2423,6 +2777,31 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A91BDB931E4378E200BE4F1C /* Periodista Celular */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A91BDCC41E4378E200BE4F1C /* Build configuration list for PBXNativeTarget "Periodista Celular" */;
+			buildPhases = (
+				A91BDB981E4378E200BE4F1C /* [CP] Check Pods Manifest.lock */,
+				A91BDB991E4378E200BE4F1C /* Sources */,
+				A91BDC931E4378E200BE4F1C /* Frameworks */,
+				A91BDC9C1E4378E200BE4F1C /* Resources */,
+				A91BDCBD1E4378E200BE4F1C /* ShellScript */,
+				A91BDCBE1E4378E200BE4F1C /* ShellScript */,
+				A91BDCBF1E4378E200BE4F1C /* [CP] Embed Pods Frameworks */,
+				A91BDCC01E4378E200BE4F1C /* [CP] Copy Pods Resources */,
+				A91BDCC11E4378E200BE4F1C /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A91BDB941E4378E200BE4F1C /* PBXTargetDependency */,
+				A91BDB961E4378E200BE4F1C /* PBXTargetDependency */,
+			);
+			name = "Periodista Celular";
+			productName = vimojo;
+			productReference = A91BDCC71E4378E200BE4F1C /* Periodista Celular.app */;
+			productType = "com.apple.product-type.application";
+		};
 		A9B385E51D7D51380065D3EC /* vimojo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9B386031D7D51380065D3EC /* Build configuration list for PBXNativeTarget "vimojo" */;
@@ -2504,6 +2883,9 @@
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Videona;
 				TargetAttributes = {
+					A91BDB931E4378E200BE4F1C = {
+						DevelopmentTeam = 98YJ9HU6W9;
+					};
 					A9B385E51D7D51380065D3EC = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 98YJ9HU6W9;
@@ -2547,6 +2929,7 @@
 				A9B385E51D7D51380065D3EC /* vimojo */,
 				A9B385F91D7D51380065D3EC /* vimojoTests */,
 				A9D076D61E2F80B1003AE96B /* RTVE */,
+				A91BDB931E4378E200BE4F1C /* Periodista Celular */,
 			);
 		};
 /* End PBXProject section */
@@ -2583,6 +2966,48 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A91BDC9C1E4378E200BE4F1C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A91BDC9D1E4378E200BE4F1C /* activity_record_rec_circle.png in Resources */,
+				A91BDC9E1E4378E200BE4F1C /* jazzyfrenchy.mp3 in Resources */,
+				A91BDC9F1E4378E200BE4F1C /* MicRecorder.strings in Resources */,
+				A91BDCA01E4378E200BE4F1C /* VimojoLaunchScreen.storyboard in Resources */,
+				A91BDCA11E4378E200BE4F1C /* Gallery.storyboard in Resources */,
+				A91BDCA21E4378E200BE4F1C /* water_mark.png in Resources */,
+				A91BDCA31E4378E200BE4F1C /* iso639_2.bundle in Resources */,
+				A91BDCA41E4378E200BE4F1C /* MusicListView.xib in Resources */,
+				A91BDCA51E4378E200BE4F1C /* no_photo_user.png in Resources */,
+				A91BDCA61E4378E200BE4F1C /* ShareCell.xib in Resources */,
+				A91BDCA71E4378E200BE4F1C /* DetailProject.strings in Resources */,
+				A91BDCA81E4378E200BE4F1C /* MusicListCell.xib in Resources */,
+				A91BDCA91E4378E200BE4F1C /* ProjectList.strings in Resources */,
+				A91BDCAA1E4378E200BE4F1C /* Record.storyboard in Resources */,
+				A91BDCAB1E4378E200BE4F1C /* GoogleService-Info.plist in Resources */,
+				A91BDCAC1E4378E200BE4F1C /* Settings.strings in Resources */,
+				A91BDCAD1E4378E200BE4F1C /* goinghigher.mp3 in Resources */,
+				A91BDCAE1E4378E200BE4F1C /* Drawer.storyboard in Resources */,
+				A91BDCCC1E437A8200BE4F1C /* PeriodistaCelular.xcassets in Resources */,
+				A91BDCCA1E4379B100BE4F1C /* PeriodistaCelular.storyboard in Resources */,
+				A91BDCAF1E4378E200BE4F1C /* MusicProvider.strings in Resources */,
+				A91BDCCE1E437BBF00BE4F1C /* Splash.png in Resources */,
+				A91BDCB01E4378E200BE4F1C /* Vimojo.xcassets in Resources */,
+				A91BDCB11E4378E200BE4F1C /* ukulele.mp3 in Resources */,
+				A91BDCB21E4378E200BE4F1C /* DrawerMenu.strings in Resources */,
+				A91BDCB31E4378E200BE4F1C /* EditorStrings.strings in Resources */,
+				A91BDCB41E4378E200BE4F1C /* Assets.xcassets in Resources */,
+				A91BDCB51E4378E200BE4F1C /* Main.storyboard in Resources */,
+				A91BDCB61E4378E200BE4F1C /* Editor.storyboard in Resources */,
+				A91BDCB71E4378E200BE4F1C /* ProjectList.storyboard in Resources */,
+				A91BDCB81E4378E200BE4F1C /* VideonaFooterView.xib in Resources */,
+				A91BDCB91E4378E200BE4F1C /* acousticbreeze.mp3 in Resources */,
+				A91BDCBA1E4378E200BE4F1C /* MusicDetailView.xib in Resources */,
+				A91BDCBB1E4378E200BE4F1C /* Share.strings in Resources */,
+				A91BDCBC1E4378E200BE4F1C /* filter_free.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A9B385E41D7D51380065D3EC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2805,6 +3230,77 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RTVE/Pods-RTVE-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A91BDB981E4378E200BE4F1C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A91BDCBD1E4378E200BE4F1C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+		A91BDCBE1E4378E200BE4F1C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/Fabric/run 245a1998989c434deb37967cfa33882e5f169410 a4aace077e673d7b8bbb959e93125b49664db2b0da0cfb30de69381be101c379";
+		};
+		A91BDCBF1E4378E200BE4F1C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A91BDCC01E4378E200BE4F1C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A9439BFA1D954EC100C27CF9 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2860,6 +3356,261 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A91BDB991E4378E200BE4F1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A91BDB9A1E4378E200BE4F1C /* SettingsTransition.swift in Sources */,
+				A91BDB9B1E4378E200BE4F1C /* SettingsFTPHostAction.swift in Sources */,
+				A91BDB9C1E4378E200BE4F1C /* MusicInteractorInterface.swift in Sources */,
+				A91BDB9D1E4378E200BE4F1C /* RecordedTrackAreaViewModel.swift in Sources */,
+				A91BDB9E1E4378E200BE4F1C /* SettingTransitionAction.swift in Sources */,
+				A91BDB9F1E4378E200BE4F1C /* ResolutionsImages.swift in Sources */,
+				A91BDBA11E4378E200BE4F1C /* ProjectRealmRepository.swift in Sources */,
+				A91BDBA21E4378E200BE4F1C /* ProjectToRealmProjectMapper.swift in Sources */,
+				A91BDBA31E4378E200BE4F1C /* MicRecorderInteractor.swift in Sources */,
+				A91BDBA41E4378E200BE4F1C /* SettingsFTP.swift in Sources */,
+				A91BDBA51E4378E200BE4F1C /* FullScreenPlayerWireframe.swift in Sources */,
+				A91BDBA61E4378E200BE4F1C /* EditorTextConstants.swift in Sources */,
+				A91BDBA71E4378E200BE4F1C /* DetailTextWireframe.swift in Sources */,
+				A91BDBA81E4378E200BE4F1C /* AudioRepository.swift in Sources */,
+				A91BDBA91E4378E200BE4F1C /* DetailProjectInteractor.swift in Sources */,
+				A91BDBAA1E4378E200BE4F1C /* DetailProjectPresenterInterface.swift in Sources */,
+				A91BDBAB1E4378E200BE4F1C /* DuplicateWireframe.swift in Sources */,
+				A91BDBAC1E4378E200BE4F1C /* SocialNetwork.swift in Sources */,
+				A91BDBAD1E4378E200BE4F1C /* AddTextModel.swift in Sources */,
+				A91BDBAE1E4378E200BE4F1C /* ShareWireframe.swift in Sources */,
+				A91BDBAF1E4378E200BE4F1C /* ChangeFilterInteractor.swift in Sources */,
+				A91BDBB01E4378E200BE4F1C /* ProjectListViewModel.swift in Sources */,
+				A91BDBB11E4378E200BE4F1C /* MusicDetailView.swift in Sources */,
+				A91BDBB21E4378E200BE4F1C /* MusicListView.swift in Sources */,
+				A91BDBB31E4378E200BE4F1C /* MicRecorderWireframe.swift in Sources */,
+				A91BDBB41E4378E200BE4F1C /* MixAudioModel.swift in Sources */,
+				A91BDBB51E4378E200BE4F1C /* AddTextPresenterInterface.swift in Sources */,
+				A91BDBB61E4378E200BE4F1C /* ShareFTPBreakingNewsInteractor.swift in Sources */,
+				A91BDBB71E4378E200BE4F1C /* CustomDPTheme.swift in Sources */,
+				A91BDBB81E4378E200BE4F1C /* AudioRealmRepository.swift in Sources */,
+				A91BDBB91E4378E200BE4F1C /* EditingRoomPresenter.swift in Sources */,
+				A91BDBBA1E4378E200BE4F1C /* ShareVideoPath.swift in Sources */,
+				A91BDBBB1E4378E200BE4F1C /* DetailProjectViewController.swift in Sources */,
+				A91BDBBC1E4378E200BE4F1C /* SettingsFTPBreakingNewsUneditedDestination.swift in Sources */,
+				A91BDBBD1E4378E200BE4F1C /* DetailTextInteractor.swift in Sources */,
+				A91BDBBE1E4378E200BE4F1C /* MicRecorderConstants.swift in Sources */,
+				A91BDBBF1E4378E200BE4F1C /* VideoRealmRepository.swift in Sources */,
+				A91BDBC01E4378E200BE4F1C /* AudioToRealmAudioMapper.swift in Sources */,
+				A91BDBC11E4378E200BE4F1C /* SettingsResolutionAction.swift in Sources */,
+				A91BDBC21E4378E200BE4F1C /* EditorClipsCell.swift in Sources */,
+				A91BDBC31E4378E200BE4F1C /* EditorPresenter.swift in Sources */,
+				A91BDBC41E4378E200BE4F1C /* SettingsFTPBreakingNewsHostAction.swift in Sources */,
+				A91BDBC51E4378E200BE4F1C /* EditorViewController.swift in Sources */,
+				A91BDBC61E4378E200BE4F1C /* ProjectListConstants.swift in Sources */,
+				A91BDBC71E4378E200BE4F1C /* RecorderInteractor.swift in Sources */,
+				A91BDBC81E4378E200BE4F1C /* GetVoiceOverComposition.swift in Sources */,
+				A91BDBC91E4378E200BE4F1C /* DuplicateProjectOnProjectListAction.swift in Sources */,
+				A91BDBCA1E4378E200BE4F1C /* ConfigurationProtocol.swift in Sources */,
+				A91BDBCB1E4378E200BE4F1C /* MusicProvider.swift in Sources */,
+				A91BDBCC1E4378E200BE4F1C /* DrawerMenuInteractorInterface.swift in Sources */,
+				A91BDBCD1E4378E200BE4F1C /* RecorderInteractorInterface.swift in Sources */,
+				A91BDBCE1E4378E200BE4F1C /* RecordPresenter.swift in Sources */,
+				A91BDBCF1E4378E200BE4F1C /* ShareWhatsappInteractor.swift in Sources */,
+				A91BDBD01E4378E200BE4F1C /* AddWatermarkUseCase.swift in Sources */,
+				A91BDBD11E4378E200BE4F1C /* MicRecorderInteractorInterface.swift in Sources */,
+				A91BDBD21E4378E200BE4F1C /* SharePresenter.swift in Sources */,
+				A91BDBD31E4378E200BE4F1C /* FTPErrorType.swift in Sources */,
+				A91BDBD41E4378E200BE4F1C /* CreateNewProjectUseCase.swift in Sources */,
+				A91BDBD51E4378E200BE4F1C /* DrawerMenuInteractor.swift in Sources */,
+				A91BDBD61E4378E200BE4F1C /* DuplicateViewController.swift in Sources */,
+				A91BDBD71E4378E200BE4F1C /* CameraInteractorInterface.swift in Sources */,
+				A91BDBD81E4378E200BE4F1C /* GetCompositionForVideo.swift in Sources */,
+				A91BDBD91E4378E200BE4F1C /* SettingsFTPPasswordAction.swift in Sources */,
+				A91BDBDA1E4378E200BE4F1C /* MicRecorderPresenterInterface.swift in Sources */,
+				A91BDBDB1E4378E200BE4F1C /* MusicModels.swift in Sources */,
+				A91BDBDC1E4378E200BE4F1C /* SettingsFTPBreakingNewsUsernameAction.swift in Sources */,
+				A91BDBDD1E4378E200BE4F1C /* CheckPermission.swift in Sources */,
+				A91BDBDE1E4378E200BE4F1C /* GalleryFetchOptions.swift in Sources */,
+				A91BDBDF1E4378E200BE4F1C /* RecordWireframe.swift in Sources */,
+				A91BDBE01E4378E200BE4F1C /* VimojoWireframeInterface.swift in Sources */,
+				A91BDBE11E4378E200BE4F1C /* ProjectListInteractorInterface.swift in Sources */,
+				A91BDBE21E4378E200BE4F1C /* ExportTemporalVideoToShare.swift in Sources */,
+				A91BDBE31E4378E200BE4F1C /* ExportedAlbum.swift in Sources */,
+				A91BDBE41E4378E200BE4F1C /* EditorInteractor.swift in Sources */,
+				A91BDBE51E4378E200BE4F1C /* MusicListViewController.swift in Sources */,
+				A91BDBE61E4378E200BE4F1C /* ShareViewController.swift in Sources */,
+				A91BDBE71E4378E200BE4F1C /* ShareViewModel.swift in Sources */,
+				A91BDBE81E4378E200BE4F1C /* GoToRecordOrGalleryViewController.swift in Sources */,
+				A91BDBE91E4378E200BE4F1C /* SettingsConstants.swift in Sources */,
+				A91BDBEA1E4378E200BE4F1C /* CameraInteractor.swift in Sources */,
+				A91BDBEB1E4378E200BE4F1C /* SettingsContent.swift in Sources */,
+				A91BDBEC1E4378E200BE4F1C /* RecordPresenterInterfaceIO.swift in Sources */,
+				A91BDBED1E4378E200BE4F1C /* RecordController.swift in Sources */,
+				A91BDBEE1E4378E200BE4F1C /* FullScreenPlayerViewController.swift in Sources */,
+				A91BDBEF1E4378E200BE4F1C /* SettingsFTPBreakingNewsPasswordAction.swift in Sources */,
+				A91BDBF01E4378E200BE4F1C /* DetailTextInteractorInterface.swift in Sources */,
+				A91BDBF11E4378E200BE4F1C /* SetTrimParametersToVideo.swift in Sources */,
+				A91BDBF21E4378E200BE4F1C /* SettingsPresenterInterface.swift in Sources */,
+				A91BDBF31E4378E200BE4F1C /* SplitViewController.swift in Sources */,
+				A91BDBF41E4378E200BE4F1C /* SettingsFTPUsernameAction.swift in Sources */,
+				A91BDBF51E4378E200BE4F1C /* RealmProject.swift in Sources */,
+				A91BDBF61E4378E200BE4F1C /* MusicPresenter.swift in Sources */,
+				A91BDBF71E4378E200BE4F1C /* AddTextPresenter.swift in Sources */,
+				A91BDBF81E4378E200BE4F1C /* DrawerMenuPresenterInterface.swift in Sources */,
+				A91BDBF91E4378E200BE4F1C /* MusicProviderForVimojo.swift in Sources */,
+				A91BDBFA1E4378E200BE4F1C /* TrimViewController.swift in Sources */,
+				A91BDBFB1E4378E200BE4F1C /* SaveVideosFromGalleryInteractor.swift in Sources */,
+				A91BDBFC1E4378E200BE4F1C /* RealmAudioToAudioMapper.swift in Sources */,
+				A91BDBFD1E4378E200BE4F1C /* RecorderConstants.swift in Sources */,
+				A91BDBFE1E4378E200BE4F1C /* ProfileRepository.swift in Sources */,
+				A91BDBFF1E4378E200BE4F1C /* CustomExportedVideosGalleryViewController.swift in Sources */,
+				A91BDC001E4378E200BE4F1C /* FullScreenPlayerPresenterInterface.swift in Sources */,
+				A91BDC011E4378E200BE4F1C /* EditorPresenterInterface.swift in Sources */,
+				A91BDC021E4378E200BE4F1C /* SettingsUserInfo.swift in Sources */,
+				A91BDC031E4378E200BE4F1C /* MicRecorderViewController.swift in Sources */,
+				A91BDC041E4378E200BE4F1C /* PeriodistaCelularConfiguration.swift in Sources */,
+				A91BDC051E4378E200BE4F1C /* SettingsDetailTextAction.swift in Sources */,
+				A91BDC061E4378E200BE4F1C /* TrimParameters.swift in Sources */,
+				A91BDC071E4378E200BE4F1C /* AddTextViewController.swift in Sources */,
+				A91BDC081E4378E200BE4F1C /* ShareCell.swift in Sources */,
+				A91BDC091E4378E200BE4F1C /* NSLocale+ISO639_2.m in Sources */,
+				A91BDC0A1E4378E200BE4F1C /* DrawerProfileTableViewCell.swift in Sources */,
+				A91BDC0B1E4378E200BE4F1C /* DetailProjectFoundToDetailProjectViewModelMapper.swift in Sources */,
+				A91BDC0C1E4378E200BE4F1C /* SettingsInteractor.swift in Sources */,
+				A91BDC0D1E4378E200BE4F1C /* MusicInteractor.swift in Sources */,
+				A91BDC0E1E4378E200BE4F1C /* SettingsFTPEditedDestination.swift in Sources */,
+				A91BDC0F1E4378E200BE4F1C /* ReloadProjectWithProjectAction.swift in Sources */,
+				A91BDC101E4378E200BE4F1C /* SettingsFTPBreakingNews.swift in Sources */,
+				A91BDC111E4378E200BE4F1C /* SharePresenterInterface.swift in Sources */,
+				A91BDC121E4378E200BE4F1C /* DrawerMenuWireframe.swift in Sources */,
+				A91BDC131E4378E200BE4F1C /* MusicListInteractor.swift in Sources */,
+				A91BDC141E4378E200BE4F1C /* Mapper.swift in Sources */,
+				A91BDC151E4378E200BE4F1C /* SettingsModel.swift in Sources */,
+				A91BDC161E4378E200BE4F1C /* DuplicateInterface.swift in Sources */,
+				A91BDC171E4378E200BE4F1C /* DetailProjectFound.swift in Sources */,
+				A91BDC181E4378E200BE4F1C /* ShareYoutubeInteractor.swift in Sources */,
+				A91BDC191E4378E200BE4F1C /* MusicListPresenter.swift in Sources */,
+				A91BDC1A1E4378E200BE4F1C /* ProjectRepository.swift in Sources */,
+				A91BDC1B1E4378E200BE4F1C /* CameraRecorderInteractor.swift in Sources */,
+				A91BDC1C1E4378E200BE4F1C /* AppDelegate.swift in Sources */,
+				A91BDC1D1E4378E200BE4F1C /* ProjectListInteractor.swift in Sources */,
+				A91BDC1E1E4378E200BE4F1C /* TimerInteractor.swift in Sources */,
+				A91BDC1F1E4378E200BE4F1C /* ShareConstants.swift in Sources */,
+				A91BDC201E4378E200BE4F1C /* ProfileSharedPreferencesRepository.swift in Sources */,
+				A91BDC211E4378E200BE4F1C /* AddTextInteractor.swift in Sources */,
+				A91BDC221E4378E200BE4F1C /* RealmMigrationsUseCase.swift in Sources */,
+				A91BDC231E4378E200BE4F1C /* ApplyTextOverlayToVideoCompositionUseCase.swift in Sources */,
+				A91BDC241E4378E200BE4F1C /* DrawerMenuTableViewController.swift in Sources */,
+				A91BDC251E4378E200BE4F1C /* AnalitycsConstants.swift in Sources */,
+				A91BDC261E4378E200BE4F1C /* DPTheme.swift in Sources */,
+				A91BDC271E4378E200BE4F1C /* TakePhotoFromOptions.swift in Sources */,
+				A91BDC281E4378E200BE4F1C /* GetPHAssetFromUrl.swift in Sources */,
+				A91BDC291E4378E200BE4F1C /* ThumbnailListInteractor.swift in Sources */,
+				A91BDC2A1E4378E200BE4F1C /* CheckCameraPermissionUseCase.swift in Sources */,
+				A91BDC2B1E4378E200BE4F1C /* VideoRepository.swift in Sources */,
+				A91BDC2C1E4378E200BE4F1C /* CustomClipsGalleryViewController.swift in Sources */,
+				A91BDC2D1E4378E200BE4F1C /* MusicPresenterInterface.swift in Sources */,
+				A91BDC2E1E4378E200BE4F1C /* SettingsActionInterface.swift in Sources */,
+				A91BDC2F1E4378E200BE4F1C /* SplitViewInterface.swift in Sources */,
+				A91BDC301E4378E200BE4F1C /* AllVideosGalleryViewController.swift in Sources */,
+				A91BDC311E4378E200BE4F1C /*  GetSeekTimeFromValueOnVideo.swift in Sources */,
+				A91BDC321E4378E200BE4F1C /* SettingsUsernameAction.swift in Sources */,
+				A91BDC331E4378E200BE4F1C /* ViMoJoController.swift in Sources */,
+				A91BDC341E4378E200BE4F1C /* CameraRecorderInterface.swift in Sources */,
+				A91BDC351E4378E200BE4F1C /* VideoToRealmVideoMapper.swift in Sources */,
+				A91BDC361E4378E200BE4F1C /* EditingRoomItemController.swift in Sources */,
+				A91BDC371E4378E200BE4F1C /* ConfigPreferences.swift in Sources */,
+				A91BDC381E4378E200BE4F1C /* ProjectListViewController.swift in Sources */,
+				A91BDC391E4378E200BE4F1C /* FullScreenPlayerPresenter.swift in Sources */,
+				A91BDC3A1E4378E200BE4F1C /* CheckMicPermissionUseCase.swift in Sources */,
+				A91BDC3B1E4378E200BE4F1C /* RealmVideoToVideoMapper.swift in Sources */,
+				A91BDC3C1E4378E200BE4F1C /* ExporterInteractor.swift in Sources */,
+				A91BDC3D1E4378E200BE4F1C /* AddTextInteractorInterface.swift in Sources */,
+				A91BDC3E1E4378E200BE4F1C /* DrawerMenuPresenter.swift in Sources */,
+				A91BDC3F1E4378E200BE4F1C /* EditingRoomPresenterInterface.swift in Sources */,
+				A91BDC401E4378E200BE4F1C /* AppDependencies.swift in Sources */,
+				A91BDC411E4378E200BE4F1C /* GetMiddleRangeSliderValueWorker.swift in Sources */,
+				A91BDC421E4378E200BE4F1C /* MusicListPresenterInterface.swift in Sources */,
+				A91BDC431E4378E200BE4F1C /* ShareInteractor.swift in Sources */,
+				A91BDC441E4378E200BE4F1C /* MicRecorderPresenter.swift in Sources */,
+				A91BDC451E4378E200BE4F1C /* EditingRoomViewController.swift in Sources */,
+				A91BDC461E4378E200BE4F1C /* DrawerConstants.swift in Sources */,
+				A91BDC471E4378E200BE4F1C /* SplitWireframe.swift in Sources */,
+				A91BDC481E4378E200BE4F1C /* GalleryWireframe.swift in Sources */,
+				A91BDC491E4378E200BE4F1C /* TrimWireframe.swift in Sources */,
+				A91BDC4A1E4378E200BE4F1C /* MusicViewInterface.swift in Sources */,
+				A91BDC4B1E4378E200BE4F1C /* Specification.swift in Sources */,
+				A91BDC4C1E4378E200BE4F1C /* SaveVideosFromGalleryInterface.swift in Sources */,
+				A91BDC4D1E4378E200BE4F1C /* ShareInstagramInteractor.swift in Sources */,
+				A91BDC4E1E4378E200BE4F1C /* DetailTextController.swift in Sources */,
+				A91BDC4F1E4378E200BE4F1C /* UIApplicationExtensionGetTopController.swift in Sources */,
+				A91BDC501E4378E200BE4F1C /* GalleryViewController.swift in Sources */,
+				A91BDC511E4378E200BE4F1C /* SettingsFTPBreakingNewsEditedDestination.swift in Sources */,
+				A91BDC521E4378E200BE4F1C /* DateCompareExtension.swift in Sources */,
+				A91BDC531E4378E200BE4F1C /* SettingsEmailAction.swift in Sources */,
+				A91BDC541E4378E200BE4F1C /* ShareFacebookInteractor.swift in Sources */,
+				A91BDC551E4378E200BE4F1C /* RootWireframe.swift in Sources */,
+				A91BDC561E4378E200BE4F1C /* RealmAudio.swift in Sources */,
+				A91BDC571E4378E200BE4F1C /* SocialNetworkProvider.swift in Sources */,
+				A91BDC581E4378E200BE4F1C /* EditorModel.swift in Sources */,
+				A91BDC591E4378E200BE4F1C /* CheckPhotoRollPermissionUseCase.swift in Sources */,
+				A91BDC5A1E4378E200BE4F1C /* UIViewFadeViewsExtension.swift in Sources */,
+				A91BDC5B1E4378E200BE4F1C /* ViMoJoTracker.swift in Sources */,
+				A91BDC5C1E4378E200BE4F1C /* ShareTwitterInteractor.swift in Sources */,
+				A91BDC5D1E4378E200BE4F1C /* SettingsNameAction.swift in Sources */,
+				A91BDC5E1E4378E200BE4F1C /* EditorWireframe.swift in Sources */,
+				A91BDC5F1E4378E200BE4F1C /* DetailProjectWireframe.swift in Sources */,
+				A91BDC601E4378E200BE4F1C /* SettingsInteractorInterface.swift in Sources */,
+				A91BDC611E4378E200BE4F1C /* ThumbnailInteractor.swift in Sources */,
+				A91BDC621E4378E200BE4F1C /* SettingsCameraSettings.swift in Sources */,
+				A91BDC631E4378E200BE4F1C /* ShareActionInterface.swift in Sources */,
+				A91BDC641E4378E200BE4F1C /* MusicListInteractorInterface.swift in Sources */,
+				A91BDC651E4378E200BE4F1C /* RemoveFilterInteractor.swift in Sources */,
+				A91BDC661E4378E200BE4F1C /* DetailProjectViewModel.swift in Sources */,
+				A91BDC671E4378E200BE4F1C /* AddTextWireframe.swift in Sources */,
+				A91BDC681E4378E200BE4F1C /* RealmProjectToProjectMapper.swift in Sources */,
+				A91BDC691E4378E200BE4F1C /* EditingRoomViewInterface.swift in Sources */,
+				A91BDC6A1E4378E200BE4F1C /* ProjectListPresenterInterface.swift in Sources */,
+				A91BDC6B1E4378E200BE4F1C /* ProjectListPresenter.swift in Sources */,
+				A91BDC6C1E4378E200BE4F1C /* Repository.swift in Sources */,
+				A91BDC6D1E4378E200BE4F1C /* FlashInteractor.swift in Sources */,
+				A91BDC6E1E4378E200BE4F1C /* MusicCell.swift in Sources */,
+				A91BDC6F1E4378E200BE4F1C /* MusicWireframe.swift in Sources */,
+				A91BDC701E4378E200BE4F1C /* SettingsFTPUneditedDestination.swift in Sources */,
+				A91BDC711E4378E200BE4F1C /* SettingsProvider.swift in Sources */,
+				A91BDC721E4378E200BE4F1C /* DetailProjectInteractorInterface.swift in Sources */,
+				A91BDC731E4378E200BE4F1C /* RealmVideo.swift in Sources */,
+				A91BDC741E4378E200BE4F1C /* EstimationByQualityAndDuration.swift in Sources */,
+				A91BDC751E4378E200BE4F1C /* ProjectListCellView.swift in Sources */,
+				A91BDC761E4378E200BE4F1C /* ViMoJoInterface.swift in Sources */,
+				A91BDC771E4378E200BE4F1C /* ClipsAlbum.swift in Sources */,
+				A91BDC781E4378E200BE4F1C /* MusicDetailViewModel.swift in Sources */,
+				A91BDC791E4378E200BE4F1C /* MusicListWireframe.swift in Sources */,
+				A91BDC7A1E4378E200BE4F1C /* SettingsUtils.swift in Sources */,
+				A91BDC7B1E4378E200BE4F1C /* ProjectListWireframe.swift in Sources */,
+				A91BDC7C1E4378E200BE4F1C /* ShareInteractorInterface.swift in Sources */,
+				A91BDC7D1E4378E200BE4F1C /* RemoveProjectOnProjectListAction.swift in Sources */,
+				A91BDC7E1E4378E200BE4F1C /* AddFilterInteractor.swift in Sources */,
+				A91BDC7F1E4378E200BE4F1C /* SettingsWireframe.swift in Sources */,
+				A91BDC801E4378E200BE4F1C /* TimerInteractorInterface.swift in Sources */,
+				A91BDC811E4378E200BE4F1C /* FullScreenPlayerInterface.swift in Sources */,
+				A91BDC821E4378E200BE4F1C /* DetailTextPresenterInterface.swift in Sources */,
+				A91BDC831E4378E200BE4F1C /* TrimRangeBarViewModel.swift in Sources */,
+				A91BDC841E4378E200BE4F1C /* ShareUtils.swift in Sources */,
+				A91BDC851E4378E200BE4F1C /* TwitterVideoUpload.m in Sources */,
+				A91BDC861E4378E200BE4F1C /* MusicViewController.swift in Sources */,
+				A91BDC871E4378E200BE4F1C /* GoToRecordOrGalleryWireframe.swift in Sources */,
+				A91BDC881E4378E200BE4F1C /* EditorInteractorInterface.swift in Sources */,
+				A91BDC891E4378E200BE4F1C /* EditingRoomWireframe.swift in Sources */,
+				A91BDC8A1E4378E200BE4F1C /* DetailProjectPresenter.swift in Sources */,
+				A91BDC8B1E4378E200BE4F1C /* ShareFTPInteractor.swift in Sources */,
+				A91BDC8C1E4378E200BE4F1C /* SettingsPresenter.swift in Sources */,
+				A91BDC8D1E4378E200BE4F1C /* SettingsViewController.swift in Sources */,
+				A91BDC8E1E4378E200BE4F1C /* SettingsQualityAction.swift in Sources */,
+				A91BDC8F1E4378E200BE4F1C /* DetailTextPresenter.swift in Sources */,
+				A91BDC901E4378E200BE4F1C /* CreateDefaultProjectUseCase.swift in Sources */,
+				A91BDC911E4378E200BE4F1C /* MicRecorderViewModel.swift in Sources */,
+				A91BDC921E4378E200BE4F1C /* ConfigureNavBarVimojoExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A9B385E21D7D51380065D3EC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3382,6 +4133,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A91BDB941E4378E200BE4F1C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImageFramework;
+			targetProxy = A91BDB951E4378E200BE4F1C /* PBXContainerItemProxy */;
+		};
+		A91BDB961E4378E200BE4F1C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RebekkaTouch;
+			targetProxy = A91BDB971E4378E200BE4F1C /* PBXContainerItemProxy */;
+		};
 		A9B385FC1D7D51380065D3EC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A9B385E51D7D51380065D3EC /* vimojo */;
@@ -3533,6 +4294,88 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A91BDCC51E4378E200BE4F1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 766454C6CA730F908069F933 /* Pods-vimojo.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 98YJ9HU6W9;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Crashlytics/iOS\"",
+					"\"${PODS_ROOT}/Fabric/iOS\"",
+					/Users/Alejandro/Desktop/Repos/Videona,
+					"Frameworks/**",
+					/Users/Alejandro/Desktop/Repos/Videona,
+					"Frameworks/SpaceOnDisk/**",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"GTM_OAUTH2_USE_FRAMEWORK_IMPORTS=1",
+					"MIXPANEL_ERROR=1",
+				);
+				INFOPLIST_FILE = "periodistaCelular-info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR)";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DDEBUG\"";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.periodistaCelular;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "03dd0549-dc63-4c8f-9f51-18ead26f3a9e";
+				PROVISIONING_PROFILE_SPECIFIER = VimojoVariantsDev;
+				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A91BDCC61E4378E200BE4F1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85053EFDC7FCA51D64D3194F /* Pods-vimojo.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 98YJ9HU6W9;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Crashlytics/iOS\"",
+					"\"${PODS_ROOT}/Fabric/iOS\"",
+					/Users/Alejandro/Desktop/Repos/Videona,
+					"Frameworks/**",
+					/Users/Alejandro/Desktop/Repos/Videona,
+					"Frameworks/SpaceOnDisk/**",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"GTM_OAUTH2_USE_FRAMEWORK_IMPORTS=1",
+				);
+				INFOPLIST_FILE = "periodistaCelular-info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR) @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DRELEASE\"";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.periodistaCelular;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6324c1e5-0130-407d-b3b0-713acf3cb23f";
+				PROVISIONING_PROFILE_SPECIFIER = "XC: com.vimojo.*";
+				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		A9B386011D7D51380065D3EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3763,7 +4606,7 @@
 					"GTM_OAUTH2_USE_FRAMEWORK_IMPORTS=1",
 					"MIXPANEL_ERROR=1",
 				);
-				INFOPLIST_FILE = "vimojo copy2-Info.plist";
+				INFOPLIST_FILE = "RTVE-info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR)";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.RTVE;
@@ -3804,7 +4647,7 @@
 					"COCOAPODS=1",
 					"GTM_OAUTH2_USE_FRAMEWORK_IMPORTS=1",
 				);
-				INFOPLIST_FILE = "vimojo copy2-Info.plist";
+				INFOPLIST_FILE = "RTVE-info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR) @loader_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.RTVE;
@@ -3820,6 +4663,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A91BDCC41E4378E200BE4F1C /* Build configuration list for PBXNativeTarget "Periodista Celular" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A91BDCC51E4378E200BE4F1C /* Debug */,
+				A91BDCC61E4378E200BE4F1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A9B385E11D7D51380065D3EC /* Build configuration list for PBXProject "vimojo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
