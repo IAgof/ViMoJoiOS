@@ -66,7 +66,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Happy and light music featuring ukulele, finger snapping, pizzicato strings and drums." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eED-nV-dui">
-                    <rect key="frame" x="137" y="83.5" width="155" height="72"/>
+                    <rect key="frame" x="137" y="84" width="155" height="72"/>
                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                     <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -77,8 +77,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ImI-Xi-DLM">
                     <rect key="frame" x="2" y="156" width="298" height="130"/>
                     <subviews>
-                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="activity_edit_sound_normal" maximumValueImage="activity_edit_sound_voiceover_mix_micro" translatesAutoresizingMaskIntoConstraints="NO" id="s81-bV-bEi">
-                            <rect key="frame" x="6" y="50.5" width="286" height="31"/>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="activity_edit_sound_normal" maximumValueImage="activity_edit_sound_music_mix_music" translatesAutoresizingMaskIntoConstraints="NO" id="s81-bV-bEi">
+                            <rect key="frame" x="6" y="50" width="286" height="31"/>
                             <color key="minimumTrackTintColor" red="0.94901960780000005" green="0.29411764709999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="mixMusixAudioSliderChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="NTu-2G-1eo"/>
@@ -162,8 +162,8 @@
         <image name="activity_edit_cancel_pressed" width="15" height="15"/>
         <image name="activity_edit_clip_delete_music_pressed" width="32" height="32"/>
         <image name="activity_edit_music_selected_freethecoldwind" width="117" height="118"/>
+        <image name="activity_edit_sound_music_mix_music" width="18" height="19"/>
         <image name="activity_edit_sound_normal" width="21" height="19"/>
-        <image name="activity_edit_sound_voiceover_mix_micro" width="12" height="21"/>
         <image name="activy_sound_music_delete_normal" width="31" height="38"/>
         <image name="activy_sound_music_delete_pressed" width="31" height="38"/>
     </resources>
