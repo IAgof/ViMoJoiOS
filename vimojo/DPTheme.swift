@@ -31,27 +31,27 @@ class DPTheme: NSObject {
         fontName: String,
         lightStatusBar: Bool) {
         
-            if (lightStatusBar) {
-                UIApplication.shared.setStatusBarStyle(
-                    .lightContent, animated: false)
-            }
-            
-            self.customizeNavigationBar(barColor: maincolor,
-                                        textColor: secondaryColor,
-                                        fontName: fontName,
-                                        fontSize: kDefaultNavigationBarFontSize,
-                                        buttonColor: secondaryColor)
-            self.customizeTabBar(barColor: maincolor, textColor: secondaryColor, fontName: fontName, fontSize: kDefaultTabBarFontSize)
-            self.customizeSwitch(onColor: maincolor)
-            self.customizeSearchBar(barColor: maincolor, tintColor: secondaryColor)
-            self.customizeActivityIndicator(color: maincolor)
-            self.customizeButton(buttonColor:secondaryColor ,selectedButtonColor: maincolor)
-            self.customizeSegmentedControl(mainColor: maincolor, secondaryColor: secondaryColor)
-            self.customizeSlider(sliderColor: maincolor,maxTrackColor: secondaryColor)
-            self.customizePageControl(currentPageColor: maincolor)
-            self.customizeToolbar(tintColor: maincolor)
-            self.customizeTableView(tintColor: maincolor)
-            self.customizeProgress(color: maincolor)
+        if (lightStatusBar) {
+            UIApplication.shared.setStatusBarStyle(
+                .lightContent, animated: false)
+        }
+        
+        self.customizeNavigationBar(barColor: maincolor,
+                                    textColor: secondaryColor,
+                                    fontName: fontName,
+                                    fontSize: kDefaultNavigationBarFontSize,
+                                    buttonColor: secondaryColor)
+        self.customizeTabBar(barColor: maincolor, textColor: secondaryColor, fontName: fontName, fontSize: kDefaultTabBarFontSize)
+        self.customizeSwitch(onColor: maincolor)
+        self.customizeSearchBar(barColor: maincolor, tintColor: secondaryColor)
+        self.customizeActivityIndicator(color: maincolor)
+        self.customizeButton(buttonColor:secondaryColor ,selectedButtonColor: maincolor)
+        self.customizeSegmentedControl(mainColor: maincolor, secondaryColor: secondaryColor)
+        self.customizeSlider(sliderColor: maincolor,maxTrackColor: secondaryColor)
+        self.customizePageControl(currentPageColor: maincolor)
+        self.customizeToolbar(tintColor: maincolor)
+        self.customizeTableView(tintColor: maincolor)
+        self.customizeProgress(color: maincolor)
     }
     
     // UITableView
@@ -66,9 +66,9 @@ class DPTheme: NSObject {
         barColor: UIColor,
         textColor: UIColor,
         buttonColor: UIColor) {
-            UINavigationBar.appearance().barTintColor = barColor
-            UINavigationBar.appearance().tintColor = buttonColor
-            UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: textColor]
+        UINavigationBar.appearance().barTintColor = barColor
+        UINavigationBar.appearance().tintColor = buttonColor
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: textColor]
     }
     
     internal static func customizeNavigationBar(
@@ -82,7 +82,7 @@ class DPTheme: NSObject {
         UINavigationBar.appearance().tintColor = buttonColor
         UINavigationBar.appearance().backgroundColor = barColor
         UINavigationBar.appearance().isTranslucent = false
-
+        
         UIButton.appearance(whenContainedInInstancesOf: [object_getClass(UINavigationBar.self) as! UIAppearanceContainer.Type]).tintColor = buttonColor
         
         let font = UIFont(name: fontName, size: fontSize)
@@ -98,15 +98,16 @@ class DPTheme: NSObject {
     internal static func customizeTabBar(
         barColor: UIColor,
         textColor: UIColor) {
-            UITabBar.appearance().barTintColor = barColor
-            UITabBar.appearance().tintColor = textColor
+        UITabBar.appearance().barTintColor = barColor
+        UITabBar.appearance().tintColor = textColor
+        UITabBar.appearance().isTranslucent = false
     }
     
     internal static func customizeTabBar(
         barColor: UIColor,
         selectedTintColor: UIColor,
         unselectedTintColor: UIColor) {
-       
+        
         UITabBar.appearance().barTintColor = barColor
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName : unselectedTintColor], for: .normal)
         
@@ -121,13 +122,13 @@ class DPTheme: NSObject {
         textColor: UIColor,
         fontName: String,
         fontSize: CGFloat) {
-            UITabBar.appearance().barTintColor = barColor
-            UITabBar.appearance().tintColor = textColor
-            UITabBar.appearance().backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            let font = UIFont(name: fontName, size: fontSize)
-            if ((font) != nil) {
-                UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: font!], for: .normal)
-            }
+        UITabBar.appearance().barTintColor = barColor
+        UITabBar.appearance().tintColor = textColor
+        UITabBar.appearance().backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        let font = UIFont(name: fontName, size: fontSize)
+        if ((font) != nil) {
+            UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: font!], for: .normal)
+        }
     }
     
     
@@ -144,7 +145,7 @@ class DPTheme: NSObject {
     // UISwitch
     internal static func customizeSwitch(
         onColor: UIColor) {
-            UISwitch.appearance().onTintColor = onColor
+        UISwitch.appearance().onTintColor = onColor
     }
     
     
@@ -152,15 +153,15 @@ class DPTheme: NSObject {
     internal static func customizeSearchBar(
         barColor: UIColor,
         tintColor: UIColor) {
-            UISearchBar.appearance().barTintColor = barColor
-            UISearchBar.appearance().tintColor = barColor
+        UISearchBar.appearance().barTintColor = barColor
+        UISearchBar.appearance().tintColor = barColor
     }
     
     
     // UIActivityIndicator
     internal static func customizeActivityIndicator(
         color: UIColor) {
-            UIActivityIndicatorView.appearance().color = color
+        UIActivityIndicatorView.appearance().color = color
     }
     
     
@@ -168,17 +169,17 @@ class DPTheme: NSObject {
     internal static func customizeSegmentedControl(
         mainColor: UIColor,
         secondaryColor: UIColor) {
-            UISegmentedControl.appearance().tintColor = mainColor
+        UISegmentedControl.appearance().tintColor = mainColor
     }
     
     internal static func customizeSegmentedControl(
         mainColor: UIColor,
         secondaryColor: UIColor,
         font: UIFont!) {
-            UISegmentedControl.appearance().tintColor = mainColor
-            if (font != nil) {
-                UISegmentedControl.appearance().setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
-            }
+        UISegmentedControl.appearance().tintColor = mainColor
+        if (font != nil) {
+            UISegmentedControl.appearance().setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
+        }
     }
     
     
@@ -211,15 +212,15 @@ class DPTheme: NSObject {
     // UIToolbar
     internal static func customizeToolbar(
         tintColor: UIColor) {
-            UIToolbar.appearance().tintColor = tintColor
+        UIToolbar.appearance().tintColor = tintColor
     }
     
     // UIPageControl
     internal static func customizePageControl(
         currentPageColor: UIColor) {
-            UIPageControl.appearance().pageIndicatorTintColor = UIColor.lightGray
-            UIPageControl.appearance().currentPageIndicatorTintColor = currentPageColor
-            UIPageControl.appearance().backgroundColor = UIColor.clear
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor.lightGray
+        UIPageControl.appearance().currentPageIndicatorTintColor = currentPageColor
+        UIPageControl.appearance().backgroundColor = UIColor.clear
     }
     
     // Color utilities
@@ -227,7 +228,7 @@ class DPTheme: NSObject {
         red: CGFloat,
         green: CGFloat,
         blue: CGFloat) -> UIColor {
-            return UIColor(red: CGFloat(red/255.0), green: CGFloat(green/255.0), blue: CGFloat(blue/255.0), alpha: 1)
+        return UIColor(red: CGFloat(red/255.0), green: CGFloat(green/255.0), blue: CGFloat(blue/255.0), alpha: 1)
     }
     
 }
