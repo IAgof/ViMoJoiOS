@@ -81,6 +81,7 @@ class DPTheme: NSObject {
         UINavigationBar.appearance().barTintColor = barColor
         UINavigationBar.appearance().tintColor = buttonColor
         UINavigationBar.appearance().backgroundColor = barColor
+        UINavigationBar.appearance().isTranslucent = false
 
         UIButton.appearance(whenContainedInInstancesOf: [object_getClass(UINavigationBar.self) as! UIAppearanceContainer.Type]).tintColor = buttonColor
         
