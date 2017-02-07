@@ -99,6 +99,10 @@ class SharePresenter:NSObject,SharePresenterInterface{
             self.delegate?.showShareGeneric(videoURL)
         }
     }
+    
+    func exportFailOkPushed() {
+        wireframe?.presentEditor()
+    }
 }
 
 extension SharePresenter:ShareInteractorDelegate{
@@ -107,12 +111,21 @@ extension SharePresenter:ShareInteractorDelegate{
     }
     
     func setPlayerUrl(videoURL: URL) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.delegate?.dissmissAlertWaitToExport()
-        }
-        
         self.videoURL = videoURL
         
         playerPresenter?.createVideoPlayer(videoURL)
     }
+    
+    func exportFinished(withError: Bool) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.delegate?.dissmissAlertWaitToExport()
+            
+            if withError {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.delegate?.createAlertExportFailed()
+                }
+            }
+        }
+    }
+
 }

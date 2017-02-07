@@ -193,6 +193,28 @@ extension ShareViewController:SharePresenterDelegate{
         self.present(alertC, animated: true, completion: nil)
     }
     
+    func createAlertExportFailed(){
+        let title = ShareConstants.EXPORT_FAILED_TITLE
+        let message = ShareConstants.EXPORT_FAILED_MESSAGE
+        
+        alertController = UIAlertController(title: title,
+                                            message: message,
+                                            preferredStyle: .alert)
+        
+        guard let alertC = alertController else{return}
+        alertC.setTintColor()
+        
+        let action = UIAlertAction(title: ShareConstants.OK,
+                                   style: .default,
+                                   handler: {
+                                    action in
+                                    self.eventHandler?.exportFailOkPushed()
+        })
+        
+        alertC.addAction(action)
+        self.present(alertC, animated: true, completion: nil)
+    }
+    
     func dissmissAlertWaitToExport(){
         DispatchQueue.main.async {
             self.alertController?.dismiss(animated: true, completion: nil)

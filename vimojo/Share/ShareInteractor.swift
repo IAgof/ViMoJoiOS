@@ -68,11 +68,17 @@ class ShareInteractor: NSObject,ShareInteractorInterface {
         
         let exporter = ExporterInteractor.init(project: actualProject)
         exporter.exportVideos({
-            exportURL in
-            print("Export path response = \(exportURL)")
-            self.moviePath = exportURL.absoluteString
-            ProjectRealmRepository().update(item: actualProject)
-            self.delegate?.setPlayerUrl(videoURL: exportURL)
+            exportURL,exportFail in
+            self.delegate?.exportFinished(withError: exportFail)
+            if !exportFail{
+                if let url = exportURL{
+                    print("Export path response = \(url)")
+                    self.moviePath = url.absoluteString
+                    ProjectRealmRepository().update(item: actualProject)
+                    self.delegate?.setPlayerUrl(videoURL: url)
+                }
+            }
+
         })
     }
     

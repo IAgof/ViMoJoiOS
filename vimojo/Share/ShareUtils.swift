@@ -17,7 +17,7 @@ class ShareUtils{
         let alertController = UIAlertController(title: socialName, message: message, preferredStyle: .alert)
         alertController.setTintColor()
 
-        alertController.addAction(UIAlertAction(title: Utils().getStringByKeyFromShare(ShareConstants().OK),
+        alertController.addAction(UIAlertAction(title: ShareConstants.OK,
             style: .default, handler: nil))
         
         
@@ -58,8 +58,8 @@ class ShareUtils{
                                       message:String,
                                       completion: @escaping (String) -> Void)-> UIAlertController{
         
-        let saveString = Utils().getStringByKeyFromShare(ShareConstants().FTP_INPUT_FILENAME_SAVE)
-        let cancelString = Utils().getStringByKeyFromShare(ShareConstants().FTP_INPUT_FILENAME_CANCEL)
+        let saveString = ShareConstants.FTP_INPUT_FILENAME_SAVE
+        let cancelString = ShareConstants.FTP_INPUT_FILENAME_CANCEL
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.setTintColor()

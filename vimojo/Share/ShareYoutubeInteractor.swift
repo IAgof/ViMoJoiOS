@@ -54,7 +54,7 @@ class ShareYoutubeInteractor: ShareActionInterface{
         let headers = ["Authorization": "Bearer \(token)"]
         
         let title = "Vimojo-\(Utils().giveMeTimeNow())"
-        let description = Utils().getStringByKeyFromShare(ShareConstants().YOUTUBE_DESCRIPTION)
+        let description = ShareConstants.YOUTUBE_DESCRIPTION
         
         guard let path = mediaPath else {return}
         let videoData = try? Data.init(contentsOf: URL(fileURLWithPath: path))
@@ -74,12 +74,12 @@ class ShareYoutubeInteractor: ShareActionInterface{
                                     print(response)
                                     callback(true)
                                     
-                                    let message = Utils().getStringByKeyFromShare(ShareConstants().UPLOAD_SUCCESFULL)
+                                    let message = ShareConstants.UPLOAD_SUCCESFULL
                                     ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Youtube", message: message)
                                 }
                             case .failure(_):
                                 callback(false)
-                                let message = Utils().getStringByKeyFromShare(ShareConstants().UPLOAD_FAIL)
+                                let message = ShareConstants.UPLOAD_FAIL
                                 ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Youtube", message: message)
                             }
         })

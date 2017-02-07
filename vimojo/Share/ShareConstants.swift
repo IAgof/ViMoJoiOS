@@ -8,29 +8,83 @@
 
 import Foundation
 
-class ShareConstants: NSObject {
-    let NO_WHATSAPP_INSTALLED = "no_whatsapp_installed"
-    let NO_ISTAGRAM_INSTALLED = "no_instagram_installed"
-    let NO_FACEBOOK_INSTALLED = "no_facebook_installed"
-    let OK = "OK"
-    let UPLOADING_VIDEO = "uploadingVideo"
-    let PLEASE_WAIT = "pleaseWait"
-    let YOUTUBE_DESCRIPTION = "descriptionYoutube"
-    let YOUTUBE_TITLE = "titleYoutube"
-    let UPLOAD_SUCCESFULL = "uploadSuccesfull"
-    let UPLOAD_FAIL = "uploadFail"
-    let VIDEONATIME_HASTAGH = "videonaHastagh"
-    let NO_TWITTER_ACCESS = "twitterNoAcces"
-    let TWITTER_MAX_LENGHT = "twitterMaxLenght"
-    let TWITTER_MAX_SIZE = "twitterMaxSize"
-    let INSTAGRAM_MAX_LENGHT = "instagramMaxLenght"
-    let SHARE_YOUR_VIDEO = "shareYourVideo"
-    let FTP_ERROR_UNAUTHORIZED = "ftpErrorUnauthorized"
-    let FTP_ERROR_HOST_UNREACHABLE = "ftpErrorUnauthorized"
-    let FTP_ERROR_FILE_NOT_FOUND = "ftpErrorFileNotFound"
-    
-    let FTP_INPUT_FILENAME_PLACEHOLDER = "ftpInputFilenamePlaceholder"
-    let FTP_INPUT_FILENAME_TITLE = "ftpInputFilenameTitle"
-    let FTP_INPUT_FILENAME_SAVE = "ftpInputFilenameSave"
-    let FTP_INPUT_FILENAME_CANCEL = "ftpInputFilenameCancel"
+struct ShareConstants{
+    static var  NO_WHATSAPP_INSTALLED:String{
+        return getStringByKeyFromShare("no_whatsapp_installed")
+    }
+    static var  NO_ISTAGRAM_INSTALLED:String{
+        return getStringByKeyFromShare("no_facebook_installed")
+    }
+    static var  NO_FACEBOOK_INSTALLED:String{
+        return getStringByKeyFromShare("no_facebook_installed")
+    }
+    static var  OK:String{
+        return getStringByKeyFromShare("OK")
+    }
+    static var  UPLOADING_VIDEO:String{
+        return getStringByKeyFromShare("uploadingVideo")
+    }
+    static var  PLEASE_WAIT:String{
+        return getStringByKeyFromShare("pleaseWait")
+    }
+    static var  YOUTUBE_DESCRIPTION:String{
+        return getStringByKeyFromShare("descriptionYoutube")
+    }
+    static var  YOUTUBE_TITLE:String{
+        return getStringByKeyFromShare("titleYoutube")
+    }
+    static var  UPLOAD_SUCCESFULL:String{
+        return getStringByKeyFromShare("uploadSuccesfull")
+    }
+    static var  UPLOAD_FAIL:String{
+        return getStringByKeyFromShare("uploadFail")
+    }
+    static var  VIDEONATIME_HASTAGH:String{
+        return getStringByKeyFromShare("videonaHastagh")
+    }
+    static var  NO_TWITTER_ACCESS:String{
+        return getStringByKeyFromShare("twitterNoAcces")
+    }
+    static var  TWITTER_MAX_LENGHT:String{
+        return getStringByKeyFromShare("twitterMaxLenght")
+    }
+    static var  TWITTER_MAX_SIZE:String{
+        return getStringByKeyFromShare("twitterMaxSize")
+    }
+    static var  INSTAGRAM_MAX_LENGHT:String{
+        return getStringByKeyFromShare("instagramMaxLenght")
+    }
+    static var  SHARE_YOUR_VIDEO:String{
+        return getStringByKeyFromShare("shareYourVideo")
+    }
+    static var  FTP_ERROR_UNAUTHORIZED:String{
+        return getStringByKeyFromShare("ftpErrorUnauthorized")
+    }
+    static var  FTP_ERROR_HOST_UNREACHABLE:String{
+        return getStringByKeyFromShare("ftpErrorUnauthorized")
+    }
+    static var  FTP_ERROR_FILE_NOT_FOUND:String{
+        return getStringByKeyFromShare("ftpErrorFileNotFound")
+    }
+    static var  FTP_INPUT_FILENAME_PLACEHOLDER:String{
+        return getStringByKeyFromShare("ftpInputFilenamePlaceholder")
+    }
+    static var  FTP_INPUT_FILENAME_TITLE:String{
+        return getStringByKeyFromShare("ftpInputFilenameTitle")
+    }
+    static var  FTP_INPUT_FILENAME_SAVE:String{
+        return getStringByKeyFromShare("ftpInputFilenameSave")
+    }
+    static var  FTP_INPUT_FILENAME_CANCEL:String{
+        return getStringByKeyFromShare("ftpInputFilenameCancel")
+    }
+    static var  EXPORT_FAILED_TITLE:String{
+        return getStringByKeyFromShare("videoExportFailedTitle")
+    }
+    static var  EXPORT_FAILED_MESSAGE:String{
+        return getStringByKeyFromShare("videoExportFailedMessage")
+    }
+    private static func getStringByKeyFromShare(_ key:String) -> String {
+        return Bundle.main.localizedString(forKey: key,value: "",table: "Share")
+    }
 }

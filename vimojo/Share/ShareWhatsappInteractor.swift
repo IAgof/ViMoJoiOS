@@ -58,7 +58,7 @@ class ShareWhatsappInteractor: ShareActionInterface {
             
             
         }else{
-            let message = Utils().getStringByKeyFromSettings(ShareConstants().NO_WHATSAPP_INSTALLED)
+            let message = ShareConstants.NO_WHATSAPP_INSTALLED
             ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Whatsapp",
                                                             message: message)
         }

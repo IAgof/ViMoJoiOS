@@ -31,13 +31,13 @@ class ShareFacebookInteractor:NSObject, ShareActionInterface{
         
         let content:FBSDKShareVideoContent = FBSDKShareVideoContent()
         content.video = video
-        content.hashtag = FBSDKHashtag.init(string: Utils().getStringByKeyFromShare(ShareConstants().VIDEONATIME_HASTAGH))
+        content.hashtag = FBSDKHashtag.init(string: ShareConstants.VIDEONATIME_HASTAGH)
         
         let dialog = FBSDKShareDialog.init()
         if UIApplication.shared.canOpenURL(URL.init(string:"fbauth2:/")!){
             dialog.mode = .native
         }else{
-            let message = Utils().getStringByKeyFromSettings(ShareConstants().NO_FACEBOOK_INSTALLED)
+            let message = ShareConstants.NO_FACEBOOK_INSTALLED
             ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Facebook",
                                                             message: message)
         }
