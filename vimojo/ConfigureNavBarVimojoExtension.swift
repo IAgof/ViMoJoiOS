@@ -50,10 +50,21 @@ extension ViMoJoController{
                 if drawer.drawerState == .opened{
                     drawer.setDrawerState(.closed, animated: true)
                 }else{
+                    rightBarButtonItems(isEnabled: false)
                     drawer.setDrawerState(.opened, animated: true)
                 }
             }
             parent = parent?.parent
+        }
+    }
+    
+    func rightBarButtonItems(isEnabled state:Bool){
+        if let topController = UIApplication.topViewController(){
+            if let items = topController.navigationItem.rightBarButtonItems{
+                for item in items {
+                    item.isEnabled = state
+                }
+            }
         }
     }
 }

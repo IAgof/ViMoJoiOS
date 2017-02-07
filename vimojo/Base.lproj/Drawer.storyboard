@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,29 +14,23 @@
         <!--Menu-->
         <scene sceneID="28G-o8-Joi">
             <objects>
-                <tableViewController storyboardIdentifier="DrawerMenuTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="s83-2h-qSy" customClass="DrawerMenuTableViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DrawerMenuTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="s83-2h-qSy" customClass="DrawerMenuTableViewController" customModule="PeriodistaCelular" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7YA-3h-seG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
                             <tableViewSection id="ROc-Cg-GGe">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DrawerProfileTableViewCell" rowHeight="250" id="QIE-Zj-dmi" customClass="DrawerProfileTableViewCell" customModule="RTVE" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DrawerProfileTableViewCell" rowHeight="230" id="QIE-Zj-dmi" customClass="DrawerProfileTableViewCell" customModule="PeriodistaCelular" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="230"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QIE-Zj-dmi" id="mw6-BE-9sC">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="249.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="229.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alberto Perez Sanchez" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYU-P4-Spu">
-                                                    <rect key="frame" x="8" y="183.5" width="304" height="26"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                    <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GWp-Cb-lNv">
-                                                    <rect key="frame" x="286" y="72" width="26" height="26"/>
+                                                    <rect key="frame" x="372" y="8" width="34" height="34"/>
                                                     <state key="normal" image="activity_drawer_close">
                                                         <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
@@ -44,18 +38,24 @@
                                                         <action selector="exitButtonPushed:" destination="s83-2h-qSy" eventType="touchUpInside" id="e6n-SC-Kdc"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alberto Perez Sanchez" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYU-P4-Spu">
+                                                    <rect key="frame" x="8" y="163.66666666666666" width="398" height="26"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                    <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a.perez@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFL-su-lME">
-                                                    <rect key="frame" x="8" y="212.5" width="151" height="21"/>
+                                                    <rect key="frame" x="8" y="192.66666666666666" width="151" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_drawer_logo" highlightedImage="activity_drawer_logo" translatesAutoresizingMaskIntoConstraints="NO" id="skc-l2-3CN">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="249.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="229.66666666666666"/>
                                                     <gestureRecognizers/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="beB-ze-iWV">
-                                                    <rect key="frame" x="8" y="67.5" width="100" height="100"/>
+                                                    <rect key="frame" x="8" y="65" width="100" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="g0c-EH-YbQ"/>
                                                         <constraint firstAttribute="width" secondItem="beB-ze-iWV" secondAttribute="height" multiplier="1:1" id="rcJ-3x-OkX"/>
@@ -82,11 +82,11 @@
                                                 <constraint firstItem="skc-l2-3CN" firstAttribute="leading" secondItem="mw6-BE-9sC" secondAttribute="leading" id="BRY-xR-fPc"/>
                                                 <constraint firstAttribute="bottom" secondItem="skc-l2-3CN" secondAttribute="bottom" id="Esn-c0-nfE"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="eFL-su-lME" secondAttribute="bottom" constant="8" id="Koh-ie-1IU"/>
-                                                <constraint firstItem="NYU-P4-Spu" firstAttribute="top" secondItem="beB-ze-iWV" secondAttribute="bottom" constant="16" id="SYx-Kv-YE4"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="NYU-P4-Spu" secondAttribute="trailing" id="V9J-mE-hDx"/>
-                                                <constraint firstItem="GWp-Cb-lNv" firstAttribute="top" secondItem="mw6-BE-9sC" secondAttribute="topMargin" constant="64" id="VaO-w8-kVS"/>
+                                                <constraint firstItem="GWp-Cb-lNv" firstAttribute="top" secondItem="mw6-BE-9sC" secondAttribute="topMargin" id="VaO-w8-kVS"/>
                                                 <constraint firstItem="NYU-P4-Spu" firstAttribute="leading" secondItem="eFL-su-lME" secondAttribute="leading" id="Vm7-pn-GNV"/>
                                                 <constraint firstItem="NYU-P4-Spu" firstAttribute="leading" secondItem="mw6-BE-9sC" secondAttribute="leadingMargin" id="ZzD-a1-qIL"/>
+                                                <constraint firstItem="beB-ze-iWV" firstAttribute="centerY" secondItem="mw6-BE-9sC" secondAttribute="centerY" priority="400" id="cIG-Ab-hLj"/>
                                                 <constraint firstItem="GWp-Cb-lNv" firstAttribute="trailing" secondItem="mw6-BE-9sC" secondAttribute="trailingMargin" id="eao-sT-oah"/>
                                                 <constraint firstAttribute="trailing" secondItem="skc-l2-3CN" secondAttribute="trailing" id="f7z-Re-fHV"/>
                                                 <constraint firstItem="eFL-su-lME" firstAttribute="top" secondItem="NYU-P4-Spu" secondAttribute="bottom" constant="3" id="ity-0N-0tb"/>
@@ -105,17 +105,17 @@
                             <tableViewSection id="595-sg-zcl">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="80" id="Vqg-F1-yRG">
-                                        <rect key="frame" x="0.0" y="250" width="320" height="80"/>
+                                        <rect key="frame" x="0.0" y="230" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vqg-F1-yRG" id="TdX-ag-Axc">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="79.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_drawer_projects_normal" highlightedImage="activity_drawer_projects_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="cWZ-zY-F9d">
-                                                    <rect key="frame" x="12" y="26" width="34" height="27"/>
+                                                    <rect key="frame" x="12" y="22" width="45" height="36"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Projects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVS-PO-1cj">
-                                                    <rect key="frame" x="63" y="29" width="63" height="21"/>
+                                                    <rect key="frame" x="74" y="29" width="63" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -130,17 +130,17 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="80" id="gI3-LE-IrV">
-                                        <rect key="frame" x="0.0" y="330" width="320" height="80"/>
+                                        <rect key="frame" x="0.0" y="310" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gI3-LE-IrV" id="yNs-Fz-DKX">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="79.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_drawer_new_project_normal" highlightedImage="activity_drawer_new_project_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="EOr-70-SiL">
-                                                    <rect key="frame" x="12" y="21" width="44" height="37"/>
+                                                    <rect key="frame" x="12" y="15.666666666666668" width="59" height="49"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdE-PI-TGi">
-                                                    <rect key="frame" x="73" y="29" width="93" height="21"/>
+                                                    <rect key="frame" x="88" y="29" width="93" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -155,17 +155,17 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="80" id="aHk-Cz-4P7">
-                                        <rect key="frame" x="0.0" y="410" width="320" height="80"/>
+                                        <rect key="frame" x="0.0" y="390" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aHk-Cz-4P7" id="nTp-Be-0SI">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="79.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_drawer_options_normal" highlightedImage="activity_drawer_options_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="Wbf-Uq-bcm">
-                                                    <rect key="frame" x="12" y="25" width="29" height="30"/>
+                                                    <rect key="frame" x="12" y="21" width="39" height="39"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqr-7E-B6Q">
-                                                    <rect key="frame" x="58" y="29" width="64" height="21"/>
+                                                    <rect key="frame" x="68" y="30" width="64" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -199,14 +199,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="activity_drawer_close" width="26" height="26"/>
-        <image name="activity_drawer_logo" width="62" height="32"/>
-        <image name="activity_drawer_new_project_normal" width="44" height="37"/>
-        <image name="activity_drawer_new_project_pressed" width="44" height="37"/>
-        <image name="activity_drawer_no_user_photo" width="55" height="53"/>
-        <image name="activity_drawer_options_normal" width="29" height="30"/>
-        <image name="activity_drawer_options_pressed" width="29" height="30"/>
-        <image name="activity_drawer_projects_normal" width="34" height="27"/>
-        <image name="activity_drawer_projects_pressed" width="34" height="27"/>
+        <image name="activity_drawer_close" width="34" height="34"/>
+        <image name="activity_drawer_logo" width="82" height="43"/>
+        <image name="activity_drawer_new_project_normal" width="59" height="49"/>
+        <image name="activity_drawer_new_project_pressed" width="59" height="49"/>
+        <image name="activity_drawer_no_user_photo" width="136" height="132"/>
+        <image name="activity_drawer_options_normal" width="39" height="39"/>
+        <image name="activity_drawer_options_pressed" width="39" height="39"/>
+        <image name="activity_drawer_projects_normal" width="45" height="36"/>
+        <image name="activity_drawer_projects_pressed" width="45" height="36"/>
     </resources>
 </document>
