@@ -201,21 +201,26 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     
     //MARK: - Interface
     func deselectCell(_ indexPath:IndexPath) {
-        if let cell = (thumbnailClipsCollectionView.cellForItem(at: indexPath)){
-            cell.isSelected = false
-            
+        DispatchQueue.main.async {
+            if let cell = (self.thumbnailClipsCollectionView.cellForItem(at: indexPath)){
+                cell.isSelected = false
+            }
         }
     }
     
     func selectCell(_ indexPath:IndexPath) {
         // Select cell
-        if let cell = (thumbnailClipsCollectionView.cellForItem(at: indexPath)){
-            cell.isSelected = true
+        DispatchQueue.main.async {
+            if let cell = (self.thumbnailClipsCollectionView.cellForItem(at: indexPath)){
+                cell.isSelected = true
+            }
         }
     }
     
     func reloadCollectionViewData() {
-        thumbnailClipsCollectionView.reloadData()
+        DispatchQueue.main.async {
+            self.thumbnailClipsCollectionView.reloadData()
+        }
     }
     
     func setVideoList(_ list: [EditorViewModel]) {

@@ -49,6 +49,7 @@ class ShareInteractor: NSObject,ShareInteractorInterface {
             if FileManager.default.fileExists(atPath: exportPath){
                 let exportURL = URL(fileURLWithPath: exportPath)
                 self.delegate?.setPlayerUrl(videoURL: exportURL)
+                self.delegate?.exportFinished(withError: false)
             }else{
                 print("File doesn't exist")
                 exportVideoAction()
@@ -66,20 +67,22 @@ class ShareInteractor: NSObject,ShareInteractorInterface {
             }
         }
         
-        let exporter = ExporterInteractor.init(project: actualProject)
-        exporter.exportVideos({
-            exportURL,exportFail in
-            self.delegate?.exportFinished(withError: exportFail)
-            if !exportFail{
-                if let url = exportURL{
-                    print("Export path response = \(url)")
-                    self.moviePath = url.absoluteString
-                    ProjectRealmRepository().update(item: actualProject)
-                    self.delegate?.setPlayerUrl(videoURL: url)
+        DispatchQueue.global(qos: .background).async{
+            let exporter = ExporterInteractor.init(project: actualProject)
+            exporter.exportVideos({
+                exportURL,exportFail in
+                self.delegate?.exportFinished(withError: exportFail)
+                if !exportFail{
+                    if let url = exportURL{
+                        print("Export path response = \(url)")
+                        self.moviePath = url.absoluteString
+                        ProjectRealmRepository().update(item: actualProject)
+                        self.delegate?.setPlayerUrl(videoURL: url)
+                    }
                 }
-            }
-
-        })
+                
+            })
+        }
     }
     
     func findSocialNetworks(){

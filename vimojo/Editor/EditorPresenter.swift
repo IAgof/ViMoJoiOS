@@ -43,7 +43,6 @@ class EditorPresenter: NSObject {
                             destionationPosition:Int){
         interactor?.moveClipToPosition(sourcePosition,
                                        destionationPosition: destionationPosition)
-        
     }
     
     func loadVideoListFromProject() {
@@ -82,8 +81,6 @@ extension EditorPresenter:EditorPresenterInterface{
         self.didSelectItemAtIndexPath(selectedCellIndexPath)
         
         delegate?.setUpGestureRecognizer()
-        
-        self.updatePlayerView()
     }
     
     func updatePlayerView(){
@@ -91,9 +88,7 @@ extension EditorPresenter:EditorPresenterInterface{
         delegate?.bringToFrontExpandPlayerButton()
     }
     
-    func viewWillAppear() {
-        updatePlayerView()
-                
+    func viewWillAppear() {                
         if !isGoingToExpandPlayer{
             self.loadView()
             
@@ -126,7 +121,8 @@ extension EditorPresenter:EditorPresenterInterface{
         self.moveClipToPosition(sourceIndexPath.item,
                                 destionationPosition: destinationIndexPath.item)
         
-        selectedCellIndexPath = destinationIndexPath
+        updateSelectedCellUI(destinationIndexPath)
+        delegate?.reloadCollectionViewData()
 
         ViMoJoTracker.sharedInstance.trackClipsReordered()
     }
@@ -318,6 +314,8 @@ extension EditorPresenter:EditorInteractorDelegate{
     }
     
     func setComposition(_ composition: VideoComposition) {
+        self.updatePlayerView()
+
         playerPresenter?.createVideoPlayer(composition)
     }
     

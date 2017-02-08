@@ -29,6 +29,7 @@ class SharePresenter:NSObject,SharePresenterInterface{
     //LifeCicle
     func viewDidLoad() {
         delegate!.createShareInterface()
+        playerPresenter?.removePlayer()
         
         interactor?.findSocialNetworks()
         delegate?.removeSeparatorTable()
@@ -42,8 +43,6 @@ class SharePresenter:NSObject,SharePresenterInterface{
     }
     
     func viewDidAppear() {
-        updatePlayerView()
-
         delegate?.createAlertWaitToExport()
         
         interactor?.exportVideo()
@@ -111,6 +110,8 @@ extension SharePresenter:ShareInteractorDelegate{
     }
     
     func setPlayerUrl(videoURL: URL) {
+        updatePlayerView()
+        
         self.videoURL = videoURL
         
         playerPresenter?.createVideoPlayer(videoURL)
