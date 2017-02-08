@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -14,7 +14,7 @@
         <!--Duplicate View Controller-->
         <scene sceneID="4k6-In-bc8">
             <objects>
-                <viewController storyboardIdentifier="DuplicateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qOb-Qv-UDy" customClass="DuplicateViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DuplicateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qOb-Qv-UDy" customClass="DuplicateViewController" customModule="PeriodistaCelular" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2TS-jh-Kz2"/>
                         <viewControllerLayoutGuide type="bottom" id="1nl-TN-WbQ"/>
@@ -327,7 +327,7 @@
         <!--Go To Record Or Gallery View Controller-->
         <scene sceneID="8ZD-EK-CVh">
             <objects>
-                <viewController storyboardIdentifier="GoToRecordOrGalleryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cDW-IT-zxd" customClass="GoToRecordOrGalleryViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GoToRecordOrGalleryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cDW-IT-zxd" customClass="GoToRecordOrGalleryViewController" customModule="PeriodistaCelular" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wOr-ns-XVY"/>
                         <viewControllerLayoutGuide type="bottom" id="mOw-r1-ozY"/>
@@ -408,7 +408,7 @@
         <!--Edit-->
         <scene sceneID="JAf-7c-PQM">
             <objects>
-                <viewController storyboardIdentifier="EditorViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="U7Z-wj-ZL9" customClass="EditorViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditorViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="U7Z-wj-ZL9" customClass="EditorViewController" customModule="PeriodistaCelular" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ay9-oE-VH7"/>
                         <viewControllerLayoutGuide type="bottom" id="5CZ-S0-lou"/>
@@ -418,10 +418,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ljm-eA-NzW" customClass="VideonaRangeSlider" customModule="VideonaRangeSlider">
-                                <rect key="frame" x="50" y="200" width="220" height="30"/>
+                                <rect key="frame" x="50" y="200" width="220" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="oEl-a1-UA4">
+                                    <constraint firstAttribute="height" constant="60" id="oEl-a1-UA4">
                                         <variation key="heightClass=regular-widthClass=regular" constant="60"/>
                                     </constraint>
                                 </constraints>
@@ -453,10 +453,13 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="middleThumbLayerWidth">
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="middleSliderImage" value="common_icon_trim_bar_normal"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="lowerSliderImage" value="activity_edit_clips_trim_bar_normal"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="upperSliderImage" value="activity_edit_clips_trim_bar_normal"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hsD-gO-4mR">
-                                <rect key="frame" x="16" y="250" width="288" height="261"/>
+                                <rect key="frame" x="16" y="280" width="288" height="231"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="fU2-af-Akt">
@@ -470,7 +473,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="editorCollectionViewCell" id="aVw-WW-bIx" customClass="EditorClipsCell" customModule="RTVE" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="editorCollectionViewCell" id="aVw-WW-bIx" customClass="EditorClipsCell" customModule="PeriodistaCelular" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -648,7 +651,7 @@
         <!--Editing Room View Controller-->
         <scene sceneID="8E5-es-Brw">
             <objects>
-                <tabBarController storyboardIdentifier="EditingRoomViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gpe-dp-ZZF" customClass="EditingRoomViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="EditingRoomViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gpe-dp-ZZF" customClass="EditingRoomViewController" customModule="PeriodistaCelular" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="d8f-pA-4Sz">
                         <barButtonItem key="leftBarButtonItem" title="showNav" id="18j-xS-3GC"/>
                     </navigationItem>
@@ -672,7 +675,7 @@
         <!--Audio-->
         <scene sceneID="Mrc-bO-aWe">
             <objects>
-                <viewController storyboardIdentifier="MusicViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bnB-1P-Nds" customClass="MusicViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MusicViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bnB-1P-Nds" customClass="MusicViewController" customModule="PeriodistaCelular" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v8b-hN-qJV"/>
                         <viewControllerLayoutGuide type="bottom" id="GIi-1P-cfX"/>
@@ -718,7 +721,7 @@
                                     </mask>
                                 </variation>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c8O-jG-he3" customClass="PlayerView" customModule="RTVE" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c8O-jG-he3" customClass="PlayerView" customModule="PeriodistaCelular" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -777,7 +780,7 @@
         <!--Share-->
         <scene sceneID="iTZ-ce-LMF">
             <objects>
-                <viewController storyboardIdentifier="ShareViewController" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IW3-3U-wVk" customClass="ShareViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShareViewController" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IW3-3U-wVk" customClass="ShareViewController" customModule="PeriodistaCelular" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dEr-mP-UUR"/>
                         <viewControllerLayoutGuide type="bottom" id="apB-Zm-2Y5"/>
@@ -786,7 +789,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eui-a0-tKc" customClass="PlayerView" customModule="RTVE" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eui-a0-tKc" customClass="PlayerView" customModule="PeriodistaCelular" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -892,7 +895,7 @@
         <!--Audio-->
         <scene sceneID="5Yo-sQ-ish">
             <objects>
-                <viewController storyboardIdentifier="MusicListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RXI-a0-2wt" customClass="MusicListViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MusicListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RXI-a0-2wt" customClass="MusicListViewController" customModule="PeriodistaCelular" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="325-iz-VgF"/>
                         <viewControllerLayoutGuide type="bottom" id="XTq-qK-Npa"/>
@@ -917,7 +920,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sku-GI-NbS" customClass="PlayerView" customModule="RTVE" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sku-GI-NbS" customClass="PlayerView" customModule="PeriodistaCelular" customModuleProvider="target">
                                 <rect key="frame" x="-4" y="0.0" width="328" height="184.5"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -1038,6 +1041,7 @@
         <image name="activity_edit_cancel_normal" width="15" height="15"/>
         <image name="activity_edit_cancel_pressed" width="15" height="15"/>
         <image name="activity_edit_clips_normal" width="19" height="19"/>
+        <image name="activity_edit_clips_trim_bar_normal" width="7" height="33"/>
         <image name="activity_edit_delete_clip_normal" width="12" height="15"/>
         <image name="activity_edit_duplicate_clip_minus_normal" width="58" height="58"/>
         <image name="activity_edit_duplicate_clip_minus_pressed" width="58" height="58"/>
@@ -1057,5 +1061,6 @@
         <image name="button_edit_increment_clips_pressed" width="70" height="70"/>
         <image name="common_icon_play" width="34" height="34"/>
         <image name="common_icon_play_normal" width="32" height="32"/>
+        <image name="common_icon_trim_bar_normal" width="23" height="64"/>
     </resources>
 </document>
