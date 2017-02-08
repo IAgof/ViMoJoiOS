@@ -59,24 +59,24 @@ class SettingsProvider:NSObject{
         
         //MARK: - MORE INFOR SECTION
         let AboutUsSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().ABOUT_US_TITLE),
-                                             action: SettingsDetailTextAction(delegate: delegate,
-                                                textContent: Utils().getStringByKeyFromSettings(SettingsConstants().ABOUT_US_CONTENT)))
+                                             action: SettingsLegalTextAction(delegate: delegate,
+                                                legalUrlString: SettingsLegalURLConstants.ABOUT_US_URL))
         
         let privacyPolicySetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().PRIVACY_POLICY_TITLE),
-                                                   action: SettingsDetailTextAction(delegate: delegate,
-                                                    textContent: Utils().getStringByKeyFromSettings(SettingsConstants().PRIVACY_POLICY_CONTENT)))
+                                                   action: SettingsLegalTextAction(delegate: delegate,
+                                                    legalUrlString: SettingsLegalURLConstants.PRIVACY_POLICY_URL))
         
         let termsOfServiceSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().TERMS_OF_SERVICE_TITLE),
-                                                    action: SettingsDetailTextAction(delegate: delegate,
-                                                        textContent: Utils().getStringByKeyFromSettings(SettingsConstants().TERMS_OF_SERVICE_CONTENT)))
+                                                    action: SettingsLegalTextAction(delegate: delegate,
+                                                        legalUrlString: SettingsLegalURLConstants.SERVICE_CONDITIONS_URL))
         
         let licensesSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().LICENSES_TITLE),
-                                              action: SettingsDetailTextAction(delegate: delegate,
-                                                textContent: Utils().getStringByKeyFromSettings(SettingsConstants().LICENSES_CONTENT)))
+                                              action: SettingsLegalTextAction(delegate: delegate,
+                                                legalUrlString: SettingsLegalURLConstants.LICENSES_URL))
         
         let legalAdviceSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().LEGAL_ADVICE_TITLE),
-                                                 action: SettingsDetailTextAction(delegate: delegate,
-                                                    textContent: Utils().getStringByKeyFromSettings(SettingsConstants().LEGAL_ADVICE_CONTENT)))
+                                                 action: SettingsLegalTextAction(delegate: delegate,
+                                                    legalUrlString: SettingsLegalURLConstants.LEGAL_ADVICE_URL))
         
         let moreInfoSettings = [AboutUsSetting,privacyPolicySetting,termsOfServiceSetting,licensesSetting,legalAdviceSetting]
         settings.append(moreInfoSettings)
