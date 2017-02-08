@@ -88,6 +88,9 @@ class EditorWireframe : NSObject {
     }
     
     func presentRecorder(){
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
+        
         editingRoomWireframe?.navigateToRecorder()
     }
     

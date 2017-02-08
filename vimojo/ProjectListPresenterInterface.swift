@@ -21,8 +21,6 @@ protocol ProjectListPresenterInterface {
 
 }
 
-protocol ProjectListPresenterDelegate{
-    func reloadTableData()
-    
+protocol ProjectListPresenterDelegate{   
     func setItems(_ items:[ProjectListViewModel])
 }

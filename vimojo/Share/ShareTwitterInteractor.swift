@@ -29,7 +29,7 @@ class ShareTwitterInteractor: ShareActionInterface {
         let accountType:ACAccountType = accountStore.accountType(withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)
         accountStore.requestAccessToAccounts(with: accountType, options: nil) { (granted, error) in
             guard let accounts = accountStore.accounts(with: accountType) else{
-                let message = Utils().getStringByKeyFromShare(ShareConstants().NO_TWITTER_ACCESS)
+                let message = ShareConstants.NO_TWITTER_ACCESS
                 Utils().debugLog(message)
                 ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Twitter",
                                                                 message: message)
@@ -40,10 +40,10 @@ class ShareTwitterInteractor: ShareActionInterface {
                 if self.canUploadVideoToTwitter(videoURL as URL) {
                     let videoData = self.getVideoData(videoURL as URL)
                     var status = TwitterVideoUpload.instance().setVideoData(videoData)
-                    TwitterVideoUpload.instance().statusContent = Utils().getStringByKeyFromShare(ShareConstants().VIDEONATIME_HASTAGH)
+                    TwitterVideoUpload.instance().statusContent = ShareConstants.VIDEONATIME_HASTAGH
                     
                     if status == false {
-                        self.createAlert(Utils().getStringByKeyFromShare(ShareConstants().TWITTER_MAX_SIZE))
+                        self.createAlert(ShareConstants.TWITTER_MAX_SIZE)
                         return
                     }
                     
@@ -55,16 +55,16 @@ class ShareTwitterInteractor: ShareActionInterface {
                             let codeAndMessage = self.convertStringToCodeAndMessage(errorString!)
                             messageToPrintOnView = "Error with code: \(codeAndMessage.0) \n description: \(codeAndMessage.1) "
                         }else{
-                            messageToPrintOnView = Utils().getStringByKeyFromShare(ShareConstants().UPLOAD_SUCCESFULL)
+                            messageToPrintOnView = ShareConstants.UPLOAD_SUCCESFULL
                         }
                         
                         self.createAlert(messageToPrintOnView)
                     })
                 }else{
-                    self.createAlert(Utils().getStringByKeyFromShare(ShareConstants().TWITTER_MAX_LENGHT))
+                    self.createAlert(ShareConstants.TWITTER_MAX_LENGHT)
                 }
             }else{
-                let message = Utils().getStringByKeyFromShare(ShareConstants().NO_TWITTER_ACCESS)
+                let message = ShareConstants.NO_TWITTER_ACCESS
                 Utils().debugLog(message)
                 ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Twitter",
                                                                 message: message)

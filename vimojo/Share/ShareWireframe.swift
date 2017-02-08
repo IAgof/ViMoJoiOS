@@ -69,4 +69,8 @@ class ShareWireframe : NSObject {
     func presentSettings(){
         editingRoomWireframe?.navigateToSettings()
     }
+    
+    func presentEditor(){
+        editingRoomWireframe?.editingRoomViewController?.selectedIndex = 0
+    }
 }

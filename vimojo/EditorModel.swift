@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import Photos
 
 struct EditorViewModel{
-    var image:UIImage!
+    var phAsset:PHAsset
     var timeText:String!
     var positionText:String!
 }

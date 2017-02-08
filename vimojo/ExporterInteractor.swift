@@ -21,7 +21,7 @@ class ExporterInteractor:NSObject{
         self.project = project
     }
     
-    func exportVideos(_ completionHandler:@escaping (URL)->Void) {
+    func exportVideos(_ completionHandler:@escaping (_ url:URL?,_ failed:Bool)->Void) {
 
         let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let exportPath = (documentDirectory as NSString).appendingPathComponent("\(Utils().giveMeTimeNow())_VimojoClip_exported.m4v")
@@ -73,8 +73,10 @@ class ExporterInteractor:NSObject{
                             ViMoJoTracker.sharedInstance.sendExportedVideoMetadataTracking(project.getDuration(),
                                                                                            numberOfClips: project.getVideoList().count)
                         }
-                        completionHandler(videoURL)
+                        completionHandler(videoURL,false)
                     })
+                }else{
+                    completionHandler(nil,true)
                 }
             })
         })

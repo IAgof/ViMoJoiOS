@@ -14,7 +14,6 @@ protocol EditorInteractorInterface {
     func getComposition()
     func getListData()
     func seekToSelectedItemHandler(_ videoPosition:Int)
-    func reloadPositionNumberAfterMovement()
     func removeVideo(_ index:Int)
     func moveClipToPosition(_ sourcePosition:Int,
                             destionationPosition:Int)
@@ -37,7 +36,6 @@ protocol EditorInteractorInterface {
 protocol EditorInteractorDelegate {
     func setVideoList(_ list:[EditorViewModel])
     func setStopTimeList(_ list:[Double])
-    func updateViewList()
     func seekToTimeOfVideoSelectedReceiver(_ time:Float)
     
     func setComposition(_ composition:VideoComposition)

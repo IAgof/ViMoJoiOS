@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import VideonaProject
 
 class GoToRecordOrGalleryWireframe : VimojoWireframeInterface {
     typealias presenterType = GoToRecordOrGalleryViewController
@@ -23,6 +23,7 @@ class GoToRecordOrGalleryWireframe : VimojoWireframeInterface {
     var galleryWireframe:GalleryWireframe?
     var recordWireframe:RecordWireframe?
     var drawerWireframe:DrawerMenuWireframe?
+    var project:Project?
     
     init() {
         viewControllerIdentifier = "GoToRecordOrGalleryViewController"

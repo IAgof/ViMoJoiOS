@@ -30,8 +30,8 @@ class ShareFTPInteractor: ShareActionInterface {
     func share(_ sharePath: ShareVideoPath) {
         trackShare()
         
-        let title = Utils().getStringByKeyFromShare(ShareConstants().FTP_INPUT_FILENAME_TITLE)
-        let message = Utils().getStringByKeyFromShare(ShareConstants().FTP_INPUT_FILENAME_PLACEHOLDER)
+        let title = ShareConstants.FTP_INPUT_FILENAME_TITLE
+        let message = ShareConstants.FTP_INPUT_FILENAME_PLACEHOLDER
         let alertController = ShareUtils().createAlertViewWithInputText(title, message: message, completion: {
             filename in
             
@@ -80,7 +80,7 @@ class ShareFTPInteractor: ShareActionInterface {
     }
     
     fileprivate func handleCorrectUpload(){
-        let message = Utils().getStringByKeyFromShare(ShareConstants().UPLOAD_SUCCESFULL)
+        let message = ShareConstants.UPLOAD_SUCCESFULL
         
         ShareUtils().setAlertCompletionMessageOnTopView(socialName: "FTP",
                                                         message: message)
@@ -98,15 +98,15 @@ class ShareFTPInteractor: ShareActionInterface {
             case .ftp_ERROR_HOST_UNREACHABLE,
                  .ftp_ERROR_NO_DOMAIN,
                  .ftp_ERROR_FILE_NOT_FOUND:
-                message = Utils().getStringByKeyFromShare(ShareConstants().FTP_ERROR_HOST_UNREACHABLE)
+                message = ShareConstants.FTP_ERROR_HOST_UNREACHABLE
                 
                 break
             case .ftp_ERROR_UNAUTHORIZED:
-                message = Utils().getStringByKeyFromShare(ShareConstants().FTP_ERROR_UNAUTHORIZED)
+                message = ShareConstants.FTP_ERROR_UNAUTHORIZED
                 
                 break
             case .ftp_ERROR_IO:
-                message = Utils().getStringByKeyFromShare(ShareConstants().FTP_ERROR_HOST_UNREACHABLE)
+                message = ShareConstants.FTP_ERROR_HOST_UNREACHABLE
                 
                 break
             }

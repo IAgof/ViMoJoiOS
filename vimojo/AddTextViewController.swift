@@ -69,10 +69,13 @@ class AddTextViewController: ViMoJoController {
         addObserverToShowAndHideKeyboard()
         addBorderToTextView()
         addDoneButtonOnKeyboard()
+        
+        playerHandler?.timeLabels(isHidden: true)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         setPlayerPlayButtonState(state: false)
+        playerHandler?.timeLabels(isHidden: false)
     }
 
     override func viewWillAppear(_ animated: Bool) {

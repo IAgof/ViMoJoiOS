@@ -14,7 +14,6 @@ protocol EditorPresenterInterface {
     func viewWillDisappear()
     func viewWillAppear()
     func didSelectItemAtIndexPath(_ indexPath:IndexPath)
-    func cellForItemAtIndexPath(_ indexPath:IndexPath)
     func moveItemAtIndexPath(_ sourceIndexPath: IndexPath,
                              toIndexPath destinationIndexPath: IndexPath)
     func removeVideoClip(_ position:Int)

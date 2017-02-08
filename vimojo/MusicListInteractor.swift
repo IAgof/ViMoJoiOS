@@ -46,9 +46,18 @@ class MusicListInteractor: MusicListInteractorInterface {
     }
     
     func getMusicDetailParams(_ index:Int) {
-        let title = musicList[index].getMusicTitle()
-        let author = musicList[index].getAuthor()
-        var viewModel = MusicDetailViewModel(image: UIImage(), title: title, author: author, sliderValue: 1)
+        guard let project = project else{return}
+
+        let music = musicList[index]
+        let title = music.getMusicTitle()
+        let author = music.getAuthor()
+        let duration = MusicListString.MUSIC_DETAIL_DURATION.appending(Utils().formatTimeToMinutesAndSeconds(music.getDuration()))
+        
+        let mixAudio = MixAudioModel(audioVolume: music.audioLevel,
+                                     videoVolume: project.projectOutputAudioLevel,
+                                     mixVideoWeight: MusicListConstants.mixAudioWeight)
+        
+        var viewModel = MusicDetailViewModel(image: UIImage(), title: title, author: author, sliderValue: 1,duration:duration)
 
         guard let image = UIImage(named: musicList[index].musicSelectedResourceId) else{
             delegate?.setMusicDetailParams(musicDetailViewModel: viewModel)
@@ -64,7 +73,7 @@ class MusicListInteractor: MusicListInteractorInterface {
         
         let title = music.getMusicTitle()
         let author = music.getAuthor()
-        var viewModel = MusicDetailViewModel(image: UIImage(), title: title, author: author, sliderValue: music.audioLevel)
+        var viewModel = MusicDetailViewModel(image: UIImage(), title: title, author: author, sliderValue: music.audioLevel,duration:"")
 
         guard let image = UIImage(named: music.musicSelectedResourceId) else{
             delegate?.setMusicDetailParams(musicDetailViewModel: viewModel)

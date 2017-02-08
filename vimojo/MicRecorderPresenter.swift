@@ -279,7 +279,8 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
     }
     
     func mixVolumeUpdate(_ value: Float) {
-        let mixAudio = MixAudioModel(sliderValue: value)
+        let mixAudio = MixAudioModel(sliderValue: value,
+                                     mixVideoWeight: nil)
         
         audioVolume = mixAudio.audioVolume
         videoVolume = mixAudio.videoVolume
@@ -342,7 +343,8 @@ extension MicRecorderPresenter:MicRecorderInteractorDelegate{
         
         var setUpValues = value
         let audioMix = MixAudioModel(audioVolume: value.audioVolume,
-                                     videoVolume: value.projectAudioVolume)
+                                     videoVolume: value.projectAudioVolume,
+                                     mixVideoWeight: nil)
         setUpValues.mixAudioSliderValue = audioMix.sliderValue
         delegate?.setUpValues(setUpValues)
     }

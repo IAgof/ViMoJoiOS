@@ -40,7 +40,7 @@ class ShareInstagramInteractor:ShareActionInterface{
             if UIApplication.shared.canOpenURL(instagramURL) {
                 UIApplication.shared.openURL(instagramURL)
             }else{
-                let message = Utils().getStringByKeyFromSettings(ShareConstants().NO_ISTAGRAM_INSTALLED)
+                let message = ShareConstants.NO_ISTAGRAM_INSTALLED
                 ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Instagram",
                                                                 message: message)
             }

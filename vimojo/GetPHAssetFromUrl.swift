@@ -38,4 +38,23 @@ class GetPHAssetFromUrl {
             })
         }
     }
+    
+    func PHAssetForFiles(withURLs urls:[NSURL],completion:@escaping (_ assets:[PHAsset])->Void){
+        var count = urls.count
+        var assets:[PHAsset] = []
+        for url in urls{
+            self.PHAssetForFileURL(url: url, completion: {
+                asset,isHaveFoundAsset in
+                if isHaveFoundAsset{
+                    if let asset = asset{
+                        assets.append(asset)
+                        count -= 1
+                        if count == 0{
+                            completion(assets)
+                        }
+                    }
+                }
+            })
+        }
+    }
 }

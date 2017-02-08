@@ -22,48 +22,35 @@ class ProjectListInteractor: ProjectListInteractorInterface {
     
     func findProjects() {
         projectList = ProjectRealmRepository().getAllProjects()
-        var projectViewModelList:[ProjectListViewModel] = []
+        var projectFoundList:[ProjectFound] = []
         
         for project in projectList{
-            projectViewModelList.append(setProjectViewModel(project: project))
+            projectFoundList.append(setProjectFoundModel(project: project))
         }
         
-        delegate?.setItemsView(projectViewModelList)
+        delegate?.setItemsView(projectFoundList)
     }
     
-    func setProjectViewModel(project:Project)->ProjectListViewModel{
-        let duration = Utils().hourToString(project.getDuration())
+    func setProjectFoundModel(project:Project)->ProjectFound{
+        let duration = project.getDuration()
         let title = project.getTitle()
-        let image = getProjectListThumbnail(project: project)
-        var date = "No date"
-        if let dateDescription = project.modificationDate?.description{
+        
+        var videoURL:URL? = nil
+        if let url = project.getVideoList().first?.videoURL{
+            videoURL = url
+        }
+        
+        var date = Date()
+        if let dateDescription = project.modificationDate as? Date{
             date = dateDescription
         }
         
-        return ProjectListViewModel(thumbImage: image,
-                                    title: title,
-                                    date: date,
-                                    duration: duration)
+        return ProjectFound(videoURL: videoURL,
+                            title: title,
+                            date: date,
+                            duration: duration)
     }
-    
-    func getProjectListThumbnail(project:Project)->UIImage{
-        if let url = project.getVideoList().first?.videoURL{
-            let asset = AVAsset(url: url)
-            let assetImageGenerator = AVAssetImageGenerator(asset: asset)
-            
-            var time = asset.duration
-            time.value = min(time.value, 1)
-            
-            do {
-                let imageRef = try assetImageGenerator.copyCGImage(at: time, actualTime: nil)
-                return UIImage(cgImage: imageRef)
-            } catch {
-                print("error")
-            }
-        }
-        return UIImage(named: "activity_project_gallery_no_videos")!
-    }
-    
+        
     func removeProjectAction(projectNumber: Int) {
         RemoveProjectOnProjectListAction().execute(completion: {haveToRemove in
 
@@ -79,6 +66,9 @@ class ProjectListInteractor: ProjectListInteractorInterface {
     func editProjectAction(projectNumber: Int) {
         if self.projectList.indices.contains(projectNumber){
             let projectToLoad = projectList[projectNumber]
+            projectToLoad.updateModificationDate()
+            ProjectRealmRepository().update(item: projectToLoad)
+            
             ReloadProjectWithProjectAction().reload(actualProject: project,
                                                     newProject: projectToLoad)
             
@@ -97,6 +87,9 @@ class ProjectListInteractor: ProjectListInteractorInterface {
     func shareProjectAction(projectNumber: Int) {
         if self.projectList.indices.contains(projectNumber){
             let projectToLoad = projectList[projectNumber]
+            projectToLoad.updateModificationDate()
+            ProjectRealmRepository().update(item: projectToLoad)
+            
             ReloadProjectWithProjectAction().reload(actualProject: project,
                                                     newProject: projectToLoad)
             

@@ -45,16 +45,6 @@ class EditorPresenter: NSObject {
                                        destionationPosition: destionationPosition)
     }
     
-    func reloadPositionNumberAfterMovement() {
-        interactor?.reloadPositionNumberAfterMovement()
-
-        loadVideoListFromProject()
-        
-        self.setVideoDataToView()
-        
-        selectedCellIndexPath = IndexPath(row: 0, section: 0)
-    }
-    
     func loadVideoListFromProject() {
         interactor?.getListData()
         
@@ -91,25 +81,14 @@ extension EditorPresenter:EditorPresenterInterface{
         self.didSelectItemAtIndexPath(selectedCellIndexPath)
         
         delegate?.setUpGestureRecognizer()
-        
-        self.updatePlayerView()
-        self.setVideoDataToView()
     }
     
     func updatePlayerView(){
         wireframe?.presentPlayerInterface()
         delegate?.bringToFrontExpandPlayerButton()
     }
-
-    func setVideoDataToView(){
-        DispatchQueue.main.async(execute: { () -> Void in
-            self.delegate?.reloadCollectionViewData()
-        })
-    }
     
-    func viewWillAppear() {
-        updatePlayerView()
-                
+    func viewWillAppear() {                
         if !isGoingToExpandPlayer{
             self.loadView()
             
@@ -137,28 +116,14 @@ extension EditorPresenter:EditorPresenterInterface{
         interactor?.seekToSelectedItemHandler(videoPosition)
     }
     
-    func cellForItemAtIndexPath(_ indexPath: IndexPath) {
-        DispatchQueue.main.async(execute: { () -> Void in
-            if indexPath == self.selectedCellIndexPath {
-                self.delegate?.selectCell(indexPath)
-            }else{
-                self.delegate?.deselectCell(indexPath)
-            }
-        })
-        
-    }
-    
     func moveItemAtIndexPath(_ sourceIndexPath: IndexPath,
                              toIndexPath destinationIndexPath: IndexPath) {
         self.moveClipToPosition(sourceIndexPath.item,
                                 destionationPosition: destinationIndexPath.item)
         
-        if selectedCellIndexPath == sourceIndexPath {
-            selectedCellIndexPath = destinationIndexPath
-        }
-        
-        reloadPositionNumberAfterMovement()
-        
+        updateSelectedCellUI(destinationIndexPath)
+        delegate?.reloadCollectionViewData()
+
         ViMoJoTracker.sharedInstance.trackClipsReordered()
     }
     
@@ -279,11 +244,11 @@ extension EditorPresenter:EditorPresenterInterface{
     
     func removeVideoClipAfterConfirmation() {
         interactor?.removeVideo(videoToRemove)
+        let prevItemSelected = max(videoToRemove - 1, 0)
+        selectedCellIndexPath = IndexPath(item: prevItemSelected, section: 0)
         
         if interactor?.getNumberOfClips() == 0{
             wireframe?.presentGoToRecordOrGallery()
-        }else{
-            self.reloadPositionNumberAfterMovement()
         }
     }
     
@@ -336,19 +301,12 @@ extension EditorPresenter:EditorInteractorDelegate{
     //MARK: - Interactor delegate
     func setVideoList(_ list: [EditorViewModel]) {
         delegate?.setVideoList(list)
-        self.setVideoDataToView()
         
-        updateSelectedCellUI(selectedCellIndexPath)
+        self.delegate?.selectCell(selectedCellIndexPath)
     }
     
     func setStopTimeList(_ list: [Double]) {
         self.stopList = list
-    }
-    
-    func updateViewList() {
-        delegate?.dissmissAlertController()
-        
-        self.loadVideoListFromProject()
     }
     
     func seekToTimeOfVideoSelectedReceiver(_ time:Float){
@@ -356,6 +314,8 @@ extension EditorPresenter:EditorInteractorDelegate{
     }
     
     func setComposition(_ composition: VideoComposition) {
+        self.updatePlayerView()
+
         playerPresenter?.createVideoPlayer(composition)
     }
     

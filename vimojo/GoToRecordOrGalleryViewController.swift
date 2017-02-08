@@ -14,7 +14,7 @@ class GoToRecordOrGalleryViewController: ViMoJoController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.setHidesBackButton(true, animated: false)
+        self.configureNavigationBarWithBackButton()
         self.view.backgroundColor = configuration.mainColor
     }
 
@@ -28,5 +28,17 @@ class GoToRecordOrGalleryViewController: ViMoJoController {
     
     @IBAction func pushGoToRecordVideo(_ sender: Any) {
         wireframe?.presentRecorder()
+    }
+    
+    override func pushBack() {
+        let newProject = CreateDefaultProjectUseCase.loadOrCreateProject()
+        ProjectRealmRepository().remove(item: newProject)
+        
+        if let actualProject = wireframe?.project{
+            ReloadProjectWithProjectAction().reload(actualProject: actualProject,
+                newProject: CreateDefaultProjectUseCase.loadOrCreateProject())
+        }
+
+        wireframe?.goPrevController()
     }
 }

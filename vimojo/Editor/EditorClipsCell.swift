@@ -21,16 +21,16 @@ class EditorClipsCell: UICollectionViewCell {
         positionNumberLabel.adjustsFontSizeToFitWidth = true
         removeClipButton.isHidden = true
     }
-    
-    var isClipSelected: Bool = false{
-        didSet {            
-            self.layer.borderWidth = (isClipSelected ? 3 : 0)
-            self.layer.borderColor = (isClipSelected ? cellColor.cgColor : UIColor.clear.cgColor)
+   
+    override var isSelected: Bool{
+        didSet {
+            self.layer.borderWidth = (isSelected ? 3 : 0)
+            self.layer.borderColor = (isSelected ? cellColor.cgColor : UIColor.clear.cgColor)
             
-            self.removeClipButton.backgroundColor = (isClipSelected ? cellColor : UIColor.clear)
+            self.removeClipButton.backgroundColor = (isSelected ? cellColor : UIColor.clear)
             
-            removeClipButton.isHidden = !isClipSelected
-            removeClipButton.isEnabled = isClipSelected
+            removeClipButton.isHidden = !isSelected
+            removeClipButton.isEnabled = isSelected
         }
     }
     

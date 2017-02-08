@@ -23,11 +23,14 @@ protocol SharePresenterInterface {
     func updatePlayerLayer()
     func pushGenericShare()
     func pushOptions()
+    
+    func exportFailOkPushed()
 }
 
 protocol SharePresenterDelegate {
     func createAlertWaitToExport()
     func dissmissAlertWaitToExport()
+    func createAlertExportFailed()
 
     func showShareGeneric(_ movieURL:URL)
     

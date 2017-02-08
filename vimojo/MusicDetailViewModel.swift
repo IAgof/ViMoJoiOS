@@ -12,4 +12,5 @@ struct MusicDetailViewModel{
     let title: String
     let author: String
     let sliderValue:Float
+    let duration:String
 }
