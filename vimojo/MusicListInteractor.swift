@@ -46,10 +46,16 @@ class MusicListInteractor: MusicListInteractorInterface {
     }
     
     func getMusicDetailParams(_ index:Int) {
+        guard let project = project else{return}
+
         let music = musicList[index]
         let title = music.getMusicTitle()
         let author = music.getAuthor()
         let duration = MusicListString.MUSIC_DETAIL_DURATION.appending(Utils().formatTimeToMinutesAndSeconds(music.getDuration()))
+        
+        let mixAudio = MixAudioModel(audioVolume: music.audioLevel,
+                                     videoVolume: project.projectOutputAudioLevel,
+                                     mixVideoWeight: MusicListConstants.mixAudioWeight)
         
         var viewModel = MusicDetailViewModel(image: UIImage(), title: title, author: author, sliderValue: 1,duration:duration)
 

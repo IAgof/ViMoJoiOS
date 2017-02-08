@@ -80,10 +80,17 @@ class MusicListPresenter:MusicListPresenterInterface{
     }
     
     func setMixAudioValue(mixAudioValue value: Float) {
-        let mixAudio = MixAudioModel(sliderValue: value)
+        let mixAudio = MixAudioModel(sliderValue: value,
+                                     mixVideoWeight: MusicListConstants.mixAudioWeight)
         
         audioVolume = mixAudio.audioVolume
         videoVolume = mixAudio.videoVolume
+        
+        debugPrint("setMixAudioValue audioVolume")
+        debugPrint(audioVolume)
+        debugPrint("setMixAudioValue videoVolume")
+        debugPrint(videoVolume)
+        
         
         interactor?.updateAudioMix(withParameter: mixAudio)
     }
