@@ -56,8 +56,15 @@ class ProjectListInteractor: ProjectListInteractorInterface {
 
             if haveToRemove{
                 if self.projectList.indices.contains(projectNumber){
-                    ProjectRealmRepository().remove(item: self.projectList[projectNumber])
+                    let projectToRemove = self.projectList[projectNumber]
+
+                    ProjectRealmRepository().remove(item: projectToRemove)
+
                     self.findProjects()
+                    
+                    if projectToRemove.uuid == self.project.uuid{
+                        self.project.clear()
+                    }
                 }
             }
         })

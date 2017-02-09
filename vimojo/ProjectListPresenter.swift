@@ -54,6 +54,11 @@ extension ProjectListPresenter:ProjectListInteractorDelegate{
     func setItemsView(_ items: [ProjectFound]) {
         var viewModelList:[ProjectListViewModel] = []
        
+        if items.isEmpty{
+            wireframe?.navigateToRecordOrGallery()
+            return
+        }
+        
         for projectFound in items{
            viewModelList.append(ProjectListViewModel(videoURL: projectFound.videoURL,
                                  title: projectFound.title,

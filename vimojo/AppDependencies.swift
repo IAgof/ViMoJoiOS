@@ -327,6 +327,7 @@ class AppDependencies {
         projectListWireframe.editorRoomWireframe = editorRoomWireframe
         projectListWireframe.rootWireframe = rootWireframe
         projectListWireframe.detailProjectWireframe = detailProjectWireframe
+        projectListWireframe.goToRecordOrGalleryWireframe = goToRecordOrGalleryWireframe
         
         //DETAIL PROJECT  VIEW MODULE
         detailProjectPresenter.wireframe = detailProjectWireframe

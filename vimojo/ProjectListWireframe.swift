@@ -20,6 +20,7 @@ class ProjectListWireframe : NSObject {
     var prevController:UIViewController?
     var editorRoomWireframe: EditingRoomWireframe?
     var detailProjectWireframe: DetailProjectWireframe?
+    var goToRecordOrGalleryWireframe:GoToRecordOrGalleryWireframe?
     
     func presentInterfaceFromWindow(_ window: UIWindow) {
         let viewController = viewControllerFromStoryboard()
@@ -75,4 +76,11 @@ class ProjectListWireframe : NSObject {
             }
         }
     }
+    
+    func navigateToRecordOrGallery(){
+        if let controller = viewController{
+            goToRecordOrGalleryWireframe?.presentInterfaceFromViewController(controller)
+        }
+    }
+    
 }
