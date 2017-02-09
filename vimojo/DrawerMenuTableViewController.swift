@@ -59,7 +59,7 @@ extension DrawerMenuTableViewController: DrawerMenuPresenterDelegate{
         
         let alertController = UIAlertController(title: drawerConstants.ACTIVITY_DRAWER_ALERT_TITLE,
                                                 message: drawerConstants.ACTIVITY_DRAWER_ALERT_MESSAGE,
-                                                preferredStyle: .alert)
+                                                preferredStyle: .actionSheet)
         alertController.setTintColor()
         
         let takePhotoAction = UIAlertAction(title: drawerConstants.ACTIVITY_DRAWER_ALERT_OPTION_TAKE_PHOTO,
@@ -76,6 +76,8 @@ extension DrawerMenuTableViewController: DrawerMenuPresenterDelegate{
         
         alertController.addAction(takeFromGalleryAction)
         alertController.addAction(takePhotoAction)
+        alertController.addAction(.init(title: drawerConstants.ACTIVITY_DRAWER_ALERT_OPTION_CANCEL,
+                                        style: .cancel, handler: nil))
         
         let controller = UIApplication.topViewController()
         controller?.present(alertController, animated: true, completion: nil)

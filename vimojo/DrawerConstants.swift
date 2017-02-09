@@ -21,7 +21,9 @@ struct DrawerConstants{
     var ACTIVITY_DRAWER_ALERT_OPTION_TAKE_FROM_GALLERY:String{
         return getStringByKeyFromDrawer("activity_drawer_alert_option_take_from_gallery")
     }
-      
+    var ACTIVITY_DRAWER_ALERT_OPTION_CANCEL:String{
+        return getStringByKeyFromDrawer("activity_drawer_alert_option_cancel")
+    }
     func getStringByKeyFromDrawer(_ key:String) -> String {
         return Bundle.main.localizedString(forKey: key,value: "",table: "DrawerMenu")
     }
