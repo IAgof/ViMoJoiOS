@@ -8,7 +8,6 @@
 
 import UIKit
 import GPUImage
-import SpaceOnDisk
 import ISOConfiguration
 import WhiteBalance
 import Exposure
