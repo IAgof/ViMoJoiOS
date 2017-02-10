@@ -8,9 +8,6 @@
 
 import Foundation
 import UIKit
-import VideonaTrim
-import VideonaSplit
-import VideonaDuplicate
 import VideonaProject
 import VideonaPlayer
 

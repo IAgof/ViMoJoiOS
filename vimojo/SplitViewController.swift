@@ -11,7 +11,6 @@ import UIKit
 import TTRangeSlider
 import VideonaPlayer
 import AVFoundation
-import VideonaSplit
 import VideonaProject
 
 class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDelegate,PlayerViewDelegate,PlayerViewSetter {

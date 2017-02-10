@@ -9,8 +9,7 @@
 import Foundation
 import UIKit
 import VideonaPlayer
-import VideonaTrim
-
+import VideonaProject
 let trimViewControllerIdentifier = "TrimViewController"
 
 class TrimWireframe : NSObject {

@@ -11,7 +11,6 @@ import UIKit
 import NMRangeSlider
 import VideonaPlayer
 import AVFoundation
-import VideonaDuplicate
 import VideonaProject
 
 class DuplicateViewController: ViMoJoController,DuplicateInterface,DuplicatePresenterDelegate,PlayerViewSetter,FullScreenWireframeDelegate {

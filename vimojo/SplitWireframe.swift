@@ -11,7 +11,7 @@ import Foundation
 import Foundation
 import UIKit
 import VideonaPlayer
-import VideonaSplit
+import VideonaProject
 
 let splitViewControllerIdentifier = "SplitViewController"
 

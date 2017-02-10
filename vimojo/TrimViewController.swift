@@ -11,7 +11,6 @@ import UIKit
 import NMRangeSlider
 import VideonaPlayer
 import AVFoundation
-import VideonaTrim
 import VideonaProject
 
 class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSetter,FullScreenWireframeDelegate{

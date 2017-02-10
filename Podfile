@@ -26,7 +26,6 @@ def shared_pods
     pod 'ExpositionModes', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/ExpositionModes'
     pod 'ZoomCameraSlider', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/ZoomCameraSlider'
     pod 'VideoGallery', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideoGallery'
-    pod 'VideoGallery', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideoGallery'
     pod 'InputSoundGainControl', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/InputSoundGainControl'
     pod 'VideonaRangeSlider', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaRangeSlider'
     pod 'VideonaTrackOverView', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaTrackOverView'
@@ -35,9 +34,6 @@ def shared_pods
     
     
     #EDITOR
-    pod 'VideonaDuplicate', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaDuplicate'
-    pod 'VideonaSplit', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaSplit'
-    pod 'VideonaTrim', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaTrim'
     pod 'VideonaPlayer', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaPlayer'
     
     pod 'KYDrawerController'

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import VideonaPlayer
-import VideonaDuplicate
+import VideonaProject
 
 let duplicateViewControllerIdentifier = "DuplicateViewController"
 
