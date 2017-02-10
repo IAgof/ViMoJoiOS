@@ -449,7 +449,8 @@ extension RecordController{
     }
     
     func setCornerToThumbnail(){
-        let diameter = thumbnailView.frame.height/2
+        guard let height = thumbnailView.image?.size.height else{return}
+        let diameter = height/2
         
         thumbnailView.layer.cornerRadius = diameter
         thumbnailView.clipsToBounds = true
@@ -514,7 +515,7 @@ extension RecordController:RecordPresenterDelegate {
     }
     
     func getThumbnailSize()->CGFloat{
-        return self.thumbnailView.frame.size.height
+        return max(self.thumbnailView.frame.size.height, self.thumbnailView.frame.size.width)
     }
     
     func showNumberVideos(_ nClips:Int){
