@@ -9,7 +9,6 @@
 import UIKit
 import GPUImage
 import SpaceOnDisk
-import BatteryRemaining
 import ISOConfiguration
 import WhiteBalance
 import Exposure
