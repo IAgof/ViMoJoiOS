@@ -10,7 +10,6 @@ import Foundation
 import VideonaPlayer
 import AVFoundation
 import VideonaProject
-import VideonaTrackOverView
 
 class MicRecorderPresenter: MicRecorderPresenterInterface {
     //MARK: - Variables VIPER

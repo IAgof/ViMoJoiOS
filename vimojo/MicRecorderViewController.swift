@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import VideonaPlayer
 import AVFoundation
-import VideonaTrackOverView
 import TTRangeSlider
 import VideonaProject
 

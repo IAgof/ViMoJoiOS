@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import VideonaTrackOverView
+import VideonaProject
 
 struct RecordedTrackAreaViewModel {
     let position:Int

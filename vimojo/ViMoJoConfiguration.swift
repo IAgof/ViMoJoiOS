@@ -25,7 +25,7 @@ final class ViMoJoConfiguration: ConfigurationProtocol {
         plainButtonColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         secondColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         secondColorWithOpacity = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.5)
-        VOICE_OVER_FEATURE = false
+        VOICE_OVER_FEATURE = true
         FTP_FEATURE = false
     }
 }

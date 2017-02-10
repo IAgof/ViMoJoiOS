@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import VideoGallery
 import VideonaProject
 
 class GalleryViewController: UITabBarController {

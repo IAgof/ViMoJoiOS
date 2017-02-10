@@ -9,7 +9,6 @@
 import Foundation
 import MobileCoreServices
 import VideonaPlayer
-import VideonaRangeSlider
 import VideonaProject
 import Photos
 

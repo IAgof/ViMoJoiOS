@@ -8,7 +8,7 @@
 
 import Foundation
 import Photos
-import VideoGallery
+import VideonaProject
 
 class AllVideosGalleryViewController: VideosGalleryViewController {
 

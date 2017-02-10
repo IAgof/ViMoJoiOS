@@ -8,8 +8,7 @@
 
 import Foundation
 import Photos
-import VideoGallery
-
+import VideonaProject
 
 class CustomExportedVideosGalleryViewController: VideosGalleryViewController {
     let albumExportedName = "ViMoJo Export"
