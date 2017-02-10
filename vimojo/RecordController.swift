@@ -15,7 +15,6 @@ import Focus
 import FocalLensSlider
 import ExpositionModes
 import ZoomCameraSlider
-import ResolutionSelector
 import InputSoundGainControl
 import VideonaProject
 
