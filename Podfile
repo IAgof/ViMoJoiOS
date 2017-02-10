@@ -24,7 +24,6 @@ def shared_pods
     pod 'ISOConfiguration', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/ISOConfiguration'
     pod 'WhiteBalance', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/WhiteBalance'
     pod 'Exposure', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/Exposure'
-    pod 'AudioLevelBar', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/AudioLevelBar'
     pod 'Focus', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/Focus'
     pod 'FocalLensSlider', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/FocalLensSlider'
     pod 'ExpositionModes', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/ExpositionModes'

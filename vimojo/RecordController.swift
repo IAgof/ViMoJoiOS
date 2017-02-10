@@ -13,7 +13,6 @@ import BatteryRemaining
 import ISOConfiguration
 import WhiteBalance
 import Exposure
-import AudioLevelBar
 import Focus
 import FocalLensSlider
 import ExpositionModes
