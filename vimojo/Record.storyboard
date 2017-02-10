@@ -55,13 +55,13 @@
                                         <rect key="frame" x="250" y="126" width="68" height="68"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbb-jx-SNd">
-                                        <rect key="frame" x="8" y="8" width="267" height="28"/>
+                                        <rect key="frame" x="8" y="8" width="121" height="28"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="08T-D0-KZt">
-                                                <rect key="frame" x="16" y="4" width="235" height="20"/>
+                                                <rect key="frame" x="16" y="4" width="89" height="20"/>
                                                 <subviews>
-                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dra-Hy-CZB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="20"/>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dra-Hy-CZB">
+                                                        <rect key="frame" x="-7.5" y="0.0" width="0.0" height="20"/>
                                                         <state key="normal" image="activity_rec_micro_connected_normal"/>
                                                         <state key="selected" image="activity_rec_micro_connected_pressed"/>
                                                         <state key="highlighted" image="activity_rec_micro_connected_pressed"/>
@@ -69,8 +69,8 @@
                                                             <action selector="pushMic:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="1XL-EH-hY0"/>
                                                         </connections>
                                                     </button>
-                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAM-ZC-cFG" customClass="AudioLevelBarView" customModule="VideonaProject">
-                                                        <rect key="frame" x="31" y="0.0" width="100" height="20"/>
+                                                    <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nAM-ZC-cFG" customClass="AudioLevelBarView" customModule="VideonaProject">
+                                                        <rect key="frame" x="-7.5" y="0.0" width="0.0" height="20"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="jXh-V8-j9e"/>
@@ -92,7 +92,7 @@
                                                         </variation>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veW-ha-Wav">
-                                                        <rect key="frame" x="146" y="0.0" width="23" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="23" height="20"/>
                                                         <state key="normal" image="activity_rec_battery_100"/>
                                                         <state key="selected" image="activity_rec_battery_100_pressed"/>
                                                         <state key="highlighted" image="activity_rec_battery_100_pressed"/>
@@ -101,7 +101,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8j-Vd-5dC">
-                                                        <rect key="frame" x="184" y="0.0" width="13" height="20"/>
+                                                        <rect key="frame" x="38" y="0.0" width="13" height="20"/>
                                                         <state key="normal" image="activity_rec_memory"/>
                                                         <state key="selected" image="activity_rec_memory_pressed"/>
                                                         <state key="highlighted" image="activity_rec_memory_pressed"/>
@@ -110,7 +110,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6R-qJ-vTS">
-                                                        <rect key="frame" x="212" y="0.0" width="23" height="20"/>
+                                                        <rect key="frame" x="66" y="0.0" width="23" height="20"/>
                                                         <state key="normal" image="activity_rec_resolution_1080"/>
                                                         <state key="selected" image="activity_rec_resolution_1080_pressed"/>
                                                         <state key="highlighted" image="activity_rec_resolution_1080_pressed"/>
@@ -204,7 +204,7 @@
                                             <constraint firstAttribute="bottom" secondItem="ewd-xp-MaT" secondAttribute="bottom" constant="8" id="yb6-AV-wNA"/>
                                         </constraints>
                                     </view>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Sz-Cx-Stq" customClass="FocalLensSliderView" customModule="FocalLensSlider">
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Sz-Cx-Stq" customClass="FocalLensSliderView" customModule="VideonaProject">
                                         <rect key="frame" x="-91" y="140" width="230" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -218,7 +218,7 @@
                                             <userDefinedRuntimeAttribute type="image" keyPath="lowerValueImage" value="activity_rec_focus_macro"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vuo-zZ-7lL" customClass="ZoomSliderView" customModule="ZoomCameraSlider">
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vuo-zZ-7lL" customClass="ZoomSliderView" customModule="VideonaProject">
                                         <rect key="frame" x="-91" y="140" width="230" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -232,7 +232,7 @@
                                             <userDefinedRuntimeAttribute type="image" keyPath="lowerValueImage" value="activity_rec_minus"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xIW-qf-psD" customClass="ExposureView" customModule="Exposure">
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xIW-qf-psD" customClass="ExposureView" customModule="VideonaProject">
                                         <rect key="frame" x="-90" y="140" width="230" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -403,16 +403,16 @@
                                         </variation>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yzi-0I-GIh">
-                                        <rect key="frame" x="283" y="8" width="79" height="29"/>
+                                        <rect key="frame" x="244.5" y="8" width="79" height="28.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="KEV-WL-wpU">
-                                                <rect key="frame" x="4" y="4" width="71" height="21"/>
+                                                <rect key="frame" x="4" y="4" width="71" height="20.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_record_icon_recording" translatesAutoresizingMaskIntoConstraints="NO" id="zZ0-fN-Qrj">
-                                                        <rect key="frame" x="0.0" y="0.0" width="9" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="9" height="20.5"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="216-mj-D5y">
-                                                        <rect key="frame" x="11" y="0.0" width="60" height="21"/>
+                                                        <rect key="frame" x="11" y="0.0" width="60" height="20.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="Oup-M7-y3g">
                                                                 <variation key="widthClass=regular" constant="80"/>
@@ -436,8 +436,8 @@
                                             <constraint firstItem="KEV-WL-wpU" firstAttribute="top" secondItem="Yzi-0I-GIh" secondAttribute="top" constant="4" id="war-Z7-Oye"/>
                                         </constraints>
                                     </view>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEb-ih-mOX" customClass="InputSoundGainControlView" customModule="InputSoundGainControl">
-                                        <rect key="frame" x="-92" y="140" width="231" height="40"/>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEb-ih-mOX" customClass="InputSoundGainControlView" customModule="VideonaProject">
+                                        <rect key="frame" x="-91.5" y="140" width="230" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="I4F-Sc-vML"/>
@@ -451,16 +451,16 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijC-dC-TM0">
-                                        <rect key="frame" x="283" y="8" width="79" height="29"/>
+                                        <rect key="frame" x="244.5" y="8" width="79" height="28.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="QcR-og-2Mj">
-                                                <rect key="frame" x="4" y="4" width="71" height="21"/>
+                                                <rect key="frame" x="4" y="4" width="71" height="20.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_record_icon_recording" translatesAutoresizingMaskIntoConstraints="NO" id="l2N-7L-tuG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="9" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="9" height="20.5"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHA-0I-LE1">
-                                                        <rect key="frame" x="11" y="0.0" width="60" height="21"/>
+                                                        <rect key="frame" x="11" y="0.0" width="60" height="20.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="GZu-PC-piJ">
                                                                 <variation key="widthClass=regular" constant="80"/>

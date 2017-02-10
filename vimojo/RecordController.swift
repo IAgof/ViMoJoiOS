@@ -10,12 +10,8 @@ import UIKit
 import GPUImage
 import ISOConfiguration
 import WhiteBalance
-import Exposure
 import Focus
-import FocalLensSlider
 import ExpositionModes
-import ZoomCameraSlider
-import InputSoundGainControl
 import VideonaProject
 
 class RecordController: ViMoJoController,UINavigationControllerDelegate{
