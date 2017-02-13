@@ -4,7 +4,7 @@
 //
 
 import Foundation
-import VideonaPlayer
+import VideonaProject
 
 protocol FullScreenPlayerInterface {
     func getPlayerView()->PlayerView

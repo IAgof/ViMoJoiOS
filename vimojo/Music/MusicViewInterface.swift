@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import VideonaPlayer
+import VideonaProject
 
 protocol MusicViewInterface:ViMoJoInterface {
 

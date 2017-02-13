@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import VideonaPlayer
+import VideonaProject
 
 class FullScreenPlayerPresenter:FullScreenPlayerPresenterInterface{
     //MARK: - VIPER

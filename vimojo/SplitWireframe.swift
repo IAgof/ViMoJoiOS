@@ -10,7 +10,7 @@ import Foundation
 
 import Foundation
 import UIKit
-import VideonaPlayer
+import VideonaProject
 import VideonaProject
 
 let splitViewControllerIdentifier = "SplitViewController"

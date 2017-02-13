@@ -8,7 +8,7 @@
 
 import Foundation
 import AVFoundation
-import VideonaPlayer
+import VideonaProject
 import VideonaProject
 
 protocol AddTextPresenterInterface {

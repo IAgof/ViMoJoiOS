@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import VideonaPlayer
+import VideonaProject
 import AVKit
 import AVFoundation
 

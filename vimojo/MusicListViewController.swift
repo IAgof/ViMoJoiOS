@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import VideonaPlayer
+import VideonaProject
 
 class MusicListViewController:EditingRoomItemController{
     var eventHandler: MusicListPresenterInterface?

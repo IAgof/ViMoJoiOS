@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import AVFoundation
-import VideonaPlayer
+import VideonaProject
 import VideonaProject
 import Photos
 

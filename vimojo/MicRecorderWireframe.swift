@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import VideonaPlayer
+import VideonaProject
 
 let micRecorderViewControllerIdentifier = "MicRecorderViewController"
 

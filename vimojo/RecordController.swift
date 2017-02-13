@@ -8,10 +8,6 @@
 
 import UIKit
 import GPUImage
-import ISOConfiguration
-import WhiteBalance
-import Focus
-import ExpositionModes
 import VideonaProject
 
 class RecordController: ViMoJoController,UINavigationControllerDelegate{

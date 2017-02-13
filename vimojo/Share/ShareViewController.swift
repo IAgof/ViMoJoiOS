@@ -8,7 +8,7 @@
 
 import UIKit
 import Foundation
-import VideonaPlayer
+import VideonaProject
 import GoogleSignIn
 import VideonaProject
 

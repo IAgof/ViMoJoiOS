@@ -8,7 +8,7 @@
 
 import Foundation
 import MobileCoreServices
-import VideonaPlayer
+import VideonaProject
 import VideonaProject
 import Photos
 

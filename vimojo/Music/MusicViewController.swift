@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import VideonaPlayer
+import VideonaProject
 
 class MusicViewController: EditingRoomItemController,MusicViewInterface,MusicPresenterDelegate,PlayerViewSetter,FullScreenWireframeDelegate{
     //MARK: - VIPER variables

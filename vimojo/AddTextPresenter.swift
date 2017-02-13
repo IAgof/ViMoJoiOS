@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import VideonaPlayer
+import VideonaProject
 import AVFoundation
 
 class AddTextPresenter{

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import NMRangeSlider
-import VideonaPlayer
+import VideonaProject
 import AVFoundation
 import VideonaProject
 

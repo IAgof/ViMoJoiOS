@@ -7,7 +7,7 @@
 //
 import Foundation
 import UIKit
-import VideonaPlayer
+import VideonaProject
 
 let editorViewControllerIdentifier = "EditorViewController"
 

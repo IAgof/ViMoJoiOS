@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import VideonaProject
-import VideonaPlayer
+import VideonaProject
 
 
 class AppDependencies {

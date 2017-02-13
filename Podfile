@@ -17,20 +17,9 @@ def shared_pods
     pod 'Google'
     pod 'NMRangeSlider', '~> 1.2'
     pod 'TTRangeSlider'
-        
-    pod 'ISOConfiguration', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/ISOConfiguration'
-    pod 'WhiteBalance', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/WhiteBalance'
-    pod 'Focus', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/Focus'
-    pod 'ExpositionModes', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/ExpositionModes'
-    
-    pod 'VideonaProject', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaProject'
-    
-    
-    #EDITOR
-    pod 'VideonaPlayer', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaPlayer'
     
     pod 'KYDrawerController'
-    
+    pod 'MBCircularProgressBar', '0.3.4'
 end
 target 'vimojo' do
     shared_pods

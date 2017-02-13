@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import TTRangeSlider
-import VideonaPlayer
+import VideonaProject
 import AVFoundation
 import VideonaProject
 
