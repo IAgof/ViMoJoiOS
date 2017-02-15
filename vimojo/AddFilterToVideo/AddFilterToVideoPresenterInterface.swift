@@ -15,6 +15,7 @@ protocol AddFilterToVideoPresenterInterface {
     func pushOptions()
     
     func parameterSliderValueChanged(sliderValue value:Float,parameterType type:VideoParameterSlider)
+    func setDefaultParameters()
     func playerIsReady()
     func selectedFilter(index:Int)
 }

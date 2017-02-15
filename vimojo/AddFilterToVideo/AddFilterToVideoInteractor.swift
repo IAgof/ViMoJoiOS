@@ -87,6 +87,20 @@ extension AddFilterToVideoInteractor:AddFilterToVideoInteractorInterface{
         }
     }
     
+    func setDefaultParameters() {
+        project.videoFilter = nil
+        var parameters = project.videoOutputParameters
+        parameters.brightness = 0
+        parameters.contrast = 1
+        parameters.saturation = 1
+        parameters.exposure = 0.5
+        
+        project.videoOutputParameters = parameters
+        
+        self.getProjectParameters()
+        getVideoComposition()
+    }
+    
     func removeFilter() {
         project.videoFilter = nil
         getVideoComposition()

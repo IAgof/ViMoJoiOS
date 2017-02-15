@@ -14,8 +14,8 @@ class FilterCollectionViewCell: UICollectionViewCell {
     
     override var isSelected: Bool{
         didSet {
-            self.layer.borderWidth = (isSelected ? 3 : 0)
-            self.layer.borderColor = (isSelected ? configuration.mainColor.cgColor : UIColor.clear.cgColor)
+            self.filterImageView.layer.borderWidth = (isSelected ? 3 : 0)
+            self.filterImageView.layer.borderColor = (isSelected ? configuration.mainColor.cgColor : UIColor.clear.cgColor)
         }
     }
     
@@ -24,11 +24,10 @@ class FilterCollectionViewCell: UICollectionViewCell {
             self.filterImageView.image = self.getImageFiltered(baseImage: viewModel.image,
                                                           filterName: viewModel.name)
         }
-        self.filterNameLabel.text = viewModel.name
+        self.filterNameLabel.text = viewModel.displayName
         self.filterNameLabel.adjustsFontSizeToFitWidth = true
         
         self.selectedBackgroundView?.backgroundColor =  configuration.mainColor
-        self.backgroundColor = configuration.secondColor
     }
     
     func getImageFiltered(baseImage:UIImage,

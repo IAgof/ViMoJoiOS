@@ -39,6 +39,10 @@ class AddFilterToVideoViewController: EditingRoomItemController {
         UIDevice.current.setValue(value, forKey: "orientation")
     }
     
+    @IBAction func pushDefaultParameters(_ sender: Any) {
+        eventHandler?.setDefaultParameters()
+    }
+    
     func configureView(){
         var sliders:[TTRangeSlider] = []
         sliders.append(brightnessSlider)

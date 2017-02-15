@@ -11,4 +11,5 @@ import Foundation
 struct FilterCollectionViewModel {
     let image:UIImage
     let name:String
+    let displayName:String
 }

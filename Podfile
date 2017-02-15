@@ -21,7 +21,7 @@ def shared_pods
     pod 'KYDrawerController'
     pod 'MBCircularProgressBar', '0.3.4'
     
-    pod 'VideonaProject', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaProject'
+#    pod 'VideonaProject', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaProject'
 end
 
 target 'vimojo' do

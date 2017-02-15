@@ -49,10 +49,19 @@ extension AddFilterToVideoPresenter:AddFilterToVideoPresenterInterface{
             delegate?.deselectFilter(inPosition: index)
             
             lastSelectedFilter = nil
+            interactor?.removeFilter()
         }else{
             interactor?.setFilterInPosition(position: index)
             
             lastSelectedFilter = index
+        }
+    }
+    
+    func setDefaultParameters() {
+        interactor?.setDefaultParameters()
+        
+        if let selectedFilter = lastSelectedFilter{
+            delegate?.deselectFilter(inPosition: selectedFilter)
         }
     }
 }
@@ -68,10 +77,12 @@ extension AddFilterToVideoPresenter:AddFilterToVideoInteractorDelegate{
         for filterFound in filters{
             if let image = filterFound.filterImage{
                 filtersViewModel.append(FilterCollectionViewModel(image: image,
-                                                                  name:filterFound.filterName))
+                                                                  name:filterFound.filterName,
+                                                                  displayName:filterFound.displayName))
             }else{
                 filtersViewModel.append(FilterCollectionViewModel(image: UIImage(),
-                                                                  name:filterFound.filterName))
+                                                                  name:filterFound.filterName,
+                                                                  displayName:filterFound.displayName))
             }
         }
         

@@ -16,6 +16,7 @@ protocol AddFilterToVideoInteractorInterface {
     func getProjectParameters()
     func setFilterInPosition(position:Int)
     func removeFilter()
+    func setDefaultParameters()
 }
 
 protocol AddFilterToVideoInteractorDelegate {
