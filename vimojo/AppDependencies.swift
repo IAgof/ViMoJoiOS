@@ -44,6 +44,8 @@ class AppDependencies {
     var detailProjectWireframe = DetailProjectWireframe()
     var goToRecordOrGalleryWireframe = GoToRecordOrGalleryWireframe()
     
+    var addFilterToVideoWireframe = AddFilterToVideoWireframe()
+    
     init(){
         configureDependencies()
         ViMoJoTracker.sharedInstance.project = project
@@ -113,6 +115,9 @@ class AppDependencies {
         
         let detailProjectPresenter = DetailProjectPresenter()
         let detailProjectInteractor = DetailProjectInteractor()
+    
+        let addFilterToVideoPresenter = AddFilterToVideoPresenter()
+        let addFilterToVideoInteractor = AddFilterToVideoInteractor(project: project)
         
         //DRAWER MODULE
         drawerPresenter.interactor = drawerInteractor
@@ -166,6 +171,7 @@ class AppDependencies {
         editorRoomWireframe.galleryWireframe = galleryWireframe
         editorRoomWireframe.musicListWireframe = musicListWireframe
         editorRoomWireframe.goToRecordOrGalleryWireframe = goToRecordOrGalleryWireframe
+        editorRoomWireframe.addFilterToVideoWireframe = addFilterToVideoWireframe
         
         //EDITOR MODULE
         editorPresenter.wireframe = editorWireframe
@@ -341,6 +347,17 @@ class AppDependencies {
         goToRecordOrGalleryWireframe.recordWireframe = recordWireframe
         goToRecordOrGalleryWireframe.drawerWireframe = drawerWireframe
         goToRecordOrGalleryWireframe.project = project
+        
+        //FILTERS MODULE
+        addFilterToVideoPresenter.wireframe = addFilterToVideoWireframe
+        addFilterToVideoPresenter.interactor = addFilterToVideoInteractor
+        addFilterToVideoPresenter.playerPresenter = playerPresenter
+
+        addFilterToVideoInteractor.delegate = addFilterToVideoPresenter
+        
+        addFilterToVideoWireframe.rootWireframe = rootWireframe
+        addFilterToVideoWireframe.presenter = addFilterToVideoPresenter
+        addFilterToVideoWireframe.playerWireframe = playerWireframe
     }
         
     func installRecordToRootViewControllerIntoWindow(_ window: UIWindow){

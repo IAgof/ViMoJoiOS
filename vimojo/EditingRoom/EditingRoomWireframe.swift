@@ -26,6 +26,7 @@ class EditingRoomWireframe : NSObject {
     var galleryWireframe:GalleryWireframe?
     var musicListWireframe:MusicListWireframe?
     var goToRecordOrGalleryWireframe:GoToRecordOrGalleryWireframe?
+    var addFilterToVideoWireframe:AddFilterToVideoWireframe?
     
     //MARK: - Variables
     weak var currentViewController: UIViewController?
@@ -147,6 +148,10 @@ class EditingRoomWireframe : NSObject {
             if let newController = musicListWireframe?.musicViewControllerFromStoryboard(){
                 controllers.append(newController)
             }
+        }
+        
+        if let newController = addFilterToVideoWireframe?.viewControllerFromStoryboard(){
+            controllers.append(newController)
         }
         
         if let newController = shareWireframe?.shareViewControllerFromStoryboard(){

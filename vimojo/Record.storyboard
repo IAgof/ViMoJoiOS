@@ -256,14 +256,102 @@
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTG-lk-0Ju" customClass="WhiteBalanceView" customModule="VideonaProject">
                                         <rect key="frame" x="130" y="231" width="309" height="35"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SzU-Ic-3n5">
+                                                <rect key="frame" x="0.0" y="0.0" width="309" height="35"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIm-Jf-y9p">
+                                                        <rect key="frame" x="0.0" y="0.0" width="48" height="35"/>
+                                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" image="activity_rec_white_balance_automatic">
+                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <state key="selected" image="activity_rec_white_balance_automatic_pressed">
+                                                            <color key="titleColor" red="0.25176096790000002" green="1" blue="0.64486674820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <state key="highlighted" image="activity_rec_white_balance_automatic_pressed">
+                                                            <color key="titleColor" red="0.25176096790000002" green="1" blue="0.64486674820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wix-sN-gpZ">
+                                                        <rect key="frame" x="52" y="0.0" width="48" height="35"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" image="activity_rec_white_balance_cloudy">
+                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <state key="selected" image="activity_rec_white_balance_cloudy_pressed">
+                                                            <color key="titleColor" red="0.25176096790000002" green="1" blue="0.64486674820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <state key="highlighted" image="activity_rec_white_balance_cloudy_pressed">
+                                                            <color key="titleColor" red="0.25176096790000002" green="1" blue="0.64486674820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzp-lO-WPf">
+                                                        <rect key="frame" x="104" y="0.0" width="49" height="35"/>
+                                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" image="activity_rec_white_balance_sunny">
+                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <state key="selected" image="activity_rec_white_balance_sunny_pressed">
+                                                            <color key="titleColor" red="0.25176096790000002" green="1" blue="0.64486674820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <state key="highlighted" image="activity_rec_white_balance_sunny_pressed">
+                                                            <color key="titleColor" red="0.25176096790000002" green="1" blue="0.64486674820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RgC-wI-tvM">
+                                                        <rect key="frame" x="157" y="0.0" width="48" height="35"/>
+                                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" image="activity_rec_wb_flash">
+                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <state key="selected" image="activity_rec_wb_flash_pressed">
+                                                            <color key="titleColor" red="0.25176096790000002" green="1" blue="0.64486674820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <state key="highlighted" image="activity_rec_wb_flash_pressed">
+                                                            <color key="titleColor" red="0.25176096790000002" green="1" blue="0.64486674820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OyZ-CY-WHn">
+                                                        <rect key="frame" x="209" y="0.0" width="48" height="35"/>
+                                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" image="activity_rec_white_balance_fluorescent">
+                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <state key="selected" image="activity_rec_white_balance_fluorescent_pressed">
+                                                            <color key="titleColor" red="0.25176096790000002" green="1" blue="0.64486674820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <state key="highlighted" image="activity_rec_white_balance_fluorescent_pressed">
+                                                            <color key="titleColor" red="0.25176096790000002" green="1" blue="0.64486674820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkN-Ma-1oN">
+                                                        <rect key="frame" x="261" y="0.0" width="48" height="35"/>
+                                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" image="activity_rec_white_balance_tungsten">
+                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <state key="selected" image="activity_rec_white_balance_tungsten_pressed">
+                                                            <color key="titleColor" red="0.25176096790000002" green="1" blue="0.64486674820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <state key="highlighted" image="activity_rec_white_balance_tungsten_pressed">
+                                                            <color key="titleColor" red="0.25176096790000002" green="1" blue="0.64486674820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstItem="SzU-Ic-3n5" firstAttribute="top" secondItem="RTG-lk-0Ju" secondAttribute="top" id="2Pn-xu-YDb"/>
+                                            <constraint firstItem="SzU-Ic-3n5" firstAttribute="leading" secondItem="RTG-lk-0Ju" secondAttribute="leading" id="Gmb-0B-hjq"/>
                                             <constraint firstAttribute="height" constant="35" id="h56-zJ-te8"/>
+                                            <constraint firstAttribute="bottom" secondItem="SzU-Ic-3n5" secondAttribute="bottom" id="j4y-77-jLr"/>
                                             <constraint firstAttribute="width" constant="309" id="spj-0K-bV2"/>
+                                            <constraint firstAttribute="trailing" secondItem="SzU-Ic-3n5" secondAttribute="trailing" id="w1E-fV-c2b"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="autoImageNormal" value="activity_rec_white_balance_automatic"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="autoImageHighlightedAndPressed" value="activity_rec_white_balance_automatic_pressed"/>
                                             <userDefinedRuntimeAttribute type="image" keyPath="cloudyImageNormal" value="activity_rec_white_balance_cloudy"/>
                                             <userDefinedRuntimeAttribute type="image" keyPath="cloudyImageHighlightedAndPressed" value="activity_rec_white_balance_cloudy_pressed"/>
                                             <userDefinedRuntimeAttribute type="image" keyPath="daylightImageHighlightedAndPressed" value="activity_rec_white_balance_sunny_pressed"/>
@@ -275,6 +363,14 @@
                                             <userDefinedRuntimeAttribute type="image" keyPath="tungstenImageNormal" value="activity_rec_white_balance_tungsten"/>
                                             <userDefinedRuntimeAttribute type="image" keyPath="tungstenImageHighlightedAndPressed" value="activity_rec_white_balance_tungsten_pressed"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="autoButton" destination="PIm-Jf-y9p" id="P64-WP-vMV"/>
+                                            <outlet property="cloudyButton" destination="Wix-sN-gpZ" id="rSZ-KP-gxd"/>
+                                            <outlet property="daylightButton" destination="wzp-lO-WPf" id="BxU-2E-zj8"/>
+                                            <outlet property="flashButton" destination="RgC-wI-tvM" id="UnL-lp-pTI"/>
+                                            <outlet property="fluorescentButton" destination="OyZ-CY-WHn" id="fhW-mg-CNC"/>
+                                            <outlet property="tungstenButton" destination="SkN-Ma-1oN" id="lXp-QC-yWI"/>
+                                        </connections>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iei-TN-55D" customClass="ResolutionsSelectorView" customModule="VideonaProject">
                                         <rect key="frame" x="159" y="97" width="250" height="126"/>

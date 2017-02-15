@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--All-->
         <scene sceneID="ZkM-v6-6Pg">
             <objects>
-                <collectionViewController id="XPu-N1-91P" customClass="AllVideosGalleryViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="XPu-N1-91P" customClass="AllVideosGalleryViewController" customModule="PeriodistaCelular" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="cXa-TY-5cw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,7 +32,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCell" id="tuY-td-FQ0" customClass="VideoThumbnail" customModule="VideoGallery">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCell" id="tuY-td-FQ0" customClass="VideoThumbnail" customModule="VideonaProject">
                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -91,7 +91,7 @@
         <!--Gallery View Controller-->
         <scene sceneID="Giy-S5-nhc">
             <objects>
-                <tabBarController storyboardIdentifier="GalleryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lf3-M1-2rZ" customClass="GalleryViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="GalleryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lf3-M1-2rZ" customClass="GalleryViewController" customModule="PeriodistaCelular" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="CAd-Oi-90r">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -110,7 +110,7 @@
         <!--Clips-->
         <scene sceneID="rIj-gT-8YQ">
             <objects>
-                <collectionViewController id="BV8-2G-Uwe" customClass="CustomClipsGalleryViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="BV8-2G-Uwe" customClass="CustomClipsGalleryViewController" customModule="PeriodistaCelular" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Za4-lz-22D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -129,7 +129,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCell" id="z1J-iM-ulU" customClass="VideoThumbnail" customModule="VideoGallery">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCell" id="z1J-iM-ulU" customClass="VideoThumbnail" customModule="VideonaProject">
                                 <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -188,7 +188,7 @@
         <!--Edit-->
         <scene sceneID="5VX-n7-Yv7">
             <objects>
-                <collectionViewController id="Cy9-0N-BbX" customClass="CustomExportedVideosGalleryViewController" customModule="RTVE" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="Cy9-0N-BbX" customClass="CustomExportedVideosGalleryViewController" customModule="PeriodistaCelular" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="OYy-vV-Oau">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -207,7 +207,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCell" id="yx6-kR-Kd5" customClass="VideoThumbnail" customModule="VideoGallery">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCell" id="yx6-kR-Kd5" customClass="VideoThumbnail" customModule="VideonaProject">
                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
