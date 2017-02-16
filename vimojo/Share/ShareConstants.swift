@@ -84,6 +84,12 @@ struct ShareConstants{
     static var  EXPORT_FAILED_MESSAGE:String{
         return getStringByKeyFromShare("videoExportFailedMessage")
     }
+    static var  SAVE_ON_GALLERY:String{
+        return getStringByKeyFromShare("saveOnGalleryMessage")
+    }
+    static var  SAVE_TITLE:String{
+        return getStringByKeyFromShare("saveOnGalleryTitle")
+    }
     private static func getStringByKeyFromShare(_ key:String) -> String {
         return Bundle.main.localizedString(forKey: key,value: "",table: "Share")
     }

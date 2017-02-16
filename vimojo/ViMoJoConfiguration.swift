@@ -26,6 +26,6 @@ final class ViMoJoConfiguration: ConfigurationProtocol {
         secondColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         secondColorWithOpacity = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.5)
         VOICE_OVER_FEATURE = true
-        FTP_FEATURE = false
+        FTP_FEATURE = true
     }
 }

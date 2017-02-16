@@ -30,7 +30,8 @@ class DrawerProfileTableViewCell: UITableViewCell {
     func configureView(){
         let user = userInfo()
         
-        usernameLabel.text = user.name
+        let userAndSurName = "\(user.name) \(user.userName)"
+        usernameLabel.text = userAndSurName
         emailLabel.text = user.email
         
         usernameLabel.adjustsFontSizeToFitWidth = true

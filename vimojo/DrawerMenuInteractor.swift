@@ -31,4 +31,9 @@ class DrawerMenuInteractor: DrawerMenuInteractorInterface {
         
         delegate?.imageIsSave()
     }
+    
+    func removePhoto(){
+        UserDefaults.standard.set(nil, forKey: SettingsConstants().SETTINGS_PHOTO_USER)
+        delegate?.imageIsSave()
+  }
 }

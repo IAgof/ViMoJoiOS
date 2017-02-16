@@ -22,6 +22,7 @@ class AddFilterToVideoWireframe : VimojoWireframeInterface {
     var viewControllerIdentifier: String
     var storyboardName: String
     var playerWireframe: PlayerWireframe?
+    var editingRoomWireframe:EditingRoomWireframe?
 
     private var videoSelectedUUID:String?
     
@@ -68,5 +69,9 @@ class AddFilterToVideoWireframe : VimojoWireframeInterface {
     
     func goPrevController(){
         self.viewController?.navigationController?.popViewController()
+    }
+    
+    func presentSettings(){
+        editingRoomWireframe?.navigateToSettings()
     }
 }

@@ -12,6 +12,13 @@ extension AddFilterToVideoViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         eventHandler?.selectedFilter(index: indexPath.item)
     }
+    
+    func scrollToNextElement() {
+        guard let visibleItems = self.filtersCollectionView.indexPathsForSelectedItems else{return}
+        let currentItem = visibleItems[0]
+        
+        self.filtersCollectionView.scrollToItem(at: currentItem, at: UICollectionViewScrollPosition.centeredHorizontally, animated: true)
+    }
 }
 
 extension AddFilterToVideoViewController:UICollectionViewDataSource{

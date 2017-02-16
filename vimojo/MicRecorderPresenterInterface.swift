@@ -49,7 +49,6 @@ protocol MicRecorderPresenterDelegate {
     func showHasRecordViews()
     func hideHasRecordViews()
     
-    func updateRecordMicActualTime(_ time:String)
     
     func changeAudioPlayerVolume(_ value:Float)
     func createAudioPlayer(_ composition: AVMutableComposition)

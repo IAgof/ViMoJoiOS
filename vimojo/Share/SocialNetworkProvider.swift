@@ -58,6 +58,11 @@ class SocialNetworkProvider:NSObject{
                                             action: ShareYoutubeInteractor(delegate: delegate,
                                                 shareProject:project)))
         
+        socialNetworks.append(SocialNetwork(iconId: "activity_edit_share_youtube_normal",
+                                            iconIdPressed: "activity_edit_share_youtube_pressed",
+                                            title: ShareConstants.SAVE_TITLE,
+                                            action: ShareSave(delegate: delegate,
+                                                                           shareProject:project)))
         return socialNetworks
     }
 }

@@ -24,4 +24,5 @@ protocol AddFilterToVideoPresenterDelegate {
     func setFilters(filters:[FilterCollectionViewModel])
     func deselectFilter(inPosition:Int)
     func setUpView(withParameters parameters:ProjectParametersViewModel)
+    func scrollToNextElement() 
 }

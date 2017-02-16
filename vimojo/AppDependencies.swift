@@ -358,6 +358,7 @@ class AppDependencies {
         addFilterToVideoWireframe.rootWireframe = rootWireframe
         addFilterToVideoWireframe.presenter = addFilterToVideoPresenter
         addFilterToVideoWireframe.playerWireframe = playerWireframe
+        addFilterToVideoWireframe.editingRoomWireframe = editorRoomWireframe
     }
         
     func installRecordToRootViewControllerIntoWindow(_ window: UIWindow){

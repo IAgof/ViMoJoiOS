@@ -11,11 +11,11 @@ import Foundation
 class FilterProvider {
     static func getFilters()->[FilterFoundModel]{
         let filterSepia = FilterFoundModel(filterName: "CISepiaTone", filterImage: nil,displayName:"Sepia")
-        let filterVibrance = FilterFoundModel(filterName: "CIVibrance", filterImage: nil,displayName:"Vibrance")
-        let filterPhotoEffectInstant = FilterFoundModel(filterName: "CIPhotoEffectInstant", filterImage: nil,displayName:"Photo Instant")
-        let filterPhotoEffectMono = FilterFoundModel(filterName: "CIPhotoEffectMono", filterImage: nil,displayName:"Mono")
-        let filterPhotoEffectNoir = FilterFoundModel(filterName: "CIPhotoEffectNoir", filterImage: nil,displayName:"Noir")
-        let filterPhotoEffectProcess = FilterFoundModel(filterName: "CIPhotoEffectProcess", filterImage: nil,displayName:"Photo process")
+        let filterVibrance = FilterFoundModel(filterName: "CIVibrance", filterImage: nil,displayName:"Vibrant")
+        let filterPhotoEffectInstant = FilterFoundModel(filterName: "CIPhotoEffectInstant", filterImage: nil,displayName:"Retro")
+        let filterPhotoEffectMono = FilterFoundModel(filterName: "CIPhotoEffectMono", filterImage: nil,displayName:"B&W")
+        let filterPhotoEffectNoir = FilterFoundModel(filterName: "CIColorMatrix", filterImage: nil,displayName:"Colour")
+        let filterPhotoEffectProcess = FilterFoundModel(filterName: "CIPhotoEffectProcess", filterImage: nil,displayName:"Instant")
         
         var filters = Array<FilterFoundModel>()
         filters.append(filterSepia)

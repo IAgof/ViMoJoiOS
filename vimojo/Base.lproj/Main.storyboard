@@ -717,12 +717,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="due-Kf-el9">
                                 <rect key="frame" x="15" y="261.33333333333326" width="384" height="474.66666666666674"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0V4-dR-ZjO">
-                                        <rect key="frame" x="169" y="134.66666666666669" width="46" height="20.333333333333314"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p4x-F4-w1f" customClass="VideonaTrackOverView" customModule="VideonaProject">
                                         <rect key="frame" x="23" y="88.666666666666686" width="338" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -740,18 +734,6 @@
                                             <action selector="micSliderChanged:" destination="I1J-mQ-QlR" eventType="valueChanged" id="dud-XY-px0"/>
                                         </connections>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLS-cn-Hbl">
-                                        <rect key="frame" x="29" y="134.66666666666669" width="46" height="20.333333333333314"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IY8-n6-H70">
-                                        <rect key="frame" x="308" y="134.66666666666669" width="46" height="20.333333333333314"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUC-nF-IiA">
                                         <rect key="frame" x="8" y="432.66666666666669" width="20" height="22"/>
                                         <state key="normal" image="activity_edit_cancel_normal"/>
@@ -785,17 +767,17 @@
                                         <rect key="frame" x="99" y="171" width="186" height="133.00000000000006"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEj-Un-b8l">
-                                                <rect key="frame" x="0.0" y="0.0" width="186" height="133.00000000000006"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="151.66666666666669" height="133.00000000000006"/>
                                                 <gestureRecognizers/>
                                                 <state key="normal" image="activity_edit_sound_voiceover_record_normal"/>
                                                 <state key="selected" image="activity_edit_sound_voiceover_record_pressed"/>
                                                 <state key="highlighted" image="activity_edit_sound_voiceover_record_pressed"/>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg0-GR-d24">
-                                                <rect key="frame" x="186" y="49.666666666666686" width="0.0" height="34"/>
+                                                <rect key="frame" x="151.66666666666669" y="49.666666666666686" width="34.333333333333314" height="34"/>
                                                 <gestureRecognizers/>
-                                                <state key="selected" image="E85D54A6-47C3-4428-A829-3CF7E64C0844"/>
-                                                <state key="highlighted" image="E85D54A6-47C3-4428-A829-3CF7E64C0844"/>
+                                                <state key="selected" image="D68EA329-FE94-42BC-9054-CC48C5BF25F2"/>
+                                                <state key="highlighted" image="D68EA329-FE94-42BC-9054-CC48C5BF25F2"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="image" keyPath="imageForNormal" value="activy_sound_music_delete_normal"/>
                                                     <userDefinedRuntimeAttribute type="image" keyPath="imageForHighlighted" value="activy_sound_music_delete_pressed"/>
@@ -813,25 +795,20 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="8L2-hc-cWS" secondAttribute="bottom" constant="20" id="88r-8e-tac"/>
                                     <constraint firstItem="fUs-Sp-lwX" firstAttribute="centerY" secondItem="due-Kf-el9" secondAttribute="centerY" id="AgY-Qj-DmP"/>
-                                    <constraint firstItem="0V4-dR-ZjO" firstAttribute="top" secondItem="A7I-K0-5AL" secondAttribute="bottom" constant="16" id="CE2-jm-RpV"/>
                                     <constraint firstItem="A7I-K0-5AL" firstAttribute="leading" secondItem="due-Kf-el9" secondAttribute="leading" constant="8" id="GeM-jz-RZe"/>
                                     <constraint firstItem="p4x-F4-w1f" firstAttribute="height" secondItem="A7I-K0-5AL" secondAttribute="height" id="HQA-RT-6TS"/>
                                     <constraint firstItem="WJn-IL-MvO" firstAttribute="top" secondItem="UE9-Ey-LlH" secondAttribute="bottom" constant="8" id="I4I-Ta-uEW"/>
                                     <constraint firstAttribute="trailing" secondItem="A7I-K0-5AL" secondAttribute="trailing" constant="8" id="Jd8-fv-cqS"/>
+                                    <constraint firstItem="fUs-Sp-lwX" firstAttribute="top" secondItem="A7I-K0-5AL" secondAttribute="bottom" constant="52.333333333333314" id="LyH-de-pze"/>
                                     <constraint firstItem="UE9-Ey-LlH" firstAttribute="top" secondItem="fUs-Sp-lwX" secondAttribute="bottom" constant="8" id="Peb-2X-0JT"/>
                                     <constraint firstItem="sUC-nF-IiA" firstAttribute="leading" secondItem="due-Kf-el9" secondAttribute="leading" constant="8" id="Qbn-R4-Rg9"/>
                                     <constraint firstItem="UE9-Ey-LlH" firstAttribute="leading" secondItem="fUs-Sp-lwX" secondAttribute="trailing" constant="-109.66666666666666" id="RDC-6u-XnB"/>
-                                    <constraint firstAttribute="trailing" secondItem="IY8-n6-H70" secondAttribute="trailing" constant="30" id="UYm-EY-MZG"/>
                                     <constraint firstItem="UE9-Ey-LlH" firstAttribute="centerX" secondItem="fUs-Sp-lwX" secondAttribute="centerX" id="adJ-Jx-EQ9"/>
-                                    <constraint firstItem="fUs-Sp-lwX" firstAttribute="centerX" secondItem="0V4-dR-ZjO" secondAttribute="centerX" id="b0Q-1J-JNl"/>
-                                    <constraint firstItem="IY8-n6-H70" firstAttribute="centerY" secondItem="0V4-dR-ZjO" secondAttribute="centerY" id="cHM-dc-ml2"/>
                                     <constraint firstAttribute="trailing" secondItem="WJn-IL-MvO" secondAttribute="trailing" constant="20" id="cyV-ek-Geh"/>
-                                    <constraint firstItem="yLS-cn-Hbl" firstAttribute="leading" secondItem="due-Kf-el9" secondAttribute="leading" constant="29" id="dlP-gx-1xF"/>
                                     <constraint firstItem="WJn-IL-MvO" firstAttribute="leading" secondItem="due-Kf-el9" secondAttribute="leading" constant="21" id="eH1-iz-fmR"/>
-                                    <constraint firstItem="yLS-cn-Hbl" firstAttribute="centerY" secondItem="0V4-dR-ZjO" secondAttribute="centerY" id="gEL-9w-cc7"/>
                                     <constraint firstItem="p4x-F4-w1f" firstAttribute="trailing" secondItem="A7I-K0-5AL" secondAttribute="trailing" constant="-15" id="gNq-gA-TCW"/>
                                     <constraint firstItem="fUs-Sp-lwX" firstAttribute="centerX" secondItem="due-Kf-el9" secondAttribute="centerX" id="hyf-np-1nU"/>
-                                    <constraint firstItem="fUs-Sp-lwX" firstAttribute="top" secondItem="0V4-dR-ZjO" secondAttribute="bottom" constant="16" id="k5I-O0-gyC"/>
+                                    <constraint firstItem="fUs-Sp-lwX" firstAttribute="centerX" secondItem="A7I-K0-5AL" secondAttribute="centerX" id="q0l-nx-4Q6"/>
                                     <constraint firstItem="p4x-F4-w1f" firstAttribute="leading" secondItem="A7I-K0-5AL" secondAttribute="leading" constant="15" id="uMl-gG-j7I"/>
                                     <constraint firstItem="p4x-F4-w1f" firstAttribute="centerY" secondItem="A7I-K0-5AL" secondAttribute="centerY" id="uaE-OS-I2C"/>
                                     <constraint firstAttribute="bottom" secondItem="sUC-nF-IiA" secondAttribute="bottom" constant="20" id="vQg-q6-8OA"/>
@@ -956,11 +933,8 @@
                     </view>
                     <connections>
                         <outlet property="acceptButton" destination="8L2-hc-cWS" id="RJf-Sd-sOR"/>
-                        <outlet property="actualValueLabel" destination="0V4-dR-ZjO" id="1GE-KJ-asN"/>
                         <outlet property="cancelButton" destination="sUC-nF-IiA" id="Loq-GE-2Ex"/>
                         <outlet property="deleteVoiceOverTrackButton" destination="Pg0-GR-d24" id="eI4-9J-dtJ"/>
-                        <outlet property="highValueLabel" destination="IY8-n6-H70" id="3Xv-t5-mMD"/>
-                        <outlet property="lowValueLabel" destination="yLS-cn-Hbl" id="3Ep-Kn-ebn"/>
                         <outlet property="mixAudioSlider" destination="WJn-IL-MvO" id="Isy-dC-SMW"/>
                         <outlet property="musicContainer" destination="due-Kf-el9" id="sII-E6-rvT"/>
                         <outlet property="playerView" destination="sET-gx-U39" id="aQ1-aT-zco"/>
@@ -1203,7 +1177,7 @@
         <scene sceneID="uUg-WC-SZz">
             <objects>
                 <navigationController id="uQp-bu-Cez" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="XVl-Wo-tS0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XVl-Wo-tS0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1214,7 +1188,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="E85D54A6-47C3-4428-A829-3CF7E64C0844" width="138" height="138">
+        <image name="D68EA329-FE94-42BC-9054-CC48C5BF25F2" width="138" height="138">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

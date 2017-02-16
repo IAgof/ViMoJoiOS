@@ -27,9 +27,6 @@ class MicRecorderViewController: ViMoJoController,PlayerViewSetter{
     @IBOutlet weak var mixAudioSlider: UISlider!
     
     @IBOutlet weak var recordButton: UIButton!
-    @IBOutlet weak var lowValueLabel: UILabel!
-    @IBOutlet weak var actualValueLabel: UILabel!
-    @IBOutlet weak var highValueLabel: UILabel!
     @IBOutlet weak var totalRecordedSlider: TTRangeSlider!
     @IBOutlet weak var recordedTrackOverView: VideonaTrackOverView!
     
@@ -173,9 +170,6 @@ class MicRecorderViewController: ViMoJoController,PlayerViewSetter{
 extension MicRecorderViewController:MicRecorderPresenterDelegate{
     //MARK: - Presenter delegate
     func setUpValues(_ micRecorderViewModel: MicRecorderViewModel) {
-        lowValueLabel.text = micRecorderViewModel.lowValue
-        highValueLabel.text = micRecorderViewModel.highValue
-        actualValueLabel.text = micRecorderViewModel.actualValue
         configureRangeSlider(Float(micRecorderViewModel.sliderRange))
         
         mixAudioSlider.value = micRecorderViewModel.mixAudioSliderValue
@@ -256,10 +250,6 @@ extension MicRecorderViewController:MicRecorderPresenterDelegate{
 
     func removeTrackArea(inPosition: Int) {
         recordedTrackOverView.removeLayerFromPosition(position: inPosition)
-    }
-
-    func updateRecordMicActualTime(_ time: String) {
-        actualValueLabel.text = time
     }
     
     func recordButtonIsHidden(isHidden: Bool) {

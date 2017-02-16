@@ -14,6 +14,7 @@ enum TransitionTime:Double {
     case oneSecond = 1
     case halfSecond = 0.5
     case quarterSecond = 0.25
+    case eighthSecond = 0.125
 }
 
 class SettingsTransition {
@@ -36,6 +37,8 @@ class SettingsTransition {
             valueToSave = 0.5
         case Utils().getStringByKeyFromSettings(SettingsConstants().QUARTER_SECOND_TRANSITION):
             valueToSave = 0.25
+        case Utils().getStringByKeyFromSettings(SettingsConstants().EIGHTH_SECOND_TRANSITION):
+            valueToSave = 0.125
         default:
             valueToSave = 0
         }
@@ -57,6 +60,8 @@ class SettingsTransition {
                 return Utils().getStringByKeyFromSettings(SettingsConstants().HALF_SECOND_TRANSITION)
             case .quarterSecond:
                 return Utils().getStringByKeyFromSettings(SettingsConstants().QUARTER_SECOND_TRANSITION)
+            case .eighthSecond:
+                return Utils().getStringByKeyFromSettings(SettingsConstants().EIGHTH_SECOND_TRANSITION)
             }
         }else{
             return Utils().getStringByKeyFromSettings(SettingsConstants().NO_TRANSITION)
@@ -67,9 +72,10 @@ class SettingsTransition {
         var transitions:[String] = []
         
         transitions.append(Utils().getStringByKeyFromSettings(SettingsConstants().NO_TRANSITION))
+        transitions.append(Utils().getStringByKeyFromSettings(SettingsConstants().EIGHTH_SECOND_TRANSITION))
         transitions.append(Utils().getStringByKeyFromSettings(SettingsConstants().QUARTER_SECOND_TRANSITION))
         transitions.append(Utils().getStringByKeyFromSettings(SettingsConstants().HALF_SECOND_TRANSITION))
-        transitions.append(Utils().getStringByKeyFromSettings(SettingsConstants().ONE_SECOND_TRANSITION))
+//        transitions.append(Utils().getStringByKeyFromSettings(SettingsConstants().ONE_SECOND_TRANSITION))
         
         return transitions
     }

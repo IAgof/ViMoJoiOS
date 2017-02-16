@@ -418,7 +418,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ljm-eA-NzW" customClass="VideonaRangeSlider" customModule="VideonaProject">
-                                <rect key="frame" x="50" y="200" width="220" height="60"/>
+                                <rect key="frame" x="50" y="215" width="220" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="oEl-a1-UA4">
@@ -459,7 +459,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hsD-gO-4mR">
-                                <rect key="frame" x="16" y="280" width="288" height="231"/>
+                                <rect key="frame" x="16" y="295" width="288" height="216"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="fU2-af-Akt">
@@ -611,7 +611,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="dqn-cb-4Pg" secondAttribute="trailing" constant="8" id="Q2y-fq-yBy"/>
                             <constraint firstItem="Qy9-eY-fhW" firstAttribute="top" secondItem="ay9-oE-VH7" secondAttribute="bottom" id="R8D-ZL-ZBL"/>
                             <constraint firstAttribute="trailing" secondItem="Qy9-eY-fhW" secondAttribute="trailing" id="RDx-k0-Flv"/>
-                            <constraint firstItem="Ljm-eA-NzW" firstAttribute="top" secondItem="Qy9-eY-fhW" secondAttribute="bottom" constant="20" id="TF4-e9-6Z3"/>
+                            <constraint firstItem="Ljm-eA-NzW" firstAttribute="top" secondItem="Qy9-eY-fhW" secondAttribute="bottom" constant="35" id="TF4-e9-6Z3"/>
                             <constraint firstItem="hsD-gO-4mR" firstAttribute="leading" secondItem="vBN-xW-xuQ" secondAttribute="leadingMargin" id="cbc-C7-8GI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dqn-cb-4Pg" secondAttribute="trailing" constant="8" id="gVH-JR-dZ4"/>
                             <constraint firstItem="hsD-gO-4mR" firstAttribute="trailing" secondItem="vBN-xW-xuQ" secondAttribute="trailingMargin" id="gZP-C6-uUn"/>
@@ -778,7 +778,7 @@
             </objects>
             <point key="canvasLocation" x="1216.25" y="99.375"/>
         </scene>
-        <!--Filters-->
+        <!--Settings-->
         <scene sceneID="RSQ-TQ-H2z">
             <objects>
                 <viewController storyboardIdentifier="AddFilterToVideoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SWC-d3-DkE" customClass="AddFilterToVideoViewController" customModule="PeriodistaCelular" customModuleProvider="target" sceneMemberID="viewController">
@@ -1023,7 +1023,7 @@
                             <constraint firstAttribute="trailing" secondItem="9Rd-ii-BS5" secondAttribute="trailing" id="xgf-gV-7XO"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Filters" id="FAf-Yt-9vd"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="activity_edit_image_adjust_normal" id="FAf-Yt-9vd"/>
                     <connections>
                         <outlet property="brightnessSlider" destination="hJO-gf-Gvr" id="cBN-ug-CW8"/>
                         <outlet property="contrastSlider" destination="DBJ-DV-GmR" id="EU3-oo-r9y"/>
@@ -1308,6 +1308,7 @@
         <image name="activity_edit_duplicate_clip_plus_normal" width="56" height="56"/>
         <image name="activity_edit_duplicate_clip_plus_pressed" width="56" height="56"/>
         <image name="activity_edit_floating_button" width="54" height="54"/>
+        <image name="activity_edit_image_adjust_normal" width="20" height="20"/>
         <image name="activity_edit_no_clips_camera" width="97" height="97"/>
         <image name="activity_edit_no_clips_gallery" width="97" height="97"/>
         <image name="activity_edit_share_normal" width="18" height="20"/>
@@ -1321,6 +1322,6 @@
         <image name="button_edit_increment_clips_pressed" width="70" height="70"/>
         <image name="common_icon_play" width="32" height="32"/>
         <image name="common_icon_play_normal" width="32" height="32"/>
-        <image name="common_icon_trim_bar_normal" width="23" height="85"/>
+        <image name="common_icon_trim_bar_normal" width="21" height="82"/>
     </resources>
 </document>

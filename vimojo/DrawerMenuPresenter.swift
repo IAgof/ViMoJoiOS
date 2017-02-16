@@ -59,6 +59,10 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
     func saveImageSelected(image: UIImage) {
         interactor?.saveUserPhoto(image: image)
     }
+    
+    func removePhoto() {
+        interactor?.removePhoto()
+    }
 }
 
 extension DrawerMenuPresenter:DrawerMenuInteractorDelegate{

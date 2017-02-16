@@ -16,6 +16,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     
     //MARK: Outlets
     //MARK: - UIButton
+    @IBOutlet weak var warningOrientationImage: UIImageView!
     @IBOutlet weak var cameraRotationButton: UIButton!
     @IBOutlet weak var flashButton: UIButton!
     @IBOutlet weak var configModesButton: UIButton!
@@ -339,20 +340,14 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     
     //MARK: - Landscape Orientation
     func checkOrientation(){
-        var text=""
         switch UIDevice.current.orientation{
-        case .portrait:
-            text="Portrait"
-        case .portraitUpsideDown:
-            text="PortraitUpsideDown"
-        case .landscapeLeft:
-            text="LandscapeLeft"
-        case .landscapeRight:
-            text="LandscapeRight"
+        case .portrait,.portraitUpsideDown:
+            warningOrientationImage.isHidden = false
+        case .landscapeLeft,.landscapeRight:
+            warningOrientationImage.isHidden = true
         default:
-            text="Another"
+            warningOrientationImage.isHidden = true
         }
-        print("Orientation You have moved: \(text)")
     }
     
     override var supportedInterfaceOrientations : UIInterfaceOrientationMask {

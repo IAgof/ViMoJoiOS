@@ -114,6 +114,11 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
     }
 
     func cancelPushed() {
+        if micRecordedTimeRangeValues.isEmpty{
+            pushBackButton()
+            return
+        }
+
         guard let title = interactor?.getStringByKey(MicRecorderConstants.DISCARD_RECORDER_TITLE) else{return}
         guard let message = interactor?.getStringByKey(MicRecorderConstants.DISCARD_RECORDER_MESSAGE)else{return}
         guard let yes = interactor?.getStringByKey(MicRecorderConstants.YES_ACTION)

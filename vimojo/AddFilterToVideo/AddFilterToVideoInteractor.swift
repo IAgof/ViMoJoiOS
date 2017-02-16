@@ -108,7 +108,7 @@ extension AddFilterToVideoInteractor:AddFilterToVideoInteractorInterface{
     
     func getVideoThumbnail()->UIImage{
         guard let videoURL = project.getVideoList().first?.videoURL else{
-            return UIImage(named: "activity_project_gallery_no_videos")!
+            return UIImage(named: "activity_image_adjust_filter_normal")!
         }
         
         let asset = AVAsset(url: videoURL)
@@ -123,7 +123,7 @@ extension AddFilterToVideoInteractor:AddFilterToVideoInteractorInterface{
         } catch {
             print("error")
         }
-        return UIImage(named: "activity_project_gallery_no_videos")!
+        return UIImage(named: "activity_image_adjust_filter_normal")!
     }
     
     func getVideoComposition() {

@@ -11,6 +11,7 @@ import Foundation
 protocol DrawerMenuInteractorInterface {
     func createNewProject()
     func saveUserPhoto(image:UIImage)
+    func removePhoto()
 }
 
 protocol DrawerMenuInteractorDelegate {

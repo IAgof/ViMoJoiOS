@@ -74,6 +74,13 @@ extension DrawerMenuTableViewController: DrawerMenuPresenterDelegate{
                                                 self.eventHandler?.takeFromGallery()
         })
         
+        let removeAction = UIAlertAction(title: drawerConstants.ACTIVITY_DRAWER_ALERT_OPTION_REMOVE,
+                                                  style: .destructive,
+                                                  handler: {alert -> Void in
+                                                    self.eventHandler?.removePhoto()
+        })
+        
+        alertController.addAction(removeAction)
         alertController.addAction(takeFromGalleryAction)
         alertController.addAction(takePhotoAction)
         alertController.addAction(.init(title: drawerConstants.ACTIVITY_DRAWER_ALERT_OPTION_CANCEL,

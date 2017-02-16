@@ -58,6 +58,7 @@ class SettingsConstants: NSObject {
     let QUALITY = "quality"
     let TRANSITION = "transition"
     let NO_TRANSITION = "noTransition"
+    let EIGHTH_SECOND_TRANSITION = "eighthSecondTransition"
     let ONE_SECOND_TRANSITION = "oneSecondTransition"
     let HALF_SECOND_TRANSITION = "halfSecondTransition"
     let QUARTER_SECOND_TRANSITION = "quarterSecondTransition"

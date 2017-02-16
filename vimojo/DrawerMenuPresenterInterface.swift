@@ -14,6 +14,7 @@ protocol DrawerMenuPresenterInterface {
     func imagePushed()
     func takePhoto()
     func takeFromGallery()
+    func removePhoto()
     
     func saveImageSelected(image:UIImage)
 }

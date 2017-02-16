@@ -34,7 +34,7 @@ extension AddFilterToVideoPresenter:AddFilterToVideoPresenterInterface{
     }
     
     func pushOptions() {
-//        wireframe?.presentSettings()
+        wireframe?.presentSettings()
     }
     
     func playerIsReady() {
@@ -54,6 +54,7 @@ extension AddFilterToVideoPresenter:AddFilterToVideoPresenterInterface{
             interactor?.setFilterInPosition(position: index)
             
             lastSelectedFilter = index
+            delegate?.scrollToNextElement()
         }
     }
     

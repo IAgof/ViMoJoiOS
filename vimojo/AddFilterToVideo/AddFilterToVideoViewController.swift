@@ -43,6 +43,10 @@ class AddFilterToVideoViewController: EditingRoomItemController {
         eventHandler?.setDefaultParameters()
     }
     
+    override func pushOptions() {
+        eventHandler?.pushOptions()
+    }
+    
     func configureView(){
         var sliders:[TTRangeSlider] = []
         sliders.append(brightnessSlider)
