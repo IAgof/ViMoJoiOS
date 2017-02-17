@@ -40,6 +40,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var exposureModesButton: UIButton!
     @IBOutlet weak var autoModesButton: UIButton!
 
+    @IBOutlet weak var showDrawerButton: UIButton!
 
     //MARK: - Custom
     @IBOutlet weak var cameraView: GPUImageView!
@@ -113,6 +114,8 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
+        
+        showDrawerButton.isHidden = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -122,7 +125,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
         
-//        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        showDrawerButton.isHidden = true
     }
     
     func configureViews(){
@@ -587,10 +590,12 @@ extension RecordController:RecordPresenterDelegate {
     func hideZoomView() {
         fadeOutView([zoomView])
         zoomButton.isSelected = false
+        showDrawerButton.isHidden = false
     }
     
     func showZoomView() {
         fadeInView([zoomView])
+        showDrawerButton.isHidden = true
         zoomButton.isSelected = true
     }
     
@@ -671,10 +676,12 @@ extension RecordController:RecordPresenterDelegate {
     
     func showInputGainSliderView() {
         fadeInView([inputGainSlider])
+        showDrawerButton.isHidden = true
     }
     
     func hideInputGainSliderView() {
         fadeOutView([inputGainSlider])
+        showDrawerButton.isHidden = false
     }
     
     func setSelectedMicButton(_ state: Bool) {
@@ -813,14 +820,17 @@ extension RecordController:AudioLevelBarDelegate {
     }
 }
 
-//MARK: - Focus delegate
+//MARK: - Exposition delegate
 extension RecordController:ExpositionModesDelegate {
     func showExpositionSlider() {
         fadeInView([exposureConfigurationView])
+        
+        showDrawerButton.isHidden = true
     }
-    
     func hideExpositionSlider() {
         fadeOutView([exposureConfigurationView])
+        
+        showDrawerButton.isHidden = false
     }
 }
 
@@ -828,10 +838,13 @@ extension RecordController:ExpositionModesDelegate {
 extension RecordController: FocusDelegate{
     func showFocusLens() {
         fadeInView([focalLensSliderView])
+        
+        showDrawerButton.isHidden = true
     }
-    
     func hideFocusLens() {
         fadeOutView([focalLensSliderView])
+        
+        showDrawerButton.isHidden = false
     }
 }
 

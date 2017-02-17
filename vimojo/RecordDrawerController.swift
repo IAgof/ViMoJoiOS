@@ -24,6 +24,10 @@ class RecordDrawerController: UIViewController {
         wireframe?.presentGoToRecordOrGalleryWireframe()
     }
     
+    @IBAction func pushCloseDrawer(_ sender: Any) {
+        self.closeDrawer()
+    }
+    
     func closeDrawer(){
         if let parentController = (self.parent as? KYDrawerController){
             parentController.setDrawerState(.closed, animated: true)
