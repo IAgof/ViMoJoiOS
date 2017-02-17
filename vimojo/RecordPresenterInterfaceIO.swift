@@ -46,6 +46,7 @@ protocol RecordPresenterInterface{
     func checkFlashAvaliable()
     
     func batteryValuesUpdate(_ value:Float)
+    func memoryValuesUpdate(_ value:Float)
     func audioLevelHasChanged(_ value:Float)
     
     func saveResolutionToDefaults(_ resolution:String)
@@ -88,8 +89,8 @@ protocol RecordPresenterDelegate {
     func hideZoomView()
     func showZoomView()
     
-    func setBatteryIcon(_ images:BatteryIconImage)
-    func setBatteryIconPressed(_ image:UIImage)
+    func setBatteryIcon(_ images:IconsImage)
+    func setMemoryIcon(_ images:IconsImage)
     
     func setAudioColor(_ color:UIColor)
     

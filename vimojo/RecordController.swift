@@ -599,13 +599,14 @@ extension RecordController:RecordPresenterDelegate {
         zoomButton.isSelected = true
     }
     
-    func setBatteryIcon(_ images: BatteryIconImage) {
+    func setBatteryIcon(_ images: IconsImage) {
         batteryButton.setImage(images.normal, for: UIControlState())
         batteryButton.setImage(images.pressed, for: .selected)
     }
     
-    func setBatteryIconPressed(_ image: UIImage) {
-        batteryButton.setImage(image, for: .selected)
+    func setMemoryIcon(_ images: IconsImage) {
+        storageButton.setImage(images.normal, for: UIControlState())
+        storageButton.setImage(images.pressed, for: .selected)
     }
     
     func setAudioColor(_ color: UIColor) {
@@ -801,7 +802,7 @@ extension RecordController:BatteryRemainingDelegate {
     func closeBatteryRemainingPushed() {
         eventHandler?.pushCloseBatteryButton()
     }
-    func valuesUpdated(_ value: Float) {
+    func batteryValuesUpdated(_ value: Float) {
         eventHandler?.batteryValuesUpdate(value)
     }
 }
@@ -810,6 +811,9 @@ extension RecordController:BatteryRemainingDelegate {
 extension RecordController:SpaceOnDiskDelegate {
     func closeSpaceOnDiskPushed() {
         eventHandler?.pushCloseSpaceOnDiskButton()
+    }
+    func memoryValuesUpdated(_ value: Float) {
+        eventHandler?.memoryValuesUpdate(value)
     }
 }
 

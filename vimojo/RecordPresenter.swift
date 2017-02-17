@@ -10,7 +10,7 @@ import Foundation
 import GPUImage
 import VideonaProject
 
-struct BatteryIconImage {
+struct IconsImage {
     var normal : UIImage!
     var pressed : UIImage!
 }
@@ -51,7 +51,6 @@ class RecordPresenter: NSObject
     
     enum batteryImages:String {
         case charged = "activity_rec_battery_100"
-//        case seventyFivePercent = "activity_rec_battery_75"
         case seventyFivePercent = "activity_rec_battery_charging"
         case fiftyPercent = "activity_rec_battery_50"
         case twentyFivePercent = "activity_rec_battery_25"
@@ -60,13 +59,24 @@ class RecordPresenter: NSObject
     
     enum batteryImagesPressed:String{
         case charged = "activity_rec_battery_100_pressed"
-//        case seventyFivePercent = "activity_rec_battery_75_pressed"
         case seventyFivePercent = "activity_rec_battery_charging_pressed"
         case fiftyPercent = "activity_rec_battery_50_pressed"
         case twentyFivePercent = "activity_rec_battery_25_pressed"
         case empty = "activity_rec_battery_0"
     }
 
+    
+    enum memoryImages:String {
+        case hundredPercent = "activity_rec_memory_100"
+        case fiftyPercent = "activity_rec_memory_50"
+        case empty = "activity_rec_memory_0"
+    }
+    
+    enum memoryImagesPressed:String{
+        case hundredPercent = "activity_rec_memory_100"
+        case fiftyPercent = "activity_rec_memory_50"
+        case empty = "activity_rec_memory_0"
+    }
     
     //MARK: - Event handler
     func viewDidLoad(_ displayView:GPUImageView){
@@ -359,31 +369,52 @@ class RecordPresenter: NSObject
 
 
     
-    func getBatteryIcon(_ value:Float)->BatteryIconImage {
+    func getBatteryIcon(_ value:Float)->IconsImage {
         switch value {
         case 0...10:
-           return BatteryIconImage(normal: UIImage(named: batteryImages.empty.rawValue)!,
+           return IconsImage(normal: UIImage(named: batteryImages.empty.rawValue)!,
                              pressed: UIImage(named: batteryImagesPressed.empty.rawValue)!)
         case 11...25:
-            return BatteryIconImage(normal: UIImage(named: batteryImages.twentyFivePercent.rawValue)!,
+            return IconsImage(normal: UIImage(named: batteryImages.twentyFivePercent.rawValue)!,
                                     pressed: UIImage(named: batteryImagesPressed.twentyFivePercent.rawValue)!)
         case 26...50:
-            return BatteryIconImage(normal: UIImage(named: batteryImages.fiftyPercent.rawValue)!,
+            return IconsImage(normal: UIImage(named: batteryImages.fiftyPercent.rawValue)!,
                                     pressed: UIImage(named: batteryImagesPressed.fiftyPercent.rawValue)!)
         case 51...75:
-            return BatteryIconImage(normal: UIImage(named: batteryImages.seventyFivePercent.rawValue)!,
+            return IconsImage(normal: UIImage(named: batteryImages.seventyFivePercent.rawValue)!,
                                     pressed: UIImage(named: batteryImagesPressed.seventyFivePercent.rawValue)!)
         case 76...100:
-            return BatteryIconImage(normal: UIImage(named: batteryImages.charged.rawValue)!,
+            return IconsImage(normal: UIImage(named: batteryImages.charged.rawValue)!,
                                     pressed: UIImage(named: batteryImagesPressed.charged.rawValue)!)
         default:
-            return BatteryIconImage(normal: UIImage(named: batteryImages.fiftyPercent.rawValue)!,
+            return IconsImage(normal: UIImage(named: batteryImages.fiftyPercent.rawValue)!,
                                     pressed: UIImage(named: batteryImagesPressed.fiftyPercent.rawValue)!)
+        }
+    }
+    
+    func getMemoryIcon(_ value:Float)->IconsImage {
+        switch value {
+        case 0...50:
+            return IconsImage(normal: UIImage(named: memoryImages.hundredPercent.rawValue)!,
+                              pressed: UIImage(named: memoryImagesPressed.hundredPercent.rawValue)!)
+        case 51...84:
+            return IconsImage(normal: UIImage(named: memoryImages.fiftyPercent.rawValue)!,
+                                    pressed: UIImage(named: memoryImagesPressed.fiftyPercent.rawValue)!)
+        case 85...100:
+            return IconsImage(normal: UIImage(named: memoryImages.empty.rawValue)!,
+                              pressed: UIImage(named: memoryImagesPressed.empty.rawValue)!)
+        default:
+            return IconsImage(normal: UIImage(named: memoryImages.fiftyPercent.rawValue)!,
+                                    pressed: UIImage(named: memoryImagesPressed.fiftyPercent.rawValue)!)
         }
     }
     
     func batteryValuesUpdate(_ value: Float) {
         delegate?.setBatteryIcon(getBatteryIcon(value))
+    }
+    
+    func memoryValuesUpdate(_ value: Float) {
+        delegate?.setMemoryIcon(getMemoryIcon(value))
     }
     
     func audioLevelHasChanged(_ value: Float) {
