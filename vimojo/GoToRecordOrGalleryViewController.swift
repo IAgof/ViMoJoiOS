@@ -16,6 +16,7 @@ class GoToRecordOrGalleryViewController: ViMoJoController {
 
         self.configureNavigationBarWithBackButton()
         self.view.backgroundColor = configuration.mainColor
+        self.navigationController?.isNavigationBarHidden = false
     }
 
     override func didReceiveMemoryWarning() {

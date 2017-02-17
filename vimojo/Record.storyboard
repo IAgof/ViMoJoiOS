@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="landscape">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -24,17 +24,24 @@
                         <viewControllerLayoutGuide type="bottom" id="RJj-LY-m3o"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="j7H-ws-M5v">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="overlay_clear_grid" translatesAutoresizingMaskIntoConstraints="NO" id="0V7-5h-nKZ">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hax-3B-Lc5" customClass="GPUImageView">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3Q-hj-CRb">
+                                        <rect key="frame" x="16" y="322" width="11" height="22"/>
+                                        <state key="normal" image="activity_rec_show_projects"/>
+                                        <connections>
+                                            <action selector="showSideDrawer:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="FIx-nm-Uwa"/>
+                                        </connections>
+                                    </button>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vel-Gg-DCb" customClass="SpaceOnDiskView" customModule="VideonaProject">
-                                        <rect key="frame" x="213.5" y="123.5" width="240" height="128"/>
+                                        <rect key="frame" x="72" y="270" width="240" height="128"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="KMS-Yy-vqy"/>
@@ -42,7 +49,7 @@
                                         </constraints>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5X8-bB-gAq" customClass="BatteryRemainingView" customModule="VideonaProject">
-                                        <rect key="frame" x="213.5" y="123.5" width="240" height="128"/>
+                                        <rect key="frame" x="72" y="270" width="240" height="128"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="128" id="FUB-6n-t4d"/>
@@ -52,7 +59,7 @@
                                         </constraints>
                                     </view>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_record_icon_focus_focused" translatesAutoresizingMaskIntoConstraints="NO" id="lpZ-Hu-RXr">
-                                        <rect key="frame" x="299.5" y="153.5" width="68" height="68"/>
+                                        <rect key="frame" x="158" y="300" width="68" height="68"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbb-jx-SNd">
                                         <rect key="frame" x="8" y="8" width="267" height="28"/>
@@ -132,7 +139,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dnm-Zp-iJ8">
-                                        <rect key="frame" x="161.5" y="325" width="345" height="42"/>
+                                        <rect key="frame" x="19" y="617" width="345" height="42"/>
                                         <subviews>
                                             <stackView contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ewd-xp-MaT">
                                                 <rect key="frame" x="20" y="8" width="305" height="26"/>
@@ -205,7 +212,7 @@
                                         </constraints>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Sz-Cx-Stq" customClass="FocalLensSliderView" customModule="VideonaProject">
-                                        <rect key="frame" x="-91" y="167.5" width="230" height="40"/>
+                                        <rect key="frame" x="-91" y="314" width="230" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="230" id="DiV-g7-4Xd">
@@ -219,7 +226,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vuo-zZ-7lL" customClass="ZoomSliderView" customModule="VideonaProject">
-                                        <rect key="frame" x="-91" y="167.5" width="230" height="40"/>
+                                        <rect key="frame" x="-91" y="314" width="230" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="230" id="Gac-Rz-nFn">
@@ -233,7 +240,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xIW-qf-psD" customClass="ExposureView" customModule="VideonaProject">
-                                        <rect key="frame" x="-90" y="167.5" width="230" height="40"/>
+                                        <rect key="frame" x="-90" y="314" width="230" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="230" id="hBp-VU-Xyz">
@@ -247,7 +254,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="owx-Ns-ABx" customClass="ISOConfigurationView" customModule="VideonaProject">
-                                        <rect key="frame" x="179.5" y="286" width="309" height="35"/>
+                                        <rect key="frame" x="37" y="578" width="309" height="35"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="309" id="UKj-XI-KqE"/>
@@ -255,7 +262,7 @@
                                         </constraints>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTG-lk-0Ju" customClass="WhiteBalanceView" customModule="VideonaProject">
-                                        <rect key="frame" x="179.5" y="286" width="309" height="35"/>
+                                        <rect key="frame" x="37" y="578" width="309" height="35"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="h56-zJ-te8"/>
@@ -277,7 +284,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iei-TN-55D" customClass="ResolutionsSelectorView" customModule="VideonaProject">
-                                        <rect key="frame" x="208.5" y="44" width="250" height="234"/>
+                                        <rect key="frame" x="67" y="209" width="250" height="250"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" priority="500" constant="250" id="8aS-al-yYC"/>
@@ -291,7 +298,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhg-e3-51Y">
-                                        <rect key="frame" x="8" y="345" width="16" height="22"/>
+                                        <rect key="frame" x="8" y="637" width="16" height="22"/>
                                         <state key="normal" image="activity_rec_expand"/>
                                         <state key="selected" image="activity_rec_shrink"/>
                                         <connections>
@@ -299,16 +306,16 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_rec_gallery" highlightedImage="activity_rec_gallery_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="OjL-sb-H1o">
-                                        <rect key="frame" x="613" y="8" width="32" height="28"/>
+                                        <rect key="frame" x="329" y="8" width="32" height="28"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7C-x1-dO0">
-                                        <rect key="frame" x="613" y="8" width="32" height="28"/>
+                                        <rect key="frame" x="329" y="8" width="32" height="28"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YP7-c0-irG">
-                                        <rect key="frame" x="607" y="323" width="44" height="44"/>
+                                        <rect key="frame" x="323" y="615" width="44" height="44"/>
                                         <state key="normal" image="activity_rec_start_recording"/>
                                         <state key="selected" image="activity_rec_stop_recording"/>
                                         <connections>
@@ -316,7 +323,7 @@
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gn6-UX-bN2">
-                                        <rect key="frame" x="589" y="291" width="11" height="22"/>
+                                        <rect key="frame" x="305" y="440" width="11" height="22"/>
                                         <state key="normal" image="activity_rec_hide_tools"/>
                                         <state key="selected" image="activity_rec_hide_tools_pressed"/>
                                         <state key="highlighted" image="activity_rec_hide_tools_pressed"/>
@@ -325,7 +332,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UfD-Ey-QnE">
-                                        <rect key="frame" x="624" y="291" width="10" height="22"/>
+                                        <rect key="frame" x="340" y="440" width="10" height="22"/>
                                         <state key="normal" image="activity_rec_show_tools"/>
                                         <state key="selected" image="activity_rec_show_tools_pressed"/>
                                         <state key="highlighted" image="activity_rec_show_tools_pressed"/>
@@ -334,7 +341,7 @@
                                         </connections>
                                     </button>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5M-wT-ZUe">
-                                        <rect key="frame" x="608" y="141" width="42" height="172"/>
+                                        <rect key="frame" x="324" y="290" width="42" height="172"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Ud1-4P-GCz">
                                                 <rect key="frame" x="8" y="8" width="26" height="156"/>
@@ -403,7 +410,7 @@
                                         </variation>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yzi-0I-GIh">
-                                        <rect key="frame" x="294" y="8" width="79" height="28.5"/>
+                                        <rect key="frame" x="283" y="8" width="79" height="28.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="KEV-WL-wpU">
                                                 <rect key="frame" x="4" y="4" width="71" height="20.5"/>
@@ -437,7 +444,7 @@
                                         </constraints>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEb-ih-mOX" customClass="InputSoundGainControlView" customModule="VideonaProject">
-                                        <rect key="frame" x="-91.5" y="167.5" width="230" height="40"/>
+                                        <rect key="frame" x="-91.5" y="314" width="230" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="I4F-Sc-vML"/>
@@ -451,7 +458,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijC-dC-TM0">
-                                        <rect key="frame" x="294" y="8" width="79" height="28.5"/>
+                                        <rect key="frame" x="283" y="8" width="79" height="28.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="QcR-og-2Mj">
                                                 <rect key="frame" x="4" y="4" width="71" height="20.5"/>
@@ -485,7 +492,7 @@
                                         </constraints>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dex-fY-oYP" customClass="FocusView" customModule="VideonaProject">
-                                        <rect key="frame" x="230.5" y="286" width="150" height="35"/>
+                                        <rect key="frame" x="88" y="578" width="150" height="35"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="2y6-Rz-34Y"/>
@@ -501,7 +508,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bd7-YM-xmD" customClass="ExpositionModesView" customModule="VideonaProject">
-                                        <rect key="frame" x="240.5" y="286" width="190" height="35"/>
+                                        <rect key="frame" x="98" y="578" width="190" height="35"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -536,6 +543,7 @@
                                     <constraint firstItem="jhg-e3-51Y" firstAttribute="top" relation="greaterThanOrEqual" secondItem="1Sz-Cx-Stq" secondAttribute="bottom" constant="8" id="F27-CF-tHt"/>
                                     <constraint firstItem="OjL-sb-H1o" firstAttribute="top" secondItem="nbb-jx-SNd" secondAttribute="bottom" constant="4" id="I4c-e0-F2b"/>
                                     <constraint firstItem="YP7-c0-irG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="c5M-wT-ZUe" secondAttribute="bottom" constant="10" id="IrL-c4-u4Y"/>
+                                    <constraint firstItem="K3Q-hj-CRb" firstAttribute="leading" secondItem="hax-3B-Lc5" secondAttribute="leading" constant="16" id="J2z-cB-K16"/>
                                     <constraint firstItem="bd7-YM-xmD" firstAttribute="trailing" secondItem="rfD-8X-HMf" secondAttribute="trailing" id="Jq0-59-wYr"/>
                                     <constraint firstItem="U7C-x1-dO0" firstAttribute="centerY" secondItem="OjL-sb-H1o" secondAttribute="centerY" id="KMG-zv-Stp"/>
                                     <constraint firstItem="c5M-wT-ZUe" firstAttribute="centerY" secondItem="hax-3B-Lc5" secondAttribute="centerY" priority="250" constant="42" id="KtJ-bZ-tax"/>
@@ -550,6 +558,7 @@
                                     <constraint firstItem="c5M-wT-ZUe" firstAttribute="centerX" secondItem="YP7-c0-irG" secondAttribute="centerX" id="V26-te-Uai"/>
                                     <constraint firstItem="Yzi-0I-GIh" firstAttribute="top" secondItem="hax-3B-Lc5" secondAttribute="top" constant="8" id="VI0-Uo-zCE"/>
                                     <constraint firstItem="UfD-Ey-QnE" firstAttribute="top" secondItem="c5M-wT-ZUe" secondAttribute="bottom" constant="-27" id="VXm-1v-sRu"/>
+                                    <constraint firstItem="K3Q-hj-CRb" firstAttribute="centerY" secondItem="hax-3B-Lc5" secondAttribute="centerY" id="WHm-WV-IRF"/>
                                     <constraint firstItem="Dnm-Zp-iJ8" firstAttribute="top" secondItem="Dex-fY-oYP" secondAttribute="bottom" constant="4" id="Wrh-NM-Fc1"/>
                                     <constraint firstItem="ijC-dC-TM0" firstAttribute="centerY" secondItem="Yzi-0I-GIh" secondAttribute="centerY" id="a2N-eL-yWa"/>
                                     <constraint firstItem="Gn6-UX-bN2" firstAttribute="centerY" secondItem="UfD-Ey-QnE" secondAttribute="centerY" id="aWM-BQ-mq1"/>
@@ -602,7 +611,7 @@
                                 </variation>
                             </view>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_icon_spin" translatesAutoresizingMaskIntoConstraints="NO" id="Nip-fZ-kTg">
-                                <rect key="frame" x="282.5" y="136.5" width="102" height="102"/>
+                                <rect key="frame" x="137" y="283" width="102" height="102"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -673,12 +682,57 @@
             </objects>
             <point key="canvasLocation" x="135" y="200"/>
         </scene>
+        <!--Record Drawer Controller-->
+        <scene sceneID="unw-yP-Ewr">
+            <objects>
+                <viewController storyboardIdentifier="RecordDrawerController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="l3A-zU-we5" customClass="RecordDrawerController" customModule="vimojo" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qog-pj-qgd"/>
+                        <viewControllerLayoutGuide type="bottom" id="9jI-rL-CH4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cxd-c4-pQH">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9k2-iV-g8H">
+                                <rect key="frame" x="68" y="212" width="54" height="43"/>
+                                <state key="normal" image="activity_rec_all_projects"/>
+                                <connections>
+                                    <action selector="pushProjects:" destination="l3A-zU-we5" eventType="touchUpInside" id="d3A-Rn-px2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMM-bZ-8sb">
+                                <rect key="frame" x="65" y="355" width="70" height="59"/>
+                                <state key="normal" image="activity_rec_new_project"/>
+                                <connections>
+                                    <action selector="pushNewProject:" destination="l3A-zU-we5" eventType="touchUpInside" id="cgi-WA-4q4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.25" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UMM-bZ-8sb" firstAttribute="top" secondItem="9k2-iV-g8H" secondAttribute="bottom" constant="100" id="EA8-0N-lRP"/>
+                            <constraint firstItem="UMM-bZ-8sb" firstAttribute="centerX" secondItem="cxd-c4-pQH" secondAttribute="centerX" id="MO5-Yk-bt4"/>
+                            <constraint firstItem="9k2-iV-g8H" firstAttribute="centerY" secondItem="cxd-c4-pQH" secondAttribute="centerY" constant="-100" id="OIN-of-u0h"/>
+                            <constraint firstItem="9k2-iV-g8H" firstAttribute="centerX" secondItem="cxd-c4-pQH" secondAttribute="centerX" constant="-5" id="nAX-Kx-1WE"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="200" height="667"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TsV-ba-IbE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="833" y="87"/>
+        </scene>
     </scenes>
     <resources>
         <image name="activity_edit_accept_normal" width="21" height="18"/>
         <image name="activity_edit_accept_pressed" width="21" height="18"/>
         <image name="activity_edit_cancel_normal" width="15" height="15"/>
         <image name="activity_edit_cancel_pressed" width="15" height="15"/>
+        <image name="activity_rec_all_projects" width="54" height="43"/>
         <image name="activity_rec_battery_100" width="23" height="13"/>
         <image name="activity_rec_battery_100_pressed" width="23" height="13"/>
         <image name="activity_rec_expand" width="16" height="16"/>
@@ -716,6 +770,7 @@
         <image name="activity_rec_micro_volume_loud" width="11" height="10"/>
         <image name="activity_rec_micro_volume_low" width="12" height="10"/>
         <image name="activity_rec_minus" width="11" height="11"/>
+        <image name="activity_rec_new_project" width="70" height="59"/>
         <image name="activity_rec_plus" width="11" height="11"/>
         <image name="activity_rec_resolution_1080" width="23" height="12"/>
         <image name="activity_rec_resolution_1080_pressed" width="23" height="12"/>
@@ -723,6 +778,7 @@
         <image name="activity_rec_rotate_pressed" width="26" height="27"/>
         <image name="activity_rec_settings" width="26" height="27"/>
         <image name="activity_rec_settings_pressed" width="26" height="27"/>
+        <image name="activity_rec_show_projects" width="11" height="20"/>
         <image name="activity_rec_show_tools" width="10" height="20"/>
         <image name="activity_rec_show_tools_pressed" width="10" height="20"/>
         <image name="activity_rec_shrink" width="17" height="17"/>

@@ -9,6 +9,7 @@
 import UIKit
 import GPUImage
 import VideonaProject
+import KYDrawerController
 
 class RecordController: ViMoJoController,UINavigationControllerDelegate{
     //MARK: - Variables VIPER
@@ -121,7 +122,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
         
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+//        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     func configureViews(){
@@ -291,6 +292,17 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBAction func pushSettingsButton(_ sender: AnyObject) {
         eventHandler?.pushSettings()
     }
+   
+    @IBAction func showSideDrawer(_ sender: AnyObject) {
+        print("Show side drawer")
+        var parent = self.parent
+        while parent != nil {
+            if let drawer = parent as? KYDrawerController{
+                drawer.setDrawerState(.opened, animated: true)
+            }
+            parent = parent?.parent
+        }
+    }
     
     //MARK : - Inner functions
     
@@ -358,6 +370,9 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         return true
     }
     
+    public func setNavigationBarHidden(isHidden state:Bool){
+        self.navigationController?.isNavigationBarHidden = state
+    }
 }
 
 extension UINavigationController {

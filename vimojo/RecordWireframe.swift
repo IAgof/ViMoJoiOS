@@ -18,7 +18,7 @@ class RecordWireframe : NSObject {
     
     var editorRoomWireframe: EditingRoomWireframe?
     var settingsWireframe : SettingsWireframe?
-    var drawerWireframe : DrawerMenuWireframe?
+    var drawerWireframe : RecordDrawerWireframe?
     var galleryWireframe: GalleryWireframe?
     
     func presentRecordInterfaceFromWindow(_ window: UIWindow) {
@@ -31,10 +31,10 @@ class RecordWireframe : NSObject {
         rootWireframe?.showRootViewController(viewController, inWindow: window)
 
         //TODO: remove drawer from record controller, to prevent no exit on settings and gallery
-//        if let viewControllerToPresent = drawerWireframe?.getDrawerController(viewController: viewController){
-//            viewControllerToPresent.forceOrientation(orientation: .lanscapeOnly)
-//            rootWireframe?.showRootViewController(viewControllerToPresent, inWindow: window)
-//        }
+        if let viewControllerToPresent = drawerWireframe?.getDrawerController(viewController: viewController){
+            viewControllerToPresent.forceOrientation(orientation: .lanscapeOnly)
+            rootWireframe?.showRootViewController(viewControllerToPresent, inWindow: window)
+        }
     }
     
     func presentRecordInterfaceFromViewController(_ prevController:UIViewController) {
@@ -62,20 +62,25 @@ class RecordWireframe : NSObject {
     }
     
     func presentEditorRoomInterface(){
+        recordViewController?.setNavigationBarHidden(isHidden: false)
+        
         editorRoomWireframe?.presentEditingRoomInterfaceFromViewController(recordViewController!)
     }
     
     func presentGallery(){
+        recordViewController?.setNavigationBarHidden(isHidden: false)
         if let controllerExist = recordViewController{
             galleryWireframe?.presentGalleryFromViewController(controllerExist)
         }
     }
     
     func presentShareInterfaceInsideEditorRoom(){
+        recordViewController?.setNavigationBarHidden(isHidden: false)
         editorRoomWireframe?.presentEditingRoomFromViewControllerAndExportVideo(recordViewController!)
     }
     
     func presentSettingsInterface(){
+        recordViewController?.setNavigationBarHidden(isHidden: false)
         settingsWireframe?.presentSettingsInterfaceFromViewController(recordViewController!)
     }
 }

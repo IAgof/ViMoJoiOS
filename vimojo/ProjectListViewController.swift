@@ -27,6 +27,7 @@ class ProjectListViewController:ViMoJoController{
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationBarWithBackButton()
         eventHandler?.viewWillAppear()
+        self.navigationController?.isNavigationBarHidden = false
     }
     override func pushBack() {
         eventHandler?.pushBack()

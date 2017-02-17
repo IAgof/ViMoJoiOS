@@ -46,6 +46,8 @@ class AppDependencies {
     
     var addFilterToVideoWireframe = AddFilterToVideoWireframe()
     
+    var recordDrawerWireframe = RecordDrawerWireframe()
+    
     init(){
         configureDependencies()
         ViMoJoTracker.sharedInstance.project = project
@@ -138,7 +140,7 @@ class AppDependencies {
         recordWireframe.rootWireframe = rootWireframe
         recordWireframe.editorRoomWireframe = editorRoomWireframe
         recordWireframe.settingsWireframe = settingsWireframe
-        recordWireframe.drawerWireframe = drawerWireframe
+        recordWireframe.drawerWireframe = recordDrawerWireframe
         recordWireframe.galleryWireframe = galleryWireframe
         
         recordInteractor.project = project
@@ -359,6 +361,11 @@ class AppDependencies {
         addFilterToVideoWireframe.presenter = addFilterToVideoPresenter
         addFilterToVideoWireframe.playerWireframe = playerWireframe
         addFilterToVideoWireframe.editingRoomWireframe = editorRoomWireframe
+        
+        //Record drawer wireframe
+        recordDrawerWireframe.project = project
+        recordDrawerWireframe.projectSelectorWireframe = projectListWireframe
+        recordDrawerWireframe.goToRecordOrGalleryWireframe = goToRecordOrGalleryWireframe
     }
         
     func installRecordToRootViewControllerIntoWindow(_ window: UIWindow){
