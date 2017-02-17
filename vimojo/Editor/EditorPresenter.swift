@@ -122,7 +122,6 @@ extension EditorPresenter:EditorPresenterInterface{
                                 destionationPosition: destinationIndexPath.item)
         
         updateSelectedCellUI(destinationIndexPath)
-        delegate?.reloadCollectionViewData()
 
         ViMoJoTracker.sharedInstance.trackClipsReordered()
     }
@@ -288,8 +287,6 @@ extension EditorPresenter:EditorPresenterInterface{
                                                stopTime: stopTime,
                                                videoPosition: selectedCellIndexPath.item)
         interactor?.getComposition()
-        
-        interactor?.getListData()
     }
     
     func playerHasLoaded() {

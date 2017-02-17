@@ -69,18 +69,20 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         }
     }
     
-    
     func getVideoListToView(){
-        var videoListToView:[EditorViewModel] = []
-        
-        for video in self.videosList{
-            let timeToString = self.hourToString(video.getStopTime() - video.getStartTime())
-            videoListToView.append(EditorViewModel(
-                phAsset: video.videoPHAsset,
-                timeText: timeToString,
-                positionText: "\(video.getPosition())"))
+        DispatchQueue.main.async {
+            var videoListToView:[EditorViewModel] = []
+            
+            for video in self.videosList{
+                let timeToString = self.hourToString(video.getStopTime() - video.getStartTime())
+                videoListToView.append(EditorViewModel(
+                    phAsset: video.videoPHAsset,
+                    timeText: timeToString,
+                    positionText: "\(video.getPosition())"))
+            }
+            self.delegate?.setVideoList(videoListToView)
         }
-        self.delegate?.setVideoList(videoListToView)
+
     }
     
     func hourToString(_ time:Double) -> String {
@@ -166,7 +168,7 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         actualProject.reorderVideoList()
         
         self.getComposition()
-        updateListDataParams()
+        self.getListData()
         ProjectRealmRepository().update(item: actualProject)
     }
     

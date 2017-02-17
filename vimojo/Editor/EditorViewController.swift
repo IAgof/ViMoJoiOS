@@ -216,12 +216,6 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         }
     }
     
-    func reloadCollectionViewData() {
-        DispatchQueue.main.async {
-            self.thumbnailClipsCollectionView.reloadData()
-        }
-    }
-    
     func setVideoList(_ list: [EditorViewModel]) {
         self.videoList = list
     }
