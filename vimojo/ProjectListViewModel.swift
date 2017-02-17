@@ -28,7 +28,7 @@ struct ProjectListViewModel {
         self.thumbImage = #imageLiteral(resourceName: "activity_project_gallery_no_videos")
         
         let transformDate = formatDateToString(date: date)
-        self.date = ProjectListConstants.PROJECT_LIST_DATE_PREFIX.appending(transformDate)
+        self.date = ProjectListConstants.PROJECT_LIST_DATE_PREFIX.appending("\n").appending(transformDate)
     }
     
     func getVideoThumbnail()->UIImage{
