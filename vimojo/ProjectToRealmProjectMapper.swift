@@ -31,6 +31,15 @@ public class ProjectToRealmProjectMapper:Mapper{
         realmProject.transitionTime = from.transitionTime
         realmProject.projectOutputAudioLevel = from.projectOutputAudioLevel
         
+        realmProject.brightnessLevel = from.videoOutputParameters.brightness
+        realmProject.contrastLevel = from.videoOutputParameters.contrast
+        realmProject.exposureLevel = from.videoOutputParameters.exposure
+        realmProject.saturationLevel = from.videoOutputParameters.saturation
+        
+        if let filter = from.videoFilter{
+            realmProject.filterName = filter.name
+        }
+
         if from.isMusicSet{
             realmProject.musicTitle = from.getMusic().getTitle()
             realmProject.musicVolume = Double(from.getMusic().audioLevel)

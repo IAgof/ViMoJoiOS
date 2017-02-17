@@ -189,6 +189,8 @@
 		A96789541E3B55DF00A8B37A /* DrawerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96789521E3B55DF00A8B37A /* DrawerConstants.swift */; };
 		A96789561E3B588700A8B37A /* TakePhotoFromOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96789551E3B588700A8B37A /* TakePhotoFromOptions.swift */; };
 		A96789571E3B588700A8B37A /* TakePhotoFromOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96789551E3B588700A8B37A /* TakePhotoFromOptions.swift */; };
+		A968583C1E5705C500E5BD7A /* VideonaProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96858311E57057300E5BD7A /* VideonaProject.framework */; };
+		A968583D1E5705C500E5BD7A /* VideonaProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A96858311E57057300E5BD7A /* VideonaProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9693B7D1DB7C8CD00B00DD1 /* AddTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9693B7C1DB7C8CD00B00DD1 /* AddTextModel.swift */; };
 		A96E15F01DA257A400CF81E8 /* MusicModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96E15EF1DA257A400CF81E8 /* MusicModels.swift */; };
 		A97243D71E37A5C000BD5E9B /* DetailProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97243D61E37A5C000BD5E9B /* DetailProjectViewController.swift */; };
@@ -604,11 +606,6 @@
 		A9B7F8E21DBE56EE00F24E78 /* SettingsCameraSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7F8E11DBE56EE00F24E78 /* SettingsCameraSettings.swift */; };
 		A9B7F8E41DBE570400F24E78 /* SettingsFTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7F8E31DBE570400F24E78 /* SettingsFTP.swift */; };
 		A9C5FB691DD5B5BC00057A1B /* GalleryFetchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C5FB681DD5B5BC00057A1B /* GalleryFetchOptions.swift */; };
-		A9C6D8C81E567B5D00EEDE70 /* VideonaProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C6D8C71E567B5D00EEDE70 /* VideonaProject.framework */; };
-		A9C6D8C91E567B5D00EEDE70 /* VideonaProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C6D8C71E567B5D00EEDE70 /* VideonaProject.framework */; };
-		A9C6D8CA1E567B5D00EEDE70 /* VideonaProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C6D8C71E567B5D00EEDE70 /* VideonaProject.framework */; };
-		A9C6D8CE1E567B6900EEDE70 /* VideonaProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C6D8C71E567B5D00EEDE70 /* VideonaProject.framework */; };
-		A9C6D8CF1E567B6900EEDE70 /* VideonaProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9C6D8C71E567B5D00EEDE70 /* VideonaProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9CC20071E55AED800F0B00E /* ShareSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CC20061E55AED800F0B00E /* ShareSave.swift */; };
 		A9CC20081E55AED800F0B00E /* ShareSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CC20061E55AED800F0B00E /* ShareSave.swift */; };
 		A9CC20091E55AED800F0B00E /* ShareSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CC20061E55AED800F0B00E /* ShareSave.swift */; };
@@ -968,6 +965,27 @@
 			remoteGlobalIDString = BCE209E51943F20C002FEED8;
 			remoteInfo = GPUImageFramework;
 		};
+		A96858301E57057300E5BD7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A968582B1E57057300E5BD7A /* VideonaProject.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A9BD5FBD1D9120F40080CE97;
+			remoteInfo = VideonaProject;
+		};
+		A96858321E57057300E5BD7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A968582B1E57057300E5BD7A /* VideonaProject.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A9928A0C1E5370CE002A4E60;
+			remoteInfo = VideonaProjectTarget;
+		};
+		A968583E1E5705C500E5BD7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A968582B1E57057300E5BD7A /* VideonaProject.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A9BD5FBC1D9120F40080CE97;
+			remoteInfo = VideonaProject;
+		};
 		A99BAC4C1E49DC9D00A465C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A93BCE031D7D577300421BD0 /* GPUImage.xcodeproj */;
@@ -1050,7 +1068,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A9C6D8CF1E567B6900EEDE70 /* VideonaProject.framework in Embed Frameworks */,
+				A968583D1E5705C500E5BD7A /* VideonaProject.framework in Embed Frameworks */,
 				A9FC5C3B1DE4A581003AA3CB /* RebekkaTouch.framework in Embed Frameworks */,
 				A9FC5C361DE4A57D003AA3CB /* GPUImage.framework in Embed Frameworks */,
 			);
@@ -1239,6 +1257,7 @@
 		A96789511E3B558F00A8B37A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/DrawerMenu.strings; sourceTree = "<group>"; };
 		A96789521E3B55DF00A8B37A /* DrawerConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerConstants.swift; sourceTree = "<group>"; };
 		A96789551E3B588700A8B37A /* TakePhotoFromOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePhotoFromOptions.swift; sourceTree = "<group>"; };
+		A968582B1E57057300E5BD7A /* VideonaProject.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = VideonaProject.xcodeproj; path = "../iOS-SDK/VideonaProject.xcodeproj"; sourceTree = "<group>"; };
 		A9693B7C1DB7C8CD00B00DD1 /* AddTextModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTextModel.swift; sourceTree = "<group>"; };
 		A96E15EF1DA257A400CF81E8 /* MusicModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicModels.swift; sourceTree = "<group>"; };
 		A97243D61E37A5C000BD5E9B /* DetailProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailProjectViewController.swift; path = DetailProject/DetailProjectViewController.swift; sourceTree = "<group>"; };
@@ -1371,7 +1390,6 @@
 		A9C6958F1DA2411400597646 /* GALLOPING.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = GALLOPING.mp3; path = MusicResources/GALLOPING.mp3; sourceTree = "<group>"; };
 		A9C695901DA2411400597646 /* SORROW_AND_SADNESS.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = SORROW_AND_SADNESS.mp3; path = MusicResources/SORROW_AND_SADNESS.mp3; sourceTree = "<group>"; };
 		A9C695911DA2411400597646 /* WE_BEAT_AS_ONE.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = WE_BEAT_AS_ONE.mp3; path = MusicResources/WE_BEAT_AS_ONE.mp3; sourceTree = "<group>"; };
-		A9C6D8C71E567B5D00EEDE70 /* VideonaProject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VideonaProject.framework; sourceTree = "<group>"; };
 		A9CC20061E55AED800F0B00E /* ShareSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareSave.swift; sourceTree = "<group>"; };
 		A9CD46DE1E30F016004EE7EB /* ConfigureNavBarVimojoExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureNavBarVimojoExtension.swift; sourceTree = "<group>"; };
 		A9CDB9BE1DDDCDEF000313DE /* TrimRangeBarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrimRangeBarViewModel.swift; sourceTree = "<group>"; };
@@ -1428,7 +1446,6 @@
 				A99BAD4F1E49DC9D00A465C7 /* RebekkaTouch.framework in Frameworks */,
 				A99BAD501E49DC9D00A465C7 /* FBSDKLoginKit.framework in Frameworks */,
 				A99BAD511E49DC9D00A465C7 /* GPUImage.framework in Frameworks */,
-				A9C6D8CA1E567B5D00EEDE70 /* VideonaProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1437,9 +1454,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9ED00501D9178CB00969F31 /* Alamofire.framework in Frameworks */,
+				A968583C1E5705C500E5BD7A /* VideonaProject.framework in Frameworks */,
 				A9ED005A1D917B7200969F31 /* FBSDKCoreKit.framework in Frameworks */,
-				A9C6D8CE1E567B6900EEDE70 /* VideonaProject.framework in Frameworks */,
-				A9C6D8C81E567B5D00EEDE70 /* VideonaProject.framework in Frameworks */,
 				A9ED005C1D917B7200969F31 /* FBSDKShareKit.framework in Frameworks */,
 				A9FC5C3A1DE4A581003AA3CB /* RebekkaTouch.framework in Frameworks */,
 				A9ED005B1D917B7200969F31 /* FBSDKLoginKit.framework in Frameworks */,
@@ -1461,7 +1477,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9D077C41E2F80B1003AE96B /* Alamofire.framework in Frameworks */,
-				A9C6D8C91E567B5D00EEDE70 /* VideonaProject.framework in Frameworks */,
 				A9D077C51E2F80B1003AE96B /* FBSDKCoreKit.framework in Frameworks */,
 				A9D077C61E2F80B1003AE96B /* FBSDKShareKit.framework in Frameworks */,
 				A9D077C71E2F80B1003AE96B /* RebekkaTouch.framework in Frameworks */,
@@ -2055,6 +2070,15 @@
 			name = "User interface";
 			sourceTree = "<group>";
 		};
+		A968582C1E57057300E5BD7A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A96858311E57057300E5BD7A /* VideonaProject.framework */,
+				A96858331E57057300E5BD7A /* VideonaProjectTarget.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		A97243D21E37A09B00BD5E9B /* Detail Project */ = {
 			isa = PBXGroup;
 			children = (
@@ -2431,7 +2455,7 @@
 		A9B385DD1D7D51380065D3EC = {
 			isa = PBXGroup;
 			children = (
-				A9C6D8C71E567B5D00EEDE70 /* VideonaProject.framework */,
+				A968582B1E57057300E5BD7A /* VideonaProject.xcodeproj */,
 				A93BCE031D7D577300421BD0 /* GPUImage.xcodeproj */,
 				A921D9661DC1DEA9003631E8 /* Rebekka.xcodeproj */,
 				A9D076D01E2F7F74003AE96B /* Targets */,
@@ -2981,6 +3005,7 @@
 			dependencies = (
 				A9FC5C381DE4A57D003AA3CB /* PBXTargetDependency */,
 				A9FC5C3D1DE4A581003AA3CB /* PBXTargetDependency */,
+				A968583F1E5705C500E5BD7A /* PBXTargetDependency */,
 			);
 			name = vimojo;
 			productName = vimojo;
@@ -3083,6 +3108,10 @@
 					ProductGroup = A921D9671DC1DEA9003631E8 /* Products */;
 					ProjectRef = A921D9661DC1DEA9003631E8 /* Rebekka.xcodeproj */;
 				},
+				{
+					ProductGroup = A968582C1E57057300E5BD7A /* Products */;
+					ProjectRef = A968582B1E57057300E5BD7A /* VideonaProject.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -3121,6 +3150,20 @@
 			fileType = wrapper.framework;
 			path = GPUImage.framework;
 			remoteRef = A93BCE0B1D7D577300421BD0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A96858311E57057300E5BD7A /* VideonaProject.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = VideonaProject.framework;
+			remoteRef = A96858301E57057300E5BD7A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A96858331E57057300E5BD7A /* VideonaProjectTarget.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = VideonaProjectTarget.framework;
+			remoteRef = A96858321E57057300E5BD7A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -4302,6 +4345,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A968583F1E5705C500E5BD7A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = VideonaProject;
+			targetProxy = A968583E1E5705C500E5BD7A /* PBXContainerItemProxy */;
+		};
 		A99BAC4B1E49DC9D00A465C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GPUImageFramework;

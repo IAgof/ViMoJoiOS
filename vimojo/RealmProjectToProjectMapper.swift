@@ -30,6 +30,17 @@ public class RealmProjectToProjectMapper:Mapper{
         project.transitionTime = from.transitionTime
         project.projectOutputAudioLevel = from.projectOutputAudioLevel
         
+        project.videoOutputParameters.brightness = from.brightnessLevel
+        project.videoOutputParameters.contrast = from.contrastLevel
+        project.videoOutputParameters.exposure = from.exposureLevel
+        project.videoOutputParameters.saturation = from.saturationLevel
+
+        if from.filterName != ""{
+            if let newFilter = CIFilter(name: from.filterName){
+                project.videoFilter = newFilter
+            }
+        }
+        
         setProjectMusic(project: project, realmProject: from)
         setProjectVideos(project: project, realmProject: from)
         setProjectVoiceOver(project: project, realmProject: from)

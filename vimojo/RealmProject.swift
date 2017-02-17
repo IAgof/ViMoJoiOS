@@ -27,7 +27,14 @@ public class RealmProject:Object{
     dynamic var voiceOverAudioLevel:Float = 0
     dynamic var projectOutputAudioLevel:Float = 1
     dynamic var transitionTime:Double = 0
-    
+
+    dynamic var filterName:String = ""
+    dynamic var brightnessLevel:NSNumber = 0
+    dynamic var contrastLevel:NSNumber = 0
+    dynamic var saturationLevel:NSNumber = 0
+    dynamic var exposureLevel:NSNumber = 0
+
+
     override public class func primaryKey() -> String? {
         return "uuid"
     }

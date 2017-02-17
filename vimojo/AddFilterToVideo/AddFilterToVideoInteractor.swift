@@ -39,6 +39,8 @@ extension AddFilterToVideoInteractor:AddFilterToVideoInteractorInterface{
             project.videoOutputParameters.saturation = NSNumber(value: value)
             break
         }
+        ProjectRealmRepository().update(item: project)
+
         getVideoComposition()
     }
 
@@ -83,6 +85,7 @@ extension AddFilterToVideoInteractor:AddFilterToVideoInteractorInterface{
             let filter = CIFilter(name: filterName)!
             
             project.videoFilter = filter
+            ProjectRealmRepository().update(item: project)
             getVideoComposition()
         }
     }
@@ -96,13 +99,15 @@ extension AddFilterToVideoInteractor:AddFilterToVideoInteractorInterface{
         parameters.exposure = 0.5
         
         project.videoOutputParameters = parameters
-        
+        ProjectRealmRepository().update(item: project)
+ 
         self.getProjectParameters()
         getVideoComposition()
     }
     
     func removeFilter() {
         project.videoFilter = nil
+        ProjectRealmRepository().update(item: project)
         getVideoComposition()
     }
     
