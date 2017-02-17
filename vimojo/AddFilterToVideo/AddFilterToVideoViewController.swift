@@ -19,6 +19,7 @@ class AddFilterToVideoViewController: EditingRoomItemController {
     @IBOutlet weak var saturationSlider: TTRangeSlider!
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var filtersCollectionView: UICollectionView!
+    @IBOutlet weak var defaultButton: UIButton!
 
     var filters = Array<FilterCollectionViewModel>(){
         didSet{
@@ -37,10 +38,14 @@ class AddFilterToVideoViewController: EditingRoomItemController {
         configureView()
         let value = UIInterfaceOrientation.portrait.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
+        
+        changeDefaultButtonColor(toColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
     }
     
+
     @IBAction func pushDefaultParameters(_ sender: Any) {
         eventHandler?.setDefaultParameters()
+        changeDefaultButtonColor(toColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
     }
     
     override func pushOptions() {
@@ -69,6 +74,11 @@ class AddFilterToVideoViewController: EditingRoomItemController {
         contrastSlider.tag = VideoParameterSlider.contrast.rawValue
         exposureSlider.tag = VideoParameterSlider.exposure.rawValue
         saturationSlider.tag = VideoParameterSlider.saturation.rawValue
+    }
+    
+    func changeDefaultButtonColor(toColor color:UIColor){
+        defaultButton.setTitleColor(color, for: .normal)
+        defaultButton.layer.borderColor = color.cgColor
     }
 }
 
@@ -115,6 +125,8 @@ extension AddFilterToVideoViewController:AddFilterToVideoPresenterDelegate{
 
 extension AddFilterToVideoViewController:TTRangeSliderDelegate{
     func rangeSlider(_ sender: TTRangeSlider!, didChangeSelectedMinimumValue selectedMinimum: Float, andMaximumValue selectedMaximum: Float) {
+        changeDefaultButtonColor(toColor: configuration.mainColor)
+
         guard let sliderMoved = VideoParameterSlider(rawValue: sender.tag) else{return}
         switch sliderMoved {
         case .brightness:

@@ -92,11 +92,7 @@ extension AddFilterToVideoInteractor:AddFilterToVideoInteractorInterface{
     
     func setDefaultParameters() {
         project.videoFilter = nil
-        var parameters = project.videoOutputParameters
-        parameters.brightness = 0
-        parameters.contrast = 1
-        parameters.saturation = 1
-        parameters.exposure = 0.5
+        let parameters = VideoOutputParameters()
         
         project.videoOutputParameters = parameters
         ProjectRealmRepository().update(item: project)

@@ -323,7 +323,7 @@
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gn6-UX-bN2">
-                                        <rect key="frame" x="589" y="291" width="11" height="22"/>
+                                        <rect key="frame" x="589" y="176" width="11" height="22"/>
                                         <state key="normal" image="activity_rec_hide_tools"/>
                                         <state key="selected" image="activity_rec_hide_tools_pressed"/>
                                         <state key="highlighted" image="activity_rec_hide_tools_pressed"/>
@@ -332,7 +332,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UfD-Ey-QnE">
-                                        <rect key="frame" x="624" y="291" width="10" height="22"/>
+                                        <rect key="frame" x="624" y="176" width="10" height="22"/>
                                         <state key="normal" image="activity_rec_show_tools"/>
                                         <state key="selected" image="activity_rec_show_tools_pressed"/>
                                         <state key="highlighted" image="activity_rec_show_tools_pressed"/>
@@ -554,12 +554,12 @@
                                     <constraint firstItem="WEb-ih-mOX" firstAttribute="centerX" secondItem="jhg-e3-51Y" secondAttribute="centerX" constant="8" id="TWU-FV-i1O"/>
                                     <constraint firstItem="jhg-e3-51Y" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Vuo-zZ-7lL" secondAttribute="bottom" constant="8" id="Ts8-rl-eJd"/>
                                     <constraint firstItem="RTG-lk-0Ju" firstAttribute="centerX" secondItem="Dnm-Zp-iJ8" secondAttribute="centerX" id="TxM-kB-ylt"/>
-                                    <constraint firstItem="UfD-Ey-QnE" firstAttribute="bottom" secondItem="c5M-wT-ZUe" secondAttribute="bottom" id="UsB-xA-5M4"/>
                                     <constraint firstItem="c5M-wT-ZUe" firstAttribute="centerX" secondItem="YP7-c0-irG" secondAttribute="centerX" id="V26-te-Uai"/>
                                     <constraint firstItem="Yzi-0I-GIh" firstAttribute="top" secondItem="hax-3B-Lc5" secondAttribute="top" constant="8" id="VI0-Uo-zCE"/>
                                     <constraint firstItem="UfD-Ey-QnE" firstAttribute="top" secondItem="c5M-wT-ZUe" secondAttribute="bottom" constant="-27" id="VXm-1v-sRu"/>
                                     <constraint firstItem="K3Q-hj-CRb" firstAttribute="centerY" secondItem="hax-3B-Lc5" secondAttribute="centerY" id="WHm-WV-IRF"/>
                                     <constraint firstItem="Dnm-Zp-iJ8" firstAttribute="top" secondItem="Dex-fY-oYP" secondAttribute="bottom" constant="4" id="Wrh-NM-Fc1"/>
+                                    <constraint firstItem="UfD-Ey-QnE" firstAttribute="centerY" secondItem="K3Q-hj-CRb" secondAttribute="centerY" id="XRB-GM-Xcc"/>
                                     <constraint firstItem="ijC-dC-TM0" firstAttribute="centerY" secondItem="Yzi-0I-GIh" secondAttribute="centerY" id="a2N-eL-yWa"/>
                                     <constraint firstItem="Gn6-UX-bN2" firstAttribute="centerY" secondItem="UfD-Ey-QnE" secondAttribute="centerY" id="aWM-BQ-mq1"/>
                                     <constraint firstItem="Yzi-0I-GIh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nbb-jx-SNd" secondAttribute="trailing" constant="8" id="apg-YZ-RPE"/>
@@ -710,19 +710,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Projects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fP-Go-3MY">
-                                <rect key="frame" x="63.5" y="263" width="63" height="21"/>
+                                <rect key="frame" x="64" y="263" width="63" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8y8-yz-ThF">
-                                <rect key="frame" x="53.5" y="417" width="93" height="21"/>
+                                <rect key="frame" x="54" y="417" width="93" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lR8-fb-B5J">
-                                <rect key="frame" x="182" y="322.5" width="10" height="22"/>
+                                <rect key="frame" x="182" y="323" width="10" height="22"/>
                                 <state key="normal" image="activity_rec_show_tools"/>
                                 <connections>
                                     <action selector="pushCloseDrawer:" destination="l3A-zU-we5" eventType="touchUpInside" id="oGU-Tn-YOK"/>
