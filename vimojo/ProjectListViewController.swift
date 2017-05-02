@@ -56,23 +56,12 @@ extension ProjectListViewController:UITableViewDataSource{
         let itemNumber = indexPath.item
         let item = self.items[itemNumber]
         
-        cell.titleLabel.text = item.title
-        cell.dateLabel.text = item.date
-        cell.durationLabel.text = item.duration
-        
-        DispatchQueue.main.async {
-            cell.thumbnailImageView.image = item.getVideoThumbnail()
-        }
+        cell.setup(with: item, itemNumber: itemNumber)
         
         cell.editProjectButton.addTarget(self, action: #selector(pushEditProjectButton(sender:)), for: UIControlEvents.touchUpInside)
         cell.removeProjectButton.addTarget(self, action: #selector(pushRemoveProjectButton(sender:)), for: UIControlEvents.touchUpInside)
         cell.shareProjectButton.addTarget(self, action: #selector(pushShareProjectButton(sender:)), for: UIControlEvents.touchUpInside)
         cell.duplicateProjectButton.addTarget(self, action: #selector(pushDuplicateProjectButton(sender:)), for: UIControlEvents.touchUpInside)
-        
-        cell.editProjectButton.tag = itemNumber
-        cell.removeProjectButton.tag = itemNumber
-        cell.shareProjectButton.tag = itemNumber
-        cell.duplicateProjectButton.tag = itemNumber
         
         return cell
     }

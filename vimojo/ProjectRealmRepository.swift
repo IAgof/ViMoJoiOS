@@ -153,9 +153,7 @@ public class ProjectRealmRepository:ProjectRepository{
         
         try! realm.write {
             let results = realm.objects(RealmProject.self).sorted(byProperty: "modificationDate", ascending: false)
-            for result in results{
-                projects.append(self.toProjectMapper.map(from: result))
-            }
+            projects = results.map({ self.toProjectMapper.map(from: $0) })
         }
         return projects
     }

@@ -113,8 +113,8 @@ class AddTextInteractor: AddTextInteractorInterface {
         let videoAsset = AVAsset.init(url: videoURL)
         
         do {
-            let startTime = CMTimeMake(Int64(video.getStartTime() * 1000), 1000)
-            let stopTime = CMTimeMake(Int64(video.getStopTime() * 1000), 1000)
+            let startTime = CMTimeMake(Int64(video.getStartTime() * 600), 600)
+            let stopTime = CMTimeMake(Int64(video.getStopTime() * 600), 600)
             
             let timeRangeInsert = CMTimeRangeMake(startTime, stopTime)
             

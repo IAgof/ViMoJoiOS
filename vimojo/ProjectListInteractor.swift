@@ -24,9 +24,7 @@ class ProjectListInteractor: ProjectListInteractorInterface {
         projectList = ProjectRealmRepository().getAllProjects()
         var projectFoundList:[ProjectFound] = []
         
-        for project in projectList{
-            projectFoundList.append(setProjectFoundModel(project: project))
-        }
+        projectFoundList = projectList.map { setProjectFoundModel(project: $0) }
         
         delegate?.setItemsView(projectFoundList)
     }
