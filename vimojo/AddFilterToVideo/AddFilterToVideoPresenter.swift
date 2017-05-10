@@ -28,7 +28,7 @@ extension AddFilterToVideoPresenter:AddFilterToVideoPresenterInterface{
     func viewWillAppear() {
         wireframe?.presentPlayerInterface()
 
-        interactor?.getVideoComposition()
+        interactor?.getComposition()
         interactor?.getFilters()
         interactor?.getProjectParameters()
     }
@@ -68,8 +68,13 @@ extension AddFilterToVideoPresenter:AddFilterToVideoPresenterInterface{
 }
 
 extension AddFilterToVideoPresenter:AddFilterToVideoInteractorDelegate{
-    func setVideoComposition(_ composition: VideoComposition) {
+    func setComposition(_ composition: VideoComposition) {
         playerPresenter?.createVideoPlayer(composition)        
+    }
+    
+    func setVideoComposition(_ composition: VideoComposition) {
+        guard let videoComposition = composition.videoComposition else{return}
+        playerPresenter?.setVideoComposition(videoComposition: videoComposition)
     }
     
     func filtersFound(filters: [FilterFoundModel]) {

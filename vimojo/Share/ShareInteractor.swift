@@ -68,9 +68,9 @@ class ShareInteractor: NSObject,ShareInteractorInterface {
         }
         
         DispatchQueue.global(qos: .background).async{
-            let exporter = ExporterInteractor.init(project: actualProject)
+            let exporter = ExporterInteractor(project: actualProject)
             exporter.exportVideos({
-                exportURL,exportFail in
+                exportURL, exportFail in
                 self.delegate?.exportFinished(withError: exportFail)
                 if !exportFail{
                     if let url = exportURL{

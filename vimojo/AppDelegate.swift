@@ -32,7 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
 
         //MIXPANEL
         mixpanel = Mixpanel.sharedInstance(withToken: AnalyticsConstants().MIXPANEL_TOKEN)
-            
+        mixpanel?.enableLogging = false
+
         self.configureGoogleSignIn()
         
         // Optional: configure GAI options.
@@ -60,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
         // Initialize sign-in
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
-        assert(configureError == nil, "Error configuring Google services: \(configureError)")
+        assert(configureError == nil, "Error configuring Google services: \(String(describing: configureError))")
         
         GIDSignIn.sharedInstance().delegate = self
     }
@@ -79,7 +80,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
                              sourceApplication: String?,
                              annotation: Any) -> Bool {
         
-        print("sourceApp\(sourceApplication)")
         
         return FBSDKApplicationDelegate.sharedInstance().application(
             application,
@@ -89,24 +89,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
     }
     
     public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if (error == nil) {
-            // Perform any operations on signed in user here.
-            let userId = user.userID                  // For client-side use only!
-            let idToken = user.authentication.idToken // Safe to send to the server
-            let fullName = user.profile.name
-            let givenName = user.profile.givenName
-            let familyName = user.profile.familyName
-            let email = user.profile.email
-            Utils().debugLog("userID: \(userId) \n idToken: \(idToken) \n fullName: \(fullName) \n givenName: \(givenName) \n familyName: \(familyName) \n email: \(email) \n")
-            // ...
-        } else {
-            print("\(error.localizedDescription)")
-        }
+       
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!,
                 withError error: Error!){
-
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
