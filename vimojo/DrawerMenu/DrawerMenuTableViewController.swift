@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import KYDrawerController
 
 class DrawerMenuTableViewController: UITableViewController {
     var eventHandler:DrawerMenuPresenterInterface?

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import KYDrawerController
 
 class EditingRoomItemController: ViMoJoController {
 

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import KYDrawerController
 
 class RecordDrawerController: UIViewController {
     var wireframe:RecordDrawerWireframe?

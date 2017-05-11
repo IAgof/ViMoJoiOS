@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import KYDrawerController
 
 extension ViMoJoController{
     func configureNavigationBarWithBackButton(){

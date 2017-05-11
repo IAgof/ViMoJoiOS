@@ -9,7 +9,6 @@
 import UIKit
 import GPUImage
 import VideonaProject
-import KYDrawerController
 
 class RecordController: ViMoJoController,UINavigationControllerDelegate{
     //MARK: - Variables VIPER
