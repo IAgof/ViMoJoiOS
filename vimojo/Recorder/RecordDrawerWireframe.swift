@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import KYDrawerController
 import VideonaProject
 
 class RecordDrawerWireframe {

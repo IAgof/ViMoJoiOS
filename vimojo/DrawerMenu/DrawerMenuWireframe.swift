@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import KYDrawerController
 
 class DrawerMenuWireframe {
     var presenter:DrawerMenuPresenter?

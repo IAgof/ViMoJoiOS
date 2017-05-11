@@ -18,7 +18,6 @@ def shared_pods
     pod 'NMRangeSlider', '~> 1.2'
     pod 'TTRangeSlider'
     
-    pod 'KYDrawerController'
     pod 'MBCircularProgressBar', '0.3.4'
     
 #    pod 'VideonaProject', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaProject'
