@@ -144,4 +144,5 @@ protocol RecordPresenterDelegate {
     func hideSecondaryRecordChronometerContainer()
     
     func setAutoAllModes()
+    func buttonsWithRecording(isEnabled: Bool)
 }

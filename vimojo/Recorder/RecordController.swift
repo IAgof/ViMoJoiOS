@@ -794,6 +794,10 @@ extension RecordController:RecordPresenterDelegate {
         focusView.setAutoFocus()
         expositionModesView.setAutoExposure()
     }
+    
+    func buttonsWithRecording(isEnabled: Bool) {
+        resolutionButton.isEnabled = isEnabled
+    }
 }
 
 //MARK: - BatteryRemaining delegate

@@ -449,12 +449,9 @@ class RecordPresenter: NSObject
         self.trackStartRecord()
         
         delegate?.recordButtonEnable(false)
-        if secondaryViewIsShowing {
-            delegate?.showSecondaryRecordChronometerContainer()
-        }else{
-            delegate?.showRecordChronometerContainer()
-        }
-        
+        secondaryViewIsShowing ? delegate?.showSecondaryRecordChronometerContainer() :
+                                    delegate?.showRecordChronometerContainer()
+        delegate?.buttonsWithRecording(isEnabled: false)
         DispatchQueue.main.async(execute: {
             self.cameraInteractor?.setIsRecording(true)
             
@@ -477,6 +474,7 @@ class RecordPresenter: NSObject
     
     func stopRecord(){
         self.trackStopRecord()
+        delegate?.buttonsWithRecording(isEnabled: true)
         
         isRecording = false
         DispatchQueue.global().async {
