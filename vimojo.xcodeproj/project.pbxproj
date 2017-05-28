@@ -18,6 +18,9 @@
 		A910ACFF1E3A2EC200A4EC90 /* ukulele.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A910ACFB1E3A2EC200A4EC90 /* ukulele.mp3 */; };
 		A910AD091E3A2F1200A4EC90 /* MusicProviderForVimojo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910AD081E3A2F1200A4EC90 /* MusicProviderForVimojo.swift */; };
 		A910AD0A1E3A2F1F00A4EC90 /* MusicProviderForRTVE.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910AD061E3A2F0B00A4EC90 /* MusicProviderForRTVE.swift */; };
+		A91359FB1EDB05B8004779B5 /* StringsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91359FA1EDB05B8004779B5 /* StringsExtension.swift */; };
+		A91359FC1EDB05B8004779B5 /* StringsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91359FA1EDB05B8004779B5 /* StringsExtension.swift */; };
+		A91359FD1EDB05B8004779B5 /* StringsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91359FA1EDB05B8004779B5 /* StringsExtension.swift */; };
 		A91760AA1D9146B5008915DA /* EditingRoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A31D9146B5008915DA /* EditingRoomPresenter.swift */; };
 		A91760AB1D9146B5008915DA /* EditingRoomPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A41D9146B5008915DA /* EditingRoomPresenterInterface.swift */; };
 		A91760AC1D9146B5008915DA /* EditingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A51D9146B5008915DA /* EditingRoomViewController.swift */; };
@@ -1087,6 +1090,7 @@
 		A910AD061E3A2F0B00A4EC90 /* MusicProviderForRTVE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusicProviderForRTVE.swift; path = vimojo/MusicProviderForRTVE.swift; sourceTree = "<group>"; };
 		A910AD081E3A2F1200A4EC90 /* MusicProviderForVimojo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusicProviderForVimojo.swift; path = vimojo/MusicProviderForVimojo.swift; sourceTree = "<group>"; };
 		A910AD131E3A305000A4EC90 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Editor.strings; sourceTree = "<group>"; };
+		A91359FA1EDB05B8004779B5 /* StringsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringsExtension.swift; sourceTree = "<group>"; };
 		A91760A31D9146B5008915DA /* EditingRoomPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditingRoomPresenter.swift; path = EditingRoom/EditingRoomPresenter.swift; sourceTree = "<group>"; };
 		A91760A41D9146B5008915DA /* EditingRoomPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditingRoomPresenterInterface.swift; path = EditingRoom/EditingRoomPresenterInterface.swift; sourceTree = "<group>"; };
 		A91760A51D9146B5008915DA /* EditingRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditingRoomViewController.swift; path = EditingRoom/EditingRoomViewController.swift; sourceTree = "<group>"; };
@@ -2835,6 +2839,7 @@
 			isa = PBXGroup;
 			children = (
 				A9CAB8941EC35F4700AB6CE8 /* DateCompareExtension.swift */,
+				A91359FA1EDB05B8004779B5 /* StringsExtension.swift */,
 				A9CAB8951EC35F4700AB6CE8 /* UIApplicationExtensionGetTopController.swift */,
 				A9CAB8961EC35F4700AB6CE8 /* UIViewFadeViewsExtension.swift */,
 			);
@@ -3601,6 +3606,7 @@
 				A9CAB8D51EC360CC00AB6CE8 /* ViMoJoController.swift in Sources */,
 				A9CABAF01EC36C6700AB6CE8 /* ProfileRepository.swift in Sources */,
 				A99BAC7C1E49DC9D00A465C7 /* EditorViewController.swift in Sources */,
+				A91359FD1EDB05B8004779B5 /* StringsExtension.swift in Sources */,
 				A9CAB9311EC3658E00AB6CE8 /* DuplicateViewController.swift in Sources */,
 				A9CAB92E1EC3658E00AB6CE8 /* DuplicateInterface.swift in Sources */,
 				A9CABA421EC36A5C00AB6CE8 /* ProjectFound.swift in Sources */,
@@ -3880,6 +3886,7 @@
 				A95737C91E0BC892006F2AB7 /* ShareVideoPath.swift in Sources */,
 				A9CABA9A1EC36AEC00AB6CE8 /* ExportedAlbum.swift in Sources */,
 				A97243D71E37A5C000BD5E9B /* DetailProjectViewController.swift in Sources */,
+				A91359FB1EDB05B8004779B5 /* StringsExtension.swift in Sources */,
 				A9CABA5B1EC36A9200AB6CE8 /* ProjectListCellView.swift in Sources */,
 				A9CABA9D1EC36AEC00AB6CE8 /* ExporterInteractor.swift in Sources */,
 				A9CABAEE1EC36C6700AB6CE8 /* ProfileRepository.swift in Sources */,
@@ -4169,6 +4176,7 @@
 				A9D077051E2F80B1003AE96B /* EditorViewController.swift in Sources */,
 				A9CAB9AE1EC367BC00AB6CE8 /* MusicDetailViewModel.swift in Sources */,
 				A9CAB8A41EC35F7800AB6CE8 /* CustomDPTheme.swift in Sources */,
+				A91359FC1EDB05B8004779B5 /* StringsExtension.swift in Sources */,
 				A9CAB9081EC364FB00AB6CE8 /* DrawerMenuInteractor.swift in Sources */,
 				A9CABA411EC36A5C00AB6CE8 /* ProjectFound.swift in Sources */,
 				A9CAB9D21EC367BD00AB6CE8 /* MusicListViewController.swift in Sources */,

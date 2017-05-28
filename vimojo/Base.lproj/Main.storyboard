@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uQp-bu-Cez">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uQp-bu-Cez">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -643,7 +643,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ucA-Hr-aMl" id="atU-ds-XNM">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="thx-qg-ycN">
@@ -767,17 +767,17 @@
                                         <rect key="frame" x="99" y="171" width="186" height="133.00000000000006"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEj-Un-b8l">
-                                                <rect key="frame" x="0.0" y="0.0" width="151.66666666666669" height="133.00000000000006"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="186" height="133.00000000000006"/>
                                                 <gestureRecognizers/>
                                                 <state key="normal" image="activity_edit_sound_voiceover_record_normal"/>
                                                 <state key="selected" image="activity_edit_sound_voiceover_record_pressed"/>
                                                 <state key="highlighted" image="activity_edit_sound_voiceover_record_pressed"/>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg0-GR-d24">
-                                                <rect key="frame" x="151.66666666666669" y="49.666666666666686" width="34.333333333333314" height="34"/>
+                                                <rect key="frame" x="186" y="49.666666666666686" width="0.0" height="34"/>
                                                 <gestureRecognizers/>
-                                                <state key="selected" image="D68EA329-FE94-42BC-9054-CC48C5BF25F2"/>
-                                                <state key="highlighted" image="D68EA329-FE94-42BC-9054-CC48C5BF25F2"/>
+                                                <state key="selected" image="button:Pg0-GR-d24:image"/>
+                                                <state key="highlighted" image="button:Pg0-GR-d24:image"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="image" keyPath="imageForNormal" value="activy_sound_music_delete_normal"/>
                                                     <userDefinedRuntimeAttribute type="image" keyPath="imageForHighlighted" value="activy_sound_music_delete_pressed"/>
@@ -1177,7 +1177,7 @@
         <scene sceneID="uUg-WC-SZz">
             <objects>
                 <navigationController id="uQp-bu-Cez" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XVl-Wo-tS0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="XVl-Wo-tS0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1188,7 +1188,26 @@
         </scene>
     </scenes>
     <resources>
-        <image name="D68EA329-FE94-42BC-9054-CC48C5BF25F2" width="138" height="138">
+        <image name="activity_edit_accept_normal" width="28" height="24"/>
+        <image name="activity_edit_accept_pressed" width="28" height="24"/>
+        <image name="activity_edit_back" width="26" height="21"/>
+        <image name="activity_edit_cancel_normal" width="20" height="20"/>
+        <image name="activity_edit_cancel_pressed" width="20" height="20"/>
+        <image name="activity_edit_clips_text_buttom_normal" width="53" height="42"/>
+        <image name="activity_edit_clips_text_buttom_pressed" width="53" height="42"/>
+        <image name="activity_edit_clips_text_center_normal" width="53" height="42"/>
+        <image name="activity_edit_clips_text_center_pressed" width="53" height="42"/>
+        <image name="activity_edit_clips_text_top_normal" width="53" height="42"/>
+        <image name="activity_edit_clips_text_top_pressed" width="53" height="42"/>
+        <image name="activity_edit_sound_normal" width="28" height="25"/>
+        <image name="activity_edit_sound_voiceover_mix_micro" width="15" height="28"/>
+        <image name="activity_edit_sound_voiceover_record_normal" width="133" height="133"/>
+        <image name="activity_edit_sound_voiceover_record_pressed" width="138" height="138"/>
+        <image name="activity_edit_video_expand" width="26" height="26"/>
+        <image name="activity_record_icon_white_balance_fluorescent_pressed" width="36" height="39"/>
+        <image name="activy_sound_music_delete_normal" width="41" height="51"/>
+        <image name="activy_sound_music_delete_pressed" width="41" height="51"/>
+        <image name="button:Pg0-GR-d24:image" width="138" height="138">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -2511,26 +2530,7 @@ AAEzjgABM5sAATOgAAEzogABM6QAATOpAAEzsQABM7QAATO5AAEzwQABM8QAATPWAAEz2QABM94AAAAA
 AAAEAQAAAAAAAABBAAAAAAAAAAAAAAAAAAEz4A
 </mutableData>
         </image>
-        <image name="activity_edit_accept_normal" width="28" height="24"/>
-        <image name="activity_edit_accept_pressed" width="28" height="24"/>
-        <image name="activity_edit_back" width="26" height="21"/>
-        <image name="activity_edit_cancel_normal" width="20" height="20"/>
-        <image name="activity_edit_cancel_pressed" width="20" height="20"/>
-        <image name="activity_edit_clips_text_buttom_normal" width="53" height="42"/>
-        <image name="activity_edit_clips_text_buttom_pressed" width="53" height="42"/>
-        <image name="activity_edit_clips_text_center_normal" width="53" height="42"/>
-        <image name="activity_edit_clips_text_center_pressed" width="53" height="42"/>
-        <image name="activity_edit_clips_text_top_normal" width="53" height="42"/>
-        <image name="activity_edit_clips_text_top_pressed" width="53" height="42"/>
-        <image name="activity_edit_sound_normal" width="28" height="25"/>
-        <image name="activity_edit_sound_voiceover_mix_micro" width="15" height="28"/>
-        <image name="activity_edit_sound_voiceover_record_normal" width="133" height="133"/>
-        <image name="activity_edit_sound_voiceover_record_pressed" width="138" height="138"/>
-        <image name="activity_edit_video_expand" width="26" height="26"/>
-        <image name="activity_record_icon_white_balance_fluorescent_pressed" width="36" height="39"/>
-        <image name="activy_sound_music_delete_normal" width="41" height="51"/>
-        <image name="activy_sound_music_delete_pressed" width="41" height="51"/>
-        <image name="common_icon_play" width="42" height="42"/>
+        <image name="common_icon_play" width="45" height="45"/>
         <image name="common_icon_shrink" width="32" height="32"/>
     </resources>
 </document>

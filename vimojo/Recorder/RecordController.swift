@@ -73,6 +73,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var secondaryRecordingIndicator: UIImageView!
     @IBOutlet weak var focusImageView: UIImageView!
     @IBOutlet weak var thumbnailNumberClips: UILabel!
+    @IBOutlet weak var thumbnailInfoLabel: UILabel!
 
     //MARK: - Variables
     var alertController:UIAlertController?
@@ -485,11 +486,13 @@ extension RecordController:RecordPresenterDelegate {
     func showRecordedVideoThumb(_ image: UIImage) {
         setCornerToThumbnail()
         thumbnailView.image = image
+        thumbnailInfoLabel.text = "Editor".localize(inTable: "Settings")
     }
     
     func hideRecordedVideoThumb(){
         thumbnailView.image = defaultThumbImage
         thumbnailNumberClips.text = ""
+        thumbnailInfoLabel.text = "Gallery".localize(inTable: "Settings")
         
         guard let sublayers = thumbnailView.layer.sublayers else{
             return
@@ -732,12 +735,11 @@ extension RecordController:RecordPresenterDelegate {
 //    }
     
     func hideThumbnailButtonAndLabel() {
-        fadeOutView([thumbnailView,thumbnailNumberClips])
-
+        fadeOutView([thumbnailView,thumbnailNumberClips, thumbnailInfoLabel])
     }
     
     func showThumbnailButtonAndLabel() {
-        fadeInView([thumbnailView,thumbnailNumberClips])
+        fadeInView([thumbnailView,thumbnailNumberClips, thumbnailInfoLabel])
     }
     
     func showRecordChronometerContainer() {
