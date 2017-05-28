@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -62,13 +62,13 @@
                                         <rect key="frame" x="300" y="154" width="68" height="68"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbb-jx-SNd">
-                                        <rect key="frame" x="8" y="8" width="121" height="28"/>
+                                        <rect key="frame" x="8" y="8" width="267" height="28"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="08T-D0-KZt">
-                                                <rect key="frame" x="16" y="4" width="89" height="20"/>
+                                                <rect key="frame" x="16" y="4" width="235" height="20"/>
                                                 <subviews>
-                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dra-Hy-CZB">
-                                                        <rect key="frame" x="-7.5" y="0.0" width="0.0" height="20"/>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dra-Hy-CZB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="20"/>
                                                         <state key="normal" image="activity_rec_micro_connected_normal"/>
                                                         <state key="selected" image="activity_rec_micro_connected_pressed"/>
                                                         <state key="highlighted" image="activity_rec_micro_connected_pressed"/>
@@ -76,8 +76,8 @@
                                                             <action selector="pushMic:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="1XL-EH-hY0"/>
                                                         </connections>
                                                     </button>
-                                                    <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nAM-ZC-cFG" customClass="AudioLevelBarView" customModule="VideonaProject">
-                                                        <rect key="frame" x="-7.5" y="0.0" width="0.0" height="20"/>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAM-ZC-cFG" customClass="AudioLevelBarView" customModule="VideonaProject">
+                                                        <rect key="frame" x="31" y="0.0" width="100" height="20"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="jXh-V8-j9e"/>
@@ -99,7 +99,7 @@
                                                         </variation>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veW-ha-Wav">
-                                                        <rect key="frame" x="0.0" y="0.0" width="23" height="20"/>
+                                                        <rect key="frame" x="146" y="0.0" width="23" height="20"/>
                                                         <state key="normal" image="activity_rec_battery_100"/>
                                                         <state key="selected" image="activity_rec_battery_100_pressed"/>
                                                         <state key="highlighted" image="activity_rec_battery_100_pressed"/>
@@ -108,7 +108,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8j-Vd-5dC">
-                                                        <rect key="frame" x="38" y="0.0" width="13" height="20"/>
+                                                        <rect key="frame" x="184" y="0.0" width="13" height="20"/>
                                                         <state key="normal" image="activity_rec_memory_100"/>
                                                         <state key="selected" image="activity_rec_memory_pressed"/>
                                                         <state key="highlighted" image="activity_rec_memory_pressed"/>
@@ -117,7 +117,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6R-qJ-vTS">
-                                                        <rect key="frame" x="66" y="0.0" width="23" height="20"/>
+                                                        <rect key="frame" x="212" y="0.0" width="23" height="20"/>
                                                         <state key="normal" image="activity_rec_resolution_1080"/>
                                                         <state key="selected" image="activity_rec_resolution_1080_pressed"/>
                                                         <state key="highlighted" image="activity_rec_resolution_1080_pressed"/>
@@ -306,10 +306,14 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_rec_gallery" highlightedImage="activity_rec_gallery_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="OjL-sb-H1o">
-                                        <rect key="frame" x="613" y="8" width="32" height="28"/>
+                                        <rect key="frame" x="613" y="8" width="32" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="1pO-zO-HYY"/>
+                                            <constraint firstAttribute="height" constant="32" id="5fK-Bd-Oqg"/>
+                                        </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7C-x1-dO0">
-                                        <rect key="frame" x="613" y="8" width="32" height="28"/>
+                                        <rect key="frame" x="613" y="8" width="32" height="32"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>

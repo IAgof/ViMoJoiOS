@@ -72,7 +72,7 @@ class ClipsAlbum: NSObject {
     
     var savedLocalIdentifier:String?
     
-    func saveVideo(_ clipPath:URL,project:Project,completion:@escaping (Bool)->Void) {
+    func saveVideo(_ clipPath:URL,project:Project,completion:@escaping (Bool, URL?)->Void) {
         if assetCollection == nil {
             return
         }
@@ -93,12 +93,13 @@ class ClipsAlbum: NSObject {
                 if saved{
                     if let localIdentifier = self.savedLocalIdentifier{
                         self.setVideoUrlParameters(localIdentifier,
-                            project: project)
+                                                   project: project, completion: { videoURL in
+                                                    completion(true, videoURL)
+                        })
                         Utils().removeFileFromURL(clipPath)
-                        completion(true)
                     }
                 }else{
-                    completion(false)
+                    completion(false, nil)
                 }
         })
     }
@@ -108,7 +109,7 @@ class ClipsAlbum: NSObject {
     }
     
     func setVideoUrlParameters(_ localIdentifier:String,
-                               project:Project){
+                               project:Project, completion: @escaping (URL) -> Void){
         
         if let video = project.getVideoList().last{
             let phFetchAsset = PHAsset.fetchAssets(withLocalIdentifiers: [localIdentifier], options: nil)
@@ -122,6 +123,7 @@ class ClipsAlbum: NSObject {
                     ViMoJoTracker.sharedInstance.sendVideoRecordedTracking(video.getDuration())
                     project.updateModificationDate()
                     ProjectRealmRepository().update(item: project)
+                    completion(asset.url)
                 }
             })
         }

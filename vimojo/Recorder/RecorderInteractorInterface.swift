@@ -11,7 +11,7 @@ import VideonaProject
 
 public protocol RecorderInteractorInterface {
     func getNumberOfClipsInProject()->Int
-    func getVideoURLInPosition(_ position:Int)->URL
+    func getLastVideoURL()->URL
     func clearProject()
     func getProject()->Project
     func getResolutionImage(_ resolution:String)

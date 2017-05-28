@@ -261,10 +261,10 @@ class CameraInteractor:CameraRecorderDelegate,
                 maskFilterOutput.removeTarget(maskFilter as! GPUImageInput)
             }
         }
-        cameraRecorder?.stopRecordVideo({duration in
+        cameraRecorder?.stopRecordVideo({duration, videoURL in
             Utils().debugLog("Answer from record interactor:  duration-\(duration)")
             self.cameraDelegate.trackVideoRecorded(duration)
-            self.cameraDelegate.updateThumbnail()
+            self.cameraDelegate.updateThumbnail(videoURL: videoURL)
         })
     }
     

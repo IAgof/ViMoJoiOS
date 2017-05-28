@@ -449,26 +449,12 @@ extension RecordController{
     }
     
     func setCornerToThumbnail(){
-        guard let height = thumbnailView.image?.size.height else{return}
+        let height = thumbnailView.size.height 
         let diameter = height/2
         
-        thumbnailView.layer.cornerRadius = diameter
-        thumbnailView.clipsToBounds = true
-    }
-    
-    func getBorderLayer() -> CALayer{
-        let diameter = thumbnailView.frame.width/2
-        let borderLayer = CALayer.init()
-        let borderFrame = CGRect(x: 0,y: 0,width: thumbnailView.frame.height, height: thumbnailView.frame.height)
-        
-        //Set properties border layer
-        borderLayer.backgroundColor = UIColor.clear.cgColor
-        borderLayer.frame = borderFrame
-        borderLayer.cornerRadius = diameter
-        borderLayer.borderWidth = 3
-        borderLayer.borderColor = UIColor.white.cgColor
-        
-        return borderLayer
+        thumbnailView.cornerRadius = diameter
+        thumbnailView.borderColor = .white
+        thumbnailView.borderWidth = 1
     }
 }
 
@@ -497,9 +483,8 @@ extension RecordController:RecordPresenterDelegate {
     }
     
     func showRecordedVideoThumb(_ image: UIImage) {
-        thumbnailView.image = image
-        
         setCornerToThumbnail()
+        thumbnailView.image = image
     }
     
     func hideRecordedVideoThumb(){

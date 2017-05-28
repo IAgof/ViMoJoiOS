@@ -26,7 +26,6 @@ class RecordPresenter: NSObject
     var timerInteractor: TimerInteractorInterface?
     
     var recordWireframe: RecordWireframe?
-    var thumbnailInteractor:ThumbnailInteractor?
     var interactor:RecorderInteractorInterface?
     
     //MARK: - Variables
@@ -366,8 +365,6 @@ class RecordPresenter: NSObject
         }
         
     }
-
-
     
     func getBatteryIcon(_ value:Float)->IconsImage {
         switch value {
@@ -699,18 +696,20 @@ class RecordPresenter: NSObject
         }
     }
     
-    func updateThumbnail() {
+    func updateThumbnail( videoURL: URL? = nil) {
         if let nClips = interactor?.getNumberOfClipsInProject(){
             if nClips > 0{
-                if let videoURL = interactor?.getVideoURLInPosition(nClips - 1){
-                    thumbnailInteractor = ThumbnailInteractor.init(videoURL: videoURL,
-                                                                   diameter: (self.delegate?.getThumbnailSize())!)
-                }
                 
-                if thumbnailInteractor != nil {
-                    thumbnailInteractor?.delegate = self
-                    thumbnailInteractor?.getthumbnailImage()
+                if let videoURL = videoURL ?? interactor?.getLastVideoURL() {
+                    let image = ThumbnailInteractor().thumbnailImage(videoURL)
+                    
+                    DispatchQueue.main.async(execute: {
+                        self.delegate?.showRecordedVideoThumb(image)
+                        
+                        self.delegate?.showNumberVideos((self.interactor?.getNumberOfClipsInProject())!)
+                    });
                 }
+
             }else{
                 self.delegate?.hideRecordedVideoThumb()
                 //            self.delegate?.disableShareButton()
@@ -827,17 +826,5 @@ extension RecordPresenter:RecorderInteractorDelegate{
     
     func resolutionImagePressedFound(_ image: UIImage) {
         delegate?.setResolutionIconImagePressed(image)
-    }
-}
-
-//MARK: - Thumb delegate
-extension RecordPresenter:ThumbnailDelegate{
-    func setThumbToView(_ image: UIImage) {
-        // update some UI
-        DispatchQueue.main.async(execute: {
-            self.delegate?.showRecordedVideoThumb(image)
-            
-            self.delegate?.showNumberVideos((self.interactor?.getNumberOfClipsInProject())!)
-        });
     }
 }

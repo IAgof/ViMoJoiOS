@@ -59,7 +59,7 @@ class CameraRecorderInteractor{
         completion("Record Starts")
     }
     
-    func stopRecordVideo(_ completion:@escaping (Double)->Void){ //Stop Recording
+    func stopRecordVideo(_ completion:@escaping (Double, URL)->Void){ //Stop Recording
         
         DispatchQueue.global().async {
             // do some task
@@ -77,9 +77,9 @@ class CameraRecorderInteractor{
                 guard let actualProject = self.project else{return}
                 
                 ClipsAlbum.sharedInstance.saveVideo(clipURL,project: actualProject,completion: {
-                    saved in
-                    if saved{
-                        completion(self.getVideoLenght(clipURL))
+                    saved, videoURL in
+                    if saved, let videoURLAssets = videoURL {
+                        completion(self.getVideoLenght(clipURL), videoURLAssets)
                     }
                 })
                 

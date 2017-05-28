@@ -21,8 +21,8 @@ class RecorderInteractor: RecorderInteractorInterface {
         return numberOfClips
     }
     
-    func getVideoURLInPosition(_ position: Int) -> URL {
-        guard let videoURL = project?.getVideoList()[position].videoURL else{
+    func getLastVideoURL() -> URL {
+        guard let videoURL = project?.getVideoList().last?.videoURL else{
             return URL(fileURLWithPath: "", isDirectory: false)
         }
         
