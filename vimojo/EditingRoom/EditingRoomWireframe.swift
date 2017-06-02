@@ -150,9 +150,10 @@ class EditingRoomWireframe : NSObject {
             }
         }
         
-        if let newController = addFilterToVideoWireframe?.viewControllerFromStoryboard(){
-            controllers.append(newController)
-        }
+        //TODO: Solve problems with custom compositor to use it
+//        if let newController = addFilterToVideoWireframe?.viewControllerFromStoryboard(){
+//            controllers.append(newController)
+//        }
         
         if let newController = shareWireframe?.shareViewControllerFromStoryboard(){
             controllers.append(newController)
