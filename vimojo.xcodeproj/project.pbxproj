@@ -21,6 +21,8 @@
 		A91359FB1EDB05B8004779B5 /* StringsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91359FA1EDB05B8004779B5 /* StringsExtension.swift */; };
 		A91359FC1EDB05B8004779B5 /* StringsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91359FA1EDB05B8004779B5 /* StringsExtension.swift */; };
 		A91359FD1EDB05B8004779B5 /* StringsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91359FA1EDB05B8004779B5 /* StringsExtension.swift */; };
+		A9135A491EDB318C004779B5 /* RebekkaTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9135A401EDB315E004779B5 /* RebekkaTouch.framework */; };
+		A9135A4A1EDB318C004779B5 /* RebekkaTouch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9135A401EDB315E004779B5 /* RebekkaTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A91760AA1D9146B5008915DA /* EditingRoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A31D9146B5008915DA /* EditingRoomPresenter.swift */; };
 		A91760AB1D9146B5008915DA /* EditingRoomPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A41D9146B5008915DA /* EditingRoomPresenterInterface.swift */; };
 		A91760AC1D9146B5008915DA /* EditingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A51D9146B5008915DA /* EditingRoomViewController.swift */; };
@@ -109,8 +111,6 @@
 		A93BCE741D7D88EE00421BD0 /* activity_record_rec_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE731D7D88EE00421BD0 /* activity_record_rec_circle.png */; };
 		A93BCE761D7D92C300421BD0 /* filter_free.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE751D7D92C300421BD0 /* filter_free.png */; };
 		A93BCE781D7D93B700421BD0 /* water_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE771D7D93B700421BD0 /* water_mark.png */; };
-		A93CD9091EDAE209006B6CEF /* RebekkaTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93CD9081EDAE1FA006B6CEF /* RebekkaTouch.framework */; };
-		A93CD90A1EDAE209006B6CEF /* RebekkaTouch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A93CD9081EDAE1FA006B6CEF /* RebekkaTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A94965691EAE8B76003FCBF6 /* VideonaProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94965661EAE8B6C003FCBF6 /* VideonaProject.framework */; };
 		A949656A1EAE8B76003FCBF6 /* VideonaProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A94965661EAE8B6C003FCBF6 /* VideonaProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A94965771EAE8B8C003FCBF6 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; };
@@ -955,23 +955,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A93CD9051EDAE1FA006B6CEF /* PBXContainerItemProxy */ = {
+		A9135A3D1EDB315E004779B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A93CD9001EDAE1F9006B6CEF /* Rebekka.xcodeproj */;
+			containerPortal = A9135A381EDB315E004779B5 /* Rebekka.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 47FFC2831B09279200D3EDFE;
 			remoteInfo = Rebekka;
 		};
-		A93CD9071EDAE1FA006B6CEF /* PBXContainerItemProxy */ = {
+		A9135A3F1EDB315E004779B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A93CD9001EDAE1F9006B6CEF /* Rebekka.xcodeproj */;
+			containerPortal = A9135A381EDB315E004779B5 /* Rebekka.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 47FFC2DC1B09297E00D3EDFE;
 			remoteInfo = RebekkaTouch;
 		};
-		A93CD90B1EDAE209006B6CEF /* PBXContainerItemProxy */ = {
+		A9135A4B1EDB318C004779B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A93CD9001EDAE1F9006B6CEF /* Rebekka.xcodeproj */;
+			containerPortal = A9135A381EDB315E004779B5 /* Rebekka.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 47FFC2DB1B09297E00D3EDFE;
 			remoteInfo = RebekkaTouch;
@@ -1066,7 +1066,7 @@
 			files = (
 				A949656A1EAE8B76003FCBF6 /* VideonaProject.framework in Embed Frameworks */,
 				A94965781EAE8B8C003FCBF6 /* GPUImage.framework in Embed Frameworks */,
-				A93CD90A1EDAE209006B6CEF /* RebekkaTouch.framework in Embed Frameworks */,
+				A9135A4A1EDB318C004779B5 /* RebekkaTouch.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1091,6 +1091,7 @@
 		A910AD081E3A2F1200A4EC90 /* MusicProviderForVimojo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusicProviderForVimojo.swift; path = vimojo/MusicProviderForVimojo.swift; sourceTree = "<group>"; };
 		A910AD131E3A305000A4EC90 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Editor.strings; sourceTree = "<group>"; };
 		A91359FA1EDB05B8004779B5 /* StringsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringsExtension.swift; sourceTree = "<group>"; };
+		A9135A381EDB315E004779B5 /* Rebekka.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rebekka.xcodeproj; path = "../../../Downloads/Repos/FTP_Client_Rebekka/rebekka-source/Rebekka.xcodeproj"; sourceTree = "<group>"; };
 		A91760A31D9146B5008915DA /* EditingRoomPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditingRoomPresenter.swift; path = EditingRoom/EditingRoomPresenter.swift; sourceTree = "<group>"; };
 		A91760A41D9146B5008915DA /* EditingRoomPresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditingRoomPresenterInterface.swift; path = EditingRoom/EditingRoomPresenterInterface.swift; sourceTree = "<group>"; };
 		A91760A51D9146B5008915DA /* EditingRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditingRoomViewController.swift; path = EditingRoom/EditingRoomViewController.swift; sourceTree = "<group>"; };
@@ -1162,7 +1163,6 @@
 		A93BCE731D7D88EE00421BD0 /* activity_record_rec_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = activity_record_rec_circle.png; sourceTree = "<group>"; };
 		A93BCE751D7D92C300421BD0 /* filter_free.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filter_free.png; sourceTree = "<group>"; };
 		A93BCE771D7D93B700421BD0 /* water_mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water_mark.png; sourceTree = "<group>"; };
-		A93CD9001EDAE1F9006B6CEF /* Rebekka.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rebekka.xcodeproj; path = "../../../Downloads/Repos/FTP_Client_Rebekka/rebekka-source/Rebekka.xcodeproj"; sourceTree = "<group>"; };
 		A94965601EAE8B6C003FCBF6 /* VideonaProject.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = VideonaProject.xcodeproj; path = "../iOS-SDK/VideonaProject.xcodeproj"; sourceTree = "<group>"; };
 		A949656D1EAE8B83003FCBF6 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = ../GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 		A949658F1EAE8EEC003FCBF6 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MusicProvider.strings; sourceTree = "<group>"; };
@@ -1456,7 +1456,7 @@
 			files = (
 				A9ED00501D9178CB00969F31 /* Alamofire.framework in Frameworks */,
 				A9ED005A1D917B7200969F31 /* FBSDKCoreKit.framework in Frameworks */,
-				A93CD9091EDAE209006B6CEF /* RebekkaTouch.framework in Frameworks */,
+				A9135A491EDB318C004779B5 /* RebekkaTouch.framework in Frameworks */,
 				A9ED005C1D917B7200969F31 /* FBSDKShareKit.framework in Frameworks */,
 				A94965691EAE8B76003FCBF6 /* VideonaProject.framework in Frameworks */,
 				A94965771EAE8B8C003FCBF6 /* GPUImage.framework in Frameworks */,
@@ -1576,6 +1576,15 @@
 				A9CAB9761EC3676000AB6CE8 /* GoToRecordOrGalleryWireframe.swift */,
 			);
 			name = "GO to record or gallery";
+			sourceTree = "<group>";
+		};
+		A9135A391EDB315E004779B5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9135A3E1EDB315E004779B5 /* Rebekka.framework */,
+				A9135A401EDB315E004779B5 /* RebekkaTouch.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		A91760D01D9146F4008915DA /* FullScreenPlayer */ = {
@@ -1787,15 +1796,6 @@
 				A93BCE5D1D7D7A1300421BD0 /* NSLocale+ISO639_2.m */,
 			);
 			name = NSLocale;
-			sourceTree = "<group>";
-		};
-		A93CD9011EDAE1F9006B6CEF /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A93CD9061EDAE1FA006B6CEF /* Rebekka.framework */,
-				A93CD9081EDAE1FA006B6CEF /* RebekkaTouch.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		A94670281DF1859F00F0E487 /* User Interface */ = {
@@ -2433,7 +2433,7 @@
 		A9B385DD1D7D51380065D3EC = {
 			isa = PBXGroup;
 			children = (
-				A93CD9001EDAE1F9006B6CEF /* Rebekka.xcodeproj */,
+				A9135A381EDB315E004779B5 /* Rebekka.xcodeproj */,
 				A949656D1EAE8B83003FCBF6 /* GPUImage.xcodeproj */,
 				A94965601EAE8B6C003FCBF6 /* VideonaProject.xcodeproj */,
 				A9D076D01E2F7F74003AE96B /* Targets */,
@@ -3038,7 +3038,7 @@
 			dependencies = (
 				A949656C1EAE8B76003FCBF6 /* PBXTargetDependency */,
 				A949657A1EAE8B8C003FCBF6 /* PBXTargetDependency */,
-				A93CD90C1EDAE209006B6CEF /* PBXTargetDependency */,
+				A9135A4C1EDB318C004779B5 /* PBXTargetDependency */,
 			);
 			name = vimojo;
 			productName = vimojo;
@@ -3101,20 +3101,23 @@
 				TargetAttributes = {
 					A99BAC4A1E49DC9D00A465C7 = {
 						DevelopmentTeam = 98YJ9HU6W9;
+						ProvisioningStyle = Automatic;
 					};
 					A9B385E51D7D51380065D3EC = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 98YJ9HU6W9;
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					A9B385F91D7D51380065D3EC = {
 						CreatedOnToolsVersion = 7.3.1;
 						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
 						TestTargetID = A9B385E51D7D51380065D3EC;
 					};
 					A9D076D61E2F80B1003AE96B = {
 						DevelopmentTeam = 98YJ9HU6W9;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -3136,8 +3139,8 @@
 					ProjectRef = A949656D1EAE8B83003FCBF6 /* GPUImage.xcodeproj */;
 				},
 				{
-					ProductGroup = A93CD9011EDAE1F9006B6CEF /* Products */;
-					ProjectRef = A93CD9001EDAE1F9006B6CEF /* Rebekka.xcodeproj */;
+					ProductGroup = A9135A391EDB315E004779B5 /* Products */;
+					ProjectRef = A9135A381EDB315E004779B5 /* Rebekka.xcodeproj */;
 				},
 				{
 					ProductGroup = A94965611EAE8B6C003FCBF6 /* Products */;
@@ -3155,18 +3158,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		A93CD9061EDAE1FA006B6CEF /* Rebekka.framework */ = {
+		A9135A3E1EDB315E004779B5 /* Rebekka.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Rebekka.framework;
-			remoteRef = A93CD9051EDAE1FA006B6CEF /* PBXContainerItemProxy */;
+			remoteRef = A9135A3D1EDB315E004779B5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		A93CD9081EDAE1FA006B6CEF /* RebekkaTouch.framework */ = {
+		A9135A401EDB315E004779B5 /* RebekkaTouch.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = RebekkaTouch.framework;
-			remoteRef = A93CD9071EDAE1FA006B6CEF /* PBXContainerItemProxy */;
+			remoteRef = A9135A3F1EDB315E004779B5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		A94965661EAE8B6C003FCBF6 /* VideonaProject.framework */ = {
@@ -4401,10 +4404,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A93CD90C1EDAE209006B6CEF /* PBXTargetDependency */ = {
+		A9135A4C1EDB318C004779B5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RebekkaTouch;
-			targetProxy = A93CD90B1EDAE209006B6CEF /* PBXContainerItemProxy */;
+			targetProxy = A9135A4B1EDB318C004779B5 /* PBXContainerItemProxy */;
 		};
 		A949656C1EAE8B76003FCBF6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -4771,10 +4774,10 @@
 				INFOPLIST_FILE = vimojo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR)";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DDEBUG\"";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.vimojo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "24f17a4c-f891-4531-967d-caf9c6d1047a";
-				PROVISIONING_PROFILE_SPECIFIER = VimojoVariantsAlex;
+				PROVISIONING_PROFILE = "4da9c7c9-185b-45d9-87a3-f84e0e818450";
+				PROVISIONING_PROFILE_SPECIFIER = VimojoDevelopment;
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -4791,7 +4794,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Iago Fernández cedron (JVQF87BH8Q)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Iago Fernández cedron (JVQF87BH8Q)";
-				DEVELOPMENT_TEAM = ZJPH8FQZB2;
+				DEVELOPMENT_TEAM = 98YJ9HU6W9;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4813,9 +4816,9 @@
 				INFOPLIST_FILE = vimojo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR) @loader_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DRELEASE\"";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.vimojo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c9bed132-bee6-4b22-b161-0f3affce56c3";
+				PROVISIONING_PROFILE = "4da9c7c9-185b-45d9-87a3-f84e0e818450";
 				PROVISIONING_PROFILE_SPECIFIER = VimojoDevelopment;
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

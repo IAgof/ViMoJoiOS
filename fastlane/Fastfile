@@ -36,7 +36,7 @@ platform :ios do
     scheme: “vimojo”,
     export_method: "app-store”
   )
-    enable_automatic_code_signing(path: “../vimojo.xcodeproj")
+    enable_automatic_code_signing(path: “./vimojo.xcodeproj")
   # upload to Testflight
   pilot(skip_waiting_for_build_processing: true)
   end
