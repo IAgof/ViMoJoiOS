@@ -69,9 +69,9 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
         copyProject.projectOutputAudioLevel = 1
         
         actualComposition = GetActualProjectAVCompositionUseCase().getComposition(project: copyProject)
-        if actualComposition != nil {
-            let layer = GetActualProjectTextCALayerAnimationUseCase().getCALayerAnimation(project: copyProject)
-            actualComposition?.layerAnimation = layer
+        if let composition = actualComposition {
+            let layer = GetActualProjectTextCALayerAnimationUseCase(videonaComposition: composition).getCALayerAnimation(project: copyProject)
+            composition.layerAnimation = layer
             
             delegate?.setVideoComposition(actualComposition!)
         }
