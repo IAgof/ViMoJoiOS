@@ -13,31 +13,30 @@ import VideonaProject
 
 class ApplyTextOverlayToVideoCompositionUseCase:NSObject {
     var project:Project
+    var videonaComposition: VideoComposition
     
-    init(project:Project){
+    init(project:Project, videonaComposition: VideoComposition){
         self.project = project
+        self.videonaComposition = videonaComposition
     }
         
-    func applyVideoOverlayAnimation(_ composition:AVMutableVideoComposition,
-                                    mutableComposition:AVMutableComposition,
-                                    size:CGSize){
+    func applyVideoOverlayAnimation(){
+        guard let size = videonaComposition.videoComposition?.renderSize,
+        let composition = videonaComposition.videoComposition else {return}
         
-        print("vodeo size: \(size)")
         let videoFrame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         let videoLayer = CALayer()
         videoLayer.frame = videoFrame
         videoLayer.masksToBounds = true
         videoLayer.contentsScale = UIScreen.main.scale
         
-        let layers = generateTextLayers(videoFrame)
+        let layer = GetActualProjectTextCALayerAnimationUseCase(videonaComposition: videonaComposition).getCALayerAnimation(project: project)
         
         let parentLayer = CALayer()
         parentLayer.frame = videoFrame
         parentLayer.addSublayer(videoLayer)
         
-        for layer in layers{
-            parentLayer.addSublayer(layer)
-        }
+        parentLayer.addSublayer(layer)
         
         composition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, in: parentLayer)
     }
@@ -45,46 +44,12 @@ class ApplyTextOverlayToVideoCompositionUseCase:NSObject {
     func generateTextLayers(_ overlayFrame:CGRect)->[CALayer]{
         var layers :[CALayer] = []
         
-        var timeToInsertAnimate = 0.0
         let videos = project.getVideoList()
         
         for video in videos{
-            guard let textPosition =  CATextLayerAttributes.VerticalAlignment(rawValue: video.textPositionToVideo) else {
-                print("Not valid position")
-                return []}
-            
-            let image = GetImageByTextUseCase().getTextImage(text: video.textToVideo,
-                                                             attributes:CATextLayerAttributes().getAlignmentAttributesByType(type: textPosition))
-
-            let textImageLayer = CALayer()
-            textImageLayer.contents = image.cgImage
-            textImageLayer.frame = overlayFrame
-            textImageLayer.contentsScale = UIScreen.main.scale
-            textImageLayer.opacity = 0.0
-            
-            addAnimationToLayer(textImageLayer,
-                                timeAt: timeToInsertAnimate,
-                                duration: video.getDuration())
-            
-            layers.append(textImageLayer)
-            
-            timeToInsertAnimate += video.getDuration()
+            layers = GetActualProjectTextCALayerAnimationUseCase(videonaComposition: videonaComposition).getTextLayersAnimated(videoList: videos)
         }
         
         return layers
-    }
-    
-    func addAnimationToLayer(_ overlay:CALayer,
-                             timeAt:Double,
-                             duration:Double){
-        //Animacion de entrada
-        let animationEntrada = CAKeyframeAnimation(keyPath:"opacity")
-        animationEntrada.beginTime = AVCoreAnimationBeginTimeAtZero + timeAt
-        animationEntrada.duration = duration
-        animationEntrada.keyTimes = [0, 0.01, 0.99, 1]
-        animationEntrada.values = [0.0, 1.0, 1.0, 0.0]
-        animationEntrada.isRemovedOnCompletion = false
-        animationEntrada.fillMode = kCAFillModeForwards
-        overlay.add(animationEntrada, forKey:"animateOpacity")
     }
 }

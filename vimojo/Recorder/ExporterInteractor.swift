@@ -38,10 +38,9 @@ class ExporterInteractor:NSObject{
         if (videoComposition == nil){
             videoComposition = AVMutableVideoComposition(propertiesOf: mutableComposition)
         }
-
-        ApplyTextOverlayToVideoCompositionUseCase(project: project!).applyVideoOverlayAnimation(videoComposition!,
-                                                                                                mutableComposition: mutableComposition,
-                                                                                                size: videoComposition!.renderSize)
+        guard let actualProject = project else{return}
+        
+        ApplyTextOverlayToVideoCompositionUseCase(project: actualProject, videonaComposition: videonaComposition).applyVideoOverlayAnimation()
         var exportQuality = AVAssetExportPresetHighestQuality
         
         if let projectQuality = project?.getProfile().getQuality(){
