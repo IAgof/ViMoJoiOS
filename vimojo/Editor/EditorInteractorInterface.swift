@@ -22,15 +22,7 @@ protocol EditorInteractorInterface {
     
     func updateSeekOnVideoTo(_ value:Double,
                              videoNumber:Int)
-    func setRangeSliderMiddleValueUpdateWith(actualVideoNumber videoNumber:Int,
-                                                               seekBarValue:Float)
-    func setRangeSliderViewValues(actualVideoNumber videoNumber: Int)
-    
     func getCompositionForVideo(_ videoPosition:Int)
-    
-    func setTrimParametersToProject(_ startTime:Double,
-                                    stopTime:Double,
-                                    videoPosition:Int)
 }
 
 protocol EditorInteractorDelegate {
@@ -39,7 +31,4 @@ protocol EditorInteractorDelegate {
     func seekToTimeOfVideoSelectedReceiver(_ time:Float)
     
     func setComposition(_ composition:VideoComposition)
-    
-    func setTrimRangeSliderViewModel(_ viewModel:TrimRangeBarViewModel)
-    func setTrimMiddleValue(_ value:Double)
 }

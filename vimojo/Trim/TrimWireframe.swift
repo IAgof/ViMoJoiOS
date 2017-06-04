@@ -62,7 +62,7 @@ class TrimWireframe : NSObject {
     }
     
     func goPrevController(){
-        trimViewController?.dismiss(animated: true, completion: nil)
+        trimViewController?.navigationController?.popViewController()
     }
     
     func presentExpandPlayer(){

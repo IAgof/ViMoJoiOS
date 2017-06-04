@@ -60,17 +60,25 @@ class EditorWireframe : NSObject {
     }
     
     func presentDuplicateController(_ videoSelected:Int){
-        duplicateWireframe?.presentDuplicateInterfaceFromViewController(editorViewController!,
+        guard let viewController = editorViewController else{return}
+        duplicateWireframe?.presentDuplicateInterfaceFromViewController(viewController,
                                                               videoSelected:videoSelected)
     }
     
     func presentSplitController(_ videoSelected:Int){
-        splitWireframe?.presentSplitInterfaceFromViewController(editorViewController!,
+        guard let viewController = editorViewController else{return}
+        splitWireframe?.presentSplitInterfaceFromViewController(viewController,
                                                                 videoSelected: videoSelected)
     }
-    
+
+    func presentTrimController(_ videoSelected:Int){
+        guard let viewController = editorViewController else{return}
+        trimWireframe?.presentTrimInterfaceFromViewController(viewController, videoSelected: videoSelected)
+    }
+
     func presentAddTextController(_ videoSelected:Int){
-        addTextWireframe?.presentAddTextInterfaceFromViewController(editorViewController!,
+        guard let viewController = editorViewController else{return}
+        addTextWireframe?.presentAddTextInterfaceFromViewController(viewController,
                                                                 videoSelected: videoSelected)
     }
     
