@@ -39,7 +39,6 @@ protocol EditorPresenterInterface {
 protocol EditorPresenterDelegate:ViMoJoInterface {
     func setUpGestureRecognizer()
     func selectCell(_ indexPath:IndexPath)
-    func deselectCell(_ indexPath:IndexPath)
     func setVideoList(_ list:[EditorViewModel])
     func numberOfCellsInCollectionView()->Int
     func showAlertRemove(_ title:String,
