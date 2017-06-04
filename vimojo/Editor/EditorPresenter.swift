@@ -24,6 +24,7 @@ class EditorPresenter: NSObject {
 
     //MARK: - Variables
     var selectedCellIndexPath = IndexPath(row: 0, section: 0)
+    
     var videoToRemove = -1
     var stopList:[Double] = []
     var isGoingToExpandPlayer = false
@@ -60,7 +61,6 @@ class EditorPresenter: NSObject {
     
     func updateSelectedCellUI(_ indexPath:IndexPath){
         DispatchQueue.main.async(execute: { () -> Void in
-            self.delegate?.deselectCell(self.selectedCellIndexPath)
             self.delegate?.selectCell(indexPath)
             self.selectedCellIndexPath = indexPath
         })
@@ -71,7 +71,7 @@ class EditorPresenter: NSObject {
 extension EditorPresenter:EditorPresenterInterface{
     //MARK: - Interface
     func viewDidLoad() {
-        loadView()
+//        loadView()
     }
     
     func loadView(){

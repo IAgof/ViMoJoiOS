@@ -34,6 +34,14 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     }
     
     var alertController:UIAlertController?
+    var selectedCellIndexPath: IndexPath = IndexPath(item: 0, section: 0){
+        didSet{
+            DispatchQueue.main.async {
+                if let cell = (self.thumbnailClipsCollectionView.cellForItem(at: oldValue)){ cell.isSelected = false }
+                if let cell = (self.thumbnailClipsCollectionView.cellForItem(at: self.selectedCellIndexPath)){ cell.isSelected = true }
+            }
+        }
+    }
     
     //MARK: - Outlets
     @IBOutlet weak var thumbnailClipsCollectionView: UICollectionView!
@@ -128,6 +136,7 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         selectedBackgroundView.backgroundColor = configuration.mainColor
         cell.selectedBackgroundView = selectedBackgroundView
         
+        cell.isSelected = (selectedCellIndexPath == indexPath)
         cell.removeClipButton.tag = indexItem
         cell.removeClipButton.addTarget(self, action: #selector(EditorViewController.pushRemoveVideoClip(_:)), for: UIControlEvents.touchUpInside)
         
@@ -199,21 +208,8 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     }
     
     //MARK: - Interface
-    func deselectCell(_ indexPath:IndexPath) {
-        DispatchQueue.main.async {
-            if let cell = (self.thumbnailClipsCollectionView.cellForItem(at: indexPath)){
-                cell.isSelected = false
-            }
-        }
-    }
-    
     func selectCell(_ indexPath:IndexPath) {
-        // Select cell
-        DispatchQueue.main.async {
-            if let cell = (self.thumbnailClipsCollectionView.cellForItem(at: indexPath)){
-                cell.isSelected = true
-            }
-        }
+        selectedCellIndexPath = indexPath
     }
     
     func setVideoList(_ list: [EditorViewModel]) {
