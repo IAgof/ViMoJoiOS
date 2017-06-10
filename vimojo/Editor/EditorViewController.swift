@@ -134,7 +134,8 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
                         layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAt indexPath: IndexPath) -> CGSize {
        
-        let size = (collectionView.frame.width/4) - 4
+        let offset: CGFloat = 32//collectionView.contentInset.right + collectionView.contentInset.left
+        let size = ((UIScreen.main.bounds.width - offset) / 4 ) - 4
         
         return CGSize(width: size,
                       height: size)
