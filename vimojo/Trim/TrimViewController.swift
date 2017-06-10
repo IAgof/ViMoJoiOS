@@ -25,6 +25,7 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var acceptButton: UIButton!
     
+    @IBOutlet weak var trimBarHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var minRangeLabel: UILabel!
     @IBOutlet weak var maxRangeLabel: UILabel!
     @IBOutlet weak var rangeLabel: UILabel!
@@ -99,7 +100,8 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
 //        let trackImage = #imageLiteral(resourceName: "common_icon_trim_bar_pressed")
 //        trimRangeSlider.trackImage = trackImage
         
-        let handleImage = #imageLiteral(resourceName: "common_icon_trim_bar_pressed")
+        let handleImage = #imageLiteral(resourceName: "activity_edit_clips_trim_bar_normal")
+        trimBarHeightConstraint.constant = handleImage.size.height
         trimRangeSlider.lowerHandleImageNormal = handleImage
         trimRangeSlider.upperHandleImageNormal = handleImage
         
