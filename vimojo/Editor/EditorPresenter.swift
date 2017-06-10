@@ -24,6 +24,7 @@ class EditorPresenter: NSObject {
 
     //MARK: - Variables
     var selectedCellIndexPath = IndexPath(row: 0, section: 0)
+    
     var videoToRemove = -1
     var stopList:[Double] = []
     var isGoingToExpandPlayer = false
@@ -34,9 +35,9 @@ class EditorPresenter: NSObject {
     
     //MARK: - Inner functions
     override init() {
-        option_video = Utils().getStringByKeyFromEditor(EditorTextConstants.ADD_VIDEO)
-        option_gallery = Utils().getStringByKeyFromEditor(EditorTextConstants.ADD_GALLERY)
-        option_add_text = Utils().getStringByKeyFromEditor(EditorTextConstants.ADD_TEXT_TO_VIDEO)
+        option_video = EditorTextConstants.ADD_VIDEO.localize(inTable: "EditorStrings")
+        option_gallery = EditorTextConstants.ADD_GALLERY.localize(inTable: "EditorStrings")
+        option_add_text = EditorTextConstants.ADD_TEXT_TO_VIDEO.localize(inTable: "EditorStrings")
     }
     
     func moveClipToPosition(_ sourcePosition:Int,
@@ -60,7 +61,6 @@ class EditorPresenter: NSObject {
     
     func updateSelectedCellUI(_ indexPath:IndexPath){
         DispatchQueue.main.async(execute: { () -> Void in
-            self.delegate?.deselectCell(self.selectedCellIndexPath)
             self.delegate?.selectCell(indexPath)
             self.selectedCellIndexPath = indexPath
         })
@@ -71,7 +71,7 @@ class EditorPresenter: NSObject {
 extension EditorPresenter:EditorPresenterInterface{
     //MARK: - Interface
     func viewDidLoad() {
-        loadView()
+//        loadView()
     }
     
     func loadView(){
@@ -107,9 +107,7 @@ extension EditorPresenter:EditorPresenterInterface{
     func didSelectItemAtIndexPath(_ indexPath: IndexPath) {
         updateSelectedCellUI(indexPath)
         
-        self.seekToSelectedItem(indexPath.item)
-        
-        interactor?.setRangeSliderViewValues(actualVideoNumber: indexPath.item)
+        self.seekToSelectedItem(indexPath.item)        
     }
     
     func seekToSelectedItem(_ videoPosition:Int){
@@ -135,6 +133,12 @@ extension EditorPresenter:EditorPresenterInterface{
     func pushSplitHandler() {
         if checkIfSelectedCellExits() && canGoToAnyEditorAction(){
             wireframe?.presentSplitController(selectedCellIndexPath.item)
+        }
+    }
+    
+    func pushTrimHandler() {
+        if checkIfSelectedCellExits() && canGoToAnyEditorAction(){
+            wireframe?.presentTrimController(selectedCellIndexPath.item)
         }
     }
     
@@ -216,16 +220,12 @@ extension EditorPresenter:EditorPresenterInterface{
         let seekBarValue = Double(value)
         var cellPosition = 0
         
-        interactor?.setRangeSliderMiddleValueUpdateWith(actualVideoNumber: selectedCellIndexPath.item,
-                                                        seekBarValue: value)
-        
         for time in stopList{
             if (seekBarValue < (time)){
                 if cellPosition == selectedCellIndexPath.item {
                     return
                 }else{
                     updateSelectedCellUI(IndexPath(item: cellPosition, section: 0))
-                    interactor?.setRangeSliderViewValues(actualVideoNumber: cellPosition)
                     return
                 }
             }
@@ -250,45 +250,7 @@ extension EditorPresenter:EditorPresenterInterface{
             wireframe?.presentGoToRecordOrGallery()
         }
     }
-    
-    func rangeMiddleValueChanged(_ value: Double) {
-        interactor?.updateSeekOnVideoTo(value,
-                                        videoNumber: selectedCellIndexPath.item)
-    }
-    
-    func rangeSliderUpperOrLowerValueChanged(_ value: Double) {
-        playerPresenter?.seekToTime(Float(value))
-    }
-    
-    func rangeSliderUpperOrLowerValueStartToChange() {
-        interactor?.getCompositionForVideo(selectedCellIndexPath.item)
-        
-        playerPresenter?.pauseVideo()
-    }
-    
-    func rangeSliderLowerValueStopToChange(_ startTime: Double, stopTime: Double) {
-        rangeSliderStopToChange(startTime, stopTime: stopTime)
-        
-        interactor?.updateSeekOnVideoTo(startTime,
-                                        videoNumber: selectedCellIndexPath.item)
-    }
-    
-    func rangeSliderUpperValueStopToChange(_ startTime: Double, stopTime: Double) {
-        rangeSliderStopToChange(startTime, stopTime: stopTime)
-
-        interactor?.updateSeekOnVideoTo(stopTime,
-                                        videoNumber: selectedCellIndexPath.item)
-
-    }
-    
-    func rangeSliderStopToChange(_ startTime:Double,
-                                                  stopTime:Double) {
-        interactor?.setTrimParametersToProject(startTime,
-                                               stopTime: stopTime,
-                                               videoPosition: selectedCellIndexPath.item)
-        interactor?.getComposition()
-    }
-    
+  
     func playerHasLoaded() {
         seekToSelectedItem(selectedCellIndexPath.item)
     }
@@ -314,13 +276,5 @@ extension EditorPresenter:EditorInteractorDelegate{
         self.updatePlayerView()
 
         playerPresenter?.createVideoPlayer(composition)
-    }
-    
-    func setTrimRangeSliderViewModel(_ viewModel: TrimRangeBarViewModel) {
-        delegate?.setTrimViewModel(viewModel)
-    }
-    
-    func setTrimMiddleValue(_ value: Double) {
-        delegate?.setTrimMiddleValueToView(value)
     }
 }

@@ -33,16 +33,19 @@ class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDel
 
     //MARK: - LifeCycle
     override func viewDidLoad() {
+        super.viewDidLoad()
         eventHandler?.viewDidLoad()
         wireframe?.presentPlayerInterface()
         splitRangeSlider.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         eventHandler?.viewWillDissappear()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         configureNavigationBarWithBackButton()
     }
     

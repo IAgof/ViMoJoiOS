@@ -34,29 +34,28 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     }
     
     var alertController:UIAlertController?
+    var selectedCellIndexPath: IndexPath = IndexPath(item: 0, section: 0){
+        didSet{
+            DispatchQueue.main.async {
+                if let cell = (self.thumbnailClipsCollectionView.cellForItem(at: oldValue)){ cell.isSelected = false }
+                if let cell = (self.thumbnailClipsCollectionView.cellForItem(at: self.selectedCellIndexPath)){ cell.isSelected = true }
+            }
+        }
+    }
     
     //MARK: - Outlets
     @IBOutlet weak var thumbnailClipsCollectionView: UICollectionView!
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var expandPlayerButton: UIButton!
-    @IBOutlet weak var rangeTrimSlider: VideonaRangeSlider!
     @IBOutlet weak var addFloatingButton: UIButton!
 
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        rangeTrimSlider.delegate = self
-        configureUITrimSlider()
         eventHandler?.viewDidLoad()
     }
-
-    func configureUITrimSlider(){
-        rangeTrimSlider.backgroundSliderColor = configuration.mainColor
-        rangeTrimSlider.middleSliderColor = configuration.mainColor
-        rangeTrimSlider.untrackedAreaColor = configuration.secondColor
-    }
-        
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -77,20 +76,15 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     }
     
     func configureNavigationBarWithDrawerAndEditorOptions(){
-        
-        
-        let sideSliderIcon = #imageLiteral(resourceName: "activity_edit_drawer")
-        let optionsIcon = #imageLiteral(resourceName: "activity_edit_options")
-        let duplicateIcon = #imageLiteral(resourceName: "activity_edit_clips_duplicate")
-        let splitIcon = #imageLiteral(resourceName: "activity_edit_clips_split")
-        
-        let showSideSliderItem = UIBarButtonItem(image: sideSliderIcon, style: .plain, target: self, action: #selector(pushShowDrawer))
-        let duplicateItem = UIBarButtonItem(image: duplicateIcon, style: .plain, target: self, action: #selector(pushDuplicateClip(_:)))
-        let splitItem = UIBarButtonItem(image: splitIcon, style: .plain, target: self, action: #selector(pushDivideClip(_:)))
-        let optionsItem = UIBarButtonItem(image: optionsIcon, style: .plain, target: self, action: #selector(pushOptions))
+      
+        let showSideSliderItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_drawer"), style: .plain, target: self, action: #selector(pushShowDrawer))
+        let duplicateItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_clips_duplicate"), style: .plain, target: self, action: #selector(pushDuplicateClip(_:)))
+        let trimItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_clips_trim"), style: .plain, target: self, action: #selector(pushTrimClip))
+        let splitItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_clips_split"), style: .plain, target: self, action: #selector(pushDivideClip(_:)))
+        let optionsItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_options"), style: .plain, target: self, action: #selector(pushOptions))
         
         UIApplication.topViewController()?.navigationItem.leftBarButtonItem = showSideSliderItem
-        UIApplication.topViewController()?.navigationItem.rightBarButtonItems = [optionsItem,splitItem,duplicateItem]
+        UIApplication.topViewController()?.navigationItem.rightBarButtonItems = [optionsItem,splitItem,duplicateItem,trimItem]
     }
 
     override func didReceiveMemoryWarning() {
@@ -128,6 +122,7 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         selectedBackgroundView.backgroundColor = configuration.mainColor
         cell.selectedBackgroundView = selectedBackgroundView
         
+        cell.isSelected = (selectedCellIndexPath == indexPath)
         cell.removeClipButton.tag = indexItem
         cell.removeClipButton.addTarget(self, action: #selector(EditorViewController.pushRemoveVideoClip(_:)), for: UIControlEvents.touchUpInside)
         
@@ -139,7 +134,8 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
                         layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAt indexPath: IndexPath) -> CGSize {
        
-        let size = (collectionView.frame.width/4) - 4
+        let offset: CGFloat = 32//collectionView.contentInset.right + collectionView.contentInset.left
+        let size = ((UIScreen.main.bounds.width - offset) / 4 ) - 4
         
         return CGSize(width: size,
                       height: size)
@@ -167,6 +163,10 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     @IBAction func pushDuplicateClip(_ sender:AnyObject){
         
         eventHandler?.pushDuplicateHandler()
+    }
+    
+    func pushTrimClip(){
+        eventHandler?.pushTrimHandler()
     }
     
     @IBAction func pushDivideClip(_ sender:AnyObject){
@@ -199,21 +199,8 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
     }
     
     //MARK: - Interface
-    func deselectCell(_ indexPath:IndexPath) {
-        DispatchQueue.main.async {
-            if let cell = (self.thumbnailClipsCollectionView.cellForItem(at: indexPath)){
-                cell.isSelected = false
-            }
-        }
-    }
-    
     func selectCell(_ indexPath:IndexPath) {
-        // Select cell
-        DispatchQueue.main.async {
-            if let cell = (self.thumbnailClipsCollectionView.cellForItem(at: indexPath)){
-                cell.isSelected = true
-            }
-        }
+        selectedCellIndexPath = indexPath
     }
     
     func setVideoList(_ list: [EditorViewModel]) {
@@ -308,18 +295,6 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
         eventHandler?.updatePlayerLayer()
     }
     
-    func setTrimViewModel(_ viewModel: TrimRangeBarViewModel) {
-        rangeTrimSlider.maximumValue = viewModel.totalRangeTime
-        rangeTrimSlider.lowerValue = viewModel.startTrimTime
-        rangeTrimSlider.upperValue = viewModel.finalTrimTime
-        rangeTrimSlider.middleValue = viewModel.inserctionPointTime
-        rangeTrimSlider.minimumValue = viewModel.startTime
-    }
-    
-    func setTrimMiddleValueToView(_ value: Double) {
-        rangeTrimSlider.middleValue = value
-    }
-    
     //MARK: - Drag and Drop handler
     func handleLongGesture(_ gesture: UILongPressGestureRecognizer) {
         
@@ -393,38 +368,5 @@ extension EditorViewController:PlayerViewFinishedDelegate{
     
     func playerSeeksTo(_ value:Float){
         eventHandler?.seekBarUpdateHandler(value)
-    }
-}
-extension EditorViewController:VideonaRangeSliderDelegate{
-    func rangeSliderLowerValueStartToChange() {
-        eventHandler?.rangeSliderUpperOrLowerValueStartToChange()
-    }
-    
-    func rangeSliderLowerThumbValueChanged() {
-        eventHandler?.rangeSliderUpperOrLowerValueChanged(rangeTrimSlider.lowerValue)
-    }
-    
-    func rangeSliderLowerValueStopToChange() {
-        eventHandler?.rangeSliderLowerValueStopToChange(rangeTrimSlider.lowerValue,
-                                                               stopTime: rangeTrimSlider.upperValue)
-    }
-    
-    func rangeSliderMiddleThumbValueChanged() {
-        print("range Trim Slider middleValue")
-        print(rangeTrimSlider.middleValue)
-        eventHandler?.rangeMiddleValueChanged(rangeTrimSlider.middleValue)
-    }
-    
-    func rangeSliderUpperValueStartToChange() {
-        eventHandler?.rangeSliderUpperOrLowerValueStartToChange()
-    }
-    
-    func rangeSliderUpperThumbValueChanged() {
-        eventHandler?.rangeSliderUpperOrLowerValueChanged(rangeTrimSlider.upperValue)
-    }
-    
-    func rangeSliderUpperValueStopToChange() {
-        eventHandler?.rangeSliderUpperValueStopToChange(rangeTrimSlider.lowerValue,
-                                                               stopTime: rangeTrimSlider.upperValue)
     }
 }

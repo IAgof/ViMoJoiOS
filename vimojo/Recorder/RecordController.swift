@@ -726,14 +726,6 @@ extension RecordController:RecordPresenterDelegate {
         resolutionButton.setImage(image, for: .selected)
     }
     
-//    func enableShareButton() {
-//        shareButton.enabled = true
-//    }
-//    
-//    func disableShareButton() {
-////        shareButton.enabled = false
-//    }
-    
     func hideThumbnailButtonAndLabel() {
         fadeOutView([thumbnailView,thumbnailNumberClips, thumbnailInfoLabel])
     }

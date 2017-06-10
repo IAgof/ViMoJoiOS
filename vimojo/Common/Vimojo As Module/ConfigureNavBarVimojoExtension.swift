@@ -9,10 +9,8 @@
 import Foundation
 
 extension ViMoJoController{
-    func configureNavigationBarWithBackButton(){
-        let backIcon = #imageLiteral(resourceName: "activity_edit_back")
-        
-        let backItem = UIBarButtonItem(image: backIcon, style: .plain, target: self, action:#selector(pushBack))
+    func configureNavigationBarWithBackButton(){        
+        let backItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_back"), style: .plain, target: self, action:#selector(pushBack))
         
         UIApplication.topViewController()?.navigationItem.leftBarButtonItem = backItem
     }

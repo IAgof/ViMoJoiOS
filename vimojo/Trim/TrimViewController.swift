@@ -25,6 +25,7 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var acceptButton: UIButton!
     
+    @IBOutlet weak var trimBarHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var minRangeLabel: UILabel!
     @IBOutlet weak var maxRangeLabel: UILabel!
     @IBOutlet weak var rangeLabel: UILabel!
@@ -34,6 +35,7 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
 
     //MARK: - LifeCycle
     override func viewDidLoad() {
+        super.viewDidLoad()
         eventHandler?.viewDidLoad()
         wireframe?.presentPlayerInterface()
         
@@ -44,9 +46,15 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         eventHandler?.viewWillDissappear()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureNavigationBarWithBackButton()
+    }
+
     //MARK: - Actions
     @IBAction func pushCancelButton(_ sender: AnyObject) {
         eventHandler?.pushCancelHandler()
@@ -62,7 +70,7 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
         eventHandler?.setUpperValue(trimRangeSlider.upperValue)
     }
     
-    @IBAction func pushBackBarButton(_ sender: AnyObject) {
+    override func pushBack() {
         eventHandler?.pushBack()
     }
    
@@ -89,10 +97,11 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
     
     func configureUIRangeSlider(){
         
-        let trackImage = UIImage(named: "button_edit_thumb_seekbar_trim_normal")
-        trimRangeSlider.trackImage = trackImage
+//        let trackImage = #imageLiteral(resourceName: "common_icon_trim_bar_pressed")
+//        trimRangeSlider.trackImage = trackImage
         
-        let handleImage = UIImage(named: "button_edit_thumb_seekbar_trim_pressed")
+        let handleImage = #imageLiteral(resourceName: "activity_edit_clips_trim_bar_normal")
+        trimBarHeightConstraint.constant = handleImage.size.height
         trimRangeSlider.lowerHandleImageNormal = handleImage
         trimRangeSlider.upperHandleImageNormal = handleImage
         

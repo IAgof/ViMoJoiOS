@@ -41,19 +41,9 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
     }
     
     func updateProjectForSplitAndDuplicateChanges(){
-        //Cant handler realm repo from outside library, if video count changes, project changes, have to update that
-        guard let count = videoCount else{
-            videoCount = videosList.count
-            return
-        }
-        
-        if count != videosList.count{
-            videoCount = videosList.count
-            
-            guard let actualProject = project else{return}
-            actualProject.updateModificationDate()
-            ProjectRealmRepository().update(item: actualProject)
-        }
+        guard let actualProject = project else{return}
+        actualProject.updateModificationDate()
+        ProjectRealmRepository().update(item: actualProject)
     }
     
     func getComposition() {
@@ -175,17 +165,6 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
         return numberOfClips
     }
 
-    
-    func setRangeSliderMiddleValueUpdateWith(actualVideoNumber videoNumber: Int, seekBarValue: Float) {
-        guard let actualProject = project else{return}
-
-        let middleRangeValue = GetMiddleRangeSliderValueWorker().getValue(Double(seekBarValue),
-                                                                          project: actualProject,
-                                                                          videoNumber: videoNumber)
-        delegate?.setTrimMiddleValue(middleRangeValue)
-        
-    }
-    
     func updateSeekOnVideoTo(_ value: Double, videoNumber: Int) {
         guard let actualProject = project else{return}
 
@@ -194,21 +173,6 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
                                                                      numberOfVideo: videoNumber)
         
         delegate?.seekToTimeOfVideoSelectedReceiver(Float(seekTime))
-    }
-    
-    func setRangeSliderViewValues(actualVideoNumber videoNumber: Int){
-        guard let videoList = project?.getVideoList() else{return}
-        
-        if videoList.indices.contains(videoNumber){
-            let video = videoList[videoNumber]
-            
-            let rangeSliderViewModel = TrimRangeBarViewModel(totalRangeTime: video.getFileStopTime(),
-                                                             startTrimTime: video.getStartTime(),
-                                                             finalTrimTime: video.getStopTime(),
-                                                             inserctionPointTime: video.getStartTime())
-            
-            delegate?.setTrimRangeSliderViewModel(rangeSliderViewModel)
-        }
     }
     
     func getCompositionForVideo(_ videoPosition: Int) {
@@ -221,17 +185,4 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
                                                         self.delegate?.setComposition(videoComposition)
         })
     }
-    
-    func setTrimParametersToProject(_ startTime:Double,
-                                    stopTime:Double,
-                                    videoPosition:Int){
-        guard let actualProject = project else{return}
-        let trimParams = TrimParameters(startTime: startTime,
-                                        stopTime: stopTime)
-       
-        SetTrimParametersToVideoWorker().setParameters(trimParams,
-                                                       project: actualProject,
-                                                       videoPosition: videoPosition)
-    }
-
 }
