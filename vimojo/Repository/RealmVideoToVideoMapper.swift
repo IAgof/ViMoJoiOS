@@ -29,3 +29,9 @@ public class RealmVideoToVideoMapper:Mapper{
         return video
     }
 }
+
+extension String{
+    var fileExists: Bool{
+        return FileManager.default.fileExists(atPath: self)
+    }
+}
