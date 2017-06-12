@@ -13,7 +13,6 @@ import VideonaProject
 
 class MusicPresenter: MusicPresenterInterface,MusicInteractorDelegate {
     //MARK: - Variables VIPER
-    var controller: MusicViewInterface? //O tengo referencia a uno u a otro, pero no a los dos
     var delegate:MusicPresenterDelegate?
     var interactor: MusicInteractorInterface?
     var wireframe: MusicWireframe?
@@ -35,13 +34,20 @@ class MusicPresenter: MusicPresenterInterface,MusicInteractorDelegate {
     
     //MARK: - Interface
     func viewDidLoad() {
+   
     }
     
     func viewWillAppear() {
         wireframe?.presentPlayerInterface()
 
-        controller?.bringToFrontExpandPlayerButton()
+        delegate?.bringToFrontExpandPlayerButton()
         interactor?.getVideoComposition()
+   
+        if let audios = interactor?.audios {
+            delegate?.audios = audios.map({ MusicSelectorCellViewModel(with: $0.musicResource, action: {
+                print("Audio pressed")
+            })})
+        }
     }
     
     func viewDidAppear() {

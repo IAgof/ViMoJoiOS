@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import VideonaProject
 
-class MusicViewController: EditingRoomItemController,MusicViewInterface,MusicPresenterDelegate,PlayerViewSetter,FullScreenWireframeDelegate{
+class MusicViewController: EditingRoomItemController,MusicPresenterDelegate,PlayerViewSetter,FullScreenWireframeDelegate{
     //MARK: - VIPER variables
     var eventHandler: MusicPresenterInterface?
     
@@ -18,17 +18,23 @@ class MusicViewController: EditingRoomItemController,MusicViewInterface,MusicPre
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var musicContainer: UIView!
     @IBOutlet weak var expandPlayerButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
 
     //MARK: - Variables and constants
     let cellIdentifier = "musicCell"
-    
     var detailMusicView:MusicDetailView?
     var musicListView:MusicListView?
+    var audios: [MusicSelectorCellViewModel] = []{
+        didSet{
+            self.tableView.reloadDataMainThread()
+        }
+    }
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureTable()
         eventHandler?.viewDidLoad()
     }
     
@@ -84,5 +90,37 @@ class MusicViewController: EditingRoomItemController,MusicViewInterface,MusicPre
     //MARK: - Player setter
     func addPlayerAsSubview(_ player: PlayerView) {
         self.playerView.addSubview(player)
+    }
+    
+    //MARK: Private functions
+    func configureTable(){
+        tableView.register(UINib(nibName: MuiscSelectorTableViewCell.nibName, bundle: Bundle(for: MuiscSelectorTableViewCell.self)), forCellReuseIdentifier: MuiscSelectorTableViewCell.reusableIdentifier)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
+    }
+}
+
+extension MusicViewController: UITableViewDelegate, UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return audios.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MuiscSelectorTableViewCell.reusableIdentifier) as? MuiscSelectorTableViewCell else{ return UITableViewCell()}
+        
+        let audio = audios[indexPath.item]
+        cell.setup(with: audio)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        audios[indexPath.item].action()
     }
 }

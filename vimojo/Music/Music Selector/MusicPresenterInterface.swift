@@ -24,5 +24,7 @@ protocol MusicPresenterInterface {
 }
 
 protocol MusicPresenterDelegate {
-
+    var audios: [MusicSelectorCellViewModel] {get set}
+    
+    func bringToFrontExpandPlayerButton()
 }

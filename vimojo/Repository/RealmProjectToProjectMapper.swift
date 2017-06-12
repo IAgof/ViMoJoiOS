@@ -67,7 +67,7 @@ public class RealmProjectToProjectMapper:Mapper{
         }
         music.audioLevel = Float(realmProject.musicVolume)
         
-        project.setMusic(music)
+        project.music = music
     }
     
     func setProjectVideos(project:Project,realmProject:RealmProject){

@@ -47,7 +47,6 @@ class MusicWireframe : NSObject {
         viewController.eventHandler = musicPresenter
         musicViewController = viewController
         musicPresenter?.delegate = viewController
-        musicPresenter?.controller = viewController
         
         return viewController
     }
