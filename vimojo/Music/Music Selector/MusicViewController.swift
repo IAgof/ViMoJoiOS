@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import VideonaProject
+import KCFloatingActionButton
 
 class MusicViewController: EditingRoomItemController,MusicPresenterDelegate,PlayerViewSetter,FullScreenWireframeDelegate{
     //MARK: - VIPER variables
@@ -19,6 +20,7 @@ class MusicViewController: EditingRoomItemController,MusicPresenterDelegate,Play
     @IBOutlet weak var musicContainer: UIView!
     @IBOutlet weak var expandPlayerButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var fabButton: KCFloatingActionButton!
 
     //MARK: - Variables and constants
     let cellIdentifier = "musicCell"
@@ -30,12 +32,21 @@ class MusicViewController: EditingRoomItemController,MusicPresenterDelegate,Play
         }
     }
     
+    var floatingItems: [FloatingItem] = []{
+        didSet{
+            fabButton.items.forEach({ item in fabButton.removeItem(item: item) })
+            for item in floatingItems{
+                fabButton.addItem(icon: item.item.icon, handler: { _ in item.action() })
+            }
+        }
+    }
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureTable()
         eventHandler?.viewDidLoad()
+        configureView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,6 +70,12 @@ class MusicViewController: EditingRoomItemController,MusicPresenterDelegate,Play
         // Dispose of any resources that can be recreated.
     }
    
+    func configureView(){
+        fabButton.buttonColor = configuration.mainColor
+        fabButton.plusColor = configuration.secondColor
+        fabButton.itemSize = 60
+    }
+    
     //MARK: Actions
     @IBAction func pushExpandButton(_ sender: AnyObject) {
         eventHandler?.expandPlayer()

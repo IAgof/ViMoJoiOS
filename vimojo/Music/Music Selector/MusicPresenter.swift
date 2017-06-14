@@ -34,7 +34,15 @@ class MusicPresenter: MusicPresenterInterface,MusicInteractorDelegate {
     
     //MARK: - Interface
     func viewDidLoad() {
-   
+        let musicItem = FloatingItem(item: MusicItem.music, action: {
+            self.wireframe?.presenterMusicListView()
+        })
+        
+        let micItem = FloatingItem(item: MusicItem.mic, action: {
+            self.wireframe?.presenterMicRecorderView()
+        })
+        
+        delegate?.floatingItems = [musicItem , micItem]
     }
     
     func viewWillAppear() {

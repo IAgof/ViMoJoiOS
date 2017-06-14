@@ -575,12 +575,22 @@
                                     <action selector="pushExpandButton:" destination="bnB-1P-Nds" eventType="touchUpInside" id="kaN-qU-8zo"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pNh-Md-GBE" customClass="KCFloatingActionButton" customModule="KCFloatingActionButton">
+                                <rect key="frame" x="244" y="443" width="56" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="56" id="U5i-lR-3Nx"/>
+                                    <constraint firstAttribute="height" constant="56" id="igf-Vz-Ksn"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GIi-1P-cfX" firstAttribute="top" secondItem="Fp3-hW-jGQ" secondAttribute="bottom" id="51n-YX-r5v"/>
+                            <constraint firstItem="GIi-1P-cfX" firstAttribute="top" secondItem="pNh-Md-GBE" secondAttribute="bottom" constant="20" id="7xp-y7-87r"/>
                             <constraint firstAttribute="trailing" secondItem="Fp3-hW-jGQ" secondAttribute="trailing" id="Eb0-gc-pyq"/>
                             <constraint firstItem="Fp3-hW-jGQ" firstAttribute="leading" secondItem="daU-Tx-zTj" secondAttribute="leading" id="Wz2-f7-HCf"/>
+                            <constraint firstAttribute="trailing" secondItem="pNh-Md-GBE" secondAttribute="trailing" constant="20" id="m2a-BS-z6Z"/>
                             <constraint firstItem="Fp3-hW-jGQ" firstAttribute="top" secondItem="v8b-hN-qJV" secondAttribute="bottom" id="yns-3z-Atu"/>
                         </constraints>
                     </view>
@@ -588,6 +598,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="expandPlayerButton" destination="s1i-MY-LSq" id="Qpe-FT-jYa"/>
+                        <outlet property="fabButton" destination="pNh-Md-GBE" id="yRf-oZ-aNx"/>
                         <outlet property="playerView" destination="c8O-jG-he3" id="T9A-Dw-w5A"/>
                         <outlet property="tableView" destination="13P-VO-q7T" id="ifC-3r-lMl"/>
                     </connections>
