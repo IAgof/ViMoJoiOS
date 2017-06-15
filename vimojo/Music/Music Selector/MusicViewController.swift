@@ -40,6 +40,7 @@ class MusicViewController: EditingRoomItemController,MusicPresenterDelegate,Play
             }
         }
     }
+    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,14 +80,6 @@ class MusicViewController: EditingRoomItemController,MusicPresenterDelegate,Play
     //MARK: Actions
     @IBAction func pushExpandButton(_ sender: AnyObject) {
         eventHandler?.expandPlayer()
-    }
-    
-    @IBAction func pushMusic(_ sender: AnyObject) {
-        eventHandler?.pushMusicHandler()
-    }
-    
-    @IBAction func pushMic(_ sender: AnyObject) {
-        eventHandler?.pushMicHandler()
     }
     
     override func pushOptions() {

@@ -308,6 +308,9 @@
 		A9B385F41D7D51380065D3EC /* VimojoLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B385F21D7D51380065D3EC /* VimojoLaunchScreen.storyboard */; };
 		A9B385FF1D7D51380065D3EC /* vimojoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B385FE1D7D51380065D3EC /* vimojoTests.swift */; };
 		A9B386561D7D54CF0065D3EC /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386551D7D54CF0065D3EC /* AppDependencies.swift */; };
+		A9B406721EF33519004C9854 /* CMTimeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B406711EF33519004C9854 /* CMTimeExtension.swift */; };
+		A9B406771EF3355D004C9854 /* CMTimeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B406711EF33519004C9854 /* CMTimeExtension.swift */; };
+		A9B406781EF3355E004C9854 /* CMTimeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B406711EF33519004C9854 /* CMTimeExtension.swift */; };
 		A9CAB8861EC35F0000AB6CE8 /* ConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8851EC35F0000AB6CE8 /* ConfigurationProtocol.swift */; };
 		A9CAB8871EC35F0000AB6CE8 /* ConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8851EC35F0000AB6CE8 /* ConfigurationProtocol.swift */; };
 		A9CAB8881EC35F0000AB6CE8 /* ConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8851EC35F0000AB6CE8 /* ConfigurationProtocol.swift */; };
@@ -1246,6 +1249,7 @@
 		A9B385FE1D7D51380065D3EC /* vimojoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vimojoTests.swift; sourceTree = "<group>"; };
 		A9B386001D7D51380065D3EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9B386551D7D54CF0065D3EC /* AppDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
+		A9B406711EF33519004C9854 /* CMTimeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMTimeExtension.swift; sourceTree = "<group>"; };
 		A9B54B9C1DFEAD5E00388002 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Drawer.storyboard; sourceTree = "<group>"; };
 		A9B54BB01DFEFD7600388002 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Drawer.strings; sourceTree = "<group>"; };
 		A9C6958E1DA2411400597646 /* FREE_THE_COLD_WIND.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = FREE_THE_COLD_WIND.mp3; path = MusicResources/FREE_THE_COLD_WIND.mp3; sourceTree = "<group>"; };
@@ -2853,6 +2857,7 @@
 			isa = PBXGroup;
 			children = (
 				A9CAB8941EC35F4700AB6CE8 /* DateCompareExtension.swift */,
+				A9B406711EF33519004C9854 /* CMTimeExtension.swift */,
 				A97DABFA1EED68CB002BDDA3 /* UITableViewExtension.swift */,
 				A91359FA1EDB05B8004779B5 /* StringsExtension.swift */,
 				A9CAB8951EC35F4700AB6CE8 /* UIApplicationExtensionGetTopController.swift */,
@@ -3621,6 +3626,7 @@
 				A99BAC741E49DC9D00A465C7 /* DetailTextInteractor.swift in Sources */,
 				A9CABA1E1EC369F600AB6CE8 /* MusicInteractor.swift in Sources */,
 				A9CABAFC1EC36C6700AB6CE8 /* ProjectToRealmProjectMapper.swift in Sources */,
+				A9B406781EF3355E004C9854 /* CMTimeExtension.swift in Sources */,
 				A9CABAED1EC36C6700AB6CE8 /* Mapper.swift in Sources */,
 				A99BAC791E49DC9D00A465C7 /* EditorClipsCell.swift in Sources */,
 				A99BAC7A1E49DC9D00A465C7 /* EditorPresenter.swift in Sources */,
@@ -3903,6 +3909,7 @@
 				A9CABAAF1EC36AEC00AB6CE8 /* RecorderInteractor.swift in Sources */,
 				A9CAB89D1EC35F4700AB6CE8 /* UIViewFadeViewsExtension.swift in Sources */,
 				A9CABA851EC36AEC00AB6CE8 /* ApplyTextOverlayToVideoCompositionUseCase.swift in Sources */,
+				A9B406721EF33519004C9854 /* CMTimeExtension.swift in Sources */,
 				A9CAB88D1EC35F1C00AB6CE8 /* AnalitycsConstants.swift in Sources */,
 				A9CABAFA1EC36C6700AB6CE8 /* ProjectToRealmProjectMapper.swift in Sources */,
 				A91760AA1D9146B5008915DA /* EditingRoomPresenter.swift in Sources */,
@@ -4195,6 +4202,7 @@
 				A9CAB8B01EC35FAC00AB6CE8 /* CreateNewProjectUseCase.swift in Sources */,
 				A9CABAEC1EC36C6700AB6CE8 /* Mapper.swift in Sources */,
 				A9CAB96A1EC3672700AB6CE8 /* GalleryViewController.swift in Sources */,
+				A9B406771EF3355D004C9854 /* CMTimeExtension.swift in Sources */,
 				A9D077021E2F80B1003AE96B /* EditorClipsCell.swift in Sources */,
 				A9D077031E2F80B1003AE96B /* EditorPresenter.swift in Sources */,
 				A9CAB9671EC3672700AB6CE8 /* GalleryFetchOptions.swift in Sources */,

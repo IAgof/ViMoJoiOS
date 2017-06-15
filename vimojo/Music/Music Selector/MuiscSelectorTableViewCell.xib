@@ -15,20 +15,46 @@
             <rect key="frame" x="0.0" y="0.0" width="360" height="103"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="360" height="102.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="360" height="102"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_edit_add_music_normal" translatesAutoresizingMaskIntoConstraints="NO" id="vef-We-HjE">
-                        <rect key="frame" x="8" y="39.5" width="24" height="24"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AyN-GJ-dx2" userLabel="Scroll content">
+                        <rect key="frame" x="40" y="8" width="312" height="86"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2B4-6P-LZ1">
+                                <rect key="frame" x="0.0" y="0.0" width="312" height="86"/>
+                            </scrollView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K9V-ns-aQQ">
+                                <rect key="frame" x="0.0" y="0.0" width="312" height="86"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2B4-6P-LZ1" firstAttribute="width" secondItem="AyN-GJ-dx2" secondAttribute="width" id="PKj-fB-haq"/>
+                            <constraint firstItem="2B4-6P-LZ1" firstAttribute="centerY" secondItem="AyN-GJ-dx2" secondAttribute="centerY" id="RVe-vj-GZg"/>
+                            <constraint firstItem="2B4-6P-LZ1" firstAttribute="height" secondItem="AyN-GJ-dx2" secondAttribute="height" id="SBe-wO-OJ2"/>
+                            <constraint firstItem="K9V-ns-aQQ" firstAttribute="top" secondItem="AyN-GJ-dx2" secondAttribute="top" id="ayW-WG-9Yp"/>
+                            <constraint firstAttribute="trailing" secondItem="K9V-ns-aQQ" secondAttribute="trailing" id="e2Y-c7-lmW"/>
+                            <constraint firstAttribute="bottom" secondItem="K9V-ns-aQQ" secondAttribute="bottom" id="g0r-Dy-P25"/>
+                            <constraint firstItem="2B4-6P-LZ1" firstAttribute="centerX" secondItem="AyN-GJ-dx2" secondAttribute="centerX" id="gPf-CW-wfs"/>
+                            <constraint firstItem="K9V-ns-aQQ" firstAttribute="leading" secondItem="AyN-GJ-dx2" secondAttribute="leading" id="qdK-Ar-tw6"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_edit_add_music_normal" translatesAutoresizingMaskIntoConstraints="NO" id="SjD-Oa-fwF">
+                        <rect key="frame" x="8" y="39" width="24" height="24"/>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="vef-We-HjE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8cK-6k-gVo"/>
-                    <constraint firstItem="vef-We-HjE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="ifu-Cm-B85"/>
+                    <constraint firstItem="AyN-GJ-dx2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Aep-G5-mTd"/>
+                    <constraint firstAttribute="trailing" secondItem="AyN-GJ-dx2" secondAttribute="trailing" constant="8" id="ERW-ao-dHs"/>
+                    <constraint firstItem="AyN-GJ-dx2" firstAttribute="leading" secondItem="SjD-Oa-fwF" secondAttribute="trailing" constant="8" id="HGc-fS-Udh"/>
+                    <constraint firstItem="SjD-Oa-fwF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="gFq-3p-fp7"/>
+                    <constraint firstItem="SjD-Oa-fwF" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="gsV-1V-TvT"/>
+                    <constraint firstAttribute="bottom" secondItem="AyN-GJ-dx2" secondAttribute="bottom" constant="8" id="jdL-PE-KJw"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="audioUImageView" destination="vef-We-HjE" id="Ser-b5-tit"/>
+                <outlet property="audioUImageView" destination="SjD-Oa-fwF" id="NXv-c3-Prd"/>
             </connections>
             <point key="canvasLocation" x="92" y="89.5"/>
         </tableViewCell>

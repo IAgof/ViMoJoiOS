@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import VideonaProject
 
 protocol MusicPresenterInterface {
     func viewDidLoad()
@@ -30,13 +31,24 @@ protocol Item {
 }
 
 enum MusicItem: Item {
-    case music
-    case mic
+    case music(music: Music)
+    case mic    
+    case originalAudio(videos: [Video])
     
     var icon: UIImage{
         switch self {
         case .mic: return #imageLiteral(resourceName: "activity_edit_audio_voiceover_expand")
         case .music: return #imageLiteral(resourceName: "activity_edit_audio_music_expand")
+        case .originalAudio: return #imageLiteral(resourceName: "activity_edit_audio_sound_expand")
+        }
+    }
+    
+    var cellItems: [SelectorItem]{
+        switch <#value#> {
+        case <#pattern#>:
+            <#code#>
+        default:
+            <#code#>
         }
     }
 }

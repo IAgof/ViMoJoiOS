@@ -8,16 +8,24 @@
 
 import Foundation
 import VideonaProject
+import AVFoundation
 
 typealias DefaultAction = () -> ()
 
-struct MusicSelectorCellViewModel {    
+struct SelectorItem {
+    //TODO: this is not the correct place to be
+    let image: UIImage
+    let timeRange: CMTimeRange
+}
+
+struct MusicSelectorCellViewModel {
     let icon: UIImage
     let action: DefaultAction
+    let items: [SelectorItem]
     
-    init(with musicResource: MusicResource, action: @escaping DefaultAction ) {
+    init(with musicResource: MusicResource, action: @escaping DefaultAction, items: [SelectorItem] ) {
         icon = musicResource.icon
         self.action = action
+        self.items = items
     }
-    
 }
