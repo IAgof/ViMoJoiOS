@@ -15,53 +15,46 @@ class MuiscSelectorTableViewCell: UITableViewCell {
     static var nibName = "MuiscSelectorTableViewCell"
     
     @IBOutlet weak var audioUImageView: UIImageView!
-    @IBOutlet weak var stackView: UIStackView!
-   
+    @IBOutlet weak var collectioView: UICollectionView!
+    fileprivate var items: [SelectorItem] = []{
+        didSet{
+            DispatchQueue.main.async { self.collectioView.reloadData() }
+        }
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        collectioView.register(UINib(nibName: VideoCarrusselCollectionViewCell.nibName,bundle: nil),
+                               forCellWithReuseIdentifier: VideoCarrusselCollectionViewCell.reusableIdentifier)
+        collectioView.dataSource = self
+        collectioView.delegate = self
+    }
     func setup(with music: MusicSelectorCellViewModel){
         audioUImageView.image = music.icon
-        for item in music.items{
-            stackView.addArrangedSubview(SelectorItemView(item: item))
-        }
+        self.items = music.items
     }
 }
 
-class SelectorItemView: UIView{
-    var imageView: UIImageView = UIImageView(frame: CGRect.zero)
-    var label: UILabel = UILabel(frame: CGRect.zero)
-    
-    init( frame: CGRect, item: SelectorItem){
-        self.init(frame: frame)
-        setup()
-        self.imageView.image = item.image
-        self.label.text = item.timeRange.start.durationText.appending(":").appending(item.timeRange.end.durationText)
+extension MuiscSelectorTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate{
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
     
-    override convenience init(frame: CGRect) {
-        self.init(frame: frame)
-        setup()
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return items.count
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    func setup(){
-        addSubview(imageView)
-        addSubview(label)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectioView.dequeueReusableCell(withReuseIdentifier: VideoCarrusselCollectionViewCell.reusableIdentifier, for: indexPath) as? VideoCarrusselCollectionViewCell else{ return UICollectionViewCell() }
         
-        imageView.snp.makeConstraints { (make) in
-            make.height.equalToSuperview().multipliedBy(0.8)
-            make.top.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.leading.equalToSuperview()
-        }
-        
-        label.snp.makeConstraints { (make) in
-            make.top.equalTo(imageView)
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
-        }
+        cell.setup(with: items[indexPath.item])
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectioView.cellForItem(at: indexPath) as? VideoCarrusselCollectionViewCell else { return }
+        cell.action?()
     }
 }
+
+

@@ -129,8 +129,4 @@ extension MusicViewController: UITableViewDelegate, UITableViewDataSource{
         
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        audios[indexPath.item].action()
-    }
 }

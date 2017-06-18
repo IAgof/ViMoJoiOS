@@ -12,20 +12,25 @@ import AVFoundation
 
 typealias DefaultAction = () -> ()
 
-struct SelectorItem {
+class SelectorItem {
     //TODO: this is not the correct place to be
-    let image: UIImage
+    let image: UIImage?
     let timeRange: CMTimeRange
+    let action: DefaultAction
+    
+    init(with image: UIImage?, timeRange: CMTimeRange, action: @escaping DefaultAction = {}) {
+        self.image = image
+        self.action = action
+        self.timeRange = timeRange
+    }
 }
 
 struct MusicSelectorCellViewModel {
     let icon: UIImage
-    let action: DefaultAction
     let items: [SelectorItem]
     
-    init(with musicResource: MusicResource, action: @escaping DefaultAction, items: [SelectorItem] ) {
+    init(with musicResource: MusicResource, items: [SelectorItem] ) {
         icon = musicResource.icon
-        self.action = action
         self.items = items
     }
 }
