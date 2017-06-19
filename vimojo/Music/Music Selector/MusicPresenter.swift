@@ -36,7 +36,7 @@ class MusicPresenter: MusicPresenterInterface,MusicInteractorDelegate {
                 return SelectorItem(with: video.thumbnailImage,
                                     timeRange: CMTimeRange(start: video.getStartTime(), end: video.getStopTime()),
                                     action: {
-                                        print("Project audio Has been tapped")
+                                    self.wireframe?.presentVideoAudio(video: video)
                 })
             })
             

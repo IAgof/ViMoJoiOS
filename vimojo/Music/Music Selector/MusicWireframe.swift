@@ -25,25 +25,27 @@ class MusicWireframe : NSObject {
     var editingRoomWireframe:EditingRoomWireframe?
 
     var prevController:UIViewController?
+    var viewController: MusicViewController?
     
     func presentMusicInterfaceFromWindow(_ window: UIWindow) {
-        let viewController = musicViewControllerFromStoryboard()
-        
+        guard let viewController = musicViewControllerFromStoryboard() else{return}
+        self.viewController = viewController
         rootWireframe?.showRootViewController(viewController, inWindow: window)
     }
     
     func presentMusicInterfaceFromViewController(_ prevController:UIViewController){
-        let viewController = musicViewControllerFromStoryboard()
-        
+        guard let viewController = musicViewControllerFromStoryboard() else{return}
         self.prevController = prevController
-        
+        self.viewController = viewController
+
         prevController.show(viewController, sender: nil)
     }
     
-    func musicViewControllerFromStoryboard() -> MusicViewController {
+    func musicViewControllerFromStoryboard() -> MusicViewController? {
         let storyboard = mainStoryboard()
-        let viewController = storyboard.instantiateViewController(withIdentifier: musicViewControllerIdentifier) as! MusicViewController
-        
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: musicViewControllerIdentifier) as? MusicViewController else{return nil}
+        self.viewController = viewController
+
         viewController.eventHandler = musicPresenter
         musicViewController = viewController
         musicPresenter?.delegate = viewController
@@ -94,5 +96,12 @@ class MusicWireframe : NSObject {
     
     func presentSettings(){
         editingRoomWireframe?.navigateToSettings()
+    }
+    
+    func presentVideoAudio(video: Video) {
+        guard let rootWireframe = self.rootWireframe, let playerPresenter = self.musicPresenter?.playerPresenter, let project = musicPresenter?.interactor?.project else{ return }
+        let wireframe = Audio4VideoWireframe(rootWireframe: rootWireframe, playerPresenter: playerPresenter, project: project, video: video)
+        
+        if let controller = wireframe.controller { self.viewController?.show(controller, sender: nil) }
     }
 }

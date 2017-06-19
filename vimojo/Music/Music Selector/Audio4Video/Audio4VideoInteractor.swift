@@ -10,24 +10,34 @@ import Foundation
 import VideonaProject
 
 protocol Audio4VideoInteractorInterface {
-    var project: Project{get set}
+    var project: Project?{get set}
+    var audioValue: Float?{ get set}
     func getVideoComposition()
-}
-
-protocol Audio4VideoInteractorDelegate {
-    func setVideoComposition(_ composition: VideoComposition)
 }
 
 class Audio4VideoInteractor: Audio4VideoInteractorInterface {
     var project: Project?
     var delegate: Audio4VideoInteractorDelegate?
+    var video: Video?
+    var audioValue: Float?{
+        didSet{
+            if oldValue != nil, let audioValue = audioValue{
+                video?.audioLevel = audioValue
+                getVideoComposition()
+            }
+        }
+    }
     
-    func setup(delegate: Audio4VideoInteractorDelegate, project: Project) {
+    func setup(delegate: Audio4VideoInteractorDelegate, project: Project, video: Video) {
         self.delegate = delegate
         self.project = project
+        self.video = video
     }
     
     func getVideoComposition() {
+        guard let project = self.project else{ return }
+        var composition = GetActualProjectAVCompositionUseCase().getComposition(project: project)
         
+        delegate?.setVideoComposition(composition)
     }
 }

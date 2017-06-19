@@ -10,19 +10,27 @@ import Foundation
 import VideonaProject
 
 protocol Audio4VideoPresenterInterface {
+    var sliderValue: Float{ get set}
     func viewDidLoad()
     
     func updatePlayerLayer()
 }
 
-protocol Audio4VideoPresenterDelegate {
-
+protocol Audio4VideoInteractorDelegate {
+    func setVideoComposition(_ composition: VideoComposition)
 }
 
 class Audio4VideoPresenter: Audio4VideoPresenterInterface{
     var delegate: Audio4VideoPresenterDelegate?
     var interactor: Audio4VideoInteractorInterface?
     var playerPresenter: PlayerPresenterInterface?
+    var wireframe: Audio4VideoWireframe?
+    
+    var sliderValue: Float = 0{
+        didSet{
+            interactor?.audioValue = sliderValue
+        }
+    }
     
     func setup(delegate: Audio4VideoPresenterDelegate, interactor: Audio4VideoInteractorInterface, playerPresenter: PlayerPresenterInterface) {
         self.delegate = delegate
@@ -31,10 +39,8 @@ class Audio4VideoPresenter: Audio4VideoPresenterInterface{
     }
     
     func viewDidLoad() {
-        // TODO: have to add this?
-        //        delegate?.bringToFrontExpandPlayerButton()
+        wireframe?.presentPlayerInterface()
         interactor?.getVideoComposition()
-        
     }
     
     func updatePlayerLayer() {

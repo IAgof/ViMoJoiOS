@@ -72,12 +72,13 @@ public class RealmProjectToProjectMapper:Mapper{
     
     func setProjectVideos(project:Project,realmProject:RealmProject){
         var videoList = project.getVideoList()
+
+        //TODO: CHECK THIS, not working
+//        let videoListFiltered = realmProject.videos.filter { (video) -> Bool in
+//            return video.videoURL.fileExists
+//        }
         
-        let videoListFiltered = realmProject.videos.filter { (video) -> Bool in
-            return video.videoURL.fileExists
-        }
-        
-        for realmVideo in videoListFiltered{
+        for realmVideo in realmProject.videos{
             videoList.append(toVideoMapper.map(from: realmVideo))
         }
         
