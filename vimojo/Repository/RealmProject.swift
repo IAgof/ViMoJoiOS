@@ -19,8 +19,8 @@ public class RealmProject:Object{
     dynamic var musicTitle:String = ""
     dynamic var musicVolume:Double = 0.5
     var videos = List<RealmVideo>()
-    dynamic var modificationDate: NSDate? = nil
-    dynamic var exportedDate: NSDate? = nil
+    dynamic var modificationDate: Date? = nil
+    dynamic var exportedDate: Date? = nil
     dynamic var exportedPath: String? = nil
     var voiceOver = List<RealmAudio>()
         dynamic var isVoiceOverSet: Bool = false

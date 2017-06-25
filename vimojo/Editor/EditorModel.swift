@@ -11,6 +11,6 @@ import Photos
 
 struct EditorViewModel{
     var phAsset:PHAsset
-    var timeText:String!
-    var positionText:String!
+    var timeText:String
+    var positionText:String
 }

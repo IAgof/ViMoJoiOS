@@ -8,8 +8,8 @@
 
 import Foundation
 
-extension NSDate {
-    func isGreaterThanDate(dateToCompare: NSDate) -> Bool {
+extension Date {
+    func isGreaterThanDate(dateToCompare: Date) -> Bool {
         //Declare Variables
         var isGreater = false
         
@@ -22,7 +22,7 @@ extension NSDate {
         return isGreater
     }
     
-    func isLessThanDate(dateToCompare: NSDate) -> Bool {
+    func isLessThanDate(dateToCompare: Date) -> Bool {
         //Declare Variables
         var isLess = false
         
@@ -35,7 +35,7 @@ extension NSDate {
         return isLess
     }
     
-    func equalToDate(dateToCompare: NSDate) -> Bool {
+    func equalToDate(dateToCompare: Date) -> Bool {
         //Declare Variables
         var isEqualTo = false
         
