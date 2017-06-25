@@ -298,8 +298,6 @@
 		A99BAD851E49DCE300A465C7 /* PeriodistaCelularConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99BAC491E49DC6E00A465C7 /* PeriodistaCelularConfiguration.swift */; };
 		A99C7CF71DC0F8FA00F2E03A /* ShareFTPInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99C7CF61DC0F8FA00F2E03A /* ShareFTPInteractor.swift */; };
 		A9A2073C1DED94BB004AAEE2 /* ProjectList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9A2073B1DED94BB004AAEE2 /* ProjectList.storyboard */; };
-		A9A632291EFFF4B5005EDE61 /* VideonaProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A632261EFFF4A1005EDE61 /* VideonaProject.framework */; };
-		A9A6322A1EFFF4B5005EDE61 /* VideonaProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9A632261EFFF4A1005EDE61 /* VideonaProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9A632301EFFF60C005EDE61 /* RebekkaTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A6322F1EFFF60C005EDE61 /* RebekkaTouch.framework */; };
 		A9A632311EFFF60C005EDE61 /* RebekkaTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A6322F1EFFF60C005EDE61 /* RebekkaTouch.framework */; };
 		A9A632321EFFF60C005EDE61 /* RebekkaTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A6322F1EFFF60C005EDE61 /* RebekkaTouch.framework */; };
@@ -1009,27 +1007,6 @@
 			remoteGlobalIDString = BCE209E41943F20C002FEED8;
 			remoteInfo = GPUImageFramework;
 		};
-		A9A632251EFFF4A1005EDE61 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A9A632201EFFF4A0005EDE61 /* VideonaProject.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A9BD5FBD1D9120F40080CE97;
-			remoteInfo = VideonaProject;
-		};
-		A9A632271EFFF4A1005EDE61 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A9A632201EFFF4A0005EDE61 /* VideonaProject.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A9928A0C1E5370CE002A4E60;
-			remoteInfo = VideonaProjectTarget;
-		};
-		A9A6322B1EFFF4B5005EDE61 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A9A632201EFFF4A0005EDE61 /* VideonaProject.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A9BD5FBC1D9120F40080CE97;
-			remoteInfo = VideonaProject;
-		};
 		A9B385FB1D7D51380065D3EC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A9B385DE1D7D51380065D3EC /* Project object */;
@@ -1077,7 +1054,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				A94965781EAE8B8C003FCBF6 /* GPUImage.framework in Embed Frameworks */,
-				A9A6322A1EFFF4B5005EDE61 /* VideonaProject.framework in Embed Frameworks */,
 				A9A632341EFFF614005EDE61 /* RebekkaTouch.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1237,7 +1213,6 @@
 		A99BAD811E49DC9E00A465C7 /* vimojo copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "vimojo copy2-Info.plist"; path = "/Users/Alejandro/Desktop/Repos/Vimojo_xCode8/vimojo copy2-Info.plist"; sourceTree = "<absolute>"; };
 		A99C7CF61DC0F8FA00F2E03A /* ShareFTPInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareFTPInteractor.swift; sourceTree = "<group>"; };
 		A9A2073B1DED94BB004AAEE2 /* ProjectList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProjectList.storyboard; sourceTree = "<group>"; };
-		A9A632201EFFF4A0005EDE61 /* VideonaProject.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = VideonaProject.xcodeproj; path = "../iOS-SDK/VideonaProject.xcodeproj"; sourceTree = "<group>"; };
 		A9A6322F1EFFF60C005EDE61 /* RebekkaTouch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RebekkaTouch.framework; sourceTree = "<group>"; };
 		A9AE3A4E1DC0CFA300A5A878 /* ShareActionInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareActionInterface.swift; sourceTree = "<group>"; };
 		A9B385E61D7D51380065D3EC /* vimojo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vimojo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1478,7 +1453,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9ED00501D9178CB00969F31 /* Alamofire.framework in Frameworks */,
-				A9A632291EFFF4B5005EDE61 /* VideonaProject.framework in Frameworks */,
 				A9ED005A1D917B7200969F31 /* FBSDKCoreKit.framework in Frameworks */,
 				A9A632301EFFF60C005EDE61 /* RebekkaTouch.framework in Frameworks */,
 				A9ED005C1D917B7200969F31 /* FBSDKShareKit.framework in Frameworks */,
@@ -2430,15 +2404,6 @@
 			name = AddText;
 			sourceTree = "<group>";
 		};
-		A9A632211EFFF4A0005EDE61 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A9A632261EFFF4A1005EDE61 /* VideonaProject.framework */,
-				A9A632281EFFF4A1005EDE61 /* VideonaProjectTarget.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		A9A99AC11E55BC9A0005A6BF /* RecordDrawer */ = {
 			isa = PBXGroup;
 			children = (
@@ -2451,7 +2416,6 @@
 		A9B385DD1D7D51380065D3EC = {
 			isa = PBXGroup;
 			children = (
-				A9A632201EFFF4A0005EDE61 /* VideonaProject.xcodeproj */,
 				A949656D1EAE8B83003FCBF6 /* GPUImage.xcodeproj */,
 				A9D076D01E2F7F74003AE96B /* Targets */,
 				A9B385E81D7D51380065D3EC /* vimojo */,
@@ -3079,7 +3043,6 @@
 			);
 			dependencies = (
 				A949657A1EAE8B8C003FCBF6 /* PBXTargetDependency */,
-				A9A6322C1EFFF4B5005EDE61 /* PBXTargetDependency */,
 			);
 			name = vimojo;
 			productName = vimojo;
@@ -3179,10 +3142,6 @@
 					ProductGroup = A949656E1EAE8B83003FCBF6 /* Products */;
 					ProjectRef = A949656D1EAE8B83003FCBF6 /* GPUImage.xcodeproj */;
 				},
-				{
-					ProductGroup = A9A632211EFFF4A0005EDE61 /* Products */;
-					ProjectRef = A9A632201EFFF4A0005EDE61 /* VideonaProject.xcodeproj */;
-				},
 			);
 			projectRoot = "";
 			targets = (
@@ -3207,20 +3166,6 @@
 			fileType = wrapper.framework;
 			path = GPUImage.framework;
 			remoteRef = A94965751EAE8B84003FCBF6 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		A9A632261EFFF4A1005EDE61 /* VideonaProject.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = VideonaProject.framework;
-			remoteRef = A9A632251EFFF4A1005EDE61 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		A9A632281EFFF4A1005EDE61 /* VideonaProjectTarget.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = VideonaProjectTarget.framework;
-			remoteRef = A9A632271EFFF4A1005EDE61 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -4461,11 +4406,6 @@
 			isa = PBXTargetDependency;
 			name = GPUImageFramework;
 			targetProxy = A94965791EAE8B8C003FCBF6 /* PBXContainerItemProxy */;
-		};
-		A9A6322C1EFFF4B5005EDE61 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = VideonaProject;
-			targetProxy = A9A6322B1EFFF4B5005EDE61 /* PBXContainerItemProxy */;
 		};
 		A9B385FC1D7D51380065D3EC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
