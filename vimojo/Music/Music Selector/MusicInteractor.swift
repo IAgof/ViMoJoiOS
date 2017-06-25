@@ -26,4 +26,14 @@ class MusicInteractor: MusicInteractorInterface {
             }
         }
     }
+    
+    var audios: [Audio]{
+        guard let project = project else{ return [] }
+        var audiosAvailable: [Audio] = []
+        
+        if !project.getVideoList().isEmpty { audiosAvailable.append(Audio(title: "ProjectAudio", mediaPath: "", musicResource: .originalAudio)) }
+        if let music = project.music { audiosAvailable.append(music) }
+        
+        return audiosAvailable
+    }
 }

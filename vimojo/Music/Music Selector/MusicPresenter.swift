@@ -10,10 +10,10 @@ import Foundation
 import VideonaProject
 import AVFoundation
 import VideonaProject
+import Photos
 
 class MusicPresenter: MusicPresenterInterface,MusicInteractorDelegate {
     //MARK: - Variables VIPER
-    var controller: MusicViewInterface? //O tengo referencia a uno u a otro, pero no a los dos
     var delegate:MusicPresenterDelegate?
     var interactor: MusicInteractorInterface?
     var wireframe: MusicWireframe?
@@ -30,18 +30,83 @@ class MusicPresenter: MusicPresenterInterface,MusicInteractorDelegate {
     var recordMicViewActualTime = 0.0
     var recordMicViewTotalTime = 0.0
     
+    var projectAudios: MusicSelectorCellViewModel?{
+        if let projectAudios = interactor?.project?.getVideoList(){
+            let items = projectAudios.map({ (video) -> SelectorItem in
+                return SelectorItem(with: video.thumbnailImage,
+                                    timeRange: CMTimeRange(start: video.getStartTime(), end: video.getStopTime()),
+                                    action: {
+                                    self.wireframe?.presentVideoAudio(video: video)
+                })
+            })
+            
+            return MusicSelectorCellViewModel(with: .originalAudio,
+                                              items: items)
+        }else{ return nil }
+    }
+    
+    var musicAudio: MusicSelectorCellViewModel?{
+        if let music = interactor?.project?.music{
+            return MusicSelectorCellViewModel(with: .music,
+                                              items: [SelectorItem(with: UIImage(named: music.getIconResourceId()),
+                                                                   timeRange: CMTimeRange(start: music.getStartTime(), end: music.getStopTime()),
+                                                                   action: {
+                                                                    print("Audios audio Has been tapped")
+                                                                    self.wireframe?.presenterMusicListView()
+                                              })])
+        }else{return nil}
+    }
+    
+    var micAudio: MusicSelectorCellViewModel?{
+        if let micAudios = interactor?.project?.voiceOver, !micAudios.isEmpty{
+            return MusicSelectorCellViewModel(with: .voiceOver,
+                                              items: micAudios.map({ SelectorItem(with: #imageLiteral(resourceName: "activity_image_adjust_filter_normal"),
+                                                                                  timeRange: CMTimeRange(start: $0.getStartTime(), end: $0.getStopTime()),
+                                                                                  action: {
+                                                                                    print("Mic audio Has been tapped")
+                                                                                    self.wireframe?.presenterMicRecorderView()
+                                              })}))
+        }else { return nil}
+    }
+    
     //MARK: - Constants
     let NO_MUSIC_SELECTED = -1
     
     //MARK: - Interface
     func viewDidLoad() {
+        self.addFloatingButtons()
+    }
+    
+    private func addFloatingButtons(){
+        var floatingItems: [FloatingItem] = []
+        floatingItems.append(FloatingItem(item: FloatingItemFactory.music, action: {
+            self.wireframe?.presenterMusicListView()
+        }))
+        
+        floatingItems.append(FloatingItem(item: FloatingItemFactory.mic, action: {
+            self.wireframe?.presenterMicRecorderView()
+        }))
+        
+        delegate?.floatingItems = floatingItems
     }
     
     func viewWillAppear() {
         wireframe?.presentPlayerInterface()
 
-        controller?.bringToFrontExpandPlayerButton()
+        delegate?.bringToFrontExpandPlayerButton()
         interactor?.getVideoComposition()
+        
+        setAudios()
+    }
+    
+    func setAudios(){
+        var audiosViewModel: [MusicSelectorCellViewModel] = []
+        
+        if let videoAudios = projectAudios { audiosViewModel.append(videoAudios)}
+        if let musicAudios = musicAudio { audiosViewModel.append(musicAudios) }
+        if let micAudios = micAudio { audiosViewModel.append(micAudios)}
+        
+        delegate?.audios = audiosViewModel
     }
     
     func viewDidAppear() {

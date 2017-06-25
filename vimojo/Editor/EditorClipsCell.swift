@@ -20,6 +20,7 @@ class EditorClipsCell: UICollectionViewCell {
     override func awakeFromNib() {
         positionNumberLabel.adjustsFontSizeToFitWidth = true
         removeClipButton.isHidden = true
+        thumbnailImageView.image = #imageLiteral(resourceName: "video_removed")
     }
    
     override var isSelected: Bool{

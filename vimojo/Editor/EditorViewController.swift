@@ -108,9 +108,7 @@ UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlow
                                                       contentMode: .aspectFill,
                                                       options: nil,
                                                       resultHandler: {(result, info)in
-                                                        if let image = result {
-                                                                cell.thumbnailImageView.image = image
-                                                        }
+                                                        cell.thumbnailImageView.image = result ?? #imageLiteral(resourceName: "video_removed")
                 })
             }
             

@@ -283,7 +283,7 @@ class ViMoJoTracker {
     func trackMusicSet() {
         guard let project = project else{return}
 
-        let musicTitle = project.getMusic().getTitle();
+        guard let musicTitle = project.music?.getTitle() else{return}
 
         var eventProperties =
             [

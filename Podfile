@@ -19,6 +19,7 @@ def shared_pods
     pod 'TTRangeSlider'
     
     pod 'MBCircularProgressBar', '0.3.4'
+    pod 'KCFloatingActionButton'
     
 #    pod 'VideonaProject', :path => '/Users/Alejandro/Desktop/Repos/Videona_Pods/VideonaProject'
 end

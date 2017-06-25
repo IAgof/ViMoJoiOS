@@ -40,9 +40,9 @@ public class ProjectToRealmProjectMapper:Mapper{
             realmProject.filterName = filter.name
         }
 
-        if from.isMusicSet{
-            realmProject.musicTitle = from.getMusic().getTitle()
-            realmProject.musicVolume = Double(from.getMusic().audioLevel)
+        if let music = from.music{
+            realmProject.musicTitle = music.getTitle()
+            realmProject.musicVolume = Double(music.audioLevel)
         }
         
         for video in from.getVideoList(){

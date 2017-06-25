@@ -69,7 +69,7 @@ class MusicListInteractor: MusicListInteractorInterface {
     }
     
     func getMusic(){
-        guard let music = project?.getMusic() else {return}
+        guard let music = project?.music else {return}
         
         let title = music.getMusicTitle()
         let author = music.getAuthor()
@@ -92,15 +92,13 @@ class MusicListInteractor: MusicListInteractorInterface {
                           musicResourceId: "",
                           musicSelectedResourceId: "")
         if index == -1 {
-            project.setMusic(music)
-            project.isMusicSet = false
+            project.music = nil
             project.projectOutputAudioLevel = 1
             
         }else{
             music = musicList[index]
             
-            project.setMusic(music)
-            project.isMusicSet = true
+            project.music = music
             project.projectOutputAudioLevel = 0
         }
         
@@ -130,8 +128,8 @@ class MusicListInteractor: MusicListInteractorInterface {
         guard let project = project else{return}
         
         project.projectOutputAudioLevel = param.videoVolume
-        let music = project.getMusic()
-        music.audioLevel = param.audioVolume
+        let music = project.music
+        music?.audioLevel = param.audioVolume
         
         let composition = GetActualProjectAVCompositionUseCase().getComposition(project: project)
         if let audioMix = composition.audioMix{

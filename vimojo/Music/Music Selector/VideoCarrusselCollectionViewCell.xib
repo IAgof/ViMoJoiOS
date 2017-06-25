@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCarrusselCollectionViewCellReuseIdentifier" id="gTV-IL-0wX" customClass="VideoCarrusselCollectionViewCell" customModule="PeriodistaCelular" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="128" height="146"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="128" height="146"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bf2-x7-hpD">
+                        <rect key="frame" x="2" y="2" width="124" height="118"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWn-b8-6ip">
+                        <rect key="frame" x="2" y="120" width="124" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="Bf2-x7-hpD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="0qu-iJ-4ze"/>
+                <constraint firstAttribute="bottom" secondItem="SWn-b8-6ip" secondAttribute="bottom" constant="2" id="DIc-uw-ld2"/>
+                <constraint firstAttribute="trailing" secondItem="Bf2-x7-hpD" secondAttribute="trailing" constant="2" id="UvX-Cw-WVi"/>
+                <constraint firstItem="Bf2-x7-hpD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="a40-Vz-NpL"/>
+                <constraint firstAttribute="trailing" secondItem="SWn-b8-6ip" secondAttribute="trailing" constant="2" id="nfL-iJ-XkM"/>
+                <constraint firstItem="SWn-b8-6ip" firstAttribute="top" secondItem="Bf2-x7-hpD" secondAttribute="bottom" id="tQ2-2i-QeH"/>
+                <constraint firstItem="SWn-b8-6ip" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="w6d-gY-BfH"/>
+                <constraint firstItem="Bf2-x7-hpD" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.8" constant="1" id="xa8-i3-TZ5"/>
+            </constraints>
+            <size key="customSize" width="128" height="146"/>
+            <connections>
+                <outlet property="thumbnailImageView" destination="Bf2-x7-hpD" id="6VW-QW-LH2"/>
+                <outlet property="timeLabel" destination="SWn-b8-6ip" id="vJg-AI-iOR"/>
+            </connections>
+            <point key="canvasLocation" x="73" y="109"/>
+        </collectionViewCell>
+    </objects>
+</document>
