@@ -24,8 +24,8 @@ public class ProjectToRealmProjectMapper:Mapper{
         realmProject.resolution = from.getProfile().getResolution()
         realmProject.frameRate = from.getProfile().frameRate
         realmProject.uuid = from.uuid
-        realmProject.exportedDate = from.exportDate
-        realmProject.modificationDate = from.modificationDate
+        //realmProject.exportedDate = from.exportDate
+        //realmProject.modificationDate = from.modificationDate
         realmProject.exportedPath = from.getExportedPath()
         realmProject.isVoiceOverSet = from.isVoiceOverSet
         realmProject.transitionTime = from.transitionTime

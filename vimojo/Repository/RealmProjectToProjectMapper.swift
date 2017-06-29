@@ -25,8 +25,8 @@ public class RealmProjectToProjectMapper:Mapper{
                               profile: profile)
         project.uuid = from.uuid
         project.setExportedPath(path: from.exportedPath)
-        project.exportDate = from.exportedDate
-        project.modificationDate = from.modificationDate
+        //project.exportDate = from.exportedDate
+        //project.modificationDate = from.modificationDate
         project.transitionTime = from.transitionTime
         project.projectOutputAudioLevel = from.projectOutputAudioLevel
         

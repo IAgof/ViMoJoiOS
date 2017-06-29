@@ -43,7 +43,7 @@ class ShareInteractor: NSObject,ShareInteractorInterface {
             return
         }
         
-        if modDate.isGreaterThanDate(dateToCompare: exportDate){
+        /*if modDate.isGreaterThanDate(dateToCompare: exportDate){
             exportVideoAction()
         }else{
             if FileManager.default.fileExists(atPath: exportPath){
@@ -54,7 +54,7 @@ class ShareInteractor: NSObject,ShareInteractorInterface {
                 print("File doesn't exist")
                 exportVideoAction()
             }
-        }
+        }*/
     }
     
     func exportVideoAction(){
