@@ -25,12 +25,15 @@ class SelectorItem {
     }
 }
 
-struct MusicSelectorCellViewModel {
-    let icon: UIImage
+class MusicSelectorCellViewModel {
+    let iconExpand: UIImage
+    let iconShrink: UIImage
     let items: [SelectorItem]
+    var audioVolume: Float = 1
     
     init(with musicResource: MusicResource, items: [SelectorItem] ) {
-        icon = musicResource.icon
+        iconExpand = musicResource.iconExpand
+        iconShrink = musicResource.iconShrink
         self.items = items
     }
 }

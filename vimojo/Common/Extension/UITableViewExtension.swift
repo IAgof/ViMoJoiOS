@@ -10,4 +10,5 @@ import Foundation
 
 extension UITableView{
     func reloadDataMainThread(){ DispatchQueue.main.async { self.reloadData() } }
+    func reloadRowsMainThread(at indexPath: [IndexPath], with animation: UITableViewRowAnimation){DispatchQueue.main.async {self.reloadRows(at: indexPath, with: animation)} }
 }

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RebekkaTouch
 import VideonaProject
 
 class ShareFTPBreakingNewsInteractor: ShareActionInterface {

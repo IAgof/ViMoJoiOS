@@ -126,7 +126,11 @@ extension MusicViewController: UITableViewDelegate, UITableViewDataSource{
         
         let audio = audios[indexPath.item]
         cell.setup(with: audio)
-        
+        cell.tap = {
+            self.tableView.reloadDataMainThread()
+            //TODO: may be delete this?
+            self.tableView.scrollToRow(at: indexPath, at: .middle, animated: false)
+        }
         return cell
     }
 }

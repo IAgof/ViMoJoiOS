@@ -7,53 +7,84 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MuiscSelectorTableViewCellReuseIdentifier" rowHeight="147" id="KGk-i7-Jjw" customClass="MuiscSelectorTableViewCell" customModule="PeriodistaCelular" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="360" height="147"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MuiscSelectorTableViewCellReuseIdentifier" rowHeight="210" id="KGk-i7-Jjw" customClass="MuiscSelectorTableViewCell" customModule="PeriodistaCelular" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="360" height="210"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="360" height="146.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="360" height="209.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_edit_add_music_normal" translatesAutoresizingMaskIntoConstraints="NO" id="SjD-Oa-fwF">
-                        <rect key="frame" x="8" y="61.5" width="24" height="24"/>
-                    </imageView>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="wV6-VL-wDX">
-                        <rect key="frame" x="40" y="23.5" width="312" height="100"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6f2-QH-N4X">
+                        <rect key="frame" x="16" y="24" width="328" height="161.5"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="AR2-tK-cfq">
+                                <rect key="frame" x="0.0" y="0.0" width="328" height="123.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7f-ME-K0v">
+                                        <rect key="frame" x="0.0" y="46" width="20" height="32"/>
+                                        <state key="normal" image="activity_edit_audio_music_expand"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="imageForNormal" value="activity_edit_audio_music_expand"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="imageForSelected" value="activity_edit_audio_music_shrink"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="buttonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="M9Q-lL-VTA"/>
+                                        </connections>
+                                    </button>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="wV6-VL-wDX">
+                                        <rect key="frame" x="28" y="12" width="300" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="LK8-Lq-qvp"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="4" minimumInteritemSpacing="8" id="MES-s2-y6J">
+                                            <size key="itemSize" width="80" height="100"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                    </collectionView>
+                                </subviews>
+                            </stackView>
+                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="BcM-0F-iOI">
+                                <rect key="frame" x="-2" y="131.5" width="332" height="31"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="gJv-CR-Tbt"/>
+                                </connections>
+                            </slider>
+                        </subviews>
                         <constraints>
-                            <constraint firstAttribute="height" constant="100" id="wt8-63-A16"/>
+                            <constraint firstItem="BcM-0F-iOI" firstAttribute="trailing" secondItem="wV6-VL-wDX" secondAttribute="trailing" id="CNg-gd-cqX"/>
+                            <constraint firstItem="BcM-0F-iOI" firstAttribute="leading" secondItem="S7f-ME-K0v" secondAttribute="leading" id="mY8-5E-pIX"/>
                         </constraints>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="4" minimumInteritemSpacing="8" id="MES-s2-y6J">
-                            <size key="itemSize" width="80" height="100"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                    </collectionView>
+                    </stackView>
                 </subviews>
+                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="wV6-VL-wDX" firstAttribute="leading" secondItem="SjD-Oa-fwF" secondAttribute="trailing" constant="8" id="3hz-I0-QEP"/>
-                    <constraint firstAttribute="trailing" secondItem="wV6-VL-wDX" secondAttribute="trailing" constant="8" id="HfC-SQ-O0D"/>
-                    <constraint firstItem="wV6-VL-wDX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="MfL-n7-lw8"/>
-                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="wV6-VL-wDX" secondAttribute="bottom" constant="3" id="Ojn-42-Fo1"/>
-                    <constraint firstItem="SjD-Oa-fwF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="gFq-3p-fp7"/>
-                    <constraint firstItem="wV6-VL-wDX" firstAttribute="centerY" secondItem="SjD-Oa-fwF" secondAttribute="centerY" id="gbE-Wk-Vp1"/>
-                    <constraint firstItem="SjD-Oa-fwF" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="gsV-1V-TvT"/>
+                    <constraint firstItem="6f2-QH-N4X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="16" id="2gH-s4-RR2"/>
+                    <constraint firstItem="6f2-QH-N4X" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="4VU-5e-WPB"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="6f2-QH-N4X" secondAttribute="trailing" constant="8" id="LCm-pR-ApK"/>
+                    <constraint firstItem="6f2-QH-N4X" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="MoH-cQ-I57"/>
+                    <constraint firstItem="wV6-VL-wDX" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.7" id="bCa-8P-5nw"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="6f2-QH-N4X" secondAttribute="bottom" constant="16" id="cC1-6m-vkC"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="audioUImageView" destination="SjD-Oa-fwF" id="NXv-c3-Prd"/>
+                <outlet property="audioButton" destination="S7f-ME-K0v" id="R54-4d-hXI"/>
+                <outlet property="audioSlider" destination="BcM-0F-iOI" id="1eL-g6-1yW"/>
                 <outlet property="collectioView" destination="wV6-VL-wDX" id="WNt-pr-jlq"/>
             </connections>
-            <point key="canvasLocation" x="92" y="111.5"/>
+            <point key="canvasLocation" x="92" y="143"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="activity_edit_add_music_normal" width="24" height="24"/>
+        <image name="activity_edit_audio_music_expand" width="20" height="32"/>
+        <image name="activity_edit_audio_music_shrink" width="20" height="32"/>
     </resources>
 </document>
