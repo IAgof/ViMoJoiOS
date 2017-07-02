@@ -31,7 +31,8 @@ class MusicPresenter: MusicPresenterInterface,MusicInteractorDelegate {
     var recordMicViewTotalTime = 0.0
     
     var projectAudios: MusicSelectorCellViewModel?{
-        if let projectAudios = interactor?.project?.getVideoList(){
+        if let project = interactor?.project {
+            let projectAudios = project.getVideoList()
             let items = projectAudios.map({ (video) -> SelectorItem in
                 return SelectorItem(with: video.thumbnailImage,
                                     timeRange: CMTimeRange(start: video.getStartTime(), end: video.getStopTime()),
@@ -41,7 +42,7 @@ class MusicPresenter: MusicPresenterInterface,MusicInteractorDelegate {
             })
             
             return MusicSelectorCellViewModel(with: .originalAudio,
-                                              items: items)
+                                              items: items, audioVolume: project.projectOutputAudioLevel)
         }else{ return nil }
     }
     
@@ -53,7 +54,7 @@ class MusicPresenter: MusicPresenterInterface,MusicInteractorDelegate {
                                                                    action: {
                                                                     print("Audios audio Has been tapped")
                                                                     self.wireframe?.presenterMusicListView()
-                                              })])
+                                              })], audioVolume: music.audioLevel)
         }else{return nil}
     }
     
@@ -65,7 +66,7 @@ class MusicPresenter: MusicPresenterInterface,MusicInteractorDelegate {
                                                                                   action: {
                                                                                     print("Mic audio Has been tapped")
                                                                                     self.wireframe?.presenterMicRecorderView()
-                                              })}))
+                                              })}), audioVolume: micAudios.first!.audioLevel)
         }else { return nil}
     }
     
@@ -145,5 +146,9 @@ class MusicPresenter: MusicPresenterInterface,MusicInteractorDelegate {
     //MARK: - Interactor delegate
     func setVideoComposition(_ composition: VideoComposition) {
         playerPresenter?.createVideoPlayer(composition)
+    }
+    
+    func update(audioMix: AVAudioMix) {
+        playerPresenter?.setAudioMix(audioMix: audioMix)
     }
 }

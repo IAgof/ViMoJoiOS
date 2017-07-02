@@ -21,10 +21,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6f2-QH-N4X">
-                        <rect key="frame" x="16" y="24" width="328" height="161.5"/>
+                        <rect key="frame" x="16" y="24" width="338" height="161.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="AR2-tK-cfq">
-                                <rect key="frame" x="0.0" y="0.0" width="328" height="123.5"/>
+                                <rect key="frame" x="10" y="0.0" width="328" height="123.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7f-ME-K0v">
                                         <rect key="frame" x="0.0" y="46" width="20" height="32"/>
@@ -53,22 +53,22 @@
                                 </subviews>
                             </stackView>
                             <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="BcM-0F-iOI">
-                                <rect key="frame" x="-2" y="131.5" width="332" height="31"/>
+                                <rect key="frame" x="40" y="131.5" width="300" height="31"/>
                                 <connections>
                                     <action selector="sliderValueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="gJv-CR-Tbt"/>
                                 </connections>
                             </slider>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="BcM-0F-iOI" firstAttribute="trailing" secondItem="wV6-VL-wDX" secondAttribute="trailing" id="CNg-gd-cqX"/>
-                            <constraint firstItem="BcM-0F-iOI" firstAttribute="leading" secondItem="S7f-ME-K0v" secondAttribute="leading" id="mY8-5E-pIX"/>
+                            <constraint firstItem="BcM-0F-iOI" firstAttribute="centerX" secondItem="6f2-QH-N4X" secondAttribute="centerX" id="x8h-Kj-Rfn"/>
                         </constraints>
                     </stackView>
                 </subviews>
-                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="6f2-QH-N4X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="16" id="2gH-s4-RR2"/>
                     <constraint firstItem="6f2-QH-N4X" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="4VU-5e-WPB"/>
+                    <constraint firstItem="BcM-0F-iOI" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.8" id="EZ4-QJ-ZjU"/>
                     <constraint firstAttribute="trailingMargin" secondItem="6f2-QH-N4X" secondAttribute="trailing" constant="8" id="LCm-pR-ApK"/>
                     <constraint firstItem="6f2-QH-N4X" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="MoH-cQ-I57"/>
                     <constraint firstItem="wV6-VL-wDX" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.7" id="bCa-8P-5nw"/>

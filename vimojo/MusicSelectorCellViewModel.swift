@@ -24,16 +24,27 @@ class SelectorItem {
         self.timeRange = timeRange
     }
 }
+struct AudioUpdate {
+    let volume: Float
+    let musicResource: MusicResource
+}
 
 class MusicSelectorCellViewModel {
     let iconExpand: UIImage
     let iconShrink: UIImage
     let items: [SelectorItem]
-    var audioVolume: Float = 1
+    let musicResource: MusicResource
+    var audioVolume: Float = 1{
+        didSet{
+            NotificationCenter.default.post(name: Notification.audioUpdate, object: AudioUpdate(volume: audioVolume, musicResource: musicResource))
+        }
+    }
     
-    init(with musicResource: MusicResource, items: [SelectorItem] ) {
+    init(with musicResource: MusicResource, items: [SelectorItem], audioVolume: Float ) {
+        self.musicResource = musicResource
         iconExpand = musicResource.iconExpand
         iconShrink = musicResource.iconShrink
+        self.audioVolume = audioVolume
         self.items = items
     }
 }

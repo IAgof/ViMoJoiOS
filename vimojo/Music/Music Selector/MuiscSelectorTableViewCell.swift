@@ -41,6 +41,7 @@ class MuiscSelectorTableViewCell: UITableViewCell {
         audioButton.setImage(music.iconShrink, for: .selected)
         self.audioButton.isSelected = !self.sliderIsHidden
         self.audioSlider.isHidden = self.sliderIsHidden
+        self.audioSlider.value = music.audioVolume
         
         self.items = music.items
     }
