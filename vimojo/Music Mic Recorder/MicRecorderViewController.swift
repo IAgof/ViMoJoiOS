@@ -21,10 +21,8 @@ class MicRecorderViewController: ViMoJoController,PlayerViewSetter{
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var musicContainer: UIView!
     
-    @IBOutlet weak var sliderValueLabel: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var acceptButton: UIButton!
-    @IBOutlet weak var mixAudioSlider: UISlider!
     
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var totalRecordedSlider: TTRangeSlider!
@@ -46,10 +44,6 @@ class MicRecorderViewController: ViMoJoController,PlayerViewSetter{
         eventHandler?.cancelPushed()
     }
     
-    @IBAction func mixAudioValueChanged(_ sender: AnyObject) {
-        sliderValueLabel.text = "\(Int(mixAudioSlider.value * 100))%"
-        eventHandler?.mixVolumeUpdate(mixAudioSlider.value)
-    }
     override func pushBack() {
         eventHandler?.pushBackButton()
     }
@@ -97,7 +91,6 @@ class MicRecorderViewController: ViMoJoController,PlayerViewSetter{
         configureUIRangeSlider()
         totalRecordedSlider.delegate = self
         eventHandler?.viewDidLoad()
-        setUpHasRecordView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -160,11 +153,6 @@ class MicRecorderViewController: ViMoJoController,PlayerViewSetter{
         totalRecordedSlider.selectedMaximum = 0.0
         totalRecordedSlider.selectedMinimum = 0
     }
-    
-    func setUpHasRecordView(){
-        hasRecordViews.append(mixAudioSlider)
-        hasRecordViews.append(sliderValueLabel)
-    }
 }
 
 extension MicRecorderViewController:MicRecorderPresenterDelegate{
@@ -172,10 +160,7 @@ extension MicRecorderViewController:MicRecorderPresenterDelegate{
     func setUpValues(_ micRecorderViewModel: MicRecorderViewModel) {
         configureRangeSlider(Float(micRecorderViewModel.sliderRange))
         
-        mixAudioSlider.value = micRecorderViewModel.mixAudioSliderValue
-        sliderValueLabel.text = "\(Int(mixAudioSlider.value * 100))%"
-        eventHandler?.mixVolumeUpdate(mixAudioSlider.value)
-    }
+   }
 
     func showHasRecordViews() {
         for view in hasRecordViews{

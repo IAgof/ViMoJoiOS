@@ -33,8 +33,6 @@ protocol MicRecorderPresenterInterface {
     func updateActualTime(_ time:Float)
     func deleteTrack()
     
-    func mixVolumeUpdate(_ value:Float)
-    
     func videoPlayerPlay()
     func videoPlayerPause()
     func videoPlayerSeeksTo(_ value:Float)
