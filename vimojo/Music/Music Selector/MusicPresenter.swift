@@ -33,12 +33,15 @@ class MusicPresenter: MusicPresenterInterface,MusicInteractorDelegate {
     var projectAudios: MusicSelectorCellViewModel?{
         if let project = interactor?.project {
             let projectAudios = project.getVideoList()
+            var totalTime:Double = 0
             let items = projectAudios.map({ (video) -> SelectorItem in
-                return SelectorItem(with: video.thumbnailImage,
-                                    timeRange: CMTimeRange(start: video.getStartTime(), end: video.getStopTime()),
-                                    action: {
-                                    self.wireframe?.presentVideoAudio(video: video)
+                let item = SelectorItem(with: video.thumbnailImage,
+                                        timeRange: CMTimeRange(start: video.getStartTime() + totalTime, end: video.getStopTime() + totalTime),
+                                        action: {
+                                            self.wireframe?.presentVideoAudio(video: video)
                 })
+                totalTime += video.getStopTime()
+                return item
             })
             
             return MusicSelectorCellViewModel(with: .originalAudio,
