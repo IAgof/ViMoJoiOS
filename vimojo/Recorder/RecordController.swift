@@ -31,13 +31,14 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var micButton: UIButton!
     @IBOutlet weak var storageButton: UIButton!
 
+    @IBOutlet weak var gridButton: UIButton!
     @IBOutlet weak var zoomButton: UIButton!
     @IBOutlet weak var isoButton: UIButton!
     @IBOutlet weak var exposureButton: UIButton!
     @IBOutlet weak var focusButton: UIButton!
     @IBOutlet weak var whiteBalanceButton: UIButton!
     @IBOutlet weak var exposureModesButton: UIButton!
-    @IBOutlet weak var autoModesButton: UIButton!
+    @IBOutlet weak var defaultModesButton: UIButton!
 
     @IBOutlet weak var showDrawerButton: UIButton!
 
@@ -169,10 +170,10 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     }
     
     func configureRotationObserver(){
-                NotificationCenter.default.addObserver(self,
-                                                                 selector: #selector(RecordController.checkOrientation),
-                                                                 name: NSNotification.Name.UIDeviceOrientationDidChange,
-                                                                 object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(RecordController.checkOrientation),
+                                               name: NSNotification.Name.UIDeviceOrientationDidChange,
+                                               object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -237,23 +238,21 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBAction func pushHideButtons(_ sender: AnyObject) {
         eventHandler?.pushHideAllButtons()
     }
-    
+
     @IBAction func pushZoom(_ sender: AnyObject) {
         eventHandler?.pushConfigMode(VideoModeConfigurations.zomm)
     }
-    
-    
+
     @IBAction func pushISO(_ sender: AnyObject) {
         eventHandler?.pushConfigMode(VideoModeConfigurations.iso)
     }
-        
     
-    @IBAction func pushMode(_ sender: AnyObject) {
-        
+    @IBAction func pushDefaultModes(_ sender: Any) {
+        eventHandler?.pushDefaultModes()
     }
     
-    @IBAction func pushAutoModes(_ sender: Any) {
-        eventHandler?.pushAutoModes()
+    @IBAction func pushGrid(_ sender: Any) {
+        eventHandler?.pushGrid()
     }
     
     @IBAction func pushWhiteBalance(_ sender: AnyObject) {
@@ -714,6 +713,11 @@ extension RecordController:RecordPresenterDelegate {
         exposureModesButton.isSelected = false
     }
     
+    func stopDefault() {
+    defaultModesButton.isSelected = false
+        
+    }
+    
     func setResolutionToView(_ resolution: String) {
         resolutionsView.setResolutionAtInit(resolution)
     }
@@ -766,7 +770,8 @@ extension RecordController:RecordPresenterDelegate {
         fadeOutView([secondaryChronometerContainer])
     }
     
-    func setAutoAllModes() {
+    func setDefaultAllModes() {
+        defaultModesButton.isSelected = true
         zoomView.setZoomSliderValue(1)
         isoConfigurationView.setAutoISO()
         wbConfigurationView.setAutoWB()
@@ -776,6 +781,16 @@ extension RecordController:RecordPresenterDelegate {
     
     func buttonsWithRecording(isEnabled: Bool) {
         resolutionButton.isEnabled = isEnabled
+    }
+    
+    func showGrid() {
+        gridButton.isSelected = true
+        overlayClearGrid.isHidden = false
+    }
+    
+    func hideGrid() {
+        gridButton.isSelected = false
+        overlayClearGrid.isHidden = true
     }
 }
 

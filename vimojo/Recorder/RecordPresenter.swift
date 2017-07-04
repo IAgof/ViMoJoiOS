@@ -35,6 +35,7 @@ class RecordPresenter: NSObject
     var lastOrientationEnabled:Int?
     
     //MARK: - Showing controllers
+    var gridIsShowed = false
     var zoomIsShowed = false
     var batteryIsShowed = false
     var spaceOnDiskIsShowed = false
@@ -47,6 +48,7 @@ class RecordPresenter: NSObject
     var micIsEnabled = false
     var modeViewIsShowed = false
     var inputGainViewIsShowed = false
+    var isDeafaultActivate = true
     
     enum batteryImages:String {
         case charged = "activity_rec_battery_100"
@@ -319,6 +321,16 @@ class RecordPresenter: NSObject
         }
     }
     
+    func pushGrid() {
+        if gridIsShowed {
+            hideGridIfYouCan()
+        } else {
+            delegate?.showGrid()
+            
+            gridIsShowed = true
+        }
+    }
+    
     func pushExposureModes() {
         if exposureModesViewIsShowed{
             hideExposureModesIfYouCan()
@@ -331,17 +343,18 @@ class RecordPresenter: NSObject
         }
     }
     
-    func pushAutoModes() {
+    func pushDefaultModes() {
         hideFocusIfYouCan()
         hideISOConfigIfYouCan()
         hideZoomViewIfYouCan()
         hideWBConfigIfYouCan()
         hideFocusIfYouCan()
         hideExposureModesIfYouCan()
+        hideGridIfYouCan()
         
-        delegate?.setAutoAllModes()
+        delegate?.setDefaultAllModes()
     }
-    
+
     func pushCloseBatteryButton() {
         hideBatteryViewIfYouCan()
     }
@@ -613,6 +626,15 @@ class RecordPresenter: NSObject
         exposureModesViewIsShowed = false
     }
     
+    func hideGridIfYouCan() {
+        if !gridIsShowed {
+            return
+        }
+        
+        delegate?.hideGrid()
+        gridIsShowed = false
+    }
+    
     func hideInputGainIfYouCan(){
         if !inputGainViewIsShowed{
             return
@@ -628,6 +650,7 @@ class RecordPresenter: NSObject
         hideFocusIfYouCan()
         hideExposureModesIfYouCan()
         hideZoomViewIfYouCan()
+        stopDefaultIfYouCan()
         
         hideInputGainIfYouCan()
     }
@@ -638,6 +661,15 @@ class RecordPresenter: NSObject
         }else{
             delegate?.hideModeViewAndButtonStateDisabled()
         }
+    }
+    
+    func stopDefaultIfYouCan(){
+        if !isDeafaultActivate {
+            return
+        }
+        delegate?.stopDefault()
+        isDeafaultActivate = false
+        
     }
     
     func showModeView(){

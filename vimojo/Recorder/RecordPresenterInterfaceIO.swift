@@ -26,7 +26,7 @@ protocol RecordPresenterInterface{
     func pushHideMode()
     
     func pushHideAllButtons()
-    
+
     func pushZoom()
     func pushBattery()
     func pushSpaceOnDisk()
@@ -35,7 +35,8 @@ protocol RecordPresenterInterface{
     func pushMic()
     func pushFocus()
     func pushExposureModes()
-    func pushAutoModes()
+    func pushDefaultModes()
+    func pushGrid()
     
     func pushConfigMode(_ modePushed:VideoModeConfigurations)
     
@@ -89,6 +90,9 @@ protocol RecordPresenterDelegate {
     func hideZoomView()
     func showZoomView()
     
+    func showGrid()
+    func hideGrid()
+    
     func setBatteryIcon(_ images:IconsImage)
     func setMemoryIcon(_ images:IconsImage)
     
@@ -122,12 +126,11 @@ protocol RecordPresenterDelegate {
     func showExposureModesView()
     func hideExposureModesView()
     
+    func stopDefault()
+    
     func setResolutionToView(_ resolution:String)
     func setResolutionIconImage(_ image:UIImage)
     func setResolutionIconImagePressed(_ image:UIImage)
-    
-//    func enableShareButton()
-//    func disableShareButton()
     
     func hideThumbnailButtonAndLabel()
     func showThumbnailButtonAndLabel()
@@ -143,6 +146,6 @@ protocol RecordPresenterDelegate {
     func showSecondaryRecordChronometerContainer()
     func hideSecondaryRecordChronometerContainer()
     
-    func setAutoAllModes()
+    func setDefaultAllModes()
     func buttonsWithRecording(isEnabled: Bool)
 }
