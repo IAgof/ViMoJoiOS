@@ -161,8 +161,8 @@ class RecordPresenter: NSObject
             if videoSettingsConfigViewIsShowing {
                 delegate?.showVideoSettingsConfig()
             }
-            
-            delegate?.hideSecondaryRecordViews()
+            // We don't want to make the grid fade in and out when hiding buttons
+//            delegate?.hideSecondaryRecordViews()
             
             delegate?.showAllButtonsButtonImage()
             secondaryViewIsShowing = false
@@ -171,7 +171,7 @@ class RecordPresenter: NSObject
             
             self.hideModeView()
             
-            delegate?.showSecondaryRecordViews()
+//            delegate?.showSecondaryRecordViews()
             delegate?.hidePrincipalViews()
             
             hideZoomViewIfYouCan()

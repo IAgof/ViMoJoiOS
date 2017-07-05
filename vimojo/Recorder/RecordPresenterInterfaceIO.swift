@@ -60,11 +60,11 @@ protocol RecordPresenterDelegate {
    
     func showFlashOn(_ on:Bool)
     func showRecordButton()
+    func showStopButton()
     func showFlashSupported(_ state:Bool)
     func showBackCameraSelected()
     func showFrontCameraSelected()
     func showFocusAtPoint(_ point:CGPoint)
-    func showStopButton()
     func showHideAllButtonsButtonImage()
     func showAllButtonsButtonImage()
     func showBatteryRemaining()
