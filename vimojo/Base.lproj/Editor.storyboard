@@ -1067,6 +1067,25 @@
                                                     <action selector="sliderValueChanged:" destination="Utc-L4-mzc" eventType="valueChanged" id="bvH-xG-cUq"/>
                                                 </connections>
                                             </slider>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lCS-ZN-hm2" customClass="TTRangeSlider">
+                                                <rect key="frame" x="32" y="91" width="256" height="128"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Wge-jt-ByD"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="minValue">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                                        <real key="value" value="100"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="disableRange" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedMaximum">
+                                                        <real key="value" value="50"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1074,8 +1093,10 @@
                                             <constraint firstItem="Dha-K7-bfj" firstAttribute="centerX" secondItem="eZx-Bd-WWN" secondAttribute="centerX" id="5PT-de-BFn"/>
                                             <constraint firstItem="Dha-K7-bfj" firstAttribute="width" secondItem="eZx-Bd-WWN" secondAttribute="width" multiplier="0.8" id="Btf-S4-8IT"/>
                                             <constraint firstAttribute="bottom" secondItem="vuY-0f-OtG" secondAttribute="bottom" constant="20" id="GST-Rx-JZW"/>
+                                            <constraint firstItem="lCS-ZN-hm2" firstAttribute="centerY" secondItem="eZx-Bd-WWN" secondAttribute="centerY" id="U9U-FB-sda"/>
                                             <constraint firstAttribute="trailing" secondItem="yGK-8b-3xy" secondAttribute="trailing" constant="20" id="Vcp-pY-qzd"/>
                                             <constraint firstItem="vuY-0f-OtG" firstAttribute="leading" secondItem="eZx-Bd-WWN" secondAttribute="leading" constant="20" id="aIn-MX-j7p"/>
+                                            <constraint firstItem="lCS-ZN-hm2" firstAttribute="centerX" secondItem="eZx-Bd-WWN" secondAttribute="centerX" id="mGQ-aN-l6I"/>
                                             <constraint firstAttribute="bottom" secondItem="yGK-8b-3xy" secondAttribute="bottom" constant="20" id="sbB-tP-xst"/>
                                         </constraints>
                                     </view>
@@ -1086,6 +1107,7 @@
                         <constraints>
                             <constraint firstItem="DUv-Y3-ql7" firstAttribute="leading" secondItem="s9y-Xk-fZK" secondAttribute="leading" id="1Wu-O7-V3O"/>
                             <constraint firstAttribute="trailing" secondItem="DUv-Y3-ql7" secondAttribute="trailing" id="2x8-Dy-EF1"/>
+                            <constraint firstItem="lCS-ZN-hm2" firstAttribute="width" secondItem="s9y-Xk-fZK" secondAttribute="width" multiplier="0.8" id="OHE-bb-PXb"/>
                             <constraint firstItem="DUv-Y3-ql7" firstAttribute="top" secondItem="s9y-Xk-fZK" secondAttribute="top" id="W2I-1K-hrl"/>
                             <constraint firstItem="aRh-PB-WWZ" firstAttribute="top" secondItem="DUv-Y3-ql7" secondAttribute="bottom" id="iiK-Ng-eUH"/>
                         </constraints>
@@ -1095,6 +1117,7 @@
                         <outlet property="cancelButton" destination="vuY-0f-OtG" id="yL9-1l-JCV"/>
                         <outlet property="playerView" destination="Izf-t3-0oA" id="OHO-DA-N0x"/>
                         <outlet property="rangeSlider" destination="Dha-K7-bfj" id="krX-6V-9Vn"/>
+                        <outlet property="rangeTTSlider" destination="lCS-ZN-hm2" id="t1B-Ex-jbt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FPT-gp-4Kl" userLabel="First Responder" sceneMemberID="firstResponder"/>

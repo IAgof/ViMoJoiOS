@@ -33,25 +33,28 @@ class Audio4VideoViewController: ViMoJoController, Audio4VideoPresenterDelegate 
     
     func configureView() {
 //        rangeSlider.layoutIfNeeded()
+        //TODO: WIll be removed when change to TTRANGE SLIDER!
         rangeSlider.tintColor = configuration.mainColor
     }
     
     func setupSlider(_ value: Float) {
 //       rangeSlider.maxValue = value
+        //TODO: WIll be removed when change to TTRANGE SLIDER!
         rangeSlider.value = value
     }
     
+    override func pushBack() { eventHandler?.cancel() }
     @IBAction func cancelTapped(_ sender: Any){ eventHandler?.cancel() }
     @IBAction func acceptTapped(_ sender: Any) { eventHandler?.accept() }
     //TODO: WIll be removed when change to TTRANGE SLIDER!
     @IBAction func sliderValueChanged(_ sender: UISlider) { eventHandler?.sliderValue = sender.value }
 }
 
-extension Audio4VideoViewController: TTRangeSliderDelegate{
-    func rangeSlider(_ sender: TTRangeSlider!, didChangeSelectedMinimumValue selectedMinimum: Float, andMaximumValue selectedMaximum: Float) {
-        eventHandler?.sliderValue = selectedMaximum
-    }
-}
+//extension Audio4VideoViewController: TTRangeSliderDelegate{
+//    func rangeSlider(_ sender: TTRangeSlider!, didChangeSelectedMinimumValue selectedMinimum: Float, andMaximumValue selectedMaximum: Float) {
+//        eventHandler?.sliderValue = selectedMaximum
+//    }
+//}
 
 extension Audio4VideoViewController:PlayerViewSetter{
     //MARK: - Player setter
