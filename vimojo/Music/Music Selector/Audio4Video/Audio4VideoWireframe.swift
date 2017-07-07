@@ -16,6 +16,7 @@ class Audio4VideoWireframe {
     var presenter: Audio4VideoPresenter = Audio4VideoPresenter()
     var interactor: Audio4VideoInteractor = Audio4VideoInteractor()
     var playerPresenter: PlayerPresenterInterface
+    var playerWireframe: PlayerWireframe?
     var controller: Audio4VideoViewController?
     var mainStoryboard: UIStoryboard {
         let storyboard = UIStoryboard(name: "Editor", bundle: Bundle.main)
@@ -24,10 +25,12 @@ class Audio4VideoWireframe {
     
     init(rootWireframe: RootWireframe,
          playerPresenter: PlayerPresenterInterface,
+         playerWireframe: PlayerWireframe? ,
          project: Project,
          video: Video) {
         self.rootWireframe = rootWireframe
         self.playerPresenter = playerPresenter
+        self.playerWireframe = playerWireframe
         let storyboard = mainStoryboard
         self.controller = storyboard.instantiateViewController(withIdentifier: audio4VideonaViewControllerIdentifier) as? Audio4VideoViewController
         
@@ -45,7 +48,11 @@ class Audio4VideoWireframe {
     }
     
     func presentPlayerInterface() {
-        guard let controller = self.controller else{ return }
-        PlayerWireframe().presentPlayerInterfaceFromViewController(controller)
+        guard let controller = self.controller , let playerWireframe = playerWireframe else{ return }
+        playerWireframe.presentPlayerInterfaceFromViewController(controller)
+    }
+    
+    func dissmiss(){
+        _ = controller?.navigationController?.popViewController(animated: true)
     }
 }

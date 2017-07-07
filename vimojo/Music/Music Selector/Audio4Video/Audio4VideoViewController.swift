@@ -21,29 +21,30 @@ class Audio4VideoViewController: ViMoJoController, Audio4VideoPresenterDelegate 
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var acceptButton: UIButton!
-    @IBOutlet weak var rangeSlider: TTRangeSlider!
+//    @IBOutlet weak var rangeSlider: TTRangeSlider!
+    @IBOutlet weak var rangeSlider: UISlider!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         eventHandler?.viewDidLoad()
         configureView()
+        configureNavigationBarWithBackButton()
     }
     
     func configureView() {
+//        rangeSlider.layoutIfNeeded()
         rangeSlider.tintColor = configuration.mainColor
     }
     
     func setupSlider(_ value: Float) {
-        rangeSlider.maxValue = value
-    }
-    @IBAction func cancelTapped(_ sender: Any) {
-        _ = self.navigationController?.popViewController(animated: true)
+//       rangeSlider.maxValue = value
+        rangeSlider.value = value
     }
     
-    @IBAction func acceptTapped(_ sender: Any) {
-    
-    
-    }
+    @IBAction func cancelTapped(_ sender: Any){ eventHandler?.cancel() }
+    @IBAction func acceptTapped(_ sender: Any) { eventHandler?.accept() }
+    //TODO: WIll be removed when change to TTRANGE SLIDER!
+    @IBAction func sliderValueChanged(_ sender: UISlider) { eventHandler?.sliderValue = sender.value }
 }
 
 extension Audio4VideoViewController: TTRangeSliderDelegate{
