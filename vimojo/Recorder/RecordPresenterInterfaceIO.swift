@@ -26,7 +26,8 @@ protocol RecordPresenterInterface{
     func pushHideMode()
     
     func pushHideAllButtons()
-    
+	
+	func pushGridMode()
     func pushZoom()
     func pushBattery()
     func pushSpaceOnDisk()
@@ -35,7 +36,7 @@ protocol RecordPresenterInterface{
     func pushMic()
     func pushFocus()
     func pushExposureModes()
-    func pushAutoModes()
+    func pushDefaultModes()
     
     func pushConfigMode(_ modePushed:VideoModeConfigurations)
     
@@ -85,6 +86,9 @@ protocol RecordPresenterDelegate {
     
     func showVideoSettingsConfig()
     func hideVideoSettingsConfig()
+	
+	func showGridView()
+	func hideGridView()
     
     func hideZoomView()
     func showZoomView()
@@ -143,6 +147,6 @@ protocol RecordPresenterDelegate {
     func showSecondaryRecordChronometerContainer()
     func hideSecondaryRecordChronometerContainer()
     
-    func setAutoAllModes()
+    func setDefaultAllModes()
     func buttonsWithRecording(isEnabled: Bool)
 }

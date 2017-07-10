@@ -35,7 +35,8 @@ class RecordPresenter: NSObject
     var lastOrientationEnabled:Int?
     
     //MARK: - Showing controllers
-    var zoomIsShowed = false
+    var gridIsShowed = false
+	var zoomIsShowed = false
     var batteryIsShowed = false
     var spaceOnDiskIsShowed = false
     var resolutionIsShowed = false
@@ -159,9 +160,7 @@ class RecordPresenter: NSObject
             if videoSettingsConfigViewIsShowing {
                 delegate?.showVideoSettingsConfig()
             }
-            
-            delegate?.hideSecondaryRecordViews()
-            
+			
             delegate?.showAllButtonsButtonImage()
             secondaryViewIsShowing = false
         }else{
@@ -169,7 +168,6 @@ class RecordPresenter: NSObject
             
             self.hideModeView()
             
-            delegate?.showSecondaryRecordViews()
             delegate?.hidePrincipalViews()
             
             hideZoomViewIfYouCan()
@@ -271,7 +269,14 @@ class RecordPresenter: NSObject
             
         }
     }
-    
+	
+	func pushGridMode() {
+		if gridIsShowed {
+			hideGridIfYouCan()
+		} else {
+			showGridView()
+		}
+	}
     
     func pushZoom() {
         if zoomIsShowed{
@@ -331,15 +336,15 @@ class RecordPresenter: NSObject
         }
     }
     
-    func pushAutoModes() {
+    func pushDefaultModes() {
         hideFocusIfYouCan()
         hideISOConfigIfYouCan()
         hideZoomViewIfYouCan()
         hideWBConfigIfYouCan()
-        hideFocusIfYouCan()
         hideExposureModesIfYouCan()
+		hideGridIfYouCan()
         
-        delegate?.setAutoAllModes()
+        delegate?.setDefaultAllModes()
     }
     
     func pushCloseBatteryButton() {
@@ -525,6 +530,22 @@ class RecordPresenter: NSObject
         
         modeViewIsShowed = false
     }
+	
+	func hideGridIfYouCan() {
+		if !gridIsShowed {
+			return
+		}
+		
+		delegate?.hideGridView()
+		
+		gridIsShowed = false
+	}
+	
+	func showGridView() {
+		delegate?.showGridView()
+		
+		gridIsShowed = true
+	}
     
     func showZoomView(){
         delegate?.showZoomView()
