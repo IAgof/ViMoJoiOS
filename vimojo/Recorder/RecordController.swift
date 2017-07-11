@@ -668,9 +668,9 @@ extension RecordController:RecordPresenterDelegate {
         audioLevelView.isHidden = false
     }
     
-    func hideMicLevelView() {
-        audioLevelView.isHidden = true
-    }
+    //func hideMicLevelView() {
+       // audioLevelView.isHidden = true
+    //}
     
     func showInputGainSliderView() {
         fadeInView([inputGainSlider])

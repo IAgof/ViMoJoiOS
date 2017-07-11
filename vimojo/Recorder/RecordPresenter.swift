@@ -42,7 +42,7 @@ class RecordPresenter: NSObject
     var resolutionIsShowed = false
     var isoConfigIsShowed = false
     var wbConfigIsShowed = false
-    var micViewIsShowed = false
+    var micViewIsShowed = true
     var focusViewIsShowed = false
     var exposureModesViewIsShowed = false
     var micIsEnabled = false
@@ -232,18 +232,18 @@ class RecordPresenter: NSObject
     }
     
     func pushMic() {
-        if micViewIsShowed {
+        /*if micViewIsShowed {
             hideMicViewIfYouCan()
             hideInputGainIfYouCan()
         }else{
-            hideAllModeConfigsIfNeccesary()
+            hideAllModeConfigsIfNeccesary()*/
             
             delegate?.showInputGainSliderView()
             delegate?.showMicLevelView()
             
             micViewIsShowed = true
             inputGainViewIsShowed = true
-        }
+        //}
     }
     
     func pushConfigMode(_ modePushed: VideoModeConfigurations) {
@@ -598,14 +598,14 @@ class RecordPresenter: NSObject
         spaceOnDiskIsShowed = false
     }
     
-    func hideMicViewIfYouCan(){
+    /*func hideMicViewIfYouCan(){
         if !micViewIsShowed {
             return
         }
         delegate?.hideMicLevelView()
         
         micViewIsShowed = false
-    }
+    }*/
     
     func hideWBConfigIfYouCan(){
         if !wbConfigIsShowed {
@@ -686,20 +686,20 @@ class RecordPresenter: NSObject
         delegate?.setSelectedMicButton(state)
         micIsEnabled = state
         
-        if !state {
+      /*  if !state {
             hideMicViewIfYouCan()
             hideInputGainIfYouCan()
-        }else{
+        }else{*/
             delegate?.getMicValues()
             delegate?.showMicLevelView()
             
-            hideAllModeConfigsIfNeccesary()
+           // hideAllModeConfigsIfNeccesary()
             
             delegate?.showInputGainSliderView()
             inputGainViewIsShowed = true
 
             micViewIsShowed = true
-        }
+        //}
     }
     
     dynamic fileprivate func audioRouteChangeListener(_ notification:Notification) {
