@@ -778,7 +778,7 @@ extension RecordController:RecordPresenterDelegate {
     
     func setDefaultAllModes() {
 //        zoomView.setZoomSliderValue(1)
-		zoomView.setDefaultZoom(1)
+//		zoomView.setDefaultZoom(1)
         isoConfigurationView.setAutoISO()
         wbConfigurationView.setAutoWB()
         focusView.setAutoFocus()
