@@ -232,18 +232,18 @@ class RecordPresenter: NSObject
     }
     
     func pushMic() {
-        /*if micViewIsShowed {
-            hideMicViewIfYouCan()
+        if inputGainViewIsShowed {
+//            hideMicViewIfYouCan()
             hideInputGainIfYouCan()
-        }else{
-            hideAllModeConfigsIfNeccesary()*/
-            
+        } else {
+//            hideAllModeConfigsIfNeccesary()
+        
             delegate?.showInputGainSliderView()
-            delegate?.showMicLevelView()
-            
-            micViewIsShowed = true
+//            delegate?.showMicLevelView()
+        
+//            micViewIsShowed = true
             inputGainViewIsShowed = true
-        //}
+        }
     }
     
     func pushConfigMode(_ modePushed: VideoModeConfigurations) {
@@ -676,30 +676,49 @@ class RecordPresenter: NSObject
             if port.portType == AVAudioSessionPortHeadphones {
                 // Headphones located
                 setMicButtonState(true)
+                setDeviceButtonState(false)
+                delegate?.getMicValues()
             }else{
                 setMicButtonState(false)
+                setDeviceButtonState(true)
+                delegate?.getMicValues()
             }
         }
     }
     
-    func setMicButtonState(_ state:Bool){
-        delegate?.setSelectedMicButton(state)
-        micIsEnabled = state
+    func setMicButtonState(_ state:Bool) {
+        if !state {
+            delegate?.showJackMicButton()
+            return
+        } else {
+            delegate?.hideJackMicButton()
+        }
         
-      /*  if !state {
-            hideMicViewIfYouCan()
-            hideInputGainIfYouCan()
-        }else{*/
-            delegate?.getMicValues()
-            delegate?.showMicLevelView()
-            
-           // hideAllModeConfigsIfNeccesary()
-            
-            delegate?.showInputGainSliderView()
-            inputGainViewIsShowed = true
-
-            micViewIsShowed = true
-        //}
+////        delegate?.showMicLevelView()
+//        delegate?.showInputGainSliderView()
+//        
+//        if !state {
+////            hideMicViewIfYouCan()
+////            hideInputGainIfYouCan()
+//        }else{
+////            delegate?.getMicValues()
+////            delegate?.showMicLevelView()
+//            
+//            hideAllModeConfigsIfNeccesary()
+//            
+////            delegate?.showInputGainSliderView()
+//            inputGainViewIsShowed = true
+//
+//            micViewIsShowed = true
+//        }
+    }
+    
+    func setDeviceButtonState(_ state:Bool) {
+        if !state {
+            delegate?.showFrontMicButton()
+        } else {
+            delegate?.hideFrontMicButton()
+        }
     }
     
     dynamic fileprivate func audioRouteChangeListener(_ notification:Notification) {
@@ -709,9 +728,11 @@ class RecordPresenter: NSObject
         case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
             print("headphone plugged in")
             setMicButtonState(true)
+            setDeviceButtonState(false)
         case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
             print("headphone pulled out")
             setMicButtonState(false)
+            setDeviceButtonState(true)
         default:
             break
         }

@@ -115,7 +115,13 @@ protocol RecordPresenterDelegate {
     //func hideMicLevelView()
     func showInputGainSliderView()
     func hideInputGainSliderView()
-    func setSelectedMicButton(_ state:Bool)
+//    func setSelectedMicButton(_ state:Bool)
+    
+    func showJackMicButton()
+    func hideJackMicButton()
+    
+    func showFrontMicButton()
+    func hideFrontMicButton()
     
     func showFocusView()
     func hideFocusView()
