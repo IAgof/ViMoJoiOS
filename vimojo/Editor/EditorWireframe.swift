@@ -52,6 +52,8 @@ class EditorWireframe : NSObject {
     
     func presentPlayerInterface() {
         playerWireframe?.presentPlayerInterfaceFromViewController(editorViewController!)
+        playerWireframe?.presentedView?.seekBarColor = configuration.mainColor
+        playerWireframe?.presentedView?.seekBarTextColor = configuration.secondColor
     }
     
     func mainStoryboard() -> UIStoryboard {
