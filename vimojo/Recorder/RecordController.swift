@@ -28,7 +28,8 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
 
     @IBOutlet weak var hideAllButtonsButton: UIButton!
     @IBOutlet weak var batteryButton: UIButton!
-    @IBOutlet weak var micButton: UIButton!
+    @IBOutlet weak var jackMicButton: UIButton!
+    @IBOutlet weak var deviceMicButton: UIButton!
     @IBOutlet weak var storageButton: UIButton!
 
     @IBOutlet weak var gridButton: UIButton!
@@ -668,13 +669,13 @@ extension RecordController:RecordPresenterDelegate {
         audioLevelView.isHidden = false
     }
     
-    func hideMicLevelView() {
-        audioLevelView.isHidden = true
-    }
+    //func hideMicLevelView() {
+       // audioLevelView.isHidden = true
+    //}
     
     func showInputGainSliderView() {
         fadeInView([inputGainSlider])
-        showDrawerButton.isHidden = true
+//        showDrawerButton.isHidden = true
     }
     
     func hideInputGainSliderView() {
@@ -682,10 +683,26 @@ extension RecordController:RecordPresenterDelegate {
         showDrawerButton.isHidden = false
     }
     
-    func setSelectedMicButton(_ state: Bool) {
-        micButton.isHidden = !state
-        micButton.isSelected = !state
+    func showJackMicButton() {
+        jackMicButton.isHidden = true
     }
+    
+    func hideJackMicButton() {
+        jackMicButton.isHidden = false
+    }
+    
+    func showFrontMicButton() {
+        deviceMicButton.isHidden = true
+    }
+    
+    func hideFrontMicButton() {
+        deviceMicButton.isHidden = false
+    }
+    
+//    func setSelectedMicButton(_ state: Bool) {
+//        micButton.isHidden = !state
+//        micButton.isSelected = !state
+//    }
     
     func showFocusView() {
         fadeInView([focusView])
