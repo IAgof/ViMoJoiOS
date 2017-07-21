@@ -13,8 +13,14 @@ class MuiscSelectorTableViewCell: UITableViewCell {
     static var reusableIdentifier = "MuiscSelectorTableViewCellReuseIdentifier"
     static var nibName = "MuiscSelectorTableViewCell"
     
-    @IBOutlet weak var audioUImageView: UIImageView!
+    @IBOutlet weak var audioButton: UIButton!
     @IBOutlet weak var collectioView: UICollectionView!
+    @IBOutlet weak var audioSlider: UISlider!
+    public var tap: DefaultAction?
+    private var isLoaded: Bool = false
+    var sliderIsHidden: Bool = true
+    var music: MusicSelectorCellViewModel?
+    
     fileprivate var items: [SelectorItem] = []{
         didSet{
             DispatchQueue.main.async { self.collectioView.reloadData() }
@@ -28,9 +34,25 @@ class MuiscSelectorTableViewCell: UITableViewCell {
         collectioView.dataSource = self
         collectioView.delegate = self
     }
+    
     func setup(with music: MusicSelectorCellViewModel){
-        audioUImageView.image = music.icon
+        self.music = music
+        audioButton.setImage(music.iconExpand, for: .normal)
+        audioButton.setImage(music.iconShrink, for: .selected)
+        self.audioButton.isSelected = !self.sliderIsHidden
+        self.audioSlider.isHidden = self.sliderIsHidden
+        self.audioSlider.value = music.audioVolume
+        
         self.items = music.items
+    }
+    
+    @IBAction func buttonTapped(_ sender: Any) {
+        sliderIsHidden = !sliderIsHidden
+        tap?()
+    }
+    
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        music?.audioVolume = sender.value
     }
 }
 

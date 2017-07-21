@@ -12,5 +12,4 @@ struct MicRecorderViewModel{
     let sliderRange:Double
     let audioVolume:Float
     let projectAudioVolume:Float
-    var mixAudioSliderValue:Float
 }

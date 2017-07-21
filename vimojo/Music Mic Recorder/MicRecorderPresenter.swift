@@ -282,17 +282,6 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
         }
     }
     
-    func mixVolumeUpdate(_ value: Float) {
-        let mixAudio = MixAudioModel(sliderValue: value,
-                                     mixVideoWeight: nil)
-        
-        audioVolume = mixAudio.audioVolume
-        videoVolume = mixAudio.videoVolume
-        
-        delegate?.changeAudioPlayerVolume(audioVolume)
-        playerPresenter?.setPlayerVolume(videoVolume)
-    }
-    
     func micInserctionPointValue(value: Float) {
         bothPlayersSeeks(toTime:value)
     }
@@ -345,12 +334,7 @@ extension MicRecorderPresenter:MicRecorderInteractorDelegate{
     func setMicRecorderValues(_ value: MicRecorderViewModel) {
         recordMicViewTotalTime = value.sliderRange
         
-        var setUpValues = value
-        let audioMix = MixAudioModel(audioVolume: value.audioVolume,
-                                     videoVolume: value.projectAudioVolume,
-                                     mixVideoWeight: nil)
-        setUpValues.mixAudioSliderValue = audioMix.sliderValue
-        delegate?.setUpValues(setUpValues)
+        delegate?.setUpValues(value)
     }
     
     func setActualAudioRecorded(_ voiceOverComposition:AVMutableComposition){

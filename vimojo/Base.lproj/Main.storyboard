@@ -507,7 +507,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ucA-Hr-aMl" id="atU-ds-XNM">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="thx-qg-ycN">
@@ -624,31 +624,18 @@
                                                     <action selector="acceptButtonPushed:" destination="I1J-mQ-QlR" eventType="touchUpInside" id="BhW-Ih-6Nl"/>
                                                 </connections>
                                             </button>
-                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="50%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UE9-Ey-LlH">
-                                                <rect key="frame" x="143.5" y="241.5" width="33.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="activity_edit_sound_normal" maximumValueImage="activity_edit_sound_voiceover_mix_micro" translatesAutoresizingMaskIntoConstraints="NO" id="WJn-IL-MvO">
-                                                <rect key="frame" x="19" y="270" width="283" height="31"/>
-                                                <color key="minimumTrackTintColor" red="0.94901960780000005" green="0.29411764709999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <connections>
-                                                    <action selector="mixAudioValueChanged:" destination="I1J-mQ-QlR" eventType="valueChanged" id="IRn-M9-eUI"/>
-                                                </connections>
-                                            </slider>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fUs-Sp-lwX">
-                                                <rect key="frame" x="67" y="133.5" width="186.5" height="100"/>
+                                                <rect key="frame" x="95.5" y="133.5" width="130" height="100"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEj-Un-b8l">
-                                                        <rect key="frame" x="0.0" y="0.0" width="186.5" height="100"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                         <gestureRecognizers/>
                                                         <state key="normal" image="activity_edit_sound_voiceover_record_normal"/>
                                                         <state key="selected" image="activity_edit_sound_voiceover_record_pressed"/>
                                                         <state key="highlighted" image="activity_edit_sound_voiceover_record_pressed"/>
                                                     </button>
                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg0-GR-d24">
-                                                        <rect key="frame" x="186.5" y="33" width="0.0" height="34"/>
+                                                        <rect key="frame" x="100" y="33" width="30" height="34"/>
                                                         <gestureRecognizers/>
                                                         <state key="selected" image="button:Pg0-GR-d24:image"/>
                                                         <state key="highlighted" image="button:Pg0-GR-d24:image"/>
@@ -671,15 +658,9 @@
                                             <constraint firstItem="fUs-Sp-lwX" firstAttribute="centerY" secondItem="due-Kf-el9" secondAttribute="centerY" id="AgY-Qj-DmP"/>
                                             <constraint firstItem="A7I-K0-5AL" firstAttribute="leading" secondItem="due-Kf-el9" secondAttribute="leading" constant="8" id="GeM-jz-RZe"/>
                                             <constraint firstItem="p4x-F4-w1f" firstAttribute="height" secondItem="A7I-K0-5AL" secondAttribute="height" id="HQA-RT-6TS"/>
-                                            <constraint firstItem="WJn-IL-MvO" firstAttribute="top" secondItem="UE9-Ey-LlH" secondAttribute="bottom" constant="8" id="I4I-Ta-uEW"/>
                                             <constraint firstAttribute="trailing" secondItem="A7I-K0-5AL" secondAttribute="trailing" constant="8" id="Jd8-fv-cqS"/>
                                             <constraint firstItem="fUs-Sp-lwX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="A7I-K0-5AL" secondAttribute="bottom" constant="16" id="LyH-de-pze"/>
-                                            <constraint firstItem="UE9-Ey-LlH" firstAttribute="top" secondItem="fUs-Sp-lwX" secondAttribute="bottom" constant="8" id="Peb-2X-0JT"/>
                                             <constraint firstItem="sUC-nF-IiA" firstAttribute="leading" secondItem="due-Kf-el9" secondAttribute="leading" constant="8" id="Qbn-R4-Rg9"/>
-                                            <constraint firstItem="UE9-Ey-LlH" firstAttribute="leading" secondItem="fUs-Sp-lwX" secondAttribute="trailing" constant="-109.66666666666666" id="RDC-6u-XnB"/>
-                                            <constraint firstItem="UE9-Ey-LlH" firstAttribute="centerX" secondItem="fUs-Sp-lwX" secondAttribute="centerX" id="adJ-Jx-EQ9"/>
-                                            <constraint firstAttribute="trailing" secondItem="WJn-IL-MvO" secondAttribute="trailing" constant="20" id="cyV-ek-Geh"/>
-                                            <constraint firstItem="WJn-IL-MvO" firstAttribute="leading" secondItem="due-Kf-el9" secondAttribute="leading" constant="21" id="eH1-iz-fmR"/>
                                             <constraint firstItem="p4x-F4-w1f" firstAttribute="trailing" secondItem="A7I-K0-5AL" secondAttribute="trailing" constant="-15" id="gNq-gA-TCW"/>
                                             <constraint firstItem="fUs-Sp-lwX" firstAttribute="centerX" secondItem="due-Kf-el9" secondAttribute="centerX" id="hyf-np-1nU"/>
                                             <constraint firstItem="fUs-Sp-lwX" firstAttribute="centerX" secondItem="A7I-K0-5AL" secondAttribute="centerX" id="q0l-nx-4Q6"/>
@@ -688,7 +669,6 @@
                                             <constraint firstAttribute="bottom" secondItem="sUC-nF-IiA" secondAttribute="bottom" constant="20" id="vQg-q6-8OA"/>
                                             <constraint firstAttribute="trailing" secondItem="8L2-hc-cWS" secondAttribute="trailing" constant="8" id="w7O-72-QFC"/>
                                             <constraint firstItem="A7I-K0-5AL" firstAttribute="top" relation="greaterThanOrEqual" secondItem="due-Kf-el9" secondAttribute="top" constant="40" id="wQi-BN-W4t"/>
-                                            <constraint firstItem="8L2-hc-cWS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="WJn-IL-MvO" secondAttribute="bottom" constant="2" id="wdu-rH-5wv"/>
                                             <constraint firstAttribute="width" constant="240" id="y96-FL-NEi"/>
                                         </constraints>
                                         <variation key="default">
@@ -717,12 +697,10 @@
                         <outlet property="acceptButton" destination="8L2-hc-cWS" id="RJf-Sd-sOR"/>
                         <outlet property="cancelButton" destination="sUC-nF-IiA" id="Loq-GE-2Ex"/>
                         <outlet property="deleteVoiceOverTrackButton" destination="Pg0-GR-d24" id="eI4-9J-dtJ"/>
-                        <outlet property="mixAudioSlider" destination="WJn-IL-MvO" id="Isy-dC-SMW"/>
                         <outlet property="musicContainer" destination="due-Kf-el9" id="sII-E6-rvT"/>
                         <outlet property="playerView" destination="sET-gx-U39" id="aQ1-aT-zco"/>
                         <outlet property="recordButton" destination="KEj-Un-b8l" id="B6e-vp-L4d"/>
                         <outlet property="recordedTrackOverView" destination="p4x-F4-w1f" id="fCj-H6-otq"/>
-                        <outlet property="sliderValueLabel" destination="UE9-Ey-LlH" id="G93-Ad-sUP"/>
                         <outlet property="totalRecordedSlider" destination="A7I-K0-5AL" id="LjB-z9-Q7F"/>
                     </connections>
                 </viewController>
@@ -929,8 +907,6 @@
         <image name="activity_edit_clips_text_center_pressed" width="40" height="31"/>
         <image name="activity_edit_clips_text_top_normal" width="40" height="31"/>
         <image name="activity_edit_clips_text_top_pressed" width="40" height="31"/>
-        <image name="activity_edit_sound_normal" width="21" height="19"/>
-        <image name="activity_edit_sound_voiceover_mix_micro" width="12" height="21"/>
         <image name="activity_edit_sound_voiceover_record_normal" width="100" height="100"/>
         <image name="activity_edit_sound_voiceover_record_pressed" width="104" height="104"/>
         <image name="activity_edit_video_expand" width="19" height="19"/>

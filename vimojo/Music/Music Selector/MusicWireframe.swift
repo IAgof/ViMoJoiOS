@@ -100,7 +100,7 @@ class MusicWireframe : NSObject {
     
     func presentVideoAudio(video: Video) {
         guard let rootWireframe = self.rootWireframe, let playerPresenter = self.musicPresenter?.playerPresenter, let project = musicPresenter?.interactor?.project else{ return }
-        let wireframe = Audio4VideoWireframe(rootWireframe: rootWireframe, playerPresenter: playerPresenter, project: project, video: video)
+        let wireframe = Audio4VideoWireframe(rootWireframe: rootWireframe, playerPresenter: playerPresenter, playerWireframe: playerWireframe, project: project, video: video)
         
         if let controller = wireframe.controller { self.viewController?.show(controller, sender: nil) }
     }

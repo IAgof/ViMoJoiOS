@@ -99,8 +99,7 @@ class MicRecorderInteractor :MicRecorderInteractorInterface{
             lowValue: lowValue, actualValue: actualValue,
             highValue: highValue , sliderRange: sliderRange,
             audioVolume: audioVolume,
-            projectAudioVolume: project.projectOutputAudioLevel,
-            mixAudioSliderValue: 0.5
+            projectAudioVolume: project.projectOutputAudioLevel
         )
         
         delegate?.setMicRecorderValues(micValues)

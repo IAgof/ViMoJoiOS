@@ -8,16 +8,20 @@
 
 import Foundation
 import VideonaProject
+import AVFoundation
 
 protocol Audio4VideoPresenterInterface {
     var sliderValue: Float{ get set}
     func viewDidLoad()
     
     func updatePlayerLayer()
+    func cancel()
+    func accept()
 }
 
 protocol Audio4VideoInteractorDelegate {
     func setVideoComposition(_ composition: VideoComposition)
+    func updateAudioMix(audioMix: AVAudioMix)
 }
 
 class Audio4VideoPresenter: Audio4VideoPresenterInterface{
@@ -40,11 +44,21 @@ class Audio4VideoPresenter: Audio4VideoPresenterInterface{
     
     func viewDidLoad() {
         wireframe?.presentPlayerInterface()
+        if let sliderValue = interactor?.initialAudio { delegate?.setupSlider(sliderValue) }
         interactor?.getVideoComposition()
     }
     
     func updatePlayerLayer() {
-        
+        playerPresenter!.layoutSubViews()
+    }
+    
+    func cancel() {
+        interactor?.resetAudio()
+        wireframe?.dissmiss()
+    }
+    
+    func accept() {
+        wireframe?.dissmiss()
     }
 }
 
@@ -52,5 +66,9 @@ extension Audio4VideoPresenter: Audio4VideoInteractorDelegate{
     //MARK: - Interactor delegate
     func setVideoComposition(_ composition: VideoComposition) {
         playerPresenter?.createVideoPlayer(composition)
+    }
+    
+    func updateAudioMix(audioMix: AVAudioMix) {
+        playerPresenter?.setAudioMix(audioMix: audioMix)
     }
 }

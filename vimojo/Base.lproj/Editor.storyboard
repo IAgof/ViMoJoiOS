@@ -1020,7 +1020,7 @@
             </objects>
             <point key="canvasLocation" x="2020" y="99"/>
         </scene>
-        <!--Delegate-->
+        <!--Audio4 Video View Controller-->
         <scene sceneID="WtG-xg-EmD">
             <objects>
                 <viewController storyboardIdentifier="Audio4VideoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Utc-L4-mzc" customClass="Audio4VideoViewController" customModule="PeriodistaCelular" customModuleProvider="target" sceneMemberID="viewController">
@@ -1035,14 +1035,14 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DUv-Y3-ql7">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Izf-t3-0oA" customClass="PlayerView" customModule="PeriodistaCelular" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Izf-t3-0oA" customClass="PlayerView" customModule="PeriodistaCelular" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="common_icon_play_normal"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eZx-Bd-WWN">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eZx-Bd-WWN">
                                         <rect key="frame" x="0.0" y="180" width="320" height="388"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vuY-0f-OtG">
@@ -1061,36 +1061,43 @@
                                                     <action selector="acceptTapped:" destination="Utc-L4-mzc" eventType="touchUpInside" id="7zv-L4-uYY"/>
                                                 </connections>
                                             </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X53-md-2ic" customClass="TTRangeSlider">
-                                                <rect key="frame" x="15.5" y="174" width="289" height="40"/>
+                                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Dha-K7-bfj">
+                                                <rect key="frame" x="30" y="227" width="260" height="31"/>
+                                                <connections>
+                                                    <action selector="sliderValueChanged:" destination="Utc-L4-mzc" eventType="valueChanged" id="bvH-xG-cUq"/>
+                                                </connections>
+                                            </slider>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lCS-ZN-hm2" customClass="TTRangeSlider">
+                                                <rect key="frame" x="32" y="91" width="256" height="128"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Wge-jt-ByD"/>
+                                                </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="minValue">
                                                         <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
-                                                        <real key="value" value="1"/>
+                                                        <real key="value" value="100"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="disableRange" value="YES"/>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="selectedMaximum">
-                                                        <real key="value" value="1"/>
+                                                        <real key="value" value="50"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <outlet property="delegate" destination="Utc-L4-mzc" id="uBT-Dz-s8O"/>
-                                                </connections>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="yGK-8b-3xy" secondAttribute="bottom" constant="20" id="2eR-Yz-XAJ"/>
-                                            <constraint firstItem="X53-md-2ic" firstAttribute="centerX" secondItem="eZx-Bd-WWN" secondAttribute="centerX" id="GQd-We-5t4"/>
-                                            <constraint firstItem="X53-md-2ic" firstAttribute="height" secondItem="eZx-Bd-WWN" secondAttribute="height" multiplier="0.1" constant="1" id="Hg4-O1-V7Z"/>
-                                            <constraint firstItem="X53-md-2ic" firstAttribute="centerY" secondItem="eZx-Bd-WWN" secondAttribute="centerY" id="LEs-QM-idq"/>
-                                            <constraint firstAttribute="bottom" secondItem="vuY-0f-OtG" secondAttribute="bottom" constant="20" id="hLJ-ZW-tHY"/>
-                                            <constraint firstItem="vuY-0f-OtG" firstAttribute="leading" secondItem="eZx-Bd-WWN" secondAttribute="leading" constant="20" id="pkf-vv-moc"/>
-                                            <constraint firstAttribute="trailing" secondItem="yGK-8b-3xy" secondAttribute="trailing" constant="20" id="r5J-nj-YYv"/>
-                                            <constraint firstItem="X53-md-2ic" firstAttribute="width" secondItem="eZx-Bd-WWN" secondAttribute="width" multiplier="0.9" constant="1" id="tLk-1b-80T"/>
+                                            <constraint firstItem="Dha-K7-bfj" firstAttribute="centerY" secondItem="eZx-Bd-WWN" secondAttribute="centerY" id="4AD-yb-yVf"/>
+                                            <constraint firstItem="Dha-K7-bfj" firstAttribute="centerX" secondItem="eZx-Bd-WWN" secondAttribute="centerX" id="5PT-de-BFn"/>
+                                            <constraint firstItem="Dha-K7-bfj" firstAttribute="width" secondItem="eZx-Bd-WWN" secondAttribute="width" multiplier="0.8" id="Btf-S4-8IT"/>
+                                            <constraint firstAttribute="bottom" secondItem="vuY-0f-OtG" secondAttribute="bottom" constant="20" id="GST-Rx-JZW"/>
+                                            <constraint firstItem="lCS-ZN-hm2" firstAttribute="centerY" secondItem="eZx-Bd-WWN" secondAttribute="centerY" id="U9U-FB-sda"/>
+                                            <constraint firstAttribute="trailing" secondItem="yGK-8b-3xy" secondAttribute="trailing" constant="20" id="Vcp-pY-qzd"/>
+                                            <constraint firstItem="vuY-0f-OtG" firstAttribute="leading" secondItem="eZx-Bd-WWN" secondAttribute="leading" constant="20" id="aIn-MX-j7p"/>
+                                            <constraint firstItem="lCS-ZN-hm2" firstAttribute="centerX" secondItem="eZx-Bd-WWN" secondAttribute="centerX" id="mGQ-aN-l6I"/>
+                                            <constraint firstAttribute="bottom" secondItem="yGK-8b-3xy" secondAttribute="bottom" constant="20" id="sbB-tP-xst"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1100,6 +1107,7 @@
                         <constraints>
                             <constraint firstItem="DUv-Y3-ql7" firstAttribute="leading" secondItem="s9y-Xk-fZK" secondAttribute="leading" id="1Wu-O7-V3O"/>
                             <constraint firstAttribute="trailing" secondItem="DUv-Y3-ql7" secondAttribute="trailing" id="2x8-Dy-EF1"/>
+                            <constraint firstItem="lCS-ZN-hm2" firstAttribute="width" secondItem="s9y-Xk-fZK" secondAttribute="width" multiplier="0.8" id="OHE-bb-PXb"/>
                             <constraint firstItem="DUv-Y3-ql7" firstAttribute="top" secondItem="s9y-Xk-fZK" secondAttribute="top" id="W2I-1K-hrl"/>
                             <constraint firstItem="aRh-PB-WWZ" firstAttribute="top" secondItem="DUv-Y3-ql7" secondAttribute="bottom" id="iiK-Ng-eUH"/>
                         </constraints>
@@ -1108,7 +1116,8 @@
                         <outlet property="acceptButton" destination="yGK-8b-3xy" id="Ahv-Pe-Ke2"/>
                         <outlet property="cancelButton" destination="vuY-0f-OtG" id="yL9-1l-JCV"/>
                         <outlet property="playerView" destination="Izf-t3-0oA" id="OHO-DA-N0x"/>
-                        <outlet property="rangeSlider" destination="X53-md-2ic" id="T1p-fa-Jz3"/>
+                        <outlet property="rangeSlider" destination="Dha-K7-bfj" id="krX-6V-9Vn"/>
+                        <outlet property="rangeTTSlider" destination="lCS-ZN-hm2" id="t1B-Ex-jbt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FPT-gp-4Kl" userLabel="First Responder" sceneMemberID="firstResponder"/>

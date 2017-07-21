@@ -128,7 +128,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
             
             appDependencies.installRecordToRootViewControllerIntoWindow(window!)
 //            appDependencies.installEditorRoomToRootViewControllerIntoWindow(window!)
-            
         } else {
             // other version
             defaults.set(currentAppVersion, forKey: "appVersion")
