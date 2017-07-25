@@ -29,6 +29,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var hideAllButtonsButton: UIButton!
     @IBOutlet weak var batteryButton: UIButton!
     @IBOutlet weak var jackMicButton: UIButton!
+    @IBOutlet weak var gainButton: UIButton!
     @IBOutlet weak var deviceMicButton: UIButton!
     @IBOutlet weak var storageButton: UIButton!
 
@@ -248,7 +249,6 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
 		eventHandler?.pushConfigMode(VideoModeConfigurations.zomm)
 	}
 
-
     @IBAction func pushISO(_ sender: AnyObject) {
         eventHandler?.pushConfigMode(VideoModeConfigurations.iso)
     }
@@ -261,21 +261,17 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         eventHandler?.pushConfigMode(VideoModeConfigurations.whiteBalance)
     }
     
-    
     @IBAction func pushExposureModes(_ sender: AnyObject) {
         eventHandler?.pushConfigMode(VideoModeConfigurations.exposure)
     }
-    
     
     @IBAction func pushFocus(_ sender: AnyObject) {
         eventHandler?.pushConfigMode(VideoModeConfigurations.focus)
     }
     
-    
     @IBAction func pushBattery(_ sender: AnyObject) {
         eventHandler?.pushBattery()
     }
-    
     
     @IBAction func pushMemory(_ sender: AnyObject) {
         eventHandler?.pushSpaceOnDisk()
@@ -284,9 +280,10 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBAction func pushResolution(_ sender: AnyObject) {
         eventHandler?.pushResolution()
     }
-        
-    @IBAction func pushMic(_ sender: AnyObject) {
-        eventHandler?.pushMic()
+    
+    // Display or hide the gain slider depending of its status
+    @IBAction func pushGain(_ sender: AnyObject) {
+        eventHandler?.pushGain()
     }
     
     @IBAction func pushShareButton(_ sender: AnyObject) {
@@ -669,18 +666,32 @@ extension RecordController:RecordPresenterDelegate {
         audioLevelView.isHidden = false
     }
     
-    //func hideMicLevelView() {
-       // audioLevelView.isHidden = true
-    //}
-    
-    func showInputGainSliderView() {
+    func selectInputGainSliderView() {
         fadeInView([inputGainSlider])
-//        showDrawerButton.isHidden = true
+        gainButton.isSelected = true
+        showDrawerButton.isHidden = true
     }
     
-    func hideInputGainSliderView() {
+    func deselectInputGainSliderView() {
         fadeOutView([inputGainSlider])
+        gainButton.isSelected = false
         showDrawerButton.isHidden = false
+    }
+    
+    func selectDeviceMicButton() {
+        deviceMicButton.isSelected = true
+    }
+    
+    func selectJackMicButton() {
+        jackMicButton.isSelected = true
+    }
+    
+    func deselectDeviceMicButton() {
+        deviceMicButton.isSelected = false
+    }
+    
+    func deselectJackMicButton() {
+        jackMicButton.isSelected = false
     }
     
     func showJackMicButton() {
