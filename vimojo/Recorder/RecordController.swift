@@ -65,7 +65,6 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var secondaryChronometerContainer: UIView!
     @IBOutlet weak var modeContainerView: UIView!
     @IBOutlet weak var chronometerContainerView: UIView!
-    @IBOutlet weak var recordAreaContainerView: UIView!
     @IBOutlet weak var thumbnailView: UIImageView!
     @IBOutlet weak var chronometerImageView: UIImageView!
     
@@ -316,7 +315,6 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         viewsToBorder.append(batteryView)
         viewsToBorder.append(spaceOnDiskView)
         viewsToBorder.append(chronometerContainerView)
-        viewsToBorder.append(recordAreaContainerView)
         viewsToBorder.append(secondaryChronometerLabel)
         viewsToBorder.append(isoConfigurationView)
         viewsToBorder.append(focusView)
@@ -781,11 +779,11 @@ extension RecordController:RecordPresenterDelegate {
     }
     
     func showModeViewAndButtonStateEnabled() {
-        fadeInView([recordAreaContainerView,hideModeViewButton])
+//        fadeInView([recordAreaContainerView,hideModeViewButton])
     }
     
     func hideModeViewAndButtonStateEnabled() {
-        fadeOutView([recordAreaContainerView,hideModeViewButton])
+//        fadeOutView([recordAreaContainerView,hideModeViewButton])
     }
     
     func showModeViewAndButtonStateDisabled() {
