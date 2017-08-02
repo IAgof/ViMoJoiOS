@@ -23,7 +23,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var resolutionButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
-    @IBOutlet weak var showModeViewButton: UIButton!
+//    @IBOutlet weak var showModeViewButton: UIButton!
     @IBOutlet weak var hideModeViewButton: UIButton!
 
     @IBOutlet weak var hideAllButtonsButton: UIButton!
@@ -41,6 +41,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var whiteBalanceButton: UIButton!
     @IBOutlet weak var exposureModesButton: UIButton!
     @IBOutlet weak var defaultModesButton: UIButton!
+    @IBOutlet weak var recordAreaContainerView: UIView!
 
     @IBOutlet weak var showDrawerButton: UIButton!
 
@@ -65,6 +66,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     @IBOutlet weak var secondaryChronometerContainer: UIView!
     @IBOutlet weak var modeContainerView: UIView!
     @IBOutlet weak var chronometerContainerView: UIView!
+    @IBOutlet weak var thumbnailViewParent: UIView!
     @IBOutlet weak var thumbnailView: UIImageView!
     @IBOutlet weak var chronometerImageView: UIImageView!
     
@@ -226,10 +228,6 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
     
     @IBAction func pushVideoSettingsConfig(_ sender: AnyObject) {
         eventHandler?.pushVideoSettingsConfig()
-    }
-    
-    @IBAction func pushShowMode(_ sender: AnyObject) {
-        eventHandler?.pushShowMode()
     }
     
     @IBAction func pushHideMode(_ sender: AnyObject) {
@@ -563,11 +561,11 @@ extension RecordController:RecordPresenterDelegate {
     }
     
     func showVideoSettingsConfig() {
-        fadeInView([modeContainerView])
+        fadeInView([recordAreaContainerView])
     }
     
     func hideVideoSettingsConfig() {
-        fadeOutView([modeContainerView])
+        fadeOutView([recordAreaContainerView])
     }
 	
 	func hideGridView() {
@@ -763,11 +761,11 @@ extension RecordController:RecordPresenterDelegate {
     }
     
     func hideThumbnailButtonAndLabel() {
-        fadeOutView([thumbnailView,thumbnailNumberClips, thumbnailInfoLabel])
+        fadeOutView([thumbnailViewParent])
     }
     
     func showThumbnailButtonAndLabel() {
-        fadeInView([thumbnailView,thumbnailNumberClips, thumbnailInfoLabel])
+        fadeInView([thumbnailViewParent])
     }
     
     func showRecordChronometerContainer() {
@@ -779,19 +777,21 @@ extension RecordController:RecordPresenterDelegate {
     }
     
     func showModeViewAndButtonStateEnabled() {
-//        fadeInView([recordAreaContainerView,hideModeViewButton])
+        fadeInView([recordAreaContainerView])
+        
+        
     }
     
     func hideModeViewAndButtonStateEnabled() {
-//        fadeOutView([recordAreaContainerView,hideModeViewButton])
+        fadeOutView([recordAreaContainerView])
     }
     
     func showModeViewAndButtonStateDisabled() {
-        fadeInView([showModeViewButton])
+//        fadeInView([showModeViewButton])
     }
     
     func hideModeViewAndButtonStateDisabled() {
-        fadeOutView([showModeViewButton])
+//        fadeOutView([showModeViewButton])
     }
     
     func showSecondaryRecordChronometerContainer() {

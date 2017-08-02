@@ -46,7 +46,7 @@ class RecordPresenter: NSObject
     var focusViewIsShowed = false
     var exposureModesViewIsShowed = false
     var micIsEnabled = false
-    var modeViewIsShowed = false
+    var modeViewIsShowed = true
     var inputGainViewIsShowed = false
     
     enum batteryImages:String {
@@ -185,9 +185,9 @@ class RecordPresenter: NSObject
             if secondaryViewIsShowing {
                 delegate?.showRecordChronometerContainer()
                 
-                delegate?.hideSecondaryRecordChronometerContainer()
+//                delegate?.hideSecondaryRecordChronometerContainer()
             }else{
-                delegate?.showSecondaryRecordChronometerContainer()
+//                delegate?.showSecondaryRecordChronometerContainer()
                 
                 delegate?.hideRecordChronometerContainer()
             }
@@ -452,8 +452,8 @@ class RecordPresenter: NSObject
         self.trackStartRecord()
         
         delegate?.recordButtonEnable(false)
-        secondaryViewIsShowing ? delegate?.showSecondaryRecordChronometerContainer() :
-                                    delegate?.showRecordChronometerContainer()
+//        secondaryViewIsShowing ? delegate?.showSecondaryRecordChronometerContainer() :
+//                                    delegate?.showRecordChronometerContainer()
         delegate?.buttonsWithRecording(isEnabled: false)
         DispatchQueue.main.async(execute: {
             self.cameraInteractor?.setIsRecording(true)
@@ -489,7 +489,7 @@ class RecordPresenter: NSObject
                 //                self.delegate?.enableShareButton()
                 self.delegate?.showThumbnailButtonAndLabel()
                 if self.secondaryViewIsShowing {
-                    self.delegate?.hideSecondaryRecordChronometerContainer()
+//                    self.delegate?.hideSecondaryRecordChronometerContainer()
                 }else{
                     self.delegate?.hideRecordChronometerContainer()
                 }
@@ -526,10 +526,17 @@ class RecordPresenter: NSObject
     }
     
     func pushHideMode() {
-        delegate?.hideModeViewAndButtonStateEnabled()
-        delegate?.showModeViewAndButtonStateDisabled()
+//        delegate?.hideModeViewAndButtonStateEnabled()
+//        delegate?.showModeViewAndButtonStateDisabled()
+        
+        if !modeViewIsShowed {
+            modeViewIsShowed = true
+            delegate?.showVideoSettingsConfig()
+            return
+        }
         
         modeViewIsShowed = false
+        delegate?.hideVideoSettingsConfig()
     }
 	
 	func hideGridIfYouCan() {
