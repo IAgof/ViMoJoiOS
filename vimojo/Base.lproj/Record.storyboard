@@ -45,7 +45,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rwp-4f-byO">
                                                                 <rect key="frame" x="0.0" y="0.5" width="26" height="26"/>
                                                                 <state key="normal" image="activity_record_default_normal"/>
-                                                                <state key="selected" image="activity_record_default_pressed"/>
+                                                                <state key="selected" image="activity_record_default_normal"/>
                                                                 <state key="highlighted" image="activity_record_default_pressed"/>
                                                                 <connections>
                                                                     <action selector="pushDefaultModes:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="rb3-GN-knA"/>
@@ -165,7 +165,7 @@
                                                             <constraint firstAttribute="width" secondItem="Gn6-UX-bN2" secondAttribute="height" multiplier="1:1" id="abK-7K-uH7"/>
                                                         </constraints>
                                                         <state key="normal" image="activity_rec_hide_tools"/>
-                                                        <state key="selected" image="activity_rec_tools_menu"/>
+                                                        <state key="selected" image="activity_rec_tools_menu_pressed"/>
                                                         <state key="highlighted" image="activity_rec_hide_tools_pressed"/>
                                                         <connections>
                                                             <action selector="pushHideMode:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="pVx-lT-8kr"/>
@@ -272,8 +272,8 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8j-Vd-5dC">
                                                         <rect key="frame" x="35" y="0.0" width="15" height="31.5"/>
                                                         <state key="normal" image="activity_record_memory_100"/>
-                                                        <state key="selected" image="activity_record_memory_pressed"/>
-                                                        <state key="highlighted" image="activity_record_memory_pressed"/>
+                                                        <state key="selected" image="activity_record_memory_100"/>
+                                                        <state key="highlighted" image="activity_record_memory_100"/>
                                                         <connections>
                                                             <action selector="pushMemory:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="AhG-Ca-Jxf"/>
                                                         </connections>
@@ -821,7 +821,6 @@
         <image name="activity_record_icon_peak_meter" width="219" height="51"/>
         <image name="activity_record_icon_recording" width="7" height="7"/>
         <image name="activity_record_memory_100" width="15" height="15"/>
-        <image name="activity_record_memory_pressed" width="13" height="17"/>
         <image name="common_icon_spin" width="102" height="102"/>
     </resources>
 </document>

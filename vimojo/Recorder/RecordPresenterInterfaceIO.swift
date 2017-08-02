@@ -124,6 +124,8 @@ protocol RecordPresenterDelegate {
     func showFocusView()
     func hideFocusView()
     
+    func resetZoom()
+    
     func showResolutionView()
     func hideResolutionView()
     

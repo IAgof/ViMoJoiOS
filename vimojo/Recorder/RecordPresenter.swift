@@ -808,6 +808,10 @@ class RecordPresenter: NSObject
         delegate?.showFlashOn(false)
     }
     
+    func resetZoom() {
+        delegate?.resetZoom()
+    }
+    
     func cameraRear() {
         delegate?.showBackCameraSelected()
         self.trackRearCamera()

@@ -124,6 +124,7 @@ class CameraInteractor:CameraRecorderDelegate,
             self.isFrontCamera = false
             setResolution()
             cameraDelegate.cameraRear()
+            cameraDelegate.resetZoom()
         }else{
             self.isFrontCamera = true
             cameraDelegate.cameraFront()
@@ -131,6 +132,7 @@ class CameraInteractor:CameraRecorderDelegate,
             if(FlashInteractor().isFlashTurnOn()){
                 cameraDelegate.flashOff()
             }
+            cameraDelegate.resetZoom()
             setResolution()
             self.videoCamera.rotateCamera()
         }

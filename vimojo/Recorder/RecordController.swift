@@ -562,10 +562,12 @@ extension RecordController:RecordPresenterDelegate {
     
     func showVideoSettingsConfig() {
         fadeInView([recordAreaContainerView])
+        hideModeViewButton.isSelected = false
     }
     
     func hideVideoSettingsConfig() {
         fadeOutView([recordAreaContainerView])
+        hideModeViewButton.isSelected = true
     }
 	
 	func hideGridView() {
@@ -778,8 +780,10 @@ extension RecordController:RecordPresenterDelegate {
     
     func showModeViewAndButtonStateEnabled() {
         fadeInView([recordAreaContainerView])
-        
-        
+    }
+    
+    func resetZoom() {
+        zoomView.setDefaultZoom(1)
     }
     
     func hideModeViewAndButtonStateEnabled() {
