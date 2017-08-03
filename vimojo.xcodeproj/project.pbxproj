@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		20082BFF2DDE9BBA2FBA8E36 /* Pods_RTVE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CAEDCC515CC8DA8E54069F /* Pods_RTVE.framework */; };
+		2B48FCEBBD63F53E9DAE789E /* Pods_vimojo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB586E6DDDB51926A3B11FCA /* Pods_vimojo.framework */; };
 		6F276CCDBF2518B0460A8298 /* Pods_vimojo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB586E6DDDB51926A3B11FCA /* Pods_vimojo.framework */; };
 		A900C7461DC3575700A65730 /* FTPErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C7451DC3575700A65730 /* FTPErrorType.swift */; };
 		A900C7591DC35FB500A65730 /* ShareFTPBreakingNewsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C7581DC35FB500A65730 /* ShareFTPBreakingNewsInteractor.swift */; };
@@ -111,7 +112,7 @@
 		A93BCE781D7D93B700421BD0 /* water_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE771D7D93B700421BD0 /* water_mark.png */; };
 		A94965771EAE8B8C003FCBF6 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; };
 		A94965781EAE8B8C003FCBF6 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A949657C1EAE8BA0003FCBF6 /* GPUImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A949657C1EAE8BA0003FCBF6 /* GPUImage.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A949658D1EAE8EEC003FCBF6 /* MusicProvider.strings in Resources */ = {isa = PBXBuildFile; fileRef = A94965901EAE8EEC003FCBF6 /* MusicProvider.strings */; };
 		A949658E1EAE8EEC003FCBF6 /* MusicProvider.strings in Resources */ = {isa = PBXBuildFile; fileRef = A94965901EAE8EEC003FCBF6 /* MusicProvider.strings */; };
 		A94D43031E2E3BEC00CE4F3B /* Drawer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B54B9D1DFEAD5E00388002 /* Drawer.storyboard */; };
@@ -1010,6 +1011,9 @@
 		A9FB3A531E53F15F00C21918 /* ProjectParametersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A521E53F15F00C21918 /* ProjectParametersViewModel.swift */; };
 		A9FB3A541E53F15F00C21918 /* ProjectParametersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A521E53F15F00C21918 /* ProjectParametersViewModel.swift */; };
 		A9FB3A551E53F15F00C21918 /* ProjectParametersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A521E53F15F00C21918 /* ProjectParametersViewModel.swift */; };
+		E022D14D1F3374750013B914 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; };
+		E022D14F1F33774D0013B914 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E022D1541F33782A0013B914 /* GPUImage.framework in Copy Files (1 item) */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FC124062F81EE74D087514C4 /* Pods_vimojoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7632CB83B0D9EBF5233B0541 /* Pods_vimojoTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -1042,17 +1046,25 @@
 			remoteGlobalIDString = A9B385E51D7D51380065D3EC;
 			remoteInfo = vimojo;
 		};
+		E022D1491F33728D0013B914 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A949656D1EAE8B83003FCBF6 /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCE209E41943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A949657B1EAE8B96003FCBF6 /* CopyFiles */ = {
+		A949657B1EAE8B96003FCBF6 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A949657C1EAE8BA0003FCBF6 /* GPUImage.framework in CopyFiles */,
+				A949657C1EAE8BA0003FCBF6 /* GPUImage.framework in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A99BAD7A1E49DC9D00A465C7 /* Embed Frameworks */ = {
@@ -1061,6 +1073,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				E022D14F1F33774D0013B914 /* GPUImage.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1084,6 +1097,17 @@
 				A94965781EAE8B8C003FCBF6 /* GPUImage.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E022D1531F3378210013B914 /* Copy Files (1 item) */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				E022D1541F33782A0013B914 /* GPUImage.framework in Copy Files (1 item) */,
+			);
+			name = "Copy Files (1 item)";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -1477,6 +1501,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E022D14D1F3374750013B914 /* GPUImage.framework in Frameworks */,
 				A99BAD4C1E49DC9D00A465C7 /* Alamofire.framework in Frameworks */,
 				A99BAD4D1E49DC9D00A465C7 /* FBSDKCoreKit.framework in Frameworks */,
 				A99BAD4E1E49DC9D00A465C7 /* FBSDKShareKit.framework in Frameworks */,
@@ -1494,6 +1519,7 @@
 				A94965771EAE8B8C003FCBF6 /* GPUImage.framework in Frameworks */,
 				A9ED005B1D917B7200969F31 /* FBSDKLoginKit.framework in Frameworks */,
 				6F276CCDBF2518B0460A8298 /* Pods_vimojo.framework in Frameworks */,
+				2B48FCEBBD63F53E9DAE789E /* Pods_vimojo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3059,16 +3085,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A99BAD7D1E49DC9D00A465C7 /* Build configuration list for PBXNativeTarget "PeriodistaCelular" */;
 			buildPhases = (
-				A99BAC501E49DC9D00A465C7 /* Sources */,
 				A99BAD4B1E49DC9D00A465C7 /* Frameworks */,
 				A99BAD541E49DC9D00A465C7 /* Resources */,
 				A99BAD761E49DC9D00A465C7 /* ShellScript */,
 				A99BAD771E49DC9D00A465C7 /* ShellScript */,
+				A99BAC501E49DC9D00A465C7 /* Sources */,
 				A99BAD7A1E49DC9D00A465C7 /* Embed Frameworks */,
+				E022D1531F3378210013B914 /* Copy Files (1 item) */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E022D14A1F33728D0013B914 /* PBXTargetDependency */,
 			);
 			name = PeriodistaCelular;
 			productName = vimojo;
@@ -3088,7 +3116,7 @@
 				A9B385E21D7D51380065D3EC /* Sources */,
 				45244F6698CB1B865CE5B75A /* [CP] Copy Pods Resources */,
 				A9FC5C391DE4A57D003AA3CB /* Embed Frameworks */,
-				A949657B1EAE8B96003FCBF6 /* CopyFiles */,
+				A949657B1EAE8B96003FCBF6 /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -3156,7 +3184,7 @@
 				TargetAttributes = {
 					A99BAC4A1E49DC9D00A465C7 = {
 						DevelopmentTeam = 98YJ9HU6W9;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					A9B385E51D7D51380065D3EC = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -3172,7 +3200,7 @@
 					};
 					A9D076D61E2F80B1003AE96B = {
 						DevelopmentTeam = 98YJ9HU6W9;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -4496,6 +4524,11 @@
 			target = A9B385E51D7D51380065D3EC /* vimojo */;
 			targetProxy = A9B385FB1D7D51380065D3EC /* PBXContainerItemProxy */;
 		};
+		E022D14A1F33728D0013B914 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImageFramework;
+			targetProxy = E022D1491F33728D0013B914 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -4673,8 +4706,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DDEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.periodistaCelular;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "03dd0549-dc63-4c8f-9f51-18ead26f3a9e";
-				PROVISIONING_PROFILE_SPECIFIER = VimojoVariantsDev;
+				PROVISIONING_PROFILE = "aa8fc572-05a6-42c7-ba10-0fed950c4d96";
+				PROVISIONING_PROFILE_SPECIFIER = "Vimojo PeriodistaCelular Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -4690,7 +4723,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 98YJ9HU6W9;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4714,8 +4747,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DRELEASE\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.periodistaCelular;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6324c1e5-0130-407d-b3b0-713acf3cb23f";
-				PROVISIONING_PROFILE_SPECIFIER = "XC: com.vimojo.*";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -4844,12 +4877,13 @@
 					"MIXPANEL_ERROR=1",
 				);
 				INFOPLIST_FILE = vimojo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR)";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DDEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "02c2ddac-d4e2-4d42-beec-f87f58e3744f";
-				PROVISIONING_PROFILE_SPECIFIER = VimojoDevelopment;
+				PROVISIONING_PROFILE = "aa165c09-2128-49d9-b0f7-89bb9aa878bb";
+				PROVISIONING_PROFILE_SPECIFIER = "Vimojo development";
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -4865,7 +4899,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Iago Fernández cedron (JVQF87BH8Q)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Iago Fernández cedron (JVQF87BH8Q)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Videona SocialMedia S.L. (98YJ9HU6W9)";
 				DEVELOPMENT_TEAM = 98YJ9HU6W9;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4886,12 +4920,13 @@
 					"GTM_OAUTH2_USE_FRAMEWORK_IMPORTS=1",
 				);
 				INFOPLIST_FILE = vimojo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR) @loader_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DRELEASE\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "02c2ddac-d4e2-4d42-beec-f87f58e3744f";
-				PROVISIONING_PROFILE_SPECIFIER = VimojoDevelopment;
+				PROVISIONING_PROFILE = "df2fc931-6da1-4a10-8cc5-25ff5e069738";
+				PROVISIONING_PROFILE_SPECIFIER = "Vimojo Production";
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4960,8 +4995,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.RTVE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "03dd0549-dc63-4c8f-9f51-18ead26f3a9e";
-				PROVISIONING_PROFILE_SPECIFIER = VimojoVariantsDev;
+				PROVISIONING_PROFILE = "a2c4ee21-bc91-42ba-b47f-959d56b2f630";
+				PROVISIONING_PROFILE_SPECIFIER = "Vimojo Hispanopost Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -4978,7 +5013,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 98YJ9HU6W9;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5002,8 +5037,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.RTVE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "03dd0549-dc63-4c8f-9f51-18ead26f3a9e";
-				PROVISIONING_PROFILE_SPECIFIER = VimojoVariantsDev;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
