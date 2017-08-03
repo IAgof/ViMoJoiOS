@@ -33,7 +33,7 @@ protocol RecordPresenterInterface{
     func pushSpaceOnDisk()
     func pushResolution()
     
-    func pushMic()
+    func pushGain()
     func pushFocus()
     func pushExposureModes()
     func pushDefaultModes()
@@ -112,10 +112,8 @@ protocol RecordPresenterDelegate {
     
     func getMicValues()
     func showMicLevelView()
-    //func hideMicLevelView()
-    func showInputGainSliderView()
-    func hideInputGainSliderView()
-//    func setSelectedMicButton(_ state:Bool)
+    func selectInputGainSliderView()
+    func deselectInputGainSliderView()
     
     func showJackMicButton()
     func hideJackMicButton()
@@ -155,4 +153,9 @@ protocol RecordPresenterDelegate {
     
     func setDefaultAllModes()
     func buttonsWithRecording(isEnabled: Bool)
+    
+    func selectDeviceMicButton()
+    func selectJackMicButton()
+    func deselectDeviceMicButton()
+    func deselectJackMicButton()
 }

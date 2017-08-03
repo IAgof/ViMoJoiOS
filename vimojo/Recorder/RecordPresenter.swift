@@ -231,17 +231,12 @@ class RecordPresenter: NSObject
         }
     }
     
-    func pushMic() {
+    func pushGain() {
         if inputGainViewIsShowed {
-//            hideMicViewIfYouCan()
             hideInputGainIfYouCan()
         } else {
-//            hideAllModeConfigsIfNeccesary()
-        
-            delegate?.showInputGainSliderView()
-//            delegate?.showMicLevelView()
-        
-//            micViewIsShowed = true
+            hideAllModeConfigsIfNeccesary()
+            delegate?.selectInputGainSliderView()
             inputGainViewIsShowed = true
         }
     }
@@ -598,15 +593,6 @@ class RecordPresenter: NSObject
         spaceOnDiskIsShowed = false
     }
     
-    /*func hideMicViewIfYouCan(){
-        if !micViewIsShowed {
-            return
-        }
-        delegate?.hideMicLevelView()
-        
-        micViewIsShowed = false
-    }*/
-    
     func hideWBConfigIfYouCan(){
         if !wbConfigIsShowed {
             return
@@ -639,7 +625,7 @@ class RecordPresenter: NSObject
             return
         }
         
-        delegate?.hideInputGainSliderView()
+        delegate?.deselectInputGainSliderView()
         inputGainViewIsShowed = false
     }
     
@@ -693,24 +679,6 @@ class RecordPresenter: NSObject
         } else {
             delegate?.hideJackMicButton()
         }
-        
-////        delegate?.showMicLevelView()
-//        delegate?.showInputGainSliderView()
-//        
-//        if !state {
-////            hideMicViewIfYouCan()
-////            hideInputGainIfYouCan()
-//        }else{
-////            delegate?.getMicValues()
-////            delegate?.showMicLevelView()
-//            
-//            hideAllModeConfigsIfNeccesary()
-//            
-////            delegate?.showInputGainSliderView()
-//            inputGainViewIsShowed = true
-//
-//            micViewIsShowed = true
-//        }
     }
     
     func setDeviceButtonState(_ state:Bool) {
