@@ -108,6 +108,7 @@ class RecordController: ViMoJoController,UINavigationControllerDelegate{
         
         configureRotationObserver()
         UIApplication.shared.isIdleTimerDisabled = true
+        updateBatteryValues()
     }
     
     override func viewWillAppear(_ animated: Bool) {
