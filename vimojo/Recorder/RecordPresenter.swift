@@ -46,36 +46,39 @@ class RecordPresenter: NSObject
     var focusViewIsShowed = false
     var exposureModesViewIsShowed = false
     var micIsEnabled = false
-    var modeViewIsShowed = false
+    var modeViewIsShowed = true
     var inputGainViewIsShowed = false
     
     enum batteryImages:String {
-        case charged = "activity_rec_battery_100"
-        case seventyFivePercent = "activity_rec_battery_charging"
-        case fiftyPercent = "activity_rec_battery_50"
-        case twentyFivePercent = "activity_rec_battery_25"
-        case empty = "activity_rec_battery_0"
+        case charged = "activity_record_battery_100"
+        case seventyFivePercent = "activity_record_battery_75"
+        case fiftyPercent = "activity_record_battery_50"
+        case twentyFivePercent = "activity_record_battery_25"
+        case empty = "activity_record_battery_empty"
     }
     
     enum batteryImagesPressed:String{
-        case charged = "activity_rec_battery_100_pressed"
-        case seventyFivePercent = "activity_rec_battery_charging_pressed"
-        case fiftyPercent = "activity_rec_battery_50_pressed"
-        case twentyFivePercent = "activity_rec_battery_25_pressed"
-        case empty = "activity_rec_battery_0"
+        case charged = "activity_record_battery_100_pressed"
+        case seventyFivePercent = "activity_record_battery_75_pressed"
+        case fiftyPercent = "activity_record_battery_50_pressed"
+        case twentyFivePercent = "activity_record_battery_25_pressed"
+        case empty = "activity_record_battery_empty"
     }
 
-    
     enum memoryImages:String {
-        case hundredPercent = "activity_rec_memory_100"
-        case fiftyPercent = "activity_rec_memory_50"
-        case empty = "activity_rec_memory_0"
+        case hundredPercent = "activity_record_memory_100"
+        case seventyFivePercent = "activity_record_memory_75"
+        case fiftyPercent = "activity_record_memory_50"
+        case twentyFivePercent = "activity_record_memory_25"
+        case empty = "activity_record_memory_empty"
     }
     
     enum memoryImagesPressed:String{
-        case hundredPercent = "activity_rec_memory_100"
-        case fiftyPercent = "activity_rec_memory_50"
-        case empty = "activity_rec_memory_0"
+        case hundredPercent = "activity_rec_memory_100_pressed"
+        case seventyFivePercent = "activity_rec_memory_75_pressed"
+        case fiftyPercent = "activity_rec_memory_50_pressed"
+        case twentyFivePercent = "activity_rec_memory_25_pressed"
+        case empty = "activity_rec_memory_empty"
     }
     
     //MARK: - Event handler
@@ -182,9 +185,9 @@ class RecordPresenter: NSObject
             if secondaryViewIsShowing {
                 delegate?.showRecordChronometerContainer()
                 
-                delegate?.hideSecondaryRecordChronometerContainer()
+//                delegate?.hideSecondaryRecordChronometerContainer()
             }else{
-                delegate?.showSecondaryRecordChronometerContainer()
+//                delegate?.showSecondaryRecordChronometerContainer()
                 
                 delegate?.hideRecordChronometerContainer()
             }
@@ -391,12 +394,15 @@ class RecordPresenter: NSObject
     
     func getMemoryIcon(_ value:Float)->IconsImage {
         switch value {
-        case 0...50:
-            return IconsImage(normal: UIImage(named: memoryImages.hundredPercent.rawValue)!,
-                              pressed: UIImage(named: memoryImagesPressed.hundredPercent.rawValue)!)
-        case 51...84:
-            return IconsImage(normal: UIImage(named: memoryImages.fiftyPercent.rawValue)!,
-                                    pressed: UIImage(named: memoryImagesPressed.fiftyPercent.rawValue)!)
+        case 0...1:
+            return IconsImage(normal: UIImage(named: memoryImages.hundredPercent.rawValue)!, pressed: UIImage(named: memoryImagesPressed.hundredPercent.rawValue)!)
+        case 1...25:
+            return IconsImage(normal: UIImage(named: memoryImages.seventyFivePercent.rawValue)!, pressed: UIImage(named: memoryImagesPressed.seventyFivePercent.rawValue)!)
+        case 26...50:
+            return IconsImage(normal: UIImage(named: memoryImages.fiftyPercent.rawValue)!, pressed: UIImage(named: memoryImagesPressed.fiftyPercent.rawValue)!)
+        case 76...75:
+            return IconsImage(normal: UIImage(named: memoryImages.twentyFivePercent.rawValue)!,
+                                    pressed: UIImage(named: memoryImagesPressed.twentyFivePercent.rawValue)!)
         case 85...100:
             return IconsImage(normal: UIImage(named: memoryImages.empty.rawValue)!,
                               pressed: UIImage(named: memoryImagesPressed.empty.rawValue)!)
@@ -446,8 +452,8 @@ class RecordPresenter: NSObject
         self.trackStartRecord()
         
         delegate?.recordButtonEnable(false)
-        secondaryViewIsShowing ? delegate?.showSecondaryRecordChronometerContainer() :
-                                    delegate?.showRecordChronometerContainer()
+//        secondaryViewIsShowing ? delegate?.showSecondaryRecordChronometerContainer() :
+//                                    delegate?.showRecordChronometerContainer()
         delegate?.buttonsWithRecording(isEnabled: false)
         DispatchQueue.main.async(execute: {
             self.cameraInteractor?.setIsRecording(true)
@@ -483,7 +489,7 @@ class RecordPresenter: NSObject
                 //                self.delegate?.enableShareButton()
                 self.delegate?.showThumbnailButtonAndLabel()
                 if self.secondaryViewIsShowing {
-                    self.delegate?.hideSecondaryRecordChronometerContainer()
+//                    self.delegate?.hideSecondaryRecordChronometerContainer()
                 }else{
                     self.delegate?.hideRecordChronometerContainer()
                 }
@@ -520,10 +526,17 @@ class RecordPresenter: NSObject
     }
     
     func pushHideMode() {
-        delegate?.hideModeViewAndButtonStateEnabled()
-        delegate?.showModeViewAndButtonStateDisabled()
+//        delegate?.hideModeViewAndButtonStateEnabled()
+//        delegate?.showModeViewAndButtonStateDisabled()
+        
+        if !modeViewIsShowed {
+            modeViewIsShowed = true
+            delegate?.showVideoSettingsConfig()
+            return
+        }
         
         modeViewIsShowed = false
+        delegate?.hideVideoSettingsConfig()
     }
 	
 	func hideGridIfYouCan() {
@@ -793,6 +806,10 @@ class RecordPresenter: NSObject
     
     func flashOff() {
         delegate?.showFlashOn(false)
+    }
+    
+    func resetZoom() {
+        delegate?.resetZoom()
     }
     
     func cameraRear() {

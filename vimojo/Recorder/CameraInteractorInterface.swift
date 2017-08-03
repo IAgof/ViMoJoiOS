@@ -36,6 +36,7 @@ protocol CameraInteractorDelegate {
     func flashOff()
     func cameraFront()
     func cameraRear()
+    func resetZoom()
     func showFocus(_ center:CGPoint)
     func updateThumbnail(videoURL: URL?)
 }
