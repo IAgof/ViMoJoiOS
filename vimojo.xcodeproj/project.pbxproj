@@ -1009,9 +1009,11 @@
 		A9FB3A551E53F15F00C21918 /* ProjectParametersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A521E53F15F00C21918 /* ProjectParametersViewModel.swift */; };
 		AE491DFC1F3AF7C700B20B70 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; };
 		AE491DFD1F3AF7C700B20B70 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E022D14D1F3374750013B914 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; };
-		E022D14F1F33774D0013B914 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E022D1541F33782A0013B914 /* GPUImage.framework in Copy Files (1 item) */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE491E011F3AFDF100B20B70 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; };
+		AE491E021F3AFDF100B20B70 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE491E061F3AFDFB00B20B70 /* Pods_vimojo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB586E6DDDB51926A3B11FCA /* Pods_vimojo.framework */; };
+		AE491E071F3AFE0200B20B70 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; };
+		AE491E081F3AFE0200B20B70 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FC124062F81EE74D087514C4 /* Pods_vimojoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7632CB83B0D9EBF5233B0541 /* Pods_vimojoTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -1044,7 +1046,14 @@
 			remoteGlobalIDString = BCE209E41943F20C002FEED8;
 			remoteInfo = GPUImageFramework;
 		};
-		E022D1491F33728D0013B914 /* PBXContainerItemProxy */ = {
+		AE491E031F3AFDF100B20B70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A949656D1EAE8B83003FCBF6 /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCE209E41943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
+		AE491E091F3AFE0200B20B70 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A949656D1EAE8B83003FCBF6 /* GPUImage.xcodeproj */;
 			proxyType = 1;
@@ -1054,23 +1063,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A99BAD7A1E49DC9D00A465C7 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				E022D14F1F33774D0013B914 /* GPUImage.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A9D077EC1E2F80B1003AE96B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				AE491E081F3AFE0200B20B70 /* GPUImage.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1086,15 +1085,15 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E022D1531F3378210013B914 /* Copy Files (1 item) */ = {
+		AE491E051F3AFDF200B20B70 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 7;
+			dstSubfolderSpec = 10;
 			files = (
-				E022D1541F33782A0013B914 /* GPUImage.framework in Copy Files (1 item) */,
+				AE491E021F3AFDF100B20B70 /* GPUImage.framework in Embed Frameworks */,
 			);
-			name = "Copy Files (1 item)";
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -1488,8 +1487,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E022D14D1F3374750013B914 /* GPUImage.framework in Frameworks */,
+				AE491E061F3AFDFB00B20B70 /* Pods_vimojo.framework in Frameworks */,
 				A99BAD4C1E49DC9D00A465C7 /* Alamofire.framework in Frameworks */,
+				AE491E011F3AFDF100B20B70 /* GPUImage.framework in Frameworks */,
 				A99BAD4D1E49DC9D00A465C7 /* FBSDKCoreKit.framework in Frameworks */,
 				A99BAD4E1E49DC9D00A465C7 /* FBSDKShareKit.framework in Frameworks */,
 				A99BAD501E49DC9D00A465C7 /* FBSDKLoginKit.framework in Frameworks */,
@@ -1526,6 +1526,7 @@
 				A9D077C61E2F80B1003AE96B /* FBSDKShareKit.framework in Frameworks */,
 				A9D077C81E2F80B1003AE96B /* FBSDKLoginKit.framework in Frameworks */,
 				20082BFF2DDE9BBA2FBA8E36 /* Pods_RTVE.framework in Frameworks */,
+				AE491E071F3AFE0200B20B70 /* GPUImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3076,13 +3077,12 @@
 				A99BAD761E49DC9D00A465C7 /* ShellScript */,
 				A99BAD771E49DC9D00A465C7 /* ShellScript */,
 				A99BAC501E49DC9D00A465C7 /* Sources */,
-				A99BAD7A1E49DC9D00A465C7 /* Embed Frameworks */,
-				E022D1531F3378210013B914 /* Copy Files (1 item) */,
+				AE491E051F3AFDF200B20B70 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E022D14A1F33728D0013B914 /* PBXTargetDependency */,
+				AE491E041F3AFDF100B20B70 /* PBXTargetDependency */,
 			);
 			name = PeriodistaCelular;
 			productName = vimojo;
@@ -3151,6 +3151,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				AE491E0A1F3AFE0200B20B70 /* PBXTargetDependency */,
 			);
 			name = RTVE;
 			productName = vimojo;
@@ -4509,10 +4510,15 @@
 			name = GPUImageFramework;
 			targetProxy = AE491DFE1F3AF7C700B20B70 /* PBXContainerItemProxy */;
 		};
-		E022D14A1F33728D0013B914 /* PBXTargetDependency */ = {
+		AE491E041F3AFDF100B20B70 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GPUImageFramework;
-			targetProxy = E022D1491F33728D0013B914 /* PBXContainerItemProxy */;
+			targetProxy = AE491E031F3AFDF100B20B70 /* PBXContainerItemProxy */;
+		};
+		AE491E0A1F3AFE0200B20B70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImageFramework;
+			targetProxy = AE491E091F3AFE0200B20B70 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -4661,7 +4667,6 @@
 		A99BAD7E1E49DC9D00A465C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -4691,8 +4696,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DDEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.periodistaCelular;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "aa8fc572-05a6-42c7-ba10-0fed950c4d96";
-				PROVISIONING_PROFILE_SPECIFIER = "Vimojo PeriodistaCelular Development";
+				PROVISIONING_PROFILE = "32ab1381-89ca-4e4b-8343-fb54e5334501";
+				PROVISIONING_PROFILE_SPECIFIER = "PeriodistaCelular Vimojo Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -4703,12 +4708,11 @@
 		A99BAD7F1E49DC9D00A465C7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 98YJ9HU6W9;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4732,8 +4736,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DRELEASE\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.periodistaCelular;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "2b6d09f2-95b5-490a-a89a-f0893abe4292";
+				PROVISIONING_PROFILE_SPECIFIER = "PeriodistaCelular Vimojo Production";
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -4976,8 +4980,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.RTVE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a2c4ee21-bc91-42ba-b47f-959d56b2f630";
-				PROVISIONING_PROFILE_SPECIFIER = "Vimojo Hispanopost Development";
+				PROVISIONING_PROFILE = "bfe144b2-7dd0-4fca-8080-ff1ff0815914";
+				PROVISIONING_PROFILE_SPECIFIER = "RTVE Vimojo Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
