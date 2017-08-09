@@ -1007,6 +1007,7 @@
 		A9FB3A531E53F15F00C21918 /* ProjectParametersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A521E53F15F00C21918 /* ProjectParametersViewModel.swift */; };
 		A9FB3A541E53F15F00C21918 /* ProjectParametersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A521E53F15F00C21918 /* ProjectParametersViewModel.swift */; };
 		A9FB3A551E53F15F00C21918 /* ProjectParametersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A521E53F15F00C21918 /* ProjectParametersViewModel.swift */; };
+		AE1F58AE1F3B69FC006F75B3 /* Vimojo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9D076D21E2F7F84003AE96B /* Vimojo.xcassets */; };
 		AE491DFC1F3AF7C700B20B70 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; };
 		AE491DFD1F3AF7C700B20B70 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE491E011F3AFDF100B20B70 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; };
@@ -1347,9 +1348,8 @@
 		AE491F641F3AFE6400B20B70 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE491FD41F3B030F00B20B70 /* configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE491FD01F3B030F00B20B70 /* configuration.swift */; };
 		AE491FD51F3B030F00B20B70 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE491FD11F3B030F00B20B70 /* Info.plist */; };
-		AE491FD61F3B030F00B20B70 /* launchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE491FD21F3B030F00B20B70 /* launchScreen.storyboard */; };
 		AE491FD71F3B030F00B20B70 /* ThomsonFoundation.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE491FD31F3B030F00B20B70 /* ThomsonFoundation.xcassets */; };
-		AE491FD91F3B0EDD00B20B70 /* Vimojo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9D076D21E2F7F84003AE96B /* Vimojo.xcassets */; };
+		AE9B190B1F3B62560035C9BD /* launchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9B190D1F3B62560035C9BD /* launchScreen.storyboard */; };
 		FC124062F81EE74D087514C4 /* Pods_vimojoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7632CB83B0D9EBF5233B0541 /* Pods_vimojoTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -1833,8 +1833,8 @@
 		AE491F691F3AFE6500B20B70 /* vimojo copy3-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "vimojo copy3-Info.plist"; path = "/Users/devstarlight/Documents/Videona/ViMoJoiOS/vimojo copy3-Info.plist"; sourceTree = "<absolute>"; };
 		AE491FD01F3B030F00B20B70 /* configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = configuration.swift; sourceTree = "<group>"; };
 		AE491FD11F3B030F00B20B70 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE491FD21F3B030F00B20B70 /* launchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = launchScreen.storyboard; sourceTree = "<group>"; };
 		AE491FD31F3B030F00B20B70 /* ThomsonFoundation.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ThomsonFoundation.xcassets; sourceTree = "<group>"; };
+		AE9B190C1F3B62560035C9BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/launchScreen.storyboard; sourceTree = "<group>"; };
 		C33554B9F3DCC67612C52FF9 /* Pods-vimojoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-vimojoTests/Pods-vimojoTests.release.xcconfig"; sourceTree = "<group>"; };
 		C92E8992417F74714E66833A /* Pods-vimojoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vimojoTests/Pods-vimojoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB586E6DDDB51926A3B11FCA /* Pods_vimojo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vimojo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3433,7 +3433,7 @@
 			children = (
 				AE491FD01F3B030F00B20B70 /* configuration.swift */,
 				AE491FD11F3B030F00B20B70 /* Info.plist */,
-				AE491FD21F3B030F00B20B70 /* launchScreen.storyboard */,
+				AE9B190D1F3B62560035C9BD /* launchScreen.storyboard */,
 				AE491FD31F3B030F00B20B70 /* ThomsonFoundation.xcassets */,
 			);
 			path = ThomsonFoundation;
@@ -3807,14 +3807,14 @@
 				AE491E221F3AFE6400B20B70 /* MusicListView.xib in Resources */,
 				AE491E231F3AFE6400B20B70 /* ProjectList.strings in Resources */,
 				AE491E241F3AFE6400B20B70 /* Record.storyboard in Resources */,
-				AE491FD61F3B030F00B20B70 /* launchScreen.storyboard in Resources */,
+				AE9B190B1F3B62560035C9BD /* launchScreen.storyboard in Resources */,
 				AE491E251F3AFE6400B20B70 /* GoogleService-Info.plist in Resources */,
 				AE491E261F3AFE6400B20B70 /* Settings.strings in Resources */,
 				AE491E271F3AFE6400B20B70 /* goinghigher.mp3 in Resources */,
 				AE491E281F3AFE6400B20B70 /* Drawer.storyboard in Resources */,
 				AE491E2A1F3AFE6400B20B70 /* ukulele.mp3 in Resources */,
 				AE491E2B1F3AFE6400B20B70 /* Info.plist in Resources */,
-				AE491FD91F3B0EDD00B20B70 /* Vimojo.xcassets in Resources */,
+				AE1F58AE1F3B69FC006F75B3 /* Vimojo.xcassets in Resources */,
 				AE491E2C1F3AFE6400B20B70 /* DrawerMenu.strings in Resources */,
 				AE491E2D1F3AFE6400B20B70 /* EditorStrings.strings in Resources */,
 				AE491E2E1F3AFE6400B20B70 /* Assets.xcassets in Resources */,
@@ -5493,6 +5493,14 @@
 				A9B54BB01DFEFD7600388002 /* es */,
 			);
 			name = Drawer.storyboard;
+			sourceTree = "<group>";
+		};
+		AE9B190D1F3B62560035C9BD /* launchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE9B190C1F3B62560035C9BD /* Base */,
+			);
+			name = launchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
