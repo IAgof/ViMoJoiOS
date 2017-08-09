@@ -21,7 +21,7 @@ final class ThomsonFoundationConfiguration: ConfigurationProtocol {
 	
 	init() {
 		fontName = "Helvetica"
-		mainColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+		mainColor = #colorLiteral(red: 0.03529411765, green: 0.6392156863, blue: 0.8941176471, alpha: 1)
 		plainButtonColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 		secondColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
 		secondColorWithOpacity = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.5)
