@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1DB86149493A266582050C42 /* Pods_vimojo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB586E6DDDB51926A3B11FCA /* Pods_vimojo.framework */; };
 		20082BFF2DDE9BBA2FBA8E36 /* Pods_RTVE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CAEDCC515CC8DA8E54069F /* Pods_RTVE.framework */; };
+		2EE8EA3391CB386C8FD38C0B /* Pods_ThomsonFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5835604DB2B05DD6130ECE9D /* Pods_ThomsonFoundation.framework */; };
 		6F276CCDBF2518B0460A8298 /* Pods_vimojo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB586E6DDDB51926A3B11FCA /* Pods_vimojo.framework */; };
 		A900C7461DC3575700A65730 /* FTPErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C7451DC3575700A65730 /* FTPErrorType.swift */; };
 		A900C7591DC35FB500A65730 /* ShareFTPBreakingNewsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C7581DC35FB500A65730 /* ShareFTPBreakingNewsInteractor.swift */; };
@@ -1012,7 +1014,6 @@
 		AE491DFD1F3AF7C700B20B70 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE491E011F3AFDF100B20B70 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; };
 		AE491E021F3AFDF100B20B70 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE491E061F3AFDFB00B20B70 /* Pods_vimojo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB586E6DDDB51926A3B11FCA /* Pods_vimojo.framework */; };
 		AE491E071F3AFE0200B20B70 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; };
 		AE491E081F3AFE0200B20B70 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE491E101F3AFE6400B20B70 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED004F1D9178CB00969F31 /* Alamofire.framework */; };
@@ -1456,6 +1457,9 @@
 		436F9341308AA24746456CA4 /* Pods-vimojo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojo.release.xcconfig"; path = "Pods/Target Support Files/Pods-vimojo/Pods-vimojo.release.xcconfig"; sourceTree = "<group>"; };
 		535C960CB18D4BAA13BCCC12 /* Pods-RTVE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTVE.release.xcconfig"; path = "Pods/Target Support Files/Pods-RTVE/Pods-RTVE.release.xcconfig"; sourceTree = "<group>"; };
 		53CAEDCC515CC8DA8E54069F /* Pods_RTVE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RTVE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54CD6DC259621A60ED1AA2F1 /* Pods-ThomsonFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThomsonFoundation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ThomsonFoundation/Pods-ThomsonFoundation.debug.xcconfig"; sourceTree = "<group>"; };
+		5835604DB2B05DD6130ECE9D /* Pods_ThomsonFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThomsonFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AF04F172FB15A5CC0DEE9E8 /* Pods-ThomsonFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThomsonFoundation.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThomsonFoundation/Pods-ThomsonFoundation.release.xcconfig"; sourceTree = "<group>"; };
 		7632CB83B0D9EBF5233B0541 /* Pods_vimojoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vimojoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A900C7451DC3575700A65730 /* FTPErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTPErrorType.swift; sourceTree = "<group>"; };
 		A900C7581DC35FB500A65730 /* ShareFTPBreakingNewsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareFTPBreakingNewsInteractor.swift; sourceTree = "<group>"; };
@@ -1847,7 +1851,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE491E061F3AFDFB00B20B70 /* Pods_vimojo.framework in Frameworks */,
 				A99BAD4C1E49DC9D00A465C7 /* Alamofire.framework in Frameworks */,
 				AE491E011F3AFDF100B20B70 /* GPUImage.framework in Frameworks */,
 				A99BAD4D1E49DC9D00A465C7 /* FBSDKCoreKit.framework in Frameworks */,
@@ -1866,6 +1869,7 @@
 				A9ED005B1D917B7200969F31 /* FBSDKLoginKit.framework in Frameworks */,
 				6F276CCDBF2518B0460A8298 /* Pods_vimojo.framework in Frameworks */,
 				AE491DFC1F3AF7C700B20B70 /* GPUImage.framework in Frameworks */,
+				1DB86149493A266582050C42 /* Pods_vimojo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1900,6 +1904,7 @@
 				AE491E131F3AFE6400B20B70 /* FBSDKLoginKit.framework in Frameworks */,
 				AE491E141F3AFE6400B20B70 /* Pods_vimojo.framework in Frameworks */,
 				AE491E151F3AFE6400B20B70 /* GPUImage.framework in Frameworks */,
+				2EE8EA3391CB386C8FD38C0B /* Pods_ThomsonFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1917,6 +1922,7 @@
 				CB586E6DDDB51926A3B11FCA /* Pods_vimojo.framework */,
 				7632CB83B0D9EBF5233B0541 /* Pods_vimojoTests.framework */,
 				53CAEDCC515CC8DA8E54069F /* Pods_RTVE.framework */,
+				5835604DB2B05DD6130ECE9D /* Pods_ThomsonFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3448,6 +3454,8 @@
 				535C960CB18D4BAA13BCCC12 /* Pods-RTVE.release.xcconfig */,
 				DEB50E8D05F1EF1E6D2B3561 /* Pods-vimojo.debug.xcconfig */,
 				436F9341308AA24746456CA4 /* Pods-vimojo.release.xcconfig */,
+				54CD6DC259621A60ED1AA2F1 /* Pods-ThomsonFoundation.debug.xcconfig */,
+				5AF04F172FB15A5CC0DEE9E8 /* Pods-ThomsonFoundation.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -4103,7 +4111,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ThomsonFoundation/Pods-ThomsonFoundation-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AE491F621F3AFE6400B20B70 /* [CP] Copy Pods Resources */ = {
@@ -4118,7 +4126,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ThomsonFoundation/Pods-ThomsonFoundation-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -5874,7 +5882,7 @@
 		};
 		AE491F661F3AFE6400B20B70 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DEB50E8D05F1EF1E6D2B3561 /* Pods-vimojo.debug.xcconfig */;
+			baseConfigurationReference = 54CD6DC259621A60ED1AA2F1 /* Pods-ThomsonFoundation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -5916,7 +5924,7 @@
 		};
 		AE491F671F3AFE6400B20B70 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 436F9341308AA24746456CA4 /* Pods-vimojo.release.xcconfig */;
+			baseConfigurationReference = 5AF04F172FB15A5CC0DEE9E8 /* Pods-ThomsonFoundation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
