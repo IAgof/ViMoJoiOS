@@ -1,16 +1,16 @@
 //
-//  ApplyTextOverlayToVideoCompositionUseCase.swift
+//  ApplyWatermarkOverlayToVideoCompositionUseCase.swift
 //  vimojo
 //
-//  Created by Alejandro Arjonilla Garcia on 18/10/16.
-//  Copyright © 2016 Videona. All rights reserved.
+//  Created by Jesús Huerta Arrabal on 28/8/17.
+//  Copyright © 2017 Videona. All rights reserved.
 //
 
 import Foundation
 import AVFoundation
 import VideonaProject
 
-class ApplyTextOverlayToVideoCompositionUseCase:NSObject {
+class ApplyWatermarkOverlayToVideoCompositionUseCase:NSObject {
     var project:Project
     var videonaComposition: VideoComposition
     
@@ -18,10 +18,10 @@ class ApplyTextOverlayToVideoCompositionUseCase:NSObject {
         self.project = project
         self.videonaComposition = videonaComposition
     }
-        
+    
     func applyVideoOverlayAnimation(){
         guard let size = videonaComposition.videoComposition?.renderSize,
-        let composition = videonaComposition.videoComposition else {return}
+            let composition = videonaComposition.videoComposition else {return}
         
         let videoFrame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         let videoLayer = CALayer()

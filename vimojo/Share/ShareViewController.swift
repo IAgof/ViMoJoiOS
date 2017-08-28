@@ -10,7 +10,6 @@ import UIKit
 import Foundation
 import VideonaProject
 import GoogleSignIn
-import VideonaProject
 
 class ShareViewController: EditingRoomItemController,PlayerViewSetter,
 UINavigationBarDelegate ,
