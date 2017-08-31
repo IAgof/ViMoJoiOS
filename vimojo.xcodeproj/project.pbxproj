@@ -1349,6 +1349,10 @@
 		AE491FD51F3B030F00B20B70 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE491FD11F3B030F00B20B70 /* Info.plist */; };
 		AE491FD71F3B030F00B20B70 /* ThomsonFoundation.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE491FD31F3B030F00B20B70 /* ThomsonFoundation.xcassets */; };
 		AE9B190B1F3B62560035C9BD /* launchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9B190D1F3B62560035C9BD /* launchScreen.storyboard */; };
+		AEF158661F5418F100B8BA88 /* ApplyWatermarkOverlayToVideoCompositionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF158651F5418F100B8BA88 /* ApplyWatermarkOverlayToVideoCompositionUseCase.swift */; };
+		AEF158671F5418F100B8BA88 /* ApplyWatermarkOverlayToVideoCompositionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF158651F5418F100B8BA88 /* ApplyWatermarkOverlayToVideoCompositionUseCase.swift */; };
+		AEF158681F5418F100B8BA88 /* ApplyWatermarkOverlayToVideoCompositionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF158651F5418F100B8BA88 /* ApplyWatermarkOverlayToVideoCompositionUseCase.swift */; };
+		AEF158691F5418F100B8BA88 /* ApplyWatermarkOverlayToVideoCompositionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF158651F5418F100B8BA88 /* ApplyWatermarkOverlayToVideoCompositionUseCase.swift */; };
 		FC124062F81EE74D087514C4 /* Pods_vimojoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7632CB83B0D9EBF5233B0541 /* Pods_vimojoTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -1838,6 +1842,7 @@
 		AE491FD31F3B030F00B20B70 /* ThomsonFoundation.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ThomsonFoundation.xcassets; sourceTree = "<group>"; };
 		AE9B190C1F3B62560035C9BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/launchScreen.storyboard; sourceTree = "<group>"; };
 		AEF0D2521F4ADF9D00DB42F3 /* Pods_vimojo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_vimojo.framework; path = "Pods/../build/Debug-iphoneos/Pods_vimojo.framework"; sourceTree = "<group>"; };
+		AEF158651F5418F100B8BA88 /* ApplyWatermarkOverlayToVideoCompositionUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyWatermarkOverlayToVideoCompositionUseCase.swift; sourceTree = "<group>"; };
 		C33554B9F3DCC67612C52FF9 /* Pods-vimojoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-vimojoTests/Pods-vimojoTests.release.xcconfig"; sourceTree = "<group>"; };
 		C92E8992417F74714E66833A /* Pods-vimojoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vimojoTests/Pods-vimojoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB586E6DDDB51926A3B11FCA /* Pods_vimojo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vimojo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3058,6 +3063,7 @@
 				A9CABA661EC36AEC00AB6CE8 /* AddWatermarkUseCase.swift */,
 				A9CABA671EC36AEC00AB6CE8 /* ApplyTextOverlayToVideoCompositionUseCase.swift */,
 				A9CABA6F1EC36AEC00AB6CE8 /* ExporterInteractor.swift */,
+				AEF158651F5418F100B8BA88 /* ApplyWatermarkOverlayToVideoCompositionUseCase.swift */,
 			);
 			name = "Exporter interactor";
 			sourceTree = "<group>";
@@ -4332,6 +4338,7 @@
 				A919954C1EC5019100D24B0E /* MusicListInteractorInterface.swift in Sources */,
 				A99BAC9D1E49DC9D00A465C7 /* ShareViewController.swift in Sources */,
 				A99BAC9E1E49DC9D00A465C7 /* ShareViewModel.swift in Sources */,
+				AEF158681F5418F100B8BA88 /* ApplyWatermarkOverlayToVideoCompositionUseCase.swift in Sources */,
 				A9CAB9601EC3671A00AB6CE8 /* CustomExportedVideosGalleryViewController.swift in Sources */,
 				A9CABBBC1EC36DD000AB6CE8 /* ViMoJoTracker.swift in Sources */,
 				A9CABA271EC369F600AB6CE8 /* MusicPresenterInterface.swift in Sources */,
@@ -4630,6 +4637,7 @@
 				A919954A1EC5019100D24B0E /* MusicListInteractorInterface.swift in Sources */,
 				A9CAB96C1EC3672700AB6CE8 /* GalleryWireframe.swift in Sources */,
 				A9FB3A4F1E53D97300C21918 /* FilterCollectionViewCell.swift in Sources */,
+				AEF158661F5418F100B8BA88 /* ApplyWatermarkOverlayToVideoCompositionUseCase.swift in Sources */,
 				A9325FAD1E091E1D00400AD6 /* ExportTemporalVideoToShare.swift in Sources */,
 				A9CAB90A1EC364FB00AB6CE8 /* DrawerMenuInteractorInterface.swift in Sources */,
 				A9CABBBA1EC36DD000AB6CE8 /* ViMoJoTracker.swift in Sources */,
@@ -4938,6 +4946,7 @@
 				A919954B1EC5019100D24B0E /* MusicListInteractorInterface.swift in Sources */,
 				A9CAB8DA1EC360CC00AB6CE8 /* VimojoWireframeInterface.swift in Sources */,
 				A9CABBBB1EC36DD000AB6CE8 /* ViMoJoTracker.swift in Sources */,
+				AEF158671F5418F100B8BA88 /* ApplyWatermarkOverlayToVideoCompositionUseCase.swift in Sources */,
 				A9CABAF81EC36C6700AB6CE8 /* ProjectRepository.swift in Sources */,
 				A9CAB8A71EC35F7800AB6CE8 /* DPTheme.swift in Sources */,
 				A9CAB8CE1EC360CC00AB6CE8 /* RootWireframe.swift in Sources */,
@@ -5236,6 +5245,7 @@
 				AE491E9D1F3AFE6400B20B70 /* GalleryWireframe.swift in Sources */,
 				AE491E9E1F3AFE6400B20B70 /* FilterCollectionViewCell.swift in Sources */,
 				AE491E9F1F3AFE6400B20B70 /* ExportTemporalVideoToShare.swift in Sources */,
+				AEF158691F5418F100B8BA88 /* ApplyWatermarkOverlayToVideoCompositionUseCase.swift in Sources */,
 				AE491EA01F3AFE6400B20B70 /* DrawerMenuInteractorInterface.swift in Sources */,
 				AE491EA11F3AFE6400B20B70 /* ViMoJoTracker.swift in Sources */,
 				AE491EA21F3AFE6400B20B70 /* MusicPresenter.swift in Sources */,
