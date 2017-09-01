@@ -49,8 +49,8 @@ class EditorInteractor: NSObject,EditorInteractorInterface {
     func getComposition() {
         guard let actualProject = project else{return}
         let videonaComposition = GetActualProjectAVCompositionUseCase().getComposition(project: actualProject)
-        let layer = GetActualProjectTextCALayerAnimationUseCase(videonaComposition: videonaComposition).getCALayerAnimation(project: actualProject)
-        videonaComposition.layerAnimation = layer
+        let animatedLayer = GetActualProjectCALayerAnimationUseCase(videonaComposition: videonaComposition).getCALayerAnimation(project: actualProject)
+        videonaComposition.layerAnimation = animatedLayer
         
         DispatchQueue.main.async {
             self.delegate?.setComposition(videonaComposition)

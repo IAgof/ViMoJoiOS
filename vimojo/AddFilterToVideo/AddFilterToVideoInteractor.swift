@@ -135,8 +135,8 @@ extension AddFilterToVideoInteractor:AddFilterToVideoInteractorInterface{
     
     func getComposition() {
         let actualComposition = GetActualProjectAVCompositionUseCase().getComposition(project: project)
-        let layer = GetActualProjectTextCALayerAnimationUseCase(videonaComposition: actualComposition).getCALayerAnimation(project: project)
-        actualComposition.layerAnimation = layer
+        let animatedLayer = GetActualProjectCALayerAnimationUseCase(videonaComposition: actualComposition).getCALayerAnimation(project: project)
+        actualComposition.layerAnimation = animatedLayer
         delegate?.setComposition(actualComposition)
     }
 }
