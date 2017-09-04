@@ -34,7 +34,8 @@ public class RealmProjectToProjectMapper:Mapper{
         project.videoOutputParameters.contrast = from.contrastLevel
         project.videoOutputParameters.exposure = from.exposureLevel
         project.videoOutputParameters.saturation = from.saturationLevel
-
+        project.hasWatermark = from.hasWatermark
+        
         if from.filterName != ""{
             if let newFilter = CIFilter(name: from.filterName){
                 project.videoFilter = newFilter

@@ -33,7 +33,7 @@ public class RealmProject:Object{
     dynamic var contrastLevel:NSNumber = 0
     dynamic var saturationLevel:NSNumber = 0
     dynamic var exposureLevel:NSNumber = 0
-
+    dynamic var hasWatermark: Bool = false
 
     override public class func primaryKey() -> String? {
         return "uuid"
