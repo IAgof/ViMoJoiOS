@@ -51,8 +51,10 @@ class SettingsInteractor: NSObject,SettingsInteractorInterface {
                 for setting in settingRow{
                     settingRowViewModel.append(SettingsViewModel(title: setting.title,
                         subtitle: setting.subTitle))
+                    // TO-DO: Include a Switch for the watermark
                 }
                 settingsViewModelArray.append(settingRowViewModel)
+                
             }
         }
         delegate?.setSettingsItemsView(settingsViewModelArray)
