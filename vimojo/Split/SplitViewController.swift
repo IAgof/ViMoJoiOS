@@ -143,6 +143,24 @@ class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDel
     func addPlayerAsSubview(_ player: PlayerView) {
         self.playerView.addSubview(player)
     }
+	
+	@IBAction func pushAdvanceLeftLow(_ sender: AnyObject) {
+	}
+	
+	@IBAction func pushAdvanceLeftMedium(_ sender: AnyObject) {
+	}
+	
+	@IBAction func pushAdvanceLeftHigh(_ sender: AnyObject) {
+	}
+	
+	@IBAction func pushAdvanceRightHigh(_ sender: AnyObject) {
+	}
+	
+	@IBAction func pushAdvanceRightMedium(_ sender: AnyObject) {
+	}
+	
+	@IBAction func pushAdvanceRightLow(_ sender: AnyObject) {
+	}
 }
 
 extension SplitViewController:TTRangeSliderDelegate{
