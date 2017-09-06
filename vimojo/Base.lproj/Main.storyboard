@@ -188,7 +188,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4wQ-2f-JFb" customClass="PlayerView" customModule="PeriodistaCelular" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="226"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="226.5"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="4wQ-2f-JFb" secondAttribute="height" multiplier="160:113" id="0fh-OX-xRo"/>
@@ -198,10 +198,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCz-0d-hhA">
-                                <rect key="frame" x="15" y="241" width="290" height="145"/>
+                                <rect key="frame" x="15" y="241.5" width="290" height="156"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Init" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MjO-s0-Qli">
-                                        <rect key="frame" x="24" y="120.5" width="23.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Init" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MjO-s0-Qli">
+                                        <rect key="frame" x="15" y="120.5" width="23.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -209,8 +209,8 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="finish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QnM-Ea-46K">
-                                        <rect key="frame" x="254.5" y="120.5" width="41.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="finish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QnM-Ea-46K">
+                                        <rect key="frame" x="233.5" y="120.5" width="41.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -251,11 +251,13 @@
                                     <constraint firstItem="xiI-0d-5Mf" firstAttribute="top" secondItem="ZCz-0d-hhA" secondAttribute="top" constant="20" symbolic="YES" id="67U-AC-tfT"/>
                                     <constraint firstItem="MjO-s0-Qli" firstAttribute="top" secondItem="XcJ-5c-yuB" secondAttribute="bottom" constant="15" id="Dh3-3i-PUp"/>
                                     <constraint firstItem="XcJ-5c-yuB" firstAttribute="leading" secondItem="ZCz-0d-hhA" secondAttribute="leading" constant="15" id="Ebf-rO-HhS"/>
-                                    <constraint firstAttribute="height" constant="145" id="JzV-oj-nWu"/>
+                                    <constraint firstAttribute="trailing" secondItem="QnM-Ea-46K" secondAttribute="trailing" constant="15" id="FEE-bg-REV"/>
+                                    <constraint firstAttribute="height" constant="156" id="JzV-oj-nWu"/>
                                     <constraint firstItem="QnM-Ea-46K" firstAttribute="top" secondItem="XcJ-5c-yuB" secondAttribute="bottom" constant="15" id="RsD-gx-r4T"/>
                                     <constraint firstItem="xiI-0d-5Mf" firstAttribute="centerX" secondItem="ZCz-0d-hhA" secondAttribute="centerX" id="Spr-Md-JzX"/>
                                     <constraint firstAttribute="trailing" secondItem="XcJ-5c-yuB" secondAttribute="trailing" constant="15" id="mkK-aJ-QCU"/>
                                     <constraint firstItem="XcJ-5c-yuB" firstAttribute="top" secondItem="xiI-0d-5Mf" secondAttribute="bottom" constant="15" id="vKf-Zo-P8q"/>
+                                    <constraint firstItem="MjO-s0-Qli" firstAttribute="leading" secondItem="ZCz-0d-hhA" secondAttribute="leading" constant="15" id="ybZ-ij-cKp"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -315,51 +317,80 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23Q-6k-a99">
-                                <rect key="frame" x="15" y="401" width="290" height="75"/>
+                                <rect key="frame" x="15" y="412.5" width="290" height="75"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="kYm-Ep-AgN">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="kYm-Ep-AgN">
                                         <rect key="frame" x="15" y="0.0" width="260" height="26"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06y-mc-lrT">
-                                                <rect key="frame" x="0.0" y="0.0" width="86.5" height="26"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="26"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <state key="normal" title="300 ms"/>
+                                                <connections>
+                                                    <action selector="pushMilisecondsLow:" destination="8SH-hk-FrO" eventType="touchUpInside" id="SbD-Z7-hmA"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8F-p5-zE7">
-                                                <rect key="frame" x="86.5" y="0.0" width="87" height="26"/>
+                                                <rect key="frame" x="107.5" y="0.0" width="40" height="26"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <state key="normal" title="600 ms"/>
+                                                <connections>
+                                                    <action selector="pushMilisecondsMedium:" destination="8SH-hk-FrO" eventType="touchUpInside" id="zXO-OG-K6t"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zyr-39-S9e">
-                                                <rect key="frame" x="173.5" y="0.0" width="86.5" height="26"/>
+                                                <rect key="frame" x="215" y="0.0" width="45" height="26"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <state key="normal" title="1200 ms"/>
+                                                <connections>
+                                                    <action selector="pushMilisecondsHigh:" destination="8SH-hk-FrO" eventType="touchUpInside" id="PEp-3U-v0k"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jIX-82-JKO">
-                                        <rect key="frame" x="15" y="41" width="92" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jIX-82-JKO">
+                                        <rect key="frame" x="15" y="41" width="76" height="28"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ULZ-7b-a0b">
-                                                <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
-                                                <state key="normal" title="Button"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ULZ-7b-a0b">
+                                                <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
+                                                <state key="normal" image="activity_edit_player_advance_left_high"/>
+                                                <state key="selected" image="activity_edit_player_advance_left_high_pressed"/>
+                                                <state key="highlighted" image="activity_edit_player_advance_left_high_pressed"/>
+                                                <connections>
+                                                    <action selector="pushLeftDecreaseTime:" destination="8SH-hk-FrO" eventType="touchUpInside" id="3FB-68-AjG"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vty-01-exv">
-                                                <rect key="frame" x="46" y="0.0" width="46" height="30"/>
-                                                <state key="normal" title="Button"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vty-01-exv">
+                                                <rect key="frame" x="48" y="0.0" width="28" height="28"/>
+                                                <state key="normal" image="activity_edit_player_advance_right_high"/>
+                                                <state key="selected" image="activity_edit_player_advance_right_high_pressed"/>
+                                                <state key="highlighted" image="activity_edit_player_advance_right_high_pressed"/>
+                                                <connections>
+                                                    <action selector="pushLeftIncreaseTime:" destination="8SH-hk-FrO" eventType="touchUpInside" id="9Uf-SW-6Ko"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1JI-oo-Oqe">
-                                        <rect key="frame" x="183" y="41" width="92" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1JI-oo-Oqe">
+                                        <rect key="frame" x="199" y="41" width="76" height="28"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAh-hI-gIp">
-                                                <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
-                                                <state key="normal" title="Button"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAh-hI-gIp">
+                                                <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
+                                                <state key="normal" image="activity_edit_player_advance_left_high"/>
+                                                <state key="selected" image="activity_edit_player_advance_left_high_pressed"/>
+                                                <state key="highlighted" image="activity_edit_player_advance_left_high_pressed"/>
+                                                <connections>
+                                                    <action selector="pushRightDecreaseTime:" destination="8SH-hk-FrO" eventType="touchUpInside" id="hhQ-L2-KWs"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJ1-h0-JdR">
-                                                <rect key="frame" x="46" y="0.0" width="46" height="30"/>
-                                                <state key="normal" title="Button"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJ1-h0-JdR">
+                                                <rect key="frame" x="48" y="0.0" width="28" height="28"/>
+                                                <state key="normal" image="activity_edit_player_advance_right_high"/>
+                                                <state key="selected" image="activity_edit_player_advance_right_high_pressed"/>
+                                                <state key="highlighted" image="activity_edit_player_advance_right_high_pressed"/>
+                                                <connections>
+                                                    <action selector="pushRightIncreaseTime:" destination="8SH-hk-FrO" eventType="touchUpInside" id="bgB-BF-AzQ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -401,6 +432,9 @@
                         <outlet property="cancelButton" destination="bBp-R5-HMY" id="hxi-J9-wtR"/>
                         <outlet property="expandPlayerButton" destination="Fd3-2Q-8bH" id="f8R-V9-RV9"/>
                         <outlet property="maxRangeLabel" destination="QnM-Ea-46K" id="iEZ-rW-dnS"/>
+                        <outlet property="milisecondsHighButton" destination="Zyr-39-S9e" id="CiY-xk-dpm"/>
+                        <outlet property="milisecondsLowButton" destination="06y-mc-lrT" id="3T8-76-uxp"/>
+                        <outlet property="milisecondsMediumButton" destination="P8F-p5-zE7" id="FLF-5f-FFK"/>
                         <outlet property="minRangeLabel" destination="MjO-s0-Qli" id="yUw-PC-LTs"/>
                         <outlet property="playerView" destination="4wQ-2f-JFb" id="KYm-Lc-E9v"/>
                         <outlet property="rangeLabel" destination="xiI-0d-5Mf" id="Lea-MK-47l"/>
@@ -586,14 +620,14 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sET-gx-U39" customClass="PlayerView" customModule="PeriodistaCelular" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="180.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="148.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="common_icon_play"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="due-Kf-el9">
-                                        <rect key="frame" x="0.0" y="180.5" width="320" height="367.5"/>
+                                        <rect key="frame" x="0.0" y="148.5" width="320" height="399.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p4x-F4-w1f" customClass="VideonaTrackOverView" customModule="VideonaProject">
                                                 <rect key="frame" x="23" y="51.5" width="274" height="30"/>
@@ -613,7 +647,7 @@
                                                 </connections>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUC-nF-IiA">
-                                                <rect key="frame" x="8" y="325.5" width="15" height="22"/>
+                                                <rect key="frame" x="8" y="357.5" width="15" height="22"/>
                                                 <state key="normal" image="activity_edit_cancel_normal"/>
                                                 <state key="highlighted" image="activity_edit_cancel_pressed"/>
                                                 <connections>
@@ -621,7 +655,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8L2-hc-cWS">
-                                                <rect key="frame" x="291" y="325.5" width="21" height="22"/>
+                                                <rect key="frame" x="291" y="357.5" width="21" height="22"/>
                                                 <state key="normal" image="activity_edit_accept_normal"/>
                                                 <state key="highlighted" image="activity_edit_accept_pressed"/>
                                                 <connections>
@@ -911,6 +945,10 @@
         <image name="activity_edit_clips_text_center_pressed" width="40" height="31"/>
         <image name="activity_edit_clips_text_top_normal" width="40" height="31"/>
         <image name="activity_edit_clips_text_top_pressed" width="40" height="31"/>
+        <image name="activity_edit_player_advance_left_high" width="28" height="28"/>
+        <image name="activity_edit_player_advance_left_high_pressed" width="28" height="28"/>
+        <image name="activity_edit_player_advance_right_high" width="28" height="28"/>
+        <image name="activity_edit_player_advance_right_high_pressed" width="28" height="28"/>
         <image name="activity_edit_sound_voiceover_record_normal" width="100" height="100"/>
         <image name="activity_edit_sound_voiceover_record_pressed" width="104" height="104"/>
         <image name="activity_edit_video_expand" width="19" height="19"/>

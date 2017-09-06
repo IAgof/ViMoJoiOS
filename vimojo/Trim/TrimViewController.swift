@@ -29,10 +29,13 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
     @IBOutlet weak var minRangeLabel: UILabel!
     @IBOutlet weak var maxRangeLabel: UILabel!
     @IBOutlet weak var rangeLabel: UILabel!
-
-    @IBOutlet weak var trimTitleLabel:   UILabel!
+    
     @IBOutlet weak var expandPlayerButton: UIButton!
 
+    @IBOutlet weak var milisecondsLowButton: UIButton!
+    @IBOutlet weak var milisecondsMediumButton: UIButton!
+    @IBOutlet weak var milisecondsHighButton: UIButton!
+    
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -157,6 +160,30 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
         self.playerHandler?.createVideoPlayer(composition)
     }
     
+    func milisecondsLowSelect() {
+        milisecondsLowButton.isSelected = true
+    }
+    
+    func milisecondsLowUnselect() {
+        milisecondsLowButton.isSelected = false
+    }
+    
+    func milisecondsMediumSelect() {
+        milisecondsMediumButton.isSelected = true
+    }
+    
+    func milisecondsMediumUnselect() {
+        milisecondsMediumButton.isSelected = false
+    }
+    
+    func milisecondsHighSelect() {
+        milisecondsHighButton.isSelected = true
+    }
+    
+    func milisecondsHighUnselect() {
+        milisecondsHighButton.isSelected = false
+    }
+    
     //MARK: Inner functions
     func sliderBeganTracking(){
         eventHandler?.trimSliderBegan()
@@ -169,4 +196,36 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
     func addPlayerAsSubview(_ player: PlayerView) {
         self.playerView.addSubview(player)
     }
+    
+    @IBAction func pushLeftDecreaseTime(_ sender: AnyObject) {
+        eventHandler?.setTrimLeftDecreaseTime()
+    }
+    
+    @IBAction func pushLeftIncreaseTime(_ sender: AnyObject) {
+        eventHandler?.setTrimLeftIncreaseTime()
+    }
+    
+    @IBAction func pushRightDecreaseTime(_ sender: AnyObject) {
+        eventHandler?.setTrimRightDecreaseTime()
+    }
+    
+    @IBAction func pushRightIncreaseTime(_ sender: AnyObject) {
+        eventHandler?.setTrimRightIncreaseTime()
+    }
+    
+    @IBAction func pushMilisecondsLow(_ sender: AnyObject) {
+        eventHandler?.setMilisecondsLow()
+    }
+    
+    @IBAction func pushMilisecondsMedium(_ sender: AnyObject) {
+        eventHandler?.setMilisecondsMedium()
+    }
+    
+    @IBAction func pushMilisecondsHigh(_ sender: AnyObject) {
+        eventHandler?.setMilisecondsHigh()
+    }
+}
+
+extension TrimViewController:TrimViewPresenterDelegate {
+
 }
