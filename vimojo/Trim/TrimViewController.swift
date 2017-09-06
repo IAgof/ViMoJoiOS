@@ -29,6 +29,7 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
     @IBOutlet weak var minRangeLabel: UILabel!
     @IBOutlet weak var maxRangeLabel: UILabel!
     @IBOutlet weak var rangeLabel: UILabel!
+    @IBOutlet weak var trimTitleLabel: UILabel!
     
     @IBOutlet weak var expandPlayerButton: UIButton!
 
@@ -224,8 +225,4 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
     @IBAction func pushMilisecondsHigh(_ sender: AnyObject) {
         eventHandler?.setMilisecondsHigh()
     }
-}
-
-extension TrimViewController:TrimViewPresenterDelegate {
-
 }
