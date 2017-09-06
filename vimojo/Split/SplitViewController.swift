@@ -58,6 +58,30 @@ class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDel
         eventHandler?.pushAcceptHandler()
     }
     
+    @IBAction func pushAdvanceLeftLow(_ sender: AnyObject) {
+        eventHandler?.setSplitAccurateLeftLowValue()
+    }
+    
+    @IBAction func pushAdvanceLeftMedium(_ sender: AnyObject) {
+        eventHandler?.setSplitAccurateLeftMediumValue()
+    }
+    
+    @IBAction func pushAdvanceLeftHigh(_ sender: AnyObject) {
+        eventHandler?.setSplitAccurateLeftHighValue()
+    }
+    
+    @IBAction func pushAdvanceRightHigh(_ sender: AnyObject) {
+        eventHandler?.setSplitAccurateRightHighValue()
+    }
+    
+    @IBAction func pushAdvanceRightMedium(_ sender: AnyObject) {
+        eventHandler?.setSplitAccurateRightMediumValue()
+    }
+    
+    @IBAction func pushAdvanceRightLow(_ sender: AnyObject) {
+        eventHandler?.setSplitAccurateRightLowValue()
+    }
+    
     override func pushBack() {
         eventHandler?.pushBack()
     }
@@ -143,24 +167,6 @@ class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDel
     func addPlayerAsSubview(_ player: PlayerView) {
         self.playerView.addSubview(player)
     }
-	
-	@IBAction func pushAdvanceLeftLow(_ sender: AnyObject) {
-	}
-	
-	@IBAction func pushAdvanceLeftMedium(_ sender: AnyObject) {
-	}
-	
-	@IBAction func pushAdvanceLeftHigh(_ sender: AnyObject) {
-	}
-	
-	@IBAction func pushAdvanceRightHigh(_ sender: AnyObject) {
-	}
-	
-	@IBAction func pushAdvanceRightMedium(_ sender: AnyObject) {
-	}
-	
-	@IBAction func pushAdvanceRightLow(_ sender: AnyObject) {
-	}
 }
 
 extension SplitViewController:TTRangeSliderDelegate{
