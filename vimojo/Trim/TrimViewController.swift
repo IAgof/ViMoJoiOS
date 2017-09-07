@@ -37,9 +37,16 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
     @IBOutlet weak var milisecondsMediumButton: UIButton!
     @IBOutlet weak var milisecondsHighButton: UIButton!
     
+	@IBOutlet weak var milisecondsLeftDecreaseButton: UIButton!
+	@IBOutlet weak var milisecondsLeftIncreaseButton: UIButton!
+	@IBOutlet weak var milisecondsRightDecreaseButton: UIButton!
+	@IBOutlet weak var milisecondsRightIncreaseButton: UIButton!
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		milisecondsLeftDecreaseButton.setImage(UIImage(named:"activity_edit_player_advance_left_low")?.withRenderingMode(.alwaysTemplate), for: .normal)
+//		swapImageLow()
         eventHandler?.viewDidLoad()
         wireframe?.presentPlayerInterface()
         
@@ -184,7 +191,12 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
     func milisecondsHighUnselect() {
         milisecondsHighButton.isSelected = false
     }
-    
+	
+	func swapImageLow() {
+		milisecondsLeftDecreaseButton.setImage(UIImage(named:"activity_edit_player_advance_left_low")?.withRenderingMode(.alwaysTemplate), for: .normal)
+
+	}
+	
     //MARK: Inner functions
     func sliderBeganTracking(){
         eventHandler?.trimSliderBegan()
