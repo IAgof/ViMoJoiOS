@@ -44,9 +44,6 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		milisecondsLeftDecreaseButton.setImage(UIImage(named:"activity_edit_player_advance_left_low")?.withRenderingMode(.alwaysTemplate), for: .normal)
-//		swapImageLow()
         eventHandler?.viewDidLoad()
         wireframe?.presentPlayerInterface()
         
@@ -88,7 +85,52 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
     @IBAction func pushExpandButton(_ sender: AnyObject) {
         eventHandler?.expandPlayer()
     }
-    
+	
+	enum playerAdvanceTrimming {
+		case lowLeft
+		case lowLeftPressed
+		case lowRight
+		case lowRightPressed
+		case mediumLeft
+		case mediumLeftPressed
+		case mediumRight
+		case mediumRightPressed
+		case highLeft
+		case highLeftPressed
+		case highRight
+		case highRightPressed
+		
+		func getImage() -> UIImage {
+			switch self {
+			case .lowLeft:
+				return #imageLiteral(resourceName: "activity_edit_player_advance_left_low")
+			case .lowLeftPressed:
+				return #imageLiteral(resourceName: "activity_edit_player_advance_left_low_pressed")
+			case .lowRight:
+				return #imageLiteral(resourceName: "activity_edit_player_advance_right_low")
+			case .lowRightPressed:
+				return #imageLiteral(resourceName: "activity_edit_player_advance_right_low_pressed")
+			case .mediumLeft:
+				return #imageLiteral(resourceName: "activity_edit_player_advance_left_medium")
+			case .mediumLeftPressed:
+				return #imageLiteral(resourceName: "activity_edit_player_advance_left_medium_pressed")
+			case .mediumRight:
+				return #imageLiteral(resourceName: "activity_edit_player_advance_right_medium")
+			case .mediumRightPressed:
+				return #imageLiteral(resourceName: "activity_edit_player_advance_right_medium_pressed")
+			case .highLeft:
+				return #imageLiteral(resourceName: "activity_edit_player_advance_left_high")
+			case .highLeftPressed:
+				return #imageLiteral(resourceName: "activity_edit_player_advance_left_high_pressed")
+			case .highRight:
+				return #imageLiteral(resourceName: "activity_edit_player_advance_right_high")
+			case .highRightPressed:
+				return #imageLiteral(resourceName: "activity_edit_player_advance_right_high_pressed")
+				
+			}
+		}
+	}
+	
     //MARK: - Presenter delegate
     func configureRangeSlider(_ lowerValue: Float,
                               upperValue: Float,
@@ -187,14 +229,42 @@ class TrimViewController: ViMoJoController,TrimPresenterDelegate,PlayerViewSette
     func milisecondsHighSelect() {
         milisecondsHighButton.isSelected = true
     }
-    
+	
     func milisecondsHighUnselect() {
         milisecondsHighButton.isSelected = false
     }
 	
 	func swapImageLow() {
-		milisecondsLeftDecreaseButton.setImage(UIImage(named:"activity_edit_player_advance_left_low")?.withRenderingMode(.alwaysTemplate), for: .normal)
-
+		milisecondsLeftDecreaseButton.setImage(playerAdvanceTrimming.lowLeft.getImage(), for: .normal)
+		milisecondsLeftDecreaseButton.setImage(playerAdvanceTrimming.lowLeftPressed.getImage(), for: .highlighted)
+		milisecondsLeftIncreaseButton.setImage(playerAdvanceTrimming.lowRight.getImage(), for: .normal)
+		milisecondsLeftIncreaseButton.setImage(playerAdvanceTrimming.lowRightPressed.getImage(), for: .highlighted)
+		milisecondsRightDecreaseButton.setImage(playerAdvanceTrimming.lowLeft.getImage(), for: .normal)
+		milisecondsRightDecreaseButton.setImage(playerAdvanceTrimming.lowLeftPressed.getImage(), for: .highlighted)
+		milisecondsRightIncreaseButton.setImage(playerAdvanceTrimming.lowRight.getImage(), for: .normal)
+		milisecondsRightIncreaseButton.setImage(playerAdvanceTrimming.lowRightPressed.getImage(), for: .highlighted)
+	}
+	
+	func swapImageMedium() {
+		milisecondsLeftDecreaseButton.setImage(playerAdvanceTrimming.mediumLeft.getImage(), for: .normal)
+		milisecondsLeftDecreaseButton.setImage(playerAdvanceTrimming.mediumLeftPressed.getImage(), for: .highlighted)
+		milisecondsLeftIncreaseButton.setImage(playerAdvanceTrimming.mediumRight.getImage(), for: .normal)
+		milisecondsLeftIncreaseButton.setImage(playerAdvanceTrimming.mediumRightPressed.getImage(), for: .highlighted)
+		milisecondsRightDecreaseButton.setImage(playerAdvanceTrimming.mediumLeft.getImage(), for: .normal)
+		milisecondsRightDecreaseButton.setImage(playerAdvanceTrimming.mediumLeftPressed.getImage(), for: .highlighted)
+		milisecondsRightIncreaseButton.setImage(playerAdvanceTrimming.mediumRight.getImage(), for: .normal)
+		milisecondsRightIncreaseButton.setImage(playerAdvanceTrimming.mediumRightPressed.getImage(), for: .highlighted)
+	}
+	
+	func swapImageHigh() {
+		milisecondsLeftDecreaseButton.setImage(playerAdvanceTrimming.highLeft.getImage(), for: .normal)
+		milisecondsLeftDecreaseButton.setImage(playerAdvanceTrimming.highLeftPressed.getImage(), for: .highlighted)
+		milisecondsLeftIncreaseButton.setImage(playerAdvanceTrimming.highRight.getImage(), for: .normal)
+		milisecondsLeftIncreaseButton.setImage(playerAdvanceTrimming.highRightPressed.getImage(), for: .highlighted)
+		milisecondsRightDecreaseButton.setImage(playerAdvanceTrimming.highLeft.getImage(), for: .normal)
+		milisecondsRightDecreaseButton.setImage(playerAdvanceTrimming.highLeftPressed.getImage(), for: .highlighted)
+		milisecondsRightIncreaseButton.setImage(playerAdvanceTrimming.highRight.getImage(), for: .normal)
+		milisecondsRightIncreaseButton.setImage(playerAdvanceTrimming.highRightPressed.getImage(), for: .highlighted)
 	}
 	
     //MARK: Inner functions
