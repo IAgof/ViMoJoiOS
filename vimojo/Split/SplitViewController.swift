@@ -58,6 +58,30 @@ class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDel
         eventHandler?.pushAcceptHandler()
     }
     
+    @IBAction func pushAdvanceLeftLow(_ sender: AnyObject) {
+        eventHandler?.setSplitAccurateLeftLowValue()
+    }
+    
+    @IBAction func pushAdvanceLeftMedium(_ sender: AnyObject) {
+        eventHandler?.setSplitAccurateLeftMediumValue()
+    }
+    
+    @IBAction func pushAdvanceLeftHigh(_ sender: AnyObject) {
+        eventHandler?.setSplitAccurateLeftHighValue()
+    }
+    
+    @IBAction func pushAdvanceRightHigh(_ sender: AnyObject) {
+        eventHandler?.setSplitAccurateRightHighValue()
+    }
+    
+    @IBAction func pushAdvanceRightMedium(_ sender: AnyObject) {
+        eventHandler?.setSplitAccurateRightMediumValue()
+    }
+    
+    @IBAction func pushAdvanceRightLow(_ sender: AnyObject) {
+        eventHandler?.setSplitAccurateRightLowValue()
+    }
+    
     override func pushBack() {
         eventHandler?.pushBack()
     }
