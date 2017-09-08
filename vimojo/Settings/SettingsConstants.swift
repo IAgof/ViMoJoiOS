@@ -102,11 +102,12 @@ class SettingsConstants: NSObject {
     let ACCOUNT_ACTIONS_SECTION = "accountActions"
     let EXIT = "exit"
     
-    
-    
     //MARK: - MORE CONSTANTS TO ORDER
     let VIDEONA_WEB = "videona_web"
     let MADE_IN = "madeIn"
+   
+    //MARK: - WATERMARK
+    let WATERMARK_TITLE = "watermarkTitle"
     
     //MARK: - FTP SECTION
     let FTP1_SECTION_TITLE = "title_FTP1_Section"

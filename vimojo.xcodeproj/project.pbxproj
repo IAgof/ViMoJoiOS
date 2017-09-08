@@ -172,6 +172,10 @@
 		A97243F71E37A90C00BD5E9B /* DetailProjectPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97243F31E37A90C00BD5E9B /* DetailProjectPresenterInterface.swift */; };
 		A97772B71DC244E700EA9291 /* Share.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97772BB1DC244E700EA9291 /* Share.strings */; };
 		A97772C11DC2451200EA9291 /* EditorStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97772C51DC2451200EA9291 /* EditorStrings.strings */; };
+		A97A0C441F5DA5FE00C77DDB /* SettingsWatermarkAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A0C431F5DA5FE00C77DDB /* SettingsWatermarkAction.swift */; };
+		A97A0C451F5DA5FE00C77DDB /* SettingsWatermarkAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A0C431F5DA5FE00C77DDB /* SettingsWatermarkAction.swift */; };
+		A97A0C461F5DA5FE00C77DDB /* SettingsWatermarkAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A0C431F5DA5FE00C77DDB /* SettingsWatermarkAction.swift */; };
+		A97A0C471F5DA5FE00C77DDB /* SettingsWatermarkAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A0C431F5DA5FE00C77DDB /* SettingsWatermarkAction.swift */; };
 		A97B537F1E0AA0290001B288 /* ProjectList.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97B53811E0AA0290001B288 /* ProjectList.strings */; };
 		A97DABEF1EED62F2002BDDA3 /* MusicSelectorCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97DABEE1EED62F2002BDDA3 /* MusicSelectorCellViewModel.swift */; };
 		A97DABF01EED62F2002BDDA3 /* MusicSelectorCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97DABEE1EED62F2002BDDA3 /* MusicSelectorCellViewModel.swift */; };
@@ -1590,6 +1594,7 @@
 		A97772BF1DC244E800EA9291 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Share.strings; sourceTree = "<group>"; };
 		A97772C41DC2451200EA9291 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/EditorStrings.strings; sourceTree = "<group>"; };
 		A97772C61DC2451300EA9291 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/EditorStrings.strings; sourceTree = "<group>"; };
+		A97A0C431F5DA5FE00C77DDB /* SettingsWatermarkAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsWatermarkAction.swift; path = Settings/SettingsWatermarkAction.swift; sourceTree = "<group>"; };
 		A97B53801E0AA0290001B288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/ProjectList.strings; sourceTree = "<group>"; };
 		A97B53821E0AA02B0001B288 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/ProjectList.strings; sourceTree = "<group>"; };
 		A97DABEE1EED62F2002BDDA3 /* MusicSelectorCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicSelectorCellViewModel.swift; sourceTree = "<group>"; };
@@ -2546,6 +2551,7 @@
 				A9CABB251EC36CE900AB6CE8 /* SettingsEmailAction.swift */,
 				A9CABB351EC36CE900AB6CE8 /* SettingsLegalTextAction.swift */,
 				A9CABB371EC36CE900AB6CE8 /* SettingsNameAction.swift */,
+				A97A0C431F5DA5FE00C77DDB /* SettingsWatermarkAction.swift */,
 				A9CABB3B1EC36CE900AB6CE8 /* SettingsQualityAction.swift */,
 				A9CABB3C1EC36CE900AB6CE8 /* SettingsResolutionAction.swift */,
 				A9CABB3F1EC36CE900AB6CE8 /* SettingsUsernameAction.swift */,
@@ -3858,7 +3864,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		096F69D4907122A846EA7D76 /* [CP] Copy Pods Resources */ = {
@@ -3891,7 +3897,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		31626BEAD60C5F4719B0270D /* [CP] Embed Pods Frameworks */ = {
@@ -3942,7 +3948,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		78A3CD69730AAB333F5C10DD /* [CP] Copy Pods Resources */ = {
@@ -4140,7 +4146,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		AE491E3B1F3AFE6400B20B70 /* ShellScript */ = {
@@ -4349,6 +4355,7 @@
 				A9CABB611EC36CE900AB6CE8 /* SettingsFTPBreakingNewsPasswordAction.swift in Sources */,
 				A9CABB9D1EC36CE900AB6CE8 /* SettingsUserInfo.swift in Sources */,
 				A9CABB0E1EC36C6700AB6CE8 /* RealmVideo.swift in Sources */,
+				A97A0C461F5DA5FE00C77DDB /* SettingsWatermarkAction.swift in Sources */,
 				A9CAB8991EC35F4700AB6CE8 /* DateCompareExtension.swift in Sources */,
 				A9CAB96B1EC3672700AB6CE8 /* GalleryViewController.swift in Sources */,
 				A9CAB8921EC35F1C00AB6CE8 /* ConfigPreferences.swift in Sources */,
@@ -4647,6 +4654,7 @@
 				A9CABA431EC36A5C00AB6CE8 /* ProjectListConstants.swift in Sources */,
 				A9CABB5F1EC36CE900AB6CE8 /* SettingsFTPBreakingNewsPasswordAction.swift in Sources */,
 				A9CABB9B1EC36CE900AB6CE8 /* SettingsUserInfo.swift in Sources */,
+				A97A0C441F5DA5FE00C77DDB /* SettingsWatermarkAction.swift in Sources */,
 				A9CABB0C1EC36C6700AB6CE8 /* RealmVideo.swift in Sources */,
 				A9CABA251EC369F600AB6CE8 /* MusicPresenterInterface.swift in Sources */,
 				A9CABA001EC3691E00AB6CE8 /* MicRecorderPresenter.swift in Sources */,
@@ -4955,6 +4963,7 @@
 				A9D077441E2F80B1003AE96B /* ShareCell.swift in Sources */,
 				A9CABA041EC3691E00AB6CE8 /* MicRecorderPresenterInterface.swift in Sources */,
 				A9D077451E2F80B1003AE96B /* NSLocale+ISO639_2.m in Sources */,
+				A97A0C451F5DA5FE00C77DDB /* SettingsWatermarkAction.swift in Sources */,
 				A9D077471E2F80B1003AE96B /* SettingsInteractor.swift in Sources */,
 				A9FB3A501E53D97300C21918 /* FilterCollectionViewCell.swift in Sources */,
 				A93B5C9A1E38C016009E0279 /* DetailProjectFoundToDetailProjectViewModelMapper.swift in Sources */,
@@ -5253,6 +5262,7 @@
 				AE491EAE1F3AFE6400B20B70 /* SettingsFTPBreakingNewsPasswordAction.swift in Sources */,
 				AE491EAF1F3AFE6400B20B70 /* SettingsUserInfo.swift in Sources */,
 				AE491EB01F3AFE6400B20B70 /* RealmVideo.swift in Sources */,
+				A97A0C471F5DA5FE00C77DDB /* SettingsWatermarkAction.swift in Sources */,
 				AE491EB11F3AFE6400B20B70 /* MusicPresenterInterface.swift in Sources */,
 				AE491EB21F3AFE6400B20B70 /* MicRecorderPresenter.swift in Sources */,
 				AE491EB31F3AFE6400B20B70 /* DuplicateWireframe.swift in Sources */,
@@ -5819,7 +5829,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DDEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "aa165c09-2128-49d9-b0f7-89bb9aa878bb";
+				PROVISIONING_PROFILE = "fb768ea7-5073-492c-aab5-736982a422cd";
 				PROVISIONING_PROFILE_SPECIFIER = "Vimojo development";
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -5834,8 +5844,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Videona SocialMedia S.L. (98YJ9HU6W9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Videona SocialMedia S.L. (98YJ9HU6W9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Iago Fernández cedron (JVQF87BH8Q)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Iago Fernández cedron (JVQF87BH8Q)";
 				DEVELOPMENT_TEAM = 98YJ9HU6W9;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5860,8 +5870,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DRELEASE\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "df2fc931-6da1-4a10-8cc5-25ff5e069738";
-				PROVISIONING_PROFILE_SPECIFIER = "Vimojo Production";
+				PROVISIONING_PROFILE = "fb768ea7-5073-492c-aab5-736982a422cd";
+				PROVISIONING_PROFILE_SPECIFIER = "Vimojo development";
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

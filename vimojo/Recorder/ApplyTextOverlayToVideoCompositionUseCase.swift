@@ -29,13 +29,13 @@ class ApplyTextOverlayToVideoCompositionUseCase:NSObject {
         videoLayer.masksToBounds = true
         videoLayer.contentsScale = UIScreen.main.scale
         
-        let layer = GetActualProjectTextCALayerAnimationUseCase(videonaComposition: videonaComposition).getCALayerAnimation(project: project)
+        let animatedLayer = GetActualProjectCALayerAnimationUseCase(videonaComposition: videonaComposition).getCALayerAnimation(project: project)
         
         let parentLayer = CALayer()
         parentLayer.frame = videoFrame
         parentLayer.addSublayer(videoLayer)
         
-        parentLayer.addSublayer(layer)
+        parentLayer.addSublayer(animatedLayer)
         
         composition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, in: parentLayer)
     }
@@ -46,7 +46,7 @@ class ApplyTextOverlayToVideoCompositionUseCase:NSObject {
         let videos = project.getVideoList()
         
         for video in videos{
-            layers = GetActualProjectTextCALayerAnimationUseCase(videonaComposition: videonaComposition).getTextLayersAnimated(videoList: videos)
+            layers = GetActualProjectCALayerAnimationUseCase(videonaComposition: videonaComposition).getTextLayersAnimated(videoList: videos)
         }
         
         return layers

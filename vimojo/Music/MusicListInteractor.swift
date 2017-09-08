@@ -117,8 +117,8 @@ class MusicListInteractor: MusicListInteractorInterface {
         if project != nil{
             actualComposition = GetActualProjectAVCompositionUseCase().getComposition(project: project!)
             if let composition = actualComposition {
-                let layer = GetActualProjectTextCALayerAnimationUseCase(videonaComposition: composition).getCALayerAnimation(project: project!)
-                composition.layerAnimation = layer
+                let animatedLayer = GetActualProjectCALayerAnimationUseCase(videonaComposition: composition).getCALayerAnimation(project: project!)
+                composition.layerAnimation?.addSublayer(animatedLayer)
                 delegate?.setVideoComposition(composition)
             }
         }

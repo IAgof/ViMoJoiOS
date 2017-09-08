@@ -81,6 +81,14 @@ class SettingsProvider:NSObject{
         let moreInfoSettings = [AboutUsSetting,privacyPolicySetting,termsOfServiceSetting,licensesSetting,legalAdviceSetting]
         settings.append(moreInfoSettings)
         
+        //MARK: - WATERMARK SECTION
+        if configuration.hasWatermark {
+            let watermark = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().WATERMARK_TITLE),
+                                            subTitle: project.hasWatermark ? "Enabled":"Disabled",
+                                            action: SettingsWatermarkAction(delegate: delegate, project: project))
+            settings.append([watermark])
+        }
+        
         if configuration.FTP_FEATURE{
             //MARK: - FTP SECTION
             let ftpHostSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().HOST_FTP),
@@ -140,6 +148,10 @@ class SettingsProvider:NSObject{
         sections.append(Utils().getStringByKeyFromSettings(SettingsConstants().MY_ACCOUNT_SECTION))
         sections.append(Utils().getStringByKeyFromSettings(SettingsConstants().CAMERA_SECTION))
         sections.append(Utils().getStringByKeyFromSettings(SettingsConstants().MORE_INFO_SECTION))
+        
+        if (configuration.hasWatermark) {
+            sections.append(Utils().getStringByKeyFromSettings(SettingsConstants().WATERMARK_TITLE))
+        }
         
         if configuration.FTP_FEATURE{
             sections.append( Utils().getStringByKeyFromSettings(SettingsConstants().FTP1_SECTION_TITLE))
