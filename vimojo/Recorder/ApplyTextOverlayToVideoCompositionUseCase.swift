@@ -9,7 +9,6 @@
 import Foundation
 import AVFoundation
 import VideonaProject
-import VideonaProject
 
 class ApplyTextOverlayToVideoCompositionUseCase:NSObject {
     var project:Project
