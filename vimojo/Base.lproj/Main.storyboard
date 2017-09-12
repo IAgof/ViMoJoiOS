@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -33,7 +32,7 @@
                                     <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="activity_record_icon_white_balance_fluorescent_pressed"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZn-wu-f2Y">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZn-wu-f2Y" customClass="VImojoCard" customModule="PeriodistaCelular" customModuleProvider="target">
                                 <rect key="frame" x="15" y="241" width="290" height="90"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ede-G3-Wep" customClass="TTRangeSlider">
@@ -50,35 +49,20 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Ede-G3-Wep" secondAttribute="trailing" constant="10" id="4W5-wq-Ju4"/>
                                     <constraint firstAttribute="height" constant="90" id="61H-xk-xGY"/>
                                     <constraint firstItem="Ede-G3-Wep" firstAttribute="leading" secondItem="SZn-wu-f2Y" secondAttribute="leading" constant="10" id="Yah-MY-65U"/>
                                     <constraint firstAttribute="bottom" secondItem="Ede-G3-Wep" secondAttribute="bottom" constant="15" id="tTd-9H-1dw"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="0.5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="0.0" height="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="maskToBounds" value="NO"/>
-                                </userDefinedRuntimeAttributes>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="Ede-G3-Wep"/>
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0fd-YG-Bf2" userLabel="View X">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0fd-YG-Bf2" userLabel="View X" customClass="VImojoCard" customModule="PeriodistaCelular" customModuleProvider="target">
                                 <rect key="frame" x="15" y="346" width="290" height="90"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dtt-6d-YyC">
@@ -175,23 +159,8 @@
                                     <constraint firstItem="dtt-6d-YyC" firstAttribute="centerX" secondItem="0fd-YG-Bf2" secondAttribute="centerX" id="pJz-av-gnj"/>
                                     <constraint firstItem="E4q-6p-3Ln" firstAttribute="top" secondItem="dtt-6d-YyC" secondAttribute="bottom" constant="10" id="tuP-Go-yWN"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="0.5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="0.0" height="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="maskToBounds" value="NO"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JTi-Mc-F7L">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JTi-Mc-F7L" customClass="VImojoCard" customModule="PeriodistaCelular" customModuleProvider="target">
                                 <rect key="frame" x="15" y="501" width="290" height="52"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pi-Oz-r2z">
@@ -220,21 +189,6 @@
                                     <constraint firstItem="8pi-Oz-r2z" firstAttribute="top" secondItem="JTi-Mc-F7L" secondAttribute="top" constant="15" id="Hqv-GO-kih"/>
                                     <constraint firstAttribute="trailing" secondItem="mNW-tr-V3g" secondAttribute="trailing" constant="15" id="X1g-kh-cT2"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="0.5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="0.0" height="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="maskToBounds" value="NO"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hK2-dv-6yA">
                                 <rect key="frame" x="286" y="15" width="19" height="22"/>
@@ -297,7 +251,7 @@
                                     <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="common_icon_play"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCz-0d-hhA">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCz-0d-hhA" customClass="VImojoCard" customModule="PeriodistaCelular" customModuleProvider="target">
                                 <rect key="frame" x="15" y="241.5" width="290" height="156"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Init" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MjO-s0-Qli">
@@ -345,7 +299,7 @@
                                         </connections>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="3a7-q2-HmD"/>
                                     <constraint firstItem="xiI-0d-5Mf" firstAttribute="top" secondItem="ZCz-0d-hhA" secondAttribute="top" constant="20" symbolic="YES" id="67U-AC-tfT"/>
@@ -378,7 +332,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCw-vg-1hF">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCw-vg-1hF" customClass="VImojoCard" customModule="PeriodistaCelular" customModuleProvider="target">
                                 <rect key="frame" x="15" y="503" width="290" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBp-R5-HMY">
@@ -416,7 +370,7 @@
                                     <action selector="pushExpandButton:" destination="8SH-hk-FrO" eventType="touchUpInside" id="S0o-JG-b89"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23Q-6k-a99">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23Q-6k-a99" customClass="VImojoCard" customModule="PeriodistaCelular" customModuleProvider="target">
                                 <rect key="frame" x="15" y="412.5" width="290" height="75"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="kYm-Ep-AgN">
@@ -506,9 +460,23 @@
                                     <constraint firstItem="kYm-Ep-AgN" firstAttribute="top" secondItem="23Q-6k-a99" secondAttribute="top" id="n14-2Z-vQo"/>
                                     <constraint firstItem="1JI-oo-Oqe" firstAttribute="top" secondItem="kYm-Ep-AgN" secondAttribute="bottom" constant="15" id="tYt-vG-piX"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="2" height="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="23Q-6k-a99" firstAttribute="top" secondItem="ZCz-0d-hhA" secondAttribute="bottom" constant="15" id="0UQ-Na-wTw"/>
                             <constraint firstAttribute="trailing" secondItem="PCw-vg-1hF" secondAttribute="trailing" constant="15" id="0XH-yT-dgx"/>

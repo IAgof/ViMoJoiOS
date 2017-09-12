@@ -23,7 +23,7 @@ class SettingsWatermarkAction: SettingsActionInterface {
     func executeSettingsAction(_ index:IndexPath) {
         let title =  Utils().getStringByKeyFromSettings(SettingsConstants().WATERMARK_TITLE)
         
-        let options = ["Enabled", "Disabled"]
+        let options = ["watermarkEnabled".localized(.settings), "watermarkDisabled".localized(.settings)]
         let alertController = SettingsUtils().createActionSheetWithOptions(title,
                                                                            options: options,
                                                                            completion: {
@@ -40,7 +40,7 @@ class SettingsWatermarkAction: SettingsActionInterface {
     }
     
     func saveOnProject(_ saveString:String){
-        project.hasWatermark = saveString == "Enabled" 
+        project.hasWatermark = saveString == "watermarkEnabled".localized(.settings)
 
         ProjectRealmRepository().update(item: project)
 
