@@ -17,5 +17,5 @@ protocol ConfigurationProtocol {
     
     var VOICE_OVER_FEATURE:Bool{get}
     var FTP_FEATURE:Bool{get}
-    var hasWatermark:Bool{get}
+    var WATERMARK_FEATURE:Bool{get}
 }
