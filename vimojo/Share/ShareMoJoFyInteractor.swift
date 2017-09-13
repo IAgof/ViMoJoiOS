@@ -25,37 +25,43 @@ class ShareMoJoFyInteractor{
 		mediaPath = sharePath.documentsPath
 	}
 	
-	func postVideoToMoJoFy(callback: @escaping (Bool) -> Void) {
-		//        let token:String = "xxxxx"
-		//        let headers = ["Authorization": "Bearer \(token)"]
+	func postVideoToMoJoFy(_ fileName:String, callback: @escaping (Bool) -> Void) {
 		
-		guard let path = mediaPath else {return}
+		let url = "http://35.195.141.208/media"
+		
+		let parameters = [String: AnyObject]()
+		
+		let headers: HTTPHeaders = [
+			"Content-type": "multipart/form-data"
+		]
+		
+		guard let path = mediaPath else { return }
+		
 		guard let videoData = try? Data.init(contentsOf: URL(fileURLWithPath: path)) else { return }
-		//        let urlRequest = try! URLRequest(url: "http://35.195.141.208/media", method: .post, headers: headers)
-		let urlRequest = "http://35.195.141.208/media"
 		
-		Alamofire.upload(
-			multipartFormData: { multipartFormData in
-				multipartFormData.append(videoData, withName: "video.mp4")
-		},
-			to: urlRequest,
-			encodingCompletion: { encodingResult in
-				switch encodingResult {
-				case .success(let upload, _, _):
-					upload.responseJSON { response in
-						print(response)
-						callback(true)
-						
-						let message = ShareConstants.UPLOAD_SUCCESFULL
-						ShareUtils().setAlertCompletionMessageOnTopView(socialName: "MoJoFy", message: message)
-					}
-				case .failure(_):
-					callback(false)
-					let message = ShareConstants.UPLOAD_FAIL
+		Alamofire.upload(multipartFormData: { (multipartFormData) in
+			for (key, value) in parameters {
+				multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
+			}
+			
+			multipartFormData.append(videoData, withName: "file", fileName: fileName, mimeType: "application/octet-stream")
+			
+		}, usingThreshold: UInt64.init(), to: url, method: .post, headers: headers) { (result) in
+			switch result{
+			case .success(let upload, _, _):
+				upload.responseJSON { response in
+					print(response)
+					callback(true)
+					
+					let message = ShareConstants.UPLOAD_SUCCESFULL
 					ShareUtils().setAlertCompletionMessageOnTopView(socialName: "MoJoFy", message: message)
 				}
+			case .failure(_):
+				callback(false)
+				let message = ShareConstants.UPLOAD_FAIL
+				ShareUtils().setAlertCompletionMessageOnTopView(socialName: "MoJoFy", message: message)
+			}
 		}
-		)
 	}
 	
 	func trackShare() {
