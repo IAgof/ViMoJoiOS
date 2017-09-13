@@ -3864,7 +3864,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		096F69D4907122A846EA7D76 /* [CP] Copy Pods Resources */ = {
@@ -3897,7 +3897,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		31626BEAD60C5F4719B0270D /* [CP] Embed Pods Frameworks */ = {
@@ -3948,7 +3948,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		78A3CD69730AAB333F5C10DD /* [CP] Copy Pods Resources */ = {
@@ -3976,19 +3976,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/KCFloatingActionButton/KCFloatingActionButton.framework",
-				"${BUILT_PRODUCTS_DIR}/MBCircularProgressBar/MBCircularProgressBar.framework",
-				"${BUILT_PRODUCTS_DIR}/Mixpanel/Mixpanel.framework",
-				"${BUILT_PRODUCTS_DIR}/NMRangeSlider/NMRangeSlider.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/TTRangeSlider/TTRangeSlider.framework",
-				"${BUILT_PRODUCTS_DIR}/VideonaProject/VideonaProject.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS10.3/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2-iOS10.3/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher-iOS10.3/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-iOS10.3/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/KCFloatingActionButton-iOS10.3/KCFloatingActionButton.framework",
+				"${BUILT_PRODUCTS_DIR}/MBCircularProgressBar-iOS10.3/MBCircularProgressBar.framework",
+				"${BUILT_PRODUCTS_DIR}/Mixpanel-iOS10.3/Mixpanel.framework",
+				"${BUILT_PRODUCTS_DIR}/NMRangeSlider-iOS10.3/NMRangeSlider.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm-iOS10.3/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift-iOS10.3/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwifterSwift-iOS10.3/SwifterSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/TTRangeSlider-iOS10.3/TTRangeSlider.framework",
+				"${BUILT_PRODUCTS_DIR}/VideonaProject-iOS10.3/VideonaProject.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -4018,19 +4018,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RTVE/Pods-RTVE-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/KCFloatingActionButton/KCFloatingActionButton.framework",
-				"${BUILT_PRODUCTS_DIR}/MBCircularProgressBar/MBCircularProgressBar.framework",
-				"${BUILT_PRODUCTS_DIR}/Mixpanel/Mixpanel.framework",
-				"${BUILT_PRODUCTS_DIR}/NMRangeSlider/NMRangeSlider.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/TTRangeSlider/TTRangeSlider.framework",
-				"${BUILT_PRODUCTS_DIR}/VideonaProject/VideonaProject.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS9.3/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2-iOS9.3/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher-iOS9.3/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-iOS9.3/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/KCFloatingActionButton-iOS9.3/KCFloatingActionButton.framework",
+				"${BUILT_PRODUCTS_DIR}/MBCircularProgressBar-iOS9.3/MBCircularProgressBar.framework",
+				"${BUILT_PRODUCTS_DIR}/Mixpanel-iOS9.3/Mixpanel.framework",
+				"${BUILT_PRODUCTS_DIR}/NMRangeSlider-iOS9.3/NMRangeSlider.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm-iOS9.3/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift-iOS9.3/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwifterSwift-iOS9.3/SwifterSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/TTRangeSlider-iOS9.3/TTRangeSlider.framework",
+				"${BUILT_PRODUCTS_DIR}/VideonaProject-iOS9.3/VideonaProject.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -4146,7 +4146,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AE491E3B1F3AFE6400B20B70 /* ShellScript */ = {
@@ -4182,19 +4182,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ThomsonFoundation/Pods-ThomsonFoundation-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/KCFloatingActionButton/KCFloatingActionButton.framework",
-				"${BUILT_PRODUCTS_DIR}/MBCircularProgressBar/MBCircularProgressBar.framework",
-				"${BUILT_PRODUCTS_DIR}/Mixpanel/Mixpanel.framework",
-				"${BUILT_PRODUCTS_DIR}/NMRangeSlider/NMRangeSlider.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/TTRangeSlider/TTRangeSlider.framework",
-				"${BUILT_PRODUCTS_DIR}/VideonaProject/VideonaProject.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS9.3/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2-iOS9.3/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher-iOS9.3/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-iOS9.3/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/KCFloatingActionButton-iOS9.3/KCFloatingActionButton.framework",
+				"${BUILT_PRODUCTS_DIR}/MBCircularProgressBar-iOS9.3/MBCircularProgressBar.framework",
+				"${BUILT_PRODUCTS_DIR}/Mixpanel-iOS9.3/Mixpanel.framework",
+				"${BUILT_PRODUCTS_DIR}/NMRangeSlider-iOS9.3/NMRangeSlider.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm-iOS9.3/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift-iOS9.3/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwifterSwift-iOS9.3/SwifterSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/TTRangeSlider-iOS9.3/TTRangeSlider.framework",
+				"${BUILT_PRODUCTS_DIR}/VideonaProject-iOS9.3/VideonaProject.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
