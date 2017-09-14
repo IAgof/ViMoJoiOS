@@ -12,17 +12,17 @@ import VideonaProject
 class SettingsQualityAction: SettingsActionInterface {
     let defaults = UserDefaults.standard
     var delegate: SettingsActionDelegate
-    var project:Project
-    
-    init(delegate:SettingsActionDelegate,
-         project:Project){
+    var project: Project
+
+    init(delegate: SettingsActionDelegate,
+         project: Project) {
         self.delegate = delegate
         self.project = project
     }
-    
-    func executeSettingsAction(_ index:IndexPath) {
+
+    func executeSettingsAction(_ index: IndexPath) {
         let title =  Utils().getStringByKeyFromSettings(SettingsConstants().QUALITY)
-        
+
         let options = AVQualityParse().qualityToView()
         let alertController = SettingsUtils().createActionSheetWithOptions(title,
                                                                            options: options,
@@ -38,8 +38,8 @@ class SettingsQualityAction: SettingsActionInterface {
             settingsController.present(alertController, animated: true, completion: nil)
         }
     }
-    
-    func saveOnProject(_ saveString:String){
+
+    func saveOnProject(_ saveString: String) {
         project.getProfile().setQuality(saveString)
 
         ProjectRealmRepository().update(item: project)

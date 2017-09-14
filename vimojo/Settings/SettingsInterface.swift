@@ -10,7 +10,5 @@ import Foundation
 import UIKit
 
 protocol SettingsInterface {
-    
-    
 
 }

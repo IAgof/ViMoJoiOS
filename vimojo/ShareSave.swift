@@ -6,17 +6,16 @@
 //  Copyright © 2017 Videona. All rights reserved.
 //
 
-
 import Foundation
 import Photos
 import VideonaProject
 
-class ShareSave:ShareActionInterface{
-    var delegate:ShareActionDelegate
+class ShareSave: ShareActionInterface {
+    var delegate: ShareActionDelegate
     var shareProject: Project
-    
-    init(delegate:ShareActionDelegate,
-         shareProject project:Project){
+
+    init(delegate: ShareActionDelegate,
+         shareProject project: Project) {
         self.delegate = delegate
         self.shareProject = project
     }
@@ -25,7 +24,7 @@ class ShareSave:ShareActionInterface{
         ShareUtils().setAlertCompletionMessageOnTopView(socialName: "",
                                                         message: message)
     }
-    
+
     func trackShare() {
         ViMoJoTracker.sharedInstance.trackVideoShared("Save",
                                                       videoDuration: shareProject.getDuration(),

@@ -9,32 +9,32 @@
 import Foundation
 
 class RecordDrawerController: UIViewController {
-    var wireframe:RecordDrawerWireframe?
-    
+    var wireframe: RecordDrawerWireframe?
+
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
-    
+
     @IBAction func pushProjects(_ sender: Any) {
         wireframe?.presentProjectsSelector()
     }
-    
+
     @IBAction func pushNewProject(_ sender: Any) {
         wireframe?.presentGoToRecordOrGalleryWireframe()
     }
-    
+
     @IBAction func pushCloseDrawer(_ sender: Any) {
         self.closeDrawer()
     }
-    
-    func closeDrawer(){
-        if let parentController = (self.parent as? KYDrawerController){
+
+    func closeDrawer() {
+        if let parentController = (self.parent as? KYDrawerController) {
             parentController.setDrawerState(.closed, animated: true)
         }
     }
 }
 
-extension RecordDrawerController:KYDrawerControllerDelegate{
+extension RecordDrawerController:KYDrawerControllerDelegate {
     func viewWillAppear() {
         closeDrawer()
     }

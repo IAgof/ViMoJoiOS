@@ -10,32 +10,31 @@
 import UIKit
 
 class DPTheme: NSObject {
-    
+
     static let kDefaultNavigationBarFontSize: CGFloat = 22
     static let kDefaultTabBarFontSize: CGFloat = 14
-    
+
     // This method I found on: https://github.com/nghialv/MaterialKit
-    
+
     internal static func color(hex: Int, alpha: CGFloat = 1.0) -> UIColor {
         let red = CGFloat((hex & 0xFF0000) >> 16) / 255.0
         let green = CGFloat((hex & 0xFF00) >> 8) / 255.0
         let blue = CGFloat((hex & 0xFF)) / 255.0
         return UIColor(red: red, green: green, blue: blue, alpha: alpha)
     }
-    
-    
+
     // Global theme
     internal static func setupTheme(
         maincolor: UIColor,
         secondaryColor: UIColor,
         fontName: String,
         lightStatusBar: Bool) {
-        
+
         if (lightStatusBar) {
             UIApplication.shared.setStatusBarStyle(
                 .lightContent, animated: false)
         }
-        
+
         self.customizeNavigationBar(barColor: maincolor,
                                     textColor: secondaryColor,
                                     fontName: fontName,
@@ -45,22 +44,21 @@ class DPTheme: NSObject {
         self.customizeSwitch(onColor: maincolor)
         self.customizeSearchBar(barColor: maincolor, tintColor: secondaryColor)
         self.customizeActivityIndicator(color: maincolor)
-        self.customizeButton(buttonColor:secondaryColor ,selectedButtonColor: maincolor)
+        self.customizeButton(buttonColor:secondaryColor, selectedButtonColor: maincolor)
         self.customizeSegmentedControl(mainColor: maincolor, secondaryColor: secondaryColor)
-        self.customizeSlider(sliderColor: maincolor,maxTrackColor: secondaryColor)
+        self.customizeSlider(sliderColor: maincolor, maxTrackColor: secondaryColor)
         self.customizePageControl(currentPageColor: maincolor)
         self.customizeToolbar(tintColor: maincolor)
         self.customizeTableView(tintColor: maincolor)
         self.customizeProgress(color: maincolor)
     }
-    
+
     // UITableView
     internal static func customizeTableView(tintColor: UIColor) {
         UITableView.appearance().tintColor = tintColor
         UITableView.appearance().separatorColor = tintColor
     }
-    
-    
+
     // UINavigationBar
     internal static func customizeNavigationBar(
         barColor: UIColor,
@@ -70,21 +68,21 @@ class DPTheme: NSObject {
         UINavigationBar.appearance().tintColor = buttonColor
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: textColor]
     }
-    
+
     internal static func customizeNavigationBar(
         barColor: UIColor,
         textColor: UIColor,
         fontName: String,
         fontSize: CGFloat,
         buttonColor: UIColor) {
-        
+
         UINavigationBar.appearance().barTintColor = barColor
         UINavigationBar.appearance().tintColor = buttonColor
         UINavigationBar.appearance().backgroundColor = barColor
         UINavigationBar.appearance().isTranslucent = false
-        
+
         UIButton.appearance(whenContainedInInstancesOf: [object_getClass(UINavigationBar.self) as! UIAppearanceContainer.Type]).tintColor = buttonColor
-        
+
         let font = UIFont(name: fontName, size: fontSize)
         if ((font) != nil) {
             UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: textColor,
@@ -92,8 +90,7 @@ class DPTheme: NSObject {
             ]
         }
     }
-    
-    
+
     // UITabBar
     internal static func customizeTabBar(
         barColor: UIColor,
@@ -102,21 +99,21 @@ class DPTheme: NSObject {
         UITabBar.appearance().tintColor = textColor
         UITabBar.appearance().isTranslucent = false
     }
-    
+
     internal static func customizeTabBar(
         barColor: UIColor,
         selectedTintColor: UIColor,
         unselectedTintColor: UIColor) {
-        
+
         UITabBar.appearance().barTintColor = barColor
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName : unselectedTintColor], for: .normal)
-        
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: unselectedTintColor], for: .normal)
+
         // Selected state colors
         UITabBar.appearance().tintColor = selectedTintColor
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName : selectedTintColor], for: .selected)
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName : selectedTintColor], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: selectedTintColor], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: selectedTintColor], for: .selected)
     }
-    
+
     internal static func customizeTabBar(
         barColor: UIColor,
         textColor: UIColor,
@@ -130,25 +127,22 @@ class DPTheme: NSObject {
             UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: font!], for: .normal)
         }
     }
-    
-    
+
     // UIButton
     internal static func customizeButton(
         buttonColor: UIColor,
-        selectedButtonColor:UIColor) {
+        selectedButtonColor: UIColor) {
         UIButton.appearance().setTitleColor(buttonColor, for: .normal)
         UIButton.appearance().setTitleColor(buttonColor, for: .selected)
         UIButton.appearance().tintColor = selectedButtonColor
     }
-    
-    
+
     // UISwitch
     internal static func customizeSwitch(
         onColor: UIColor) {
         UISwitch.appearance().onTintColor = onColor
     }
-    
-    
+
     // UISearchBar
     internal static func customizeSearchBar(
         barColor: UIColor,
@@ -156,22 +150,20 @@ class DPTheme: NSObject {
         UISearchBar.appearance().barTintColor = barColor
         UISearchBar.appearance().tintColor = barColor
     }
-    
-    
+
     // UIActivityIndicator
     internal static func customizeActivityIndicator(
         color: UIColor) {
         UIActivityIndicatorView.appearance().color = color
     }
-    
-    
+
     // UISegmentedControl
     internal static func customizeSegmentedControl(
         mainColor: UIColor,
         secondaryColor: UIColor) {
         UISegmentedControl.appearance().tintColor = mainColor
     }
-    
+
     internal static func customizeSegmentedControl(
         mainColor: UIColor,
         secondaryColor: UIColor,
@@ -181,40 +173,38 @@ class DPTheme: NSObject {
             UISegmentedControl.appearance().setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
         }
     }
-    
-    
+
     // UIProgress
     internal static func customizeProgress(
         color: UIColor) {
         UIProgressView.appearance().tintColor = color
     }
-    
-    
+
     // UISlider
     internal static func customizeSlider(
         sliderColor: UIColor,
-        maxTrackColor:UIColor) {
+        maxTrackColor: UIColor) {
         UISlider.appearance().minimumTrackTintColor = sliderColor
         UISlider.appearance().tintColor = sliderColor
         UISlider.appearance().maximumTrackTintColor = maxTrackColor
     }
-    
+
     internal static func customizeSliderThumbImage(
         sliderThumbImage: UIImage) {
         UISlider.appearance().setThumbImage(sliderThumbImage, for: .normal)
     }
-    
+
     internal static func customizeSliderThumbImageHighlighted(
         sliderThumbImage: UIImage) {
         UISlider.appearance().setThumbImage(sliderThumbImage, for: .highlighted)
     }
-    
+
     // UIToolbar
     internal static func customizeToolbar(
         tintColor: UIColor) {
         UIToolbar.appearance().tintColor = tintColor
     }
-    
+
     // UIPageControl
     internal static func customizePageControl(
         currentPageColor: UIColor) {
@@ -222,7 +212,7 @@ class DPTheme: NSObject {
         UIPageControl.appearance().currentPageIndicatorTintColor = currentPageColor
         UIPageControl.appearance().backgroundColor = UIColor.clear
     }
-    
+
     // Color utilities
     internal static func colorWithRGB(
         red: CGFloat,
@@ -230,6 +220,5 @@ class DPTheme: NSObject {
         blue: CGFloat) -> UIColor {
         return UIColor(red: CGFloat(red/255.0), green: CGFloat(green/255.0), blue: CGFloat(blue/255.0), alpha: 1)
     }
-    
-}
 
+}

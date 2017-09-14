@@ -8,38 +8,38 @@
 
 import Foundation
 
-class EditingRoomPresenter: NSObject,EditingRoomPresenterInterface {
-    
-    //MARK: - Variables VIPER
+class EditingRoomPresenter: NSObject, EditingRoomPresenterInterface {
+
+    // MARK: - Variables VIPER
     var controller: EditingRoomViewInterface?
     var wireframe: EditingRoomWireframe?
-    
-    //MARK: Variables
-    enum controllerVisible:Int {
+
+    // MARK: Variables
+    enum controllerVisible: Int {
         case editor = 1
         case music = 2
         case share = 3
     }
-    
-    var whatControllerIsVisible:controllerVisible = .editor
-    
+
+    var whatControllerIsVisible: controllerVisible = .editor
+
     func loadView() {
         wireframe?.initTabBarControllers()
     }
-    
+
     func controllerSelectedTag(tag: Int) {
-        if let controllerVisible = controllerVisible(rawValue: tag){
+        if let controllerVisible = controllerVisible(rawValue: tag) {
             whatControllerIsVisible = controllerVisible
-            
+
             switch whatControllerIsVisible {
             case .editor:
 
                 break
             case .music:
-                
+
                 break
             case .share:
-                
+
                 break
             }
         }

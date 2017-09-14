@@ -9,5 +9,5 @@
 import Foundation
 
 protocol DetailTextInterface {
-    func setTextToTextView(_ text:String)
+    func setTextToTextView(_ text: String)
 }

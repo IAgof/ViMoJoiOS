@@ -12,7 +12,7 @@ import Foundation
 internal class FileUploadOperation: WriteStreamOperation {
     fileprivate var fileHandle: FileHandle?
     var fileURL: URL!
-    
+
     override func start() {
         do {
             self.fileHandle = try FileHandle(forReadingFrom: fileURL)
@@ -23,17 +23,17 @@ internal class FileUploadOperation: WriteStreamOperation {
             self.finishOperation()
         }
     }
-    
+
     override func streamEventEnd(_ aStream: Stream) -> (Bool, NSError?) {
         self.fileHandle?.closeFile()
         return (true, nil)
     }
-    
+
     override func streamEventError(_ aStream: Stream) {
         super.streamEventError(aStream)
         self.fileHandle?.closeFile()
     }
-    
+
     override func streamEventHasSpace(_ aStream: Stream) -> (Bool, NSError?) {
         if let writeStream = aStream as? OutputStream {
             let offsetInFile = self.fileHandle!.offsetInFile
@@ -47,5 +47,5 @@ internal class FileUploadOperation: WriteStreamOperation {
         }
         return (true, nil)
     }
-    
+
 }

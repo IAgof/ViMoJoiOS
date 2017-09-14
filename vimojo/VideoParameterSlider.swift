@@ -8,8 +8,7 @@
 
 import Foundation
 
-
-enum VideoParameterSlider:Int {
+enum VideoParameterSlider: Int {
     case brightness = 0
     case contrast = 1
     case exposure = 2

@@ -11,5 +11,5 @@ import Foundation
 struct MusicListConstants {
     // Esta constante desplaza lo que seria la mitad del mix de izquierda a derecha [0,1]
     //De esta manera se puede cambiar el rango dinamico de los mixes
-    static let mixAudioWeight:Float = 0.8
+    static let mixAudioWeight: Float = 0.8
 }

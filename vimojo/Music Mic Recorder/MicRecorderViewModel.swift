@@ -5,11 +5,11 @@
 
 import Foundation
 
-struct MicRecorderViewModel{
-    let lowValue:String
-    let actualValue:String
-    let highValue:String
-    let sliderRange:Double
-    let audioVolume:Float
-    let projectAudioVolume:Float
+struct MicRecorderViewModel {
+    let lowValue: String
+    let actualValue: String
+    let highValue: String
+    let sliderRange: Double
+    let audioVolume: Float
+    let projectAudioVolume: Float
 }

@@ -3501,6 +3501,7 @@
 				A9B385E21D7D51380065D3EC /* Sources */,
 				45244F6698CB1B865CE5B75A /* [CP] Copy Pods Resources */,
 				AE491E001F3AF7C700B20B70 /* Embed Frameworks */,
+				AE8F99DE1F6A883E00C08A9F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -4234,6 +4235,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ThomsonFoundation/Pods-ThomsonFoundation-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		AE8F99DE1F6A883E00C08A9F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -9,7 +9,7 @@
 import Foundation
 import VideonaProject
 
-public class RealmVideoToVideoMapper:Mapper{
+public class RealmVideoToVideoMapper: Mapper {
     public typealias From = RealmVideo
     public typealias To = Video
 
@@ -23,15 +23,15 @@ public class RealmVideoToVideoMapper:Mapper{
         video.textToVideo = from.clipText
         video.textPositionToVideo = from.clipTextPosition
         video.videoURL = URL(string: from.videoURL)!
-        
+
         video.setDefaultVideoParameters()
-                
+
         return video
     }
 }
 
-extension String{
-    var fileExists: Bool{
+extension String {
+    var fileExists: Bool {
         return FileManager.default.fileExists(atPath: self)
     }
 }

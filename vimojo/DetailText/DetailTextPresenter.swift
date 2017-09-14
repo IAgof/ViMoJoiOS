@@ -8,17 +8,16 @@
 
 import Foundation
 
-class DetailTextPresenter: NSObject,DetailTextPresenterInterface {
+class DetailTextPresenter: NSObject, DetailTextPresenterInterface {
     var wireframe: DetailTextWireframe?
     var delegate: DetailTextPresenterDelegate?
     var interactor: DetailTextInteractorInterface?
-    
-    
+
     func pushBack() {
         wireframe?.goPrevController()
     }
-    
-    func setTextOnView(_ text:String) {
+
+    func setTextOnView(_ text: String) {
         let textToView = interactor?.getTextFromInternalMemory(text)
         delegate?.setTextToTextView(textToView!)
     }

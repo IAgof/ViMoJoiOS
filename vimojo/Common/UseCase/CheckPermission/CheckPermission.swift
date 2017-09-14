@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol CheckPermission{
+public protocol CheckPermission {
     func askIfNeeded()
 }

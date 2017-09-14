@@ -10,9 +10,9 @@ import Foundation
 import VideonaProject
 
 class ReloadProjectWithProjectAction {
-    func reload(actualProject:Project,
-                newProject:Project){
-        
+    func reload(actualProject: Project,
+                newProject: Project) {
+
         actualProject.reloadProjectWith(project: newProject)
     }
 }

@@ -12,26 +12,26 @@ import VideonaProject
 import AVFoundation
 
 class MusicInteractor: MusicInteractorInterface {
-    var delegate:MusicInteractorDelegate?
-    var project:Project?
-    var actualComposition:VideoComposition?
-    
+    var delegate: MusicInteractorDelegate?
+    var project: Project?
+    var actualComposition: VideoComposition?
+
     init() {
         addAudioObservers()
     }
-    
+
     deinit {
         removeAudioObservers()
     }
-    
+
     private func addAudioObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(handlerAudioUpdate(notification:)), name: Notification.audioUpdate, object: nil)
     }
-    
+
     private func removeAudioObservers() {
         NotificationCenter.default.removeObserver(self)
     }
-    
+
     @objc func handlerAudioUpdate(notification: Notification) {
         guard let audio = notification.object as? AudioUpdate, let project = self.project else {return}
         switch audio.musicResource {
@@ -40,37 +40,36 @@ class MusicInteractor: MusicInteractorInterface {
         case .voiceOver: project.voiceOver.forEach({ $0.audioLevel = audio.volume })
         default: break
         }
-        
+
         ProjectRealmRepository().update(item: project)
         updateAudioMix()
     }
-    
-    
+
     func getVideoComposition() {
-        if project != nil{
+        if project != nil {
             actualComposition = GetActualProjectAVCompositionUseCase().getComposition(project: project!)
-            if let composition = actualComposition{
+            if let composition = actualComposition {
                 let animatedLayer = GetActualProjectCALayerAnimationUseCase(videonaComposition: composition).getCALayerAnimation(project: project!)
                 actualComposition?.layerAnimation = animatedLayer
                 delegate?.setVideoComposition(actualComposition!)
             }
         }
     }
-    
-    private func updateAudioMix(){
+
+    private func updateAudioMix() {
         if let project = project {
             actualComposition = GetActualProjectAVCompositionUseCase().getComposition(project: project)
-            if let audioMix = actualComposition?.audioMix{ delegate?.update(audioMix: audioMix) }
+            if let audioMix = actualComposition?.audioMix { delegate?.update(audioMix: audioMix) }
         }
     }
-    
-    var audios: [Audio]{
-        guard let project = project else{ return [] }
+
+    var audios: [Audio] {
+        guard let project = project else { return [] }
         var audiosAvailable: [Audio] = []
-        
+
         if !project.getVideoList().isEmpty { audiosAvailable.append(Audio(title: "ProjectAudio", mediaPath: "", musicResource: .originalAudio)) }
         if let music = project.music { audiosAvailable.append(music) }
-        
+
         return audiosAvailable
     }
 }

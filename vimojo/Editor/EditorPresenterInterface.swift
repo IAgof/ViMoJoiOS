@@ -13,42 +13,42 @@ protocol EditorPresenterInterface {
     func viewDidLoad()
     func viewWillDisappear()
     func viewWillAppear()
-    func didSelectItemAtIndexPath(_ indexPath:IndexPath)
+    func didSelectItemAtIndexPath(_ indexPath: IndexPath)
     func moveItemAtIndexPath(_ sourceIndexPath: IndexPath,
                              toIndexPath destinationIndexPath: IndexPath)
-    func removeVideoClip(_ position:Int)
+    func removeVideoClip(_ position: Int)
     func removeVideoClipAfterConfirmation()
-    
+
     func pushDuplicateHandler()
     func pushSplitHandler()
     func pushTrimHandler()
     func pushAddTextHandler()
     func pushAddFloating()
     func pushOptions()
-    
-    func addSelection(selection:String)
+
+    func addSelection(selection: String)
 
     func seekBarUpdateHandler(_ value: Float)
     func pushAddVideoHandler()
-    
+
     func expandPlayer()
     func updatePlayerLayer()
-    func playerHasLoaded()  
+    func playerHasLoaded()
 }
 
-protocol EditorPresenterDelegate:ViMoJoInterface {
+protocol EditorPresenterDelegate: ViMoJoInterface {
     func setUpGestureRecognizer()
-    func selectCell(_ indexPath:IndexPath)
-    func setVideoList(_ list:[EditorViewModel])
-    func numberOfCellsInCollectionView()->Int
-    func showAlertRemove(_ title:String,
-                         message:String,
-                         yesString:String)
-    
+    func selectCell(_ indexPath: IndexPath)
+    func setVideoList(_ list: [EditorViewModel])
+    func numberOfCellsInCollectionView() -> Int
+    func showAlertRemove(_ title: String,
+                         message: String,
+                         yesString: String)
+
     func createAlertWaitToImport(_ completion: @escaping (() -> Void))
-    func createAlertWithAddOptions(title:String,
-                                   options:[String])
+    func createAlertWithAddOptions(title: String,
+                                   options: [String])
     func dissmissAlertController()
     func bringToFrontExpandPlayerButton()
-    func cameFromFullScreenPlayer(_ playerView:PlayerView)
+    func cameFromFullScreenPlayer(_ playerView: PlayerView)
 }
