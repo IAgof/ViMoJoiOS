@@ -268,7 +268,7 @@
                                                         <rect key="frame" x="41.5" y="0.0" width="16" height="21"/>
                                                         <state key="normal" image="activity_rec_expand"/>
                                                         <connections>
-                                                            <action selector="pushHideButtons:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="grc-sX-DNm"/>
+                                                            <action selector="pushCameraSimple:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="Cf6-jO-aI8"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8j-Vd-5dC">
@@ -321,11 +321,11 @@
                                                 <rect key="frame" x="385.5" y="8" width="170.5" height="21"/>
                                                 <subviews>
                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dra-Hy-CZB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="88" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="21"/>
                                                         <state key="normal" image="activity_rec_micro_connected_normal"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51U-lg-bQm" userLabel="Device Mic Button">
-                                                        <rect key="frame" x="88" y="0.0" width="16" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="104" height="21"/>
                                                         <state key="normal" image="activity_rec_phone_micro_activated_normal"/>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAM-ZC-cFG" customClass="AudioLevelBarView" customModule="VideonaProject">
@@ -414,7 +414,7 @@
                                             <userDefinedRuntimeAttribute type="image" keyPath="manualImageHighlightedAndPressed" value="activity_rec_metering_touch_pressed"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YP7-c0-irG">
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YP7-c0-irG">
                                         <rect key="frame" x="608" y="321" width="44" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="YP7-c0-irG" secondAttribute="height" multiplier="1:1" id="hKG-kL-Q4c"/>
@@ -477,7 +477,7 @@
                                             <constraint firstAttribute="height" constant="128" id="7Ge-DN-Zxl"/>
                                         </constraints>
                                     </view>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3Q-hj-CRb">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3Q-hj-CRb" userLabel="Drawer Button Right">
                                         <rect key="frame" x="15" y="176.5" width="11" height="22"/>
                                         <state key="normal" image="activity_rec_show_projects"/>
                                         <connections>
@@ -512,7 +512,7 @@
                                     <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eCP-P5-tk2" userLabel="Wrapped View">
                                         <rect key="frame" x="592" y="215" width="60" height="150"/>
                                         <subviews>
-                                            <button contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V62-32-pM2" userLabel="Show Camera Pro Button">
+                                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V62-32-pM2" userLabel="Show Camera Pro Button">
                                                 <rect key="frame" x="8" y="8" width="44" height="22"/>
                                                 <state key="normal" image="activity_rec_expand"/>
                                                 <connections>
@@ -522,7 +522,7 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_rec_gallery" highlightedImage="activity_rec_gallery_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="RhQ-Vq-oSU" userLabel="Thumbnail Image View">
                                                 <rect key="frame" x="14" y="40" width="32" height="32"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="RhQ-Vq-oSU" secondAttribute="height" id="95w-ic-T4I"/>
+                                                    <constraint firstAttribute="width" secondItem="RhQ-Vq-oSU" secondAttribute="height" multiplier="0.5:0.5" id="95w-ic-T4I"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="216-mj-D5y">
@@ -551,6 +551,7 @@
                                             <constraint firstItem="RhQ-Vq-oSU" firstAttribute="top" secondItem="V62-32-pM2" secondAttribute="bottom" constant="10" id="4FM-At-fPe"/>
                                             <constraint firstItem="216-mj-D5y" firstAttribute="top" secondItem="RhQ-Vq-oSU" secondAttribute="bottom" constant="10" id="5FY-86-wnd"/>
                                             <constraint firstAttribute="bottom" secondItem="sVO-Ig-tAv" secondAttribute="bottom" constant="8" id="6v7-Kh-fjI"/>
+                                            <constraint firstItem="V62-32-pM2" firstAttribute="leading" secondItem="eCP-P5-tk2" secondAttribute="leading" constant="8" id="OA7-Qd-bML"/>
                                             <constraint firstItem="216-mj-D5y" firstAttribute="leading" secondItem="eCP-P5-tk2" secondAttribute="leading" constant="8" id="UFW-Q0-jg2"/>
                                             <constraint firstItem="sVO-Ig-tAv" firstAttribute="leading" secondItem="eCP-P5-tk2" secondAttribute="leading" constant="8" id="Uhl-EY-hH7"/>
                                             <constraint firstAttribute="width" constant="60" id="Y5O-Gc-Leu"/>
@@ -558,6 +559,7 @@
                                             <constraint firstItem="V62-32-pM2" firstAttribute="top" secondItem="eCP-P5-tk2" secondAttribute="top" constant="8" id="mcg-Cu-LCX"/>
                                             <constraint firstAttribute="trailing" secondItem="216-mj-D5y" secondAttribute="trailing" constant="8" id="uCT-tx-znR"/>
                                             <constraint firstItem="sVO-Ig-tAv" firstAttribute="top" secondItem="216-mj-D5y" secondAttribute="bottom" constant="5" id="wfn-SJ-hIe"/>
+                                            <constraint firstAttribute="trailing" secondItem="V62-32-pM2" secondAttribute="trailing" constant="8" id="wx4-Q8-26S"/>
                                             <constraint firstItem="RhQ-Vq-oSU" firstAttribute="centerX" secondItem="sVO-Ig-tAv" secondAttribute="centerX" id="yjt-nh-aox"/>
                                         </constraints>
                                     </view>
@@ -639,10 +641,12 @@
                         <outlet property="batteryButton" destination="veW-ha-Wav" id="QH0-ew-DmB"/>
                         <outlet property="batteryView" destination="5X8-bB-gAq" id="ttD-Kh-gZH"/>
                         <outlet property="cameraRotationButton" destination="Qft-6a-P9q" id="SXl-j6-6cI"/>
+                        <outlet property="cameraSimpleView" destination="eCP-P5-tk2" id="zY3-Wr-vH6"/>
                         <outlet property="cameraView" destination="hax-3B-Lc5" id="Xql-MW-CJj"/>
                         <outlet property="chronometrer" destination="216-mj-D5y" id="Cfy-mx-axI"/>
                         <outlet property="defaultModesButton" destination="Rwp-4f-byO" id="l7B-uY-VK8"/>
                         <outlet property="deviceMicButton" destination="51U-lg-bQm" id="g23-xI-CYl"/>
+                        <outlet property="drawerButtonRight" destination="K3Q-hj-CRb" id="zh5-uc-LWb"/>
                         <outlet property="expositionModesView" destination="bd7-YM-xmD" id="Jlj-kQ-w7K"/>
                         <outlet property="exposureConfigurationView" destination="xIW-qf-psD" id="V6H-qR-Uru"/>
                         <outlet property="exposureModesButton" destination="rfD-8X-HMf" id="R8h-p5-HQG"/>
@@ -667,7 +671,6 @@
                         <outlet property="resolutionsView" destination="Iei-TN-55D" id="OML-OV-gLE"/>
                         <outlet property="secondaryChronometerLabel" destination="RHA-0I-LE1" id="uh0-Bd-zCi"/>
                         <outlet property="secondaryRecordingIndicator" destination="l2N-7L-tuG" id="M4Z-mS-PkN"/>
-                        <outlet property="showDrawerButton" destination="K3Q-hj-CRb" id="kWA-tG-TD6"/>
                         <outlet property="spaceOnDiskView" destination="Vel-Gg-DCb" id="Cie-Nz-deb"/>
                         <outlet property="storageButton" destination="v8j-Vd-5dC" id="4qh-MU-g0j"/>
                         <outlet property="thumbnailInfoLabel" destination="Kak-fM-psP" id="gaW-sz-Gzr"/>

@@ -51,6 +51,8 @@ protocol RecordPresenterInterface {
     func audioLevelHasChanged(_ value: Float)
 
     func saveResolutionToDefaults(_ resolution: String)
+	
+	func pushCameraSimple()
 }
 
 protocol RecordPresenterDelegate {
@@ -59,7 +61,7 @@ protocol RecordPresenterDelegate {
     func configModesButtonSelected(_ state: Bool)
 
     func showFlashOn(_ on: Bool)
-    func showRecordButton()
+//    func showRecordButton()
     func showFlashSupported(_ state: Bool)
     func showBackCameraSelected()
     func showFrontCameraSelected()
@@ -160,4 +162,18 @@ protocol RecordPresenterDelegate {
     func selectJackMicButton()
     func deselectDeviceMicButton()
     func deselectJackMicButton()
+	
+	func hideUpperContainerView()
+	func hideSettingsContainerView()
+	func hideRecordButton()
+	func hideDrawerButton()
+	func hideThumbnailsView()
+	func hideCameraSimpleView()
+	
+	func showUpperContainerView()
+	func showSettingsContainerView()
+	func showRecordButton()
+	func showThumbnailsView()
+	func showDrawerButton()
+	func showCameraSimpleView()
 }

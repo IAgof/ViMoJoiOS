@@ -147,6 +147,15 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             delegate?.configModesButtonSelected(true)
         }
     }
+	
+	func pushCameraSimple() {
+		delegate?.hideUpperContainerView()
+		delegate?.hideSettingsContainerView()
+		delegate?.hideRecordButton()
+		delegate?.hideThumbnailsView()
+		delegate?.hideDrawerButton()
+		delegate?.showCameraSimpleView()
+	}
 
     func pushHideAllButtons() {
         if secondaryViewIsShowing {
