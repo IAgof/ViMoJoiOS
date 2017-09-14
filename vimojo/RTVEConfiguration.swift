@@ -8,7 +8,7 @@
 
 import Foundation
 
-var configuration:ConfigurationProtocol = RTVEConfiguration()
+var configuration: ConfigurationProtocol = RTVEConfiguration()
 
 final class RTVEConfiguration: ConfigurationProtocol {
     internal var fontName: String
@@ -19,7 +19,7 @@ final class RTVEConfiguration: ConfigurationProtocol {
     internal var VOICE_OVER_FEATURE: Bool
     internal var FTP_FEATURE: Bool
     internal var WATERMARK_FEATURE: Bool
-    
+
     init() {
         fontName = "Helvetica"
         mainColor = #colorLiteral(red: 1, green: 0.6156862745, blue: 0.003921568627, alpha: 1)

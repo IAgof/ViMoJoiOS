@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol Specification{
-    
+public protocol Specification {
+
 }

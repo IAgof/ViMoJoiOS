@@ -10,13 +10,13 @@ import Foundation
 import Photos
 
 class GalleryFetchOptions: NSObject {
-    
-    func orderByCreationDate()->PHFetchOptions{
+
+    func orderByCreationDate() -> PHFetchOptions {
         let fetchOptions = PHFetchOptions()
         fetchOptions.sortDescriptors = [
             NSSortDescriptor(key: "creationDate", ascending: false)
         ]
         return fetchOptions
     }
-    
+
 }

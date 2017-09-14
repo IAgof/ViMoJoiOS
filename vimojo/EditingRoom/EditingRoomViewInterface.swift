@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol EditingRoomViewInterface:ViMoJoInterface{
+protocol EditingRoomViewInterface: ViMoJoInterface {
     func deselectAllButtons()
     func selectEditorButton()
     func selectMusicButton()
     func selectShareButton()
     func createAlertWaitToExport()
-    func dissmissAlertWaitToExport(_ completion:@escaping ()->Void)
+    func dissmissAlertWaitToExport(_ completion:@escaping () -> Void)
 
 }

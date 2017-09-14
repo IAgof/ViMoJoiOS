@@ -10,12 +10,12 @@ import Foundation
 import AVFoundation
 import UIKit
 
-struct ResolutionImage{
-    var image:UIImage?
-    var imagePressed:UIImage?
-    var resolution:String?
-    
-    init(resolution:String){
+struct ResolutionImage {
+    var image: UIImage?
+    var imagePressed: UIImage?
+    var resolution: String?
+
+    init(resolution: String) {
         switch resolution {
         case AVCaptureSessionPreset640x480:
             image = UIImage(named:"activity_rec_resolution_720")!

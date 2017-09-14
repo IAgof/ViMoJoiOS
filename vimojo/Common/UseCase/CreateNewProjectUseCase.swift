@@ -9,10 +9,10 @@
 import Foundation
 import VideonaProject
 
-public class CreateNewProjectUseCase{
-    func create( project:Project){
+public class CreateNewProjectUseCase {
+    func create( project: Project) {
         project.clear()
-        
+
         ProjectRealmRepository().add(item: project)
     }
 }

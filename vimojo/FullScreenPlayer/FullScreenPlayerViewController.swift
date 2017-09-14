@@ -10,14 +10,14 @@ import Foundation
 import UIKit
 import VideonaProject
 
-class FullScreenPlayerViewController: ViMoJoController ,FullScreenPlayerInterface{
+class FullScreenPlayerViewController: ViMoJoController, FullScreenPlayerInterface {
 
-    //MARK: - VIPER
+    // MARK: - VIPER
     var eventHandler: FullScreenPlayerPresenterInterface?
 
     @IBOutlet weak var shrinkButton: UIButton!
-    
-    var playerView:PlayerView?{
+
+    var playerView: PlayerView? {
         didSet {
             self.view.addSubview(playerView!)
             self.view.bringSubview(toFront: shrinkButton)
@@ -28,7 +28,7 @@ class FullScreenPlayerViewController: ViMoJoController ,FullScreenPlayerInterfac
         eventHandler?.onPushShrinkButton()
     }
 
-    func getPlayerView()->PlayerView{
+    func getPlayerView() -> PlayerView {
         return playerView!
     }
 }

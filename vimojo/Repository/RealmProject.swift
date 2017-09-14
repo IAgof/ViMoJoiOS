@@ -9,30 +9,30 @@
 import Foundation
 import RealmSwift
 
-public class RealmProject:Object{
+public class RealmProject: Object {
     dynamic var uuid = ""
     dynamic var title = ""
     dynamic var projectPath = ""
     dynamic var quality = ""
     dynamic var resolution = ""
-    dynamic var frameRate:Int = 30
-    dynamic var musicTitle:String = ""
-    dynamic var musicVolume:Double = 0.5
+    dynamic var frameRate: Int = 30
+    dynamic var musicTitle: String = ""
+    dynamic var musicVolume: Double = 0.5
     var videos = List<RealmVideo>()
-    dynamic var modificationDate: Date? = nil
-    dynamic var exportedDate: Date? = nil
-    dynamic var exportedPath: String? = nil
+    dynamic var modificationDate: Date?
+    dynamic var exportedDate: Date?
+    dynamic var exportedPath: String?
     var voiceOver = List<RealmAudio>()
         dynamic var isVoiceOverSet: Bool = false
-    dynamic var voiceOverAudioLevel:Float = 0
-    dynamic var projectOutputAudioLevel:Float = 1
-    dynamic var transitionTime:Double = 0
+    dynamic var voiceOverAudioLevel: Float = 0
+    dynamic var projectOutputAudioLevel: Float = 1
+    dynamic var transitionTime: Double = 0
 
-    dynamic var filterName:String = ""
-    dynamic var brightnessLevel:NSNumber = 0
-    dynamic var contrastLevel:NSNumber = 0
-    dynamic var saturationLevel:NSNumber = 0
-    dynamic var exposureLevel:NSNumber = 0
+    dynamic var filterName: String = ""
+    dynamic var brightnessLevel: NSNumber = 0
+    dynamic var contrastLevel: NSNumber = 0
+    dynamic var saturationLevel: NSNumber = 0
+    dynamic var exposureLevel: NSNumber = 0
     dynamic var hasWatermark: Bool = false
 
     override public class func primaryKey() -> String? {

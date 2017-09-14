@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class ConfigPreferences {
     let FIRST_TIME = "first_time"
     let SETTINGS_SHARED_PREFERENCES_FILE_NAME = "SETTINGS_SHARED_PREFERENCES_CAMERA"
@@ -28,7 +27,7 @@ class ConfigPreferences {
     let TOTAL_VIDEOS_RECORDED = "total_videos_recorded"
     let TOTAL_VIDEOS_SHARED = "total_videos_shared"
     let ACTIVITY_BACKGROUND = "ACTIVITY_BACKGROUND"
-    
+
     let ACCOUNT_MAIL = "account_email"
     let USERNAME = "username"
     let NAME = "name"

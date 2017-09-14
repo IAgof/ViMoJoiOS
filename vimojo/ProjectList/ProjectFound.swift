@@ -9,8 +9,8 @@
 import Foundation
 
 struct ProjectFound {
-    let videoURL:URL?
-    let title:String
-    let date:Date
-    let duration:Double
+    let videoURL: URL?
+    let title: String
+    let date: Date
+    let duration: Double
 }

@@ -13,13 +13,13 @@ import VideonaProject
 import AVFoundation
 import VideonaProject
 
-class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDelegate,PlayerViewDelegate,PlayerViewSetter {
-    //MARK: - VIPER variables
+class SplitViewController: ViMoJoController, SplitViewInterface, SplitPresenterDelegate, PlayerViewDelegate, PlayerViewSetter {
+    // MARK: - VIPER variables
     var eventHandler: SplitPresenterInterface?
     var wireframe: SplitWireframe?
     var playerHandler: PlayerPresenterInterface?
-    
-    //MARK: - Outlet
+
+    // MARK: - Outlet
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var acceptButton: UIButton!
@@ -27,149 +27,148 @@ class SplitViewController: ViMoJoController,SplitViewInterface,SplitPresenterDel
     @IBOutlet weak var splitYourClipLabel: UILabel!
     @IBOutlet weak var splitRangeSlider: TTRangeSlider!
 
-    override var forcePortrait: Bool{
+    override var forcePortrait: Bool {
         return true
     }
 
-    //MARK: - LifeCycle
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         eventHandler?.viewDidLoad()
         wireframe?.presentPlayerInterface()
         splitRangeSlider.delegate = self
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         eventHandler?.viewWillDissappear()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureNavigationBarWithBackButton()
     }
-    
-    //MARK: - Actions
+
+    // MARK: - Actions
     @IBAction func pushCancelButton(_ sender: AnyObject) {
         eventHandler?.pushCancelHandler()
     }
-    
+
     @IBAction func pushAcceptButton(_ sender: AnyObject) {
         eventHandler?.pushAcceptHandler()
     }
-    
+
     @IBAction func pushAdvanceLeftLow(_ sender: AnyObject) {
         eventHandler?.setSplitAccurateLeftLowValue()
     }
-    
+
     @IBAction func pushAdvanceLeftMedium(_ sender: AnyObject) {
         eventHandler?.setSplitAccurateLeftMediumValue()
     }
-    
+
     @IBAction func pushAdvanceLeftHigh(_ sender: AnyObject) {
         eventHandler?.setSplitAccurateLeftHighValue()
     }
-    
+
     @IBAction func pushAdvanceRightHigh(_ sender: AnyObject) {
         eventHandler?.setSplitAccurateRightHighValue()
     }
-    
+
     @IBAction func pushAdvanceRightMedium(_ sender: AnyObject) {
         eventHandler?.setSplitAccurateRightMediumValue()
     }
-    
+
     @IBAction func pushAdvanceRightLow(_ sender: AnyObject) {
         eventHandler?.setSplitAccurateRightLowValue()
     }
-    
+
     override func pushBack() {
         eventHandler?.pushBack()
     }
-    
+
     @IBAction func pushExpandButton(_ sender: AnyObject) {
         eventHandler?.expandPlayer()
     }
-    
-    //MARK: - Interface
+
+    // MARK: - Interface
     func configureRangeSlider(_ splitValue: Float,
-                              maximumValue:Float)
-    {
-        
+                              maximumValue: Float) {
+
         self.configureUIRangeSlider()
-        
+
         splitRangeSlider.maxValue = maximumValue
         splitRangeSlider.minValue = 0.0
-        
+
         splitRangeSlider.selectedMaximum = splitValue
         splitRangeSlider.selectedMinimum = 0
     }
 
-    func configureUIRangeSlider(){
+    func configureUIRangeSlider() {
         splitRangeSlider.tintColor = configuration.secondColorWithOpacity
         splitRangeSlider.backgroundColor = configuration.secondColorWithOpacity
         splitRangeSlider.maxLabelColour = configuration.secondColor
         splitRangeSlider.lineHeight = 0
-        
+
         let handleImage = UIImage(named: "button_edit_thumb_seekbar_advance_split_normal")
         splitRangeSlider.handleImage = handleImage
-        
+
         let formatter = TimeNumberFormatter()
         self.splitRangeSlider.numberFormatterOverride = formatter
     }
-    
-    func setSliderValue(_ value:Float){
+
+    func setSliderValue(_ value: Float) {
         splitRangeSlider.selectedMaximum = value
     }
-    
-    func bringToFrontExpandPlayerButton(){
+
+    func bringToFrontExpandPlayerButton() {
         self.playerView.bringSubview(toFront: expandPlayerButton)
     }
-    
-    func cameFromFullScreenPlayer(_ playerView:PlayerView){
+
+    func cameFromFullScreenPlayer(_ playerView: PlayerView) {
         self.playerView.addSubview(playerView)
         self.playerView.bringSubview(toFront: expandPlayerButton)
         playerHandler?.layoutSubViews()
     }
-    
-    //MARK: - Presenter delegate    
+
+    // MARK: - Presenter delegate    
     func acceptFinished() {
         ViMoJoTracker.sharedInstance.trackClipSplitted()
-        
+
         wireframe?.goPrevController()
     }
-    
+
     func pushBackFinished() {
         wireframe?.goPrevController()
     }
-    
+
     func expandPlayerToView() {
         wireframe?.presentExpandPlayer()
     }
-    
+
     func setStopToVideo() {
         playerHandler?.onVideoStops()
     }
-    
+
     func updatePlayerOnView(_ composition: VideoComposition) {
         self.playerHandler?.createVideoPlayer(composition)
     }
-    
+
     func setPlayerToSeekTime(_ time: Float) {
         playerHandler?.seekToTime(time)
     }
-    
-    //MARK: - Player view delegate
+
+    // MARK: - Player view delegate
     func seekBarUpdate(_ value: Float) {
         eventHandler?.updateSplitValueByPlayer(value)
     }
-    
-    //MARK: - Player setter
+
+    // MARK: - Player setter
     func addPlayerAsSubview(_ player: PlayerView) {
         self.playerView.addSubview(player)
     }
 }
 
-extension SplitViewController:TTRangeSliderDelegate{
+extension SplitViewController:TTRangeSliderDelegate {
     func rangeSlider(_ sender: TTRangeSlider!, didChangeSelectedMinimumValue selectedMinimum: Float, andMaximumValue selectedMaximum: Float) {
         debugPrint("Maximum value \(selectedMaximum)")
         eventHandler?.setSplitValue(selectedMaximum)

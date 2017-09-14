@@ -9,59 +9,59 @@
 import Foundation
 
 struct CATextLayerAttributes {
-    enum HorizontalAlignment:String {
+    enum HorizontalAlignment: String {
         case left = "left"
         case center = "center"
         case right = "right"
     }
-    
-    enum HelveticaFont:String {
+
+    enum HelveticaFont: String {
         case normal = "Helvetica"
         case bold = "Helvetica-Bold"
         case light = "Helvetica-Light"
     }
-    
-    enum FontSize:CGFloat {
+
+    enum FontSize: CGFloat {
         case small = 75
         case medium = 100
         case big = 250
     }
-    
-    enum VerticalAlignment:Int{
+
+    enum VerticalAlignment: Int {
         case top = 0
         case mid = 1
         case bottom = 2
     }
-    
-    var font:UIFont = UIFont(name: HelveticaFont.normal.rawValue, size: FontSize.medium.rawValue)!
-    var textColor:UIColor = UIColor.whiteColor()
-    var horizontalAlignment:HorizontalAlignment = .left
-    var verticalAlignment:VerticalAlignment = .top
-    var fontSize:CGFloat = FontSize.medium.rawValue
-    
-    init(){
-        
+
+    var font: UIFont = UIFont(name: HelveticaFont.normal.rawValue, size: FontSize.medium.rawValue)!
+    var textColor: UIColor = UIColor.whiteColor()
+    var horizontalAlignment: HorizontalAlignment = .left
+    var verticalAlignment: VerticalAlignment = .top
+    var fontSize: CGFloat = FontSize.medium.rawValue
+
+    init() {
+
     }
-    
-    init(horizontalAlignment:HorizontalAlignment,
-         verticalAlignment:VerticalAlignment,
-         font:HelveticaFont,
-         fontSize:FontSize){
-        
-        guard let newFont = UIFont(name: font.rawValue, size: fontSize.rawValue) else{return}
+
+    init(horizontalAlignment: HorizontalAlignment,
+         verticalAlignment: VerticalAlignment,
+         font: HelveticaFont,
+         fontSize: FontSize) {
+
+        guard let newFont = UIFont(name: font.rawValue, size: fontSize.rawValue) else {return}
         self.font = newFont
         self.verticalAlignment = verticalAlignment
         self.horizontalAlignment = horizontalAlignment
         self.fontSize = fontSize.rawValue
     }
-    
-    func getFrameForString(frame:CGRect)->CGRect{
+
+    func getFrameForString(frame: CGRect) -> CGRect {
         let vertical = CGFloat(verticalAlignment.rawValue)
         let height = fontSize * 2 + 30
-        
-        let xPositionOffset :CGFloat = 20.0
-        let yPositionOffset :CGFloat = height/2
-        
+
+        let xPositionOffset: CGFloat = 20.0
+        let yPositionOffset: CGFloat = height/2
+
         switch verticalAlignment {
         case .top:
             return CGRectMake(xPositionOffset, 10, frame.width, height)
@@ -76,8 +76,8 @@ struct CATextLayerAttributes {
 
         }
     }
-    
-    func getAlignmentAttributesByType(type:VerticalAlignment)->CATextLayerAttributes{
+
+    func getAlignmentAttributesByType(type: VerticalAlignment) -> CATextLayerAttributes {
         switch type {
         case .top:
             return CATextLayerAttributes(horizontalAlignment: .left,

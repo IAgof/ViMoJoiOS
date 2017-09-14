@@ -8,15 +8,15 @@
 
 import Foundation
 import Photos
-public class CheckPhotoRollPermissionUseCase:CheckPermission{
+public class CheckPhotoRollPermissionUseCase: CheckPermission {
     public func askIfNeeded() {
         let status = PHPhotoLibrary.authorizationStatus()
-        
+
         switch status {
-        case .restricted, .denied , .notDetermined:
+        case .restricted, .denied, .notDetermined:
             PHPhotoLibrary.requestAuthorization { (status) in
                 switch status {
-                case .restricted, .denied , .notDetermined:
+                case .restricted, .denied, .notDetermined:
                     self.askIfNeeded()
                 default:
                     self.askIfNeeded()

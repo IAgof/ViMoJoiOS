@@ -9,12 +9,12 @@
 import Foundation
 import GPUImage
 
-class ChangeFilterInteractor{
-    func changeFilter(_ baseFilter:GPUImageFilter, newFilter:GPUImageFilter,display:GPUImageView){
+class ChangeFilterInteractor {
+    func changeFilter(_ baseFilter: GPUImageFilter, newFilter: GPUImageFilter, display: GPUImageView) {
         newFilter.removeAllTargets()
         baseFilter.removeAllTargets()
         baseFilter.addTarget(newFilter)
-        
+
         newFilter.addTarget(display)
     }
 }

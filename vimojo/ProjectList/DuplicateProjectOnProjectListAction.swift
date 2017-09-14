@@ -10,8 +10,8 @@ import Foundation
 import VideonaProject
 
 class DuplicateProjectOnProjectListAction {
-    
-    func execute(project:Project){
+
+    func execute(project: Project) {
         ProjectRealmRepository().duplicateProject(id: project.uuid)
     }
 }

@@ -8,9 +8,8 @@
 
 import Foundation
 
-
 class AnalyticsConstants {
-    
+
     /**
      * Token
      */
@@ -19,7 +18,7 @@ class AnalyticsConstants {
     #else
     let MIXPANEL_TOKEN = "6f46145c03bf5cf5104bb3536059d994"
     #endif
-    
+
     /**
      * App Name
      */
@@ -39,7 +38,7 @@ class AnalyticsConstants {
     let BETA_LEAVED = "Beta Leaved"
     let APP_SHARED = "App Shared"
     let LINK_CLICK = "Link Click"
-    
+
     /**
      * User Traits
      */
@@ -54,7 +53,7 @@ class AnalyticsConstants {
     let LAST_VIDEO_SHARED = "lastVideoShared"
     let LOCALE = "locale"
     let LANG = "lang"
-    
+
     /**
      * User Traits values
      */
@@ -76,13 +75,13 @@ class AnalyticsConstants {
     let FIRST_TIME = "firstTime"
     let APP = "app"
     let FLAVOR = "flavor"
-    
+
     /**
      * Values
      */
     let DATE = "date" // Beta Leaved event property
     let TYPE_ORGANIC = "organic" // App Started event property
-    
+
     let INIT_STATE = "initState" // App Started event property
     let FILTER_TYPE_COLOR = "color"
     let FILTER_TYPE_DISTORTION = "distortion"
@@ -110,7 +109,7 @@ class AnalyticsConstants {
     let FILTER_GROUP_SHADER = "shader"
     let FILTERS_COMBINED = "filtersCombined"
     let COMBINED = "combined"
-    
+
     let INIT_STATE_FIRST_TIME = "firstTime"
     let INIT_STATE_RETURNING = "returning"
     let INIT_STATE_UPGRADE = "upgrade"
@@ -121,22 +120,21 @@ class AnalyticsConstants {
     let SOURCE_APP_VIDEONA = "Vimojo"
     let DESTINATION_KAMARADA_PLAY = "Kamarada Google Play"
     let DESTINATION_KAMARADA_ITUNES = "Kamarada Itunes"
-    
+
     /**
      * Edit Events properties and values
      */
-    let EDIT_ACTION = "editAction";
-    let EDIT_ACTION_REORDER = "Reorder";
-    let EDIT_ACTION_TRIM = "Trim";
-    let EDIT_ACTION_SPLIT = "Split";
-    let EDIT_ACTION_DUPLICATE = "Duplicate";
-    let EDIT_ACTION_MUSIC_SET = "Music set";
-    let EDIT_ACTION_TEXT = "Text to video";
-    let EDIT_ACTION_VOICE_OVER = "Voice over set";
-    let TEXT_POSITION = "Text position";
-    let TEXT_LENGTH = "Text length";
-    let NUMBER_OF_DUPLICATES = "numberOfDuplicates";
-    let MUSIC_TITLE = "musicTitle";
-    let VOLUME_SET = "volume";
+    let EDIT_ACTION = "editAction"
+    let EDIT_ACTION_REORDER = "Reorder"
+    let EDIT_ACTION_TRIM = "Trim"
+    let EDIT_ACTION_SPLIT = "Split"
+    let EDIT_ACTION_DUPLICATE = "Duplicate"
+    let EDIT_ACTION_MUSIC_SET = "Music set"
+    let EDIT_ACTION_TEXT = "Text to video"
+    let EDIT_ACTION_VOICE_OVER = "Voice over set"
+    let TEXT_POSITION = "Text position"
+    let TEXT_LENGTH = "Text length"
+    let NUMBER_OF_DUPLICATES = "numberOfDuplicates"
+    let MUSIC_TITLE = "musicTitle"
+    let VOLUME_SET = "volume"
 }
-

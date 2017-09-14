@@ -10,18 +10,18 @@ import Foundation
 import VideonaProject
 
 protocol AddFilterToVideoInteractorInterface {
-    func changeVideoParameter(paramValue value:Float,parameterType type:VideoParameterSlider)
+    func changeVideoParameter(paramValue value: Float, parameterType type: VideoParameterSlider)
     func getComposition()
     func getFilters()
     func getProjectParameters()
-    func setFilterInPosition(position:Int)
+    func setFilterInPosition(position: Int)
     func removeFilter()
     func setDefaultParameters()
 }
 
 protocol AddFilterToVideoInteractorDelegate {
     func setComposition(_ composition: VideoComposition)
-    func setVideoComposition(_ composition: VideoComposition) 
-    func filtersFound(filters:[FilterFoundModel])
-    func setUpView(withParameters parameters:ProjectParametersViewModel)
+    func setVideoComposition(_ composition: VideoComposition)
+    func filtersFound(filters: [FilterFoundModel])
+    func setUpView(withParameters parameters: ProjectParametersViewModel)
 }

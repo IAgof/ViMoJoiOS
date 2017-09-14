@@ -10,64 +10,64 @@ import Foundation
 import VideonaProject
 import RealmSwift
 
-public class VideoRealmRepository:VideoRepository{
-    var toRealmVideoMapper:VideoToRealmVideoMapper
-    var toVideoMapper:RealmVideoToVideoMapper
-    
+public class VideoRealmRepository: VideoRepository {
+    var toRealmVideoMapper: VideoToRealmVideoMapper
+    var toVideoMapper: RealmVideoToVideoMapper
+
     //    protected VideoRepository videoRepository = new VideoRealmRepository();
-    
+
     init() {
         self.toRealmVideoMapper = VideoToRealmVideoMapper()
         self.toVideoMapper = RealmVideoToVideoMapper()
     }
-    
+
     public func add(item: Video) {
-        do{
+        do {
             let realm = try! Realm()
             try realm.write {
                 let realmVideo =  toRealmVideoMapper.map(from: item)
                 realm.add(realmVideo)
             }
-        }catch{
+        } catch {
             print("Error writing project:\(error)")
         }
     }
     public func add(items: [Video]) {
-        for video in items{
+        for video in items {
             add(item: video)
         }
     }
-    
+
     public func update(item: Video) {
         let realm = try! Realm()
-        
+
         try! realm.write {
             realm.add(toRealmVideoMapper.map(from: item), update: true)
         }
     }
-    
+
     public func update(item: Video,
                        realmProject: RealmProject) {
         let realm = try! Realm()
-       
+
         try! realm.write {
             realm.add(toRealmVideoMapper.map(from: item), update: true)
         }
     }
-    
+
     public func remove(item: Video) {
         let realm = try! Realm()
-        
+
         try! realm.write {
             let result = realm.objects(RealmVideo.self).filter("uuid ='\(item.uuid)'")
             realm.delete(result)
         }
     }
-    
+
     public func remove(specification: Specification) {
-        
+
     }
-    
+
     public func removeAllVideos() {
         let realm = try! Realm()
 
@@ -75,23 +75,23 @@ public class VideoRealmRepository:VideoRepository{
             realm.delete(realm.objects(RealmVideo.self))
         }
     }
-    
+
     public func query(specification: Specification) -> [Video] {
-        let videos:[Video] = []
-        
+        let videos: [Video] = []
+
         return videos
     }
-    
+
     public func getVideos() -> Results<RealmVideo> {
         let realm = try! Realm()
         return realm.objects(RealmVideo.self)
     }
-    
-    public func duplicateVideo(realmVideo:RealmVideo,completion:(RealmVideo)->Void) {
+
+    public func duplicateVideo(realmVideo: RealmVideo, completion: (RealmVideo) -> Void) {
         let realm = try! Realm()
-        
+
         try! realm.write {
-            if let videoToCopy = realm.objects(RealmVideo.self).filter("uuid ='\(realmVideo.uuid)'").last{
+            if let videoToCopy = realm.objects(RealmVideo.self).filter("uuid ='\(realmVideo.uuid)'").last {
                 let newVideoRealm = RealmVideo()
                 newVideoRealm.uuid = UUID().uuidString
                 newVideoRealm.title = realmVideo.title
@@ -102,11 +102,11 @@ public class VideoRealmRepository:VideoRepository{
                 newVideoRealm.videoURL = realmVideo.videoURL
                 newVideoRealm.clipTextPosition = realmVideo.clipTextPosition
                 newVideoRealm.clipText = realmVideo.clipText
-                
+
                 realm.add(newVideoRealm)
                 completion(newVideoRealm)
             }
         }
     }
-    
+
 }

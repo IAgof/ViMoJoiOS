@@ -10,8 +10,8 @@ import Foundation
 import VideonaProject
 import RealmSwift
 
-public protocol AudioRepository:Repository{
+public protocol AudioRepository: Repository {
     typealias T = Audio
-    
-    func update(item:Audio, realmProject:RealmProject)
+
+    func update(item: Audio, realmProject: RealmProject)
 }

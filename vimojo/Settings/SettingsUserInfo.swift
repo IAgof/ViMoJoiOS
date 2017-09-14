@@ -9,43 +9,43 @@
 import Foundation
 
 struct userInfo {
-    var name:String
-    var userName:String
-    var email:String
-    var image:UIImage
-    
-    init(){
+    var name: String
+    var userName: String
+    var email: String
+    var image: UIImage
+
+    init() {
         let defaults = UserDefaults.standard
-        
+
         let nameSaved = defaults.string(forKey: SettingsConstants().SETTINGS_NAME)
-        if (nameSaved != nil){
+        if (nameSaved != nil) {
             name = nameSaved!
-        }else{
+        } else {
             name = ""
         }
-        
+
         let userNameSaved = defaults.string(forKey: SettingsConstants().SETTINGS_USERNAME)
-        if (userNameSaved != nil){
+        if (userNameSaved != nil) {
             userName = userNameSaved!
-        }else{
+        } else {
             userName = ""
         }
-        
+
         let emailSaved = defaults.string(forKey: SettingsConstants().SETTINGS_MAIL)
-        if (emailSaved != nil){
+        if (emailSaved != nil) {
             email = emailSaved!
-        }else{
+        } else {
             email = ""
         }
-        
+
         let photoSavedData = defaults.data(forKey: SettingsConstants().SETTINGS_PHOTO_USER)
-        if let photoWithData = photoSavedData{
-            if let photoSaved = UIImage(data:photoWithData){
+        if let photoWithData = photoSavedData {
+            if let photoSaved = UIImage(data:photoWithData) {
                 image = photoSaved
-            }else{
+            } else {
                 image = #imageLiteral(resourceName: "activity_drawer_no_user_photo")
             }
-        }else{
+        } else {
             image = #imageLiteral(resourceName: "activity_drawer_no_user_photo")
         }
     }
