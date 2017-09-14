@@ -14,11 +14,11 @@ protocol DetailProjectPresenterInterface {
     func accept()
     func cancel()
     func pushBack()
-    
-    func projectNameChange(name:String)
+
+    func projectNameChange(name: String)
 }
 
 protocol DetailProjectPresenterDelegate {
     func displayParams(viewModel: DetailProjectViewModel)
-    func setButtonsContainerIsHidden(isHidden:Bool)
+    func setButtonsContainerIsHidden(isHidden: Bool)
 }

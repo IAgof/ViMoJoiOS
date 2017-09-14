@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct MusicViewModel{
+struct MusicViewModel {
     let image: UIImage
     let title: String
     let author: String

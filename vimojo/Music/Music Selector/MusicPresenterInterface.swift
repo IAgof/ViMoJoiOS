@@ -17,22 +17,22 @@ protocol MusicPresenterInterface {
     func viewWillDisappear()
     func viewWillAppear()
     func viewDidAppear()
-    
+
     func expandPlayer()
     func updatePlayerLayer()
-    
+
     func pushMusicHandler()
     func pushMicHandler()
     func pushOptions()
 }
 
-typealias Action = (Void) -> (Void)
+typealias Action = () -> Void
 
 protocol Item {
-    var icon: UIImage{ get }
+    var icon: UIImage { get }
 }
 
-extension CMTimeRange{
+extension CMTimeRange {
     init(start: Double, end: Double) {
         let startTime = CMTimeMakeWithSeconds(start, 600)
         let endTime = CMTimeMakeWithSeconds(end, 600)
@@ -41,22 +41,22 @@ extension CMTimeRange{
 }
 
 class FloatingItem {
-    
+
     var item: Item
     var action: Action
-    
-    init(item: Item, action: @escaping Action = {} ) {
+
+    init(item: Item, action: @escaping Action = {}) {
         self.item = item
         self.action = action
     }
 }
 
-enum FloatingItemFactory: Item{
+enum FloatingItemFactory: Item {
     case music
     case mic
     case originalAudio
-    
-    var icon: UIImage{
+
+    var icon: UIImage {
         switch self {
         case .mic: return #imageLiteral(resourceName: "activity_edit_audio_voiceover_expand")
         case .music: return #imageLiteral(resourceName: "activity_edit_audio_music_expand")

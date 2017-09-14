@@ -9,19 +9,19 @@
 import Foundation
 import VideonaProject
 
-class GetSeekTimeFromValueOnVideoWorker{
-    func getSeekTime(_ value:Double,
-                     project:Project,
-                     numberOfVideo:Int) -> Double{
-        var seekTime:Double = 0
-        
+class GetSeekTimeFromValueOnVideoWorker {
+    func getSeekTime(_ value: Double,
+                     project: Project,
+                     numberOfVideo: Int) -> Double {
+        var seekTime: Double = 0
+
         let videos = project.getVideoList()
-        
-        for video in videos{
-            if video.getPosition() <= (numberOfVideo + 1){
-                if video.getPosition() != (numberOfVideo + 1){
+
+        for video in videos {
+            if video.getPosition() <= (numberOfVideo + 1) {
+                if video.getPosition() != (numberOfVideo + 1) {
                     seekTime += video.getDuration()// - project.transitionTime
-                }else{
+                } else {
                     seekTime += (value - video.getStartTime())
                 }
             }

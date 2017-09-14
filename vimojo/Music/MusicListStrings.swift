@@ -8,13 +8,12 @@
 
 import Foundation
 
-
-struct MusicListString{
-    static var MUSIC_DETAIL_DURATION:String{
+struct MusicListString {
+    static var MUSIC_DETAIL_DURATION: String {
         return getStringByKey("music_detail_duration")
     }
-    
-    static private func getStringByKey(_ key:String) -> String {
-        return Bundle.main.localizedString(forKey: key,value: "",table: "MusicDetailView")
+
+    static private func getStringByKey(_ key: String) -> String {
+        return Bundle.main.localizedString(forKey: key, value: "", table: "MusicDetailView")
     }
 }

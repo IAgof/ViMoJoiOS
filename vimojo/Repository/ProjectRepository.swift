@@ -9,11 +9,11 @@
 import Foundation
 import VideonaProject
 
-public protocol ProjectRepository:Repository{
+public protocol ProjectRepository: Repository {
     typealias T = Project
-    
-    func getCurrentProject()->Project
-    func duplicateProject(id:String)
-    func getAllProjects()->[Project]
-    func getProjectByUUID (uuid:String)->Project?
+
+    func getCurrentProject() -> Project
+    func duplicateProject(id: String)
+    func getAllProjects() -> [Project]
+    func getProjectByUUID (uuid: String) -> Project?
 }

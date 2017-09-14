@@ -11,64 +11,64 @@ import UIKit
 import AVFoundation
 import VideonaProject
 
-class SettingsInteractor: NSObject,SettingsInteractorInterface {
-    
-    var delegate:SettingsInteractorDelegate?
-    
-    var orderArray = Dictionary<Int,String>()
+class SettingsInteractor: NSObject, SettingsInteractorInterface {
+
+    var delegate: SettingsInteractorDelegate?
+
+    var orderArray = Dictionary<Int, String>()
     let defaults = UserDefaults.standard
 
-    var settingSelected:SettingsContent?
-    
-    var settings:[[SettingsContent]]?
-    var sections:[String]?
-    var project :Project?
-    
-    init(project:Project){
+    var settingSelected: SettingsContent?
+
+    var settings: [[SettingsContent]]?
+    var sections: [String]?
+    var project: Project?
+
+    init(project: Project) {
         self.project = project
     }
-    
-    func findSettings(){
-        guard let actualProject = project else{return}
-        
-        self.settings = SettingsProvider().getSettings(self,project: actualProject)
+
+    func findSettings() {
+        guard let actualProject = project else {return}
+
+        self.settings = SettingsProvider().getSettings(self, project: actualProject)
         self.sections = SettingsProvider().getSections()
-        
-        if let sectionsArray = self.sections{
+
+        if let sectionsArray = self.sections {
             delegate?.setSectionsToView(sectionsArray)
         }
-        
+
         self.inflateSettingsViewModel()
     }
-    
-    func inflateSettingsViewModel(){
+
+    func inflateSettingsViewModel() {
         var settingsViewModelArray = Array<Array<SettingsViewModel>>()
-        
-        if let settingsArray = self.settings{
-            for settingRow in settingsArray{
+
+        if let settingsArray = self.settings {
+            for settingRow in settingsArray {
                 var settingRowViewModel = Array<SettingsViewModel>()
-                
-                for setting in settingRow{
+
+                for setting in settingRow {
                     settingRowViewModel.append(SettingsViewModel(title: setting.title,
                         subtitle: setting.subTitle))
                     // TO-DO: Include a Switch for the watermark
                 }
                 settingsViewModelArray.append(settingRowViewModel)
-                
+
             }
         }
         delegate?.setSettingsItemsView(settingsViewModelArray)
     }
-    
+
     func executeSettingAtIndexPath(_ index: IndexPath) {
         guard let setting = settings?[index.section][index.item] else { return}
         setting.action?.executeSettingsAction(index)
     }
-    
-    //MARK: - AVResolution posible inputs
-    func getAVResolutions()->Array<String>{
+
+    // MARK: - AVResolution posible inputs
+    func getAVResolutions()->Array<String> {
         let resolutions = AVResolutionParse().resolutionsToView()
-        
+
         return resolutions
     }
 
@@ -77,17 +77,17 @@ class SettingsInteractor: NSObject,SettingsInteractorInterface {
     }
 }
 
-extension SettingsInteractor:SettingsActionDelegate{
+extension SettingsInteractor:SettingsActionDelegate {
     func executeFinished() {
         self.findSettings()
     }
-    
+
     func executeFinished(response: SettingsActionResponse) {
         self.findSettings()
     }
 }
 
-extension SettingsInteractor:SettingsActionDetailTextDelegate{
+extension SettingsInteractor:SettingsActionDetailTextDelegate {
     func setTextToDetailView(_ response: SettingsActionDetailTextResponse) {
 
         delegate?.goToDetailTextController(response.text)

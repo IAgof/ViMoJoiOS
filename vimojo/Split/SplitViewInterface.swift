@@ -9,6 +9,6 @@
 import Foundation
 import VideonaProject
 
-protocol SplitViewInterface:ViMoJoInterface{
+protocol SplitViewInterface: ViMoJoInterface {
 
 }

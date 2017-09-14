@@ -10,10 +10,10 @@ import Foundation
 import VideonaProject
 import RealmSwift
 
-public protocol VideoRepository:Repository{
+public protocol VideoRepository: Repository {
     typealias T = Video
-    
-    func update(item:Video, realmProject:RealmProject)
+
+    func update(item: Video, realmProject: RealmProject)
     func getVideos()->Results<RealmVideo>
     func removeAllVideos()
 }

@@ -11,34 +11,32 @@ import GPUImage
 import VideonaProject
 
 protocol CameraInteractorInterface {
-    init(display:GPUImageView,
+    init(display: GPUImageView,
          cameraDelegate: CameraInteractorDelegate,
-         project:Project)
+         project: Project)
     func setResolution()
-    
-    func setIsRecording(_ isRecording:Bool)
-    func startRecordVideo(_ completion:@escaping (String)->Void)
+
+    func setIsRecording(_ isRecording: Bool)
+    func startRecordVideo(_ completion:@escaping (String) -> Void)
     func rotateCamera()
-    
-    func changeBlendImage(_ image:UIImage)
-    func changeFilter(_ newFilter:GPUImageFilter)
+
+    func changeBlendImage(_ image: UIImage)
+    func changeFilter(_ newFilter: GPUImageFilter)
     func removeFilters()
     func removeOverlay()
     func removeShaders()
-    
+
     func stopCamera()
     func startCamera()
 }
 
 protocol CameraInteractorDelegate {
-    func trackVideoRecorded(_ videoLenght:Double)
+    func trackVideoRecorded(_ videoLenght: Double)
     func flashOn()
     func flashOff()
     func cameraFront()
     func cameraRear()
     func resetZoom()
-    func showFocus(_ center:CGPoint)
+    func showFocus(_ center: CGPoint)
     func updateThumbnail(videoURL: URL?)
 }
-
-

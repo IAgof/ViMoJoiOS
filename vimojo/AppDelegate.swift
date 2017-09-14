@@ -16,18 +16,18 @@ import VideonaProject
 import RealmSwift
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
-    var appDependencies:AppDependencies!
+    var appDependencies: AppDependencies!
     var initState = "firstTime"
-    var mixpanel:Mixpanel?
-    
+    var mixpanel: Mixpanel?
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         RealmMigrationsUseCase().updateMigrationDefault()
-        
+
         appDependencies = AppDependencies()
-        
+
         CustomDPTheme().configureTheme()
 
         //MIXPANEL
@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
         mixpanel?.enableLogging = false
 
         self.configureGoogleSignIn()
-        
+
         // Optional: configure GAI options.
 //        let gai = GAI.sharedInstance()
 //        gai.trackUncaughtExceptions = true  // report uncaught exceptions
@@ -43,30 +43,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
 //        
         //CRASHLYTICS
         Fabric.with([Crashlytics.self])
-        
+
         self.setupStartApp()
-        
+
         CheckMicPermissionUseCase().askIfNeeded()
         CheckPhotoRollPermissionUseCase().askIfNeeded()
         CheckCameraPermissionUseCase().askIfNeeded()
-        
+
         return true
     }
-    
+
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
        return UIInterfaceOrientationMask.all
     }
-    
+
     func configureGoogleSignIn() {
         // Initialize sign-in
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(String(describing: configureError))")
-        
+
         GIDSignIn.sharedInstance().delegate = self
     }
-    
-    //MARK: - Google Sign In
+
+    // MARK: - Google Sign In
     func application(_ application: UIApplication,
                      open url: URL,
                              options: [UIApplicationOpenURLOptionsKey: Any]) -> Bool {
@@ -74,74 +74,72 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate{
                                                     sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
                                                     annotation: options[UIApplicationOpenURLOptionsKey.annotation])
     }
-    
+
     func application(_ application: UIApplication,
                      open url: URL,
                              sourceApplication: String?,
                              annotation: Any) -> Bool {
-        
-        
+
         return FBSDKApplicationDelegate.sharedInstance().application(
             application,
             open: url,
             sourceApplication: sourceApplication,
             annotation: annotation)
     }
-    
+
     public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-       
+
     }
-    
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!,
-                withError error: Error!){
+
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
+                withError error: Error!) {
     }
-    
+
     func applicationDidBecomeActive(_ application: UIApplication) {
         FBSDKAppEvents.activateApp()
     }
-    
-    //MARK: - Inner functions
+
+    // MARK: - Inner functions
     func setupStartApp() {
         let defaults = UserDefaults.standard
-        
+
         let currentAppVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
         let previousVersion = defaults.string(forKey: "appVersion")
         if previousVersion == nil {
             // first launch
             defaults.set(currentAppVersion, forKey: "appVersion")
             defaults.synchronize()
-            
+
             Utils().debugLog("setupStartApp First time")
             initState = "firstTime"
-            
-            ViMoJoTracker.sharedInstance.trackUserProfile();
-            ViMoJoTracker.sharedInstance.trackCreatedSuperProperty();
-            ViMoJoTracker.sharedInstance.trackAppStartupProperties(true);
-                        
+
+            ViMoJoTracker.sharedInstance.trackUserProfile()
+            ViMoJoTracker.sharedInstance.trackCreatedSuperProperty()
+            ViMoJoTracker.sharedInstance.trackAppStartupProperties(true)
+
             appDependencies.installRecordToRootViewControllerIntoWindow(window!)
         } else if previousVersion == currentAppVersion {
             // same version
             Utils().debugLog("setupStartApp Same version")
             initState = "returning"
-            
-            ViMoJoTracker.sharedInstance.trackAppStartupProperties(false);
-            
+
+            ViMoJoTracker.sharedInstance.trackAppStartupProperties(false)
+
             appDependencies.installRecordToRootViewControllerIntoWindow(window!)
 //            appDependencies.installEditorRoomToRootViewControllerIntoWindow(window!)
         } else {
             // other version
             defaults.set(currentAppVersion, forKey: "appVersion")
             defaults.synchronize()
-            
+
             Utils().debugLog("setupStartApp Update to \(currentAppVersion)")
             initState = "upgrade"
-            
+
             ViMoJoTracker.sharedInstance.trackUserProfile()
             ViMoJoTracker.sharedInstance.trackAppStartupProperties(false)
             appDependencies.installRecordToRootViewControllerIntoWindow(window!)
         }
-        
+
         ViMoJoTracker.sharedInstance.sendStartupAppTracking(initState: initState)
     }
 }
-

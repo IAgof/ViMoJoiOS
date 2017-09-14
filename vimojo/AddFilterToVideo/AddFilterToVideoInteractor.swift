@@ -11,20 +11,20 @@ import VideonaProject
 import AVFoundation
 
 class AddFilterToVideoInteractor {
-    var delegate:AddFilterToVideoInteractorDelegate?
-    var project:Project
-    var filtersFound:[FilterFoundModel] = []
+    var delegate: AddFilterToVideoInteractorDelegate?
+    var project: Project
+    var filtersFound: [FilterFoundModel] = []
 
-    init(project:Project) {
+    init(project: Project) {
         self.project = project
     }
 
 }
 
-extension AddFilterToVideoInteractor:AddFilterToVideoInteractorInterface{
-    func changeVideoParameter(paramValue value:Float,parameterType type:VideoParameterSlider){
+extension AddFilterToVideoInteractor:AddFilterToVideoInteractorInterface {
+    func changeVideoParameter(paramValue value: Float, parameterType type: VideoParameterSlider) {
         let value = value / 100
-        
+
         switch type {
         case .brightness:
             project.videoOutputParameters.brightness = NSNumber(value: value)
@@ -46,31 +46,31 @@ extension AddFilterToVideoInteractor:AddFilterToVideoInteractorInterface{
 
     func getFilters() {
         filtersFound =  FilterProvider.getFilters()
-        
+
         let thumbImage = getVideoThumbnail()
-        for  i in 0...(filtersFound.count - 1){
+        for  i in 0...(filtersFound.count - 1) {
             filtersFound[i].filterImage = thumbImage
         }
-        
+
         delegate?.filtersFound(filters:filtersFound)
     }
-    
-    func findFilterPositionInList()->Int?{
+
+    func findFilterPositionInList() -> Int? {
         var count = 0
         guard let projectFilter = project.videoFilter else {return nil}
-        for filter in filtersFound{
-            if filter.filterName == projectFilter.name{
+        for filter in filtersFound {
+            if filter.filterName == projectFilter.name {
                 return count
             }
             count += 1
         }
         return nil
     }
-    
+
     func getProjectParameters() {
         let parameters = project.videoOutputParameters
         let filterPosition = findFilterPositionInList()
-        
+
         let projectParametersViewModel = ProjectParametersViewModel(brightness:Float(parameters.brightness),
                                                                     contrast: Float(parameters.contrast),
                                                                     exposure: Float(parameters.exposure),
@@ -78,46 +78,46 @@ extension AddFilterToVideoInteractor:AddFilterToVideoInteractorInterface{
                                                                     filterSelectedPosition:filterPosition)
         delegate?.setUpView(withParameters: projectParametersViewModel)
     }
-    
+
     func setFilterInPosition(position: Int) {
-        if filtersFound.indices.contains(position){
+        if filtersFound.indices.contains(position) {
             let filterName = filtersFound[position].filterName
             let filter = CIFilter(name: filterName)!
-            
+
             project.videoFilter = filter
             ProjectRealmRepository().update(item: project)
             getVideoComposition()
         }
     }
-    
+
     func setDefaultParameters() {
         project.videoFilter = nil
         let parameters = VideoOutputParameters()
-        
+
         project.videoOutputParameters = parameters
         ProjectRealmRepository().update(item: project)
- 
+
         self.getProjectParameters()
         getVideoComposition()
     }
-    
+
     func removeFilter() {
         project.videoFilter = nil
         ProjectRealmRepository().update(item: project)
         getVideoComposition()
     }
-    
-    func getVideoThumbnail()->UIImage{
-        guard let videoURL = project.getVideoList().first?.videoURL else{
+
+    func getVideoThumbnail() -> UIImage {
+        guard let videoURL = project.getVideoList().first?.videoURL else {
             return UIImage(named: "activity_image_adjust_filter_normal")!
         }
-        
+
         let asset = AVAsset(url: videoURL)
         let assetImageGenerator = AVAssetImageGenerator(asset: asset)
-        
+
         var time = asset.duration
         time.value = min(time.value, 1)
-        
+
         do {
             let imageRef = try assetImageGenerator.copyCGImage(at: time, actualTime: nil)
             return UIImage(cgImage: imageRef)
@@ -126,13 +126,13 @@ extension AddFilterToVideoInteractor:AddFilterToVideoInteractorInterface{
         }
         return UIImage(named: "activity_image_adjust_filter_normal")!
     }
-    
+
     func getVideoComposition() {
         let actualComposition = GetActualProjectAVCompositionUseCase().getComposition(project: project)
 
         delegate?.setVideoComposition(actualComposition)
     }
-    
+
     func getComposition() {
         let actualComposition = GetActualProjectAVCompositionUseCase().getComposition(project: project)
         let animatedLayer = GetActualProjectCALayerAnimationUseCase(videonaComposition: actualComposition).getCALayerAnimation(project: project)

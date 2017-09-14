@@ -9,12 +9,12 @@
 import Foundation
 
 struct DetailProjectFound {
-    let thumbImage:UIImage
-    let projectName:String
-    let size:UInt64
-    let duration:Double
-    let quality:String
-    let format:String
-    let bitrate:Float
-    let frameRate:Float
+    let thumbImage: UIImage
+    let projectName: String
+    let size: UInt64
+    let duration: Double
+    let quality: String
+    let format: String
+    let bitrate: Float
+    let frameRate: Float
 }

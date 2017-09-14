@@ -8,8 +8,7 @@
 
 import Foundation
 
-
-var configuration:ConfigurationProtocol = PeriodistaCelularConfiguration()
+var configuration: ConfigurationProtocol = PeriodistaCelularConfiguration()
 
 final class PeriodistaCelularConfiguration: ConfigurationProtocol {
     internal var fontName: String
@@ -20,7 +19,7 @@ final class PeriodistaCelularConfiguration: ConfigurationProtocol {
     internal var VOICE_OVER_FEATURE: Bool
     internal var FTP_FEATURE: Bool
     internal var WATERMARK_FEATURE: Bool
-    
+
     init() {
         fontName = "Helvetica"
         mainColor = #colorLiteral(red: 0.4941176471, green: 0.8352941176, blue: 0.8039215686, alpha: 1)

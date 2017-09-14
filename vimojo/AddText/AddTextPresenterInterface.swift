@@ -18,27 +18,27 @@ protocol AddTextPresenterInterface {
     func pushAcceptHandler()
     func pushBack()
     func expandPlayer()
-    
+
     func topButtonPushed()
     func midButtonPushed()
     func bottomButtonPushed()
-    
-    func textHasChanged(_ text:String)
+
+    func textHasChanged(_ text: String)
 }
 
 protocol AddTextPresenterDelegate {
     func bringToFrontExpandPlayerButton()
-    
+
     func acceptFinished()
     func pushBackFinished()
     func expandPlayerToView()
     func setStopToVideo()
-    func updatePlayerOnView(_ composition:VideoComposition)
-    
-    func setTextToEditTextField(_ text:String)
-    func setSyncLayerToPlayer(_ layer:CALayer)
-    
-    func setSelectedTopButton(_ state:Bool)
-    func setSelectedMidButton(_ state:Bool)
-    func setSelectedBottomButton(_ state:Bool)
+    func updatePlayerOnView(_ composition: VideoComposition)
+
+    func setTextToEditTextField(_ text: String)
+    func setSyncLayerToPlayer(_ layer: CALayer)
+
+    func setSelectedTopButton(_ state: Bool)
+    func setSelectedMidButton(_ state: Bool)
+    func setSelectedBottomButton(_ state: Bool)
 }

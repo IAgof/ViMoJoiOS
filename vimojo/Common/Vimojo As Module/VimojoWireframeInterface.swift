@@ -11,11 +11,11 @@ import Foundation
 protocol VimojoWireframeInterface {
     associatedtype viewControllerType
     associatedtype presenterType
-    
-    var viewControllerIdentifier:String{get set}
-    var storyboardName:String{get set}
+
+    var viewControllerIdentifier: String {get set}
+    var storyboardName: String {get set}
     func presentInterfaceFromWindow(_ window: UIWindow)
-    func presentInterfaceFromViewController(_ prevController:UIViewController)
+    func presentInterfaceFromViewController(_ prevController: UIViewController)
     func viewControllerFromStoryboard() -> viewControllerType
     func getStoryboard() -> UIStoryboard
     func goPrevController()

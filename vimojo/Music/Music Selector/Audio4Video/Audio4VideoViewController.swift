@@ -16,8 +16,8 @@ protocol Audio4VideoPresenterDelegate {
 
 class Audio4VideoViewController: ViMoJoController, Audio4VideoPresenterDelegate {
     var eventHandler: Audio4VideoPresenterInterface?
-    
-    //MARK: - Outlet
+
+    // MARK: - Outlet
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var acceptButton: UIButton!
@@ -30,21 +30,21 @@ class Audio4VideoViewController: ViMoJoController, Audio4VideoPresenterDelegate 
         configureView()
         configureNavigationBarWithBackButton()
     }
-    
+
     func configureView() {
 //        rangeSlider.layoutIfNeeded()
         //TODO: WIll be removed when change to TTRANGE SLIDER!
         rangeSlider.tintColor = configuration.mainColor
     }
-    
+
     func setupSlider(_ value: Float) {
 //       rangeSlider.maxValue = value
         //TODO: WIll be removed when change to TTRANGE SLIDER!
         rangeSlider.value = value
     }
-    
+
     override func pushBack() { eventHandler?.cancel() }
-    @IBAction func cancelTapped(_ sender: Any){ eventHandler?.cancel() }
+    @IBAction func cancelTapped(_ sender: Any) { eventHandler?.cancel() }
     @IBAction func acceptTapped(_ sender: Any) { eventHandler?.accept() }
     //TODO: WIll be removed when change to TTRANGE SLIDER!
     @IBAction func sliderValueChanged(_ sender: UISlider) { eventHandler?.sliderValue = sender.value }
@@ -56,8 +56,8 @@ class Audio4VideoViewController: ViMoJoController, Audio4VideoPresenterDelegate 
 //    }
 //}
 
-extension Audio4VideoViewController:PlayerViewSetter{
-    //MARK: - Player setter
+extension Audio4VideoViewController:PlayerViewSetter {
+    // MARK: - Player setter
     func addPlayerAsSubview(_ player: PlayerView) {
         self.playerView.addSubview(player)
     }

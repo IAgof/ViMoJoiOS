@@ -9,7 +9,7 @@
 import UIKit
 
 class DrawerProfileTableViewCell: UITableViewCell {
-    
+
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var photoButton: UIButton!
@@ -17,7 +17,7 @@ class DrawerProfileTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+
         configureView()
     }
 
@@ -26,14 +26,14 @@ class DrawerProfileTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    func configureView(){
+
+    func configureView() {
         let user = userInfo()
-        
+
         let userAndSurName = "\(user.name) \(user.userName)"
         usernameLabel.text = userAndSurName
         emailLabel.text = user.email
-        
+
         usernameLabel.adjustsFontSizeToFitWidth = true
         emailLabel.adjustsFontSizeToFitWidth = true
         photoButton.setImage(user.image, for: .normal)

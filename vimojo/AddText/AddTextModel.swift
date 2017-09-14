@@ -13,4 +13,3 @@ enum AlignmentTypes {
     case mid
     case bottom
 }
-

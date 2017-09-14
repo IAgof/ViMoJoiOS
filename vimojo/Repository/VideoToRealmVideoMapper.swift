@@ -9,13 +9,13 @@
 import Foundation
 import VideonaProject
 
-public class VideoToRealmVideoMapper:Mapper{
+public class VideoToRealmVideoMapper: Mapper {
     public typealias From = Video
     public typealias To = RealmVideo
-    
+
     public func map(from: Video) -> RealmVideo {
         let realmVideo = RealmVideo()
-        
+
         realmVideo.uuid = from.uuid
         realmVideo.title = from.getTitle()
         realmVideo.mediaPath = from.getMediaPath()
@@ -25,7 +25,7 @@ public class VideoToRealmVideoMapper:Mapper{
         realmVideo.clipTextPosition = from.textPositionToVideo
         realmVideo.clipText = from.textToVideo
         realmVideo.videoURL = from.videoURL.absoluteString
-        
+
         return realmVideo
     }
 }

@@ -9,8 +9,8 @@
 import Foundation
 import VideonaProject
 
-class FullScreenPlayerPresenter:FullScreenPlayerPresenterInterface{
-    //MARK: - VIPER
+class FullScreenPlayerPresenter: FullScreenPlayerPresenterInterface {
+    // MARK: - VIPER
     var wireframe: FullScreenPlayerWireframe?
     var controller: FullScreenPlayerInterface?
 

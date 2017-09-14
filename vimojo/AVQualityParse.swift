@@ -8,7 +8,7 @@ import AVFoundation
 
 protocol AVQualityParseInterface {
     func resolutionsToView() -> Array<String>
-    func parseResolutionsToInteractor(textResolution:String) -> String
+    func parseResolutionsToInteractor(textResolution: String) -> String
 }
 
 class AVQualityParse: NSObject {
@@ -16,7 +16,7 @@ class AVQualityParse: NSObject {
     var mediumQuality =  Utils().getStringByKeyFromSettings("good_quality_name")
     var goodQuality =  Utils().getStringByKeyFromSettings("high_quality_name")
 
-    func qualityToView() -> Array<String>  {
+    func qualityToView() -> Array<String> {
         var qualityToTheTableView = Array<String>()
 
         let qualityCompatibles = CompatibleQualityInteractor().getCompatibleQuality()
@@ -28,7 +28,7 @@ class AVQualityParse: NSObject {
         return qualityToTheTableView
     }
 
-    func parseQualityToView(resolution:String) -> String {
+    func parseQualityToView(resolution: String) -> String {
         switch resolution {
         case AVAssetExportPresetHighestQuality:
             return goodQuality
@@ -41,7 +41,7 @@ class AVQualityParse: NSObject {
         }
     }
 
-    func parseResolutionsToInteractor(textResolution:String) -> String {
+    func parseResolutionsToInteractor(textResolution: String) -> String {
         switch textResolution {
         case goodQuality:
             return AVAssetExportPresetHighestQuality
