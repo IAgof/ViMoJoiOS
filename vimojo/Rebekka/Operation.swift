@@ -19,9 +19,9 @@ internal enum OperationState {
 internal class Operation: Foundation.Operation {
 
     var error: NSError?
-    
+
     internal let configuration: SessionConfiguration
-    
+
     internal var state = OperationState.ready {
         willSet {
             self.willChangeValue(forKey: "isReady")
@@ -34,13 +34,13 @@ internal class Operation: Foundation.Operation {
             self.didChangeValue(forKey: "isFinished")
         }
     }
-    
+
     override var isAsynchronous: Bool { get { return true } }
-    
+
     override var isReady: Bool { get { return self.state == .ready } }
     override var isExecuting: Bool { get { return self.state == .executing } }
     override var isFinished: Bool { get { return self.state == .finished } }
-    
+
     init(configuration: SessionConfiguration) {
         self.configuration = configuration
     }

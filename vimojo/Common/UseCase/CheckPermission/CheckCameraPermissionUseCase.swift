@@ -9,7 +9,7 @@
 import Foundation
 import AVFoundation
 
-public class CheckCameraPermissionUseCase:CheckPermission{
+public class CheckCameraPermissionUseCase: CheckPermission {
     public func askIfNeeded() {
         let authorizationState = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
         switch authorizationState {
@@ -17,7 +17,7 @@ public class CheckCameraPermissionUseCase:CheckPermission{
              .restricted,
              .denied:
             AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { (didAllow) in
-                if !didAllow{
+                if !didAllow {
                     self.askIfNeeded()
                 }
             })
@@ -25,5 +25,5 @@ public class CheckCameraPermissionUseCase:CheckPermission{
             break
         }
     }
-    
+
 }

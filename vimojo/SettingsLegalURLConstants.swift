@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SettingsLegalURLConstants{
+struct SettingsLegalURLConstants {
     static let ABOUT_US_URL = "https://www.google.com"
     static let PRIVACY_POLICY_URL = "https://www.yahoo.com"
     static let SERVICE_CONDITIONS_URL = "https://www.msn.com"

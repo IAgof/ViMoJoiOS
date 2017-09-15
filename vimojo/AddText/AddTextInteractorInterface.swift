@@ -11,22 +11,22 @@ import AVFoundation
 import VideonaProject
 
 protocol AddTextInteractorInterface {
-    func setVideoPosition(_ position: Int) 
-    func setUpComposition(_ completion:(VideoComposition)->Void)
-    
+    func setVideoPosition(_ position: Int)
+    func setUpComposition(_ completion: (VideoComposition) -> Void)
+
     func getVideoParams()
-    func setParametersToVideo(_ text:String,
-                              position:Int)
-    
+    func setParametersToVideo(_ text: String,
+                              position: Int)
+
     func getLayerToPlayer(_ text: String)
-    func setAlignment(_ alignment:CATextLayerAttributes.VerticalAlignment,
-                      text:String)
+    func setAlignment(_ alignment: CATextLayerAttributes.VerticalAlignment,
+                      text: String)
 }
 
 protocol AddTextInteractorDelegate {
-    func setVideoParams(_ text:String,
-                        position:Int)
-    
+    func setVideoParams(_ text: String,
+                        position: Int)
+
     func updateVideoList()
-    func setAVSyncLayerToPlayer(_ layer:CALayer)
+    func setAVSyncLayerToPlayer(_ layer: CALayer)
 }

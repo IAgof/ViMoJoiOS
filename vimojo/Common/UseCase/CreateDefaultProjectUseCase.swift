@@ -9,8 +9,8 @@
 import Foundation
 import VideonaProject
 
-public class CreateDefaultProjectUseCase{
-    public static func loadOrCreateProject()->Project{
+public class CreateDefaultProjectUseCase {
+    public static func loadOrCreateProject() -> Project {
         let project = ProjectRealmRepository().getCurrentProject()
         return project
     }

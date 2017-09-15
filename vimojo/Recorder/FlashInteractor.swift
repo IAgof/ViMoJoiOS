@@ -9,23 +9,23 @@
 import Foundation
 import AVFoundation
 
-class FlashInteractor{
-    
+class FlashInteractor {
+
     let FLASH_ON = true
     let FLASH_OFF = false
-    
+
     let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
-    
-    func switchFlashState()->Bool{
+
+    func switchFlashState() -> Bool {
         if (device?.hasTorch)! {
             do {
                 try device?.lockForConfiguration()
                 if (device?.torchMode == AVCaptureTorchMode.on) {
-                    
+
                     device?.torchMode = AVCaptureTorchMode.off
                     return FLASH_OFF
                 } else {
-                    
+
                     try device?.setTorchModeOnWithLevel(1.0)
                     return FLASH_ON
                 }
@@ -33,17 +33,17 @@ class FlashInteractor{
                 print(error)
                 return FLASH_OFF
             }
-        }else{
+        } else {
             return FLASH_OFF
         }
     }
-    
-    func isFlashTurnOn()->Bool{
+
+    func isFlashTurnOn() -> Bool {
         return device!.torchMode == .on
     }
-    
-    func turnOffWhenViewWillDissappear(){
-        if self.isFlashTurnOn(){
+
+    func turnOffWhenViewWillDissappear() {
+        if self.isFlashTurnOn() {
             self.switchFlashState()
         }
     }

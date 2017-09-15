@@ -9,6 +9,6 @@
 import Foundation
 
 struct TrimParameters {
-    let startTime:Double
-    let stopTime:Double
+    let startTime: Double
+    let stopTime: Double
 }

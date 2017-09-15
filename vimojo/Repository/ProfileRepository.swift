@@ -14,5 +14,5 @@ public protocol ProfileRepository {
      * Get current profile with video parameters selected by user
      * @return current Profile
      */
-    func getCurrentProfile()->Profile
+    func getCurrentProfile() -> Profile
 }

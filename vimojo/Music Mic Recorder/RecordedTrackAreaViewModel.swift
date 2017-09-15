@@ -10,6 +10,6 @@ import Foundation
 import VideonaProject
 
 struct RecordedTrackAreaViewModel {
-    let position:Int
-    let trackAreaModel:TrackModel
+    let position: Int
+    let trackAreaModel: TrackModel
 }

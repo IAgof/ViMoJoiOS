@@ -7,10 +7,10 @@
 //
 
 import Foundation
-struct MusicDetailViewModel{
+struct MusicDetailViewModel {
     var image: UIImage
     let title: String
     let author: String
-    let sliderValue:Float
-    let duration:String
+    let sliderValue: Float
+    let duration: String
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol EditingRoomPresenterInterface{
-    func controllerSelectedTag(tag:Int)
+protocol EditingRoomPresenterInterface {
+    func controllerSelectedTag(tag: Int)
     func loadView()
 }

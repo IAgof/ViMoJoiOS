@@ -9,6 +9,6 @@
 import Foundation
 
 struct SettingsViewModel {
-    let title:String
-    let subtitle:String
+    let title: String
+    let subtitle: String
 }

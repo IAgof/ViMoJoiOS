@@ -9,9 +9,9 @@
 import Foundation
 
 struct TrimRangeBarViewModel {
-    let startTime:Double = 0
-    let totalRangeTime:Double
-    let startTrimTime:Double
-    let finalTrimTime:Double
-    let inserctionPointTime:Double
+    let startTime: Double = 0
+    let totalRangeTime: Double
+    let startTrimTime: Double
+    let finalTrimTime: Double
+    let inserctionPointTime: Double
 }

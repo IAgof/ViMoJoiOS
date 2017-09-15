@@ -11,104 +11,104 @@ import VideonaProject
 
 let editorViewControllerIdentifier = "EditorViewController"
 
-class EditorWireframe : NSObject {
-    var rootWireframe : RootWireframe?
-    var editorViewController : EditorViewController?
-    var editorPresenter : EditorPresenter?
+class EditorWireframe: NSObject {
+    var rootWireframe: RootWireframe?
+    var editorViewController: EditorViewController?
+    var editorPresenter: EditorPresenter?
     var playerWireframe: PlayerWireframe?
     var fullScreenPlayerWireframe: FullScreenPlayerWireframe?
-    var prevController:UIViewController?
+    var prevController: UIViewController?
 
-    var trimWireframe:TrimWireframe?
-    var duplicateWireframe:DuplicateWireframe?
-    var splitWireframe:SplitWireframe?
-    var addTextWireframe:AddTextWireframe?
-    var editingRoomWireframe:EditingRoomWireframe?
-    
+    var trimWireframe: TrimWireframe?
+    var duplicateWireframe: DuplicateWireframe?
+    var splitWireframe: SplitWireframe?
+    var addTextWireframe: AddTextWireframe?
+    var editingRoomWireframe: EditingRoomWireframe?
+
     func presentEditorInterfaceFromWindow(_ window: UIWindow) {
         let viewController = editorViewControllerFromStoryboard()
-        
+
         rootWireframe?.showRootViewController(viewController, inWindow: window)
     }
-    
-    func presentEditorInterfaceFromViewController(_ prevController:UIViewController){
+
+    func presentEditorInterfaceFromViewController(_ prevController: UIViewController) {
         let viewController = editorViewControllerFromStoryboard()
-        
+
         self.prevController = prevController
-        
+
         prevController.show(viewController, sender: nil)
     }
-    
+
     func editorViewControllerFromStoryboard() -> EditorViewController {
         let storyboard = mainStoryboard()
         let viewController = storyboard.instantiateViewController(withIdentifier: editorViewControllerIdentifier) as! EditorViewController
-        
+
         viewController.eventHandler = editorPresenter
         editorViewController = viewController
         editorPresenter?.delegate = viewController
-        
+
         return viewController
     }
-    
+
     func presentPlayerInterface() {
         playerWireframe?.presentPlayerInterfaceFromViewController(editorViewController!)
         playerWireframe?.presentedView?.seekBarColor = configuration.mainColor
         playerWireframe?.presentedView?.seekBarTextColor = configuration.secondColor
     }
-    
+
     func mainStoryboard() -> UIStoryboard {
         let storyboard = UIStoryboard(name: "Editor", bundle: Bundle.main)
         return storyboard
     }
-    
-    func presentDuplicateController(_ videoSelected:Int){
-        guard let viewController = editorViewController else{return}
+
+    func presentDuplicateController(_ videoSelected: Int) {
+        guard let viewController = editorViewController else {return}
         duplicateWireframe?.presentDuplicateInterfaceFromViewController(viewController,
                                                               videoSelected:videoSelected)
     }
-    
-    func presentSplitController(_ videoSelected:Int){
-        guard let viewController = editorViewController else{return}
+
+    func presentSplitController(_ videoSelected: Int) {
+        guard let viewController = editorViewController else {return}
         splitWireframe?.presentSplitInterfaceFromViewController(viewController,
                                                                 videoSelected: videoSelected)
     }
 
-    func presentTrimController(_ videoSelected:Int){
-        guard let viewController = editorViewController else{return}
+    func presentTrimController(_ videoSelected: Int) {
+        guard let viewController = editorViewController else {return}
         trimWireframe?.presentTrimInterfaceFromViewController(viewController, videoSelected: videoSelected)
     }
 
-    func presentAddTextController(_ videoSelected:Int){
-        guard let viewController = editorViewController else{return}
+    func presentAddTextController(_ videoSelected: Int) {
+        guard let viewController = editorViewController else {return}
         addTextWireframe?.presentAddTextInterfaceFromViewController(viewController,
                                                                 videoSelected: videoSelected)
     }
-    
-    func presentExpandPlayer(){
-        if let controller = editorViewController{
-            if let player = playerWireframe?.presentedView{
+
+    func presentExpandPlayer() {
+        if let controller = editorViewController {
+            if let player = playerWireframe?.presentedView {
                 fullScreenPlayerWireframe?.presentFullScreenPlayerFromViewController(controller,
                                                                                      playerView:player)
             }
         }
     }
-    
-    func presentGallery(){
+
+    func presentGallery() {
         editingRoomWireframe?.navigateToGallery()
     }
-    
-    func presentRecorder(){
+
+    func presentRecorder() {
         let value = UIInterfaceOrientation.portrait.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
-        
+
         editingRoomWireframe?.navigateToRecorder()
     }
-    
-    func presentSettings(){
+
+    func presentSettings() {
         editingRoomWireframe?.navigateToSettings()
     }
-    
-    func presentGoToRecordOrGallery(){
+
+    func presentGoToRecordOrGallery() {
         editingRoomWireframe?.navigateToRecordOrGallery()
     }
 }

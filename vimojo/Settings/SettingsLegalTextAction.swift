@@ -8,18 +8,18 @@
 
 import Foundation
 
-class SettingsLegalTextAction:SettingsActionInterface{
+class SettingsLegalTextAction: SettingsActionInterface {
     var delegate: SettingsActionDelegate
-    var legalUrlString:String
-    
-    init(delegate:SettingsActionDelegate,
-         legalUrlString:String){
+    var legalUrlString: String
+
+    init(delegate: SettingsActionDelegate,
+         legalUrlString: String) {
         self.delegate = delegate
         self.legalUrlString = legalUrlString
     }
-    
-    func executeSettingsAction(_ index:IndexPath) {
-        if let url = URL(string:legalUrlString){
+
+    func executeSettingsAction(_ index: IndexPath) {
+        if let url = URL(string:legalUrlString) {
             if (UIApplication.shared.canOpenURL(url)) {
                 UIApplication.shared.openURL(url)
             }

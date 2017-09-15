@@ -11,30 +11,26 @@ import GPUImage
 import VideonaProject
 
 struct IconsImage {
-    var normal : UIImage!
-    var pressed : UIImage!
+    var normal: UIImage!
+    var pressed: UIImage!
 }
 
-class RecordPresenter: NSObject
-    , RecordPresenterInterface
-    ,CameraInteractorDelegate
-,TimerInteractorDelegate
-{
-    //MARK: - Variables VIPER
+class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDelegate, TimerInteractorDelegate {
+    // MARK: - Variables VIPER
     var delegate: RecordPresenterDelegate?
     var cameraInteractor: CameraInteractorInterface?
     var timerInteractor: TimerInteractorInterface?
-    
+
     var recordWireframe: RecordWireframe?
-    var interactor:RecorderInteractorInterface?
-    
-    //MARK: - Variables
+    var interactor: RecorderInteractorInterface?
+
+    // MARK: - Variables
     var isRecording = false
     var secondaryViewIsShowing = false
     var videoSettingsConfigViewIsShowing = true
-    var lastOrientationEnabled:Int?
-    
-    //MARK: - Showing controllers
+    var lastOrientationEnabled: Int?
+
+    // MARK: - Showing controllers
     var gridIsShowed = false
 	var zoomIsShowed = false
     var batteryIsShowed = false
@@ -48,16 +44,16 @@ class RecordPresenter: NSObject
     var micIsEnabled = false
     var modeViewIsShowed = true
     var inputGainViewIsShowed = false
-    
-    enum batteryImages:String {
+
+    enum batteryImages: String {
         case charged = "activity_record_battery_100"
         case seventyFivePercent = "activity_record_battery_75"
         case fiftyPercent = "activity_record_battery_50"
         case twentyFivePercent = "activity_record_battery_25"
         case empty = "activity_record_battery_empty"
     }
-    
-    enum batteryImagesPressed:String{
+
+    enum batteryImagesPressed: String {
         case charged = "activity_record_battery_100_pressed"
         case seventyFivePercent = "activity_record_battery_75_pressed"
         case fiftyPercent = "activity_record_battery_50_pressed"
@@ -65,39 +61,39 @@ class RecordPresenter: NSObject
         case empty = "activity_record_battery_empty"
     }
 
-    enum memoryImages:String {
+    enum memoryImages: String {
         case hundredPercent = "activity_record_memory_100"
         case seventyFivePercent = "activity_record_memory_75"
         case fiftyPercent = "activity_record_memory_50"
         case twentyFivePercent = "activity_record_memory_25"
         case empty = "activity_record_memory_empty"
     }
-    
-    enum memoryImagesPressed:String{
+
+    enum memoryImagesPressed: String {
         case hundredPercent = "activity_rec_memory_100_pressed"
         case seventyFivePercent = "activity_rec_memory_75_pressed"
         case fiftyPercent = "activity_rec_memory_50_pressed"
         case twentyFivePercent = "activity_rec_memory_25_pressed"
         case empty = "activity_rec_memory_empty"
     }
-    
-    //MARK: - Event handler
-    func viewDidLoad(_ displayView:GPUImageView){
-        
+
+    // MARK: - Event handler
+    func viewDidLoad(_ displayView: GPUImageView) {
+
         delegate?.configureView()
         cameraInteractor = CameraInteractor(display: displayView,
                                             cameraDelegate: self,
                                             project: (interactor?.getProject())! )
         NotificationCenter.default.addObserver(self, selector:#selector(RecordPresenter.audioRouteChangeListener(_:)), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
-        
+
         self.checkFlashAvaliable()
         self.checkIfMicIsAvailable()
     }
-    
+
     func viewWillDisappear() {
         lastOrientationEnabled = UIDevice.current.orientation.rawValue
         DispatchQueue.global().async {
-            if self.isRecording{
+            if self.isRecording {
                 self.stopRecord()
             }
             FlashInteractor().turnOffWhenViewWillDissappear()
@@ -107,133 +103,132 @@ class RecordPresenter: NSObject
             })
         }
     }
-    
+
     func viewWillAppear() {
         cameraInteractor?.setResolution()
         cameraInteractor?.startCamera()
-        
-        if let resolution = interactor?.getResolution(){
+
+        if let resolution = interactor?.getResolution() {
             delegate?.setResolutionToView(resolution)
         }
-        
+
         self.updateThumbnail()
     }
-    
+
     func pushRecord() {
         if isRecording {
             self.stopRecord()
-        }else{
+        } else {
             self.startRecord()
         }
     }
-    
+
     func pushFlash() {
         let flashState = FlashInteractor().switchFlashState()
         delegate?.showFlashOn(flashState)
         self.trackFlash(flashState)
     }
-    
+
     func pushRotateCamera() {
         cameraInteractor!.rotateCamera()
     }
-    
+
     func pushVideoSettingsConfig() {
         if videoSettingsConfigViewIsShowing {
             videoSettingsConfigViewIsShowing = false
-            
+
             delegate?.hideVideoSettingsConfig()
             hideAllModeConfigsIfNeccesary()
             delegate?.configModesButtonSelected(false)
-        }else{
+        } else {
             videoSettingsConfigViewIsShowing = true
-            
+
             delegate?.showVideoSettingsConfig()
             delegate?.configModesButtonSelected(true)
         }
     }
-    
+
     func pushHideAllButtons() {
-        if secondaryViewIsShowing{
+        if secondaryViewIsShowing {
             delegate?.showPrincipalViews()
             self.showModeView()
-            
+
             switchChronometerIfNeccesary()
 
-            
             if videoSettingsConfigViewIsShowing {
                 delegate?.showVideoSettingsConfig()
             }
-			
+
             delegate?.showAllButtonsButtonImage()
             secondaryViewIsShowing = false
-        }else{
+        } else {
             switchChronometerIfNeccesary()
-            
+
             self.hideModeView()
-            
+
             delegate?.hidePrincipalViews()
-            
+
             hideZoomViewIfYouCan()
             hideAllModeConfigsIfNeccesary()
-            
+
             delegate?.showHideAllButtonsButtonImage()
             secondaryViewIsShowing = true
         }
     }
-    func switchChronometerIfNeccesary(){
+    func switchChronometerIfNeccesary() {
         if isRecording {
             if secondaryViewIsShowing {
                 delegate?.showRecordChronometerContainer()
-                
+
 //                delegate?.hideSecondaryRecordChronometerContainer()
-            }else{
+            } else {
 //                delegate?.showSecondaryRecordChronometerContainer()
-                
+
                 delegate?.hideRecordChronometerContainer()
             }
         }
     }
     func pushBattery() {
-        if batteryIsShowed{
+        if batteryIsShowed {
             hideBatteryViewIfYouCan()
-        }else{
+        } else {
             hideSpaceOnDiskViewIfYouCan()
             hideResolutionViewIfYouCan()
-   
+
             delegate?.updateBatteryValues()
             delegate?.showBatteryRemaining()
-            
+
             batteryIsShowed = true
         }
     }
-    
+
     func pushSpaceOnDisk() {
-        if spaceOnDiskIsShowed{
+        if spaceOnDiskIsShowed {
             hideSpaceOnDiskViewIfYouCan()
-        }else{
+        } else {
             hideBatteryViewIfYouCan()
             hideResolutionViewIfYouCan()
 
             delegate?.updateSpaceOnDiskValues()
             delegate?.showSpaceOnDisk()
-            
+
             spaceOnDiskIsShowed = true
         }
     }
-    
+
     func pushResolution() {
-        if resolutionIsShowed{
+        if resolutionIsShowed {
             hideResolutionViewIfYouCan()
-        }else{
+        } else {
             hideBatteryViewIfYouCan()
             hideSpaceOnDiskViewIfYouCan()
-            
+
             delegate?.showResolutionView()
-            
+
             resolutionIsShowed = true
         }
     }
-    
+
     func pushGain() {
         if inputGainViewIsShowed {
             hideInputGainIfYouCan()
@@ -243,7 +238,7 @@ class RecordPresenter: NSObject
             inputGainViewIsShowed = true
         }
     }
-    
+
     func pushConfigMode(_ modePushed: VideoModeConfigurations) {
         switch modePushed {
         case .zomm:
@@ -251,23 +246,23 @@ class RecordPresenter: NSObject
             break
         case .exposure:
             pushExposureModes()
-            
+
             break
         case .focus:
             pushFocus()
-            
+
             break
         case .whiteBalance:
             pushWBConfig()
-            
+
             break
         case .iso:
             pushISOConfig()
             break
-            
+
         }
     }
-	
+
 	func pushGridMode() {
 		if gridIsShowed {
 			hideGridIfYouCan()
@@ -275,65 +270,65 @@ class RecordPresenter: NSObject
 			showGridView()
 		}
 	}
-    
+
     func pushZoom() {
-        if zoomIsShowed{
+        if zoomIsShowed {
             hideZoomViewIfYouCan()
-        }else{
+        } else {
             hideAllModeConfigsIfNeccesary()
 
             showZoomView()
         }
     }
-    
+
     func pushISOConfig() {
-        if isoConfigIsShowed{
+        if isoConfigIsShowed {
             hideISOConfigIfYouCan()
-        }else{
+        } else {
             hideAllModeConfigsIfNeccesary()
 
             delegate?.showISOConfigView()
-            
+
             isoConfigIsShowed = true
         }
     }
-    
+
     func pushWBConfig() {
-        if wbConfigIsShowed{
+        if wbConfigIsShowed {
             hideWBConfigIfYouCan()
-        }else{
+        } else {
             hideAllModeConfigsIfNeccesary()
-            
+
             delegate?.showWBConfigView()
-            
+
             wbConfigIsShowed = true
         }
     }
-    
+
     func pushFocus() {
-        if focusViewIsShowed{
+        if focusViewIsShowed {
             hideFocusIfYouCan()
-        }else{
+        } else {
             hideAllModeConfigsIfNeccesary()
-            
+
             delegate?.showFocusView()
-            
+
             focusViewIsShowed = true
         }
     }
-    
+
     func pushExposureModes() {
-        if exposureModesViewIsShowed{
+        if exposureModesViewIsShowed {
             hideExposureModesIfYouCan()
-        }else{
+        } else {
             hideAllModeConfigsIfNeccesary()
-            
+
             delegate?.showExposureModesView()
-            
+
             exposureModesViewIsShowed = true
         }
     }
-    
+
     func pushDefaultModes() {
         hideFocusIfYouCan()
         hideISOConfigIfYouCan()
@@ -341,35 +336,35 @@ class RecordPresenter: NSObject
         hideWBConfigIfYouCan()
         hideExposureModesIfYouCan()
 		hideGridIfYouCan()
-        
+
         delegate?.setDefaultAllModes()
     }
-    
+
     func pushCloseBatteryButton() {
         hideBatteryViewIfYouCan()
     }
-    
+
     func pushCloseSpaceOnDiskButton() {
         hideSpaceOnDiskViewIfYouCan()
     }
-    
+
     func resetRecorder() {
         cameraInteractor?.removeFilters()
         delegate?.hideRecordedVideoThumb()
 //        delegate?.disableShareButton()
-        
+
         interactor?.clearProject()
     }
-    
-    func checkFlashAvaliable(){
+
+    func checkFlashAvaliable() {
         let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
-        if device?.hasTorch == false{
+        if device?.hasTorch == false {
             delegate?.showFlashSupported(false)
         }
-        
+
     }
-    
-    func getBatteryIcon(_ value:Float)->IconsImage {
+
+    func getBatteryIcon(_ value: Float) -> IconsImage {
         switch value {
         case 0...10:
            return IconsImage(normal: UIImage(named: batteryImages.empty.rawValue)!,
@@ -391,8 +386,8 @@ class RecordPresenter: NSObject
                                     pressed: UIImage(named: batteryImagesPressed.fiftyPercent.rawValue)!)
         }
     }
-    
-    func getMemoryIcon(_ value:Float)->IconsImage {
+
+    func getMemoryIcon(_ value: Float) -> IconsImage {
         switch value {
         case 0...1:
             return IconsImage(normal: UIImage(named: memoryImages.hundredPercent.rawValue)!, pressed: UIImage(named: memoryImagesPressed.hundredPercent.rawValue)!)
@@ -411,30 +406,30 @@ class RecordPresenter: NSObject
                                     pressed: UIImage(named: memoryImagesPressed.fiftyPercent.rawValue)!)
         }
     }
-    
+
     func batteryValuesUpdate(_ value: Float) {
         delegate?.setBatteryIcon(getBatteryIcon(value))
     }
-    
+
     func memoryValuesUpdate(_ value: Float) {
         delegate?.setMemoryIcon(getMemoryIcon(value))
     }
-    
+
     func audioLevelHasChanged(_ value: Float) {
         delegate?.setAudioColor(getAudioLevelColor(value))
     }
-    
-    func saveResolutionToDefaults(_ resolution:String) {
-        
+
+    func saveResolutionToDefaults(_ resolution: String) {
+
         interactor?.saveResolution(resolution: resolution)
-        
+
         cameraInteractor?.setResolution()
-        
+
         interactor?.getResolutionImage(resolution)
     }
-    
-    //MARK: - Inner functions
-    func getAudioLevelColor(_ value:Float)->UIColor{
+
+    // MARK: - Inner functions
+    func getAudioLevelColor(_ value: Float) -> UIColor {
         switch value {
         case 0 ... 0.5:
             return UIColor.green
@@ -448,16 +443,16 @@ class RecordPresenter: NSObject
             return UIColor.green
         }
     }
-    func startRecord(){
+    func startRecord() {
         self.trackStartRecord()
-        
+
         delegate?.recordButtonEnable(false)
 //        secondaryViewIsShowing ? delegate?.showSecondaryRecordChronometerContainer() :
 //                                    delegate?.showRecordChronometerContainer()
         delegate?.buttonsWithRecording(isEnabled: false)
         DispatchQueue.main.async(execute: {
             self.cameraInteractor?.setIsRecording(true)
-            
+
             self.cameraInteractor?.startRecordVideo({answer in
                 print("Record Presenter \(answer)")
                 Utils().delay(1, closure: {
@@ -469,40 +464,40 @@ class RecordPresenter: NSObject
 //            self.delegate?.disableShareButton()
             self.delegate?.hideThumbnailButtonAndLabel()
         })
-        
+
         isRecording = true
-        
+
         self.startTimer()
     }
-    
-    func stopRecord(){
+
+    func stopRecord() {
         self.trackStopRecord()
         delegate?.buttonsWithRecording(isEnabled: true)
-        
+
         isRecording = false
         DispatchQueue.global().async {
             // do some task
             self.cameraInteractor?.setIsRecording(false)
-            
+
             DispatchQueue.main.async(execute: {
                 self.delegate?.showStopButton()
                 //                self.delegate?.enableShareButton()
                 self.delegate?.showThumbnailButtonAndLabel()
                 if self.secondaryViewIsShowing {
 //                    self.delegate?.hideSecondaryRecordChronometerContainer()
-                }else{
+                } else {
                     self.delegate?.hideRecordChronometerContainer()
                 }
-            });
+            })
         }
         self.stopTimer()
     }
-    
+
     func thumbnailHasTapped() {
-        if let nClips = interactor?.getNumberOfClipsInProject(){
-            if nClips > 0{
+        if let nClips = interactor?.getNumberOfClipsInProject() {
+            if nClips > 0 {
                 recordWireframe?.presentEditorRoomInterface()
-            }else{
+            } else {
                 recordWireframe?.presentGallery()
             }
         }
@@ -511,181 +506,181 @@ class RecordPresenter: NSObject
     func pushShare() {
         recordWireframe?.presentShareInterfaceInsideEditorRoom()
     }
-    
+
     func pushSettings() {
         print("Record presenter pushSettings")
         self.trackSettingsPushed()
         recordWireframe?.presentSettingsInterface()
     }
-    
+
     func pushShowMode() {
         delegate?.hideModeViewAndButtonStateDisabled()
         delegate?.showModeViewAndButtonStateEnabled()
-        
+
         modeViewIsShowed = true
     }
-    
+
     func pushHideMode() {
 //        delegate?.hideModeViewAndButtonStateEnabled()
 //        delegate?.showModeViewAndButtonStateDisabled()
-        
+
         if !modeViewIsShowed {
             modeViewIsShowed = true
             delegate?.showVideoSettingsConfig()
             return
         }
-        
+
         modeViewIsShowed = false
         delegate?.hideVideoSettingsConfig()
     }
-	
+
 	func hideGridIfYouCan() {
 		if !gridIsShowed {
 			return
 		}
-		
+
 		delegate?.hideGridView()
-		
+
 		gridIsShowed = false
 	}
-	
+
 	func showGridView() {
 		delegate?.showGridView()
-		
+
 		gridIsShowed = true
 	}
-    
-    func showZoomView(){
+
+    func showZoomView() {
         delegate?.showZoomView()
-        
+
         zoomIsShowed = true
     }
-    
-    func hideZoomViewIfYouCan(){
+
+    func hideZoomViewIfYouCan() {
         if !zoomIsShowed {
             return
         }
         delegate?.hideZoomView()
-        
+
         zoomIsShowed = false
     }
-    
-    func hideBatteryViewIfYouCan(){
+
+    func hideBatteryViewIfYouCan() {
         if !batteryIsShowed {
             return
         }
         delegate?.hideBatteryView()
-        
+
         batteryIsShowed = false
     }
-    
-    func hideResolutionViewIfYouCan(){
+
+    func hideResolutionViewIfYouCan() {
         if !resolutionIsShowed {
             return
         }
         delegate?.hideResolutionView()
-        
+
         resolutionIsShowed = false
     }
-    
-    func hideISOConfigIfYouCan(){
+
+    func hideISOConfigIfYouCan() {
         if !isoConfigIsShowed {
             return
         }
         delegate?.hideISOConfigView()
-        
+
         isoConfigIsShowed = false
     }
-    
-    func hideSpaceOnDiskViewIfYouCan(){
+
+    func hideSpaceOnDiskViewIfYouCan() {
         if !spaceOnDiskIsShowed {
             return
         }
         delegate?.hideSpaceOnDiskView()
-        
+
         spaceOnDiskIsShowed = false
     }
-    
-    func hideWBConfigIfYouCan(){
+
+    func hideWBConfigIfYouCan() {
         if !wbConfigIsShowed {
             return
         }
         delegate?.hideWBConfigView()
-        
+
         wbConfigIsShowed = false
     }
-        
-    func hideFocusIfYouCan(){
+
+    func hideFocusIfYouCan() {
         if !focusViewIsShowed {
             return
         }
         delegate?.hideFocusView()
-        
+
         focusViewIsShowed = false
     }
-    
-    func hideExposureModesIfYouCan(){
+
+    func hideExposureModesIfYouCan() {
         if !exposureModesViewIsShowed {
             return
         }
         delegate?.hideExposureModesView()
-        
+
         exposureModesViewIsShowed = false
     }
-    
-    func hideInputGainIfYouCan(){
-        if !inputGainViewIsShowed{
+
+    func hideInputGainIfYouCan() {
+        if !inputGainViewIsShowed {
             return
         }
-        
+
         delegate?.deselectInputGainSliderView()
         inputGainViewIsShowed = false
     }
-    
-    func hideAllModeConfigsIfNeccesary(){
+
+    func hideAllModeConfigsIfNeccesary() {
         hideWBConfigIfYouCan()
         hideISOConfigIfYouCan()
         hideFocusIfYouCan()
         hideExposureModesIfYouCan()
         hideZoomViewIfYouCan()
-        
+
         hideInputGainIfYouCan()
     }
-    
-    func hideModeView(){
+
+    func hideModeView() {
         if modeViewIsShowed {
             delegate?.hideModeViewAndButtonStateEnabled()
-        }else{
+        } else {
             delegate?.hideModeViewAndButtonStateDisabled()
         }
     }
-    
-    func showModeView(){
+
+    func showModeView() {
         if modeViewIsShowed {
             delegate?.showModeViewAndButtonStateEnabled()
-        }else{
+        } else {
             delegate?.showModeViewAndButtonStateDisabled()
         }
     }
-    
-    func checkIfMicIsAvailable(){
+
+    func checkIfMicIsAvailable() {
         let route = AVAudioSession.sharedInstance().currentRoute
-        
+
         for port in route.outputs {
             if port.portType == AVAudioSessionPortHeadphones {
                 // Headphones located
                 setMicButtonState(true)
                 setDeviceButtonState(false)
                 delegate?.getMicValues()
-            }else{
+            } else {
                 setMicButtonState(false)
                 setDeviceButtonState(true)
                 delegate?.getMicValues()
             }
         }
     }
-    
-    func setMicButtonState(_ state:Bool) {
+
+    func setMicButtonState(_ state: Bool) {
         if !state {
             delegate?.showJackMicButton()
             return
@@ -693,18 +688,18 @@ class RecordPresenter: NSObject
             delegate?.hideJackMicButton()
         }
     }
-    
-    func setDeviceButtonState(_ state:Bool) {
+
+    func setDeviceButtonState(_ state: Bool) {
         if !state {
             delegate?.showFrontMicButton()
         } else {
             delegate?.hideFrontMicButton()
         }
     }
-    
-    dynamic fileprivate func audioRouteChangeListener(_ notification:Notification) {
+
+    dynamic fileprivate func audioRouteChangeListener(_ notification: Notification) {
         let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
-        
+
         switch audioRouteChangeReason {
         case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
             print("headphone plugged in")
@@ -718,139 +713,138 @@ class RecordPresenter: NSObject
             break
         }
     }
-    
+
     func updateThumbnail( videoURL: URL? = nil) {
-        if let nClips = interactor?.getNumberOfClipsInProject(){
-            if nClips > 0{
-                
+        if let nClips = interactor?.getNumberOfClipsInProject() {
+            if nClips > 0 {
+
                 if let videoURL = videoURL ?? interactor?.getLastVideoURL() {
                     let image = ThumbnailInteractor().thumbnailImage(videoURL)
-                    
+
                     DispatchQueue.main.async(execute: {
                         self.delegate?.showRecordedVideoThumb(image)
-                        
+
                         self.delegate?.showNumberVideos((self.interactor?.getNumberOfClipsInProject())!)
-                    });
+                    })
                 }
 
-            }else{
+            } else {
                 self.delegate?.hideRecordedVideoThumb()
                 //            self.delegate?.disableShareButton()
             }
         }
     }
-    
-    //MARK: - Track Events
-    func trackFlash(_ flashState:Bool){
+
+    // MARK: - Track Events
+    func trackFlash(_ flashState: Bool) {
         let tracker = ViMoJoTracker.sharedInstance
         if flashState {
             tracker.sendUserInteractedTracking((delegate?.getControllerName())!,
                                                 recording: isRecording,
                                                 interaction:AnalyticsConstants().CHANGE_FLASH,
                                                 result: "true")
-        }else{
+        } else {
             tracker.sendUserInteractedTracking((delegate?.getControllerName())!,
                                                 recording: isRecording,
                                                 interaction:AnalyticsConstants().CHANGE_FLASH,
                                                 result: "false")
         }
     }
-    
-    func trackFrontCamera(){
+
+    func trackFrontCamera() {
         ViMoJoTracker.sharedInstance.sendUserInteractedTracking((delegate?.getControllerName())!,
                                                                   recording: isRecording,
                                                                   interaction:  AnalyticsConstants().CHANGE_CAMERA,
                                                                   result: AnalyticsConstants().CAMERA_FRONT)
     }
-    
-    func trackRearCamera(){
+
+    func trackRearCamera() {
         ViMoJoTracker.sharedInstance.sendUserInteractedTracking((delegate?.getControllerName())!,
                                                                   recording: isRecording,
                                                                   interaction:  AnalyticsConstants().CHANGE_CAMERA,
                                                                   result: AnalyticsConstants().CAMERA_BACK)
     }
-    
-    func trackStartRecord(){
-        ViMoJoTracker.sharedInstance.mixpanel.timeEvent(AnalyticsConstants().VIDEO_RECORDED);
-        
+
+    func trackStartRecord() {
+        ViMoJoTracker.sharedInstance.mixpanel.timeEvent(AnalyticsConstants().VIDEO_RECORDED)
+
         ViMoJoTracker.sharedInstance.sendUserInteractedTracking((delegate?.getControllerName())!,
                                                                   recording: isRecording,
                                                                   interaction:  AnalyticsConstants().RECORD,
                                                                   result: AnalyticsConstants().START)
     }
-    
-    func trackStopRecord(){
+
+    func trackStopRecord() {
         ViMoJoTracker.sharedInstance.sendUserInteractedTracking((delegate?.getControllerName())!,
                                                                   recording: isRecording,
                                                                   interaction:  AnalyticsConstants().RECORD,
                                                                   result: AnalyticsConstants().STOP)
     }
-    
+
     func trackSettingsPushed() {
         ViMoJoTracker.sharedInstance.sendUserInteractedTracking((delegate?.getControllerName())!,
                                                                   recording: isRecording,
                                                                   interaction:  AnalyticsConstants().INTERACTION_OPEN_SETTINGS,
                                                                   result: "")
     }
-    
-    //MARK: - Camera delegate
-    func trackVideoRecorded(_ videoLenght:Double) {
+
+    // MARK: - Camera delegate
+    func trackVideoRecorded(_ videoLenght: Double) {
         ViMoJoTracker.sharedInstance.trackTotalVideosRecordedSuperProperty()
         ViMoJoTracker.sharedInstance.updateTotalVideosRecorded()
     }
-    
+
     func flashOn() {
         delegate?.showFlashOn(true)
     }
-    
-    
+
     func flashOff() {
         delegate?.showFlashOn(false)
     }
-    
+
     func resetZoom() {
         delegate?.resetZoom()
     }
-    
+
     func cameraRear() {
         delegate?.showBackCameraSelected()
         self.trackRearCamera()
         delegate?.showFlashSupported(true)
     }
-    
+
     func cameraFront() {
         delegate?.showFrontCameraSelected()
         self.trackFrontCamera()
         delegate?.showFlashSupported(false)
     }
-    
+
     func startTimer() {
         timerInteractor = TimerInteractor()
         timerInteractor!.setDelegate(self)
-        
+
         timerInteractor?.start()
     }
-    
+
     func stopTimer() {
         timerInteractor?.stop()
     }
-    
+
     func showFocus(_ center: CGPoint) {
         delegate?.showFocusAtPoint(center)
     }
-    
-    //MARK: - Timer delegate
+
+    // MARK: - Timer delegate
     func updateTimer(_ time: String) {
         delegate?.updateChronometer(time)
     }
-    
+
 }
 
-extension RecordPresenter:RecorderInteractorDelegate{
+extension RecordPresenter:RecorderInteractorDelegate {
     func resolutionImageFound(_ image: UIImage) {
         delegate?.setResolutionIconImage(image)
     }
-    
+
     func resolutionImagePressedFound(_ image: UIImage) {
         delegate?.setResolutionIconImagePressed(image)
     }

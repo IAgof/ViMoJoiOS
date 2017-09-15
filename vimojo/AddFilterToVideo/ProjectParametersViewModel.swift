@@ -9,18 +9,18 @@
 import Foundation
 
 struct ProjectParametersViewModel {
-    var brightness:Float = 50
-    var contrast:Float = 50
-    var exposure:Float = 50
-    var saturation:Float = 50
-    var filterSelectedPosition:Int?
-    
-    init(brightness:Float,
-         contrast:Float,
-         exposure:Float,
-         saturation:Float,
-         filterSelectedPosition:Int?) {
-        
+    var brightness: Float = 50
+    var contrast: Float = 50
+    var exposure: Float = 50
+    var saturation: Float = 50
+    var filterSelectedPosition: Int?
+
+    init(brightness: Float,
+         contrast: Float,
+         exposure: Float,
+         saturation: Float,
+         filterSelectedPosition: Int?) {
+
         self.brightness = brightness * 100
         self.contrast = contrast * 100
         self.exposure = exposure * 100

@@ -11,18 +11,18 @@ import Foundation
 protocol AddFilterToVideoPresenterInterface {
     func viewDidLoad()
     func viewWillAppear()
-    
+
     func pushOptions()
-    
-    func parameterSliderValueChanged(sliderValue value:Float,parameterType type:VideoParameterSlider)
+
+    func parameterSliderValueChanged(sliderValue value: Float, parameterType type: VideoParameterSlider)
     func setDefaultParameters()
     func playerIsReady()
-    func selectedFilter(index:Int)
+    func selectedFilter(index: Int)
 }
 
 protocol AddFilterToVideoPresenterDelegate {
-    func setFilters(filters:[FilterCollectionViewModel])
-    func deselectFilter(inPosition:Int)
-    func setUpView(withParameters parameters:ProjectParametersViewModel)
-    func scrollToNextElement() 
+    func setFilters(filters: [FilterCollectionViewModel])
+    func deselectFilter(inPosition: Int)
+    func setUpView(withParameters parameters: ProjectParametersViewModel)
+    func scrollToNextElement()
 }

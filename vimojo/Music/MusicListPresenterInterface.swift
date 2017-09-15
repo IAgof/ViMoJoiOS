@@ -13,27 +13,27 @@ protocol MusicListPresenterInterface {
     func viewWillDisappear()
     func viewWillAppear()
     func viewDidAppear()
-   
+
     func pushBackButton()
     func pushOptions()
-    func didSelectMusicAtIndexPath(_ indexPath:IndexPath)
+    func didSelectMusicAtIndexPath(_ indexPath: IndexPath)
     func cancelDetailButtonPushed()
     func acceptDetailButtonPushed()
     func removeDetailButtonPushed()
-    func setMusicDetailInterface(_ eventHandler:MusicDetailInterface)
-    func setMixAudioValue(mixAudioValue value:Float)
+    func setMusicDetailInterface(_ eventHandler: MusicDetailInterface)
+    func setMixAudioValue(mixAudioValue value: Float)
     func getMusicList()
     func updatePlayerLayer()
     func playerHasLoaded()
-    
+
 }
 
 protocol MusicListPresenterDelegate {
-    func setMusicList(_ list:[MusicViewModel])
-    
+    func setMusicList(_ list: [MusicViewModel])
+
     func showTableView()
     func hideTableView()
-    
+
     func showDetailView(musicDetailViewModel detail: MusicDetailViewModel)
     func hideDetailView()
 }

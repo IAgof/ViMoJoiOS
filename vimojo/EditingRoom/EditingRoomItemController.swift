@@ -14,7 +14,7 @@ class EditingRoomItemController: ViMoJoController {
         print("Show side drawer")
         var parent = self.parent
         while parent != nil {
-            if let drawer = parent as? KYDrawerController{
+            if let drawer = parent as? KYDrawerController {
                 drawer.setDrawerState(.opened, animated: true)
             }
             parent = parent?.parent

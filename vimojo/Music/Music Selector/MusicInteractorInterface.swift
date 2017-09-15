@@ -11,9 +11,9 @@ import UIKit
 import VideonaProject
 import AVFoundation
 
-protocol MusicInteractorInterface {    
-    var project: Project?{get set}
-    var audios: [Audio]{get}
+protocol MusicInteractorInterface {
+    var project: Project? {get set}
+    var audios: [Audio] {get}
     func getVideoComposition()
 }
 

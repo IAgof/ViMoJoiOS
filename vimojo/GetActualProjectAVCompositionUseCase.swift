@@ -12,23 +12,23 @@ import VideonaProject
 
 class GetActualProjectAVCompositionUseCase: NSObject {
     static let sharedInstance = GetActualProjectAVCompositionUseCase()
-    
-    var compositionInSeconds:Double = 0.0
-    
-    func getComposition(project:Project) -> VideoComposition{
-        var videoTotalTime:CMTime = kCMTimeZero
+
+    var compositionInSeconds: Double = 0.0
+
+    func getComposition(project: Project) -> VideoComposition {
+        var videoTotalTime: CMTime = kCMTimeZero
 
         let isMusicSet = project.isMusicSet
         let isVoiceOverSet = project.isVoiceOverSet
-        
+
         // - Create AVMutableComposition object. This object will hold your AVMutableCompositionTrack instances.
         let mixComposition = AVMutableComposition()
 
         let audioMix: AVMutableAudioMix = AVMutableAudioMix()
         var audioMixParam: [AVMutableAudioMixInputParameters] = []
-        
-        var videoComposition:AVMutableVideoComposition?
-        
+
+        var videoComposition: AVMutableVideoComposition?
+
         let videoTrack = mixComposition.addMutableTrackWithMediaType(AVMediaTypeVideo,
                                                                      preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
         let audioTrack = mixComposition.addMutableTrackWithMediaType(AVMediaTypeAudio,
@@ -36,21 +36,21 @@ class GetActualProjectAVCompositionUseCase: NSObject {
         let videosArray = project.getVideoList()
         // - Add assets to the composition
         if videosArray.count>0 {
-            for count in 0...(videosArray.count - 1){
+            for count in 0...(videosArray.count - 1) {
                 let video = videosArray[count]
                 // 2 - Get Video asset
                 let videoURL: NSURL = NSURL.init(fileURLWithPath: video.getMediaPath())
                 let videoAsset = AVAsset.init(URL: videoURL)
-                
+
                 do {
                     let startTime = CMTimeMake(Int64(video.getStartTime() * 1000), 1000)
 
                     let stopTime = CMTimeMake(Int64(video.getStopTime() * 1000), 1000)
-                    
-                    try videoTrack.insertTimeRange(CMTimeRangeMake(startTime,  stopTime),
+
+                    try videoTrack.insertTimeRange(CMTimeRangeMake(startTime, stopTime),
                                                    ofTrack: videoAsset.tracksWithMediaType(AVMediaTypeVideo)[0] ,
                                                    atTime: videoTotalTime)
-                    
+
                     if isMusicSet == false {
                         try audioTrack.insertTimeRange(CMTimeRangeMake(startTime, stopTime),
                                                        ofTrack: videoAsset.tracksWithMediaType(AVMediaTypeAudio)[0] ,
@@ -70,15 +70,15 @@ class GetActualProjectAVCompositionUseCase: NSObject {
                     Utils().debugLog("Error trying to create videoTrack")
                     //                completionHandler("Error trying to create videoTrack",0.0)
                 }
-                
+
                 compositionInSeconds = videoTotalTime.seconds
             }
-            
-            if isMusicSet{
+
+            if isMusicSet {
                 setMusicToProject(mixComposition,
                                   musicPath: project.getMusic().getMusicResourceId())
             }
-            
+
             if isVoiceOverSet {
                 setVoiceOverToProject(audioMixParam,
                                       mixComposition: mixComposition,
@@ -86,26 +86,24 @@ class GetActualProjectAVCompositionUseCase: NSObject {
                                       audioLevel: project.voiceOver.audioLevel)
             }
         }
-        
-        
+
         var playerComposition = VideoComposition(mutableComposition: mixComposition)
-        
+
         audioMix.inputParameters = audioMixParam
         playerComposition.audioMix = audioMix
-        
-        if videoComposition != nil{
+
+        if videoComposition != nil {
             playerComposition.videoComposition = videoComposition
         }
-        
+
         return playerComposition
     }
-    
-    
-    func setMusicToProject(mixComposition:AVMutableComposition,
-                           musicPath:String){
+
+    func setMusicToProject(mixComposition: AVMutableComposition,
+                           musicPath: String) {
         let audioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(musicPath, ofType: "mp3")!)
         let audioAsset = AVAsset.init(URL: audioURL)
-        
+
         let audioTrack = mixComposition.addMutableTrackWithMediaType(AVMediaTypeAudio,
                                                                  preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
         do {
@@ -116,16 +114,16 @@ class GetActualProjectAVCompositionUseCase: NSObject {
             Utils().debugLog("Error trying to create audioTrack")
         }
     }
-    
-    func setVoiceOverToProject(mixAudioParams:[AVMutableAudioMixInputParameters],
-                               mixComposition:AVMutableComposition,
-                               audioPath:String,
-                               audioLevel:Float){
+
+    func setVoiceOverToProject(mixAudioParams: [AVMutableAudioMixInputParameters],
+                               mixComposition: AVMutableComposition,
+                               audioPath: String,
+                               audioLevel: Float) {
         var audioParams = mixAudioParams
 
         let audioURL = NSURL.init(fileURLWithPath: audioPath)
         let audioAsset = AVAsset.init(URL: audioURL)
-        
+
         let audioTrack = mixComposition.addMutableTrackWithMediaType(AVMediaTypeAudio,
                                                                  preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
         do {

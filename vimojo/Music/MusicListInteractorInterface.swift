@@ -14,17 +14,17 @@ protocol MusicListInteractorInterface {
     func getMusicList()
     func getVideoComposition()
 
-    func setMusicToProject(_ index:Int)
-    func hasMusicSelectedInProject()->Bool
-    func getMusicDetailParams(_ index:Int)
+    func setMusicToProject(_ index: Int)
+    func hasMusicSelectedInProject() -> Bool
+    func getMusicDetailParams(_ index: Int)
 
     func getMusic()
-    func updateAudioMix(withParameter param:MixAudioModel)
+    func updateAudioMix(withParameter param: MixAudioModel)
 }
 
 protocol MusicListInteractorDelegate {
-    func setMusicModelList(_ list:[MusicViewModel])
-    func setMusicDetailParams(musicDetailViewModel detail:MusicDetailViewModel)
+    func setMusicModelList(_ list: [MusicViewModel])
+    func setMusicDetailParams(musicDetailViewModel detail: MusicDetailViewModel)
     func setVideoComposition(_ composition: VideoComposition)
-    func setAudioMix(audioMix value:AVAudioMix)
+    func setAudioMix(audioMix value: AVAudioMix)
 }

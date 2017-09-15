@@ -8,7 +8,7 @@
 
 import Foundation
 
-var configuration:ConfigurationProtocol = ThomsonFoundationConfiguration()
+var configuration: ConfigurationProtocol = ThomsonFoundationConfiguration()
 
 final class ThomsonFoundationConfiguration: ConfigurationProtocol {
 	internal var fontName: String
@@ -18,8 +18,8 @@ final class ThomsonFoundationConfiguration: ConfigurationProtocol {
 	internal var secondColorWithOpacity: UIColor
 	internal var VOICE_OVER_FEATURE: Bool
 	internal var FTP_FEATURE: Bool
-    internal var hasWatermark: Bool
-	
+    internal var WATERMARK_FEATURE: Bool
+
 	init() {
 		fontName = "Helvetica"
 		mainColor = #colorLiteral(red: 0.03529411765, green: 0.6392156863, blue: 0.8941176471, alpha: 1)
@@ -28,6 +28,6 @@ final class ThomsonFoundationConfiguration: ConfigurationProtocol {
 		secondColorWithOpacity = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.5)
 		VOICE_OVER_FEATURE = true
 		FTP_FEATURE = true
-        hasWatermark = true
+        WATERMARK_FEATURE = true
 	}
 }
