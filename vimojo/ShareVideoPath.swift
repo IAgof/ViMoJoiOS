@@ -9,6 +9,16 @@
 import Foundation
 
 public struct ShareVideoPath {
-    let cameraRollPath: String
-    let documentsPath: String
+    let cameraRollPath:String
+    let documentsPath:String
+	
+	init(cameraRollPath:String, documentsPath:String) {
+		self.cameraRollPath = cameraRollPath
+		self.documentsPath = documentsPath
+	}
+	
+	init (with path:String) {
+		self.cameraRollPath = path
+		self.documentsPath = path
+	}
 }

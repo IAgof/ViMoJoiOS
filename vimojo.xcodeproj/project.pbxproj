@@ -1013,6 +1013,10 @@
 		A9FB3A541E53F15F00C21918 /* ProjectParametersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A521E53F15F00C21918 /* ProjectParametersViewModel.swift */; };
 		A9FB3A551E53F15F00C21918 /* ProjectParametersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A521E53F15F00C21918 /* ProjectParametersViewModel.swift */; };
 		AE1F58AE1F3B69FC006F75B3 /* Vimojo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9D076D21E2F7F84003AE96B /* Vimojo.xcassets */; };
+		AE31942D1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */; };
+		AE31942E1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */; };
+		AE31942F1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */; };
+		AE3194301F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */; };
 		AE491DFC1F3AF7C700B20B70 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; };
 		AE491DFD1F3AF7C700B20B70 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE491E011F3AFDF100B20B70 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; };
@@ -1836,6 +1840,7 @@
 		A9FB3A4A1E53D6A900C21918 /* FilterProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterProvider.swift; path = AddFilterToVideo/FilterProvider.swift; sourceTree = "<group>"; };
 		A9FB3A4E1E53D97300C21918 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterCollectionViewCell.swift; path = AddFilterToVideo/FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		A9FB3A521E53F15F00C21918 /* ProjectParametersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectParametersViewModel.swift; path = AddFilterToVideo/ProjectParametersViewModel.swift; sourceTree = "<group>"; };
+		AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareMoJoFyInteractor.swift; path = Share/ShareMoJoFyInteractor.swift; sourceTree = "<group>"; };
 		AE491F681F3AFE6400B20B70 /* ThomsonFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThomsonFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE491F691F3AFE6500B20B70 /* vimojo copy3-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "vimojo copy3-Info.plist"; path = "/Users/devstarlight/Documents/Videona/ViMoJoiOS/vimojo copy3-Info.plist"; sourceTree = "<absolute>"; };
 		AE491FD01F3B030F00B20B70 /* configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = configuration.swift; sourceTree = "<group>"; };
@@ -2600,6 +2605,7 @@
 				A99C7CF61DC0F8FA00F2E03A /* ShareFTPInteractor.swift */,
 				A9CC20061E55AED800F0B00E /* ShareSave.swift */,
 				A900C7581DC35FB500A65730 /* ShareFTPBreakingNewsInteractor.swift */,
+				AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */,
 			);
 			name = ShareInteractorUseCases;
 			sourceTree = "<group>";
@@ -4536,6 +4542,7 @@
 				A9CABA501EC36A6700AB6CE8 /* ProjectListInteractorInterface.swift in Sources */,
 				A9CAB8CF1EC360CC00AB6CE8 /* RootWireframe.swift in Sources */,
 				A9CABB111EC36C6700AB6CE8 /* RealmVideoToVideoMapper.swift in Sources */,
+				AE31942F1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */,
 				A99BAD401E49DC9D00A465C7 /* EditorInteractorInterface.swift in Sources */,
 				A9CAB9BB1EC367BC00AB6CE8 /* MusicListConstants.swift in Sources */,
 				A99BAD411E49DC9D00A465C7 /* EditingRoomWireframe.swift in Sources */,
@@ -4835,6 +4842,7 @@
 				A9CC20071E55AED800F0B00E /* ShareSave.swift in Sources */,
 				A953AD581E53475600DC0D84 /* AddFilterToVideoPresenterInterface.swift in Sources */,
 				A9CABB0F1EC36C6700AB6CE8 /* RealmVideoToVideoMapper.swift in Sources */,
+				AE31942D1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */,
 				A91760AE1D9146B5008915DA /* EditingRoomWireframe.swift in Sources */,
 				A9CABA461EC36A5C00AB6CE8 /* ProjectListViewModel.swift in Sources */,
 				A97243F41E37A90C00BD5E9B /* DetailProjectPresenter.swift in Sources */,
@@ -5144,6 +5152,7 @@
 				A9CABA4F1EC36A6700AB6CE8 /* ProjectListInteractorInterface.swift in Sources */,
 				A9CAB97B1EC3676000AB6CE8 /* GoToRecordOrGalleryWireframe.swift in Sources */,
 				A9CABB101EC36C6700AB6CE8 /* RealmVideoToVideoMapper.swift in Sources */,
+				AE31942E1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */,
 				A9D077BA1E2F80B1003AE96B /* EditorInteractorInterface.swift in Sources */,
 				A9D077BB1E2F80B1003AE96B /* EditingRoomWireframe.swift in Sources */,
 				A9CAB8B81EC35FD300AB6CE8 /* CheckCameraPermissionUseCase.swift in Sources */,
@@ -5443,6 +5452,7 @@
 				AE491F531F3AFE6400B20B70 /* ShareSave.swift in Sources */,
 				AE491F541F3AFE6400B20B70 /* AddFilterToVideoPresenterInterface.swift in Sources */,
 				AE491F551F3AFE6400B20B70 /* RealmVideoToVideoMapper.swift in Sources */,
+				AE3194301F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */,
 				AE491F561F3AFE6400B20B70 /* EditingRoomWireframe.swift in Sources */,
 				AE491F571F3AFE6400B20B70 /* ProjectListViewModel.swift in Sources */,
 				AE491F581F3AFE6400B20B70 /* DetailProjectPresenter.swift in Sources */,
