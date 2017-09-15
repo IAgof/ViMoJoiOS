@@ -53,6 +53,7 @@ protocol RecordPresenterInterface {
     func saveResolutionToDefaults(_ resolution: String)
 	
 	func pushCameraSimple()
+	func pushCameraPro()
 }
 
 protocol RecordPresenterDelegate {
@@ -67,8 +68,6 @@ protocol RecordPresenterDelegate {
     func showFrontCameraSelected()
     func showFocusAtPoint(_ point: CGPoint)
     func showStopButton()
-    func showHideAllButtonsButtonImage()
-    func showAllButtonsButtonImage()
     func showBatteryRemaining()
     func showSpaceOnDisk()
 

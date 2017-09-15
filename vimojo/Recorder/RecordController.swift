@@ -26,7 +26,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 //    @IBOutlet weak var showModeViewButton: UIButton!
     @IBOutlet weak var hideModeViewButton: UIButton!
 
-    @IBOutlet weak var hideAllButtonsButton: UIButton!
     @IBOutlet weak var batteryButton: UIButton!
     @IBOutlet weak var jackMicButton: UIButton!
     @IBOutlet weak var gainButton: UIButton!
@@ -214,6 +213,22 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
         return UIInterfaceOrientation.landscapeRight
     }
+	
+	@IBAction func pushSettings(_ sender: AnyObject) {
+		eventHandler?.pushSettings()
+	}
+	
+	@IBAction func pushCameraSimple(_ sender: Any) {
+		eventHandler?.pushCameraSimple()
+	}
+	
+	@IBAction func pushCameraPro(_ sender: Any) {
+		eventHandler?.pushCameraPro()
+	}
+	
+	@IBAction func pushMemory(_ sender: AnyObject) {
+		eventHandler?.pushSpaceOnDisk()
+	}
 
     // MARK: - Button Actions
     @IBAction func pushRecord(_ sender: AnyObject) {
@@ -231,10 +246,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     @IBAction func pushVideoSettingsConfig(_ sender: AnyObject) {
         eventHandler?.pushVideoSettingsConfig()
     }
-	
-	@IBAction func pushCameraSimple(_ sender: Any) {
-		eventHandler?.pushCameraSimple()
-	}
 
     @IBAction func pushHideMode(_ sender: AnyObject) {
         eventHandler?.pushHideMode()
@@ -276,10 +287,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         eventHandler?.pushBattery()
     }
 
-    @IBAction func pushMemory(_ sender: AnyObject) {
-        eventHandler?.pushSpaceOnDisk()
-    }
-
     @IBAction func pushResolution(_ sender: AnyObject) {
         eventHandler?.pushResolution()
     }
@@ -291,10 +298,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 
     @IBAction func pushShareButton(_ sender: AnyObject) {
         eventHandler?.pushShare()
-    }
-
-    @IBAction func pushSettingsButton(_ sender: AnyObject) {
-        eventHandler?.pushSettings()
     }
 
     @IBAction func showSideDrawer(_ sender: AnyObject) {
@@ -539,14 +542,6 @@ extension RecordController:RecordPresenterDelegate {
         Utils().delay(0.5, closure: {
             self.focusImageView.isHidden = true
         })
-    }
-
-    func showAllButtonsButtonImage() {
-        hideAllButtonsButton.isSelected = false
-    }
-
-    func showHideAllButtonsButtonImage() {
-        hideAllButtonsButton.isSelected = true
     }
 
     func hidePrincipalViews() {

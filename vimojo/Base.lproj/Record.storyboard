@@ -261,7 +261,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="pushSettingsButton:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="Ukp-bt-TH3"/>
+                                                            <action selector="pushSettings:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="i2f-U6-ocy"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhg-e3-51Y" userLabel="Show Camera Simple Button">
@@ -516,7 +516,7 @@
                                                 <rect key="frame" x="8" y="8" width="44" height="22"/>
                                                 <state key="normal" image="activity_rec_expand"/>
                                                 <connections>
-                                                    <action selector="pushHideButtons:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="fCM-Bj-QfF"/>
+                                                    <action selector="pushCameraPro:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="G0S-Cd-f1D"/>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_rec_gallery" highlightedImage="activity_rec_gallery_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="RhQ-Vq-oSU" userLabel="Thumbnail Image View">
@@ -552,11 +552,13 @@
                                             <constraint firstItem="216-mj-D5y" firstAttribute="top" secondItem="RhQ-Vq-oSU" secondAttribute="bottom" constant="10" id="5FY-86-wnd"/>
                                             <constraint firstAttribute="bottom" secondItem="sVO-Ig-tAv" secondAttribute="bottom" constant="8" id="6v7-Kh-fjI"/>
                                             <constraint firstItem="V62-32-pM2" firstAttribute="leading" secondItem="eCP-P5-tk2" secondAttribute="leading" constant="8" id="OA7-Qd-bML"/>
+                                            <constraint firstAttribute="trailing" secondItem="RhQ-Vq-oSU" secondAttribute="trailing" constant="14" id="Qcd-yE-cpT"/>
                                             <constraint firstItem="216-mj-D5y" firstAttribute="leading" secondItem="eCP-P5-tk2" secondAttribute="leading" constant="8" id="UFW-Q0-jg2"/>
                                             <constraint firstItem="sVO-Ig-tAv" firstAttribute="leading" secondItem="eCP-P5-tk2" secondAttribute="leading" constant="8" id="Uhl-EY-hH7"/>
                                             <constraint firstAttribute="width" constant="60" id="Y5O-Gc-Leu"/>
                                             <constraint firstAttribute="trailing" secondItem="sVO-Ig-tAv" secondAttribute="trailing" constant="8" id="gy1-yc-47O"/>
                                             <constraint firstItem="V62-32-pM2" firstAttribute="top" secondItem="eCP-P5-tk2" secondAttribute="top" constant="8" id="mcg-Cu-LCX"/>
+                                            <constraint firstItem="RhQ-Vq-oSU" firstAttribute="leading" secondItem="eCP-P5-tk2" secondAttribute="leading" constant="14" id="oU8-ky-d5I"/>
                                             <constraint firstAttribute="trailing" secondItem="216-mj-D5y" secondAttribute="trailing" constant="8" id="uCT-tx-znR"/>
                                             <constraint firstItem="sVO-Ig-tAv" firstAttribute="top" secondItem="216-mj-D5y" secondAttribute="bottom" constant="5" id="wfn-SJ-hIe"/>
                                             <constraint firstAttribute="trailing" secondItem="V62-32-pM2" secondAttribute="trailing" constant="8" id="wx4-Q8-26S"/>
@@ -657,7 +659,6 @@
                         <outlet property="focusView" destination="Dex-fY-oYP" id="VNM-n6-Xtv"/>
                         <outlet property="gainButton" destination="RdB-Gc-WhI" id="Y2j-iH-Oms"/>
                         <outlet property="gridButton" destination="cV1-o9-b0m" id="qqw-jC-vwA"/>
-                        <outlet property="hideAllButtonsButton" destination="jhg-e3-51Y" id="cVa-P3-R6B"/>
                         <outlet property="hideModeViewButton" destination="Gn6-UX-bN2" id="s61-rO-d2V"/>
                         <outlet property="inputGainSlider" destination="WEb-ih-mOX" id="CmR-se-ImH"/>
                         <outlet property="isoButton" destination="aiN-vN-CHp" id="92F-gA-YX7"/>
@@ -675,7 +676,7 @@
                         <outlet property="storageButton" destination="v8j-Vd-5dC" id="4qh-MU-g0j"/>
                         <outlet property="thumbnailInfoLabel" destination="Kak-fM-psP" id="gaW-sz-Gzr"/>
                         <outlet property="thumbnailNumberClips" destination="U7C-x1-dO0" id="KQi-nu-g7L"/>
-                        <outlet property="thumbnailView" destination="OjL-sb-H1o" id="bA2-zz-VO9"/>
+                        <outlet property="thumbnailView" destination="OjL-sb-H1o" id="Qqf-Kf-sQN"/>
                         <outlet property="thumbnailViewParent" destination="ihb-Jx-744" id="MeY-Ch-5d9"/>
                         <outlet property="upperContainerView" destination="nbb-jx-SNd" id="6wd-q7-cdB"/>
                         <outlet property="warningOrientationImage" destination="Nip-fZ-kTg" id="PfD-Wd-tkr"/>

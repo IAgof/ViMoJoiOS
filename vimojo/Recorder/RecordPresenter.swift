@@ -156,6 +156,15 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 		delegate?.hideDrawerButton()
 		delegate?.showCameraSimpleView()
 	}
+	
+	func pushCameraPro() {
+		delegate?.hideCameraSimpleView()
+		delegate?.showUpperContainerView()
+		delegate?.showSettingsContainerView()
+		delegate?.showRecordButton()
+		delegate?.showThumbnailsView()
+		delegate?.showDrawerButton()
+	}
 
     func pushHideAllButtons() {
         if secondaryViewIsShowing {
@@ -168,7 +177,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
                 delegate?.showVideoSettingsConfig()
             }
 
-            delegate?.showAllButtonsButtonImage()
             secondaryViewIsShowing = false
         } else {
             switchChronometerIfNeccesary()
@@ -180,7 +188,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             hideZoomViewIfYouCan()
             hideAllModeConfigsIfNeccesary()
 
-            delegate?.showHideAllButtonsButtonImage()
             secondaryViewIsShowing = true
         }
     }
@@ -517,7 +524,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     }
 
     func pushSettings() {
-        print("Record presenter pushSettings")
         self.trackSettingsPushed()
         recordWireframe?.presentSettingsInterface()
     }
