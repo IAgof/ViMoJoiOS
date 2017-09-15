@@ -8,19 +8,19 @@
 
 import Foundation
 
-public protocol Repository{
+public protocol Repository {
     associatedtype T
 
-    func add(item:T)
-    
+    func add(item: T)
+
 //    void add(Iterable<T> items);
-    func add(items:[T])
-    
-    func update(item:T)
-    
-    func remove(item:T)
-    
-    func remove(specification:Specification)
-    
+    func add(items: [T])
+
+    func update(item: T)
+
+    func remove(item: T)
+
+    func remove(specification: Specification)
+
     func query(specification: Specification) -> [T]
 }

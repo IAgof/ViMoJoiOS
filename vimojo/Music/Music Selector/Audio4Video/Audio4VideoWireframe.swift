@@ -12,7 +12,7 @@ import VideonaProject
 class Audio4VideoWireframe {
     let audio4VideonaViewControllerIdentifier = "Audio4VideoViewController"
 
-    var rootWireframe : RootWireframe
+    var rootWireframe: RootWireframe
     var presenter: Audio4VideoPresenter = Audio4VideoPresenter()
     var interactor: Audio4VideoInteractor = Audio4VideoInteractor()
     var playerPresenter: PlayerPresenterInterface
@@ -22,7 +22,7 @@ class Audio4VideoWireframe {
         let storyboard = UIStoryboard(name: "Editor", bundle: Bundle.main)
         return storyboard
     }
-    
+
     init(rootWireframe: RootWireframe,
          playerPresenter: PlayerPresenterInterface,
          playerWireframe: PlayerWireframe? ,
@@ -33,12 +33,11 @@ class Audio4VideoWireframe {
         self.playerWireframe = playerWireframe
         let storyboard = mainStoryboard
         self.controller = storyboard.instantiateViewController(withIdentifier: audio4VideonaViewControllerIdentifier) as? Audio4VideoViewController
-        
 
         configure(with: video, project: project)
     }
-    
-    func configure(with video: Video, project: Project){
+
+    func configure(with video: Video, project: Project) {
         controller?.eventHandler = presenter
         presenter.delegate = controller
         presenter.interactor = interactor
@@ -46,13 +45,13 @@ class Audio4VideoWireframe {
         presenter.wireframe = self
         interactor.setup(delegate: presenter, project: project, video: video)
     }
-    
+
     func presentPlayerInterface() {
-        guard let controller = self.controller , let playerWireframe = playerWireframe else{ return }
+        guard let controller = self.controller, let playerWireframe = playerWireframe else { return }
         playerWireframe.presentPlayerInterfaceFromViewController(controller)
     }
-    
-    func dissmiss(){
+
+    func dissmiss() {
         _ = controller?.navigationController?.popViewController(animated: true)
     }
 }

@@ -15,21 +15,21 @@ public class ViMoJoController: UIViewController,
 ViMoJoInterface {
 
     let tracker = ViMoJoTracker()
-    var forcePortrait:Bool{
+    var forcePortrait: Bool {
         return false
     }
 
-    var isStatusBarHidden:Bool{
+    var isStatusBarHidden: Bool {
         return false
     }
-    
-    override public var prefersStatusBarHidden: Bool{
+
+    override public var prefersStatusBarHidden: Bool {
         return isStatusBarHidden
     }
-    
+
     override public func viewDidLoad() {
         print("View did load in \n \(self)")
-        
+
 //        NotificationCenter.default.addObserver(self,
 //                                                         selector: #selector(ViMoJoController.hideStatusBarAlways),
 //                                                         name: NSNotification.Name.UIDeviceOrientationDidChange,
@@ -40,7 +40,7 @@ ViMoJoInterface {
                                        fontSize: DPTheme.kDefaultNavigationBarFontSize,
                                        buttonColor: configuration.plainButtonColor)
     }
-    
+
     override public func viewWillAppear(_ animated: Bool) {
         print("View will dissappear in \n \(self)")
 
@@ -51,33 +51,33 @@ ViMoJoInterface {
 //        tracker.sendControllerGAITracker(getControllerName())
         UIApplication.shared.isIdleTimerDisabled = false
     }
-    
+
     override public func viewWillDisappear(_ animated: Bool) {
         print("View will dissappear in \n \(self)")
 
         tracker.sendTimeInActivity(getControllerName())
     }
 
-    func getControllerName()->String{
+    func getControllerName() -> String {
         return String(describing: type(of: self))
     }
-    
+
     func getTrackerObject() -> ViMoJoTracker {
         return self.tracker
     }
-    
+
     func getController() -> UIViewController {
         return self
     }
 }
 
 //Force Portrait to iPad
-extension ViMoJoController{
-    
-    override public var supportedInterfaceOrientations : UIInterfaceOrientationMask {
-        if forcePortrait{
+extension ViMoJoController {
+
+    override public var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if forcePortrait {
             return UIInterfaceOrientationMask.portrait
-        }else{
+        } else {
             return UIInterfaceOrientationMask.all
         }
     }

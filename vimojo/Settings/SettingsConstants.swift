@@ -9,9 +9,9 @@
 import Foundation
 
 class SettingsConstants: NSObject {
-    //MARK: - ADVANCED_SECTION
+    // MARK: - ADVANCED_SECTION
     let ADVANCED_SECTION = "title_advanced_section"
-    
+
     let DONWLOAD_KAMARADA = "downloadKamarada"
     let KAMARADA_ITUNES_LINK = "kamaradaItunesLink"
     let SHARE_VIDEONA_TITLE = "shareVideona"
@@ -21,13 +21,13 @@ class SettingsConstants: NSObject {
     let FOLLOW_US_ON_TWITTER_TITLE = "followUsInTwitter"
     let VIDEONA_TWITTER = "videonaTwitter"
     let VIDEONA_TWITTER_USER = "videonaUser"
-    
-    //MARK: - EMAIL
+
+    // MARK: - EMAIL
     let ENTER_MAIL = "enterEmail"
     let REMOVE_MAIL = "removeEmail"
     let INVALID_MAIL = "invalid_email"
 
-    //MARK: - MY_ACCOUNT_SECTION
+    // MARK: - MY_ACCOUNT_SECTION
     let MY_ACCOUNT_SECTION = "titleUserSection"
 
     let SETTINGS_TITLE = "action_settings"
@@ -45,9 +45,9 @@ class SettingsConstants: NSObject {
     let SETTINGS_MAIL = "settingsEmail"
     let SETTINGS_PHOTO_USER = "settingsPhotoUser"
 
-    //MARK: - CAMERA_SECTION
+    // MARK: - CAMERA_SECTION
     let CAMERA_SECTION = "title_camera_section"
-    
+
     let RESOLUTION = "resolution"
     let LOW_RESOLUTION_NAME = "low_resolution_name"
     let LOW_VALUE = "low_value"
@@ -66,11 +66,11 @@ class SettingsConstants: NSObject {
     let GOOD_QUALITY_NAME = "good_quality_name"
     let HIGH_QUALITY_NAME = "high_quality_name"
     let CANCEL_SETTINGS_CAMERA = "cancelSettingsCamera"
-    
+
     let SETTINGS_RESOLUTION = "settingsResolution"
     let SETTINGS_QUALITY = "settingsQuality"
     let SETTINGS_FRAMERATE = "settingsFrameRate"
-    
+
     let SETTINGS_HOST_FTP = "settingHostFTP"
     let SETTINGS_USERNAME_FTP = "settingsUsernameFTP"
     let SETTINGS_PASSWORD_FTP = "settingsPasswordFTP"
@@ -83,7 +83,7 @@ class SettingsConstants: NSObject {
     let SETTINGS_EDITED_DEST_FTP_BN = "settingsEditedDestFTPBN"
     let SETTINGS_UNEDITED_DEST_HOST_FTP_BN = "settingsUneditedHostFTPBN"
 
-    //MARK: - MORE_INFO_SECTION
+    // MARK: - MORE_INFO_SECTION
     let MORE_INFO_SECTION = "moreInformation"
 
     let ABOUT_US_TITLE = "aboutUsTitle"
@@ -91,25 +91,25 @@ class SettingsConstants: NSObject {
     let TERMS_OF_SERVICE_TITLE = "termsOfService"
     let LICENSES_TITLE = "licenses"
     let LEGAL_ADVICE_TITLE = "legacyAdviceTitle"
-    
+
     let ABOUT_US_CONTENT = "aboutUsContent"
     let PRIVACY_POLICY_CONTENT = "privacyPolicyContent"
     let TERMS_OF_SERVICE_CONTENT = "termsOfServiceContent"
     let LICENSES_CONTENT = "licenseContent"
     let LEGAL_ADVICE_CONTENT = "legacyAdviceContent"
-    
-    //MARK: - ACCOUNT_ACTIONS_SECTION
+
+    // MARK: - ACCOUNT_ACTIONS_SECTION
     let ACCOUNT_ACTIONS_SECTION = "accountActions"
     let EXIT = "exit"
-    
-    //MARK: - MORE CONSTANTS TO ORDER
+
+    // MARK: - MORE CONSTANTS TO ORDER
     let VIDEONA_WEB = "videona_web"
     let MADE_IN = "madeIn"
-   
-    //MARK: - WATERMARK
+
+    // MARK: - WATERMARK
     let WATERMARK_TITLE = "watermarkTitle"
-    
-    //MARK: - FTP SECTION
+
+    // MARK: - FTP SECTION
     let FTP1_SECTION_TITLE = "title_FTP1_Section"
     let FTP2_SECTION_TITLE = "title_FTP2_Section"
     let HOST_FTP = "host_FTP"

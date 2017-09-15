@@ -8,9 +8,9 @@
 
 import Foundation
 
-class DetailTextInteractor: NSObject ,DetailTextInteractorInterface{
-    
-    func getTextFromInternalMemory(_ key:String) -> String {
-        return Bundle.main.localizedString(forKey: key,value: "",table: "Settings")
+class DetailTextInteractor: NSObject, DetailTextInteractorInterface {
+
+    func getTextFromInternalMemory(_ key: String) -> String {
+        return Bundle.main.localizedString(forKey: key, value: "", table: "Settings")
     }
 }

@@ -10,13 +10,13 @@ import Foundation
 import AVFoundation
 import VideonaProject
 
-class ShareFacebookInteractor:NSObject, ShareActionInterface{
-    var delegate:ShareActionDelegate
+class ShareFacebookInteractor: NSObject, ShareActionInterface {
+    var delegate: ShareActionDelegate
     var shareProject: Project
-    
+
     // Facebook Delegate Methods
-    init(delegate:ShareActionDelegate,
-         shareProject project:Project){
+    init(delegate: ShareActionDelegate,
+         shareProject project: Project) {
         self.delegate = delegate
         self.shareProject = project
     }
@@ -24,19 +24,19 @@ class ShareFacebookInteractor:NSObject, ShareActionInterface{
         trackShare()
 
         let url = ShareUtils().getLastAssetURL()
-        
+
         let video: FBSDKShareVideo = FBSDKShareVideo()
-        
+
         video.videoURL = url as URL!
-        
-        let content:FBSDKShareVideoContent = FBSDKShareVideoContent()
+
+        let content: FBSDKShareVideoContent = FBSDKShareVideoContent()
         content.video = video
         content.hashtag = FBSDKHashtag.init(string: ShareConstants.VIDEONATIME_HASTAGH)
-        
+
         let dialog = FBSDKShareDialog.init()
-        if UIApplication.shared.canOpenURL(URL.init(string:"fbauth2:/")!){
+        if UIApplication.shared.canOpenURL(URL.init(string:"fbauth2:/")!) {
             dialog.mode = .native
-        }else{
+        } else {
             let message = ShareConstants.NO_FACEBOOK_INSTALLED
             ShareUtils().setAlertCompletionMessageOnTopView(socialName: "Facebook",
                                                             message: message)
@@ -44,7 +44,7 @@ class ShareFacebookInteractor:NSObject, ShareActionInterface{
         dialog.shareContent = content
         dialog.delegate = self
         dialog.show()
-        
+
     }
     func trackShare() {
         ViMoJoTracker.sharedInstance.trackVideoShared("Facebook",
@@ -53,46 +53,41 @@ class ShareFacebookInteractor:NSObject, ShareActionInterface{
     }
 }
 
-extension ShareFacebookInteractor:FBSDKLoginButtonDelegate{
+extension ShareFacebookInteractor:FBSDKLoginButtonDelegate {
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         print("User Logged In")
-        
-        if ((error) != nil)
-        {
+
+        if ((error) != nil) {
             // Process error
-        }
-        else if result.isCancelled {
+        } else if result.isCancelled {
             // Handle cancellations
-        }
-        else {
+        } else {
             // If you ask for multiple permissions at once, you
             // should check if specific permissions missing
-            if result.grantedPermissions.contains("email")
-            {
+            if result.grantedPermissions.contains("email") {
                 // Do work
             }
         }
     }
-    
+
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("loginButtonDidLogOut")
     }
 }
 
-
-extension ShareFacebookInteractor:FBSDKSharingDelegate{
+extension ShareFacebookInteractor:FBSDKSharingDelegate {
     func sharerDidCancel(_ sharer: FBSDKSharing!) {
         print("sharerDidCancel")
-        
+
     }
-    
+
     func sharer(_ sharer: FBSDKSharing!, didFailWithError error: Error!) {
         print("sharerDidCancel\(error)")
-        
+
     }
-    
+
     func sharer(_ sharer: FBSDKSharing!, didCompleteWithResults results: [AnyHashable: Any]!) {
         print("didCompleteWithResults")
-        
+
     }
 }

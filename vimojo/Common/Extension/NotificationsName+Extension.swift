@@ -8,8 +8,8 @@
 
 import Foundation
 
-extension Notification{
-    static var audioUpdate: Notification.Name{
+extension Notification {
+    static var audioUpdate: Notification.Name {
         return Notification.Name(rawValue: "projectAudio")
     }
 }

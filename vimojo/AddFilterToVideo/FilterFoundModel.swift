@@ -9,7 +9,7 @@
 import Foundation
 
 struct FilterFoundModel {
-    let filterName:String
-    var filterImage:UIImage?
-    let displayName:String
+    let filterName: String
+    var filterImage: UIImage?
+    let displayName: String
 }

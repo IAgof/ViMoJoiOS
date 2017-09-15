@@ -10,17 +10,17 @@ import Foundation
 
 protocol ProjectListPresenterInterface {
     func viewWillAppear()
-    
-    func removeProject(projectNumber:Int)
-    func duplicateProject(projectNumber:Int)
-    func editProject(projectNumber:Int)
-    func shareProject(projectNumber:Int)
-    func detailProject(projectNumber:Int)
-    
+
+    func removeProject(projectNumber: Int)
+    func duplicateProject(projectNumber: Int)
+    func editProject(projectNumber: Int)
+    func shareProject(projectNumber: Int)
+    func detailProject(projectNumber: Int)
+
     func pushBack()
 
 }
 
-protocol ProjectListPresenterDelegate{   
-    func setItems(_ items:[ProjectListViewModel])
+protocol ProjectListPresenterDelegate {
+    func setItems(_ items: [ProjectListViewModel])
 }

@@ -8,21 +8,21 @@
 
 import UIKit
 
-class DetailTextController: ViMoJoController,DetailTextPresenterDelegate{
+class DetailTextController: ViMoJoController, DetailTextPresenterDelegate {
     var eventHandler: DetailTextPresenterInterface?
-    
+
     @IBOutlet weak var detailTextFiled: UITextView!
-    
+
     var textRef: String? {
         didSet {
 //            eventHandler?.setTextOnView(textRef!)
         }
     }
-    
+
     func setTextToTextView(_ text: String) {
         detailTextFiled.text = text
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         eventHandler?.setTextOnView(textRef!)
@@ -36,10 +36,10 @@ class DetailTextController: ViMoJoController,DetailTextPresenterDelegate{
     override func pushBack() {
         eventHandler?.pushBack()
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
 }

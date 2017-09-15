@@ -23,7 +23,7 @@ SOFTWARE.
 import UIKit
 
 public class KYEmbedDrawerControllerSegue: UIStoryboardSegue {
-    
+
     final override public func perform() {
         if let sourceViewController = source as? KYDrawerController {
             sourceViewController.drawerViewController = destination
@@ -31,5 +31,5 @@ public class KYEmbedDrawerControllerSegue: UIStoryboardSegue {
             assertionFailure("SourceViewController must be KYDrawerController!")
         }
     }
-   
+
 }

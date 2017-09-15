@@ -9,21 +9,21 @@
 import Foundation
 
 protocol DrawerMenuPresenterInterface {
-    func didSelectAtIndexPath(indexPath:IndexPath)
+    func didSelectAtIndexPath(indexPath: IndexPath)
     func exitPushed()
     func imagePushed()
     func takePhoto()
     func takeFromGallery()
     func removePhoto()
-    
-    func saveImageSelected(image:UIImage)
+
+    func saveImageSelected(image: UIImage)
 }
 
 protocol DrawerMenuPresenterDelegate {
     func closeDrawer()
     func layoutDrawerControllerView()
     func presentAlertWithOptions()
-    
-    func presentPickerController(withOptionSelected option:TakePhotoFromOptions)
+
+    func presentPickerController(withOptionSelected option: TakePhotoFromOptions)
     func updateProfileCell()
 }

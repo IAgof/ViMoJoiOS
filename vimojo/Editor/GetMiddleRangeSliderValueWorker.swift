@@ -10,21 +10,21 @@ import Foundation
 import VideonaProject
 
 class GetMiddleRangeSliderValueWorker: NSObject {
-    func getValue(_ value:Double,
-                  project:Project,
-                  videoNumber:Int) -> Double{
-        var totalTime:Double = 0
+    func getValue(_ value: Double,
+                  project: Project,
+                  videoNumber: Int) -> Double {
+        var totalTime: Double = 0
         let videos = project.getVideoList()
-        
-        for video in videos{
-            if video.getPosition() == (videoNumber + 1){
-                var rangeSliderValue:Double = 0
-                if totalTime > 0{
+
+        for video in videos {
+            if video.getPosition() == (videoNumber + 1) {
+                var rangeSliderValue: Double = 0
+                if totalTime > 0 {
                     rangeSliderValue =   value - totalTime + video.getStartTime()
-                }else{
+                } else {
                     rangeSliderValue =  value + video.getStartTime()
                 }
-                
+
                 return rangeSliderValue
             }
             totalTime += video.getDuration() //- project.transitionTime

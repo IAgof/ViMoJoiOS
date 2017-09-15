@@ -10,29 +10,29 @@ import Foundation
 import VideonaProject
 
 class DrawerMenuInteractor: DrawerMenuInteractorInterface {
-    var delegate:DrawerMenuInteractorDelegate?
-    
-    var project:Project?
-    
-    init(project:Project) {
+    var delegate: DrawerMenuInteractorDelegate?
+
+    var project: Project?
+
+    init(project: Project) {
         self.project = project
     }
-    
+
     func createNewProject() {
-        if project != nil{
+        if project != nil {
             CreateNewProjectUseCase().create(project: project!)
         }
     }
-    
+
     func saveUserPhoto(image: UIImage) {
         let imageData = UIImageJPEGRepresentation(image, 1.0)
-        
+
         UserDefaults.standard.set(imageData, forKey: SettingsConstants().SETTINGS_PHOTO_USER)
-        
+
         delegate?.imageIsSave()
     }
-    
-    func removePhoto(){
+
+    func removePhoto() {
         UserDefaults.standard.set(nil, forKey: SettingsConstants().SETTINGS_PHOTO_USER)
         delegate?.imageIsSave()
   }

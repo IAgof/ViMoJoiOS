@@ -8,7 +8,7 @@
 
 import Foundation
 
-var configuration:ConfigurationProtocol = ViMoJoConfiguration()
+var configuration: ConfigurationProtocol = ViMoJoConfiguration()
 
 final class ViMoJoConfiguration: ConfigurationProtocol {
     internal var fontName: String
@@ -18,8 +18,8 @@ final class ViMoJoConfiguration: ConfigurationProtocol {
     internal var secondColorWithOpacity: UIColor
     internal var VOICE_OVER_FEATURE: Bool
     internal var FTP_FEATURE: Bool
-    internal var hasWatermark: Bool
-    
+    internal var WATERMARK_FEATURE: Bool
+
     init() {
         fontName = "Helvetica"
         mainColor = #colorLiteral(red: 0.9490196078, green: 0.2941176471, blue: 0.3176470588, alpha: 1)
@@ -28,6 +28,6 @@ final class ViMoJoConfiguration: ConfigurationProtocol {
         secondColorWithOpacity = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.5)
         VOICE_OVER_FEATURE = true
         FTP_FEATURE = true
-        hasWatermark = true
+        WATERMARK_FEATURE = true
     }
 }

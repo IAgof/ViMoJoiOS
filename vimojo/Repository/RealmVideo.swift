@@ -17,9 +17,9 @@ public class RealmVideo: Object {
     dynamic var videoURL = ""
     dynamic var clipText = ""
     dynamic var clipTextPosition = 0
-    dynamic var startTime:Double = 0.0
-    dynamic var stopTime:Double = 0.0
-    
+    dynamic var startTime: Double = 0.0
+    dynamic var stopTime: Double = 0.0
+
     override public class func primaryKey() -> String? {
         return "uuid"
     }

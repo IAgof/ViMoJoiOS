@@ -11,6 +11,6 @@ import Foundation
 public protocol Mapper {
     associatedtype From
     associatedtype To
-    
-    func map(from:From)->To
+
+    func map(from: From) -> To
 }

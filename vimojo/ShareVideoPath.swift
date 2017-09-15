@@ -22,4 +22,3 @@ public struct ShareVideoPath {
 		self.documentsPath = path
 	}
 }
-    

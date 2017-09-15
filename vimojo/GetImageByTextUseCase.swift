@@ -8,36 +8,34 @@
 
 import Foundation
 
-
-
 class GetImageByTextUseCase {
-    func getTextImage(text:String,
-                      attributes:CATextLayerAttributes)->UIImage{
-        
-        let frame = CGRectMake(0, 0, 1920, 1080)
-        
+    func getTextImage(text: String,
+                      attributes: CATextLayerAttributes) -> UIImage {
+
+        let frame = CGRect(x: 0, y: 0, width: 1920, height: 1080)
+
         let parentLayer = CALayer()
         parentLayer.frame = frame
-        
+
         let textLayer = CATextLayer()
         var originalString: String = text
         let myString: NSString = originalString as NSString
         let size: CGSize = myString.sizeWithAttributes([NSFontAttributeName: attributes.font])
-        
+
         textLayer.string = text
         textLayer.font = attributes.font
         textLayer.fontSize = attributes.fontSize
-        
+
         textLayer.alignmentMode = attributes.horizontalAlignment.rawValue
         textLayer.wrapped = true
         textLayer.truncationMode = "middle"
-        
+
         textLayer.frame = attributes.getFrameForString(frame)
-        
+
         parentLayer.addSublayer(textLayer)
-        
+
         let image = UIImage.imageWithLayer(parentLayer)
-        
+
         return image
     }
 }

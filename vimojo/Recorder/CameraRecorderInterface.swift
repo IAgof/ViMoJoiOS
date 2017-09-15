@@ -10,9 +10,9 @@ import Foundation
 import GPUImage
 
 protocol CameraRecorderInterface {
-    
+
 }
 protocol CameraRecorderDelegate {
-    func startRecordVideo(_ completion:@escaping (String)->Void)
+    func startRecordVideo(_ completion:@escaping (String) -> Void)
     func stopRecordVideo()
 }

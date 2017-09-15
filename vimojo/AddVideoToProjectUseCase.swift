@@ -10,35 +10,35 @@ import Foundation
 import VideonaProject
 
 class AddVideoToProjectUseCase: NSObject {
-    
+
     static let sharedInstance = AddVideoToProjectUseCase()
-    
-    func add(videoPath:String,
-             title:String,
-             project:Project){
+
+    func add(videoPath: String,
+             title: String,
+             project: Project) {
         var videoList = project.getVideoList()
-        
+
         let video = Video.init(title: title,
                                mediaPath: videoPath)
         video.setPosition(videoList.count + 1)
-        
+
         videoList.append(video)
-        
+
         project.setVideoList(videoList)
     }
-    
-    func add(video:Video,
-             position:Int,
-             project:Project){
-        
+
+    func add(video: Video,
+             position: Int,
+             project: Project) {
+
         var videoList = project.getVideoList()
-        
+
         videoList.insert(video, atIndex: position)
-        
+
         project.setVideoList(videoList)
     }
-    
-    func updateVideoParams(project:Project) {
+
+    func updateVideoParams(project: Project) {
         let videoList = project.getVideoList()
         videoList.last?.mediaRecordedFinished()
     }

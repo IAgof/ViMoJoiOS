@@ -10,54 +10,53 @@ import Foundation
 import VideonaProject
 import AVFoundation
 
-class GetActualProjectTextCALayerAnimationUseCase:NSObject {
-    func getCALayerAnimation(project:Project)-> CALayer {
+class GetActualProjectTextCALayerAnimationUseCase: NSObject {
+    func getCALayerAnimation(project: Project) -> CALayer {
         let videos = project.getVideoList()
-        
-        let layers :[CALayer] = getTextLayersAnimated(videos)
-        
+
+        let layers: [CALayer] = getTextLayersAnimated(videos)
+
         let parentLayer = CALayer()
-        
-        for layer in layers{
+
+        for layer in layers {
             parentLayer.addSublayer(layer)
         }
         return parentLayer
     }
-    
-    
-    func getTextLayersAnimated(videoList:[Video])-> [CALayer]{
-        var layers :[CALayer] = []
-        
+
+    func getTextLayersAnimated(videoList: [Video]) -> [CALayer] {
+        var layers: [CALayer] = []
+
         var timeToInsertAnimate = 0.0
-        
-        for video in videoList{
+
+        for video in videoList {
             guard let textPosition =  CATextLayerAttributes.VerticalAlignment(rawValue: video.textPositionToVideo) else {
                 print("Not valid position")
                 return []}
-            
+
             let image = GetImageByTextUseCase().getTextImage(video.textToVideo,
                                                              attributes:CATextLayerAttributes().getAlignmentAttributesByType(textPosition))
-            
+
             let textImageLayer = CALayer()
             textImageLayer.contents = image.CGImage
             textImageLayer.frame = CGRectMake(0, 0, image.size.width, image.size.height)
             textImageLayer.contentsScale = UIScreen.mainScreen().scale
             textImageLayer.opacity = 0.0
-            
+
             addAnimationToLayer(textImageLayer,
                                 timeAt: timeToInsertAnimate,
                                 duration: video.getDuration())
-            
+
             layers.append(textImageLayer)
-            
+
             timeToInsertAnimate += video.getDuration()
         }
         return layers
     }
-    
-    func addAnimationToLayer(overlay:CALayer,
-                             timeAt:Double,
-                             duration:Double){
+
+    func addAnimationToLayer(overlay: CALayer,
+                             timeAt: Double,
+                             duration: Double) {
         //Animacion de entrada
         let animationEntrada = CAKeyframeAnimation(keyPath:"opacity")
         animationEntrada.beginTime = AVCoreAnimationBeginTimeAtZero + timeAt

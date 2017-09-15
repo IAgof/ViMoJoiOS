@@ -9,7 +9,7 @@
 import Foundation
 import VideonaProject
 
-enum TransitionTime:Double {
+enum TransitionTime: Double {
     case noTransition = 0
     case oneSecond = 1
     case halfSecond = 0.5
@@ -19,15 +19,15 @@ enum TransitionTime:Double {
 
 class SettingsTransition {
     let defaults = UserDefaults.standard
-    var transitionTime:Double = 0
-    
-    init(project:Project){
+    var transitionTime: Double = 0
+
+    init(project: Project) {
         transitionTime = project.transitionTime
     }
-    
-    func save(value:String){
-        var valueToSave:Double = 0
-        
+
+    func save(value: String) {
+        var valueToSave: Double = 0
+
         switch value {
         case Utils().getStringByKeyFromSettings(SettingsConstants().NO_TRANSITION):
             valueToSave = 0
@@ -42,16 +42,16 @@ class SettingsTransition {
         default:
             valueToSave = 0
         }
-        
+
         transitionTime = valueToSave
-        
+
         defaults.set(valueToSave, forKey: SettingsConstants().TRANSITION)
     }
-    
-    func getTransitionToView()->String{
-        if let time = TransitionTime(rawValue: transitionTime){
-            
-            switch  time{
+
+    func getTransitionToView() -> String {
+        if let time = TransitionTime(rawValue: transitionTime) {
+
+            switch  time {
             case .noTransition:
                 return Utils().getStringByKeyFromSettings(SettingsConstants().NO_TRANSITION)
             case .oneSecond:
@@ -63,20 +63,20 @@ class SettingsTransition {
             case .eighthSecond:
                 return Utils().getStringByKeyFromSettings(SettingsConstants().EIGHTH_SECOND_TRANSITION)
             }
-        }else{
+        } else {
             return Utils().getStringByKeyFromSettings(SettingsConstants().NO_TRANSITION)
         }
     }
-    
-    func getAllTransitionsToView()->[String]{
-        var transitions:[String] = []
-        
+
+    func getAllTransitionsToView() -> [String] {
+        var transitions: [String] = []
+
         transitions.append(Utils().getStringByKeyFromSettings(SettingsConstants().NO_TRANSITION))
         transitions.append(Utils().getStringByKeyFromSettings(SettingsConstants().EIGHTH_SECOND_TRANSITION))
         transitions.append(Utils().getStringByKeyFromSettings(SettingsConstants().QUARTER_SECOND_TRANSITION))
         transitions.append(Utils().getStringByKeyFromSettings(SettingsConstants().HALF_SECOND_TRANSITION))
 //        transitions.append(Utils().getStringByKeyFromSettings(SettingsConstants().ONE_SECOND_TRANSITION))
-        
+
         return transitions
     }
 }
