@@ -109,8 +109,8 @@ class MusicPresenter: MusicPresenterInterface, MusicInteractorDelegate {
         if let videoAudios = projectAudios { audiosViewModel.append(videoAudios)}
         if let musicAudios = musicAudio { audiosViewModel.append(musicAudios) }
         if let micAudios = micAudio { audiosViewModel.append(micAudios)}
-
-        delegate?.audios = audiosViewModel
+        
+        DispatchQueue.main.async { self.delegate?.audios = audiosViewModel }
     }
 
     func viewDidAppear() {

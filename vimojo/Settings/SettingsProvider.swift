@@ -84,7 +84,7 @@ class SettingsProvider: NSObject {
         // MARK: - WATERMARK SECTION
         if configuration.WATERMARK_FEATURE {
             let watermark = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().WATERMARK_TITLE),
-                                            subTitle: project.hasWatermark ? "Enabled":"Disabled",
+                                            subTitle: project.hasWatermark ? "watermarkEnabled".localized(.settings):"watermarkDisabled".localized(.settings),
                                             action: SettingsWatermarkAction(delegate: delegate, project: project))
             settings.append([watermark])
         }
