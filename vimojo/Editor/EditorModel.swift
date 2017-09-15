@@ -9,8 +9,8 @@
 import Foundation
 import Photos
 
-struct EditorViewModel{
-    var phAsset:PHAsset
-    var timeText:String
-    var positionText:String
+struct EditorViewModel {
+    var phAsset: PHAsset
+    var timeText: String
+    var positionText: String
 }

@@ -8,8 +8,7 @@
 
 import Foundation
 
-
-enum FTPErrorType:Int {
+enum FTPErrorType: Int {
     case ftp_ERROR_HOST_UNREACHABLE = 60
     case ftp_ERROR_UNAUTHORIZED = 200
     case ftp_ERROR_NO_DOMAIN = 12

@@ -9,7 +9,7 @@
 import Foundation
 
 struct ShareViewModel {
-    let icon:UIImage
-    let iconPressed:UIImage
-    let title:String
+    let icon: UIImage
+    let iconPressed: UIImage
+    let title: String
 }

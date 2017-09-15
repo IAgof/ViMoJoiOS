@@ -8,8 +8,8 @@
 
 import Foundation
 
-extension String{
-    func localize(inTable table: String? = nil) -> String{
+extension String {
+    func localize(inTable table: String? = nil) -> String {
         return Bundle.main.localizedString(forKey: self, value: nil, table: table)
     }
 }

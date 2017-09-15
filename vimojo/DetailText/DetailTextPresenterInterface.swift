@@ -10,9 +10,9 @@ import Foundation
 
 protocol DetailTextPresenterInterface {
     func pushBack()
-    func setTextOnView(_ text:String)
+    func setTextOnView(_ text: String)
 }
 
-protocol DetailTextPresenterDelegate{
-    func setTextToTextView(_ text: String) 
+protocol DetailTextPresenterDelegate {
+    func setTextToTextView(_ text: String)
 }

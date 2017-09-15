@@ -9,13 +9,13 @@
 import Foundation
 
 protocol DetailProjectInteractorInterface {
-    var videoUUID:String{get set}
-    var projectName:String{get set}
-    
+    var videoUUID: String {get set}
+    var projectName: String {get set}
+
     func saveProjectName()
     func searchProjectParams()
 }
 
 protocol DetailProjectInteractorDelegate {
-    func projectFound(params:DetailProjectFound)
+    func projectFound(params: DetailProjectFound)
 }

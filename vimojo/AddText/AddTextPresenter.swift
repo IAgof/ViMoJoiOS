@@ -10,46 +10,46 @@ import Foundation
 import VideonaProject
 import AVFoundation
 
-class AddTextPresenter{
-    var interactor:AddTextInteractorInterface?
-    var delegate:AddTextPresenterDelegate?
-    
-    var videoSelectedIndex:Int!{
-        didSet{
+class AddTextPresenter {
+    var interactor: AddTextInteractorInterface?
+    var delegate: AddTextPresenterDelegate?
+
+    var videoSelectedIndex: Int! {
+        didSet {
             interactor?.setVideoPosition(videoSelectedIndex)
         }
     }
-    enum AlignmentButtonPresset:Int {
+    enum AlignmentButtonPresset: Int {
         case top = 0
         case mid = 1
         case bottom = 2
     }
-    
-    var lastButtonPushed:AlignmentButtonPresset = .top
-    
+
+    var lastButtonPushed: AlignmentButtonPresset = .top
+
     var isGoingToExpandPlayer = false
-    
-    var textOnLabel:String = ""
+
+    var textOnLabel: String = ""
 }
 
-//MARK: - Presenter interface
-extension AddTextPresenter:AddTextPresenterInterface{
+// MARK: - Presenter interface
+extension AddTextPresenter:AddTextPresenterInterface {
     func viewDidLoad() {
-        
+
         delegate?.bringToFrontExpandPlayerButton()
         interactor?.setUpComposition({composition in
             self.delegate?.updatePlayerOnView(composition)
         })
         interactor?.getVideoParams()
     }
-    
+
     func viewWillDissappear() {
-        if !isGoingToExpandPlayer{
-            
+        if !isGoingToExpandPlayer {
+
             delegate?.setStopToVideo()
         }
     }
-    
+
     func pushAcceptHandler() {
         interactor?.setParametersToVideo(textOnLabel,
                                          position: lastButtonPushed.rawValue)
@@ -58,48 +58,48 @@ extension AddTextPresenter:AddTextPresenterInterface{
                                                         textLength: textOnLabel.characters.count)
         delegate?.acceptFinished()
     }
-    
+
     func pushCancelHandler() {
         delegate?.pushBackFinished()
     }
-    
+
     func pushBack() {
         delegate?.pushBackFinished()
     }
-    
+
     func topButtonPushed() {
         deselectLastButtonPushed(lastButtonPushed)
-        
+
         delegate?.setSelectedTopButton(true)
-        
+
         interactor?.setAlignment(.top,
                                  text: textOnLabel)
         lastButtonPushed = .top
     }
-    
+
     func midButtonPushed() {
         deselectLastButtonPushed(lastButtonPushed)
 
         delegate?.setSelectedMidButton(true)
-        
+
         interactor?.setAlignment(.mid,
                                  text: textOnLabel)
-        
+
         lastButtonPushed = .mid
     }
-    
+
     func bottomButtonPushed() {
         deselectLastButtonPushed(lastButtonPushed)
 
         delegate?.setSelectedBottomButton(true)
-        
+
         interactor?.setAlignment(.bottom,
                                  text: textOnLabel)
-        
+
         lastButtonPushed = .bottom
     }
-    
-    func deselectLastButtonPushed(_ button:AlignmentButtonPresset){
+
+    func deselectLastButtonPushed(_ button: AlignmentButtonPresset) {
         switch button {
         case .top:
             delegate?.setSelectedTopButton(false)
@@ -109,8 +109,8 @@ extension AddTextPresenter:AddTextPresenterInterface{
             delegate?.setSelectedBottomButton(false)
         }
     }
-    
-    func selectButtonPushed(_ button:AlignmentButtonPresset){
+
+    func selectButtonPushed(_ button: AlignmentButtonPresset) {
         switch button {
         case .top:
             delegate?.setSelectedTopButton(true)
@@ -122,10 +122,10 @@ extension AddTextPresenter:AddTextPresenterInterface{
     }
     func expandPlayer() {
         isGoingToExpandPlayer = true
-        
+
         delegate?.expandPlayerToView()
     }
-    
+
     func textHasChanged(_ text: String) {
         textOnLabel = text
 
@@ -134,25 +134,25 @@ extension AddTextPresenter:AddTextPresenterInterface{
     }
 }
 
-//MARK: - Interactor delegate
-extension AddTextPresenter:AddTextInteractorDelegate{
+// MARK: - Interactor delegate
+extension AddTextPresenter:AddTextInteractorDelegate {
     func setVideoParams(_ text: String, position: Int) {
         textOnLabel = text
-        
+
         deselectLastButtonPushed(lastButtonPushed)
-        
+
         lastButtonPushed = AlignmentButtonPresset(rawValue: position)!
-        
+
         selectButtonPushed(lastButtonPushed)
-        
+
         interactor?.getLayerToPlayer(text)
         delegate?.setTextToEditTextField(text)
     }
-    
+
     func updateVideoList() {
         interactor?.getVideoParams()
     }
-        
+
     func setAVSyncLayerToPlayer(_ layer: CALayer) {
         delegate?.setSyncLayerToPlayer(layer)
     }

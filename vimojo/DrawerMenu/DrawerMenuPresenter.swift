@@ -9,21 +9,21 @@
 import Foundation
 
 class DrawerMenuPresenter: DrawerMenuPresenterInterface {
-    
+
     var delegate: DrawerMenuPresenterDelegate?
     var wireframe: DrawerMenuWireframe?
     var interactor: DrawerMenuInteractorInterface?
-    
-    enum cellType:Int {
+
+    enum cellType: Int {
         case projects = 0
         case newProject = 1
         case options = 2
     }
     let optionsSection = 1
-    
+
     func didSelectAtIndexPath(indexPath: IndexPath) {
-        if indexPath.section == optionsSection{
-            if let row = cellType(rawValue: indexPath.item){
+        if indexPath.section == optionsSection {
+            if let row = cellType(rawValue: indexPath.item) {
                 switch row {
                 case .projects:
                     wireframe?.presentProjectsSelector()
@@ -39,33 +39,33 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
             }
         }
     }
-    
+
     func exitPushed() {
         delegate?.closeDrawer()
     }
-    
+
     func imagePushed() {
         delegate?.presentAlertWithOptions()
     }
-    
+
     func takePhoto() {
         delegate?.presentPickerController(withOptionSelected: .camera)
     }
-    
+
     func takeFromGallery() {
         delegate?.presentPickerController(withOptionSelected: .gallery)
     }
-    
+
     func saveImageSelected(image: UIImage) {
         interactor?.saveUserPhoto(image: image)
     }
-    
+
     func removePhoto() {
         interactor?.removePhoto()
     }
 }
 
-extension DrawerMenuPresenter:DrawerMenuInteractorDelegate{
+extension DrawerMenuPresenter:DrawerMenuInteractorDelegate {
     func imageIsSave() {
         delegate?.updateProfileCell()
     }

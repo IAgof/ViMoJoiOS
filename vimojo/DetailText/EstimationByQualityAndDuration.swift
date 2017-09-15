@@ -9,12 +9,12 @@
 import Foundation
 import AVFoundation
 
-struct EstimationByQualityAndDuration{
-    var size:Float
-    var bitRate:Float
-    
-    init(quality:String,
-         duration:Double) {
+struct EstimationByQualityAndDuration {
+    var size: Float
+    var bitRate: Float
+
+    init(quality: String,
+         duration: Double) {
         switch quality {
         case AVCaptureSessionPreset3840x2160:
             bitRate = 9216000
@@ -28,7 +28,7 @@ struct EstimationByQualityAndDuration{
         default:
             bitRate = 9216000
             break
-            
+
         }
         size = bitRate * Float(duration)
     }

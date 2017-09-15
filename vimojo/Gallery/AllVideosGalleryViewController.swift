@@ -16,7 +16,7 @@ class AllVideosGalleryViewController: VideosGalleryViewController {
         super.viewDidLoad()
         cellColor = configuration.mainColor
     }
-    
+
     override func fetchVideos() {
         //fetch the photos from collection
         self.navigationController?.hidesBarsOnTap = false

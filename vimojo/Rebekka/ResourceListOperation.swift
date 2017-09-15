@@ -14,7 +14,7 @@ public enum ResourceType: String {
     case Directory      = "Directory"      // DT_DIR
     case RegularFile    = "RegularFile"    // DT_REG
     case SymbolicLink   = "SymbolicLink"   // DT_LNK
-    
+
     case NamedPipe          = "NamedPipe"          // DT_FIFO
     case CharacterDevice    = "CharacterDevice"    // DT_CHR
     case BlockDevice        = "BlockDevice"        // DT_BLK
@@ -32,7 +32,7 @@ open class ResourceItem: CustomStringConvertible {
     open var owner: String = ""
     open var group: String = ""
     open var path: String = "/"
-    
+
     open var description: String {
         get {
             return "\nResourceItem: \(name), \(type.rawValue)"
@@ -40,11 +40,10 @@ open class ResourceItem: CustomStringConvertible {
     }
 }
 
-
 private let _resourceTypeMap: [Int:ResourceType] = [
     Int(DT_UNKNOWN): ResourceType.Unknown,
-    Int(DT_FIFO):    ResourceType.NamedPipe,
-    Int(DT_SOCK):    ResourceType.LocalDomainSocket,
+    Int(DT_FIFO): ResourceType.NamedPipe,
+    Int(DT_SOCK): ResourceType.LocalDomainSocket,
     Int(DT_CHR): ResourceType.CharacterDevice,
     Int(DT_DIR): ResourceType.Directory,
     Int(DT_BLK): ResourceType.BlockDevice,
@@ -55,10 +54,10 @@ private let _resourceTypeMap: [Int:ResourceType] = [
 
 /** Operation for resource listing. */
 internal class ResourceListOperation: ReadStreamOperation {
-    
+
     fileprivate var inputData: NSMutableData?
     var resources: [ResourceItem]?
-    
+
     override func streamEventEnd(_ aStream: Stream) -> (Bool, NSError?) {
         var offset = 0
         let bytes = self.inputData!.bytes.bindMemory(to: UInt8.self, capacity: self.inputData!.length)
@@ -80,7 +79,7 @@ internal class ResourceListOperation: ReadStreamOperation {
         entity.deinitialize()
         return (true, nil)
     }
-    
+
     fileprivate func mapFTPResources(_ ftpResources: NSDictionary) -> ResourceItem {
         let item = ResourceItem()
         if let mode = ftpResources[kCFFTPResourceMode as String] as? Int {
@@ -121,7 +120,7 @@ internal class ResourceListOperation: ReadStreamOperation {
         }
         return item
     }
-    
+
     override func streamEventHasBytes(_ aStream: Stream) -> (Bool, NSError?) {
         if let inputStream = aStream as? InputStream {
             let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: 1024)
@@ -137,5 +136,5 @@ internal class ResourceListOperation: ReadStreamOperation {
         }
         return (true, nil)
     }
-    
+
 }

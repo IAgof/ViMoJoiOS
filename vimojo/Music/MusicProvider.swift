@@ -11,25 +11,25 @@ import VideonaProject
 
 class MusicProvider: NSObject {
     static let sharedInstance = MusicProvider()
-    
+
     var localMusic = Array<Music>()
-    
+
     override init() {
         super.init()
         self.populateLocalMusic()
     }
-    
-    func retrieveLocalMusic() -> Array<Music>{
-        if (localMusic.count == 0){
+
+    func retrieveLocalMusic() -> Array<Music> {
+        if (localMusic.count == 0) {
             populateLocalMusic()
         }
-        
-    return localMusic;
+
+    return localMusic
     }
-    
-    func getMusicByTitle(title:String)->Music?{
-        for music in localMusic{
-            if music.getTitle() == title{
+
+    func getMusicByTitle(title: String) -> Music? {
+        for music in localMusic {
+            if music.getTitle() == title {
                 return music
             }
         }

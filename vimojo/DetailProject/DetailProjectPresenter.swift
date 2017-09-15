@@ -8,39 +8,39 @@
 
 import Foundation
 
-class DetailProjectPresenter{
+class DetailProjectPresenter {
     var wireframe: DetailProjectWireframe?
     var delegate: DetailProjectPresenterDelegate?
     var interactor: DetailProjectInteractorInterface?
 }
 
-extension DetailProjectPresenter:DetailProjectPresenterInterface{
+extension DetailProjectPresenter:DetailProjectPresenterInterface {
     func viewDidLoad() {
         interactor?.searchProjectParams()
     }
-    
+
     func viewWillDissappear() {
         interactor?.projectName = ""
     }
-    
+
     func accept() {
         interactor?.saveProjectName()
         wireframe?.goPrevController()
     }
-    
+
     func cancel() {
         wireframe?.goPrevController()
     }
     func pushBack() {
         wireframe?.goPrevController()
     }
-    
+
     func projectNameChange(name: String) {
         interactor?.projectName = name
     }
 }
 
-extension DetailProjectPresenter:DetailProjectInteractorDelegate{
+extension DetailProjectPresenter:DetailProjectInteractorDelegate {
     func projectFound(params: DetailProjectFound) {
         delegate?.displayParams(viewModel: DetailProjectFoundToDetailProjectViewModelMapper().map(from: params))
     }

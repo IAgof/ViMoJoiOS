@@ -9,7 +9,7 @@
 import Foundation
 import VideonaProject
 
-public class ProfileDefaultsRepository:ProfileRepository{
+public class ProfileDefaultsRepository: ProfileRepository {
     let defaults = UserDefaults.standard
     let camera = CameraSettings(project: Project())
 

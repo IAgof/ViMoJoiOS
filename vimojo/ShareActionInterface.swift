@@ -12,8 +12,8 @@ import VideonaProject
 protocol ShareActionInterface {
     func share(_ sharePath: ShareVideoPath)
     func trackShare()
-    var delegate:ShareActionDelegate {get set}
-    var shareProject:Project{get set}
+    var delegate: ShareActionDelegate {get set}
+    var shareProject: Project {get set}
 }
 
 protocol ShareActionDelegate {
@@ -21,6 +21,5 @@ protocol ShareActionDelegate {
 }
 
 protocol ShareActionResponse {
-    
-}
 
+}

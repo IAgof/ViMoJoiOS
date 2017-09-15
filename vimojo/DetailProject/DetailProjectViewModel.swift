@@ -9,12 +9,12 @@
 import Foundation
 
 struct DetailProjectViewModel {
-    let thumbImage:UIImage
-    let projectName:String
-    let duration:String
-    let size:String
-    let quality:String
-    let format:String
-    let bitrate:String
-    let frameRate:String
+    let thumbImage: UIImage
+    let projectName: String
+    let duration: String
+    let size: String
+    let quality: String
+    let format: String
+    let bitrate: String
+    let frameRate: String
 }

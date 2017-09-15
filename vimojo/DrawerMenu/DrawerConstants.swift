@@ -8,27 +8,27 @@
 
 import Foundation
 
-struct DrawerConstants{
-    var ACTIVITY_DRAWER_ALERT_TITLE:String{
+struct DrawerConstants {
+    var ACTIVITY_DRAWER_ALERT_TITLE: String {
         return getStringByKeyFromDrawer("activity_drawer_alert_title")
     }
-    var ACTIVITY_DRAWER_ALERT_MESSAGE:String{
+    var ACTIVITY_DRAWER_ALERT_MESSAGE: String {
         return getStringByKeyFromDrawer("activity_drawer_alert_message")
     }
-    var ACTIVITY_DRAWER_ALERT_OPTION_TAKE_PHOTO:String{
+    var ACTIVITY_DRAWER_ALERT_OPTION_TAKE_PHOTO: String {
         return getStringByKeyFromDrawer("activity_drawer_alert_option_take_photo")
     }
-    var ACTIVITY_DRAWER_ALERT_OPTION_TAKE_FROM_GALLERY:String{
+    var ACTIVITY_DRAWER_ALERT_OPTION_TAKE_FROM_GALLERY: String {
         return getStringByKeyFromDrawer("activity_drawer_alert_option_take_from_gallery")
     }
-    var ACTIVITY_DRAWER_ALERT_OPTION_CANCEL:String{
+    var ACTIVITY_DRAWER_ALERT_OPTION_CANCEL: String {
         return getStringByKeyFromDrawer("activity_drawer_alert_option_cancel")
     }
-    var ACTIVITY_DRAWER_ALERT_OPTION_REMOVE:String{
+    var ACTIVITY_DRAWER_ALERT_OPTION_REMOVE: String {
         return getStringByKeyFromDrawer("activity_drawer_alert_option_remove")
     }
-    
-    func getStringByKeyFromDrawer(_ key:String) -> String {
-        return Bundle.main.localizedString(forKey: key,value: "",table: "DrawerMenu")
+
+    func getStringByKeyFromDrawer(_ key: String) -> String {
+        return Bundle.main.localizedString(forKey: key, value: "", table: "DrawerMenu")
     }
 }

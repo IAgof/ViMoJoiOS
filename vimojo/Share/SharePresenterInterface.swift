@@ -10,20 +10,20 @@ import Foundation
 import UIKit
 
 protocol SharePresenterInterface {
-    
+
     func viewDidLoad()
     func viewWillDisappear()
     func viewDidAppear()
     func pushBack()
-    func setVideoExportedPath(_ url: URL) 
-    func setNumberOfClipsToExport(_ numberOfClips:Int)
-    func pushShare(_ indexPath:IndexPath)
+    func setVideoExportedPath(_ url: URL)
+    func setNumberOfClipsToExport(_ numberOfClips: Int)
+    func pushShare(_ indexPath: IndexPath)
     func expandPlayer()
-    func postToYoutube(_ token:String)
+    func postToYoutube(_ token: String)
     func updatePlayerLayer()
     func pushGenericShare()
     func pushOptions()
-    
+
     func exportFailOkPushed()
 }
 
@@ -32,10 +32,10 @@ protocol SharePresenterDelegate {
     func dissmissAlertWaitToExport()
     func createAlertExportFailed()
 
-    func showShareGeneric(_ movieURL:URL)
-    
+    func showShareGeneric(_ movieURL: URL)
+
     func createShareInterface()
-    func setShareViewObjectsList(_ viewObjects:[ShareViewModel])
+    func setShareViewObjectsList(_ viewObjects: [ShareViewModel])
     func bringToFrontExpandPlayerButton()
     func removeSeparatorTable()
 }

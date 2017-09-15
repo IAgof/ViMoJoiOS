@@ -12,17 +12,17 @@ import VideonaProject
 class SettingsWatermarkAction: SettingsActionInterface {
     let defaults = UserDefaults.standard
     var delegate: SettingsActionDelegate
-    var project:Project
-    
-    init(delegate:SettingsActionDelegate,
-         project:Project){
+    var project: Project
+
+    init(delegate: SettingsActionDelegate,
+         project: Project) {
         self.delegate = delegate
         self.project = project
     }
-    
-    func executeSettingsAction(_ index:IndexPath) {
+
+    func executeSettingsAction(_ index: IndexPath) {
         let title =  Utils().getStringByKeyFromSettings(SettingsConstants().WATERMARK_TITLE)
-        
+
         let options = ["Enabled", "Disabled"]
         let alertController = SettingsUtils().createActionSheetWithOptions(title,
                                                                            options: options,
@@ -38,9 +38,9 @@ class SettingsWatermarkAction: SettingsActionInterface {
             settingsController.present(alertController, animated: true, completion: nil)
         }
     }
-    
-    func saveOnProject(_ saveString:String){
-        project.hasWatermark = saveString == "Enabled" 
+
+    func saveOnProject(_ saveString: String) {
+        project.hasWatermark = saveString == "Enabled"
 
         ProjectRealmRepository().update(item: project)
 

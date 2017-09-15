@@ -9,35 +9,35 @@
 import Foundation
 
 struct SettinsFTP {
-    var host:String = ""
-    var username:String = ""
-    var password:String = ""
-    var passwordToView:String = ""
-    var editedVideoPath:String = ""
-    var uneditedVideoPath:String = ""
+    var host: String = ""
+    var username: String = ""
+    var password: String = ""
+    var passwordToView: String = ""
+    var editedVideoPath: String = ""
+    var uneditedVideoPath: String = ""
 
-    init(){
+    init() {
         let defaults = UserDefaults.standard
-        
-        if let hostSaved = defaults.string(forKey: SettingsConstants().SETTINGS_HOST_FTP){
+
+        if let hostSaved = defaults.string(forKey: SettingsConstants().SETTINGS_HOST_FTP) {
             host = hostSaved
         }
-        if let usernameSaved = defaults.string(forKey: SettingsConstants().SETTINGS_USERNAME_FTP){
+        if let usernameSaved = defaults.string(forKey: SettingsConstants().SETTINGS_USERNAME_FTP) {
             username = usernameSaved
         }
-        
-        if let passwordSaved = defaults.string(forKey: SettingsConstants().SETTINGS_PASSWORD_FTP){
+
+        if let passwordSaved = defaults.string(forKey: SettingsConstants().SETTINGS_PASSWORD_FTP) {
             password = passwordSaved
         }
-        
+
         if password != ""{
             passwordToView = "********"
         }
-        if let editedVideoPathSaved = defaults.string(forKey: SettingsConstants().SETTINGS_EDITED_DEST_FTP){
+        if let editedVideoPathSaved = defaults.string(forKey: SettingsConstants().SETTINGS_EDITED_DEST_FTP) {
             editedVideoPath = editedVideoPathSaved
         }
-        
-        if let uneditedVideoPathtSaved = defaults.string(forKey: SettingsConstants().SETTINGS_UNEDITED_DEST_HOST_FTP){
+
+        if let uneditedVideoPathtSaved = defaults.string(forKey: SettingsConstants().SETTINGS_UNEDITED_DEST_HOST_FTP) {
             uneditedVideoPath = uneditedVideoPathtSaved
         }
     }

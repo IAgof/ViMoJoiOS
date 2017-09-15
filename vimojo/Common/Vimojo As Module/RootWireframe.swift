@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-class RootWireframe : NSObject {
-    
+class RootWireframe: NSObject {
+
     func showRootViewController(_ viewController: UIViewController, inWindow: UIWindow) {
         let navigationController = navigationControllerFromWindow(inWindow)
         navigationController.viewControllers = [viewController]
@@ -18,12 +18,12 @@ class RootWireframe : NSObject {
         inWindow.rootViewController = navigationController
         inWindow.makeKeyAndVisible()
     }
-    
+
     func navigationControllerFromWindow(_ window: UIWindow) -> UINavigationController {
         let navigationController = window.rootViewController as! UINavigationController
         return navigationController
     }
-    
+
     func mainStoryboard() -> UIStoryboard {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         return storyboard

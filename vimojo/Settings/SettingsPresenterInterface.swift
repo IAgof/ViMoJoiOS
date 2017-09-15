@@ -9,18 +9,18 @@
 import Foundation
 
 protocol SettingsPresenterInterface {
-    
+
     func pushBack()
     func viewDidLoad()
-    func itemListSelected(_ index:IndexPath)
+    func itemListSelected(_ index: IndexPath)
 }
 
-protocol SettingsPresenterDelegate{
+protocol SettingsPresenterDelegate {
     func registerClass()
     func reloadTableData()
     func removeSeparatorTable()
     func addFooter()
-    
-    func setSectionsArray(_ sections:[String])
-    func setItems(_ items:[[SettingsViewModel]])
+
+    func setSectionsArray(_ sections: [String])
+    func setItems(_ items: [[SettingsViewModel]])
 }
