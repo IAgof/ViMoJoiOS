@@ -103,12 +103,11 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         eventHandler?.viewDidLoad(cameraView)
-
         self.configureViews()
-
         configureRotationObserver()
         UIApplication.shared.isIdleTimerDisabled = true
-        updateBatteryValues()
+        batteryView.updateValues()
+        spaceOnDiskView.updateValues()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -218,11 +217,11 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 		eventHandler?.pushSettings()
 	}
 	
-	@IBAction func pushCameraSimple(_ sender: Any) {
+	@IBAction func pushCameraSimple(_ sender: AnyObject) {
 		eventHandler?.pushCameraSimple()
 	}
 	
-	@IBAction func pushCameraPro(_ sender: Any) {
+	@IBAction func pushCameraPro(_ sender: AnyObject) {
 		eventHandler?.pushCameraPro()
 	}
 	

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -31,7 +31,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <subviews>
                                     <imageView hidden="YES" autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_rec_grid" translatesAutoresizingMaskIntoConstraints="NO" id="0V7-5h-nKZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                        <rect key="frame" x="0.0" y="0.5" width="667" height="375"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="0V7-5h-nKZ" secondAttribute="height" multiplier="16:9" id="yXX-cV-gkX"/>
+                                        </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dnm-Zp-iJ8">
                                         <rect key="frame" x="75" y="322" width="518" height="43"/>
@@ -243,14 +246,14 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbb-jx-SNd">
-                                        <rect key="frame" x="15" y="10" width="568" height="37"/>
+                                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbb-jx-SNd">
+                                        <rect key="frame" x="15" y="10" width="568" height="66"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="uJI-6M-3RO">
-                                                <rect key="frame" x="12" y="8" width="187.5" height="21"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="uJI-6M-3RO">
+                                                <rect key="frame" x="12" y="8" width="187.5" height="50"/>
                                                 <subviews>
                                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwJ-gK-90e">
-                                                        <rect key="frame" x="0.0" y="0.0" width="15" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="15" height="50"/>
                                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                                         <state key="normal" image="activity_record_ic_settings"/>
                                                         <state key="selected" image="activity_record_ic_settings_pressed"/>
@@ -265,14 +268,14 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhg-e3-51Y" userLabel="Show Camera Simple Button">
-                                                        <rect key="frame" x="41.5" y="0.0" width="16" height="21"/>
+                                                        <rect key="frame" x="40.5" y="0.0" width="16" height="50"/>
                                                         <state key="normal" image="activity_rec_expand"/>
                                                         <connections>
                                                             <action selector="pushCameraSimple:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="Cf6-jO-aI8"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8j-Vd-5dC">
-                                                        <rect key="frame" x="84.5" y="0.0" width="15" height="21"/>
+                                                        <rect key="frame" x="82" y="0.0" width="15" height="50"/>
                                                         <state key="normal" image="activity_record_memory_100"/>
                                                         <state key="selected" image="activity_record_memory_100"/>
                                                         <state key="highlighted" image="activity_record_memory_100"/>
@@ -281,7 +284,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veW-ha-Wav">
-                                                        <rect key="frame" x="125.5" y="0.0" width="17" height="21"/>
+                                                        <rect key="frame" x="122" y="0.0" width="17" height="50"/>
                                                         <state key="normal" image="activity_record_battery_100"/>
                                                         <state key="selected" image="activity_record_battery_100_pressed"/>
                                                         <state key="highlighted" image="activity_record_battery_100_pressed"/>
@@ -290,7 +293,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6R-qJ-vTS">
-                                                        <rect key="frame" x="164.5" y="0.0" width="23" height="21"/>
+                                                        <rect key="frame" x="164.5" y="0.0" width="23" height="50"/>
                                                         <state key="normal" image="activity_rec_resolution_1080"/>
                                                         <state key="selected" image="activity_rec_resolution_1080_pressed"/>
                                                         <state key="highlighted" image="activity_rec_resolution_1080_pressed"/>
@@ -301,13 +304,13 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="J1b-y4-awN">
-                                                <rect key="frame" x="255" y="9" width="58" height="20"/>
+                                                <rect key="frame" x="255" y="9" width="58" height="49"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_record_icon_recording" translatesAutoresizingMaskIntoConstraints="NO" id="l2N-7L-tuG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="7" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="7" height="49"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHA-0I-LE1">
-                                                        <rect key="frame" x="12" y="0.0" width="46" height="20"/>
+                                                        <rect key="frame" x="12" y="0.0" width="46" height="49"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -318,18 +321,18 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m5U-jD-h1y">
-                                                <rect key="frame" x="385.5" y="8" width="170.5" height="21"/>
+                                                <rect key="frame" x="385.5" y="8" width="170.5" height="50"/>
                                                 <subviews>
                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dra-Hy-CZB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="50"/>
                                                         <state key="normal" image="activity_rec_micro_connected_normal"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51U-lg-bQm" userLabel="Device Mic Button">
-                                                        <rect key="frame" x="0.0" y="0.0" width="104" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="104" height="50"/>
                                                         <state key="normal" image="activity_rec_phone_micro_activated_normal"/>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAM-ZC-cFG" customClass="AudioLevelBarView" customModule="VideonaProject">
-                                                        <rect key="frame" x="104" y="0.0" width="66.5" height="21"/>
+                                                        <rect key="frame" x="104" y="0.0" width="66.5" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="image" keyPath="picometerImage" value="activity_record_icon_peak_meter"/>
@@ -348,7 +351,6 @@
                                             <constraint firstItem="uJI-6M-3RO" firstAttribute="width" secondItem="nbb-jx-SNd" secondAttribute="width" multiplier="0.33" id="9rl-S5-Ap6"/>
                                             <constraint firstItem="J1b-y4-awN" firstAttribute="top" secondItem="nbb-jx-SNd" secondAttribute="top" constant="9" id="DPS-tY-mfv"/>
                                             <constraint firstItem="m5U-jD-h1y" firstAttribute="centerY" secondItem="nbb-jx-SNd" secondAttribute="centerY" id="Egy-WM-Rue"/>
-                                            <constraint firstAttribute="height" constant="37" id="I65-ga-KeV"/>
                                             <constraint firstItem="uJI-6M-3RO" firstAttribute="centerY" secondItem="nbb-jx-SNd" secondAttribute="centerY" id="J1M-wg-9P4"/>
                                             <constraint firstAttribute="trailing" secondItem="m5U-jD-h1y" secondAttribute="trailing" constant="12" id="LSu-Ch-vsm"/>
                                             <constraint firstItem="uJI-6M-3RO" firstAttribute="top" secondItem="nbb-jx-SNd" secondAttribute="top" constant="8" id="Sby-MG-wA2"/>
@@ -495,8 +497,8 @@
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_record_icon_focus_focused" translatesAutoresizingMaskIntoConstraints="NO" id="lpZ-Hu-RXr">
                                         <rect key="frame" x="300" y="154" width="68" height="68"/>
                                     </imageView>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iei-TN-55D" customClass="ResolutionsSelectorView" customModule="VideonaProject">
-                                        <rect key="frame" x="208" y="57" width="250" height="200"/>
+                                    <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iei-TN-55D" customClass="ResolutionsSelectorView" customModule="VideonaProject">
+                                        <rect key="frame" x="208" y="87" width="250" height="200"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="hLi-Ju-w8d"/>
@@ -586,7 +588,6 @@
                                     <constraint firstItem="owx-Ns-ABx" firstAttribute="height" secondItem="8Aq-i6-oZd" secondAttribute="height" id="KJC-6v-lHL"/>
                                     <constraint firstItem="Dnm-Zp-iJ8" firstAttribute="top" secondItem="bd7-YM-xmD" secondAttribute="bottom" constant="7" id="L2L-jC-oJR"/>
                                     <constraint firstItem="5X8-bB-gAq" firstAttribute="centerY" secondItem="hax-3B-Lc5" secondAttribute="centerY" id="MCy-ab-iMG"/>
-                                    <constraint firstAttribute="bottom" secondItem="0V7-5h-nKZ" secondAttribute="bottom" id="MIc-qz-oCR"/>
                                     <constraint firstItem="ihb-Jx-744" firstAttribute="leading" secondItem="nbb-jx-SNd" secondAttribute="trailing" constant="15" id="NLG-cV-gj0"/>
                                     <constraint firstItem="K3Q-hj-CRb" firstAttribute="centerY" secondItem="hax-3B-Lc5" secondAttribute="centerY" id="OHq-Rc-cSk"/>
                                     <constraint firstItem="Dnm-Zp-iJ8" firstAttribute="leading" relation="lessThanOrEqual" secondItem="hax-3B-Lc5" secondAttribute="leading" constant="130" id="OTe-36-veP"/>
@@ -604,6 +605,7 @@
                                     <constraint firstAttribute="bottom" secondItem="YP7-c0-irG" secondAttribute="bottom" constant="10" id="gAm-HF-1gg"/>
                                     <constraint firstItem="Dnm-Zp-iJ8" firstAttribute="top" secondItem="RTG-lk-0Ju" secondAttribute="bottom" constant="7" id="hH3-ty-m1q"/>
                                     <constraint firstItem="Vuo-zZ-7lL" firstAttribute="width" secondItem="hax-3B-Lc5" secondAttribute="height" multiplier="0.5" id="hhg-AF-rcy"/>
+                                    <constraint firstItem="0V7-5h-nKZ" firstAttribute="centerY" secondItem="hax-3B-Lc5" secondAttribute="centerY" id="hms-nP-wg8"/>
                                     <constraint firstItem="0V7-5h-nKZ" firstAttribute="leading" secondItem="hax-3B-Lc5" secondAttribute="leading" id="k2H-yq-0eS"/>
                                     <constraint firstItem="Vel-Gg-DCb" firstAttribute="centerY" secondItem="hax-3B-Lc5" secondAttribute="centerY" id="k9Y-u7-wk7"/>
                                     <constraint firstItem="Dnm-Zp-iJ8" firstAttribute="top" secondItem="owx-Ns-ABx" secondAttribute="bottom" constant="7" id="l3a-Ei-VTB"/>
@@ -614,7 +616,6 @@
                                     <constraint firstAttribute="trailing" secondItem="YP7-c0-irG" secondAttribute="trailing" constant="15" id="omK-z5-M49"/>
                                     <constraint firstItem="Vuo-zZ-7lL" firstAttribute="centerY" secondItem="hax-3B-Lc5" secondAttribute="centerY" id="pAu-A0-8eJ"/>
                                     <constraint firstItem="RTG-lk-0Ju" firstAttribute="height" secondItem="8Aq-i6-oZd" secondAttribute="height" id="tFq-gt-70W"/>
-                                    <constraint firstItem="0V7-5h-nKZ" firstAttribute="top" secondItem="hax-3B-Lc5" secondAttribute="top" id="uef-iP-Nsj"/>
                                     <constraint firstItem="Iei-TN-55D" firstAttribute="centerX" secondItem="hax-3B-Lc5" secondAttribute="centerX" id="vPA-mT-zGY"/>
                                     <constraint firstItem="lpZ-Hu-RXr" firstAttribute="centerY" secondItem="hax-3B-Lc5" secondAttribute="centerY" id="x5N-qS-DCS"/>
                                     <constraint firstItem="bd7-YM-xmD" firstAttribute="height" secondItem="8Aq-i6-oZd" secondAttribute="height" id="xC0-kr-0rE"/>

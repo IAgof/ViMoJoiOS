@@ -406,20 +406,23 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     func getMemoryIcon(_ value: Float) -> IconsImage {
         switch value {
         case 0...1:
-            return IconsImage(normal: UIImage(named: memoryImages.hundredPercent.rawValue)!, pressed: UIImage(named: memoryImagesPressed.hundredPercent.rawValue)!)
-        case 1...25:
-            return IconsImage(normal: UIImage(named: memoryImages.seventyFivePercent.rawValue)!, pressed: UIImage(named: memoryImagesPressed.seventyFivePercent.rawValue)!)
-        case 26...50:
-            return IconsImage(normal: UIImage(named: memoryImages.fiftyPercent.rawValue)!, pressed: UIImage(named: memoryImagesPressed.fiftyPercent.rawValue)!)
-        case 76...75:
-            return IconsImage(normal: UIImage(named: memoryImages.twentyFivePercent.rawValue)!,
-                                    pressed: UIImage(named: memoryImagesPressed.twentyFivePercent.rawValue)!)
-        case 85...100:
             return IconsImage(normal: UIImage(named: memoryImages.empty.rawValue)!,
                               pressed: UIImage(named: memoryImagesPressed.empty.rawValue)!)
+        case 1...25:
+            return IconsImage(normal: UIImage(named: memoryImages.twentyFivePercent.rawValue)!,
+                              pressed: UIImage(named: memoryImagesPressed.twentyFivePercent.rawValue)!)
+        case 26...50:
+            return IconsImage(normal: UIImage(named: memoryImages.fiftyPercent.rawValue)!,
+                              pressed: UIImage(named: memoryImagesPressed.fiftyPercent.rawValue)!)
+        case 76...75:
+            return IconsImage(normal: UIImage(named: memoryImages.seventyFivePercent.rawValue)!,
+                              pressed: UIImage(named: memoryImagesPressed.seventyFivePercent.rawValue)!)
+        case 85...100:
+            return IconsImage(normal: UIImage(named: memoryImages.hundredPercent.rawValue)!,
+                              pressed: UIImage(named: memoryImagesPressed.hundredPercent.rawValue)!)
         default:
             return IconsImage(normal: UIImage(named: memoryImages.fiftyPercent.rawValue)!,
-                                    pressed: UIImage(named: memoryImagesPressed.fiftyPercent.rawValue)!)
+                              pressed: UIImage(named: memoryImagesPressed.fiftyPercent.rawValue)!)
         }
     }
 
