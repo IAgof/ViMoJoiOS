@@ -1356,6 +1356,341 @@
 		AE491FD41F3B030F00B20B70 /* configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE491FD01F3B030F00B20B70 /* configuration.swift */; };
 		AE491FD51F3B030F00B20B70 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE491FD11F3B030F00B20B70 /* Info.plist */; };
 		AE491FD71F3B030F00B20B70 /* ThomsonFoundation.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE491FD31F3B030F00B20B70 /* ThomsonFoundation.xcassets */; };
+		AE8F98741F6A7C6300C08A9F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED004F1D9178CB00969F31 /* Alamofire.framework */; };
+		AE8F98751F6A7C6300C08A9F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00571D917B7200969F31 /* FBSDKCoreKit.framework */; };
+		AE8F98761F6A7C6300C08A9F /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00591D917B7200969F31 /* FBSDKShareKit.framework */; };
+		AE8F98771F6A7C6300C08A9F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00581D917B7200969F31 /* FBSDKLoginKit.framework */; };
+		AE8F98781F6A7C6300C08A9F /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; };
+		AE8F98791F6A7C6300C08A9F /* Pods_vimojo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB586E6DDDB51926A3B11FCA /* Pods_vimojo.framework */; };
+		AE8F987B1F6A7C6300C08A9F /* MusicDetailView.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91BDB861E43651200BE4F1C /* MusicDetailView.strings */; };
+		AE8F987C1F6A7C6300C08A9F /* activity_record_rec_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE731D7D88EE00421BD0 /* activity_record_rec_circle.png */; };
+		AE8F987D1F6A7C6300C08A9F /* jazzyfrenchy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A910ACFA1E3A2EC200A4EC90 /* jazzyfrenchy.mp3 */; };
+		AE8F987E1F6A7C6300C08A9F /* MicRecorder.strings in Resources */ = {isa = PBXBuildFile; fileRef = A906CCDD1DB0D03700AC8FFB /* MicRecorder.strings */; };
+		AE8F987F1F6A7C6300C08A9F /* VimojoLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B385F21D7D51380065D3EC /* VimojoLaunchScreen.storyboard */; };
+		AE8F98801F6A7C6300C08A9F /* MusicListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CAB9931EC367BC00AB6CE8 /* MusicListCell.xib */; };
+		AE8F98811F6A7C6300C08A9F /* Gallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95631FD1E31199100C5EFF4 /* Gallery.storyboard */; };
+		AE8F98821F6A7C6300C08A9F /* water_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE771D7D93B700421BD0 /* water_mark.png */; };
+		AE8F98831F6A7C6300C08A9F /* iso639_2.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE5B1D7D7A1300421BD0 /* iso639_2.bundle */; };
+		AE8F98841F6A7C6300C08A9F /* ShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91760FE1D916F48008915DA /* ShareCell.xib */; };
+		AE8F98851F6A7C6300C08A9F /* DetailProject.strings in Resources */ = {isa = PBXBuildFile; fileRef = A93B5C951E38A7F9009E0279 /* DetailProject.strings */; };
+		AE8F98861F6A7C6300C08A9F /* MusicListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CAB99B1EC367BC00AB6CE8 /* MusicListView.xib */; };
+		AE8F98871F6A7C6300C08A9F /* ProjectList.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97B53811E0AA0290001B288 /* ProjectList.strings */; };
+		AE8F98881F6A7C6300C08A9F /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96858441E57170600E5BD7A /* Record.storyboard */; };
+		AE8F98891F6A7C6300C08A9F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9950CC31E1AA121009367E7 /* GoogleService-Info.plist */; };
+		AE8F988A1F6A7C6300C08A9F /* Settings.strings in Resources */ = {isa = PBXBuildFile; fileRef = A96441131DA3E59700CAD950 /* Settings.strings */; };
+		AE8F988B1F6A7C6300C08A9F /* goinghigher.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A910ACF91E3A2EC200A4EC90 /* goinghigher.mp3 */; };
+		AE8F988C1F6A7C6300C08A9F /* Drawer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B54B9D1DFEAD5E00388002 /* Drawer.storyboard */; };
+		AE8F988D1F6A7C6300C08A9F /* Vimojo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9D076D21E2F7F84003AE96B /* Vimojo.xcassets */; };
+		AE8F988E1F6A7C6300C08A9F /* ukulele.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A910ACFB1E3A2EC200A4EC90 /* ukulele.mp3 */; };
+		AE8F988F1F6A7C6300C08A9F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9CFF3111F054D75007C2305 /* Info.plist */; };
+		AE8F98901F6A7C6300C08A9F /* DrawerMenu.strings in Resources */ = {isa = PBXBuildFile; fileRef = A96789501E3B558E00A8B37A /* DrawerMenu.strings */; };
+		AE8F98911F6A7C6300C08A9F /* EditorStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97772C51DC2451200EA9291 /* EditorStrings.strings */; };
+		AE8F98921F6A7C6300C08A9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9F03D361E1E542D00DE2880 /* Assets.xcassets */; };
+		AE8F98931F6A7C6300C08A9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B385ED1D7D51380065D3EC /* Main.storyboard */; };
+		AE8F98941F6A7C6300C08A9F /* VideonaFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CAB8C61EC360CC00AB6CE8 /* VideonaFooterView.xib */; };
+		AE8F98951F6A7C6300C08A9F /* Editor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95737CC1E0BDCF8006F2AB7 /* Editor.storyboard */; };
+		AE8F98961F6A7C6300C08A9F /* MusicProvider.strings in Resources */ = {isa = PBXBuildFile; fileRef = A94965901EAE8EEC003FCBF6 /* MusicProvider.strings */; };
+		AE8F98971F6A7C6300C08A9F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A91995531EC5029C00D24B0E /* LICENSE */; };
+		AE8F98981F6A7C6300C08A9F /* MuiscSelectorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97DABF31EED6539002BDDA3 /* MuiscSelectorTableViewCell.xib */; };
+		AE8F98991F6A7C6300C08A9F /* ProjectList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9A2073B1DED94BB004AAEE2 /* ProjectList.storyboard */; };
+		AE8F989A1F6A7C6300C08A9F /* VideoCarrusselCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E5B7931EF525C600A286DF /* VideoCarrusselCollectionViewCell.xib */; };
+		AE8F989B1F6A7C6300C08A9F /* acousticbreeze.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A910ACF81E3A2EC200A4EC90 /* acousticbreeze.mp3 */; };
+		AE8F989C1F6A7C6300C08A9F /* MusicDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91761271D916F53008915DA /* MusicDetailView.xib */; };
+		AE8F989D1F6A7C6300C08A9F /* Share.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97772BB1DC244E700EA9291 /* Share.strings */; };
+		AE8F989E1F6A7C6300C08A9F /* filter_free.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE751D7D92C300421BD0 /* filter_free.png */; };
+		AE8F98A31F6A7C6300C08A9F /* RealmProjectToProjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABADA1EC36C6700AB6CE8 /* RealmProjectToProjectMapper.swift */; };
+		AE8F98A41F6A7C6300C08A9F /* SettingsFTPUneditedDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB301EC36CE900AB6CE8 /* SettingsFTPUneditedDestination.swift */; };
+		AE8F98A51F6A7C6300C08A9F /* SettingsFTPBreakingNewsUneditedDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB2B1EC36CE900AB6CE8 /* SettingsFTPBreakingNewsUneditedDestination.swift */; };
+		AE8F98A61F6A7C6300C08A9F /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97DABFA1EED68CB002BDDA3 /* UITableViewExtension.swift */; };
+		AE8F98A71F6A7C6300C08A9F /* DetailProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8F91EC3648D00AB6CE8 /* DetailProjectViewModel.swift */; };
+		AE8F98A81F6A7C6300C08A9F /* MusicListConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9941EC367BC00AB6CE8 /* MusicListConstants.swift */; };
+		AE8F98A91F6A7C6300C08A9F /* CameraInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA681EC36AEC00AB6CE8 /* CameraInteractor.swift */; };
+		AE8F98AA1F6A7C6300C08A9F /* ViMoJoInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8C81EC360CC00AB6CE8 /* ViMoJoInterface.swift */; };
+		AE8F98AB1F6A7C6300C08A9F /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFF3121F054D75007C2305 /* Operation.swift */; };
+		AE8F98AC1F6A7C6300C08A9F /* ViMoJoConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9320B851E2CD65F004DC8A1 /* ViMoJoConfiguration.swift */; };
+		AE8F98AD1F6A7C6300C08A9F /* CameraInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA691EC36AEC00AB6CE8 /* CameraInteractorInterface.swift */; };
+		AE8F98AE1F6A7C6300C08A9F /* SettingsCameraSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB221EC36CE900AB6CE8 /* SettingsCameraSettings.swift */; };
+		AE8F98AF1F6A7C6300C08A9F /* CustomDPTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8A11EC35F7800AB6CE8 /* CustomDPTheme.swift */; };
+		AE8F98B01F6A7C6300C08A9F /* AddFilterToVideoCollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A331E53D5BE00C21918 /* AddFilterToVideoCollectionViewExtension.swift */; };
+		AE8F98B11F6A7C6300C08A9F /* FullScreenPlayerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760D51D9146FE008915DA /* FullScreenPlayerWireframe.swift */; };
+		AE8F98B21F6A7C6300C08A9F /* DrawerMenuWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9251EC3657200AB6CE8 /* DrawerMenuWireframe.swift */; };
+		AE8F98B31F6A7C6300C08A9F /* AddTextPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8F11EC361B500AB6CE8 /* AddTextPresenterInterface.swift */; };
+		AE8F98B41F6A7C6300C08A9F /* ReloadProjectWithProjectAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA321EC36A4700AB6CE8 /* ReloadProjectWithProjectAction.swift */; };
+		AE8F98B51F6A7C6300C08A9F /* MusicListPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A919953E1EC5017300D24B0E /* MusicListPresenterInterface.swift */; };
+		AE8F98B61F6A7C6300C08A9F /* RealmAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAD61EC36C6700AB6CE8 /* RealmAudio.swift */; };
+		AE8F98B71F6A7C6300C08A9F /* EditorTextConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B41D9146BF008915DA /* EditorTextConstants.swift */; };
+		AE8F98B81F6A7C6300C08A9F /* DetailTextWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9931D990C4100602DCD /* DetailTextWireframe.swift */; };
+		AE8F98B91F6A7C6300C08A9F /* RecordPresenterInterfaceIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA781EC36AEC00AB6CE8 /* RecordPresenterInterfaceIO.swift */; };
+		AE8F98BA1F6A7C6300C08A9F /* DetailProjectInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97243EC1E37A8FF00BD5E9B /* DetailProjectInteractor.swift */; };
+		AE8F98BB1F6A7C6300C08A9F /* DuplicateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB92A1EC3658E00AB6CE8 /* DuplicateViewController.swift */; };
+		AE8F98BC1F6A7C6300C08A9F /* AddTextInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8E01EC3619700AB6CE8 /* AddTextInteractor.swift */; };
+		AE8F98BD1F6A7C6300C08A9F /* ProfileSharedPreferencesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAD21EC36C6700AB6CE8 /* ProfileSharedPreferencesRepository.swift */; };
+		AE8F98BE1F6A7C6300C08A9F /* DetailProjectPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97243F31E37A90C00BD5E9B /* DetailProjectPresenterInterface.swift */; };
+		AE8F98BF1F6A7C6300C08A9F /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8C51EC360CC00AB6CE8 /* RootWireframe.swift */; };
+		AE8F98C01F6A7C6300C08A9F /* SocialNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917610D1D916F48008915DA /* SocialNetwork.swift */; };
+		AE8F98C11F6A7C6300C08A9F /* ShareWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917610B1D916F48008915DA /* ShareWireframe.swift */; };
+		AE8F98C21F6A7C6300C08A9F /* MusicDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761261D916F53008915DA /* MusicDetailView.swift */; };
+		AE8F98C31F6A7C6300C08A9F /* AddTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8E81EC361A700AB6CE8 /* AddTextViewController.swift */; };
+		AE8F98C41F6A7C6300C08A9F /* MicRecorderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9EB1EC3691E00AB6CE8 /* MicRecorderInteractor.swift */; };
+		AE8F98C51F6A7C6300C08A9F /* RealmAudioToAudioMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAD71EC36C6700AB6CE8 /* RealmAudioToAudioMapper.swift */; };
+		AE8F98C61F6A7C6300C08A9F /* AddTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8DC1EC3618500AB6CE8 /* AddTextModel.swift */; };
+		AE8F98C71F6A7C6300C08A9F /* AddTextInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8E11EC3619700AB6CE8 /* AddTextInteractorInterface.swift */; };
+		AE8F98C81F6A7C6300C08A9F /* SettingsFTPBreakingNewsEditedDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB281EC36CE900AB6CE8 /* SettingsFTPBreakingNewsEditedDestination.swift */; };
+		AE8F98C91F6A7C6300C08A9F /* TakePhotoFromOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9031EC364FB00AB6CE8 /* TakePhotoFromOptions.swift */; };
+		AE8F98CA1F6A7C6300C08A9F /* VideoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAE01EC36C6700AB6CE8 /* VideoRepository.swift */; };
+		AE8F98CB1F6A7C6300C08A9F /* SettingsResolutionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB3C1EC36CE900AB6CE8 /* SettingsResolutionAction.swift */; };
+		AE8F98CC1F6A7C6300C08A9F /* ShareFTPBreakingNewsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C7581DC35FB500A65730 /* ShareFTPBreakingNewsInteractor.swift */; };
+		AE8F98CD1F6A7C6300C08A9F /* GetMiddleRangeSliderValueWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9471EC366BE00AB6CE8 /* GetMiddleRangeSliderValueWorker.swift */; };
+		AE8F98CE1F6A7C6300C08A9F /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABBAD1EC36DB000AB6CE8 /* SplitViewController.swift */; };
+		AE8F98CF1F6A7C6300C08A9F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFF3151F054D75007C2305 /* Session.swift */; };
+		AE8F98D01F6A7C6300C08A9F /* AddTextWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8E91EC361A700AB6CE8 /* AddTextWireframe.swift */; };
+		AE8F98D11F6A7C6300C08A9F /* MusicListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91995351EC5014800D24B0E /* MusicListWireframe.swift */; };
+		AE8F98D21F6A7C6300C08A9F /* RecorderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA751EC36AEC00AB6CE8 /* RecorderInteractor.swift */; };
+		AE8F98D31F6A7C6300C08A9F /* UIViewFadeViewsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8961EC35F4700AB6CE8 /* UIViewFadeViewsExtension.swift */; };
+		AE8F98D41F6A7C6300C08A9F /* ApplyTextOverlayToVideoCompositionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA671EC36AEC00AB6CE8 /* ApplyTextOverlayToVideoCompositionUseCase.swift */; };
+		AE8F98D51F6A7C6300C08A9F /* CMTimeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B406711EF33519004C9854 /* CMTimeExtension.swift */; };
+		AE8F98D61F6A7C6300C08A9F /* AnalitycsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB88B1EC35F1C00AB6CE8 /* AnalitycsConstants.swift */; };
+		AE8F98D71F6A7C6300C08A9F /* ProjectToRealmProjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAD51EC36C6700AB6CE8 /* ProjectToRealmProjectMapper.swift */; };
+		AE8F98D81F6A7C6300C08A9F /* EditingRoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A31D9146B5008915DA /* EditingRoomPresenter.swift */; };
+		AE8F98D91F6A7C6300C08A9F /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAD01EC36C6700AB6CE8 /* Mapper.swift */; };
+		AE8F98DA1F6A7C6300C08A9F /* ShareVideoPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95737C81E0BC892006F2AB7 /* ShareVideoPath.swift */; };
+		AE8F98DB1F6A7C6300C08A9F /* ExportedAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA6E1EC36AEC00AB6CE8 /* ExportedAlbum.swift */; };
+		AE8F98DC1F6A7C6300C08A9F /* DetailProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97243D61E37A5C000BD5E9B /* DetailProjectViewController.swift */; };
+		AE8F98DD1F6A7C6300C08A9F /* StringsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91359FA1EDB05B8004779B5 /* StringsExtension.swift */; };
+		AE8F98DE1F6A7C6300C08A9F /* ProjectListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA591EC36A9200AB6CE8 /* ProjectListCellView.swift */; };
+		AE8F98DF1F6A7C6300C08A9F /* ExporterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA6F1EC36AEC00AB6CE8 /* ExporterInteractor.swift */; };
+		AE8F98E01F6A7C6300C08A9F /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAD11EC36C6700AB6CE8 /* ProfileRepository.swift */; };
+		AE8F98E11F6A7C6300C08A9F /* DetailTextInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE98E1D990C4100602DCD /* DetailTextInteractor.swift */; };
+		AE8F98E21F6A7C6300C08A9F /* AddFilterToVideoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A953AD531E53474A00DC0D84 /* AddFilterToVideoPresenter.swift */; };
+		AE8F98E31F6A7C6300C08A9F /* RecordDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA721EC36AEC00AB6CE8 /* RecordDrawerController.swift */; };
+		AE8F98E41F6A7C6300C08A9F /* MicRecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9EF1EC3691E00AB6CE8 /* MicRecorderViewController.swift */; };
+		AE8F98E51F6A7C6300C08A9F /* ProjectListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA511EC36A7200AB6CE8 /* ProjectListPresenter.swift */; };
+		AE8F98E61F6A7C6300C08A9F /* RecordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA771EC36AEC00AB6CE8 /* RecordPresenter.swift */; };
+		AE8F98E71F6A7C6300C08A9F /* EditorClipsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760AF1D9146BF008915DA /* EditorClipsCell.swift */; };
+		AE8F98E81F6A7C6300C08A9F /* EditorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B21D9146BF008915DA /* EditorPresenter.swift */; };
+		AE8F98E91F6A7C6300C08A9F /* GoToRecordOrGalleryWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9761EC3676000AB6CE8 /* GoToRecordOrGalleryWireframe.swift */; };
+		AE8F98EA1F6A7C6300C08A9F /* TrimWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABBBE1EC379C900AB6CE8 /* TrimWireframe.swift */; };
+		AE8F98EB1F6A7C6300C08A9F /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B51D9146BF008915DA /* EditorViewController.swift */; };
+		AE8F98EC1F6A7C6300C08A9F /* ThumbnailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA7C1EC36AEC00AB6CE8 /* ThumbnailInteractor.swift */; };
+		AE8F98ED1F6A7C6300C08A9F /* CheckPhotoRollPermissionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8B61EC35FD300AB6CE8 /* CheckPhotoRollPermissionUseCase.swift */; };
+		AE8F98EE1F6A7C6300C08A9F /* SaveVideosFromGalleryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9651EC3672700AB6CE8 /* SaveVideosFromGalleryInterface.swift */; };
+		AE8F98EF1F6A7C6300C08A9F /* MusicSelectorCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97DABEE1EED62F2002BDDA3 /* MusicSelectorCellViewModel.swift */; };
+		AE8F98F01F6A7C6300C08A9F /* CameraRecorderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA6B1EC36AEC00AB6CE8 /* CameraRecorderInterface.swift */; };
+		AE8F98F11F6A7C6300C08A9F /* SettingsEmailAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB251EC36CE900AB6CE8 /* SettingsEmailAction.swift */; };
+		AE8F98F21F6A7C6300C08A9F /* MusicProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917612C1D916F53008915DA /* MusicProvider.swift */; };
+		AE8F98F31F6A7C6300C08A9F /* ChangeFilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA6C1EC36AEC00AB6CE8 /* ChangeFilterInteractor.swift */; };
+		AE8F98F41F6A7C6300C08A9F /* ShareWhatsappInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917610A1D916F48008915DA /* ShareWhatsappInteractor.swift */; };
+		AE8F98F51F6A7C6300C08A9F /* SharePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761051D916F48008915DA /* SharePresenter.swift */; };
+		AE8F98F61F6A7C6300C08A9F /* KYDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91995501EC5029C00D24B0E /* KYDrawerController.swift */; };
+		AE8F98F71F6A7C6300C08A9F /* FTPErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C7451DC3575700A65730 /* FTPErrorType.swift */; };
+		AE8F98F81F6A7C6300C08A9F /* DPTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8A21EC35F7800AB6CE8 /* DPTheme.swift */; };
+		AE8F98F91F6A7C6300C08A9F /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB99C1EC367BC00AB6CE8 /* MusicListViewController.swift */; };
+		AE8F98FA1F6A7C6300C08A9F /* DuplicateInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9291EC3658E00AB6CE8 /* DuplicateInterface.swift */; };
+		AE8F98FB1F6A7C6300C08A9F /* AddTextPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8F01EC361B500AB6CE8 /* AddTextPresenter.swift */; };
+		AE8F98FC1F6A7C6300C08A9F /* DrawerMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9151EC3656000AB6CE8 /* DrawerMenuTableViewController.swift */; };
+		AE8F98FD1F6A7C6300C08A9F /* AudioToRealmAudioMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABACF1EC36C6700AB6CE8 /* AudioToRealmAudioMapper.swift */; };
+		AE8F98FE1F6A7C6300C08A9F /* SetTrimParametersToVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9481EC366BE00AB6CE8 /* SetTrimParametersToVideo.swift */; };
+		AE8F98FF1F6A7C6300C08A9F /* MusicModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96E15EF1DA257A400CF81E8 /* MusicModels.swift */; };
+		AE8F99001F6A7C6300C08A9F /* MusicListInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91995461EC5019100D24B0E /* MusicListInteractorInterface.swift */; };
+		AE8F99011F6A7C6300C08A9F /* GalleryWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9631EC3672700AB6CE8 /* GalleryWireframe.swift */; };
+		AE8F99021F6A7C6300C08A9F /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A4E1E53D97300C21918 /* FilterCollectionViewCell.swift */; };
+		AE8F99031F6A7C6300C08A9F /* ExportTemporalVideoToShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9325FAC1E091E1D00400AD6 /* ExportTemporalVideoToShare.swift */; };
+		AE8F99041F6A7C6300C08A9F /* DrawerMenuInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9021EC364FB00AB6CE8 /* DrawerMenuInteractorInterface.swift */; };
+		AE8F99051F6A7C6300C08A9F /* ViMoJoTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABBB91EC36DD000AB6CE8 /* ViMoJoTracker.swift */; };
+		AE8F99061F6A7C6300C08A9F /* MusicPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA171EC369F600AB6CE8 /* MusicPresenter.swift */; };
+		AE8F99071F6A7C6300C08A9F /* ProjectRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAD41EC36C6700AB6CE8 /* ProjectRepository.swift */; };
+		AE8F99081F6A7C6300C08A9F /* EditorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B01D9146BF008915DA /* EditorInteractor.swift */; };
+		AE8F99091F6A7C6300C08A9F /* CustomClipsGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9561EC3671A00AB6CE8 /* CustomClipsGalleryViewController.swift */; };
+		AE8F990A1F6A7C6300C08A9F /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761091D916F48008915DA /* ShareViewController.swift */; };
+		AE8F990B1F6A7C6300C08A9F /* MixAudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9F21EC3691E00AB6CE8 /* MixAudioModel.swift */; };
+		AE8F990C1F6A7C6300C08A9F /* ShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9645EA31DC0D298000944CB /* ShareViewModel.swift */; };
+		AE8F990D1F6A7C6300C08A9F /* TrimParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB93A1EC366A700AB6CE8 /* TrimParameters.swift */; };
+		AE8F990E1F6A7C6300C08A9F /* SettingsFTPEditedDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB2D1EC36CE900AB6CE8 /* SettingsFTPEditedDestination.swift */; };
+		AE8F990F1F6A7C6300C08A9F /* FileUploadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFF3101F054D75007C2305 /* FileUploadOperation.swift */; };
+		AE8F99101F6A7C6300C08A9F /* SettingsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9741D990A4A00602DCD /* SettingsContent.swift */; };
+		AE8F99111F6A7C6300C08A9F /* ProjectListConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA3E1EC36A5C00AB6CE8 /* ProjectListConstants.swift */; };
+		AE8F99121F6A7C6300C08A9F /* SettingsFTPBreakingNewsPasswordAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB2A1EC36CE900AB6CE8 /* SettingsFTPBreakingNewsPasswordAction.swift */; };
+		AE8F99131F6A7C6300C08A9F /* SettingsUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB3E1EC36CE900AB6CE8 /* SettingsUserInfo.swift */; };
+		AE8F99141F6A7C6300C08A9F /* SettingsWatermarkAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A0C431F5DA5FE00C77DDB /* SettingsWatermarkAction.swift */; };
+		AE8F99151F6A7C6300C08A9F /* RealmVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABADB1EC36C6700AB6CE8 /* RealmVideo.swift */; };
+		AE8F99161F6A7C6300C08A9F /* MusicPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA181EC369F600AB6CE8 /* MusicPresenterInterface.swift */; };
+		AE8F99171F6A7C6300C08A9F /* MicRecorderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9ED1EC3691E00AB6CE8 /* MicRecorderPresenter.swift */; };
+		AE8F99181F6A7C6300C08A9F /* DuplicateWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB92B1EC3658E00AB6CE8 /* DuplicateWireframe.swift */; };
+		AE8F99191F6A7C6300C08A9F /* WriteStreamOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFF3171F054D75007C2305 /* WriteStreamOperation.swift */; };
+		AE8F991A1F6A7C6300C08A9F /* RecordWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA791EC36AEC00AB6CE8 /* RecordWireframe.swift */; };
+		AE8F991B1F6A7C6300C08A9F /* FullScreenPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760D41D9146FE008915DA /* FullScreenPlayerViewController.swift */; };
+		AE8F991C1F6A7C6300C08A9F /* MusicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB99A1EC367BC00AB6CE8 /* MusicListView.swift */; };
+		AE8F991D1F6A7C6300C08A9F /* DetailTextInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE98F1D990C4100602DCD /* DetailTextInteractorInterface.swift */; };
+		AE8F991E1F6A7C6300C08A9F /* DrawerMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB91D1EC3656A00AB6CE8 /* DrawerMenuPresenter.swift */; };
+		AE8F991F1F6A7C6300C08A9F /* SettingsPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9791D990A4A00602DCD /* SettingsPresenterInterface.swift */; };
+		AE8F99201F6A7C6300C08A9F /* FileDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFF30F1F054D75007C2305 /* FileDownloadOperation.swift */; };
+		AE8F99211F6A7C6300C08A9F /* SettingsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB231EC36CE900AB6CE8 /* SettingsConstants.swift */; };
+		AE8F99221F6A7C6300C08A9F /* FilterCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A421E53D68600C21918 /* FilterCollectionViewModel.swift */; };
+		AE8F99231F6A7C6300C08A9F /* ReadStreamOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFF3131F054D75007C2305 /* ReadStreamOperation.swift */; };
+		AE8F99241F6A7C6300C08A9F /* RealmProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAD91EC36C6700AB6CE8 /* RealmProject.swift */; };
+		AE8F99251F6A7C6300C08A9F /* MusicProviderForVimojo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910AD081E3A2F1200A4EC90 /* MusicProviderForVimojo.swift */; };
+		AE8F99261F6A7C6300C08A9F /* AddWatermarkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA661EC36AEC00AB6CE8 /* AddWatermarkUseCase.swift */; };
+		AE8F99271F6A7C6300C08A9F /* RecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA711EC36AEC00AB6CE8 /* RecordController.swift */; };
+		AE8F99281F6A7C6300C08A9F /* Audio4VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B898D41EF70F6D00C698C9 /* Audio4VideoViewController.swift */; };
+		AE8F99291F6A7C6300C08A9F /* ProjectListInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA4A1EC36A6700AB6CE8 /* ProjectListInteractorInterface.swift */; };
+		AE8F992A1F6A7C6300C08A9F /* FullScreenPlayerPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760D31D9146FE008915DA /* FullScreenPlayerPresenterInterface.swift */; };
+		AE8F992B1F6A7C6300C08A9F /* CreateNewProjectUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8AB1EC35FAC00AB6CE8 /* CreateNewProjectUseCase.swift */; };
+		AE8F992C1F6A7C6300C08A9F /* ConfigPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB88C1EC35F1C00AB6CE8 /* ConfigPreferences.swift */; };
+		AE8F992D1F6A7C6300C08A9F /* SettingsQualityAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB3B1EC36CE900AB6CE8 /* SettingsQualityAction.swift */; };
+		AE8F992E1F6A7C6300C08A9F /* EditorPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B31D9146BF008915DA /* EditorPresenterInterface.swift */; };
+		AE8F992F1F6A7C6300C08A9F /* DuplicateProjectOnProjectListAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA311EC36A4700AB6CE8 /* DuplicateProjectOnProjectListAction.swift */; };
+		AE8F99301F6A7C6300C08A9F /* FilterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A4A1E53D6A900C21918 /* FilterProvider.swift */; };
+		AE8F99311F6A7C6300C08A9F /* ProjectParametersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A521E53F15F00C21918 /* ProjectParametersViewModel.swift */; };
+		AE8F99321F6A7C6300C08A9F /* ClipsAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA6D1EC36AEC00AB6CE8 /* ClipsAlbum.swift */; };
+		AE8F99331F6A7C6300C08A9F /* ShareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760FD1D916F48008915DA /* ShareCell.swift */; };
+		AE8F99341F6A7C6300C08A9F /* RecorderInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA761EC36AEC00AB6CE8 /* RecorderInteractorInterface.swift */; };
+		AE8F99351F6A7C6300C08A9F /* NSLocale+ISO639_2.m in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE5D1D7D7A1300421BD0 /* NSLocale+ISO639_2.m */; };
+		AE8F99361F6A7C6300C08A9F /* GetVoiceOverComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9E91EC3691E00AB6CE8 /* GetVoiceOverComposition.swift */; };
+		AE8F99371F6A7C6300C08A9F /* SettingsFTPBreakingNewsUsernameAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB2C1EC36CE900AB6CE8 /* SettingsFTPBreakingNewsUsernameAction.swift */; };
+		AE8F99381F6A7C6300C08A9F /* SettingsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB401EC36CE900AB6CE8 /* SettingsUtils.swift */; };
+		AE8F99391F6A7C6300C08A9F /* SettingsFTPUsernameAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB311EC36CE900AB6CE8 /* SettingsFTPUsernameAction.swift */; };
+		AE8F993A1F6A7C6300C08A9F /* MusicDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9901EC367BC00AB6CE8 /* MusicDetailViewModel.swift */; };
+		AE8F993B1F6A7C6300C08A9F /* ResourceListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFF3141F054D75007C2305 /* ResourceListOperation.swift */; };
+		AE8F993C1F6A7C6300C08A9F /* RemoveProjectOnProjectListAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA331EC36A4700AB6CE8 /* RemoveProjectOnProjectListAction.swift */; };
+		AE8F993D1F6A7C6300C08A9F /* DetailProjectFoundToDetailProjectViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93B5C981E38C016009E0279 /* DetailProjectFoundToDetailProjectViewModelMapper.swift */; };
+		AE8F993E1F6A7C6300C08A9F /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9751D990A4A00602DCD /* SettingsInteractor.swift */; };
+		AE8F993F1F6A7C6300C08A9F /*  GetSeekTimeFromValueOnVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9451EC366BE00AB6CE8 /*  GetSeekTimeFromValueOnVideo.swift */; };
+		AE8F99401F6A7C6300C08A9F /* SaveVideosFromGalleryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9641EC3672700AB6CE8 /* SaveVideosFromGalleryInteractor.swift */; };
+		AE8F99411F6A7C6300C08A9F /* AllVideosGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9551EC3671A00AB6CE8 /* AllVideosGalleryViewController.swift */; };
+		AE8F99421F6A7C6300C08A9F /* DateCompareExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8941EC35F4700AB6CE8 /* DateCompareExtension.swift */; };
+		AE8F99431F6A7C6300C08A9F /* CustomExportedVideosGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9571EC3671A00AB6CE8 /* CustomExportedVideosGalleryViewController.swift */; };
+		AE8F99441F6A7C6300C08A9F /* MusicInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA151EC369F600AB6CE8 /* MusicInteractor.swift */; };
+		AE8F99451F6A7C6300C08A9F /* ProjectListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA491EC36A6700AB6CE8 /* ProjectListInteractor.swift */; };
+		AE8F99461F6A7C6300C08A9F /* SharePresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761061D916F48008915DA /* SharePresenterInterface.swift */; };
+		AE8F99471F6A7C6300C08A9F /* DrawerMenuPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB91E1EC3656A00AB6CE8 /* DrawerMenuPresenterInterface.swift */; };
+		AE8F99481F6A7C6300C08A9F /* AudioRealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABACD1EC36C6700AB6CE8 /* AudioRealmRepository.swift */; };
+		AE8F99491F6A7C6300C08A9F /* SettingsFTPPasswordAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB2F1EC36CE900AB6CE8 /* SettingsFTPPasswordAction.swift */; };
+		AE8F994A1F6A7C6300C08A9F /* GalleryFetchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9611EC3672700AB6CE8 /* GalleryFetchOptions.swift */; };
+		AE8F994B1F6A7C6300C08A9F /* ShareYoutubeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917610C1D916F48008915DA /* ShareYoutubeInteractor.swift */; };
+		AE8F994C1F6A7C6300C08A9F /* ConfigureNavBarVimojoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8C41EC360CC00AB6CE8 /* ConfigureNavBarVimojoExtension.swift */; };
+		AE8F994D1F6A7C6300C08A9F /* SettingsActionInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB211EC36CE900AB6CE8 /* SettingsActionInterface.swift */; };
+		AE8F994E1F6A7C6300C08A9F /* CreateDefaultProjectUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8AA1EC35FAC00AB6CE8 /* CreateDefaultProjectUseCase.swift */; };
+		AE8F994F1F6A7C6300C08A9F /* TimerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA7D1EC36AEC00AB6CE8 /* TimerInteractor.swift */; };
+		AE8F99501F6A7C6300C08A9F /* RealmMigrationsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAD81EC36C6700AB6CE8 /* RealmMigrationsUseCase.swift */; };
+		AE8F99511F6A7C6300C08A9F /* SettingsNameAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB371EC36CE900AB6CE8 /* SettingsNameAction.swift */; };
+		AE8F99521F6A7C6300C08A9F /* RecordDrawerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA731EC36AEC00AB6CE8 /* RecordDrawerWireframe.swift */; };
+		AE8F99531F6A7C6300C08A9F /* Specification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABADE1EC36C6700AB6CE8 /* Specification.swift */; };
+		AE8F99541F6A7C6300C08A9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B385E91D7D51380065D3EC /* AppDelegate.swift */; };
+		AE8F99551F6A7C6300C08A9F /* RecordedTrackAreaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9F31EC3691E00AB6CE8 /* RecordedTrackAreaViewModel.swift */; };
+		AE8F99561F6A7C6300C08A9F /* SettingsLegalURLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95C07001E4B821C004A7040 /* SettingsLegalURLConstants.swift */; };
+		AE8F99571F6A7C6300C08A9F /* VideoToRealmVideoMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAE11EC36C6700AB6CE8 /* VideoToRealmVideoMapper.swift */; };
+		AE8F99581F6A7C6300C08A9F /* DrawerMenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9011EC364FB00AB6CE8 /* DrawerMenuInteractor.swift */; };
+		AE8F99591F6A7C6300C08A9F /* DrawerProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9161EC3656000AB6CE8 /* DrawerProfileTableViewCell.swift */; };
+		AE8F995A1F6A7C6300C08A9F /* ShareConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760FF1D916F48008915DA /* ShareConstants.swift */; };
+		AE8F995B1F6A7C6300C08A9F /* RecorderConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA741EC36AEC00AB6CE8 /* RecorderConstants.swift */; };
+		AE8F995C1F6A7C6300C08A9F /* KYEmbedMainControllerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91995521EC5029C00D24B0E /* KYEmbedMainControllerSegue.swift */; };
+		AE8F995D1F6A7C6300C08A9F /* MusicListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91995451EC5019100D24B0E /* MusicListInteractor.swift */; };
+		AE8F995E1F6A7C6300C08A9F /* AddFilterToVideoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A953AD5B1E53476B00DC0D84 /* AddFilterToVideoInteractor.swift */; };
+		AE8F995F1F6A7C6300C08A9F /* RemoveFilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA7A1EC36AEC00AB6CE8 /* RemoveFilterInteractor.swift */; };
+		AE8F99601F6A7C6300C08A9F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABADD1EC36C6700AB6CE8 /* Repository.swift */; };
+		AE8F99611F6A7C6300C08A9F /* ProjectFound.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA3D1EC36A5C00AB6CE8 /* ProjectFound.swift */; };
+		AE8F99621F6A7C6300C08A9F /* SettingsFTPHostAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB2E1EC36CE900AB6CE8 /* SettingsFTPHostAction.swift */; };
+		AE8F99631F6A7C6300C08A9F /* AddFilterToVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A953AD4A1E53472100DC0D84 /* AddFilterToVideoViewController.swift */; };
+		AE8F99641F6A7C6300C08A9F /* GetPHAssetFromUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9325FB11E091FB900400AD6 /* GetPHAssetFromUrl.swift */; };
+		AE8F99651F6A7C6300C08A9F /* ThumbnailListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B81D9146BF008915DA /* ThumbnailListInteractor.swift */; };
+		AE8F99661F6A7C6300C08A9F /* ProjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA5A1EC36A9200AB6CE8 /* ProjectListViewController.swift */; };
+		AE8F99671F6A7C6300C08A9F /* CheckPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8B51EC35FD300AB6CE8 /* CheckPermission.swift */; };
+		AE8F99681F6A7C6300C08A9F /* TimerInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA7E1EC36AEC00AB6CE8 /* TimerInteractorInterface.swift */; };
+		AE8F99691F6A7C6300C08A9F /* SettingsFTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB261EC36CE900AB6CE8 /* SettingsFTP.swift */; };
+		AE8F996A1F6A7C6300C08A9F /* ResolutionsImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA7B1EC36AEC00AB6CE8 /* ResolutionsImages.swift */; };
+		AE8F996B1F6A7C6300C08A9F /* SettingsFTPBreakingNewsHostAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB291EC36CE900AB6CE8 /* SettingsFTPBreakingNewsHostAction.swift */; };
+		AE8F996C1F6A7C6300C08A9F /* VideoRealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABADF1EC36C6700AB6CE8 /* VideoRealmRepository.swift */; };
+		AE8F996D1F6A7C6300C08A9F /* AddFilterToVideoWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A953AD4C1E53473700DC0D84 /* AddFilterToVideoWireframe.swift */; };
+		AE8F996E1F6A7C6300C08A9F /* FullScreenPlayerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760D21D9146FE008915DA /* FullScreenPlayerPresenter.swift */; };
+		AE8F996F1F6A7C6300C08A9F /* MusicInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA161EC369F600AB6CE8 /* MusicInteractorInterface.swift */; };
+		AE8F99701F6A7C6300C08A9F /* ProjectListPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA521EC36A7200AB6CE8 /* ProjectListPresenterInterface.swift */; };
+		AE8F99711F6A7C6300C08A9F /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9621EC3672700AB6CE8 /* GalleryViewController.swift */; };
+		AE8F99721F6A7C6300C08A9F /* AudioRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABACE1EC36C6700AB6CE8 /* AudioRepository.swift */; };
+		AE8F99731F6A7C6300C08A9F /* AddFilterToVideoInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A953AD641E53478E00DC0D84 /* AddFilterToVideoInteractorInterface.swift */; };
+		AE8F99741F6A7C6300C08A9F /* MicRecorderWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9F11EC3691E00AB6CE8 /* MicRecorderWireframe.swift */; };
+		AE8F99751F6A7C6300C08A9F /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = A91995541EC5029C00D24B0E /* README.md */; };
+		AE8F99761F6A7C6300C08A9F /* EditingRoomPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A41D9146B5008915DA /* EditingRoomPresenterInterface.swift */; };
+		AE8F99771F6A7C6300C08A9F /* GetCompositionForVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9461EC366BE00AB6CE8 /* GetCompositionForVideo.swift */; };
+		AE8F99781F6A7C6300C08A9F /* SettingsTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB3D1EC36CE900AB6CE8 /* SettingsTransition.swift */; };
+		AE8F99791F6A7C6300C08A9F /* CameraRecorderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA6A1EC36AEC00AB6CE8 /* CameraRecorderInteractor.swift */; };
+		AE8F997A1F6A7C6300C08A9F /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386551D7D54CF0065D3EC /* AppDependencies.swift */; };
+		AE8F997B1F6A7C6300C08A9F /* TrimViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABBBD1EC379C900AB6CE8 /* TrimViewController.swift */; };
+		AE8F997C1F6A7C6300C08A9F /* UIApplicationExtensionGetTopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8951EC35F4700AB6CE8 /* UIApplicationExtensionGetTopController.swift */; };
+		AE8F997D1F6A7C6300C08A9F /* ShareInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761021D916F48008915DA /* ShareInteractor.swift */; };
+		AE8F997E1F6A7C6300C08A9F /* EditingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A51D9146B5008915DA /* EditingRoomViewController.swift */; };
+		AE8F997F1F6A7C6300C08A9F /* DirectoryCreationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFF30E1F054D75007C2305 /* DirectoryCreationOperation.swift */; };
+		AE8F99801F6A7C6300C08A9F /* ConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8851EC35F0000AB6CE8 /* ConfigurationProtocol.swift */; };
+		AE8F99811F6A7C6300C08A9F /* SettingTransitionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB431EC36CE900AB6CE8 /* SettingTransitionAction.swift */; };
+		AE8F99821F6A7C6300C08A9F /* Audio4VideoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B898D81EF70F9B00C698C9 /* Audio4VideoPresenter.swift */; };
+		AE8F99831F6A7C6300C08A9F /* Audio4VideoWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B898E01EF7128900C698C9 /* Audio4VideoWireframe.swift */; };
+		AE8F99841F6A7C6300C08A9F /* SplitWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABBAF1EC36DB000AB6CE8 /* SplitWireframe.swift */; };
+		AE8F99851F6A7C6300C08A9F /* MicRecorderConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9EA1EC3691E00AB6CE8 /* MicRecorderConstants.swift */; };
+		AE8F99861F6A7C6300C08A9F /* ShareInstagramInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761011D916F48008915DA /* ShareInstagramInteractor.swift */; };
+		AE8F99871F6A7C6300C08A9F /* DetailTextController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE98D1D990C4100602DCD /* DetailTextController.swift */; };
+		AE8F99881F6A7C6300C08A9F /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA191EC369F600AB6CE8 /* MusicViewController.swift */; };
+		AE8F99891F6A7C6300C08A9F /* ShareFacebookInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761001D916F48008915DA /* ShareFacebookInteractor.swift */; };
+		AE8F998A1F6A7C6300C08A9F /* SocialNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917610E1D916F48008915DA /* SocialNetworkProvider.swift */; };
+		AE8F998B1F6A7C6300C08A9F /* ShareTwitterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761081D916F48008915DA /* ShareTwitterInteractor.swift */; };
+		AE8F998C1F6A7C6300C08A9F /* SettingsLegalTextAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB351EC36CE900AB6CE8 /* SettingsLegalTextAction.swift */; };
+		AE8F998D1F6A7C6300C08A9F /* SplitViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABBAE1EC36DB000AB6CE8 /* SplitViewInterface.swift */; };
+		AE8F998E1F6A7C6300C08A9F /* EditorWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B71D9146BF008915DA /* EditorWireframe.swift */; };
+		AE8F998F1F6A7C6300C08A9F /* DetailProjectWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97243E21E37A8B300BD5E9B /* DetailProjectWireframe.swift */; };
+		AE8F99901F6A7C6300C08A9F /* SettingsInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9761D990A4A00602DCD /* SettingsInteractorInterface.swift */; };
+		AE8F99911F6A7C6300C08A9F /* FlashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA701EC36AEC00AB6CE8 /* FlashInteractor.swift */; };
+		AE8F99921F6A7C6300C08A9F /* AddFilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA651EC36AEC00AB6CE8 /* AddFilterInteractor.swift */; };
+		AE8F99931F6A7C6300C08A9F /* Audio4VideoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B898DC1EF70FC100C698C9 /* Audio4VideoInteractor.swift */; };
+		AE8F99941F6A7C6300C08A9F /* ShareActionInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AE3A4E1DC0CFA300A5A878 /* ShareActionInterface.swift */; };
+		AE8F99951F6A7C6300C08A9F /* EditingRoomViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A61D9146B5008915DA /* EditingRoomViewInterface.swift */; };
+		AE8F99961F6A7C6300C08A9F /* MusicWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA1B1EC369F600AB6CE8 /* MusicWireframe.swift */; };
+		AE8F99971F6A7C6300C08A9F /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761251D916F53008915DA /* MusicCell.swift */; };
+		AE8F99981F6A7C6300C08A9F /* MuiscSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97DABF21EED6539002BDDA3 /* MuiscSelectorTableViewCell.swift */; };
+		AE8F99991F6A7C6300C08A9F /* EditorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9391EC366A700AB6CE8 /* EditorModel.swift */; };
+		AE8F999A1F6A7C6300C08A9F /* EditingRoomItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9351EC365C100AB6CE8 /* EditingRoomItemController.swift */; };
+		AE8F999B1F6A7C6300C08A9F /* StreamOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFF3161F054D75007C2305 /* StreamOperation.swift */; };
+		AE8F999C1F6A7C6300C08A9F /* SettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE97A1D990A4A00602DCD /* SettingsProvider.swift */; };
+		AE8F999D1F6A7C6300C08A9F /* DetailProjectInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97243ED1E37A8FF00BD5E9B /* DetailProjectInteractorInterface.swift */; };
+		AE8F999E1F6A7C6300C08A9F /* EstimationByQualityAndDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93B5C9B1E38F76A009E0279 /* EstimationByQualityAndDuration.swift */; };
+		AE8F999F1F6A7C6300C08A9F /* VimojoWireframeInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8C91EC360CC00AB6CE8 /* VimojoWireframeInterface.swift */; };
+		AE8F99A01F6A7C6300C08A9F /* FilterFoundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A461E53D69600C21918 /* FilterFoundModel.swift */; };
+		AE8F99A11F6A7C6300C08A9F /* SettingsUsernameAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB3F1EC36CE900AB6CE8 /* SettingsUsernameAction.swift */; };
+		AE8F99A21F6A7C6300C08A9F /* GoToRecordOrGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9751EC3676000AB6CE8 /* GoToRecordOrGalleryViewController.swift */; };
+		AE8F99A31F6A7C6300C08A9F /* ProjectRealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAD31EC36C6700AB6CE8 /* ProjectRealmRepository.swift */; };
+		AE8F99A41F6A7C6300C08A9F /* CheckMicPermissionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8B41EC35FD300AB6CE8 /* CheckMicPermissionUseCase.swift */; };
+		AE8F99A51F6A7C6300C08A9F /* SettingsFTPBreakingNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB271EC36CE900AB6CE8 /* SettingsFTPBreakingNews.swift */; };
+		AE8F99A61F6A7C6300C08A9F /* ViMoJoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8C71EC360CC00AB6CE8 /* ViMoJoController.swift */; };
+		AE8F99A71F6A7C6300C08A9F /* KYEmbedDrawerControllerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91995511EC5029C00D24B0E /* KYEmbedDrawerControllerSegue.swift */; };
+		AE8F99A81F6A7C6300C08A9F /* DetailProjectFound.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8F81EC3648D00AB6CE8 /* DetailProjectFound.swift */; };
+		AE8F99A91F6A7C6300C08A9F /* ShareInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761031D916F48008915DA /* ShareInteractorInterface.swift */; };
+		AE8F99AA1F6A7C6300C08A9F /* VideoParameterSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A953AD691E53670500DC0D84 /* VideoParameterSlider.swift */; };
+		AE8F99AB1F6A7C6300C08A9F /* MusicListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A919953D1EC5017300D24B0E /* MusicListPresenter.swift */; };
+		AE8F99AC1F6A7C6300C08A9F /* SettingsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE97C1D990A4A00602DCD /* SettingsWireframe.swift */; };
+		AE8F99AD1F6A7C6300C08A9F /* NotificationsName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96C6F281F06717D006EDD04 /* NotificationsName+Extension.swift */; };
+		AE8F99AE1F6A7C6300C08A9F /* MicRecorderInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9EC1EC3691E00AB6CE8 /* MicRecorderInteractorInterface.swift */; };
+		AE8F99AF1F6A7C6300C08A9F /* FullScreenPlayerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760D11D9146FE008915DA /* FullScreenPlayerInterface.swift */; };
+		AE8F99B01F6A7C6300C08A9F /* MicRecorderPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9EE1EC3691E00AB6CE8 /* MicRecorderPresenterInterface.swift */; };
+		AE8F99B11F6A7C6300C08A9F /* VideoCarrusselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E5B7921EF525C600A286DF /* VideoCarrusselCollectionViewCell.swift */; };
+		AE8F99B21F6A7C6300C08A9F /* DetailTextPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9921D990C4100602DCD /* DetailTextPresenterInterface.swift */; };
+		AE8F99B31F6A7C6300C08A9F /* ShareUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761071D916F48008915DA /* ShareUtils.swift */; };
+		AE8F99B41F6A7C6300C08A9F /* TwitterVideoUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = A91761101D916F48008915DA /* TwitterVideoUpload.m */; };
+		AE8F99B51F6A7C6300C08A9F /* ProjectListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA611EC36AA300AB6CE8 /* ProjectListWireframe.swift */; };
+		AE8F99B61F6A7C6300C08A9F /* CheckCameraPermissionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8B31EC35FD300AB6CE8 /* CheckCameraPermissionUseCase.swift */; };
+		AE8F99B71F6A7C6300C08A9F /* EditorInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B11D9146BF008915DA /* EditorInteractorInterface.swift */; };
+		AE8F99B81F6A7C6300C08A9F /* ShareSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CC20061E55AED800F0B00E /* ShareSave.swift */; };
+		AE8F99B91F6A7C6300C08A9F /* AddFilterToVideoPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A953AD571E53475600DC0D84 /* AddFilterToVideoPresenterInterface.swift */; };
+		AE8F99BA1F6A7C6300C08A9F /* RealmVideoToVideoMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABADC1EC36C6700AB6CE8 /* RealmVideoToVideoMapper.swift */; };
+		AE8F99BB1F6A7C6300C08A9F /* EditingRoomWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A71D9146B5008915DA /* EditingRoomWireframe.swift */; };
+		AE8F99BC1F6A7C6300C08A9F /* ProjectListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA3F1EC36A5C00AB6CE8 /* ProjectListViewModel.swift */; };
+		AE8F99BD1F6A7C6300C08A9F /* DetailProjectPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97243F21E37A90C00BD5E9B /* DetailProjectPresenter.swift */; };
+		AE8F99BE1F6A7C6300C08A9F /* ShareFTPInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99C7CF61DC0F8FA00F2E03A /* ShareFTPInteractor.swift */; };
+		AE8F99BF1F6A7C6300C08A9F /* TrimRangeBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB93B1EC366A700AB6CE8 /* TrimRangeBarViewModel.swift */; };
+		AE8F99C01F6A7C6300C08A9F /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9781D990A4A00602DCD /* SettingsPresenter.swift */; };
+		AE8F99C11F6A7C6300C08A9F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE97B1D990A4A00602DCD /* SettingsViewController.swift */; };
+		AE8F99C21F6A7C6300C08A9F /* DetailTextPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9911D990C4100602DCD /* DetailTextPresenter.swift */; };
+		AE8F99C31F6A7C6300C08A9F /* MicRecorderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9F01EC3691E00AB6CE8 /* MicRecorderViewModel.swift */; };
+		AE8F99C41F6A7C6300C08A9F /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB361EC36CE900AB6CE8 /* SettingsModel.swift */; };
+		AE8F99C51F6A7C6300C08A9F /* DrawerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9001EC364FB00AB6CE8 /* DrawerConstants.swift */; };
+		AE8F99C61F6A7C6300C08A9F /* MusicListStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9991EC367BC00AB6CE8 /* MusicListStrings.swift */; };
+		AE8F99C91F6A7C6300C08A9F /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A94965761EAE8B84003FCBF6 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE9B190B1F3B62560035C9BD /* launchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9B190D1F3B62560035C9BD /* launchScreen.storyboard */; };
 		FC124062F81EE74D087514C4 /* Pods_vimojoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7632CB83B0D9EBF5233B0541 /* Pods_vimojoTests.framework */; };
 /* End PBXBuildFile section */
@@ -1410,6 +1745,13 @@
 			remoteGlobalIDString = BCE209E41943F20C002FEED8;
 			remoteInfo = GPUImageFramework;
 		};
+		AE8F98711F6A7C6300C08A9F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A949656D1EAE8B83003FCBF6 /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCE209E41943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -1453,6 +1795,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				AE491F641F3AFE6400B20B70 /* GPUImage.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE8F99C81F6A7C6300C08A9F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AE8F99C91F6A7C6300C08A9F /* GPUImage.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1846,6 +2199,8 @@
 		AE491FD01F3B030F00B20B70 /* configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = configuration.swift; sourceTree = "<group>"; };
 		AE491FD11F3B030F00B20B70 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE491FD31F3B030F00B20B70 /* ThomsonFoundation.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ThomsonFoundation.xcassets; sourceTree = "<group>"; };
+		AE8F99CD1F6A7C6300C08A9F /* Internal Vimojo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Internal Vimojo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE8F99CE1F6A7C6400C08A9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = /Users/devstarlight/Documents/Videona/ViMoJoiOS/Info.plist; sourceTree = "<absolute>"; };
 		AE9B190C1F3B62560035C9BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/launchScreen.storyboard; sourceTree = "<group>"; };
 		AEF0D2521F4ADF9D00DB42F3 /* Pods_vimojo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_vimojo.framework; path = "Pods/../build/Debug-iphoneos/Pods_vimojo.framework"; sourceTree = "<group>"; };
 		C33554B9F3DCC67612C52FF9 /* Pods-vimojoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-vimojoTests/Pods-vimojoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1912,6 +2267,19 @@
 				AE491E131F3AFE6400B20B70 /* FBSDKLoginKit.framework in Frameworks */,
 				AE491E151F3AFE6400B20B70 /* GPUImage.framework in Frameworks */,
 				2EE8EA3391CB386C8FD38C0B /* Pods_ThomsonFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE8F98731F6A7C6300C08A9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE8F98741F6A7C6300C08A9F /* Alamofire.framework in Frameworks */,
+				AE8F98751F6A7C6300C08A9F /* FBSDKCoreKit.framework in Frameworks */,
+				AE8F98761F6A7C6300C08A9F /* FBSDKShareKit.framework in Frameworks */,
+				AE8F98771F6A7C6300C08A9F /* FBSDKLoginKit.framework in Frameworks */,
+				AE8F98781F6A7C6300C08A9F /* GPUImage.framework in Frameworks */,
+				AE8F98791F6A7C6300C08A9F /* Pods_vimojo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2870,6 +3238,7 @@
 				A9D077F21E2F80B1003AE96B /* RTVE.app */,
 				A99BAD801E49DC9D00A465C7 /* PeriodistaCelular.app */,
 				AE491F681F3AFE6400B20B70 /* ThomsonFoundation.app */,
+				AE8F99CD1F6A7C6300C08A9F /* Internal Vimojo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3370,6 +3739,7 @@
 		A9D076D01E2F7F74003AE96B /* Targets */ = {
 			isa = PBXGroup;
 			children = (
+				AE8F99CF1F6A7E0F00C08A9F /* InternalVimojo */,
 				AE491FCF1F3B030F00B20B70 /* ThomsonFoundation */,
 				A99BAC451E49DC1D00A465C7 /* Periodista Celular */,
 				A9D076D11E2F7F7C003AE96B /* Vimojo */,
@@ -3453,6 +3823,14 @@
 				AE491FD31F3B030F00B20B70 /* ThomsonFoundation.xcassets */,
 			);
 			path = ThomsonFoundation;
+			sourceTree = "<group>";
+		};
+		AE8F99CF1F6A7E0F00C08A9F /* InternalVimojo */ = {
+			isa = PBXGroup;
+			children = (
+				AE8F99CE1F6A7C6400C08A9F /* Info.plist */,
+			);
+			name = InternalVimojo;
 			sourceTree = "<group>";
 		};
 		BCC440BCA8009FA05E7A4053 /* Pods */ = {
@@ -3588,6 +3966,30 @@
 			productReference = AE491F681F3AFE6400B20B70 /* ThomsonFoundation.app */;
 			productType = "com.apple.product-type.application";
 		};
+		AE8F986F1F6A7C6300C08A9F /* Internal Vimojo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE8F99CA1F6A7C6300C08A9F /* Build configuration list for PBXNativeTarget "Internal Vimojo" */;
+			buildPhases = (
+				AE8F98721F6A7C6300C08A9F /* [CP] Check Pods Manifest.lock */,
+				AE8F98731F6A7C6300C08A9F /* Frameworks */,
+				AE8F987A1F6A7C6300C08A9F /* Resources */,
+				AE8F989F1F6A7C6300C08A9F /* ShellScript */,
+				AE8F98A01F6A7C6300C08A9F /* ShellScript */,
+				AE8F98A11F6A7C6300C08A9F /* [CP] Embed Pods Frameworks */,
+				AE8F98A21F6A7C6300C08A9F /* Sources */,
+				AE8F99C71F6A7C6300C08A9F /* [CP] Copy Pods Resources */,
+				AE8F99C81F6A7C6300C08A9F /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE8F98701F6A7C6300C08A9F /* PBXTargetDependency */,
+			);
+			name = "Internal Vimojo";
+			productName = vimojo;
+			productReference = AE8F99CD1F6A7C6300C08A9F /* Internal Vimojo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -3621,6 +4023,9 @@
 					AE491E0B1F3AFE6400B20B70 = {
 						DevelopmentTeam = 98YJ9HU6W9;
 					};
+					AE8F986F1F6A7C6300C08A9F = {
+						DevelopmentTeam = 98YJ9HU6W9;
+					};
 				};
 			};
 			buildConfigurationList = A9B385E11D7D51380065D3EC /* Build configuration list for PBXProject "vimojo" */;
@@ -3648,6 +4053,7 @@
 				A9D076D61E2F80B1003AE96B /* RTVE */,
 				A99BAC4A1E49DC9D00A465C7 /* PeriodistaCelular */,
 				AE491E0B1F3AFE6400B20B70 /* ThomsonFoundation */,
+				AE8F986F1F6A7C6300C08A9F /* Internal Vimojo */,
 			);
 		};
 /* End PBXProject section */
@@ -3850,6 +4256,49 @@
 				AE491E381F3AFE6400B20B70 /* MusicDetailView.xib in Resources */,
 				AE491E391F3AFE6400B20B70 /* Share.strings in Resources */,
 				AE491E3A1F3AFE6400B20B70 /* filter_free.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE8F987A1F6A7C6300C08A9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE8F987B1F6A7C6300C08A9F /* MusicDetailView.strings in Resources */,
+				AE8F987C1F6A7C6300C08A9F /* activity_record_rec_circle.png in Resources */,
+				AE8F987D1F6A7C6300C08A9F /* jazzyfrenchy.mp3 in Resources */,
+				AE8F987E1F6A7C6300C08A9F /* MicRecorder.strings in Resources */,
+				AE8F987F1F6A7C6300C08A9F /* VimojoLaunchScreen.storyboard in Resources */,
+				AE8F98801F6A7C6300C08A9F /* MusicListCell.xib in Resources */,
+				AE8F98811F6A7C6300C08A9F /* Gallery.storyboard in Resources */,
+				AE8F98821F6A7C6300C08A9F /* water_mark.png in Resources */,
+				AE8F98831F6A7C6300C08A9F /* iso639_2.bundle in Resources */,
+				AE8F98841F6A7C6300C08A9F /* ShareCell.xib in Resources */,
+				AE8F98851F6A7C6300C08A9F /* DetailProject.strings in Resources */,
+				AE8F98861F6A7C6300C08A9F /* MusicListView.xib in Resources */,
+				AE8F98871F6A7C6300C08A9F /* ProjectList.strings in Resources */,
+				AE8F98881F6A7C6300C08A9F /* Record.storyboard in Resources */,
+				AE8F98891F6A7C6300C08A9F /* GoogleService-Info.plist in Resources */,
+				AE8F988A1F6A7C6300C08A9F /* Settings.strings in Resources */,
+				AE8F988B1F6A7C6300C08A9F /* goinghigher.mp3 in Resources */,
+				AE8F988C1F6A7C6300C08A9F /* Drawer.storyboard in Resources */,
+				AE8F988D1F6A7C6300C08A9F /* Vimojo.xcassets in Resources */,
+				AE8F988E1F6A7C6300C08A9F /* ukulele.mp3 in Resources */,
+				AE8F988F1F6A7C6300C08A9F /* Info.plist in Resources */,
+				AE8F98901F6A7C6300C08A9F /* DrawerMenu.strings in Resources */,
+				AE8F98911F6A7C6300C08A9F /* EditorStrings.strings in Resources */,
+				AE8F98921F6A7C6300C08A9F /* Assets.xcassets in Resources */,
+				AE8F98931F6A7C6300C08A9F /* Main.storyboard in Resources */,
+				AE8F98941F6A7C6300C08A9F /* VideonaFooterView.xib in Resources */,
+				AE8F98951F6A7C6300C08A9F /* Editor.storyboard in Resources */,
+				AE8F98961F6A7C6300C08A9F /* MusicProvider.strings in Resources */,
+				AE8F98971F6A7C6300C08A9F /* LICENSE in Resources */,
+				AE8F98981F6A7C6300C08A9F /* MuiscSelectorTableViewCell.xib in Resources */,
+				AE8F98991F6A7C6300C08A9F /* ProjectList.storyboard in Resources */,
+				AE8F989A1F6A7C6300C08A9F /* VideoCarrusselCollectionViewCell.xib in Resources */,
+				AE8F989B1F6A7C6300C08A9F /* acousticbreeze.mp3 in Resources */,
+				AE8F989C1F6A7C6300C08A9F /* MusicDetailView.xib in Resources */,
+				AE8F989D1F6A7C6300C08A9F /* Share.strings in Resources */,
+				AE8F989E1F6A7C6300C08A9F /* filter_free.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4248,12 +4697,103 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-vimojo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE8F989F1F6A7C6300C08A9F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+		AE8F98A01F6A7C6300C08A9F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/Fabric/run 1f6610673faf2f5fcde5824176e94c8f4570aa2c c529f00d2df71a2bc5215e4a75166cec6733c4781ea9e8df57d0c752e909701d";
+		};
+		AE8F98A11F6A7C6300C08A9F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS10.3/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2-iOS10.3/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher-iOS10.3/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-iOS10.3/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/KCFloatingActionButton-iOS10.3/KCFloatingActionButton.framework",
+				"${BUILT_PRODUCTS_DIR}/MBCircularProgressBar-iOS10.3/MBCircularProgressBar.framework",
+				"${BUILT_PRODUCTS_DIR}/Mixpanel-iOS10.3/Mixpanel.framework",
+				"${BUILT_PRODUCTS_DIR}/NMRangeSlider-iOS10.3/NMRangeSlider.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm-iOS10.3/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift-iOS10.3/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwifterSwift-iOS10.3/SwifterSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/TTRangeSlider-iOS10.3/TTRangeSlider.framework",
+				"${BUILT_PRODUCTS_DIR}/VideonaProject-iOS10.3/VideonaProject.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KCFloatingActionButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBCircularProgressBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mixpanel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NMRangeSlider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTRangeSlider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VideonaProject.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE8F99C71F6A7C6300C08A9F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -5468,6 +6008,305 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AE8F98A21F6A7C6300C08A9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE8F98A31F6A7C6300C08A9F /* RealmProjectToProjectMapper.swift in Sources */,
+				AE8F98A41F6A7C6300C08A9F /* SettingsFTPUneditedDestination.swift in Sources */,
+				AE8F98A51F6A7C6300C08A9F /* SettingsFTPBreakingNewsUneditedDestination.swift in Sources */,
+				AE8F98A61F6A7C6300C08A9F /* UITableViewExtension.swift in Sources */,
+				AE8F98A71F6A7C6300C08A9F /* DetailProjectViewModel.swift in Sources */,
+				AE8F98A81F6A7C6300C08A9F /* MusicListConstants.swift in Sources */,
+				AE8F98A91F6A7C6300C08A9F /* CameraInteractor.swift in Sources */,
+				AE8F98AA1F6A7C6300C08A9F /* ViMoJoInterface.swift in Sources */,
+				AE8F98AB1F6A7C6300C08A9F /* Operation.swift in Sources */,
+				AE8F98AC1F6A7C6300C08A9F /* ViMoJoConfiguration.swift in Sources */,
+				AE8F98AD1F6A7C6300C08A9F /* CameraInteractorInterface.swift in Sources */,
+				AE8F98AE1F6A7C6300C08A9F /* SettingsCameraSettings.swift in Sources */,
+				AE8F98AF1F6A7C6300C08A9F /* CustomDPTheme.swift in Sources */,
+				AE8F98B01F6A7C6300C08A9F /* AddFilterToVideoCollectionViewExtension.swift in Sources */,
+				AE8F98B11F6A7C6300C08A9F /* FullScreenPlayerWireframe.swift in Sources */,
+				AE8F98B21F6A7C6300C08A9F /* DrawerMenuWireframe.swift in Sources */,
+				AE8F98B31F6A7C6300C08A9F /* AddTextPresenterInterface.swift in Sources */,
+				AE8F98B41F6A7C6300C08A9F /* ReloadProjectWithProjectAction.swift in Sources */,
+				AE8F98B51F6A7C6300C08A9F /* MusicListPresenterInterface.swift in Sources */,
+				AE8F98B61F6A7C6300C08A9F /* RealmAudio.swift in Sources */,
+				AE8F98B71F6A7C6300C08A9F /* EditorTextConstants.swift in Sources */,
+				AE8F98B81F6A7C6300C08A9F /* DetailTextWireframe.swift in Sources */,
+				AE8F98B91F6A7C6300C08A9F /* RecordPresenterInterfaceIO.swift in Sources */,
+				AE8F98BA1F6A7C6300C08A9F /* DetailProjectInteractor.swift in Sources */,
+				AE8F98BB1F6A7C6300C08A9F /* DuplicateViewController.swift in Sources */,
+				AE8F98BC1F6A7C6300C08A9F /* AddTextInteractor.swift in Sources */,
+				AE8F98BD1F6A7C6300C08A9F /* ProfileSharedPreferencesRepository.swift in Sources */,
+				AE8F98BE1F6A7C6300C08A9F /* DetailProjectPresenterInterface.swift in Sources */,
+				AE8F98BF1F6A7C6300C08A9F /* RootWireframe.swift in Sources */,
+				AE8F98C01F6A7C6300C08A9F /* SocialNetwork.swift in Sources */,
+				AE8F98C11F6A7C6300C08A9F /* ShareWireframe.swift in Sources */,
+				AE8F98C21F6A7C6300C08A9F /* MusicDetailView.swift in Sources */,
+				AE8F98C31F6A7C6300C08A9F /* AddTextViewController.swift in Sources */,
+				AE8F98C41F6A7C6300C08A9F /* MicRecorderInteractor.swift in Sources */,
+				AE8F98C51F6A7C6300C08A9F /* RealmAudioToAudioMapper.swift in Sources */,
+				AE8F98C61F6A7C6300C08A9F /* AddTextModel.swift in Sources */,
+				AE8F98C71F6A7C6300C08A9F /* AddTextInteractorInterface.swift in Sources */,
+				AE8F98C81F6A7C6300C08A9F /* SettingsFTPBreakingNewsEditedDestination.swift in Sources */,
+				AE8F98C91F6A7C6300C08A9F /* TakePhotoFromOptions.swift in Sources */,
+				AE8F98CA1F6A7C6300C08A9F /* VideoRepository.swift in Sources */,
+				AE8F98CB1F6A7C6300C08A9F /* SettingsResolutionAction.swift in Sources */,
+				AE8F98CC1F6A7C6300C08A9F /* ShareFTPBreakingNewsInteractor.swift in Sources */,
+				AE8F98CD1F6A7C6300C08A9F /* GetMiddleRangeSliderValueWorker.swift in Sources */,
+				AE8F98CE1F6A7C6300C08A9F /* SplitViewController.swift in Sources */,
+				AE8F98CF1F6A7C6300C08A9F /* Session.swift in Sources */,
+				AE8F98D01F6A7C6300C08A9F /* AddTextWireframe.swift in Sources */,
+				AE8F98D11F6A7C6300C08A9F /* MusicListWireframe.swift in Sources */,
+				AE8F98D21F6A7C6300C08A9F /* RecorderInteractor.swift in Sources */,
+				AE8F98D31F6A7C6300C08A9F /* UIViewFadeViewsExtension.swift in Sources */,
+				AE8F98D41F6A7C6300C08A9F /* ApplyTextOverlayToVideoCompositionUseCase.swift in Sources */,
+				AE8F98D51F6A7C6300C08A9F /* CMTimeExtension.swift in Sources */,
+				AE8F98D61F6A7C6300C08A9F /* AnalitycsConstants.swift in Sources */,
+				AE8F98D71F6A7C6300C08A9F /* ProjectToRealmProjectMapper.swift in Sources */,
+				AE8F98D81F6A7C6300C08A9F /* EditingRoomPresenter.swift in Sources */,
+				AE8F98D91F6A7C6300C08A9F /* Mapper.swift in Sources */,
+				AE8F98DA1F6A7C6300C08A9F /* ShareVideoPath.swift in Sources */,
+				AE8F98DB1F6A7C6300C08A9F /* ExportedAlbum.swift in Sources */,
+				AE8F98DC1F6A7C6300C08A9F /* DetailProjectViewController.swift in Sources */,
+				AE8F98DD1F6A7C6300C08A9F /* StringsExtension.swift in Sources */,
+				AE8F98DE1F6A7C6300C08A9F /* ProjectListCellView.swift in Sources */,
+				AE8F98DF1F6A7C6300C08A9F /* ExporterInteractor.swift in Sources */,
+				AE8F98E01F6A7C6300C08A9F /* ProfileRepository.swift in Sources */,
+				AE8F98E11F6A7C6300C08A9F /* DetailTextInteractor.swift in Sources */,
+				AE8F98E21F6A7C6300C08A9F /* AddFilterToVideoPresenter.swift in Sources */,
+				AE8F98E31F6A7C6300C08A9F /* RecordDrawerController.swift in Sources */,
+				AE8F98E41F6A7C6300C08A9F /* MicRecorderViewController.swift in Sources */,
+				AE8F98E51F6A7C6300C08A9F /* ProjectListPresenter.swift in Sources */,
+				AE8F98E61F6A7C6300C08A9F /* RecordPresenter.swift in Sources */,
+				AE8F98E71F6A7C6300C08A9F /* EditorClipsCell.swift in Sources */,
+				AE8F98E81F6A7C6300C08A9F /* EditorPresenter.swift in Sources */,
+				AE8F98E91F6A7C6300C08A9F /* GoToRecordOrGalleryWireframe.swift in Sources */,
+				AE8F98EA1F6A7C6300C08A9F /* TrimWireframe.swift in Sources */,
+				AE8F98EB1F6A7C6300C08A9F /* EditorViewController.swift in Sources */,
+				AE8F98EC1F6A7C6300C08A9F /* ThumbnailInteractor.swift in Sources */,
+				AE8F98ED1F6A7C6300C08A9F /* CheckPhotoRollPermissionUseCase.swift in Sources */,
+				AE8F98EE1F6A7C6300C08A9F /* SaveVideosFromGalleryInterface.swift in Sources */,
+				AE8F98EF1F6A7C6300C08A9F /* MusicSelectorCellViewModel.swift in Sources */,
+				AE8F98F01F6A7C6300C08A9F /* CameraRecorderInterface.swift in Sources */,
+				AE8F98F11F6A7C6300C08A9F /* SettingsEmailAction.swift in Sources */,
+				AE8F98F21F6A7C6300C08A9F /* MusicProvider.swift in Sources */,
+				AE8F98F31F6A7C6300C08A9F /* ChangeFilterInteractor.swift in Sources */,
+				AE8F98F41F6A7C6300C08A9F /* ShareWhatsappInteractor.swift in Sources */,
+				AE8F98F51F6A7C6300C08A9F /* SharePresenter.swift in Sources */,
+				AE8F98F61F6A7C6300C08A9F /* KYDrawerController.swift in Sources */,
+				AE8F98F71F6A7C6300C08A9F /* FTPErrorType.swift in Sources */,
+				AE8F98F81F6A7C6300C08A9F /* DPTheme.swift in Sources */,
+				AE8F98F91F6A7C6300C08A9F /* MusicListViewController.swift in Sources */,
+				AE8F98FA1F6A7C6300C08A9F /* DuplicateInterface.swift in Sources */,
+				AE8F98FB1F6A7C6300C08A9F /* AddTextPresenter.swift in Sources */,
+				AE8F98FC1F6A7C6300C08A9F /* DrawerMenuTableViewController.swift in Sources */,
+				AE8F98FD1F6A7C6300C08A9F /* AudioToRealmAudioMapper.swift in Sources */,
+				AE8F98FE1F6A7C6300C08A9F /* SetTrimParametersToVideo.swift in Sources */,
+				AE8F98FF1F6A7C6300C08A9F /* MusicModels.swift in Sources */,
+				AE8F99001F6A7C6300C08A9F /* MusicListInteractorInterface.swift in Sources */,
+				AE8F99011F6A7C6300C08A9F /* GalleryWireframe.swift in Sources */,
+				AE8F99021F6A7C6300C08A9F /* FilterCollectionViewCell.swift in Sources */,
+				AE8F99031F6A7C6300C08A9F /* ExportTemporalVideoToShare.swift in Sources */,
+				AE8F99041F6A7C6300C08A9F /* DrawerMenuInteractorInterface.swift in Sources */,
+				AE8F99051F6A7C6300C08A9F /* ViMoJoTracker.swift in Sources */,
+				AE8F99061F6A7C6300C08A9F /* MusicPresenter.swift in Sources */,
+				AE8F99071F6A7C6300C08A9F /* ProjectRepository.swift in Sources */,
+				AE8F99081F6A7C6300C08A9F /* EditorInteractor.swift in Sources */,
+				AE8F99091F6A7C6300C08A9F /* CustomClipsGalleryViewController.swift in Sources */,
+				AE8F990A1F6A7C6300C08A9F /* ShareViewController.swift in Sources */,
+				AE8F990B1F6A7C6300C08A9F /* MixAudioModel.swift in Sources */,
+				AE8F990C1F6A7C6300C08A9F /* ShareViewModel.swift in Sources */,
+				AE8F990D1F6A7C6300C08A9F /* TrimParameters.swift in Sources */,
+				AE8F990E1F6A7C6300C08A9F /* SettingsFTPEditedDestination.swift in Sources */,
+				AE8F990F1F6A7C6300C08A9F /* FileUploadOperation.swift in Sources */,
+				AE8F99101F6A7C6300C08A9F /* SettingsContent.swift in Sources */,
+				AE8F99111F6A7C6300C08A9F /* ProjectListConstants.swift in Sources */,
+				AE8F99121F6A7C6300C08A9F /* SettingsFTPBreakingNewsPasswordAction.swift in Sources */,
+				AE8F99131F6A7C6300C08A9F /* SettingsUserInfo.swift in Sources */,
+				AE8F99141F6A7C6300C08A9F /* SettingsWatermarkAction.swift in Sources */,
+				AE8F99151F6A7C6300C08A9F /* RealmVideo.swift in Sources */,
+				AE8F99161F6A7C6300C08A9F /* MusicPresenterInterface.swift in Sources */,
+				AE8F99171F6A7C6300C08A9F /* MicRecorderPresenter.swift in Sources */,
+				AE8F99181F6A7C6300C08A9F /* DuplicateWireframe.swift in Sources */,
+				AE8F99191F6A7C6300C08A9F /* WriteStreamOperation.swift in Sources */,
+				AE8F991A1F6A7C6300C08A9F /* RecordWireframe.swift in Sources */,
+				AE8F991B1F6A7C6300C08A9F /* FullScreenPlayerViewController.swift in Sources */,
+				AE8F991C1F6A7C6300C08A9F /* MusicListView.swift in Sources */,
+				AE8F991D1F6A7C6300C08A9F /* DetailTextInteractorInterface.swift in Sources */,
+				AE8F991E1F6A7C6300C08A9F /* DrawerMenuPresenter.swift in Sources */,
+				AE8F991F1F6A7C6300C08A9F /* SettingsPresenterInterface.swift in Sources */,
+				AE8F99201F6A7C6300C08A9F /* FileDownloadOperation.swift in Sources */,
+				AE8F99211F6A7C6300C08A9F /* SettingsConstants.swift in Sources */,
+				AE8F99221F6A7C6300C08A9F /* FilterCollectionViewModel.swift in Sources */,
+				AE8F99231F6A7C6300C08A9F /* ReadStreamOperation.swift in Sources */,
+				AE8F99241F6A7C6300C08A9F /* RealmProject.swift in Sources */,
+				AE8F99251F6A7C6300C08A9F /* MusicProviderForVimojo.swift in Sources */,
+				AE8F99261F6A7C6300C08A9F /* AddWatermarkUseCase.swift in Sources */,
+				AE8F99271F6A7C6300C08A9F /* RecordController.swift in Sources */,
+				AE8F99281F6A7C6300C08A9F /* Audio4VideoViewController.swift in Sources */,
+				AE8F99291F6A7C6300C08A9F /* ProjectListInteractorInterface.swift in Sources */,
+				AE8F992A1F6A7C6300C08A9F /* FullScreenPlayerPresenterInterface.swift in Sources */,
+				AE8F992B1F6A7C6300C08A9F /* CreateNewProjectUseCase.swift in Sources */,
+				AE8F992C1F6A7C6300C08A9F /* ConfigPreferences.swift in Sources */,
+				AE8F992D1F6A7C6300C08A9F /* SettingsQualityAction.swift in Sources */,
+				AE8F992E1F6A7C6300C08A9F /* EditorPresenterInterface.swift in Sources */,
+				AE8F992F1F6A7C6300C08A9F /* DuplicateProjectOnProjectListAction.swift in Sources */,
+				AE8F99301F6A7C6300C08A9F /* FilterProvider.swift in Sources */,
+				AE8F99311F6A7C6300C08A9F /* ProjectParametersViewModel.swift in Sources */,
+				AE8F99321F6A7C6300C08A9F /* ClipsAlbum.swift in Sources */,
+				AE8F99331F6A7C6300C08A9F /* ShareCell.swift in Sources */,
+				AE8F99341F6A7C6300C08A9F /* RecorderInteractorInterface.swift in Sources */,
+				AE8F99351F6A7C6300C08A9F /* NSLocale+ISO639_2.m in Sources */,
+				AE8F99361F6A7C6300C08A9F /* GetVoiceOverComposition.swift in Sources */,
+				AE8F99371F6A7C6300C08A9F /* SettingsFTPBreakingNewsUsernameAction.swift in Sources */,
+				AE8F99381F6A7C6300C08A9F /* SettingsUtils.swift in Sources */,
+				AE8F99391F6A7C6300C08A9F /* SettingsFTPUsernameAction.swift in Sources */,
+				AE8F993A1F6A7C6300C08A9F /* MusicDetailViewModel.swift in Sources */,
+				AE8F993B1F6A7C6300C08A9F /* ResourceListOperation.swift in Sources */,
+				AE8F993C1F6A7C6300C08A9F /* RemoveProjectOnProjectListAction.swift in Sources */,
+				AE8F993D1F6A7C6300C08A9F /* DetailProjectFoundToDetailProjectViewModelMapper.swift in Sources */,
+				AE8F993E1F6A7C6300C08A9F /* SettingsInteractor.swift in Sources */,
+				AE8F993F1F6A7C6300C08A9F /*  GetSeekTimeFromValueOnVideo.swift in Sources */,
+				AE8F99401F6A7C6300C08A9F /* SaveVideosFromGalleryInteractor.swift in Sources */,
+				AE8F99411F6A7C6300C08A9F /* AllVideosGalleryViewController.swift in Sources */,
+				AE8F99421F6A7C6300C08A9F /* DateCompareExtension.swift in Sources */,
+				AE8F99431F6A7C6300C08A9F /* CustomExportedVideosGalleryViewController.swift in Sources */,
+				AE8F99441F6A7C6300C08A9F /* MusicInteractor.swift in Sources */,
+				AE8F99451F6A7C6300C08A9F /* ProjectListInteractor.swift in Sources */,
+				AE8F99461F6A7C6300C08A9F /* SharePresenterInterface.swift in Sources */,
+				AE8F99471F6A7C6300C08A9F /* DrawerMenuPresenterInterface.swift in Sources */,
+				AE8F99481F6A7C6300C08A9F /* AudioRealmRepository.swift in Sources */,
+				AE8F99491F6A7C6300C08A9F /* SettingsFTPPasswordAction.swift in Sources */,
+				AE8F994A1F6A7C6300C08A9F /* GalleryFetchOptions.swift in Sources */,
+				AE8F994B1F6A7C6300C08A9F /* ShareYoutubeInteractor.swift in Sources */,
+				AE8F994C1F6A7C6300C08A9F /* ConfigureNavBarVimojoExtension.swift in Sources */,
+				AE8F994D1F6A7C6300C08A9F /* SettingsActionInterface.swift in Sources */,
+				AE8F994E1F6A7C6300C08A9F /* CreateDefaultProjectUseCase.swift in Sources */,
+				AE8F994F1F6A7C6300C08A9F /* TimerInteractor.swift in Sources */,
+				AE8F99501F6A7C6300C08A9F /* RealmMigrationsUseCase.swift in Sources */,
+				AE8F99511F6A7C6300C08A9F /* SettingsNameAction.swift in Sources */,
+				AE8F99521F6A7C6300C08A9F /* RecordDrawerWireframe.swift in Sources */,
+				AE8F99531F6A7C6300C08A9F /* Specification.swift in Sources */,
+				AE8F99541F6A7C6300C08A9F /* AppDelegate.swift in Sources */,
+				AE8F99551F6A7C6300C08A9F /* RecordedTrackAreaViewModel.swift in Sources */,
+				AE8F99561F6A7C6300C08A9F /* SettingsLegalURLConstants.swift in Sources */,
+				AE8F99571F6A7C6300C08A9F /* VideoToRealmVideoMapper.swift in Sources */,
+				AE8F99581F6A7C6300C08A9F /* DrawerMenuInteractor.swift in Sources */,
+				AE8F99591F6A7C6300C08A9F /* DrawerProfileTableViewCell.swift in Sources */,
+				AE8F995A1F6A7C6300C08A9F /* ShareConstants.swift in Sources */,
+				AE8F995B1F6A7C6300C08A9F /* RecorderConstants.swift in Sources */,
+				AE8F995C1F6A7C6300C08A9F /* KYEmbedMainControllerSegue.swift in Sources */,
+				AE8F995D1F6A7C6300C08A9F /* MusicListInteractor.swift in Sources */,
+				AE8F995E1F6A7C6300C08A9F /* AddFilterToVideoInteractor.swift in Sources */,
+				AE8F995F1F6A7C6300C08A9F /* RemoveFilterInteractor.swift in Sources */,
+				AE8F99601F6A7C6300C08A9F /* Repository.swift in Sources */,
+				AE8F99611F6A7C6300C08A9F /* ProjectFound.swift in Sources */,
+				AE8F99621F6A7C6300C08A9F /* SettingsFTPHostAction.swift in Sources */,
+				AE8F99631F6A7C6300C08A9F /* AddFilterToVideoViewController.swift in Sources */,
+				AE8F99641F6A7C6300C08A9F /* GetPHAssetFromUrl.swift in Sources */,
+				AE8F99651F6A7C6300C08A9F /* ThumbnailListInteractor.swift in Sources */,
+				AE8F99661F6A7C6300C08A9F /* ProjectListViewController.swift in Sources */,
+				AE8F99671F6A7C6300C08A9F /* CheckPermission.swift in Sources */,
+				AE8F99681F6A7C6300C08A9F /* TimerInteractorInterface.swift in Sources */,
+				AE8F99691F6A7C6300C08A9F /* SettingsFTP.swift in Sources */,
+				AE8F996A1F6A7C6300C08A9F /* ResolutionsImages.swift in Sources */,
+				AE8F996B1F6A7C6300C08A9F /* SettingsFTPBreakingNewsHostAction.swift in Sources */,
+				AE8F996C1F6A7C6300C08A9F /* VideoRealmRepository.swift in Sources */,
+				AE8F996D1F6A7C6300C08A9F /* AddFilterToVideoWireframe.swift in Sources */,
+				AE8F996E1F6A7C6300C08A9F /* FullScreenPlayerPresenter.swift in Sources */,
+				AE8F996F1F6A7C6300C08A9F /* MusicInteractorInterface.swift in Sources */,
+				AE8F99701F6A7C6300C08A9F /* ProjectListPresenterInterface.swift in Sources */,
+				AE8F99711F6A7C6300C08A9F /* GalleryViewController.swift in Sources */,
+				AE8F99721F6A7C6300C08A9F /* AudioRepository.swift in Sources */,
+				AE8F99731F6A7C6300C08A9F /* AddFilterToVideoInteractorInterface.swift in Sources */,
+				AE8F99741F6A7C6300C08A9F /* MicRecorderWireframe.swift in Sources */,
+				AE8F99751F6A7C6300C08A9F /* README.md in Sources */,
+				AE8F99761F6A7C6300C08A9F /* EditingRoomPresenterInterface.swift in Sources */,
+				AE8F99771F6A7C6300C08A9F /* GetCompositionForVideo.swift in Sources */,
+				AE8F99781F6A7C6300C08A9F /* SettingsTransition.swift in Sources */,
+				AE8F99791F6A7C6300C08A9F /* CameraRecorderInteractor.swift in Sources */,
+				AE8F997A1F6A7C6300C08A9F /* AppDependencies.swift in Sources */,
+				AE8F997B1F6A7C6300C08A9F /* TrimViewController.swift in Sources */,
+				AE8F997C1F6A7C6300C08A9F /* UIApplicationExtensionGetTopController.swift in Sources */,
+				AE8F997D1F6A7C6300C08A9F /* ShareInteractor.swift in Sources */,
+				AE8F997E1F6A7C6300C08A9F /* EditingRoomViewController.swift in Sources */,
+				AE8F997F1F6A7C6300C08A9F /* DirectoryCreationOperation.swift in Sources */,
+				AE8F99801F6A7C6300C08A9F /* ConfigurationProtocol.swift in Sources */,
+				AE8F99811F6A7C6300C08A9F /* SettingTransitionAction.swift in Sources */,
+				AE8F99821F6A7C6300C08A9F /* Audio4VideoPresenter.swift in Sources */,
+				AE8F99831F6A7C6300C08A9F /* Audio4VideoWireframe.swift in Sources */,
+				AE8F99841F6A7C6300C08A9F /* SplitWireframe.swift in Sources */,
+				AE8F99851F6A7C6300C08A9F /* MicRecorderConstants.swift in Sources */,
+				AE8F99861F6A7C6300C08A9F /* ShareInstagramInteractor.swift in Sources */,
+				AE8F99871F6A7C6300C08A9F /* DetailTextController.swift in Sources */,
+				AE8F99881F6A7C6300C08A9F /* MusicViewController.swift in Sources */,
+				AE8F99891F6A7C6300C08A9F /* ShareFacebookInteractor.swift in Sources */,
+				AE8F998A1F6A7C6300C08A9F /* SocialNetworkProvider.swift in Sources */,
+				AE8F998B1F6A7C6300C08A9F /* ShareTwitterInteractor.swift in Sources */,
+				AE8F998C1F6A7C6300C08A9F /* SettingsLegalTextAction.swift in Sources */,
+				AE8F998D1F6A7C6300C08A9F /* SplitViewInterface.swift in Sources */,
+				AE8F998E1F6A7C6300C08A9F /* EditorWireframe.swift in Sources */,
+				AE8F998F1F6A7C6300C08A9F /* DetailProjectWireframe.swift in Sources */,
+				AE8F99901F6A7C6300C08A9F /* SettingsInteractorInterface.swift in Sources */,
+				AE8F99911F6A7C6300C08A9F /* FlashInteractor.swift in Sources */,
+				AE8F99921F6A7C6300C08A9F /* AddFilterInteractor.swift in Sources */,
+				AE8F99931F6A7C6300C08A9F /* Audio4VideoInteractor.swift in Sources */,
+				AE8F99941F6A7C6300C08A9F /* ShareActionInterface.swift in Sources */,
+				AE8F99951F6A7C6300C08A9F /* EditingRoomViewInterface.swift in Sources */,
+				AE8F99961F6A7C6300C08A9F /* MusicWireframe.swift in Sources */,
+				AE8F99971F6A7C6300C08A9F /* MusicCell.swift in Sources */,
+				AE8F99981F6A7C6300C08A9F /* MuiscSelectorTableViewCell.swift in Sources */,
+				AE8F99991F6A7C6300C08A9F /* EditorModel.swift in Sources */,
+				AE8F999A1F6A7C6300C08A9F /* EditingRoomItemController.swift in Sources */,
+				AE8F999B1F6A7C6300C08A9F /* StreamOperation.swift in Sources */,
+				AE8F999C1F6A7C6300C08A9F /* SettingsProvider.swift in Sources */,
+				AE8F999D1F6A7C6300C08A9F /* DetailProjectInteractorInterface.swift in Sources */,
+				AE8F999E1F6A7C6300C08A9F /* EstimationByQualityAndDuration.swift in Sources */,
+				AE8F999F1F6A7C6300C08A9F /* VimojoWireframeInterface.swift in Sources */,
+				AE8F99A01F6A7C6300C08A9F /* FilterFoundModel.swift in Sources */,
+				AE8F99A11F6A7C6300C08A9F /* SettingsUsernameAction.swift in Sources */,
+				AE8F99A21F6A7C6300C08A9F /* GoToRecordOrGalleryViewController.swift in Sources */,
+				AE8F99A31F6A7C6300C08A9F /* ProjectRealmRepository.swift in Sources */,
+				AE8F99A41F6A7C6300C08A9F /* CheckMicPermissionUseCase.swift in Sources */,
+				AE8F99A51F6A7C6300C08A9F /* SettingsFTPBreakingNews.swift in Sources */,
+				AE8F99A61F6A7C6300C08A9F /* ViMoJoController.swift in Sources */,
+				AE8F99A71F6A7C6300C08A9F /* KYEmbedDrawerControllerSegue.swift in Sources */,
+				AE8F99A81F6A7C6300C08A9F /* DetailProjectFound.swift in Sources */,
+				AE8F99A91F6A7C6300C08A9F /* ShareInteractorInterface.swift in Sources */,
+				AE8F99AA1F6A7C6300C08A9F /* VideoParameterSlider.swift in Sources */,
+				AE8F99AB1F6A7C6300C08A9F /* MusicListPresenter.swift in Sources */,
+				AE8F99AC1F6A7C6300C08A9F /* SettingsWireframe.swift in Sources */,
+				AE8F99AD1F6A7C6300C08A9F /* NotificationsName+Extension.swift in Sources */,
+				AE8F99AE1F6A7C6300C08A9F /* MicRecorderInteractorInterface.swift in Sources */,
+				AE8F99AF1F6A7C6300C08A9F /* FullScreenPlayerInterface.swift in Sources */,
+				AE8F99B01F6A7C6300C08A9F /* MicRecorderPresenterInterface.swift in Sources */,
+				AE8F99B11F6A7C6300C08A9F /* VideoCarrusselCollectionViewCell.swift in Sources */,
+				AE8F99B21F6A7C6300C08A9F /* DetailTextPresenterInterface.swift in Sources */,
+				AE8F99B31F6A7C6300C08A9F /* ShareUtils.swift in Sources */,
+				AE8F99B41F6A7C6300C08A9F /* TwitterVideoUpload.m in Sources */,
+				AE8F99B51F6A7C6300C08A9F /* ProjectListWireframe.swift in Sources */,
+				AE8F99B61F6A7C6300C08A9F /* CheckCameraPermissionUseCase.swift in Sources */,
+				AE8F99B71F6A7C6300C08A9F /* EditorInteractorInterface.swift in Sources */,
+				AE8F99B81F6A7C6300C08A9F /* ShareSave.swift in Sources */,
+				AE8F99B91F6A7C6300C08A9F /* AddFilterToVideoPresenterInterface.swift in Sources */,
+				AE8F99BA1F6A7C6300C08A9F /* RealmVideoToVideoMapper.swift in Sources */,
+				AE8F99BB1F6A7C6300C08A9F /* EditingRoomWireframe.swift in Sources */,
+				AE8F99BC1F6A7C6300C08A9F /* ProjectListViewModel.swift in Sources */,
+				AE8F99BD1F6A7C6300C08A9F /* DetailProjectPresenter.swift in Sources */,
+				AE8F99BE1F6A7C6300C08A9F /* ShareFTPInteractor.swift in Sources */,
+				AE8F99BF1F6A7C6300C08A9F /* TrimRangeBarViewModel.swift in Sources */,
+				AE8F99C01F6A7C6300C08A9F /* SettingsPresenter.swift in Sources */,
+				AE8F99C11F6A7C6300C08A9F /* SettingsViewController.swift in Sources */,
+				AE8F99C21F6A7C6300C08A9F /* DetailTextPresenter.swift in Sources */,
+				AE8F99C31F6A7C6300C08A9F /* MicRecorderViewModel.swift in Sources */,
+				AE8F99C41F6A7C6300C08A9F /* SettingsModel.swift in Sources */,
+				AE8F99C51F6A7C6300C08A9F /* DrawerConstants.swift in Sources */,
+				AE8F99C61F6A7C6300C08A9F /* MusicListStrings.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -5495,6 +6334,11 @@
 			isa = PBXTargetDependency;
 			name = GPUImageFramework;
 			targetProxy = AE491E0D1F3AFE6400B20B70 /* PBXContainerItemProxy */;
+		};
+		AE8F98701F6A7C6300C08A9F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImageFramework;
+			targetProxy = AE8F98711F6A7C6300C08A9F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -6098,6 +6942,90 @@
 			};
 			name = Release;
 		};
+		AE8F99CB1F6A7C6300C08A9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEB50E8D05F1EF1E6D2B3561 /* Pods-vimojo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Iago Fernández cedron (JVQF87BH8Q)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Iago Fernández cedron (JVQF87BH8Q)";
+				DEVELOPMENT_TEAM = 98YJ9HU6W9;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Crashlytics/iOS\"",
+					"\"${PODS_ROOT}/Fabric/iOS\"",
+					"$(PROJECT_DIR)/Videona",
+					"Frameworks/**",
+					"$(PROJECT_DIR)/Videona",
+					"Frameworks/SpaceOnDisk/**",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Build/Products/Debug-iphoneos",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"GTM_OAUTH2_USE_FRAMEWORK_IMPORTS=1",
+					"MIXPANEL_ERROR=1",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR)";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DDEBUG\"";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.internal;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "a5e43de7-f27b-4e85-a58a-39ad611f02d7";
+				PROVISIONING_PROFILE_SPECIFIER = "Internal Vimojo Development";
+				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AE8F99CC1F6A7C6300C08A9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 436F9341308AA24746456CA4 /* Pods-vimojo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Videona SocialMedia S.L. (98YJ9HU6W9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Videona SocialMedia S.L. (98YJ9HU6W9)";
+				DEVELOPMENT_TEAM = 98YJ9HU6W9;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Crashlytics/iOS\"",
+					"\"${PODS_ROOT}/Fabric/iOS\"",
+					"$(PROJECT_DIR)/Videona",
+					"Frameworks/**",
+					"$(PROJECT_DIR)/Videona",
+					"Frameworks/SpaceOnDisk/**",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Build/Products/Debug-iphoneos",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"GTM_OAUTH2_USE_FRAMEWORK_IMPORTS=1",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR) @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DRELEASE\"";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.internal;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "46ff40df-9e91-4a46-9d76-7837a7cf6822";
+				PROVISIONING_PROFILE_SPECIFIER = "Internal Vimojo Distribution";
+				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -6151,6 +7079,15 @@
 			buildConfigurations = (
 				AE491F661F3AFE6400B20B70 /* Debug */,
 				AE491F671F3AFE6400B20B70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE8F99CA1F6A7C6300C08A9F /* Build configuration list for PBXNativeTarget "Internal Vimojo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE8F99CB1F6A7C6300C08A9F /* Debug */,
+				AE8F99CC1F6A7C6300C08A9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
