@@ -155,6 +155,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         rotateInputGainSlider()
 
         self.thumbnailNumberClips.adjustsFontSizeToFitWidth = true
+        secondaryChronometerLabel.adjustsFontSizeToFitWidth = true
     }
 
     func configureTapDisplay() {

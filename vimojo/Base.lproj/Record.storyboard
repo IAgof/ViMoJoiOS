@@ -512,7 +512,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" verifyAmbiguity="ignoreSizes" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eCP-P5-tk2" userLabel="Wrapped View">
-                                        <rect key="frame" x="585.5" y="198" width="66.5" height="167"/>
+                                        <rect key="frame" x="585.5" y="206" width="66.5" height="159"/>
                                         <subviews>
                                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V62-32-pM2" userLabel="Show Camera Pro Button">
                                                 <rect key="frame" x="25" y="12" width="16" height="22"/>
@@ -522,27 +522,16 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_rec_gallery" highlightedImage="activity_rec_gallery_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="RhQ-Vq-oSU" userLabel="Thumbnail Image View">
-                                                <rect key="frame" x="16.5" y="46" width="33.5" height="29.5"/>
+                                                <rect key="frame" x="16.5" y="49" width="33.5" height="29.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="RhQ-Vq-oSU" secondAttribute="height" multiplier="8:7" id="lNy-wn-aKP"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVO-Ig-tAv" userLabel="Record button">
-                                                <rect key="frame" x="10" y="113" width="46.5" height="46"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="sVO-Ig-tAv" secondAttribute="height" multiplier="1:1" id="OSE-n0-5Bi"/>
-                                                </constraints>
-                                                <state key="normal" image="activity_rec_start_recording"/>
-                                                <state key="selected" image="activity_rec_stop_recording"/>
-                                                <connections>
-                                                    <action selector="pushRecord:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="QB9-r7-dfS"/>
-                                                </connections>
-                                            </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ieK-Sw-Rd6">
-                                                <rect key="frame" x="9.5" y="95.5" width="47" height="13.5"/>
+                                                <rect key="frame" x="9.5" y="93.5" width="47" height="13.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_record_icon_recording" translatesAutoresizingMaskIntoConstraints="NO" id="l2N-7L-tuG">
-                                                        <rect key="frame" x="0.0" y="3" width="5.5" height="7"/>
+                                                        <rect key="frame" x="0.0" y="3.5" width="5.5" height="7"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHA-0I-LE1">
                                                         <rect key="frame" x="7.5" y="0.0" width="39.5" height="13.5"/>
@@ -555,6 +544,17 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVO-Ig-tAv" userLabel="Record button">
+                                                <rect key="frame" x="10" y="105" width="46.5" height="46"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="sVO-Ig-tAv" secondAttribute="height" multiplier="1:1" id="OSE-n0-5Bi"/>
+                                                </constraints>
+                                                <state key="normal" image="activity_rec_start_recording"/>
+                                                <state key="selected" image="activity_rec_stop_recording"/>
+                                                <connections>
+                                                    <action selector="pushRecord:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="QB9-r7-dfS"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -563,12 +563,12 @@
                                             <constraint firstItem="ieK-Sw-Rd6" firstAttribute="centerX" secondItem="eCP-P5-tk2" secondAttribute="centerX" id="I3r-4Y-hUJ"/>
                                             <constraint firstItem="V62-32-pM2" firstAttribute="centerX" secondItem="eCP-P5-tk2" secondAttribute="centerX" id="Mil-m5-Bf1"/>
                                             <constraint firstItem="RhQ-Vq-oSU" firstAttribute="centerX" secondItem="eCP-P5-tk2" secondAttribute="centerX" id="OAi-bX-KgM"/>
-                                            <constraint firstItem="RhQ-Vq-oSU" firstAttribute="top" secondItem="V62-32-pM2" secondAttribute="bottom" constant="12" id="Uad-5V-0Nb"/>
-                                            <constraint firstItem="ieK-Sw-Rd6" firstAttribute="top" secondItem="RhQ-Vq-oSU" secondAttribute="bottom" constant="20" id="cBk-ry-hKa"/>
+                                            <constraint firstItem="RhQ-Vq-oSU" firstAttribute="top" secondItem="V62-32-pM2" secondAttribute="bottom" constant="15" id="Uad-5V-0Nb"/>
+                                            <constraint firstItem="ieK-Sw-Rd6" firstAttribute="top" secondItem="RhQ-Vq-oSU" secondAttribute="bottom" constant="15" id="cBk-ry-hKa"/>
                                             <constraint firstItem="sVO-Ig-tAv" firstAttribute="centerX" secondItem="eCP-P5-tk2" secondAttribute="centerX" id="jjb-S9-uTu"/>
                                             <constraint firstItem="V62-32-pM2" firstAttribute="top" secondItem="eCP-P5-tk2" secondAttribute="top" constant="12" id="mcg-Cu-LCX"/>
-                                            <constraint firstItem="ieK-Sw-Rd6" firstAttribute="bottom" secondItem="sVO-Ig-tAv" secondAttribute="centerY" multiplier="0.8" id="oob-v1-cvf"/>
                                             <constraint firstAttribute="bottom" secondItem="sVO-Ig-tAv" secondAttribute="bottom" constant="8" id="rfK-zQ-P03"/>
+                                            <constraint firstItem="ieK-Sw-Rd6" firstAttribute="bottom" secondItem="sVO-Ig-tAv" secondAttribute="top" constant="2" id="tea-Ny-UeX"/>
                                             <constraint firstItem="ieK-Sw-Rd6" firstAttribute="width" secondItem="eCP-P5-tk2" secondAttribute="width" multiplier="0.7" id="yLU-pG-bL8"/>
                                         </constraints>
                                     </view>
