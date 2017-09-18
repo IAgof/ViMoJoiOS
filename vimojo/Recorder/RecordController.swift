@@ -21,6 +21,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     @IBOutlet weak var flashButton: UIButton!
     @IBOutlet weak var configModesButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var secondaryRecordButton: UIButton!
     @IBOutlet weak var resolutionButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
 //    @IBOutlet weak var showModeViewButton: UIButton!
@@ -239,7 +240,11 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 
     // MARK: - Button Actions
     @IBAction func pushRecord(_ sender: AnyObject) {
-        eventHandler?.pushRecord()
+        eventHandler?.pushRecord(1)
+    }
+    
+    @IBAction func pushRecordSecondary(_ sender: AnyObject) {
+        eventHandler?.pushRecord(2)
     }
 
     @IBAction func pushFlash(_ sender: AnyObject) {
@@ -480,7 +485,11 @@ extension RecordController:RecordPresenterDelegate {
     func recordButtonEnable(_ state: Bool) {
         self.recordButton.isEnabled = state
     }
-
+    
+    func recordButtonSecondaryEnable(_ state: Bool) {
+        self.secondaryRecordButton.isEnabled = state
+    }
+    
     func configModesButtonSelected(_ state: Bool) {
         configModesButton.isSelected = state
     }
@@ -810,16 +819,6 @@ extension RecordController:RecordPresenterDelegate {
     func buttonsWithRecording(isEnabled: Bool) {
         resolutionButton.isEnabled = isEnabled
     }
-    
-    func showResolutionView() {
-        fadeInView([resolutionsView])
-        resolutionButton.isSelected = true
-    }
-    
-    func hideResolutionView() {
-        fadeOutView([resolutionsView])
-        resolutionButton.isSelected = false
-    }
 	
 
 	
@@ -873,8 +872,16 @@ extension RecordController:RecordPresenterDelegate {
         self.recordButton.isSelected = true
     }
     
+    func selectSecondaryRecordButton() {
+        self.secondaryRecordButton.isSelected = true
+    }
+    
     func unselectRecordButton() {
         self.recordButton.isSelected = false
+    }
+    
+    func unselectSecondaryRecordButton() {
+        self.secondaryRecordButton.isSelected = false
     }
 	
 	func hideClipsRecordedView() {
@@ -918,6 +925,22 @@ extension RecordController:RecordPresenterDelegate {
         recordingIndicator.layer.removeAllAnimations()
         recordingIndicator.alpha = 0.0;
     }
+
+    func startSecondaryRecordingIndicatorBlink() {
+        UIView.animate(
+            withDuration: 1,
+            delay: 0.0,
+            options: [.curveEaseInOut, .autoreverse, .repeat],
+            animations: {
+                self.secondaryRecordingIndicator.alpha = 1.0
+            }
+        )
+    }
+    
+    func stopSecondaryRecordingIndicatorBlink() {
+        secondaryRecordingIndicator.layer.removeAllAnimations()
+        secondaryRecordingIndicator.alpha = 0.0;
+    }
     
     func setAudioColor(_ color: UIColor) {
         audioLevelView.setBarColor(color)
@@ -926,6 +949,16 @@ extension RecordController:RecordPresenterDelegate {
     func hideSecondaryRecordingIndicator() {
         secondaryRecordingIndicator.fadeIn()
         // secondaryRecordingIndicator.isEnabled = false
+    }
+    
+    func showResolutionView() {
+        fadeInView([resolutionsView])
+        resolutionButton.isSelected = true
+    }
+    
+    func hideResolutionView() {
+        fadeOutView([resolutionsView])
+        resolutionButton.isSelected = false
     }
     
 }

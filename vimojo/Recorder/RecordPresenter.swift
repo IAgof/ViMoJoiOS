@@ -117,11 +117,15 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         self.updateThumbnail()
     }
 
-    func pushRecord() {
-        if isRecording {
+    func pushRecord(_ from: Int) {
+        if isRecording && from == 1 {
             self.stopRecord()
-        } else {
+        } else if isRecording && from == 2 {
+            self.stopRecordFromSecondaryRecord()
+        } else if !isRecording && from == 1 {
             self.startRecord()
+        } else {
+            self.startRecordFromSecondary()
         }
     }
 
@@ -157,6 +161,8 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 		delegate?.hideClipsRecordedView()
 		delegate?.hideDrawerButton()
 		delegate?.showCameraSimpleView()
+        delegate?.hideResolutionView()
+        hideAllModeConfigsIfNeccesary()
 	}
 	
 	func pushCameraPro() {
@@ -166,6 +172,8 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 		delegate?.showRecordButton()
 		delegate?.showClipsRecordedView()
 		delegate?.showDrawerButton()
+        delegate?.hideResolutionView()
+        hideAllModeConfigsIfNeccesary()
 	}
 
     func pushHideAllButtons() {
@@ -464,13 +472,14 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             return UIColor.green
         }
     }
-    func startRecord() {
-        self.trackStartRecord()
 
+    func startRecord() {
+        
+        self.trackStartRecord()
+        
         delegate?.recordButtonEnable(false)
-//        secondaryViewIsShowing ? delegate?.showSecondaryRecordChronometerContainer() :
-//                                    delegate?.showRecordChronometerContainer()
         delegate?.buttonsWithRecording(isEnabled: false)
+        
         DispatchQueue.main.async(execute: {
             self.cameraInteractor?.setIsRecording(true)
 
@@ -480,9 +489,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
                     self.delegate?.recordButtonEnable(true)
                 })
             })
-            // update some UI
             self.delegate?.selectRecordButton()
-//            self.delegate?.disableShareButton()
             self.delegate?.hideThumbnailButtonAndLabel()
         })
 
@@ -490,6 +497,27 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
         self.startTimer()
         delegate?.startRecordingIndicatorBlink()
+    }
+    
+    func startRecordFromSecondary() {
+        delegate?.recordButtonSecondaryEnable(false)
+        
+        DispatchQueue.main.async(execute: {
+            self.cameraInteractor?.setIsRecording(true)
+            
+            self.cameraInteractor?.startRecordVideo({answer in
+                print("Record Presenter \(answer)")
+                Utils().delay(1, closure: {
+                    self.delegate?.recordButtonSecondaryEnable(true)
+                })
+            })
+            self.delegate?.selectSecondaryRecordButton()
+        })
+        
+        isRecording = true
+        
+        self.startTimer()
+        delegate?.startSecondaryRecordingIndicatorBlink()
     }
 
     func stopRecord() {
@@ -503,13 +531,26 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
             DispatchQueue.main.async(execute: {
                 self.delegate?.showStopButton()
-                //                self.delegate?.enableShareButton()
                 self.delegate?.showThumbnailButtonAndLabel()
-                if self.secondaryViewIsShowing {
-//                    self.delegate?.hideSecondaryRecordChronometerContainer()
-                } else {
-                    self.delegate?.hideRecordChronometerContainer()
-                }
+            })
+        }
+        self.stopTimer()
+        delegate?.stopRecordingIndicatorBlink()
+        delegate?.selectRecordButton()
+    }
+    
+    
+    func stopRecordFromSecondaryRecord() {
+        self.trackStopRecord()
+        delegate?.buttonsWithRecording(isEnabled: true)
+        
+        isRecording = false
+        DispatchQueue.global().async {
+            // do some task
+            self.cameraInteractor?.setIsRecording(false)
+            
+            DispatchQueue.main.async(execute: {
+                self.delegate?.showStopButton()
             })
         }
         self.stopTimer()

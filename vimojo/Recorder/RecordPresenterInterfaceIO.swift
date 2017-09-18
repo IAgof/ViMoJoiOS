@@ -14,7 +14,7 @@ protocol RecordPresenterInterface {
     func viewWillDisappear()
     func viewWillAppear()
 
-    func pushRecord()
+    func pushRecord(_ from: Int)
     func pushFlash()
     func pushRotateCamera()
     func pushVideoSettingsConfig()
@@ -59,6 +59,7 @@ protocol RecordPresenterInterface {
 protocol RecordPresenterDelegate {
     func configureView()
     func recordButtonEnable(_ state: Bool)
+    func recordButtonSecondaryEnable(_ state: Bool)
     func configModesButtonSelected(_ state: Bool)
 
     func showFlashOn(_ on: Bool)
@@ -136,9 +137,6 @@ protocol RecordPresenterDelegate {
     func setResolutionIconImage(_ image: UIImage)
     func setResolutionIconImagePressed(_ image: UIImage)
 
-//    func enableShareButton()
-//    func disableShareButton()
-
     func hideThumbnailButtonAndLabel()
     func showThumbnailButtonAndLabel()
 
@@ -177,7 +175,10 @@ protocol RecordPresenterDelegate {
     
     func startRecordingIndicatorBlink()
     func stopRecordingIndicatorBlink()
-    
+    func startSecondaryRecordingIndicatorBlink()
+    func stopSecondaryRecordingIndicatorBlink()
     func selectRecordButton()
     func unselectRecordButton()
+    func selectSecondaryRecordButton()
+    func unselectSecondaryRecordButton()
 }
