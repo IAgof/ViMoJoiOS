@@ -74,6 +74,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     @IBOutlet weak var secondaryChronometerLabel: UILabel!
     @IBOutlet weak var chronometrer: UILabel!
 
+    @IBOutlet weak var recordingIndicator: UIImageView!
     @IBOutlet weak var secondaryRecordingIndicator: UIImageView!
     @IBOutlet weak var focusImageView: UIImageView!
     @IBOutlet weak var thumbnailNumberClips: UILabel!
@@ -101,13 +102,13 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Let's see how can we erase GPUImage and introduce AVFoundation on this step
         eventHandler?.viewDidLoad(cameraView)
         self.configureViews()
+        // Try to allow rotation -- It's just boring to landscape the capture in a static mode
         configureRotationObserver()
+        // Is that real? I'd say our app tends to be interactive, specially in camera pro. I'd switch when recording to camera pro this value.
         UIApplication.shared.isIdleTimerDisabled = true
-        batteryView.updateValues()
-        spaceOnDiskView.updateValues()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -133,6 +134,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     }
 
     func configureViews() {
+        // Allow protocols to be injected in this controller as extensions of RecordController class
         batteryView.delegate = self
         spaceOnDiskView.delegate = self
         audioLevelView.delegate = self
@@ -140,13 +142,18 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         expositionModesView.delegate = self
         resolutionsView.delegate = self
 
+        // Setting some initial status
+        batteryView.updateValues()
+        spaceOnDiskView.updateValues()
+        zoomView.setZoomSliderValue(0.0)
+        
+        // Styling some views
         roundBorderOfViews()
         rotateZoomSlider()
         rotateFocalSlider()
         rotateExposureSlider()
         rotateInputGainSlider()
 
-        zoomView.setZoomSliderValue(0.0)
         self.thumbnailNumberClips.adjustsFontSizeToFitWidth = true
     }
 
@@ -464,9 +471,6 @@ extension RecordController {
 // MARK: - Presenter delegate
 extension RecordController:RecordPresenterDelegate {
     // MARK: - Delegate Interface
-//    func showRecordButton() {
-//        self.recordButton.isSelected = true
-//    }
 
     func showStopButton() {
         self.recordButton.isSelected = false
@@ -602,10 +606,6 @@ extension RecordController:RecordPresenterDelegate {
         storageButton.setImage(images.pressed, for: .selected)
     }
 
-    func setAudioColor(_ color: UIColor) {
-        audioLevelView.setBarColor(color)
-    }
-
     func showBatteryRemaining() {
         self.cameraView.bringSubview(toFront: batteryView)
 
@@ -726,16 +726,6 @@ extension RecordController:RecordPresenterDelegate {
         focusButton.isSelected = false
     }
 
-    func showResolutionView() {
-        fadeInView([resolutionsView])
-        resolutionButton.isSelected = true
-    }
-
-    func hideResolutionView() {
-        fadeOutView([resolutionsView])
-        resolutionButton.isSelected = false
-    }
-
     func showExposureModesView() {
         fadeInView([expositionModesView])
         expositionModesView.checkIfExposureManualSliderIsEnabled()
@@ -819,11 +809,39 @@ extension RecordController:RecordPresenterDelegate {
     func buttonsWithRecording(isEnabled: Bool) {
         resolutionButton.isEnabled = isEnabled
     }
+    
+    func showResolutionView() {
+        fadeInView([resolutionsView])
+        resolutionButton.isSelected = true
+    }
+    
+    func hideResolutionView() {
+        fadeOutView([resolutionsView])
+        resolutionButton.isSelected = false
+    }
 	
 
 	
-	
-	
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	// ********* //
+	// From here //
+    // ********* //
 	func hideSettingsContainerView() {
 		fadeOutView([modeContainerView])
 	}
@@ -849,12 +867,20 @@ extension RecordController:RecordPresenterDelegate {
 		recordButton.fadeOut()
 		recordButton.isEnabled = true
 	}
+    
+    func selectRecordButton() {
+        self.recordButton.isSelected = true
+    }
+    
+    func unselectRecordButton() {
+        self.recordButton.isSelected = false
+    }
 	
-	func hideThumbnailsView() {
+	func hideClipsRecordedView() {
 		fadeOutView([thumbnailViewParent])
 	}
 	
-	func showThumbnailsView() {
+	func showClipsRecordedView() {
 		fadeInView([thumbnailViewParent])
 	}
 	
@@ -875,6 +901,32 @@ extension RecordController:RecordPresenterDelegate {
 	func hideCameraSimpleView() {
 		fadeOutView([cameraSimpleView])
 	}
+
+    func startRecordingIndicatorBlink() {
+        UIView.animate(
+            withDuration: 1,
+            delay: 0.0,
+            options: [.curveEaseInOut, .autoreverse, .repeat],
+            animations: {
+                self.recordingIndicator.alpha = 1.0
+            }
+        )
+    }
+    
+    func stopRecordingIndicatorBlink() {
+        recordingIndicator.layer.removeAllAnimations()
+        recordingIndicator.alpha = 0.0;
+    }
+    
+    func setAudioColor(_ color: UIColor) {
+        audioLevelView.setBarColor(color)
+    }
+    
+    func hideSecondaryRecordingIndicator() {
+        secondaryRecordingIndicator.fadeIn()
+        // secondaryRecordingIndicator.isEnabled = false
+    }
+    
 }
 
 // MARK: - BatteryRemaining delegate

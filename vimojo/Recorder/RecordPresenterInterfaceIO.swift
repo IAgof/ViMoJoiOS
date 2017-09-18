@@ -62,7 +62,6 @@ protocol RecordPresenterDelegate {
     func configModesButtonSelected(_ state: Bool)
 
     func showFlashOn(_ on: Bool)
-//    func showRecordButton()
     func showFlashSupported(_ state: Bool)
     func showBackCameraSelected()
     func showFrontCameraSelected()
@@ -166,13 +165,19 @@ protocol RecordPresenterDelegate {
 	func hideSettingsContainerView()
 	func hideRecordButton()
 	func hideDrawerButton()
-	func hideThumbnailsView()
+	func hideClipsRecordedView()
 	func hideCameraSimpleView()
 	
 	func showUpperContainerView()
 	func showSettingsContainerView()
 	func showRecordButton()
-	func showThumbnailsView()
 	func showDrawerButton()
+    func showClipsRecordedView()
 	func showCameraSimpleView()
+    
+    func startRecordingIndicatorBlink()
+    func stopRecordingIndicatorBlink()
+    
+    func selectRecordButton()
+    func unselectRecordButton()
 }

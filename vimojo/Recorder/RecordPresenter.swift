@@ -70,20 +70,22 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     }
 
     enum memoryImagesPressed: String {
-        case hundredPercent = "activity_rec_memory_100_pressed"
-        case seventyFivePercent = "activity_rec_memory_75_pressed"
-        case fiftyPercent = "activity_rec_memory_50_pressed"
-        case twentyFivePercent = "activity_rec_memory_25_pressed"
-        case empty = "activity_rec_memory_empty"
+        case hundredPercent = "activity_record_memory_100_pressed"
+        case seventyFivePercent = "activity_record_memory_75_pressed"
+        case fiftyPercent = "activity_record_memory_50_pressed"
+        case twentyFivePercent = "activity_record_memory_25_pressed"
+        case empty = "activity_record_memory_empty"
     }
 
     // MARK: - Event handler
     func viewDidLoad(_ displayView: GPUImageView) {
-
+        
         delegate?.configureView()
         cameraInteractor = CameraInteractor(display: displayView,
                                             cameraDelegate: self,
                                             project: (interactor?.getProject())! )
+        
+        // Checks wheter the mic is plugged in/out
         NotificationCenter.default.addObserver(self, selector:#selector(RecordPresenter.audioRouteChangeListener(_:)), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
 
         self.checkFlashAvaliable()
@@ -152,7 +154,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 		delegate?.hideUpperContainerView()
 		delegate?.hideSettingsContainerView()
 		delegate?.hideRecordButton()
-		delegate?.hideThumbnailsView()
+		delegate?.hideClipsRecordedView()
 		delegate?.hideDrawerButton()
 		delegate?.showCameraSimpleView()
 	}
@@ -162,7 +164,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 		delegate?.showUpperContainerView()
 		delegate?.showSettingsContainerView()
 		delegate?.showRecordButton()
-		delegate?.showThumbnailsView()
+		delegate?.showClipsRecordedView()
 		delegate?.showDrawerButton()
 	}
 
@@ -405,19 +407,19 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
     func getMemoryIcon(_ value: Float) -> IconsImage {
         switch value {
-        case 0...1:
+        case 0...10:
             return IconsImage(normal: UIImage(named: memoryImages.empty.rawValue)!,
                               pressed: UIImage(named: memoryImagesPressed.empty.rawValue)!)
-        case 1...25:
+        case 10...25:
             return IconsImage(normal: UIImage(named: memoryImages.twentyFivePercent.rawValue)!,
                               pressed: UIImage(named: memoryImagesPressed.twentyFivePercent.rawValue)!)
         case 26...50:
             return IconsImage(normal: UIImage(named: memoryImages.fiftyPercent.rawValue)!,
                               pressed: UIImage(named: memoryImagesPressed.fiftyPercent.rawValue)!)
-        case 76...75:
+        case 51...75:
             return IconsImage(normal: UIImage(named: memoryImages.seventyFivePercent.rawValue)!,
                               pressed: UIImage(named: memoryImagesPressed.seventyFivePercent.rawValue)!)
-        case 85...100:
+        case 76...100:
             return IconsImage(normal: UIImage(named: memoryImages.hundredPercent.rawValue)!,
                               pressed: UIImage(named: memoryImagesPressed.hundredPercent.rawValue)!)
         default:
@@ -479,7 +481,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
                 })
             })
             // update some UI
-            self.delegate?.showRecordButton()
+            self.delegate?.selectRecordButton()
 //            self.delegate?.disableShareButton()
             self.delegate?.hideThumbnailButtonAndLabel()
         })
@@ -487,6 +489,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         isRecording = true
 
         self.startTimer()
+        delegate?.startRecordingIndicatorBlink()
     }
 
     func stopRecord() {
@@ -510,6 +513,8 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             })
         }
         self.stopTimer()
+        delegate?.stopRecordingIndicatorBlink()
+        delegate?.selectRecordButton()
     }
 
     func thumbnailHasTapped() {
