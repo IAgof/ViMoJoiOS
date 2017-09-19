@@ -937,8 +937,8 @@ extension RecordController:RecordPresenterDelegate {
     }
     
     func stopRecordingIndicatorBlink() {
-        recordingIndicator.layer.removeAllAnimations()
-        recordingIndicator.alpha = 0.0;
+        secondaryRecordingIndicator.layer.removeAllAnimations()
+        secondaryRecordingIndicator.alpha = 0.0;
     }
 
     func startSecondaryRecordingIndicatorBlink() {
