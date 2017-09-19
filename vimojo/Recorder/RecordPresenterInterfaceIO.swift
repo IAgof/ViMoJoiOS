@@ -14,7 +14,7 @@ protocol RecordPresenterInterface {
     func viewWillDisappear()
     func viewWillAppear()
 
-    func pushRecord(_ from: Int)
+    func pushRecord(_ sender: String)
     func pushFlash()
     func pushRotateCamera()
     func pushVideoSettingsConfig()

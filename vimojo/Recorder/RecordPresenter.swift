@@ -96,7 +96,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         lastOrientationEnabled = UIDevice.current.orientation.rawValue
         DispatchQueue.global().async {
             if self.isRecording {
-                self.stopRecord()
+                self.stopRecord("")
             }
             FlashInteractor().turnOffWhenViewWillDissappear()
             DispatchQueue.main.async(execute: {
@@ -117,15 +117,11 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         self.updateThumbnail()
     }
 
-    func pushRecord(_ from: Int) {
-        if isRecording && from == 1 {
-            self.stopRecord()
-        } else if isRecording && from == 2 {
-            self.stopRecordFromSecondaryRecord()
-        } else if !isRecording && from == 1 {
-            self.startRecord()
+    func pushRecord(_ sender: String) {
+        if isRecording {
+            self.stopRecord(sender)
         } else {
-            self.startRecordFromSecondary()
+			self.startRecord()
         }
     }
 
@@ -482,6 +478,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         self.trackStartRecord()
         
         delegate?.recordButtonEnable(false)
+		delegate?.recordButtonSecondaryEnable(false)
         delegate?.buttonsWithRecording(isEnabled: false)
         
         DispatchQueue.main.async(execute: {
@@ -491,40 +488,22 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
                 print("Record Presenter \(answer)")
                 Utils().delay(1, closure: {
                     self.delegate?.recordButtonEnable(true)
+					self.delegate?.recordButtonSecondaryEnable(true)
                 })
             })
             self.delegate?.selectRecordButton()
+			self.delegate?.selectSecondaryRecordButton()
             self.delegate?.hideThumbnailButtonAndLabel()
+			self.delegate?.startRecordingIndicatorBlink()
+			self.delegate?.startSecondaryRecordingIndicatorBlink()
         })
 
         isRecording = true
 
         self.startTimer()
-        delegate?.startRecordingIndicatorBlink()
-    }
-    
-    func startRecordFromSecondary() {
-        delegate?.recordButtonSecondaryEnable(false)
-        
-        DispatchQueue.main.async(execute: {
-            self.cameraInteractor?.setIsRecording(true)
-            
-            self.cameraInteractor?.startRecordVideo({answer in
-                print("Record Presenter \(answer)")
-                Utils().delay(1, closure: {
-                    self.delegate?.recordButtonSecondaryEnable(true)
-                })
-            })
-            self.delegate?.startSecondaryRecordingIndicatorBlink()
-            self.delegate?.selectSecondaryRecordButton()
-        })
-        
-        isRecording = true
-        
-        self.startTimer()
     }
 
-    func stopRecord() {
+	func stopRecord(_ sender: String) {
         self.trackStopRecord()
         delegate?.buttonsWithRecording(isEnabled: true)
 
@@ -534,29 +513,15 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             self.cameraInteractor?.setIsRecording(false)
 
             DispatchQueue.main.async(execute: {
+				self.delegate?.unselectSecondaryRecordButton()
+				self.delegate?.selectRecordButton()
                 self.delegate?.showStopButton()
-                self.delegate?.showThumbnailButtonAndLabel()
                 self.delegate?.stopRecordingIndicatorBlink()
             })
-        }
-        self.stopTimer()
-    }
-    
-    
-    func stopRecordFromSecondaryRecord() {
-        self.trackStopRecord()
-        delegate?.buttonsWithRecording(isEnabled: true)
-        
-        isRecording = false
-        DispatchQueue.global().async {
-            // do some task
-            self.cameraInteractor?.setIsRecording(false)
-            
-            DispatchQueue.main.async(execute: {
-                self.delegate?.unselectSecondaryRecordButton()
-                self.delegate?.selectRecordButton()
-                self.delegate?.stopRecordingIndicatorBlink()
-            })
+			
+//			if sender == "pro" {
+				self.delegate?.showThumbnailButtonAndLabel()
+//			}
         }
         self.stopTimer()
     }

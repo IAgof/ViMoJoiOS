@@ -244,11 +244,11 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 
     // MARK: - Button Actions
     @IBAction func pushRecord(_ sender: AnyObject) {
-        eventHandler?.pushRecord(1)
+        eventHandler?.pushRecord("pro")
     }
     
     @IBAction func pushRecordSecondary(_ sender: AnyObject) {
-        eventHandler?.pushRecord(2)
+        eventHandler?.pushRecord("simple")
     }
 
     @IBAction func pushFlash(_ sender: AnyObject) {
@@ -923,10 +923,12 @@ extension RecordController:RecordPresenterDelegate {
             }
         )
     }
-    
+	
     func stopRecordingIndicatorBlink() {
-        secondaryRecordingIndicator.layer.removeAllAnimations()
-        secondaryRecordingIndicator.alpha = 0.0;
+        recordingIndicator.layer.removeAllAnimations()
+		secondaryRecordingIndicator.layer.removeAllAnimations()
+        recordingIndicator.alpha = 0.0;
+		secondaryRecordingIndicator.alpha = 0.0;
     }
 
     func startSecondaryRecordingIndicatorBlink() {
