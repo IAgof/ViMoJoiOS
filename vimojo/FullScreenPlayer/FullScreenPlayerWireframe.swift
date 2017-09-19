@@ -30,7 +30,7 @@ class FullScreenPlayerWireframe: NSObject {
         viewController.playerView = playerView
         self.prevController = prevController
 
-        guard let playerItemOld = playerView.player?.currentItem else {return}
+        guard let playerItemOld = playerView.player.currentItem else {return}
         let playerAssetOld = playerItemOld.asset
         let playerItem = AVPlayerItem(asset: playerAssetOld)
 

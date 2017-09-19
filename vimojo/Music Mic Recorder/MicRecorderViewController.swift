@@ -59,10 +59,9 @@ class MicRecorderViewController: ViMoJoController, PlayerViewSetter {
         case UIGestureRecognizerState.began:
             for view in playerView.subviews {
                 if let player =  view as? PlayerView {
-                    if let time = player.player?.currentTime() {
-                        eventHandler?.startLongPress(atTime: time)
-                        totalRecordedSlider.isEnabled = false
-                    }
+                    let time = player.player.currentTime()
+					eventHandler?.startLongPress(atTime: time)
+					totalRecordedSlider.isEnabled = false
                 }
             }
             break
