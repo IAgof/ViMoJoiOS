@@ -515,13 +515,13 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
                     self.delegate?.recordButtonSecondaryEnable(true)
                 })
             })
+            self.delegate?.startSecondaryRecordingIndicatorBlink()
             self.delegate?.selectSecondaryRecordButton()
         })
         
         isRecording = true
         
         self.startTimer()
-        delegate?.startSecondaryRecordingIndicatorBlink()
     }
 
     func stopRecord() {
@@ -536,11 +536,10 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             DispatchQueue.main.async(execute: {
                 self.delegate?.showStopButton()
                 self.delegate?.showThumbnailButtonAndLabel()
+                self.delegate?.stopRecordingIndicatorBlink()
             })
         }
         self.stopTimer()
-        delegate?.stopRecordingIndicatorBlink()
-        delegate?.selectRecordButton()
     }
     
     
@@ -554,12 +553,12 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             self.cameraInteractor?.setIsRecording(false)
             
             DispatchQueue.main.async(execute: {
-                self.delegate?.showStopButton()
+                self.delegate?.unselectSecondaryRecordButton()
+                self.delegate?.stopRecordingIndicatorBlink()
+                self.delegate?.selectRecordButton()
             })
         }
         self.stopTimer()
-        delegate?.stopRecordingIndicatorBlink()
-        delegate?.selectRecordButton()
     }
 
     func thumbnailHasTapped() {

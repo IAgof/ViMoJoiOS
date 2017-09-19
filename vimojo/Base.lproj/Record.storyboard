@@ -539,6 +539,12 @@
                                                     <constraint firstAttribute="width" secondItem="RhQ-Vq-oSU" secondAttribute="height" multiplier="8:7" id="lNy-wn-aKP"/>
                                                 </constraints>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea4-bi-gA8" userLabel="Clips Recorded Number of Clips">
+                                                <rect key="frame" x="32.5" y="64" width="0.0" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ieK-Sw-Rd6">
                                                 <rect key="frame" x="9.5" y="93.5" width="47" height="13.5"/>
                                                 <subviews>
@@ -571,6 +577,8 @@
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="sVO-Ig-tAv" firstAttribute="width" secondItem="eCP-P5-tk2" secondAttribute="width" multiplier="0.7" id="08h-Qp-jLp"/>
+                                            <constraint firstItem="ea4-bi-gA8" firstAttribute="centerX" secondItem="eCP-P5-tk2" secondAttribute="centerX" id="AwS-xa-J4N"/>
+                                            <constraint firstItem="ea4-bi-gA8" firstAttribute="centerY" secondItem="RhQ-Vq-oSU" secondAttribute="centerY" id="CxJ-4p-npS"/>
                                             <constraint firstItem="RhQ-Vq-oSU" firstAttribute="width" secondItem="eCP-P5-tk2" secondAttribute="width" multiplier="0.5" id="HQF-hb-mzy"/>
                                             <constraint firstItem="ieK-Sw-Rd6" firstAttribute="centerX" secondItem="eCP-P5-tk2" secondAttribute="centerX" id="I3r-4Y-hUJ"/>
                                             <constraint firstItem="V62-32-pM2" firstAttribute="centerX" secondItem="eCP-P5-tk2" secondAttribute="centerX" id="Mil-m5-Bf1"/>
@@ -693,6 +701,8 @@
                         <outlet property="secondaryChronometerLabel" destination="RHA-0I-LE1" id="uh0-Bd-zCi"/>
                         <outlet property="secondaryRecordButton" destination="sVO-Ig-tAv" id="zkU-h3-4do"/>
                         <outlet property="secondaryRecordingIndicator" destination="l2N-7L-tuG" id="M4Z-mS-PkN"/>
+                        <outlet property="secondaryThumbnailNumberClips" destination="ea4-bi-gA8" id="yAd-5j-jUi"/>
+                        <outlet property="secondaryThumbnailView" destination="RhQ-Vq-oSU" id="81d-vS-JYt"/>
                         <outlet property="spaceOnDiskView" destination="Vel-Gg-DCb" id="Cie-Nz-deb"/>
                         <outlet property="storageButton" destination="v8j-Vd-5dC" id="4qh-MU-g0j"/>
                         <outlet property="thumbnailInfoLabel" destination="Kak-fM-psP" id="gaW-sz-Gzr"/>

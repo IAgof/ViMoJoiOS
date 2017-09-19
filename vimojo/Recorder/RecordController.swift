@@ -68,6 +68,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 //    @IBOutlet weak var chronometerContainerView: UIView!
     @IBOutlet weak var thumbnailViewParent: UIView!
     @IBOutlet weak var thumbnailView: UIImageView!
+    @IBOutlet weak var secondaryThumbnailView: UIImageView!
     @IBOutlet weak var chronometerImageView: UIImageView!
 	@IBOutlet weak var cameraSimpleView: UIView!
 
@@ -77,6 +78,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 
     @IBOutlet weak var recordingIndicator: UIImageView!
     @IBOutlet weak var secondaryRecordingIndicator: UIImageView!
+    @IBOutlet weak var secondaryThumbnailNumberClips: UILabel!
     @IBOutlet weak var focusImageView: UIImageView!
     @IBOutlet weak var thumbnailNumberClips: UILabel!
     @IBOutlet weak var thumbnailInfoLabel: UILabel!
@@ -172,7 +174,9 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     func configureThumbnailTapObserver() {
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(self.thumbnailTapped))
         thumbnailView.isUserInteractionEnabled = true
+        secondaryThumbnailView.isUserInteractionEnabled = true
         thumbnailView.addGestureRecognizer(tapGestureRecognizer)
+        secondaryThumbnailView.addGestureRecognizer(tapGestureRecognizer)
     }
 
     func thumbnailTapped() {
@@ -465,12 +469,19 @@ extension RecordController {
     }
 
     func setCornerToThumbnail() {
-        let height = thumbnailView.size.height
-        let diameter = height/2
+        var height = thumbnailView.size.height
+        var diameter = height/2
 
         thumbnailView.cornerRadius = diameter
         thumbnailView.borderColor = .white
         thumbnailView.borderWidth = 1
+        
+        height = secondaryThumbnailView.size.height
+        diameter = height/2
+        
+        secondaryThumbnailView.cornerRadius = diameter
+        secondaryThumbnailView.borderColor = .white
+        secondaryThumbnailView.borderWidth = 1
     }
 }
 
@@ -503,6 +514,7 @@ extension RecordController:RecordPresenterDelegate {
         setCornerToThumbnail()
         thumbnailView.image = image
         thumbnailInfoLabel.text = "Editor".localize(inTable: "Settings")
+        secondaryThumbnailView.image = image
     }
 
     func hideRecordedVideoThumb() {
@@ -525,6 +537,9 @@ extension RecordController:RecordPresenterDelegate {
     func showNumberVideos(_ nClips: Int) {
         thumbnailNumberClips.text = "\(nClips)"
         thumbnailNumberClips.adjustsFontSizeToFitWidth = true
+        
+        secondaryThumbnailNumberClips.text = "\(nClips)"
+        secondaryThumbnailNumberClips.adjustsFontSizeToFitWidth = true
     }
 
     func showFlashOn(_ on: Bool) {
