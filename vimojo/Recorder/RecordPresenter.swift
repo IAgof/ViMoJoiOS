@@ -554,8 +554,8 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             
             DispatchQueue.main.async(execute: {
                 self.delegate?.unselectSecondaryRecordButton()
-                self.delegate?.stopRecordingIndicatorBlink()
                 self.delegate?.selectRecordButton()
+                self.delegate?.stopRecordingIndicatorBlink()
             })
         }
         self.stopTimer()

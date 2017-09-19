@@ -519,13 +519,21 @@ extension RecordController:RecordPresenterDelegate {
 
     func hideRecordedVideoThumb() {
         thumbnailView.image = defaultThumbImage
+        secondaryThumbnailView.image = defaultThumbImage
         thumbnailNumberClips.text = ""
+        secondaryThumbnailNumberClips.text = ""
         thumbnailInfoLabel.text = "Gallery".localize(inTable: "Settings")
 
         guard let sublayers = thumbnailView.layer.sublayers else {
             return
         }
         for layer in sublayers {
+            layer.removeFromSuperlayer()
+        }
+        
+        guard let secondarySublayers = secondaryThumbnailView.layer.sublayers else { return
+        }
+        for layer in secondarySublayers {
             layer.removeFromSuperlayer()
         }
     }
@@ -835,28 +843,6 @@ extension RecordController:RecordPresenterDelegate {
         resolutionButton.isEnabled = isEnabled
     }
 	
-
-	
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	// ********* //
-	// From here //
-    // ********* //
 	func hideSettingsContainerView() {
 		fadeOutView([modeContainerView])
 	}
@@ -889,6 +875,7 @@ extension RecordController:RecordPresenterDelegate {
     
     func selectSecondaryRecordButton() {
         self.secondaryRecordButton.isSelected = true
+        self.secondaryThumbnailView.isUserInteractionEnabled = false
     }
     
     func unselectRecordButton() {
@@ -897,6 +884,7 @@ extension RecordController:RecordPresenterDelegate {
     
     func unselectSecondaryRecordButton() {
         self.secondaryRecordButton.isSelected = false
+        self.secondaryThumbnailView.isUserInteractionEnabled = true
     }
 	
 	func hideClipsRecordedView() {
