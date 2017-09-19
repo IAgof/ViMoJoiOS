@@ -155,25 +155,29 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     }
 	
 	func pushCameraSimple() {
-		delegate?.hideUpperContainerView()
-		delegate?.hideSettingsContainerView()
-		delegate?.hideRecordButton()
-		delegate?.hideClipsRecordedView()
-		delegate?.hideDrawerButton()
-		delegate?.showCameraSimpleView()
-        delegate?.hideResolutionView()
-        hideAllModeConfigsIfNeccesary()
+		DispatchQueue.main.async(execute: {
+			self.delegate?.hideUpperContainerView()
+			self.delegate?.hideSettingsContainerView()
+			self.delegate?.hideRecordButton()
+			self.delegate?.hideClipsRecordedView()
+			self.delegate?.hideDrawerButton()
+			self.delegate?.showCameraSimpleView()
+			self.delegate?.hideResolutionView()
+			self.hideAllModeConfigsIfNeccesary()
+		})
 	}
 	
 	func pushCameraPro() {
-		delegate?.hideCameraSimpleView()
-		delegate?.showUpperContainerView()
-		delegate?.showSettingsContainerView()
-		delegate?.showRecordButton()
-		delegate?.showClipsRecordedView()
-		delegate?.showDrawerButton()
-        delegate?.hideResolutionView()
-        hideAllModeConfigsIfNeccesary()
+		DispatchQueue.main.async(execute: {
+			self.delegate?.hideCameraSimpleView()
+			self.delegate?.showUpperContainerView()
+			self.delegate?.showSettingsContainerView()
+			self.delegate?.showRecordButton()
+			self.delegate?.showClipsRecordedView()
+			self.delegate?.showDrawerButton()
+			self.delegate?.hideResolutionView()
+			self.hideAllModeConfigsIfNeccesary()
+		})
 	}
 
     func pushHideAllButtons() {
