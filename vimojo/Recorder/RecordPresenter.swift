@@ -514,14 +514,15 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
             DispatchQueue.main.async(execute: {
 				self.delegate?.unselectSecondaryRecordButton()
+				
+				if sender == "pro" {
+					self.delegate?.showThumbnailButtonAndLabel()
+				}
+				
 				self.delegate?.selectRecordButton()
                 self.delegate?.showStopButton()
                 self.delegate?.stopRecordingIndicatorBlink()
             })
-			
-//			if sender == "pro" {
-				self.delegate?.showThumbnailButtonAndLabel()
-//			}
         }
         self.stopTimer()
     }

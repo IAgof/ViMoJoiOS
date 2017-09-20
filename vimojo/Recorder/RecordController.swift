@@ -173,10 +173,11 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 
     func configureThumbnailTapObserver() {
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(self.thumbnailTapped))
+		let secondaryTapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(self.thumbnailTapped))
         thumbnailView.isUserInteractionEnabled = true
         secondaryThumbnailView.isUserInteractionEnabled = true
         thumbnailView.addGestureRecognizer(tapGestureRecognizer)
-        secondaryThumbnailView.addGestureRecognizer(tapGestureRecognizer)
+        secondaryThumbnailView.addGestureRecognizer(secondaryTapGestureRecognizer)
     }
 
     func thumbnailTapped() {
@@ -875,7 +876,7 @@ extension RecordController:RecordPresenterDelegate {
     
     func selectSecondaryRecordButton() {
         self.secondaryRecordButton.isSelected = true
-        self.secondaryThumbnailView.isUserInteractionEnabled = false
+        // self.secondaryThumbnailView.isUserInteractionEnabled = false
     }
     
     func unselectRecordButton() {
@@ -884,7 +885,7 @@ extension RecordController:RecordPresenterDelegate {
     
     func unselectSecondaryRecordButton() {
         self.secondaryRecordButton.isSelected = false
-        self.secondaryThumbnailView.isUserInteractionEnabled = true
+        // self.secondaryThumbnailView.isUserInteractionEnabled = true
     }
 	
 	func hideClipsRecordedView() {
