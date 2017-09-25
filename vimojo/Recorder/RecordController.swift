@@ -21,12 +21,12 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     @IBOutlet weak var flashButton: UIButton!
     @IBOutlet weak var configModesButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var secondaryRecordButton: UIButton!
     @IBOutlet weak var resolutionButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
 //    @IBOutlet weak var showModeViewButton: UIButton!
     @IBOutlet weak var hideModeViewButton: UIButton!
 
-    @IBOutlet weak var hideAllButtonsButton: UIButton!
     @IBOutlet weak var batteryButton: UIButton!
     @IBOutlet weak var jackMicButton: UIButton!
     @IBOutlet weak var gainButton: UIButton!
@@ -43,7 +43,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     @IBOutlet weak var defaultModesButton: UIButton!
     @IBOutlet weak var recordAreaContainerView: UIView!
 
-    @IBOutlet weak var showDrawerButton: UIButton!
+    @IBOutlet weak var drawerButtonRight: UIButton!
 
     // MARK: - Custom
     @IBOutlet weak var cameraView: GPUImageView!
@@ -65,16 +65,20 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     @IBOutlet weak var upperContainerView: UIView!
     @IBOutlet weak var secondaryChronometerContainer: UIView!
     @IBOutlet weak var modeContainerView: UIView!
-    @IBOutlet weak var chronometerContainerView: UIView!
+//    @IBOutlet weak var chronometerContainerView: UIView!
     @IBOutlet weak var thumbnailViewParent: UIView!
     @IBOutlet weak var thumbnailView: UIImageView!
+    @IBOutlet weak var secondaryThumbnailView: UIImageView!
     @IBOutlet weak var chronometerImageView: UIImageView!
+	@IBOutlet weak var cameraSimpleView: UIView!
 
     // MARK: - UILabel
     @IBOutlet weak var secondaryChronometerLabel: UILabel!
     @IBOutlet weak var chronometrer: UILabel!
 
+    @IBOutlet weak var recordingIndicator: UIImageView!
     @IBOutlet weak var secondaryRecordingIndicator: UIImageView!
+    @IBOutlet weak var secondaryThumbnailNumberClips: UILabel!
     @IBOutlet weak var focusImageView: UIImageView!
     @IBOutlet weak var thumbnailNumberClips: UILabel!
     @IBOutlet weak var thumbnailInfoLabel: UILabel!
@@ -101,14 +105,13 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Let's see how can we erase GPUImage and introduce AVFoundation on this step
         eventHandler?.viewDidLoad(cameraView)
-
         self.configureViews()
-
+        // Try to allow rotation -- It's just boring to landscape the capture in a static mode
         configureRotationObserver()
+        // Is that real? I'd say our app tends to be interactive, specially in camera pro. I'd switch when recording to camera pro this value.
         UIApplication.shared.isIdleTimerDisabled = true
-        updateBatteryValues()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -120,7 +123,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
 
-        showDrawerButton.isHidden = false
+        drawerButtonRight.isHidden = false
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -130,10 +133,11 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
 
-        showDrawerButton.isHidden = true
+        drawerButtonRight.isHidden = true
     }
 
     func configureViews() {
+        // Allow protocols to be injected in this controller as extensions of RecordController class
         batteryView.delegate = self
         spaceOnDiskView.delegate = self
         audioLevelView.delegate = self
@@ -141,14 +145,20 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         expositionModesView.delegate = self
         resolutionsView.delegate = self
 
+        // Setting some initial status
+        batteryView.updateValues()
+        spaceOnDiskView.updateValues()
+        zoomView.setZoomSliderValue(0.0)
+        
+        // Styling some views
         roundBorderOfViews()
         rotateZoomSlider()
         rotateFocalSlider()
         rotateExposureSlider()
         rotateInputGainSlider()
 
-        zoomView.setZoomSliderValue(0.0)
         self.thumbnailNumberClips.adjustsFontSizeToFitWidth = true
+        secondaryChronometerLabel.adjustsFontSizeToFitWidth = true
     }
 
     func configureTapDisplay() {
@@ -163,8 +173,11 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 
     func configureThumbnailTapObserver() {
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(self.thumbnailTapped))
+		let secondaryTapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(self.thumbnailTapped))
         thumbnailView.isUserInteractionEnabled = true
+        secondaryThumbnailView.isUserInteractionEnabled = true
         thumbnailView.addGestureRecognizer(tapGestureRecognizer)
+        secondaryThumbnailView.addGestureRecognizer(secondaryTapGestureRecognizer)
     }
 
     func thumbnailTapped() {
@@ -213,10 +226,30 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
         return UIInterfaceOrientation.landscapeRight
     }
+	
+	@IBAction func pushSettings(_ sender: AnyObject) {
+		eventHandler?.pushSettings()
+	}
+	
+	@IBAction func pushCameraSimple(_ sender: AnyObject) {
+		eventHandler?.pushCameraSimple()
+	}
+	
+	@IBAction func pushCameraPro(_ sender: AnyObject) {
+		eventHandler?.pushCameraPro()
+	}
+	
+	@IBAction func pushMemory(_ sender: AnyObject) {
+		eventHandler?.pushSpaceOnDisk()
+	}
 
     // MARK: - Button Actions
     @IBAction func pushRecord(_ sender: AnyObject) {
-        eventHandler?.pushRecord()
+        eventHandler?.pushRecord("pro")
+    }
+    
+    @IBAction func pushRecordSecondary(_ sender: AnyObject) {
+        eventHandler?.pushRecord("simple")
     }
 
     @IBAction func pushFlash(_ sender: AnyObject) {
@@ -271,10 +304,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         eventHandler?.pushBattery()
     }
 
-    @IBAction func pushMemory(_ sender: AnyObject) {
-        eventHandler?.pushSpaceOnDisk()
-    }
-
     @IBAction func pushResolution(_ sender: AnyObject) {
         eventHandler?.pushResolution()
     }
@@ -286,10 +315,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 
     @IBAction func pushShareButton(_ sender: AnyObject) {
         eventHandler?.pushShare()
-    }
-
-    @IBAction func pushSettingsButton(_ sender: AnyObject) {
-        eventHandler?.pushSettings()
     }
 
     @IBAction func showSideDrawer(_ sender: AnyObject) {
@@ -313,7 +338,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         viewsToBorder.append(zoomView)
         viewsToBorder.append(batteryView)
         viewsToBorder.append(spaceOnDiskView)
-        viewsToBorder.append(chronometerContainerView)
+//        viewsToBorder.append(chronometerContainerView)
         viewsToBorder.append(secondaryChronometerLabel)
         viewsToBorder.append(isoConfigurationView)
         viewsToBorder.append(focusView)
@@ -445,21 +470,25 @@ extension RecordController {
     }
 
     func setCornerToThumbnail() {
-        let height = thumbnailView.size.height
-        let diameter = height/2
+        var height = thumbnailView.size.height
+        var diameter = height/2
 
         thumbnailView.cornerRadius = diameter
         thumbnailView.borderColor = .white
         thumbnailView.borderWidth = 1
+        
+        height = secondaryThumbnailView.size.height
+        diameter = height/2
+        
+        secondaryThumbnailView.cornerRadius = diameter
+        secondaryThumbnailView.borderColor = .white
+        secondaryThumbnailView.borderWidth = 1
     }
 }
 
 // MARK: - Presenter delegate
 extension RecordController:RecordPresenterDelegate {
     // MARK: - Delegate Interface
-    func showRecordButton() {
-        self.recordButton.isSelected = true
-    }
 
     func showStopButton() {
         self.recordButton.isSelected = false
@@ -468,7 +497,11 @@ extension RecordController:RecordPresenterDelegate {
     func recordButtonEnable(_ state: Bool) {
         self.recordButton.isEnabled = state
     }
-
+    
+    func recordButtonSecondaryEnable(_ state: Bool) {
+        self.secondaryRecordButton.isEnabled = state
+    }
+    
     func configModesButtonSelected(_ state: Bool) {
         configModesButton.isSelected = state
     }
@@ -482,17 +515,26 @@ extension RecordController:RecordPresenterDelegate {
         setCornerToThumbnail()
         thumbnailView.image = image
         thumbnailInfoLabel.text = "Editor".localize(inTable: "Settings")
+        secondaryThumbnailView.image = image
     }
 
     func hideRecordedVideoThumb() {
         thumbnailView.image = defaultThumbImage
+        secondaryThumbnailView.image = defaultThumbImage
         thumbnailNumberClips.text = ""
+        secondaryThumbnailNumberClips.text = ""
         thumbnailInfoLabel.text = "Gallery".localize(inTable: "Settings")
 
         guard let sublayers = thumbnailView.layer.sublayers else {
             return
         }
         for layer in sublayers {
+            layer.removeFromSuperlayer()
+        }
+        
+        guard let secondarySublayers = secondaryThumbnailView.layer.sublayers else { return
+        }
+        for layer in secondarySublayers {
             layer.removeFromSuperlayer()
         }
     }
@@ -504,6 +546,9 @@ extension RecordController:RecordPresenterDelegate {
     func showNumberVideos(_ nClips: Int) {
         thumbnailNumberClips.text = "\(nClips)"
         thumbnailNumberClips.adjustsFontSizeToFitWidth = true
+        
+        secondaryThumbnailNumberClips.text = "\(nClips)"
+        secondaryThumbnailNumberClips.adjustsFontSizeToFitWidth = true
     }
 
     func showFlashOn(_ on: Bool) {
@@ -534,14 +579,6 @@ extension RecordController:RecordPresenterDelegate {
         Utils().delay(0.5, closure: {
             self.focusImageView.isHidden = true
         })
-    }
-
-    func showAllButtonsButtonImage() {
-        hideAllButtonsButton.isSelected = false
-    }
-
-    func showHideAllButtonsButtonImage() {
-        hideAllButtonsButton.isSelected = true
     }
 
     func hidePrincipalViews() {
@@ -584,12 +621,12 @@ extension RecordController:RecordPresenterDelegate {
     func hideZoomView() {
         fadeOutView([zoomView])
         zoomButton.isSelected = false
-        showDrawerButton.isHidden = false
+        drawerButtonRight.isHidden = false
     }
 
     func showZoomView() {
         fadeInView([zoomView])
-        showDrawerButton.isHidden = true
+        drawerButtonRight.isHidden = true
         zoomButton.isSelected = true
     }
 
@@ -601,10 +638,6 @@ extension RecordController:RecordPresenterDelegate {
     func setMemoryIcon(_ images: IconsImage) {
         storageButton.setImage(images.normal, for: UIControlState())
         storageButton.setImage(images.pressed, for: .selected)
-    }
-
-    func setAudioColor(_ color: UIColor) {
-        audioLevelView.setBarColor(color)
     }
 
     func showBatteryRemaining() {
@@ -668,13 +701,13 @@ extension RecordController:RecordPresenterDelegate {
     func selectInputGainSliderView() {
         fadeInView([inputGainSlider])
         gainButton.isSelected = true
-        showDrawerButton.isHidden = true
+        drawerButtonRight.isHidden = true
     }
 
     func deselectInputGainSliderView() {
         fadeOutView([inputGainSlider])
         gainButton.isSelected = false
-        showDrawerButton.isHidden = false
+        drawerButtonRight.isHidden = false
     }
 
     func selectDeviceMicButton() {
@@ -727,16 +760,6 @@ extension RecordController:RecordPresenterDelegate {
         focusButton.isSelected = false
     }
 
-    func showResolutionView() {
-        fadeInView([resolutionsView])
-        resolutionButton.isSelected = true
-    }
-
-    func hideResolutionView() {
-        fadeOutView([resolutionsView])
-        resolutionButton.isSelected = false
-    }
-
     func showExposureModesView() {
         fadeInView([expositionModesView])
         expositionModesView.checkIfExposureManualSliderIsEnabled()
@@ -772,11 +795,11 @@ extension RecordController:RecordPresenterDelegate {
     }
 
     func showRecordChronometerContainer() {
-        fadeInView([chronometerContainerView])
+//        fadeInView([chronometerContainerView])
     }
 
     func hideRecordChronometerContainer() {
-        fadeOutView([chronometerContainerView])
+//        fadeOutView([chronometerContainerView])
     }
 
     func showModeViewAndButtonStateEnabled() {
@@ -820,6 +843,130 @@ extension RecordController:RecordPresenterDelegate {
     func buttonsWithRecording(isEnabled: Bool) {
         resolutionButton.isEnabled = isEnabled
     }
+	
+	func hideSettingsContainerView() {
+		fadeOutView([modeContainerView])
+	}
+	
+	func showSettingsContainerView() {
+		fadeInView([modeContainerView])
+	}
+	
+	func hideUpperContainerView() {
+		fadeOutView([upperContainerView])
+	}
+	
+	func showUpperContainerView() {
+		fadeInView([upperContainerView])
+	}
+	
+	func hideRecordButton() {
+		recordButton.isEnabled = false
+		recordButton.fadeIn()
+	}
+	
+	func showRecordButton() {
+		recordButton.fadeOut()
+		recordButton.isEnabled = true
+	}
+    
+    func selectRecordButton() {
+        self.recordButton.isSelected = true
+    }
+    
+    func selectSecondaryRecordButton() {
+        self.secondaryRecordButton.isSelected = true
+        self.secondaryThumbnailView.isUserInteractionEnabled = false
+    }
+    
+    func unselectRecordButton() {
+        self.recordButton.isSelected = false
+    }
+    
+    func unselectSecondaryRecordButton() {
+        self.secondaryRecordButton.isSelected = false
+         self.secondaryThumbnailView.isUserInteractionEnabled = true
+    }
+	
+	func hideClipsRecordedView() {
+		fadeOutView([thumbnailViewParent])
+	}
+	
+	func showClipsRecordedView() {
+		fadeInView([thumbnailViewParent])
+	}
+	
+	func hideDrawerButton() {
+		drawerButtonRight.isEnabled = false
+		drawerButtonRight.fadeIn()
+	}
+	
+	func showDrawerButton() {
+		drawerButtonRight.fadeOut()
+		drawerButtonRight.isEnabled = true
+	}
+	
+	func showCameraSimpleView() {
+		fadeInView([cameraSimpleView])
+	}
+	
+	func hideCameraSimpleView() {
+		fadeOutView([cameraSimpleView])
+	}
+
+    func startRecordingIndicatorBlink() {
+        UIView.animate(
+            withDuration: 1,
+            delay: 0.0,
+            options: [.curveEaseInOut, .autoreverse, .repeat],
+            animations: {
+                self.recordingIndicator.alpha = 1.0
+            }
+        )
+    }
+	
+    func stopRecordingIndicatorBlink() {
+        recordingIndicator.layer.removeAllAnimations()
+		secondaryRecordingIndicator.layer.removeAllAnimations()
+        recordingIndicator.alpha = 0.0;
+		secondaryRecordingIndicator.alpha = 0.0;
+    }
+
+    func startSecondaryRecordingIndicatorBlink() {
+        UIView.animate(
+            withDuration: 1,
+            delay: 0.0,
+            options: [.curveEaseInOut, .autoreverse, .repeat],
+            animations: {
+                self.secondaryRecordingIndicator.alpha = 1.0
+            }
+        )
+    }
+    
+    func stopSecondaryRecordingIndicatorBlink() {
+        secondaryRecordingIndicator.layer.removeAllAnimations()
+        secondaryRecordingIndicator.alpha = 0.0;
+    }
+    
+    func setAudioColor(_ color: UIColor) {
+        audioLevelView.setBarColor(color)
+    }
+    
+    func hideSecondaryRecordingIndicator() {
+        secondaryRecordingIndicator.fadeIn()
+        // secondaryRecordingIndicator.isEnabled = false
+    }
+    
+    func showResolutionView() {
+        fadeInView([resolutionsView])
+        resolutionButton.isSelected = true
+    }
+    
+    func hideResolutionView() {
+        fadeOutView([resolutionsView])
+        resolutionButton.isSelected = false
+    }
+    
 }
 
 // MARK: - BatteryRemaining delegate
@@ -854,12 +1001,12 @@ extension RecordController:ExpositionModesDelegate {
     func showExpositionSlider() {
         fadeInView([exposureConfigurationView])
 
-        showDrawerButton.isHidden = true
+        drawerButtonRight.isHidden = true
     }
     func hideExpositionSlider() {
         fadeOutView([exposureConfigurationView])
 
-        showDrawerButton.isHidden = false
+        drawerButtonRight.isHidden = false
     }
 }
 
@@ -868,12 +1015,12 @@ extension RecordController: FocusDelegate {
     func showFocusLens() {
         fadeInView([focalLensSliderView])
 
-        showDrawerButton.isHidden = true
+        drawerButtonRight.isHidden = true
     }
     func hideFocusLens() {
         fadeOutView([focalLensSliderView])
 
-        showDrawerButton.isHidden = false
+        drawerButtonRight.isHidden = false
     }
 }
 

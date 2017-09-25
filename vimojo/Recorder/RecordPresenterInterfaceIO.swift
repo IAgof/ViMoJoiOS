@@ -14,7 +14,7 @@ protocol RecordPresenterInterface {
     func viewWillDisappear()
     func viewWillAppear()
 
-    func pushRecord()
+    func pushRecord(_ sender: String)
     func pushFlash()
     func pushRotateCamera()
     func pushVideoSettingsConfig()
@@ -51,22 +51,23 @@ protocol RecordPresenterInterface {
     func audioLevelHasChanged(_ value: Float)
 
     func saveResolutionToDefaults(_ resolution: String)
+	
+	func pushCameraSimple()
+	func pushCameraPro()
 }
 
 protocol RecordPresenterDelegate {
     func configureView()
     func recordButtonEnable(_ state: Bool)
+    func recordButtonSecondaryEnable(_ state: Bool)
     func configModesButtonSelected(_ state: Bool)
 
     func showFlashOn(_ on: Bool)
-    func showRecordButton()
     func showFlashSupported(_ state: Bool)
     func showBackCameraSelected()
     func showFrontCameraSelected()
     func showFocusAtPoint(_ point: CGPoint)
     func showStopButton()
-    func showHideAllButtonsButtonImage()
-    func showAllButtonsButtonImage()
     func showBatteryRemaining()
     func showSpaceOnDisk()
 
@@ -136,9 +137,6 @@ protocol RecordPresenterDelegate {
     func setResolutionIconImage(_ image: UIImage)
     func setResolutionIconImagePressed(_ image: UIImage)
 
-//    func enableShareButton()
-//    func disableShareButton()
-
     func hideThumbnailButtonAndLabel()
     func showThumbnailButtonAndLabel()
 
@@ -160,4 +158,27 @@ protocol RecordPresenterDelegate {
     func selectJackMicButton()
     func deselectDeviceMicButton()
     func deselectJackMicButton()
+	
+	func hideUpperContainerView()
+	func hideSettingsContainerView()
+	func hideRecordButton()
+	func hideDrawerButton()
+	func hideClipsRecordedView()
+	func hideCameraSimpleView()
+	
+	func showUpperContainerView()
+	func showSettingsContainerView()
+	func showRecordButton()
+	func showDrawerButton()
+    func showClipsRecordedView()
+	func showCameraSimpleView()
+    
+    func startRecordingIndicatorBlink()
+    func stopRecordingIndicatorBlink()
+    func startSecondaryRecordingIndicatorBlink()
+    func stopSecondaryRecordingIndicatorBlink()
+    func selectRecordButton()
+    func unselectRecordButton()
+    func selectSecondaryRecordButton()
+    func unselectSecondaryRecordButton()
 }

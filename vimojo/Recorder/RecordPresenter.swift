@@ -70,20 +70,22 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     }
 
     enum memoryImagesPressed: String {
-        case hundredPercent = "activity_rec_memory_100_pressed"
-        case seventyFivePercent = "activity_rec_memory_75_pressed"
-        case fiftyPercent = "activity_rec_memory_50_pressed"
-        case twentyFivePercent = "activity_rec_memory_25_pressed"
-        case empty = "activity_rec_memory_empty"
+        case hundredPercent = "activity_record_memory_100_pressed"
+        case seventyFivePercent = "activity_record_memory_75_pressed"
+        case fiftyPercent = "activity_record_memory_50_pressed"
+        case twentyFivePercent = "activity_record_memory_25_pressed"
+        case empty = "activity_record_memory_empty"
     }
 
     // MARK: - Event handler
     func viewDidLoad(_ displayView: GPUImageView) {
-
+        
         delegate?.configureView()
         cameraInteractor = CameraInteractor(display: displayView,
                                             cameraDelegate: self,
                                             project: (interactor?.getProject())! )
+        
+        // Checks wheter the mic is plugged in/out
         NotificationCenter.default.addObserver(self, selector:#selector(RecordPresenter.audioRouteChangeListener(_:)), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
 
         self.checkFlashAvaliable()
@@ -94,7 +96,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         lastOrientationEnabled = UIDevice.current.orientation.rawValue
         DispatchQueue.global().async {
             if self.isRecording {
-                self.stopRecord()
+                self.stopRecord("")
             }
             FlashInteractor().turnOffWhenViewWillDissappear()
             DispatchQueue.main.async(execute: {
@@ -115,11 +117,11 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         self.updateThumbnail()
     }
 
-    func pushRecord() {
+    func pushRecord(_ sender: String) {
         if isRecording {
-            self.stopRecord()
+            self.stopRecord(sender)
         } else {
-            self.startRecord()
+			self.startRecord()
         }
     }
 
@@ -147,6 +149,32 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             delegate?.configModesButtonSelected(true)
         }
     }
+	
+	func pushCameraSimple() {
+		DispatchQueue.main.async(execute: {
+			self.delegate?.hideUpperContainerView()
+			self.delegate?.hideSettingsContainerView()
+			self.delegate?.hideRecordButton()
+			self.delegate?.hideClipsRecordedView()
+			self.delegate?.hideDrawerButton()
+			self.delegate?.showCameraSimpleView()
+			self.delegate?.hideResolutionView()
+			self.hideAllModeConfigsIfNeccesary()
+		})
+	}
+	
+	func pushCameraPro() {
+		DispatchQueue.main.async(execute: {
+			self.delegate?.hideCameraSimpleView()
+			self.delegate?.showUpperContainerView()
+			self.delegate?.showSettingsContainerView()
+			self.delegate?.showRecordButton()
+			self.delegate?.showClipsRecordedView()
+			self.delegate?.showDrawerButton()
+			self.delegate?.hideResolutionView()
+			self.hideAllModeConfigsIfNeccesary()
+		})
+	}
 
     func pushHideAllButtons() {
         if secondaryViewIsShowing {
@@ -159,7 +187,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
                 delegate?.showVideoSettingsConfig()
             }
 
-            delegate?.showAllButtonsButtonImage()
             secondaryViewIsShowing = false
         } else {
             switchChronometerIfNeccesary()
@@ -171,7 +198,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             hideZoomViewIfYouCan()
             hideAllModeConfigsIfNeccesary()
 
-            delegate?.showHideAllButtonsButtonImage()
             secondaryViewIsShowing = true
         }
     }
@@ -389,21 +415,24 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
     func getMemoryIcon(_ value: Float) -> IconsImage {
         switch value {
-        case 0...1:
-            return IconsImage(normal: UIImage(named: memoryImages.hundredPercent.rawValue)!, pressed: UIImage(named: memoryImagesPressed.hundredPercent.rawValue)!)
-        case 1...25:
-            return IconsImage(normal: UIImage(named: memoryImages.seventyFivePercent.rawValue)!, pressed: UIImage(named: memoryImagesPressed.seventyFivePercent.rawValue)!)
-        case 26...50:
-            return IconsImage(normal: UIImage(named: memoryImages.fiftyPercent.rawValue)!, pressed: UIImage(named: memoryImagesPressed.fiftyPercent.rawValue)!)
-        case 76...75:
-            return IconsImage(normal: UIImage(named: memoryImages.twentyFivePercent.rawValue)!,
-                                    pressed: UIImage(named: memoryImagesPressed.twentyFivePercent.rawValue)!)
-        case 85...100:
+        case 0...10:
             return IconsImage(normal: UIImage(named: memoryImages.empty.rawValue)!,
                               pressed: UIImage(named: memoryImagesPressed.empty.rawValue)!)
+        case 10...25:
+            return IconsImage(normal: UIImage(named: memoryImages.twentyFivePercent.rawValue)!,
+                              pressed: UIImage(named: memoryImagesPressed.twentyFivePercent.rawValue)!)
+        case 26...50:
+            return IconsImage(normal: UIImage(named: memoryImages.fiftyPercent.rawValue)!,
+                              pressed: UIImage(named: memoryImagesPressed.fiftyPercent.rawValue)!)
+        case 51...75:
+            return IconsImage(normal: UIImage(named: memoryImages.seventyFivePercent.rawValue)!,
+                              pressed: UIImage(named: memoryImagesPressed.seventyFivePercent.rawValue)!)
+        case 76...100:
+            return IconsImage(normal: UIImage(named: memoryImages.hundredPercent.rawValue)!,
+                              pressed: UIImage(named: memoryImagesPressed.hundredPercent.rawValue)!)
         default:
             return IconsImage(normal: UIImage(named: memoryImages.fiftyPercent.rawValue)!,
-                                    pressed: UIImage(named: memoryImagesPressed.fiftyPercent.rawValue)!)
+                              pressed: UIImage(named: memoryImagesPressed.fiftyPercent.rawValue)!)
         }
     }
 
@@ -443,13 +472,15 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             return UIColor.green
         }
     }
-    func startRecord() {
-        self.trackStartRecord()
 
+    func startRecord() {
+        
+        self.trackStartRecord()
+        
         delegate?.recordButtonEnable(false)
-//        secondaryViewIsShowing ? delegate?.showSecondaryRecordChronometerContainer() :
-//                                    delegate?.showRecordChronometerContainer()
+		delegate?.recordButtonSecondaryEnable(false)
         delegate?.buttonsWithRecording(isEnabled: false)
+        
         DispatchQueue.main.async(execute: {
             self.cameraInteractor?.setIsRecording(true)
 
@@ -457,12 +488,14 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
                 print("Record Presenter \(answer)")
                 Utils().delay(1, closure: {
                     self.delegate?.recordButtonEnable(true)
+					self.delegate?.recordButtonSecondaryEnable(true)
                 })
             })
-            // update some UI
-            self.delegate?.showRecordButton()
-//            self.delegate?.disableShareButton()
+            self.delegate?.selectRecordButton()
+			self.delegate?.selectSecondaryRecordButton()
             self.delegate?.hideThumbnailButtonAndLabel()
+			self.delegate?.startRecordingIndicatorBlink()
+			self.delegate?.startSecondaryRecordingIndicatorBlink()
         })
 
         isRecording = true
@@ -470,7 +503,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         self.startTimer()
     }
 
-    func stopRecord() {
+	func stopRecord(_ sender: String) {
         self.trackStopRecord()
         delegate?.buttonsWithRecording(isEnabled: true)
 
@@ -480,14 +513,15 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             self.cameraInteractor?.setIsRecording(false)
 
             DispatchQueue.main.async(execute: {
+				self.delegate?.unselectSecondaryRecordButton()
+				
+				if sender == "pro" {
+					self.delegate?.showThumbnailButtonAndLabel()
+				}
+				
+				self.delegate?.selectRecordButton()
                 self.delegate?.showStopButton()
-                //                self.delegate?.enableShareButton()
-                self.delegate?.showThumbnailButtonAndLabel()
-                if self.secondaryViewIsShowing {
-//                    self.delegate?.hideSecondaryRecordChronometerContainer()
-                } else {
-                    self.delegate?.hideRecordChronometerContainer()
-                }
+                self.delegate?.stopRecordingIndicatorBlink()
             })
         }
         self.stopTimer()
@@ -508,7 +542,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     }
 
     func pushSettings() {
-        print("Record presenter pushSettings")
         self.trackSettingsPushed()
         recordWireframe?.presentSettingsInterface()
     }
