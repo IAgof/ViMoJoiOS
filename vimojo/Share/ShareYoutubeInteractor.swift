@@ -55,14 +55,13 @@ class ShareYoutubeInteractor: ShareActionInterface {
         let description = ShareConstants.YOUTUBE_DESCRIPTION
 
         guard let path = mediaPath else {return}
-        let videoData = try? Data.init(contentsOf: URL(fileURLWithPath: path))
+		guard let videoData = try? Data.init(contentsOf: URL(fileURLWithPath: path)) else { return }
         let urlRequest = try! URLRequest(url: "https://www.googleapis.com/upload/youtube/v3/videos?part=snippet", method: .post, headers: headers)
 
         Alamofire.upload(multipartFormData: { multipartFormData in
 
             multipartFormData.append("{'snippet':{'title' : '\(title)', 'description': '\(description)'}}".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "snippet", mimeType: "application/json")
-
-            multipartFormData.append(videoData!, withName: "video", fileName: "video.mp4", mimeType: "application/octet-stream")
+            multipartFormData.append(videoData, withName: "video", fileName: "video.mp4", mimeType: "application/octet-stream")
         },
                          with: urlRequest,
                          encodingCompletion: { encodingResult in

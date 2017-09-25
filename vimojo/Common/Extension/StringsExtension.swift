@@ -8,8 +8,25 @@
 
 import Foundation
 
-extension String {
-    func localize(inTable table: String? = nil) -> String {
+extension String{
+    enum LocalizeTable: String {
+        case settings = "Settings"
+        case detailProject = "DetailProject"
+        case drawerMenu = "DrawerMenu"
+        case editor = "EditorStrings"
+        case musicDetail = "MusicDetailView"
+        case musicProvider = "MusicProvider"
+        case micRecorder = "MicRecorder"
+        case projectList = "ProjectList"
+        case share = "Share"
+    }
+    
+    func localize(inTable table: String? = nil) -> String{
         return Bundle.main.localizedString(forKey: self, value: nil, table: table)
+    }
+    var localized: (LocalizeTable) -> String { 
+        return { table in 
+            Bundle.main.localizedString(forKey: self, value: nil, table: table.rawValue)
+        }
     }
 }

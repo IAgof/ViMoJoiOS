@@ -77,11 +77,9 @@ class MusicPresenter: MusicPresenterInterface, MusicInteractorDelegate {
     let NO_MUSIC_SELECTED = -1
 
     // MARK: - Interface
-    func viewDidLoad() {
-        self.addFloatingButtons()
-    }
 
     private func addFloatingButtons() {
+       //TODO: This is not correct, refactor, creating view from presenter, is not the correct layer to do.
         var floatingItems: [FloatingItem] = []
         floatingItems.append(FloatingItem(item: FloatingItemFactory.music, action: {
             self.wireframe?.presenterMusicListView()
@@ -94,25 +92,19 @@ class MusicPresenter: MusicPresenterInterface, MusicInteractorDelegate {
         delegate?.floatingItems = floatingItems
     }
 
-    func viewWillAppear() {
-        wireframe?.presentPlayerInterface()
-
-        delegate?.bringToFrontExpandPlayerButton()
-        interactor?.getVideoComposition()
-
-        setAudios()
+    func viewDidLoad() {
+        self.addFloatingButtons()
     }
 
-    func setAudios() {
-        var audiosViewModel: [MusicSelectorCellViewModel] = []
-
-        if let videoAudios = projectAudios { audiosViewModel.append(videoAudios)}
-        if let musicAudios = musicAudio { audiosViewModel.append(musicAudios) }
-        if let micAudios = micAudio { audiosViewModel.append(micAudios)}
-
-        delegate?.audios = audiosViewModel
+    func viewWillAppear(){
+        if !isGoingToExpandPlayer {
+            interactor?.getVideoComposition()
+            DispatchQueue.global().async { self.setAudios() }
+        } else {
+            isGoingToExpandPlayer = false
+        }
     }
-
+    
     func viewDidAppear() {
 
     }
@@ -121,6 +113,21 @@ class MusicPresenter: MusicPresenterInterface, MusicInteractorDelegate {
         if !isGoingToExpandPlayer {
             playerPresenter?.onVideoStops()
         }
+    }
+
+    func updatePlayerView() {
+        wireframe?.presentPlayerInterface()
+        delegate?.bringToFrontExpandPlayerButton()
+    }
+    
+    func setAudios() {
+        var audiosViewModel: [MusicSelectorCellViewModel] = []
+
+        if let videoAudios = projectAudios { audiosViewModel.append(videoAudios)}
+        if let musicAudios = musicAudio { audiosViewModel.append(musicAudios) }
+        if let micAudios = micAudio { audiosViewModel.append(micAudios)}
+        
+        DispatchQueue.main.async { self.delegate?.audios = audiosViewModel }
     }
 
     func expandPlayer() {
@@ -147,6 +154,8 @@ class MusicPresenter: MusicPresenterInterface, MusicInteractorDelegate {
 
     // MARK: - Interactor delegate
     func setVideoComposition(_ composition: VideoComposition) {
+        self.updatePlayerView()
+        
         playerPresenter?.createVideoPlayer(composition)
     }
 

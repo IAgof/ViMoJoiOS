@@ -50,7 +50,8 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
                 let exportURL = URL(fileURLWithPath: exportPath)
                 self.delegate?.setPlayerUrl(videoURL: exportURL)
                 self.delegate?.exportFinished(withError: false)
-            } else {
+				self.postToCloud(exportURL.lastPathComponent)
+            }else{
                 print("File doesn't exist")
                 exportVideoAction()
             }
@@ -78,6 +79,7 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
                         self.moviePath = url.absoluteString
                         ProjectRealmRepository().update(item: actualProject)
                         self.delegate?.setPlayerUrl(videoURL: url)
+						self.postToCloud(url.lastPathComponent)
                     }
                 }
 
@@ -118,10 +120,26 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
             self.socialNetworks[indexPath.item].action.share(sharePaths)
         }
     }
-
-    func postToYoutube(_ token: String) {
-        for socialNetwork in socialNetworks {
-            if let action = socialNetwork.action as? ShareYoutubeInteractor {
+	
+	func postToCloud(_ path:String) {
+		guard let actualProject = project, let exportPath = actualProject.getExportedPath() else { fatalError("Failed posting to the cloud") }
+		
+		let sharePaths = ShareVideoPath(cameraRollPath: moviePath, documentsPath: exportPath)
+		
+		
+		
+		let action = ShareMoJoFyInteractor(shareProject: actualProject)
+		action.share(sharePaths)
+		action.postVideoToMoJoFy(path, callback: {
+			result in
+			print("result")
+			print(result)
+		})
+	}
+	
+    func postToYoutube(_ token:String){
+        for socialNetwork in socialNetworks{
+            if let action = socialNetwork.action as? ShareYoutubeInteractor{
                 action.postVideoToYouTube(token, callback: {
                 result in
                     print("result")

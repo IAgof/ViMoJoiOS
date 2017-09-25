@@ -28,6 +28,7 @@ class MusicViewController: EditingRoomItemController, MusicPresenterDelegate, Pl
     var musicListView: MusicListView?
     var audios: [MusicSelectorCellViewModel] = [] {
         didSet {
+            self.tableView.backgroundColor = .gray
             self.tableView.reloadDataMainThread()
         }
     }
@@ -58,17 +59,14 @@ class MusicViewController: EditingRoomItemController, MusicPresenterDelegate, Pl
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        eventHandler?.viewDidAppear()
+        super.viewWillAppear(animated)
+        eventHandler?.viewWillAppear()
+        playerView.layoutSubviews()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         eventHandler?.viewWillDisappear()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     func configureView() {
