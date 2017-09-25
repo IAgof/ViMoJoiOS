@@ -37,8 +37,8 @@ target 'ThomsonFoundation' do
 	shared_pods
 end
 
-target 'vimojoTests' do
-
+target 'vimojoUITests' do
+	shared_pods
 end
 
 
