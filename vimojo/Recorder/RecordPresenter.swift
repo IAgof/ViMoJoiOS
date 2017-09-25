@@ -157,9 +157,9 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 			self.delegate?.hideRecordButton()
 			self.delegate?.hideClipsRecordedView()
 			self.delegate?.hideDrawerButton()
-			self.delegate?.showCameraSimpleView()
 			self.delegate?.hideResolutionView()
 			self.hideAllModeConfigsIfNeccesary()
+            self.delegate?.showCameraSimpleView()
 		})
 	}
 	
@@ -222,7 +222,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             hideResolutionViewIfYouCan()
 
             delegate?.updateBatteryValues()
-            delegate?.showBatteryRemaining()
+            delegate?.showBatteryView()
 
             batteryIsShowed = true
         }

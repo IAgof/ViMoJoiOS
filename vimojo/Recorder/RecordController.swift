@@ -354,22 +354,22 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     }
 
     func rotateZoomSlider() {
-        let trans = CGAffineTransform(rotationAngle: CGFloat(-M_PI_2))
+        let trans = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
         zoomView.transform = trans
     }
 
     func rotateFocalSlider() {
-        let trans = CGAffineTransform(rotationAngle: CGFloat(-M_PI_2))
+        let trans = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
         focalLensSliderView.transform = trans
     }
 
     func rotateExposureSlider() {
-        let trans = CGAffineTransform(rotationAngle: CGFloat(-M_PI_2))
+        let trans = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
         exposureConfigurationView.transform = trans
     }
 
     func rotateInputGainSlider() {
-        let trans = CGAffineTransform(rotationAngle: CGFloat(-M_PI_2))
+        let trans = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
         inputGainSlider.transform = trans
     }
 
@@ -640,9 +640,8 @@ extension RecordController:RecordPresenterDelegate {
         storageButton.setImage(images.pressed, for: .selected)
     }
 
-    func showBatteryRemaining() {
-        self.cameraView.bringSubview(toFront: batteryView)
-
+    func showBatteryView() {
+//        self.cameraView.bringSubview(toFront: batteryView)
         fadeInView([batteryView])
         batteryButton.isSelected = true
     }
@@ -958,13 +957,13 @@ extension RecordController:RecordPresenterDelegate {
     }
     
     func showResolutionView() {
-        fadeInView([resolutionsView])
         resolutionButton.isSelected = true
+        fadeInView([resolutionsView])
     }
     
     func hideResolutionView() {
-        fadeOutView([resolutionsView])
         resolutionButton.isSelected = false
+        fadeOutView([resolutionsView])
     }
     
 }
