@@ -876,7 +876,7 @@ extension RecordController:RecordPresenterDelegate {
     
     func selectSecondaryRecordButton() {
         self.secondaryRecordButton.isSelected = true
-        // self.secondaryThumbnailView.isUserInteractionEnabled = false
+        self.secondaryThumbnailView.isUserInteractionEnabled = false
     }
     
     func unselectRecordButton() {
@@ -885,7 +885,7 @@ extension RecordController:RecordPresenterDelegate {
     
     func unselectSecondaryRecordButton() {
         self.secondaryRecordButton.isSelected = false
-        // self.secondaryThumbnailView.isUserInteractionEnabled = true
+         self.secondaryThumbnailView.isUserInteractionEnabled = true
     }
 	
 	func hideClipsRecordedView() {
