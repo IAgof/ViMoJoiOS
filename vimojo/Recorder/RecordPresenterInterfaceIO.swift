@@ -54,6 +54,8 @@ protocol RecordPresenterInterface {
 	
 	func pushCameraSimple()
 	func pushCameraPro()
+    
+    func cameraViewHasTapped()
 }
 
 protocol RecordPresenterDelegate {

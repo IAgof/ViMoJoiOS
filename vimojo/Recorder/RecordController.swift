@@ -179,11 +179,21 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         thumbnailViewParent.addGestureRecognizer(tapGestureRecognizer)
         secondaryThumbnailView.addGestureRecognizer(secondaryTapGestureRecognizer)
     }
+    
+    func configureCameraViewTapObserver() {
+        let tapGestureRecognizer1 = UITapGestureRecognizer(target:self, action:#selector(self.cameraViewHasTapped))
+        cameraView.isUserInteractionEnabled = true
+        cameraView.addGestureRecognizer(tapGestureRecognizer1)
+    }
 
     func thumbnailTapped() {
         Utils().debugLog("Thumbnail has tapped")
 
         eventHandler?.thumbnailHasTapped()
+    }
+    
+    func cameraViewHasTapped() {
+        eventHandler?.cameraViewHasTapped()
     }
 
     func configureRotationObserver() {
@@ -205,6 +215,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         configureTapDisplay()
         configurePinchDisplay()
         configureThumbnailTapObserver()
+        configureCameraViewTapObserver()
     }
 
     func displayPinched() {
@@ -347,6 +358,8 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         viewsToBorder.append(focalLensSliderView)
         viewsToBorder.append(inputGainSlider)
         viewsToBorder.append(exposureConfigurationView)
+        viewsToBorder.append(cameraSimpleView)
+        
         
         for view in viewsToBorder {
             view.layer.cornerRadius = cornerRadius
