@@ -181,4 +181,6 @@ protocol RecordPresenterDelegate {
     func unselectRecordButton()
     func selectSecondaryRecordButton()
     func unselectSecondaryRecordButton()
+    
+    func resizeAllIcons()
 }

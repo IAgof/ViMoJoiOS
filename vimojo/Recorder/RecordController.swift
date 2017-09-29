@@ -122,8 +122,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
-
-        resizeIcons()
         
         drawerButtonRight.isHidden = false
     }
@@ -355,7 +353,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         }
     }
     
-    func resizeIcons() {
+    func resizeAllIcons() {
         defaultModesButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
         gridButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
         isoButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
@@ -367,6 +365,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         cameraRotationButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
         zoomButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
         
+        hideModeViewButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
     }
 
     func rotateZoomSlider() {

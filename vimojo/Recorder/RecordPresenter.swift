@@ -115,6 +115,10 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         }
 
         self.updateThumbnail()
+        
+        DispatchQueue.main.async(execute: {
+            self.delegate?.resizeAllIcons()
+        })
     }
 
     func pushRecord(_ sender: String) {
