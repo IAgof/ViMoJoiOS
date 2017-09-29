@@ -90,6 +90,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
         self.checkFlashAvaliable()
         self.checkIfMicIsAvailable()
+        self.pushHideMode()
     }
 
     func viewWillDisappear() {
@@ -164,6 +165,9 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 			self.delegate?.hideResolutionView()
 			self.hideAllModeConfigsIfNeccesary()
             self.delegate?.showCameraSimpleView()
+            self.delegate?.hideResolutionView()
+            self.delegate?.hideSpaceOnDiskView()
+            self.delegate?.hideBatteryView()
 		})
 	}
 	
