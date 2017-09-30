@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uQp-bu-Cez">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uQp-bu-Cez">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ck2-bG-eRC" customClass="PlayerView" customModule="PeriodistaCelular" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="226"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="226"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Ck2-bG-eRC" secondAttribute="height" multiplier="160:113" id="C6C-KK-VqN"/>
@@ -33,7 +34,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZn-wu-f2Y" customClass="VImojoCard" customModule="PeriodistaCelular" customModuleProvider="target">
-                                <rect key="frame" x="15" y="241" width="290" height="90"/>
+                                <rect key="frame" x="15" y="261" width="290" height="90"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ede-G3-Wep" customClass="TTRangeSlider">
                                         <rect key="frame" x="10" y="45" width="270" height="30"/>
@@ -63,7 +64,7 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0fd-YG-Bf2" userLabel="View X" customClass="VImojoCard" customModule="PeriodistaCelular" customModuleProvider="target">
-                                <rect key="frame" x="15" y="346" width="290" height="90"/>
+                                <rect key="frame" x="15" y="366" width="290" height="90"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dtt-6d-YyC">
                                         <rect key="frame" x="52" y="13" width="185.5" height="14.5"/>
@@ -191,7 +192,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hK2-dv-6yA">
-                                <rect key="frame" x="286" y="15" width="19" height="22"/>
+                                <rect key="frame" x="286" y="35" width="19" height="22"/>
                                 <state key="normal" image="activity_edit_video_expand"/>
                                 <connections>
                                     <action selector="pushExpandButton:" destination="e1J-kO-AGR" eventType="touchUpInside" id="nyW-IA-oAY"/>
@@ -203,13 +204,13 @@
                             <constraint firstAttribute="trailing" secondItem="SZn-wu-f2Y" secondAttribute="trailing" constant="15" id="3I6-aa-VNw"/>
                             <constraint firstAttribute="trailing" secondItem="JTi-Mc-F7L" secondAttribute="trailing" constant="15" id="4Kh-cb-G3c"/>
                             <constraint firstItem="0fd-YG-Bf2" firstAttribute="leading" secondItem="4Ub-oa-8Vs" secondAttribute="leading" constant="15" id="4Sj-vf-tDE"/>
-                            <constraint firstItem="Ck2-bG-eRC" firstAttribute="top" secondItem="4Ub-oa-8Vs" secondAttribute="top" id="5As-Kl-bfj"/>
+                            <constraint firstItem="Ck2-bG-eRC" firstAttribute="top" secondItem="JQN-Ky-Shc" secondAttribute="bottom" id="5As-Kl-bfj"/>
+                            <constraint firstAttribute="trailing" secondItem="hK2-dv-6yA" secondAttribute="trailing" constant="15" id="DCs-uv-nCr"/>
                             <constraint firstAttribute="trailing" secondItem="Ck2-bG-eRC" secondAttribute="trailing" id="I4u-if-8gF"/>
                             <constraint firstItem="SZn-wu-f2Y" firstAttribute="leading" secondItem="4Ub-oa-8Vs" secondAttribute="leading" constant="15" id="KLQ-aS-dFs"/>
-                            <constraint firstItem="hK2-dv-6yA" firstAttribute="top" secondItem="4Ub-oa-8Vs" secondAttribute="top" constant="15" id="Rln-jo-FPM"/>
                             <constraint firstItem="JTi-Mc-F7L" firstAttribute="leading" secondItem="4Ub-oa-8Vs" secondAttribute="leading" constant="15" id="YJs-qN-i4H"/>
+                            <constraint firstItem="hK2-dv-6yA" firstAttribute="top" secondItem="JQN-Ky-Shc" secondAttribute="bottom" constant="15" id="Ycj-hJ-Zyt"/>
                             <constraint firstItem="Ck2-bG-eRC" firstAttribute="leading" secondItem="4Ub-oa-8Vs" secondAttribute="leading" id="bjT-91-gkk"/>
-                            <constraint firstAttribute="trailing" secondItem="hK2-dv-6yA" secondAttribute="trailing" constant="15" id="ghc-vu-xEn"/>
                             <constraint firstAttribute="trailing" secondItem="0fd-YG-Bf2" secondAttribute="trailing" constant="15" id="jRK-Cs-3Xv"/>
                             <constraint firstItem="0fd-YG-Bf2" firstAttribute="top" secondItem="SZn-wu-f2Y" secondAttribute="bottom" constant="15" id="omN-gS-7Hg"/>
                             <constraint firstItem="SZn-wu-f2Y" firstAttribute="top" secondItem="Ck2-bG-eRC" secondAttribute="bottom" constant="15" id="q3K-Kq-6ds"/>
@@ -735,7 +736,7 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fUs-Sp-lwX">
-                                                <rect key="frame" x="95.5" y="133.5" width="130" height="100"/>
+                                                <rect key="frame" x="110.5" y="133.5" width="100" height="100"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEj-Un-b8l">
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -744,8 +745,8 @@
                                                         <state key="selected" image="activity_edit_sound_voiceover_record_pressed"/>
                                                         <state key="highlighted" image="activity_edit_sound_voiceover_record_pressed"/>
                                                     </button>
-                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg0-GR-d24">
-                                                        <rect key="frame" x="100" y="33" width="30" height="34"/>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg0-GR-d24">
+                                                        <rect key="frame" x="-110.5" y="33" width="0.0" height="34"/>
                                                         <gestureRecognizers/>
                                                         <state key="selected" image="button:Pg0-GR-d24:image"/>
                                                         <state key="highlighted" image="button:Pg0-GR-d24:image"/>
@@ -831,7 +832,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Rcp-EH-B13">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="526"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="520"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nNu-1f-FYH" customClass="PlayerView" customModule="PeriodistaCelular" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="174"/>
@@ -841,7 +842,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xTC-kA-uQv">
-                                        <rect key="frame" x="0.0" y="174" width="320" height="352"/>
+                                        <rect key="frame" x="0.0" y="174" width="320" height="346"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="fll-vH-1Ny">
                                                 <rect key="frame" x="8" y="8" width="304" height="31"/>
@@ -918,7 +919,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfI-Y3-JHt">
-                                <rect key="frame" x="283" y="534" width="21" height="14"/>
+                                <rect key="frame" x="283" y="548" width="21" height="0.0"/>
                                 <state key="normal" image="activity_edit_accept_normal"/>
                                 <state key="highlighted" image="activity_edit_accept_pressed"/>
                                 <connections>
@@ -996,7 +997,7 @@
             <objects>
                 <navigationController id="uQp-bu-Cez" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XVl-Wo-tS0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                 </navigationController>

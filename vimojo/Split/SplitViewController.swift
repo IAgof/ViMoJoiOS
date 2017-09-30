@@ -42,11 +42,12 @@ class SplitViewController: ViMoJoController, SplitViewInterface, SplitPresenterD
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         eventHandler?.viewWillDissappear()
+		configureNavigationBarVissible()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configureNavigationBarWithBackButton()
+		configureNavigationBarHidden()
     }
 
     // MARK: - Actions

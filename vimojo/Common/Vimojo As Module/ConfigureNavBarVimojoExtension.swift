@@ -9,6 +9,19 @@
 import Foundation
 
 extension ViMoJoController {
+	
+	func configureNavigationBarHidden() {
+		if let topController = UIApplication.topViewController() {
+			topController.navigationBar?.isHidden = true
+		}
+	}
+	
+	func configureNavigationBarVissible() {
+		if let topController = UIApplication.topViewController() {
+			topController.navigationBar?.isHidden = false
+		}
+	}
+	
     func configureNavigationBarWithBackButton() {
         let backItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_back"), style: .plain, target: self, action:#selector(pushBack))
 
