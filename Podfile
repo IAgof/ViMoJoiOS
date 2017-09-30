@@ -10,7 +10,7 @@ def shared_pods
     pod 'Mixpanel'
     pod 'Fabric'
     pod 'Crashlytics'
-    pod 'RealmSwift'
+	pod 'RealmSwift'
     pod 'SwifterSwift'
     
     pod 'Google/SignIn'

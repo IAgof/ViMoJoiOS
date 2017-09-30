@@ -110,8 +110,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         self.configureViews()
         // Try to allow rotation -- It's just boring to landscape the capture in a static mode
         configureRotationObserver()
-        // Is that real? I'd say our app tends to be interactive, specially in camera pro. I'd switch when recording to camera pro this value.
-        UIApplication.shared.isIdleTimerDisabled = true
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -90,6 +90,10 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
         self.checkFlashAvaliable()
         self.checkIfMicIsAvailable()
+		
+		DispatchQueue.main.async(execute: {
+			UIApplication.shared.isIdleTimerDisabled = true
+		})
     }
 
     func viewWillDisappear() {
@@ -102,6 +106,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             DispatchQueue.main.async(execute: {
                 self.cameraInteractor?.stopCamera()
                 self.delegate?.showFlashOn(false)
+				UIApplication.shared.isIdleTimerDisabled = false
             })
         }
     }
