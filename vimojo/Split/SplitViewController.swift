@@ -26,7 +26,8 @@ class SplitViewController: ViMoJoController, SplitViewInterface, SplitPresenterD
     @IBOutlet weak var expandPlayerButton: UIButton!
     @IBOutlet weak var splitYourClipLabel: UILabel!
     @IBOutlet weak var splitRangeSlider: TTRangeSlider!
-
+    @IBOutlet weak var splitView: UIView!
+    
     override var forcePortrait: Bool {
         return true
     }
@@ -37,6 +38,7 @@ class SplitViewController: ViMoJoController, SplitViewInterface, SplitPresenterD
         eventHandler?.viewDidLoad()
         wireframe?.presentPlayerInterface()
         splitRangeSlider.delegate = self
+        UIApplication.shared.statusBarView?.backgroundColor = configuration.mainColor
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -115,6 +117,11 @@ class SplitViewController: ViMoJoController, SplitViewInterface, SplitPresenterD
 
         let formatter = TimeNumberFormatter()
         self.splitRangeSlider.numberFormatterOverride = formatter
+        
+        let rangeSliderHeight = playerView.bounds.size.height * 0.5
+        print(rangeSliderHeight)
+//        splitRangeSlider.handleDiameter = 50
+//        splitRangeSlider.selectedHandleDiameterMultiplier = 1
     }
 
     func setSliderValue(_ value: Float) {
@@ -173,5 +180,11 @@ extension SplitViewController:TTRangeSliderDelegate {
     func rangeSlider(_ sender: TTRangeSlider!, didChangeSelectedMinimumValue selectedMinimum: Float, andMaximumValue selectedMaximum: Float) {
         debugPrint("Maximum value \(selectedMaximum)")
         eventHandler?.setSplitValue(selectedMaximum)
+    }
+}
+
+extension UIApplication {
+    var statusBarView: UIView? {
+        return value(forKey: "statusBar") as? UIView
     }
 }

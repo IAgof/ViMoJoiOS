@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uQp-bu-Cez">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uQp-bu-Cez">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,24 +25,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ck2-bG-eRC" customClass="PlayerView" customModule="PeriodistaCelular" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="320" height="226"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="236"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Ck2-bG-eRC" secondAttribute="height" multiplier="160:113" id="C6C-KK-VqN"/>
+                                    <constraint firstAttribute="width" secondItem="Ck2-bG-eRC" secondAttribute="height" multiplier="80:59" id="fGV-H0-GUs"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="playImage" value="activity_record_icon_white_balance_fluorescent_pressed"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZn-wu-f2Y" customClass="VImojoCard" customModule="PeriodistaCelular" customModuleProvider="target">
-                                <rect key="frame" x="15" y="261" width="290" height="90"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZn-wu-f2Y" userLabel="Split View" customClass="VImojoCard" customModule="PeriodistaCelular" customModuleProvider="target">
+                                <rect key="frame" x="15" y="251" width="290" height="71"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ede-G3-Wep" customClass="TTRangeSlider">
-                                        <rect key="frame" x="10" y="45" width="270" height="30"/>
+                                        <rect key="frame" x="10" y="25" width="270" height="35"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="YAj-zG-xp9"/>
-                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="selectedMinimum">
                                                 <real key="value" value="0.0"/>
@@ -53,9 +51,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Ede-G3-Wep" secondAttribute="trailing" constant="10" id="4W5-wq-Ju4"/>
-                                    <constraint firstAttribute="height" constant="90" id="61H-xk-xGY"/>
+                                    <constraint firstItem="Ede-G3-Wep" firstAttribute="centerY" secondItem="SZn-wu-f2Y" secondAttribute="centerY" multiplier="1.2" id="FqN-do-Mbv"/>
                                     <constraint firstItem="Ede-G3-Wep" firstAttribute="leading" secondItem="SZn-wu-f2Y" secondAttribute="leading" constant="10" id="Yah-MY-65U"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ede-G3-Wep" secondAttribute="bottom" constant="15" id="tTd-9H-1dw"/>
+                                    <constraint firstItem="Ede-G3-Wep" firstAttribute="height" secondItem="SZn-wu-f2Y" secondAttribute="height" multiplier="0.5" id="gNY-wj-1kU"/>
                                 </constraints>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="subviews">
@@ -63,8 +61,8 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0fd-YG-Bf2" userLabel="View X" customClass="VImojoCard" customModule="PeriodistaCelular" customModuleProvider="target">
-                                <rect key="frame" x="15" y="366" width="290" height="90"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0fd-YG-Bf2" userLabel="View X" customClass="VImojoCard" customModule="PeriodistaCelular" customModuleProvider="target">
+                                <rect key="frame" x="15" y="337" width="290" height="90"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dtt-6d-YyC">
                                         <rect key="frame" x="52" y="13" width="185.5" height="14.5"/>
@@ -192,7 +190,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hK2-dv-6yA">
-                                <rect key="frame" x="286" y="35" width="19" height="22"/>
+                                <rect key="frame" x="286" y="15" width="19" height="22"/>
                                 <state key="normal" image="activity_edit_video_expand"/>
                                 <connections>
                                     <action selector="pushExpandButton:" destination="e1J-kO-AGR" eventType="touchUpInside" id="nyW-IA-oAY"/>
@@ -205,16 +203,17 @@
                             <constraint firstAttribute="trailing" secondItem="JTi-Mc-F7L" secondAttribute="trailing" constant="15" id="4Kh-cb-G3c"/>
                             <constraint firstItem="0fd-YG-Bf2" firstAttribute="leading" secondItem="4Ub-oa-8Vs" secondAttribute="leading" constant="15" id="4Sj-vf-tDE"/>
                             <constraint firstItem="Ck2-bG-eRC" firstAttribute="top" secondItem="JQN-Ky-Shc" secondAttribute="bottom" id="5As-Kl-bfj"/>
+                            <constraint firstItem="Ck2-bG-eRC" firstAttribute="width" secondItem="4Ub-oa-8Vs" secondAttribute="width" id="6h5-9a-vnG"/>
                             <constraint firstAttribute="trailing" secondItem="hK2-dv-6yA" secondAttribute="trailing" constant="15" id="DCs-uv-nCr"/>
-                            <constraint firstAttribute="trailing" secondItem="Ck2-bG-eRC" secondAttribute="trailing" id="I4u-if-8gF"/>
                             <constraint firstItem="SZn-wu-f2Y" firstAttribute="leading" secondItem="4Ub-oa-8Vs" secondAttribute="leading" constant="15" id="KLQ-aS-dFs"/>
                             <constraint firstItem="JTi-Mc-F7L" firstAttribute="leading" secondItem="4Ub-oa-8Vs" secondAttribute="leading" constant="15" id="YJs-qN-i4H"/>
                             <constraint firstItem="hK2-dv-6yA" firstAttribute="top" secondItem="JQN-Ky-Shc" secondAttribute="bottom" constant="15" id="Ycj-hJ-Zyt"/>
-                            <constraint firstItem="Ck2-bG-eRC" firstAttribute="leading" secondItem="4Ub-oa-8Vs" secondAttribute="leading" id="bjT-91-gkk"/>
                             <constraint firstAttribute="trailing" secondItem="0fd-YG-Bf2" secondAttribute="trailing" constant="15" id="jRK-Cs-3Xv"/>
+                            <constraint firstItem="Ck2-bG-eRC" firstAttribute="centerX" secondItem="4Ub-oa-8Vs" secondAttribute="centerX" id="nfG-Na-sEd"/>
                             <constraint firstItem="0fd-YG-Bf2" firstAttribute="top" secondItem="SZn-wu-f2Y" secondAttribute="bottom" constant="15" id="omN-gS-7Hg"/>
                             <constraint firstItem="SZn-wu-f2Y" firstAttribute="top" secondItem="Ck2-bG-eRC" secondAttribute="bottom" constant="15" id="q3K-Kq-6ds"/>
                             <constraint firstAttribute="bottom" secondItem="JTi-Mc-F7L" secondAttribute="bottom" constant="15" id="tKv-Dg-G7g"/>
+                            <constraint firstItem="SZn-wu-f2Y" firstAttribute="height" secondItem="4Ub-oa-8Vs" secondAttribute="height" multiplier="0.125" id="wx1-Ha-qsZ"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -224,6 +223,7 @@
                         <outlet property="expandPlayerButton" destination="hK2-dv-6yA" id="58B-r8-VgC"/>
                         <outlet property="playerView" destination="Ck2-bG-eRC" id="MYc-SL-LGG"/>
                         <outlet property="splitRangeSlider" destination="Ede-G3-Wep" id="w4w-yF-flc"/>
+                        <outlet property="splitView" destination="SZn-wu-f2Y" id="UWk-1t-jSH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GH5-hs-dQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -253,7 +253,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCz-0d-hhA" customClass="VImojoCard" customModule="PeriodistaCelular" customModuleProvider="target">
-                                <rect key="frame" x="15" y="241.5" width="290" height="156"/>
+                                <rect key="frame" x="15" y="226.5" width="290" height="156"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Init" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MjO-s0-Qli">
                                         <rect key="frame" x="15" y="120.5" width="23.5" height="20.5"/>
@@ -372,7 +372,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23Q-6k-a99" customClass="VImojoCard" customModule="PeriodistaCelular" customModuleProvider="target">
-                                <rect key="frame" x="15" y="412.5" width="290" height="75"/>
+                                <rect key="frame" x="15" y="397.5" width="290" height="75"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="kYm-Ep-AgN">
                                         <rect key="frame" x="15" y="0.0" width="260" height="26"/>
@@ -482,7 +482,7 @@
                             <constraint firstItem="23Q-6k-a99" firstAttribute="top" secondItem="ZCz-0d-hhA" secondAttribute="bottom" constant="15" id="0UQ-Na-wTw"/>
                             <constraint firstAttribute="trailing" secondItem="PCw-vg-1hF" secondAttribute="trailing" constant="15" id="0XH-yT-dgx"/>
                             <constraint firstAttribute="trailing" secondItem="23Q-6k-a99" secondAttribute="trailing" constant="15" id="1ef-hi-taD"/>
-                            <constraint firstItem="ZCz-0d-hhA" firstAttribute="top" secondItem="4wQ-2f-JFb" secondAttribute="bottom" constant="15" id="9CR-sc-zdR"/>
+                            <constraint firstItem="ZCz-0d-hhA" firstAttribute="top" secondItem="4wQ-2f-JFb" secondAttribute="bottom" id="9CR-sc-zdR"/>
                             <constraint firstAttribute="trailing" secondItem="Fd3-2Q-8bH" secondAttribute="trailing" constant="15" id="HZ5-IH-tcS"/>
                             <constraint firstItem="ZCz-0d-hhA" firstAttribute="leading" secondItem="HJB-34-OpP" secondAttribute="leading" constant="15" id="Kxm-R3-tqP"/>
                             <constraint firstItem="PCw-vg-1hF" firstAttribute="leading" secondItem="HJB-34-OpP" secondAttribute="leading" constant="15" id="Qgs-b5-jiE"/>
@@ -745,8 +745,8 @@
                                                         <state key="selected" image="activity_edit_sound_voiceover_record_pressed"/>
                                                         <state key="highlighted" image="activity_edit_sound_voiceover_record_pressed"/>
                                                     </button>
-                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg0-GR-d24">
-                                                        <rect key="frame" x="-110.5" y="33" width="0.0" height="34"/>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg0-GR-d24">
+                                                        <rect key="frame" x="100" y="33" width="0.0" height="34"/>
                                                         <gestureRecognizers/>
                                                         <state key="selected" image="button:Pg0-GR-d24:image"/>
                                                         <state key="highlighted" image="button:Pg0-GR-d24:image"/>
@@ -832,7 +832,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Rcp-EH-B13">
-                                <rect key="frame" x="0.0" y="20" width="320" height="520"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="520"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nNu-1f-FYH" customClass="PlayerView" customModule="PeriodistaCelular" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="174"/>
@@ -919,7 +919,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfI-Y3-JHt">
-                                <rect key="frame" x="283" y="548" width="21" height="0.0"/>
+                                <rect key="frame" x="283" y="528" width="21" height="20"/>
                                 <state key="normal" image="activity_edit_accept_normal"/>
                                 <state key="highlighted" image="activity_edit_accept_pressed"/>
                                 <connections>
