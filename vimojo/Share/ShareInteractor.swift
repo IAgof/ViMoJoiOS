@@ -50,7 +50,7 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
                 let exportURL = URL(fileURLWithPath: exportPath)
                 self.delegate?.setPlayerUrl(videoURL: exportURL)
                 self.delegate?.exportFinished(withError: false)
-				self.postToCloud(exportURL.lastPathComponent)
+//				self.postToCloud(exportURL.lastPathComponent)
             }else{
                 print("File doesn't exist")
                 exportVideoAction()
@@ -79,7 +79,7 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
                         self.moviePath = url.absoluteString
                         ProjectRealmRepository().update(item: actualProject)
                         self.delegate?.setPlayerUrl(videoURL: url)
-						self.postToCloud(url.lastPathComponent)
+//						self.postToCloud(url.lastPathComponent)
                     }
                 }
 
