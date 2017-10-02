@@ -24,10 +24,12 @@ class SplitViewController: ViMoJoController, SplitViewInterface, SplitPresenterD
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var acceptButton: UIButton!
     @IBOutlet weak var expandPlayerButton: UIButton!
-    @IBOutlet weak var splitYourClipLabel: UILabel!
     @IBOutlet weak var splitRangeSlider: TTRangeSlider!
     @IBOutlet weak var splitView: UIView!
-    
+	@IBOutlet weak var lowMilisecondsLabel: UILabel!
+	@IBOutlet weak var mediumMilisecondsLabel: UILabel!
+	@IBOutlet weak var highMilisecondsLabel: UILabel!
+	
     override var forcePortrait: Bool {
         return true
     }
@@ -36,10 +38,18 @@ class SplitViewController: ViMoJoController, SplitViewInterface, SplitPresenterD
     override func viewDidLoad() {
         super.viewDidLoad()
         eventHandler?.viewDidLoad()
-        wireframe?.presentPlayerInterface()
-        splitRangeSlider.delegate = self
         UIApplication.shared.statusBarView?.backgroundColor = configuration.mainColor
+		splitRangeSlider.delegate = self
     }
+	
+	override func viewDidLayoutSubviews() {
+		let splitRangeSliderHeight:CGFloat = splitRangeSlider.bounds.size.height
+		eventHandler?.viewDidLayoutSubviews(splitRangeSliderHeight)
+	}
+	
+	func updateSplitRangeSliderDiameter(_ value: CGFloat) {
+		splitRangeSlider.handleDiameter = value
+	}
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -49,6 +59,7 @@ class SplitViewController: ViMoJoController, SplitViewInterface, SplitPresenterD
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+		wireframe?.presentPlayerInterface()
 		configureNavigationBarHidden()
     }
 
@@ -117,11 +128,8 @@ class SplitViewController: ViMoJoController, SplitViewInterface, SplitPresenterD
 
         let formatter = TimeNumberFormatter()
         self.splitRangeSlider.numberFormatterOverride = formatter
-        
-        let rangeSliderHeight = playerView.bounds.size.height * 0.5
-        print(rangeSliderHeight)
-//        splitRangeSlider.handleDiameter = 50
-//        splitRangeSlider.selectedHandleDiameterMultiplier = 1
+
+		splitRangeSlider.selectedHandleDiameterMultiplier = 1
     }
 
     func setSliderValue(_ value: Float) {

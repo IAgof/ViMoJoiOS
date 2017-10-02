@@ -45,8 +45,7 @@ class TrimViewController: ViMoJoController, TrimPresenterDelegate, PlayerViewSet
     override func viewDidLoad() {
         super.viewDidLoad()
         eventHandler?.viewDidLoad()
-        wireframe?.presentPlayerInterface()
-
+		UIApplication.shared.statusBarView?.backgroundColor = configuration.mainColor
         trimRangeSlider.addTarget(self, action: #selector(TrimViewController.sliderBeganTracking),
                              for: UIControlEvents.touchDown)
         trimRangeSlider.addTarget(self, action: #selector(TrimViewController.sliderEndedTracking),
@@ -61,6 +60,7 @@ class TrimViewController: ViMoJoController, TrimPresenterDelegate, PlayerViewSet
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+		wireframe?.presentPlayerInterface()
 		configureNavigationBarHidden()
     }
 
