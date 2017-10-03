@@ -54,6 +54,8 @@ protocol RecordPresenterInterface {
 	
 	func pushCameraSimple()
 	func pushCameraPro()
+    
+    func cameraViewHasTapped()
 }
 
 protocol RecordPresenterDelegate {
@@ -68,7 +70,7 @@ protocol RecordPresenterDelegate {
     func showFrontCameraSelected()
     func showFocusAtPoint(_ point: CGPoint)
     func showStopButton()
-    func showBatteryRemaining()
+    func showBatteryView()
     func showSpaceOnDisk()
 
     func getControllerName() -> String
@@ -181,4 +183,6 @@ protocol RecordPresenterDelegate {
     func unselectRecordButton()
     func selectSecondaryRecordButton()
     func unselectSecondaryRecordButton()
+    
+    func resizeAllIcons()
 }

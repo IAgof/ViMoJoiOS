@@ -38,7 +38,7 @@ class EditorClipsCell: UICollectionViewCell {
     var isMoving = false {
         didSet {
             UIView.animate(withDuration: 0.25, animations: {
-                self.transform = CGAffineTransform(rotationAngle: self.isMoving ? CGFloat(M_PI_4) : CGFloat(0))
+                self.transform = CGAffineTransform(rotationAngle: self.isMoving ? CGFloat(Double.pi / 4) : CGFloat(0))
             })
         }
     }

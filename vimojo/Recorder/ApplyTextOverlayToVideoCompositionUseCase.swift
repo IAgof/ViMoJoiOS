@@ -45,7 +45,7 @@ class ApplyTextOverlayToVideoCompositionUseCase: NSObject {
 
         let videos = project.getVideoList()
 
-        for video in videos {
+        for _ in videos {
             layers = GetActualProjectCALayerAnimationUseCase(videonaComposition: videonaComposition).getTextLayersAnimated(videoList: videos)
         }
 
