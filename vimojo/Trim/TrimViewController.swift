@@ -42,6 +42,10 @@ class TrimViewController: ViMoJoController, TrimPresenterDelegate, PlayerViewSet
 	@IBOutlet weak var milisecondsRightDecreaseButton: UIButton!
 	@IBOutlet weak var milisecondsRightIncreaseButton: UIButton!
     // MARK: - LifeCycle
+	override var forcePortrait: Bool {
+		return true
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         eventHandler?.viewDidLoad()

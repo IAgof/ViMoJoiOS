@@ -24,23 +24,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" highlighted="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ue1-UA-7yv">
-                                <rect key="frame" x="283" y="526" width="21" height="22"/>
-                                <state key="normal" image="activity_edit_accept_normal"/>
-                                <state key="highlighted" image="activity_edit_accept_pressed"/>
-                                <connections>
-                                    <action selector="pushAcceptButton:" destination="qOb-Qv-UDy" eventType="touchUpInside" id="FHe-Fo-aDM"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" highlighted="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UsH-nl-JyL">
-                                <rect key="frame" x="16" y="526" width="15" height="22"/>
-                                <state key="normal" image="activity_edit_cancel_normal"/>
-                                <state key="highlighted" image="activity_edit_cancel_pressed"/>
-                                <connections>
-                                    <action selector="pushCancelButton:" destination="qOb-Qv-UDy" eventType="touchUpInside" id="aF4-7q-f8F"/>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Nqi-wx-9UW">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Nqi-wx-9UW">
                                 <rect key="frame" x="0.0" y="20" width="320" height="502"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QG1-p9-8FA" customClass="PlayerView" customModule="VideonaPlayer">
@@ -61,23 +45,10 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIa-H9-jEv">
-                                                <rect key="frame" x="133" y="214" width="56" height="56"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="YIa-H9-jEv" secondAttribute="height" multiplier="1:1" id="8Pm-uA-NY8"/>
-                                                </constraints>
+                                                <rect key="frame" x="234" y="214" width="56" height="56"/>
                                                 <state key="normal" image="activity_edit_duplicate_clip_plus_normal"/>
                                                 <state key="selected" image="button_edit_increment_clips_pressed"/>
                                                 <state key="highlighted" image="activity_edit_duplicate_clip_plus_pressed"/>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="8Pm-uA-NY8"/>
-                                                    </mask>
-                                                </variation>
-                                                <variation key="heightClass=regular-widthClass=regular">
-                                                    <mask key="constraints">
-                                                        <include reference="8Pm-uA-NY8"/>
-                                                    </mask>
-                                                </variation>
                                                 <connections>
                                                     <action selector="pushPlusClips:" destination="qOb-Qv-UDy" eventType="touchUpInside" id="27c-p6-YZl"/>
                                                 </connections>
@@ -113,7 +84,7 @@
                                                 </variation>
                                             </label>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BA5-Lb-W8H">
-                                                <rect key="frame" x="132" y="278" width="58" height="58"/>
+                                                <rect key="frame" x="30" y="214" width="58" height="58"/>
                                                 <state key="normal" image="activity_edit_duplicate_clip_minus_normal"/>
                                                 <state key="selected" image="button_edit_decrement_clips_pressed"/>
                                                 <state key="highlighted" image="activity_edit_duplicate_clip_minus_pressed"/>
@@ -125,6 +96,7 @@
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="KqX-gu-Zf5" firstAttribute="leading" secondItem="uhe-GL-M2w" secondAttribute="trailing" priority="250" constant="31" id="2f4-na-zUW"/>
+                                            <constraint firstItem="BA5-Lb-W8H" firstAttribute="top" secondItem="qTL-Ct-FfM" secondAttribute="bottom" constant="15" id="6E9-v0-ESN"/>
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qTL-Ct-FfM" secondAttribute="bottom" constant="129" id="FWQ-KN-Tk9">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="80"/>
                                             </constraint>
@@ -137,15 +109,13 @@
                                             <constraint firstItem="3U5-iX-HyG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="QPo-sx-2xK" secondAttribute="top" constant="169" id="MOS-b0-rfE">
                                                 <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                                             </constraint>
-                                            <constraint firstItem="BA5-Lb-W8H" firstAttribute="top" secondItem="YIa-H9-jEv" secondAttribute="bottom" constant="8" id="N6D-Wd-LDF"/>
-                                            <constraint firstItem="BA5-Lb-W8H" firstAttribute="centerX" secondItem="YIa-H9-jEv" secondAttribute="centerX" id="Ofg-gW-6dp"/>
                                             <constraint firstItem="KqX-gu-Zf5" firstAttribute="centerY" secondItem="uhe-GL-M2w" secondAttribute="centerY" id="Q1o-Jz-8UK"/>
                                             <constraint firstItem="qTL-Ct-FfM" firstAttribute="centerY" secondItem="uhe-GL-M2w" secondAttribute="centerY" id="T7M-Qa-uS1"/>
                                             <constraint firstAttribute="trailing" secondItem="KqX-gu-Zf5" secondAttribute="trailing" constant="20" id="TKi-75-unN">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="50"/>
                                             </constraint>
                                             <constraint firstItem="uhe-GL-M2w" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qTL-Ct-FfM" secondAttribute="trailing" constant="10" id="TN4-95-tcW"/>
-                                            <constraint firstItem="YIa-H9-jEv" firstAttribute="centerX" secondItem="uhe-GL-M2w" secondAttribute="centerX" id="VLx-KG-Qol"/>
+                                            <constraint firstItem="BA5-Lb-W8H" firstAttribute="leading" secondItem="QPo-sx-2xK" secondAttribute="leading" constant="30" id="YSK-3i-mo8"/>
                                             <constraint firstItem="KqX-gu-Zf5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uhe-GL-M2w" secondAttribute="trailing" constant="10" id="ZAX-JT-z6l"/>
                                             <constraint firstItem="qTL-Ct-FfM" firstAttribute="leading" secondItem="QPo-sx-2xK" secondAttribute="leading" constant="20" id="ZiT-cN-54V">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="50"/>
@@ -160,13 +130,11 @@
                                             <constraint firstItem="uhe-GL-M2w" firstAttribute="leading" secondItem="qTL-Ct-FfM" secondAttribute="trailing" priority="250" constant="30" id="ef8-5M-Bic"/>
                                             <constraint firstItem="YIa-H9-jEv" firstAttribute="top" secondItem="KqX-gu-Zf5" secondAttribute="bottom" priority="250" constant="11" id="etB-xT-RXN">
                                                 <variation key="heightClass=compact" constant="30"/>
-                                                <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                                                <variation key="heightClass=regular-widthClass=compact" constant="15"/>
                                                 <variation key="heightClass=regular-widthClass=regular" constant="50"/>
                                             </constraint>
+                                            <constraint firstAttribute="trailing" secondItem="YIa-H9-jEv" secondAttribute="trailing" constant="30" id="imE-Ae-0pN"/>
                                             <constraint firstAttribute="width" constant="250" id="j3v-cD-0zC"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="YIa-H9-jEv" secondAttribute="bottom" constant="55" id="kDj-Nk-YmO">
-                                                <variation key="heightClass=regular-widthClass=regular" constant="8"/>
-                                            </constraint>
                                             <constraint firstItem="qTL-Ct-FfM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3U5-iX-HyG" secondAttribute="bottom" constant="66" id="kvk-Jc-Ua9">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="10"/>
                                             </constraint>
@@ -184,7 +152,6 @@
                                                 <exclude reference="kvk-Jc-Ua9"/>
                                                 <exclude reference="dSl-oK-t17"/>
                                                 <exclude reference="dkN-sw-QPd"/>
-                                                <exclude reference="kDj-Nk-YmO"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=compact">
@@ -204,37 +171,65 @@
                                                 <include reference="kvk-Jc-Ua9"/>
                                                 <include reference="dSl-oK-t17"/>
                                                 <include reference="dkN-sw-QPd"/>
-                                                <include reference="kDj-Nk-YmO"/>
                                             </mask>
                                         </variation>
                                     </view>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1j-pd-0gW">
-                                <rect key="frame" x="297" y="8" width="19" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1j-pd-0gW">
+                                <rect key="frame" x="286" y="35" width="19" height="22"/>
                                 <state key="normal" image="activity_edit_video_expand"/>
                                 <connections>
                                     <action selector="pushExpandButton:" destination="qOb-Qv-UDy" eventType="touchUpInside" id="mgH-gi-rQ3"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbW-Zl-1Ap" customClass="VImojoCard" customModule="PeriodistaCelular" customModuleProvider="target">
+                                <rect key="frame" x="15" y="501" width="290" height="52"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BzJ-q3-4lI">
+                                        <rect key="frame" x="15" y="15" width="15" height="22"/>
+                                        <state key="normal" image="activity_edit_cancel_normal"/>
+                                        <state key="highlighted" image="activity_edit_cancel_normal"/>
+                                        <connections>
+                                            <action selector="pushCancelButton:" destination="qOb-Qv-UDy" eventType="touchUpInside" id="6Er-pr-ILz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djf-Kn-eL0">
+                                        <rect key="frame" x="254" y="15" width="21" height="22"/>
+                                        <state key="normal" image="activity_edit_accept_normal"/>
+                                        <state key="highlighted" image="activity_edit_accept_pressed"/>
+                                        <connections>
+                                            <action selector="pushAcceptButton:" destination="qOb-Qv-UDy" eventType="touchUpInside" id="Bs6-m8-wNn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="djf-Kn-eL0" firstAttribute="top" secondItem="fbW-Zl-1Ap" secondAttribute="top" constant="15" id="7Qs-in-Wm7"/>
+                                    <constraint firstAttribute="bottom" secondItem="BzJ-q3-4lI" secondAttribute="bottom" constant="15" id="BEP-Vf-9Pf"/>
+                                    <constraint firstAttribute="trailing" secondItem="djf-Kn-eL0" secondAttribute="trailing" constant="15" id="KqG-j5-wjE"/>
+                                    <constraint firstItem="BzJ-q3-4lI" firstAttribute="leading" secondItem="fbW-Zl-1Ap" secondAttribute="leading" constant="15" id="eZe-uS-S43"/>
+                                    <constraint firstAttribute="bottom" secondItem="djf-Kn-eL0" secondAttribute="bottom" constant="15" id="wxS-da-k0i"/>
+                                    <constraint firstItem="BzJ-q3-4lI" firstAttribute="top" secondItem="fbW-Zl-1Ap" secondAttribute="top" constant="15" id="x4U-LG-u5q"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Nqi-wx-9UW" secondAttribute="trailing" id="4fy-Qv-22b"/>
-                            <constraint firstItem="UsH-nl-JyL" firstAttribute="leading" secondItem="DMs-hy-0hf" secondAttribute="leadingMargin" id="6ho-MG-wrV"/>
+                            <constraint firstAttribute="trailing" secondItem="R1j-pd-0gW" secondAttribute="trailing" constant="15" id="7ej-7Y-wp7"/>
                             <constraint firstItem="Nqi-wx-9UW" firstAttribute="leading" secondItem="DMs-hy-0hf" secondAttribute="leading" id="8gI-dv-RQW"/>
-                            <constraint firstItem="1nl-TN-WbQ" firstAttribute="top" secondItem="UsH-nl-JyL" secondAttribute="bottom" constant="20" id="HnO-Rf-HJw"/>
-                            <constraint firstItem="UsH-nl-JyL" firstAttribute="top" secondItem="Nqi-wx-9UW" secondAttribute="bottom" constant="4" id="cUr-NY-CT7"/>
-                            <constraint firstItem="Ue1-UA-7yv" firstAttribute="trailing" secondItem="DMs-hy-0hf" secondAttribute="trailingMargin" id="jRX-Lv-jXW"/>
+                            <constraint firstAttribute="bottom" secondItem="fbW-Zl-1Ap" secondAttribute="bottom" constant="15" id="GHM-Hf-M69"/>
+                            <constraint firstItem="R1j-pd-0gW" firstAttribute="top" secondItem="2TS-jh-Kz2" secondAttribute="bottom" constant="15" id="Jke-t4-tdz"/>
+                            <constraint firstItem="fbW-Zl-1Ap" firstAttribute="leading" secondItem="DMs-hy-0hf" secondAttribute="leading" constant="15" id="Syc-K3-i0x"/>
+                            <constraint firstAttribute="trailing" secondItem="fbW-Zl-1Ap" secondAttribute="trailing" constant="15" id="Trj-jW-TT5"/>
                             <constraint firstItem="Nqi-wx-9UW" firstAttribute="top" secondItem="2TS-jh-Kz2" secondAttribute="bottom" id="trh-1e-7Qn"/>
-                            <constraint firstItem="1nl-TN-WbQ" firstAttribute="top" secondItem="Ue1-UA-7yv" secondAttribute="bottom" constant="20" id="v3Q-SG-Hri"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
-                        <outlet property="acceptButton" destination="Ue1-UA-7yv" id="UUO-Xx-KEY"/>
-                        <outlet property="cancelButton" destination="UsH-nl-JyL" id="gsA-3D-Lce"/>
+                        <outlet property="acceptButton" destination="djf-Kn-eL0" id="PNQ-8g-MhT"/>
+                        <outlet property="cancelButton" destination="BzJ-q3-4lI" id="IuE-3c-ae9"/>
                         <outlet property="cloneYourClipLabel" destination="3U5-iX-HyG" id="HdS-6Q-d03"/>
                         <outlet property="expandPlayerButton" destination="R1j-pd-0gW" id="9Qu-zi-pam"/>
                         <outlet property="minusButton" destination="BA5-Lb-W8H" id="Flw-0Q-9Hp"/>
@@ -342,10 +337,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="6Yj-Ra-O6r">
-                                <rect key="frame" x="0.0" y="40" width="320" height="463"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="483"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qy9-eY-fhW" customClass="PlayerView" customModule="VideonaPlayer">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="166"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="173"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBP-hM-jHt">
                                                 <rect key="frame" x="285" y="16" width="19" height="22"/>
@@ -365,7 +360,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hsD-gO-4mR">
-                                        <rect key="frame" x="0.0" y="166" width="320" height="297"/>
+                                        <rect key="frame" x="0.0" y="173" width="320" height="310"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="260" id="fU2-af-Akt">
@@ -567,9 +562,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1i-MY-LSq">
-                                <rect key="frame" x="285" y="16" width="19" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1i-MY-LSq">
+                                <rect key="frame" x="286" y="35" width="19" height="22"/>
                                 <state key="normal" image="activity_edit_video_expand"/>
                                 <connections>
                                     <action selector="pushExpandButton:" destination="bnB-1P-Nds" eventType="touchUpInside" id="kaN-qU-8zo"/>
@@ -591,6 +585,8 @@
                             <constraint firstAttribute="trailing" secondItem="Fp3-hW-jGQ" secondAttribute="trailing" id="Eb0-gc-pyq"/>
                             <constraint firstItem="Fp3-hW-jGQ" firstAttribute="leading" secondItem="daU-Tx-zTj" secondAttribute="leading" id="Wz2-f7-HCf"/>
                             <constraint firstAttribute="trailing" secondItem="pNh-Md-GBE" secondAttribute="trailing" constant="20" id="m2a-BS-z6Z"/>
+                            <constraint firstItem="s1i-MY-LSq" firstAttribute="top" secondItem="v8b-hN-qJV" secondAttribute="bottom" constant="15" id="qUp-dd-rhu"/>
+                            <constraint firstAttribute="trailing" secondItem="s1i-MY-LSq" secondAttribute="trailing" constant="15" id="r56-vq-nnR"/>
                             <constraint firstItem="Fp3-hW-jGQ" firstAttribute="top" secondItem="v8b-hN-qJV" secondAttribute="bottom" id="yns-3z-Atu"/>
                         </constraints>
                     </view>

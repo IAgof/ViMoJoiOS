@@ -15,7 +15,6 @@ class GalleryFetchOptions: NSObject {
         fetchOptions.sortDescriptors = [
             NSSortDescriptor(key: "creationDate", ascending: false)
         ]
-        fetchOptions.predicate = NSPredicate(format: "mediaSubType = %d", PHAssetMediaSubtype.videoStreamed.rawValue)
         return fetchOptions
     }
     
