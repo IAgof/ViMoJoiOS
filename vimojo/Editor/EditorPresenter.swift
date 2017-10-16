@@ -10,17 +10,12 @@ import Foundation
 import UIKit
 import AVFoundation
 import VideonaProject
-import VideonaProject
 
 class EditorPresenter: NSObject {
     // MARK: - Variables VIPER
     var delegate: EditorPresenterDelegate?
     var interactor: EditorInteractorInterface?
-
     var wireframe: EditorWireframe?
-    var playerPresenter: PlayerPresenterInterface?
-    var playerWireframe: PlayerWireframe?
-    var fullScreenPlayerWireframe: FullScreenPlayerWireframe?
 
     // MARK: - Variables
     var selectedCellIndexPath = IndexPath(row: 0, section: 0)
@@ -82,16 +77,11 @@ extension EditorPresenter:EditorPresenterInterface {
         delegate?.setUpGestureRecognizer()
     }
 
-    func updatePlayerView() {
-        wireframe?.presentPlayerInterface()
-        delegate?.bringToFrontExpandPlayerButton()
-    }
-
     func viewWillAppear() {
         if !isGoingToExpandPlayer {
             self.loadView()
 
-            self.playerPresenter?.onVideoStops()
+            VideonaPlayerNotifications.onVideoStops.postNotification()
         } else {
             isGoingToExpandPlayer = false
         }
@@ -99,7 +89,7 @@ extension EditorPresenter:EditorPresenterInterface {
 
     func viewWillDisappear() {
         if !isGoingToExpandPlayer {
-            playerPresenter?.onVideoStops()
+            VideonaPlayerNotifications.onVideoStops.postNotification()
         }
     }
 
@@ -193,17 +183,7 @@ extension EditorPresenter:EditorPresenterInterface {
     func pushAddVideoHandler() {
         wireframe?.presentGallery()
     }
-
-    func expandPlayer() {
-        isGoingToExpandPlayer = true
-
-        wireframe?.presentExpandPlayer()
-    }
-
-    func updatePlayerLayer() {
-        playerPresenter!.layoutSubViews()
-    }
-
+    
     func checkIfSelectedCellExits() -> Bool {
         if let numberOfCells = delegate?.numberOfCellsInCollectionView() {
             if numberOfCells >= selectedCellIndexPath.item {
@@ -268,12 +248,11 @@ extension EditorPresenter:EditorInteractorDelegate {
     }
 
     func seekToTimeOfVideoSelectedReceiver(_ time: Float) {
-        playerPresenter?.seekToTime(time)
+        //TODO: Change notification
+        VideonaPlayerNotifications.seekBarUpdate(value: time).postNotification()
     }
 
     func setComposition(_ composition: VideoComposition) {
-        self.updatePlayerView()
-
-        playerPresenter?.createVideoPlayer(composition)
+        delegate?.add(compositionToPlayer: composition)
     }
 }

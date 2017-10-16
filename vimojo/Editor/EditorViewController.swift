@@ -9,22 +9,24 @@
 import Foundation
 import MobileCoreServices
 import VideonaProject
-import VideonaProject
 import Photos
 
-class EditorViewController: EditingRoomItemController, EditorPresenterDelegate, FullScreenWireframeDelegate,
+class EditorViewController: EditingRoomItemController, EditorPresenterDelegate,
 UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate {
-
     // MARK: - VIPER variables
     var eventHandler: EditorPresenterInterface?
 
+    // MARK: - Outlets
+    @IBOutlet weak var thumbnailClipsCollectionView: UICollectionView!
+    @IBOutlet weak var playerView: VideonaPlayerView!
+    @IBOutlet weak var expandPlayerButton: UIButton!
+    @IBOutlet weak var addFloatingButton: UIButton!
+    
     // MARK: - Variables
     var longPressGesture: UILongPressGestureRecognizer?
     var currentDragAndDropIndexPath: IndexPath?
     let imagePicker = UIImagePickerController()
-
-    let reuseIdentifierCell = "editorCollectionViewCell"
-
+    var alertController: UIAlertController?
     var videoList: [EditorViewModel] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -32,8 +34,6 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
             }
         }
     }
-
-    var alertController: UIAlertController?
     var selectedCellIndexPath: IndexPath = IndexPath(item: 0, section: 0) {
         didSet {
             DispatchQueue.main.async {
@@ -42,13 +42,7 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
             }
         }
     }
-
-    // MARK: - Outlets
-    @IBOutlet weak var thumbnailClipsCollectionView: UICollectionView!
-    @IBOutlet weak var playerView: UIView!
-    @IBOutlet weak var expandPlayerButton: UIButton!
-    @IBOutlet weak var addFloatingButton: UIButton!
-
+    let reuseIdentifierCell = "editorCollectionViewCell"
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,10 +52,7 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
         eventHandler?.viewWillAppear()
-
-        playerView.layoutSubviews()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -177,7 +168,7 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
     }
 
     @IBAction func pushExpandButton(_ sender: AnyObject) {
-        eventHandler?.expandPlayer()
+
     }
 
     @IBAction func pushAddTextButton(_ sender: AnyObject) {
@@ -287,12 +278,6 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
         self.playerView.bringSubview(toFront: expandPlayerButton)
     }
 
-    func cameFromFullScreenPlayer(_ playerView: PlayerView) {
-        self.playerView.addSubview(playerView)
-        self.playerView.bringSubview(toFront: expandPlayerButton)
-        eventHandler?.updatePlayerLayer()
-    }
-
     // MARK: - Drag and Drop handler
     func handleLongGesture(_ gesture: UILongPressGestureRecognizer) {
 
@@ -331,6 +316,14 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
     }
 }
 
+extension EditorViewController: VideonaPlayerViewInterface {
+    func add(compositionToPlayer: VideoComposition) {
+        if let mutableComposition = compositionToPlayer.mutableComposition { playerView.movieComposition = mutableComposition }
+        if let audioMix = compositionToPlayer.audioMix { playerView.audioMix = audioMix }
+        if let videoComposition = compositionToPlayer.videoComposition { playerView.videoComposition = videoComposition }
+        playerView.createVideoPlayer()
+    }
+}
 extension EditorViewController:PlayerViewDelegate {
     // MARK: Player view delegate
     func seekBarUpdate(_ value: Float) {
@@ -346,25 +339,19 @@ extension EditorViewController:PlayerViewDelegate {
     }
 }
 
-extension EditorViewController:PlayerViewSetter {
-    // MARK: - Player setter
-    func addPlayerAsSubview(_ player: PlayerView) {
-        self.playerView.addSubview(player)
-    }
-}
+//extension EditorViewController:PlayerViewFinishedDelegate {
+//    func playerHasLoaded() {
+//        eventHandler?.playerHasLoaded()
+//    }
+//    func playerStartsToPlay() {
+//
+//    }
+//    func playerPause() {
+//
+//    }
+//
+//    func playerSeeksTo(_ value: Float) {
+//        eventHandler?.seekBarUpdateHandler(value)
+//    }
+//}
 
-extension EditorViewController:PlayerViewFinishedDelegate {
-    func playerHasLoaded() {
-        eventHandler?.playerHasLoaded()
-    }
-    func playerStartsToPlay() {
-
-    }
-    func playerPause() {
-
-    }
-
-    func playerSeeksTo(_ value: Float) {
-        eventHandler?.seekBarUpdateHandler(value)
-    }
-}

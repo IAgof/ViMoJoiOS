@@ -9,6 +9,9 @@
 import Foundation
 import VideonaProject
 
+protocol VideonaPlayerViewInterface {
+    func add(compositionToPlayer: VideoComposition)
+}
 protocol EditorPresenterInterface {
     func viewDidLoad()
     func viewWillDisappear()
@@ -30,13 +33,9 @@ protocol EditorPresenterInterface {
 
     func seekBarUpdateHandler(_ value: Float)
     func pushAddVideoHandler()
-
-    func expandPlayer()
-    func updatePlayerLayer()
-    func playerHasLoaded()
 }
 
-protocol EditorPresenterDelegate: ViMoJoInterface {
+protocol EditorPresenterDelegate: ViMoJoInterface, VideonaPlayerViewInterface {
     func setUpGestureRecognizer()
     func selectCell(_ indexPath: IndexPath)
     func setVideoList(_ list: [EditorViewModel])
@@ -50,5 +49,4 @@ protocol EditorPresenterDelegate: ViMoJoInterface {
                                    options: [String])
     func dissmissAlertController()
     func bringToFrontExpandPlayerButton()
-    func cameFromFullScreenPlayer(_ playerView: PlayerView)
 }

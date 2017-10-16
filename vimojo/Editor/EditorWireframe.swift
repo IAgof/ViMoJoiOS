@@ -15,8 +15,6 @@ class EditorWireframe: NSObject {
     var rootWireframe: RootWireframe?
     var editorViewController: EditorViewController?
     var editorPresenter: EditorPresenter?
-    var playerWireframe: PlayerWireframe?
-    var fullScreenPlayerWireframe: FullScreenPlayerWireframe?
     var prevController: UIViewController?
 
     var trimWireframe: TrimWireframe?
@@ -50,12 +48,6 @@ class EditorWireframe: NSObject {
         return viewController
     }
 
-    func presentPlayerInterface() {
-        playerWireframe?.presentPlayerInterfaceFromViewController(editorViewController!)
-        playerWireframe?.presentedView?.seekBarColor = configuration.mainColor
-        playerWireframe?.presentedView?.seekBarTextColor = configuration.secondColor
-    }
-
     func mainStoryboard() -> UIStoryboard {
         let storyboard = UIStoryboard(name: "Editor", bundle: Bundle.main)
         return storyboard
@@ -83,16 +75,7 @@ class EditorWireframe: NSObject {
         addTextWireframe?.presentAddTextInterfaceFromViewController(viewController,
                                                                 videoSelected: videoSelected)
     }
-
-    func presentExpandPlayer() {
-        if let controller = editorViewController {
-            if let player = playerWireframe?.presentedView {
-                fullScreenPlayerWireframe?.presentFullScreenPlayerFromViewController(controller,
-                                                                                     playerView:player)
-            }
-        }
-    }
-
+    
     func presentGallery() {
         editingRoomWireframe?.navigateToGallery()
     }

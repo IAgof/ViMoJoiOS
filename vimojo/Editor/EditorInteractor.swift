@@ -52,9 +52,7 @@ class EditorInteractor: NSObject, EditorInteractorInterface {
         let animatedLayer = GetActualProjectCALayerAnimationUseCase(videonaComposition: videonaComposition).getCALayerAnimation(project: actualProject)
         videonaComposition.layerAnimation = animatedLayer
 
-        DispatchQueue.main.async {
-            self.delegate?.setComposition(videonaComposition)
-        }
+        self.delegate?.setComposition(videonaComposition)
     }
 
     func getVideoListToView() {

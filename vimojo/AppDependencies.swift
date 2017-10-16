@@ -166,7 +166,6 @@ class AppDependencies {
         editorRoomWireframe.shareWireframe = shareWireframe
         editorRoomWireframe.musicWireframe = musicWireframe
         editorRoomWireframe.settingsWireframe = settingsWireframe
-        editorWireframe.fullScreenPlayerWireframe = fullScreenPlayerWireframe
         editorRoomWireframe.drawerWireframe = drawerWireframe
         editorRoomWireframe.recordWireframe = recordWireframe
         editorRoomWireframe.galleryWireframe = galleryWireframe
@@ -176,17 +175,13 @@ class AppDependencies {
 
         //EDITOR MODULE
         editorPresenter.wireframe = editorWireframe
-        editorPresenter.playerPresenter = playerPresenter
-        editorPresenter.playerWireframe = playerWireframe
         editorPresenter.interactor = editorInteractor
 
         editorWireframe.editorPresenter = editorPresenter
-        editorWireframe.playerWireframe = playerWireframe
         editorWireframe.rootWireframe = rootWireframe
         editorWireframe.trimWireframe = trimWireframe
         editorWireframe.duplicateWireframe = duplicateWireframe
         editorWireframe.splitWireframe = splitWireframe
-        editorWireframe.fullScreenPlayerWireframe = fullScreenPlayerWireframe
         editorWireframe.addTextWireframe = addTextWireframe
         editorWireframe.editingRoomWireframe = editorRoomWireframe
 
