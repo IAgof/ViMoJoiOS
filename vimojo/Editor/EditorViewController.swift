@@ -77,14 +77,35 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
 
     func configureNavigationBarWithDrawerAndEditorOptions() {
 
-        let showSideSliderItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_drawer"), style: .plain, target: self, action: #selector(pushShowDrawer))
-        let duplicateItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_clips_duplicate"), style: .plain, target: self, action: #selector(pushDuplicateClip(_:)))
-        let trimItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_clips_trim"), style: .plain, target: self, action: #selector(pushTrimClip))
-        let splitItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_clips_split"), style: .plain, target: self, action: #selector(pushDivideClip(_:)))
-        let optionsItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_options"), style: .plain, target: self, action: #selector(pushOptions))
-
-        UIApplication.topViewController()?.navigationItem.leftBarButtonItem = showSideSliderItem
-        UIApplication.topViewController()?.navigationItem.rightBarButtonItems = [optionsItem, splitItem, duplicateItem, trimItem]
+        // let showSideSliderItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_drawer"), style: .plain, target: self, action: #selector(pushShowDrawer))
+        // let duplicateItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_clips_duplicate"), style: .plain, target: self, action: #selector(pushDuplicateClip(_:)))
+        // let trimItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_clips_trim"), style: .plain, target: self, action: #selector(pushTrimClip))
+        // let splitItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_clips_split"), style: .plain, target: self, action: #selector(pushDivideClip(_:)))
+        // let optionsItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_options"), style: .plain, target: self, action: #selector(pushOptions))
+        
+        // UIApplication.topViewController()?.navigationItem.rightBarButtonItems = [optionsItem, splitItem, duplicateItem, trimItem]
+        let showSideSliderItem = UIButton(frame: CGRect(x: 0, y: 0, width: 18, height: 16))
+        showSideSliderItem.setBackgroundImage(UIImage(named: "activity_edit_drawer"), for: .normal)
+        showSideSliderItem.addTarget(self, action: #selector(pushShowDrawer), for: .touchUpInside)
+        
+        let splitItem = UIButton(frame: CGRect(x: 0, y: 0, width: 22, height: 21))
+        splitItem.setBackgroundImage(UIImage(named: "activity_edit_clips_split"), for: .normal)
+        splitItem.addTarget(self, action: #selector(pushDivideClip(_:)), for: .touchUpInside)
+        
+        let trimItem = UIButton(frame: CGRect(x: 0, y: 0, width: 29, height: 22))
+        trimItem.setBackgroundImage(UIImage(named: "activity_edit_clips_trim"), for: .normal)
+        trimItem.addTarget(self, action: #selector(pushTrimClip), for: .touchUpInside)
+        
+        let duplicateItem = UIButton(frame: CGRect(x: 0, y: 0, width: 22, height: 22))
+        duplicateItem.setBackgroundImage(UIImage(named: "activity_edit_clips_duplicate"), for: .normal)
+        duplicateItem.addTarget(self, action: #selector(pushDuplicateClip(_:)), for: .touchUpInside)
+        
+        let optionsItem = UIButton(frame: CGRect(x: 0, y: 0, width: 5, height: 15))
+        optionsItem.setBackgroundImage(UIImage(named: "activity_edit_options"), for: .normal)
+        optionsItem.addTarget(self, action: #selector(pushOptions), for: .touchUpInside)
+        
+        UIApplication.topViewController()?.navigationItem.leftBarButtonItem = UIBarButtonItem(customView:showSideSliderItem)
+        UIApplication.topViewController()?.navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: optionsItem), UIBarButtonItem(customView: splitItem), UIBarButtonItem(customView: duplicateItem), UIBarButtonItem(customView: trimItem)]
     }
 
     override func didReceiveMemoryWarning() {
