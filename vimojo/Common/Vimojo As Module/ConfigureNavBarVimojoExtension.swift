@@ -22,12 +22,8 @@ extension ViMoJoController {
         // let backItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_back"), style: .plain, target: self, action:#selector(pushBack))
         
         // UIApplication.topViewController()?.navigationItem.leftBarButtonItem = backItem
-        
-        let backItem = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 16))
-        backItem.setBackgroundImage(UIImage(named: "activity_edit_drawer"), for: .normal)
-        backItem.addTarget(self, action: #selector(pushBack), for: .touchUpInside)
-        
-        UIApplication.topViewController()?.navigationItem.leftBarButtonItem = UIBarButtonItem(customView:backItem)
+		
+		UIApplication.topViewController()?.navigationItem.leftBarButtonItem = UIBarButtonItem(with: self, image: #imageLiteral(resourceName: "activity_edit_back"), selector: #selector(pushBack))
     }
 
     func configureNavigationBarWithDrawerAndOptions() {
