@@ -42,6 +42,12 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
             }
         }
     }
+	
+	open func viewDidLayoutSubviews(_ value: CGFloat) {
+		DispatchQueue.main.async(execute: {
+			self.delegate?.updateMicRecorderRangeSliderDiameter(value)
+		})
+	}
 
     var trackOverSliderNumber = -1 {
         didSet {
