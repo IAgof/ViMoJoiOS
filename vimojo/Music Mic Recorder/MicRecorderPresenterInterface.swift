@@ -13,6 +13,7 @@ import VideonaProject
 
 protocol MicRecorderPresenterInterface {
     func viewDidLoad()
+	func viewDidLayoutSubviews(_ value: CGFloat)
     func viewWillDisappear()
     func viewWillAppear()
     func viewDidAppear()
@@ -65,4 +66,5 @@ protocol MicRecorderPresenterDelegate {
 
     func recordButtonIsHidden(isHidden: Bool)
     func deleteVoiceOverTrackButtonIsHidden(isHidden: Bool)
+	func updateMicRecorderRangeSliderDiameter(_ value: CGFloat)
 }
