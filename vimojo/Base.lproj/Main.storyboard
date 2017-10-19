@@ -797,6 +797,37 @@
                                     <constraint firstAttribute="trailing" secondItem="8L2-hc-cWS" secondAttribute="trailing" constant="15" id="oj9-Uv-g2I"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auR-d0-5HM" customClass="VImojoCard" customModule="PeriodistaCelular" customModuleProvider="target">
+                                <rect key="frame" x="15" y="503" width="290" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbe-3m-mBd">
+                                        <rect key="frame" x="15" y="14.5" width="15" height="20.5"/>
+                                        <state key="normal" image="activity_edit_cancel_normal"/>
+                                        <state key="highlighted" image="activity_edit_cancel_normal"/>
+                                        <connections>
+                                            <action selector="cancelButtonPushed:" destination="I1J-mQ-QlR" eventType="touchUpInside" id="IAy-lo-0d5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tY-na-S72">
+                                        <rect key="frame" x="254" y="14.5" width="21" height="20.5"/>
+                                        <state key="normal" image="activity_edit_accept_normal"/>
+                                        <state key="highlighted" image="activity_edit_accept_pressed"/>
+                                        <connections>
+                                            <action selector="acceptButtonPushed:" destination="I1J-mQ-QlR" eventType="touchUpInside" id="sbD-jw-7Wg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="6tY-na-S72" secondAttribute="trailing" constant="15" id="HUD-C3-vsU"/>
+                                    <constraint firstItem="Bbe-3m-mBd" firstAttribute="top" secondItem="auR-d0-5HM" secondAttribute="top" constant="15" id="N7v-ZP-FJE"/>
+                                    <constraint firstAttribute="bottom" secondItem="6tY-na-S72" secondAttribute="bottom" constant="15" id="VQi-44-Je9"/>
+                                    <constraint firstAttribute="bottom" secondItem="Bbe-3m-mBd" secondAttribute="bottom" constant="15" id="cP4-As-R9x"/>
+                                    <constraint firstItem="6tY-na-S72" firstAttribute="top" secondItem="auR-d0-5HM" secondAttribute="top" constant="15" id="epu-6g-ANV"/>
+                                    <constraint firstAttribute="height" constant="50" id="jt7-yS-x8w"/>
+                                    <constraint firstItem="Bbe-3m-mBd" firstAttribute="leading" secondItem="auR-d0-5HM" secondAttribute="leading" constant="15" id="o0z-4W-bFg"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -813,8 +844,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="acceptButton" destination="8L2-hc-cWS" id="RJf-Sd-sOR"/>
-                        <outlet property="cancelButton" destination="sUC-nF-IiA" id="Loq-GE-2Ex"/>
+                        <outlet property="acceptButton" destination="6tY-na-S72" id="sco-px-0hc"/>
+                        <outlet property="cancelButton" destination="Bbe-3m-mBd" id="JJN-gz-Xf4"/>
                         <outlet property="deleteVoiceOverTrackButton" destination="Pg0-GR-d24" id="eI4-9J-dtJ"/>
                         <outlet property="musicContainer" destination="due-Kf-el9" id="sII-E6-rvT"/>
                         <outlet property="playerView" destination="sET-gx-U39" id="aQ1-aT-zco"/>
@@ -989,7 +1020,6 @@
         <image name="activity_edit_accept_normal" width="21" height="18"/>
         <image name="activity_edit_accept_pressed" width="21" height="18"/>
         <image name="activity_edit_cancel_normal" width="15" height="15"/>
-        <image name="activity_edit_cancel_pressed" width="15" height="15"/>
         <image name="activity_edit_clips_text_buttom_normal" width="40" height="31"/>
         <image name="activity_edit_clips_text_buttom_pressed" width="40" height="31"/>
         <image name="activity_edit_clips_text_center_normal" width="40" height="31"/>
