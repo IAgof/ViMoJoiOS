@@ -667,7 +667,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="xPm-9D-rGJ">
-                        <barButtonItem key="leftBarButtonItem" image="activity_edit_back" id="ZpG-K7-QyL">
+                        <barButtonItem key="leftBarButtonItem" id="ZpG-K7-QyL">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="pushBackBarButton:" destination="vlW-GP-NjF" id="aT5-jH-kUd"/>
@@ -676,6 +676,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="barButton" destination="ZpG-K7-QyL" id="5xX-da-q0O"/>
                         <outlet property="settingsTableView" destination="AQZ-9N-IPL" id="Kx6-uk-h9t"/>
                     </connections>
                 </viewController>
@@ -987,7 +988,6 @@
     <resources>
         <image name="activity_edit_accept_normal" width="21" height="18"/>
         <image name="activity_edit_accept_pressed" width="21" height="18"/>
-        <image name="activity_edit_back" width="20" height="16"/>
         <image name="activity_edit_cancel_normal" width="15" height="15"/>
         <image name="activity_edit_cancel_pressed" width="15" height="15"/>
         <image name="activity_edit_clips_text_buttom_normal" width="40" height="31"/>
