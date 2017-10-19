@@ -10,6 +10,7 @@ import Foundation
 import Photos
 
 class GalleryFetchOptions: NSObject {
+
     func orderByCreationDate() -> PHFetchOptions {
         let fetchOptions = PHFetchOptions()
         fetchOptions.sortDescriptors = [
@@ -17,6 +18,5 @@ class GalleryFetchOptions: NSObject {
         ]
         return fetchOptions
     }
-    
-}
 
+}

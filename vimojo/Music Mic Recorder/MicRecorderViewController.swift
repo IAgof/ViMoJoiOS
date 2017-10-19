@@ -87,17 +87,29 @@ class MicRecorderViewController: ViMoJoController, PlayerViewSetter {
 
         longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(MicRecorderViewController.handleLongGesture(_:)))
         self.recordButton.addGestureRecognizer(longPressGesture!)
+		
+		UIApplication.shared.statusBarView?.backgroundColor = configuration.mainColor
 
         configureUIRangeSlider()
         totalRecordedSlider.delegate = self
         eventHandler?.viewDidLoad()
     }
+	
+	// Sth wrong happens enabling this functionality
+	// override func viewDidLayoutSubviews() {
+		// let totalRecordedRangeSliderHeight:CGFloat = totalRecordedSlider.bounds.size.height
+		// eventHandler?.viewDidLayoutSubviews(totalRecordedRangeSliderHeight)
+	// }
+	
+	func updateMicRecorderRangeSliderDiameter(_ value: CGFloat) {
+		totalRecordedSlider.handleDiameter = value
+	}
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         eventHandler?.viewWillAppear()
-        configureNavigationBarWithBackButton()
+		configureNavigationBarHidden()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -107,6 +119,7 @@ class MicRecorderViewController: ViMoJoController, PlayerViewSetter {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         eventHandler?.viewWillDisappear()
+		configureNavigationBarVissible()
     }
 
     override func didReceiveMemoryWarning() {
@@ -141,6 +154,8 @@ class MicRecorderViewController: ViMoJoController, PlayerViewSetter {
 
         let formatter = TimeNumberFormatter()
         self.totalRecordedSlider.numberFormatterOverride = formatter
+		
+		totalRecordedSlider.selectedHandleDiameterMultiplier = 1
     }
 
     func configureRangeSlider(_ maximumValue: Float) {
