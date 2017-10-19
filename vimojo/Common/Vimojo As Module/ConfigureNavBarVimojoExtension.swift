@@ -27,18 +27,8 @@ extension ViMoJoController {
     }
 
     func configureNavigationBarWithDrawerAndOptions() {
-
-        let sideSliderIcon = #imageLiteral(resourceName: "activity_edit_drawer")
-        let optionsIcon = #imageLiteral(resourceName: "activity_edit_options")
-
-        let showSideSliderItem = UIBarButtonItem(image: sideSliderIcon, style: .plain, target: self, action: #selector(pushShowDrawer))
-        let optionsItem = UIBarButtonItem(image: optionsIcon, style: .plain, target: self, action: #selector(pushOptions))
-
-        if let topController = UIApplication.topViewController() {
-            topController.navigationItem.leftBarButtonItems = [showSideSliderItem]
-            topController.navigationItem.rightBarButtonItems = [optionsItem]
-
-        }
+        UIApplication.topViewController()?.navigationItem.leftBarButtonItem = UIBarButtonItem(with: self, image: #imageLiteral(resourceName: "activity_edit_drawer"), selector: #selector(pushShowDrawer))
+        UIApplication.topViewController()?.navigationItem.rightBarButtonItems = [UIBarButtonItem(with: self, image: #imageLiteral(resourceName: "activity_edit_options"), selector: #selector(pushOptions))]
     }
 
     func pushBack() {
