@@ -38,7 +38,8 @@ class MusicPresenter: MusicPresenterInterface, MusicInteractorDelegate {
                 let item = SelectorItem(with: video.thumbnailImage,
                                         timeRange: CMTimeRange(start: video.getStartTime() + totalTime, end: video.getStopTime() + totalTime),
                                         action: {
-                                            self.wireframe?.presentVideoAudio(video: video)
+                                            //TODO: this part is not ready yet
+//                                            self.wireframe?.presentVideoAudio(video: video)
                 })
                 totalTime += video.getStopTime()
                 return item

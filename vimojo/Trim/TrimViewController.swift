@@ -42,11 +42,14 @@ class TrimViewController: ViMoJoController, TrimPresenterDelegate, PlayerViewSet
 	@IBOutlet weak var milisecondsRightDecreaseButton: UIButton!
 	@IBOutlet weak var milisecondsRightIncreaseButton: UIButton!
     // MARK: - LifeCycle
+	override var forcePortrait: Bool {
+		return true
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         eventHandler?.viewDidLoad()
-        wireframe?.presentPlayerInterface()
-
+		UIApplication.shared.statusBarView?.backgroundColor = configuration.mainColor
         trimRangeSlider.addTarget(self, action: #selector(TrimViewController.sliderBeganTracking),
                              for: UIControlEvents.touchDown)
         trimRangeSlider.addTarget(self, action: #selector(TrimViewController.sliderEndedTracking),
@@ -56,11 +59,13 @@ class TrimViewController: ViMoJoController, TrimPresenterDelegate, PlayerViewSet
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         eventHandler?.viewWillDissappear()
+		configureNavigationBarVissible()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configureNavigationBarWithBackButton()
+		wireframe?.presentPlayerInterface()
+		configureNavigationBarHidden()
     }
 
     // MARK: - Actions

@@ -91,9 +91,10 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         self.checkFlashAvaliable()
         self.checkIfMicIsAvailable()
 		
-		DispatchQueue.main.async(execute: {
-			UIApplication.shared.isIdleTimerDisabled = true
-		})
+        DispatchQueue.main.async(execute: {
+          UIApplication.shared.isIdleTimerDisabled = true
+        })
+        self.pushHideMode()
     }
 
     func viewWillDisappear() {
@@ -120,6 +121,10 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         }
 
         self.updateThumbnail()
+        
+        DispatchQueue.main.async(execute: {
+            self.delegate?.resizeAllIcons()
+        })
     }
 
     func pushRecord(_ sender: String) {
@@ -162,9 +167,11 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 			self.delegate?.hideRecordButton()
 			self.delegate?.hideClipsRecordedView()
 			self.delegate?.hideDrawerButton()
-			self.delegate?.showCameraSimpleView()
 			self.delegate?.hideResolutionView()
 			self.hideAllModeConfigsIfNeccesary()
+            self.delegate?.showCameraSimpleView()
+            self.delegate?.hideSpaceOnDiskView()
+            self.delegate?.hideBatteryView()
 		})
 	}
 	
@@ -174,12 +181,23 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 			self.delegate?.showUpperContainerView()
 			self.delegate?.showSettingsContainerView()
 			self.delegate?.showRecordButton()
-			self.delegate?.showClipsRecordedView()
 			self.delegate?.showDrawerButton()
 			self.delegate?.hideResolutionView()
 			self.hideAllModeConfigsIfNeccesary()
+            if (!self.isRecording) {
+                self.delegate?.showClipsRecordedView()
+            }
 		})
 	}
+    
+    func cameraViewHasTapped() {
+        DispatchQueue.main.async(execute: {
+            self.delegate?.hideResolutionView()
+            self.delegate?.hideSpaceOnDiskView()
+            self.hideAllModeConfigsIfNeccesary()
+            self.delegate?.hideBatteryView()
+        })
+    }
 
     func pushHideAllButtons() {
         if secondaryViewIsShowing {
@@ -227,7 +245,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             hideResolutionViewIfYouCan()
 
             delegate?.updateBatteryValues()
-            delegate?.showBatteryRemaining()
+            delegate?.showBatteryView()
 
             batteryIsShowed = true
         }
@@ -501,6 +519,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             self.delegate?.hideThumbnailButtonAndLabel()
 			self.delegate?.startRecordingIndicatorBlink()
 			self.delegate?.startSecondaryRecordingIndicatorBlink()
+            self.delegate?.buttonsWithRecording(isEnabled: false)
         })
 
         isRecording = true
@@ -557,11 +576,13 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
         modeViewIsShowed = true
     }
-
+    
     func pushHideMode() {
 //        delegate?.hideModeViewAndButtonStateEnabled()
 //        delegate?.showModeViewAndButtonStateDisabled()
 
+        self.hideAllModeConfigsIfNeccesary()
+        
         if !modeViewIsShowed {
             modeViewIsShowed = true
             delegate?.showVideoSettingsConfig()

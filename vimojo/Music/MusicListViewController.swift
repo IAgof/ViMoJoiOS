@@ -19,6 +19,10 @@ class MusicListViewController: EditingRoomItemController {
     @IBOutlet weak var musicContainer: UIView!
 
     // MARK: - Lifecycle
+	override var forcePortrait: Bool {
+		return true
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 

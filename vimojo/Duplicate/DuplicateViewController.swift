@@ -40,17 +40,18 @@ class DuplicateViewController: ViMoJoController, DuplicateInterface, DuplicatePr
     override func viewDidLoad() {
         eventHandler?.viewDidLoad()
         numberOfDuplicates.adjustsFontSizeToFitWidth = true
-        wireframe?.presentPlayerInterface()
-
+		UIApplication.shared.statusBarView?.backgroundColor = configuration.mainColor
         numberOfDuplicates.textColor = configuration.mainColor
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         eventHandler?.viewWillDissappear()
+		configureNavigationBarVissible()
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        configureNavigationBarWithBackButton()
+        configureNavigationBarHidden()
+		 wireframe?.presentPlayerInterface()
     }
     // MARK: - Actions
     @IBAction func pushCancelButton(_ sender: AnyObject) {

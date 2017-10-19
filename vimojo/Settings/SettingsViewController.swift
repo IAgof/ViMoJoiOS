@@ -12,7 +12,9 @@ import Foundation
 class SettingsViewController: ViMoJoController,
     UINavigationBarDelegate, UITableViewDelegate, UITableViewDataSource {
 
-    var eventHandler: SettingsPresenterInterface?
+	@IBOutlet weak var barButton: UIBarButtonItem!
+	
+	var eventHandler: SettingsPresenterInterface?
 
     let reuseIdentifierCell = "settingsCell"
 
@@ -26,7 +28,12 @@ class SettingsViewController: ViMoJoController,
     // MARK: - LifeCycle
     override func viewDidLoad() {
         eventHandler?.viewDidLoad()
-  }
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		UIApplication.topViewController()?.navigationItem.leftBarButtonItem = UIBarButtonItem(with: self, image: #imageLiteral(resourceName: "activity_edit_back"), selector: #selector(pushBackBarButton))
+	}
+	
     // MARK: - Actions
     @IBAction func pushBackBarButton(_ sender: AnyObject) {
         eventHandler?.pushBack()

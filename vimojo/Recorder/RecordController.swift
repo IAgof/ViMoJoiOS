@@ -120,7 +120,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
-
+        
         drawerButtonRight.isHidden = false
     }
 
@@ -172,16 +172,26 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     func configureThumbnailTapObserver() {
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(self.thumbnailTapped))
 		let secondaryTapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(self.thumbnailTapped))
-        thumbnailView.isUserInteractionEnabled = true
+        thumbnailViewParent.isUserInteractionEnabled = true
         secondaryThumbnailView.isUserInteractionEnabled = true
-        thumbnailView.addGestureRecognizer(tapGestureRecognizer)
+        thumbnailViewParent.addGestureRecognizer(tapGestureRecognizer)
         secondaryThumbnailView.addGestureRecognizer(secondaryTapGestureRecognizer)
+    }
+    
+    func configureCameraViewTapObserver() {
+        let tapGestureRecognizer1 = UITapGestureRecognizer(target:self, action:#selector(self.cameraViewHasTapped))
+        cameraView.isUserInteractionEnabled = true
+        cameraView.addGestureRecognizer(tapGestureRecognizer1)
     }
 
     func thumbnailTapped() {
         Utils().debugLog("Thumbnail has tapped")
 
         eventHandler?.thumbnailHasTapped()
+    }
+    
+    func cameraViewHasTapped() {
+        eventHandler?.cameraViewHasTapped()
     }
 
     func configureRotationObserver() {
@@ -203,6 +213,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         configureTapDisplay()
         configurePinchDisplay()
         configureThumbnailTapObserver()
+        configureCameraViewTapObserver()
     }
 
     func displayPinched() {
@@ -345,29 +356,46 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         viewsToBorder.append(focalLensSliderView)
         viewsToBorder.append(inputGainSlider)
         viewsToBorder.append(exposureConfigurationView)
-
+        viewsToBorder.append(cameraSimpleView)
+        
+        
         for view in viewsToBorder {
             view.layer.cornerRadius = cornerRadius
         }
     }
+    
+    func resizeAllIcons() {
+        defaultModesButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        gridButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        isoButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        whiteBalanceButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        focusButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        exposureModesButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        gainButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        flashButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        cameraRotationButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        zoomButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        
+        hideModeViewButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+    }
 
     func rotateZoomSlider() {
-        let trans = CGAffineTransform(rotationAngle: CGFloat(-M_PI_2))
+        let trans = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
         zoomView.transform = trans
     }
 
     func rotateFocalSlider() {
-        let trans = CGAffineTransform(rotationAngle: CGFloat(-M_PI_2))
+        let trans = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
         focalLensSliderView.transform = trans
     }
 
     func rotateExposureSlider() {
-        let trans = CGAffineTransform(rotationAngle: CGFloat(-M_PI_2))
+        let trans = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
         exposureConfigurationView.transform = trans
     }
 
     func rotateInputGainSlider() {
-        let trans = CGAffineTransform(rotationAngle: CGFloat(-M_PI_2))
+        let trans = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
         inputGainSlider.transform = trans
     }
 
@@ -638,9 +666,8 @@ extension RecordController:RecordPresenterDelegate {
         storageButton.setImage(images.pressed, for: .selected)
     }
 
-    func showBatteryRemaining() {
-        self.cameraView.bringSubview(toFront: batteryView)
-
+    func showBatteryView() {
+//        self.cameraView.bringSubview(toFront: batteryView)
         fadeInView([batteryView])
         batteryButton.isSelected = true
     }
@@ -860,11 +887,11 @@ extension RecordController:RecordPresenterDelegate {
 	
 	func hideRecordButton() {
 		recordButton.isEnabled = false
-		recordButton.fadeIn()
+        recordButton.fadeOut()
 	}
 	
 	func showRecordButton() {
-		recordButton.fadeOut()
+        recordButton.fadeIn()
 		recordButton.isEnabled = true
 	}
     
@@ -956,13 +983,13 @@ extension RecordController:RecordPresenterDelegate {
     }
     
     func showResolutionView() {
-        fadeInView([resolutionsView])
         resolutionButton.isSelected = true
+        fadeInView([resolutionsView])
     }
     
     func hideResolutionView() {
-        fadeOutView([resolutionsView])
         resolutionButton.isSelected = false
+        fadeOutView([resolutionsView])
     }
     
 }

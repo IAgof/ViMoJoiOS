@@ -50,13 +50,19 @@ class AddTextViewController: ViMoJoController {
     @IBAction func acceptButtonPushed(_ sender: AnyObject) {
         eventHandler?.pushAcceptHandler()
     }
+	
+	@IBAction func pushExpandButton(_ sender: AnyObject) {
+		eventHandler?.expandPlayer()
+	}
+	
     override func pushBack() {
         eventHandler?.pushBack()
     }
 
     override func viewDidLoad() {
         eventHandler?.viewDidLoad()
-        wireframe?.presentPlayerInterface()
+		
+		UIApplication.shared.statusBarView?.backgroundColor = configuration.mainColor
 
         addTextTextView.textContainer.maximumNumberOfLines = MAX_LINES
         addTextTextView.textContainer.lineBreakMode = .byWordWrapping
@@ -76,10 +82,12 @@ class AddTextViewController: ViMoJoController {
     override func viewWillDisappear(_ animated: Bool) {
         setPlayerPlayButtonState(state: false)
         playerHandler?.timeLabels(isHidden: false)
+		configureNavigationBarVissible()
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        configureNavigationBarWithBackButton()
+		wireframe?.presentPlayerInterface()
+		configureNavigationBarHidden()
     }
 
     func addObserverToShowAndHideKeyboard() {

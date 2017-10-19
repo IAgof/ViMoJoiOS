@@ -9,10 +9,8 @@ def shared_pods
     pod 'Alamofire'
     pod 'Mixpanel'
     pod 'Fabric'
-    pod 'Crashlytics'
-	pod 'RealmSwift'
-    pod 'SwifterSwift'
-    
+	  pod 'RealmSwift'
+    pod 'SwifterSwift', '~> 1.2'
     pod 'Google/SignIn'
     pod 'Google'
     pod 'NMRangeSlider', '~> 1.2'
