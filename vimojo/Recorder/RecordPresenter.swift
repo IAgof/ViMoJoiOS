@@ -92,7 +92,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         self.checkIfMicIsAvailable()
 		
         DispatchQueue.main.async(execute: {
-          UIApplication.shared.isIdleTimerDisabled = true
+			self.delegate?.enableIdleTimer(true)
         })
         self.pushHideMode()
     }
@@ -107,7 +107,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             DispatchQueue.main.async(execute: {
                 self.cameraInteractor?.stopCamera()
                 self.delegate?.showFlashOn(false)
-				UIApplication.shared.isIdleTimerDisabled = false
+				self.delegate?.enableIdleTimer(false)
             })
         }
     }

@@ -185,4 +185,6 @@ protocol RecordPresenterDelegate {
     func unselectSecondaryRecordButton()
     
     func resizeAllIcons()
+	
+	func enableIdleTimer(_ value: Bool)
 }

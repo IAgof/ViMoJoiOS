@@ -991,7 +991,9 @@ extension RecordController:RecordPresenterDelegate {
         resolutionButton.isSelected = false
         fadeOutView([resolutionsView])
     }
-    
+	func enableIdleTimer(_ value: Bool) {
+		UIApplication.shared.isIdleTimerDisabled = value
+	}
 }
 
 // MARK: - BatteryRemaining delegate
