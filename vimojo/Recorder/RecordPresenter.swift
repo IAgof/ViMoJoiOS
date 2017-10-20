@@ -90,6 +90,10 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
         self.checkFlashAvaliable()
         self.checkIfMicIsAvailable()
+		
+        DispatchQueue.main.async(execute: {
+			self.delegate?.enableIdleTimer(true)
+        })
         self.pushHideMode()
     }
 
@@ -103,6 +107,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             DispatchQueue.main.async(execute: {
                 self.cameraInteractor?.stopCamera()
                 self.delegate?.showFlashOn(false)
+				self.delegate?.enableIdleTimer(false)
             })
         }
     }
