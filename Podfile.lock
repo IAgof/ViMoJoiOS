@@ -3,21 +3,6 @@ PODS:
   - Crashlytics (3.8.6):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.13)
-  - FirebaseAnalytics (3.9.0):
-    - FirebaseCore (~> 3.6)
-    - FirebaseInstanceID (~> 1.0)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCore (3.6.0):
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseInstanceID (1.0.10):
-    - FirebaseCore (~> 3.6)
-  - Google (3.1.0):
-    - Google/Core (= 3.1.0)
-  - Google/Core (3.1.0):
-    - FirebaseAnalytics (~> 3.2)
-  - Google/SignIn (3.1.0):
-    - Google/Core
-    - GoogleSignIn (~> 4.0)
   - GoogleSignIn (4.1.0):
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
     - GoogleToolboxForMac/NSString+URLArguments (~> 2.1)
@@ -26,8 +11,6 @@ PODS:
   - GoogleToolboxForMac/DebugUtils (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GoogleToolboxForMac/Defines (2.1.1)
-  - GoogleToolboxForMac/NSData+zlib (2.1.1):
-    - GoogleToolboxForMac/Defines (= 2.1.1)
   - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.1):
     - GoogleToolboxForMac/DebugUtils (= 2.1.1)
     - GoogleToolboxForMac/Defines (= 2.1.1)
@@ -57,8 +40,7 @@ DEPENDENCIES:
   - Alamofire
   - Crashlytics
   - Fabric
-  - Google
-  - Google/SignIn
+  - GoogleSignIn
   - KCFloatingActionButton
   - MBCircularProgressBar (= 0.3.4)
   - Mixpanel
@@ -76,10 +58,6 @@ SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Crashlytics: 95d05f4e4c19a771250c4bd9ce344d996de32bbf
   Fabric: 2fb5676bc811af011a04513451f463dac6803206
-  FirebaseAnalytics: e5fe8486efc01bec33f6bf82e2fa9fce4b124052
-  FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
-  FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
-  Google: 98da4b1a60ed0beb80a290387a28333406a1eb90
   GoogleSignIn: 8c599fc10d25b2af86a3f82fd9631e863f2b1400
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMOAuth2: be83fd28d63ae3087e7d351b1f39c1a7e24ab6e7
@@ -94,6 +72,6 @@ SPEC CHECKSUMS:
   TTRangeSlider: 2f2ce4a33b32bb323c6575b9f5161c4664459c58
   VideonaProject: 1db7c76ae5d7b5bfb89ca2faf561429ec1bfbe20
 
-PODFILE CHECKSUM: a6d3d1a896e188904d42abb476de6c9b8373d54e
+PODFILE CHECKSUM: f4c38f439b5aee64a36d7b4f70b6057db9bd097f
 
 COCOAPODS: 1.3.1

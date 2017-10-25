@@ -86,7 +86,6 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
 		
 		UIApplication.topViewController()?.navigationItem.leftBarButtonItem = UIBarButtonItem(with: self, image: #imageLiteral(resourceName: "activity_edit_drawer"), selector: #selector(pushShowDrawer))
 		UIApplication.topViewController()?.navigationItem.rightBarButtonItems = [
-			UIBarButtonItem(with: self, image: #imageLiteral(resourceName: "activity_edit_options"), selector: #selector(pushOptions), rect: CGRect(x: 0, y: 0, width: 5, height: 15)),
 			UIBarButtonItem(with: self, image: #imageLiteral(resourceName: "activity_edit_clips_split"), selector: #selector(pushDivideClip), rect: CGRect(x: 0, y: 0, width: 22, height: 21)),
 			UIBarButtonItem(with: self, image: #imageLiteral(resourceName: "activity_edit_clips_duplicate"), selector: #selector(pushDuplicateClip(_:)), rect: CGRect(x: 0, y: 0, width: 22, height: 22)),
 			UIBarButtonItem(with: self, image: #imageLiteral(resourceName: "activity_edit_clips_trim"), selector: #selector(pushTrimClip), rect: CGRect(x: 0, y: 0, width: 29, height: 22))]

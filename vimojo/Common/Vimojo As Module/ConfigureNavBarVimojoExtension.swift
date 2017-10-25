@@ -19,16 +19,12 @@ extension ViMoJoController {
 	}
 	
     func configureNavigationBarWithBackButton() {
-        // let backItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_back"), style: .plain, target: self, action:#selector(pushBack))
-        
-        // UIApplication.topViewController()?.navigationItem.leftBarButtonItem = backItem
-		
 		UIApplication.topViewController()?.navigationItem.leftBarButtonItem = UIBarButtonItem(with: self, image: #imageLiteral(resourceName: "activity_edit_back"), selector: #selector(pushBack))
     }
 
     func configureNavigationBarWithDrawerAndOptions() {
         UIApplication.topViewController()?.navigationItem.leftBarButtonItem = UIBarButtonItem(with: self, image: #imageLiteral(resourceName: "activity_edit_drawer"), selector: #selector(pushShowDrawer))
-        UIApplication.topViewController()?.navigationItem.rightBarButtonItems = [UIBarButtonItem(with: self, image: #imageLiteral(resourceName: "activity_edit_options"), selector: #selector(pushOptions))]
+		UIApplication.topViewController()?.navigationItem.rightBarButtonItems = []
     }
 
     func pushBack() {

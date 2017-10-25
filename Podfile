@@ -1,6 +1,7 @@
 # Uncomment this line to define a global platform for your project
 # platform :ios, '8.0'
 # Uncomment this line if you're using Swift
+platform :ios, 9.3
  use_frameworks!
 
 def shared_pods
@@ -9,13 +10,11 @@ def shared_pods
     pod 'Alamofire'
     pod 'Mixpanel'
     pod 'Fabric'
-	  pod 'RealmSwift'
+	pod 'RealmSwift'
     pod 'SwifterSwift', '~> 1.2'
-    pod 'Google/SignIn'
-    pod 'Google'
+    pod 'GoogleSignIn'
     pod 'NMRangeSlider', '~> 1.2'
-    pod 'TTRangeSlider'
-    
+	pod 'TTRangeSlider'
     pod 'MBCircularProgressBar', '0.3.4'
     pod 'KCFloatingActionButton'
     
