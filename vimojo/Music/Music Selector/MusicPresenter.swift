@@ -29,6 +29,14 @@ class MusicPresenter: MusicPresenterInterface, MusicInteractorDelegate {
     var isGoingToExpandPlayer = false
     var recordMicViewActualTime = 0.0
     var recordMicViewTotalTime = 0.0
+	
+	var option_video: String?
+	var option_gallery: String?
+	
+	func configureSelectionText() {
+		option_video = EditorTextConstants.ADD_VOICEOVER.localize(inTable: "EditorStrings")
+		option_gallery = EditorTextConstants.ADD_AUDIO_FOR_VIDEO.localize(inTable: "EditorStrings")
+	}
 
     var projectAudios: MusicSelectorCellViewModel? {
         if let project = interactor?.project {
@@ -77,24 +85,8 @@ class MusicPresenter: MusicPresenterInterface, MusicInteractorDelegate {
     // MARK: - Constants
     let NO_MUSIC_SELECTED = -1
 
-    // MARK: - Interface
-
-    private func addFloatingButtons() {
-       //TODO: This is not correct, refactor, creating view from presenter, is not the correct layer to do.
-        var floatingItems: [FloatingItem] = []
-        floatingItems.append(FloatingItem(item: FloatingItemFactory.music, action: {
-            self.wireframe?.presenterMusicListView()
-        }))
-
-        floatingItems.append(FloatingItem(item: FloatingItemFactory.mic, action: {
-            self.wireframe?.presenterMicRecorderView()
-        }))
-
-        delegate?.floatingItems = floatingItems
-    }
-
     func viewDidLoad() {
-        self.addFloatingButtons()
+		configureSelectionText()
     }
 
     func viewWillAppear(){
@@ -115,6 +107,29 @@ class MusicPresenter: MusicPresenterInterface, MusicInteractorDelegate {
             playerPresenter?.onVideoStops()
         }
     }
+	
+	func pushAddFloating() {
+		let title = Utils().getStringByKeyFromEditor(EditorTextConstants.ADD_TITLE)
+		
+		var addOptions: [String] = []
+		addOptions.append(option_video!)
+		addOptions.append(option_gallery!)
+		
+		delegate?.createAlertWithAddOptions(title: title, options: addOptions)
+	}
+	
+	func addSelection(selection: String) {
+		switch selection {
+		case option_video!:
+			self.pushMicHandler()
+			break
+		case option_gallery!:
+			pushMusicHandler()
+			break
+		default:
+			print("Default add selection")
+		}
+	}
 
     func updatePlayerView() {
         wireframe?.presentPlayerInterface()
