@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import VideonaProject
-import KCFloatingActionButton
 
 class MusicViewController: EditingRoomItemController, MusicPresenterDelegate, PlayerViewSetter, FullScreenWireframeDelegate {
     // MARK: - VIPER variables
@@ -20,8 +19,8 @@ class MusicViewController: EditingRoomItemController, MusicPresenterDelegate, Pl
     @IBOutlet weak var musicContainer: UIView!
     @IBOutlet weak var expandPlayerButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var fabButton: KCFloatingActionButton!
-
+	@IBOutlet weak var addFloatingButton: UIButton!
+	
     // MARK: - Variables and constants
     let cellIdentifier = "musicCell"
     var detailMusicView: MusicDetailView?
@@ -32,23 +31,13 @@ class MusicViewController: EditingRoomItemController, MusicPresenterDelegate, Pl
             self.tableView.reloadDataMainThread()
         }
     }
-
-    var floatingItems: [FloatingItem] = [] {
-        didSet {
-            fabButton.items.forEach({ item in fabButton.removeItem(item: item) })
-            for item in floatingItems {
-                fabButton.addItem(icon: item.item.icon, handler: { _ in item.action() })
-            }
-        }
-    }
-
-    // MARK: - Lifecycle
+	
+	// MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureTable()
         eventHandler?.viewDidLoad()
-        configureView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -69,16 +58,14 @@ class MusicViewController: EditingRoomItemController, MusicPresenterDelegate, Pl
         eventHandler?.viewWillDisappear()
     }
 
-    func configureView() {
-        fabButton.buttonColor = configuration.mainColor
-        fabButton.plusColor = configuration.secondColor
-        fabButton.itemSize = 60
-    }
-
     // MARK: Actions
     @IBAction func pushExpandButton(_ sender: AnyObject) {
         eventHandler?.expandPlayer()
     }
+	
+	@IBAction func pushAddFloatingButton(_ sender: Any) {
+		eventHandler?.pushAddFloating()
+	}
 
     override func pushOptions() {
         eventHandler?.pushOptions()
@@ -108,6 +95,27 @@ class MusicViewController: EditingRoomItemController, MusicPresenterDelegate, Pl
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
     }
+	
+	func createAlertWithAddOptions(title: String,
+	                               options: [String]) {
+		
+		let alertController = SettingsUtils().createActionSheetWithOptions(title,
+		                                                                   options: options,
+		                                                                   completion: {
+																			response in
+																			print("response add options")
+																			print(response)
+																			self.eventHandler?.addSelection(selection: response)
+																			
+		})
+		alertController.setTintColor()
+		
+		if let popoverController = alertController.popoverPresentationController {
+			popoverController.sourceView = addFloatingButton
+		}
+		self.present(alertController, animated: true, completion: nil)
+		
+	}
 }
 
 extension MusicViewController: UITableViewDelegate, UITableViewDataSource {

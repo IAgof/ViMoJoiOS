@@ -24,6 +24,9 @@ protocol MusicPresenterInterface {
     func pushMusicHandler()
     func pushMicHandler()
     func pushOptions()
+	
+	func pushAddFloating()
+	func addSelection(selection: String)
 }
 
 typealias Action = () -> Void
@@ -37,17 +40,6 @@ extension CMTimeRange {
         let startTime = CMTimeMakeWithSeconds(start, 600)
         let endTime = CMTimeMakeWithSeconds(end, 600)
         self.init(start: startTime, end: endTime)
-    }
-}
-
-class FloatingItem {
-
-    var item: Item
-    var action: Action
-
-    init(item: Item, action: @escaping Action = {}) {
-        self.item = item
-        self.action = action
     }
 }
 
@@ -67,6 +59,7 @@ enum FloatingItemFactory: Item {
 
 protocol MusicPresenterDelegate {
     var audios: [MusicSelectorCellViewModel] {get set}
-    var floatingItems: [FloatingItem] { get set }
     func bringToFrontExpandPlayerButton()
+	func createAlertWithAddOptions(title: String,
+	                               options: [String])
 }

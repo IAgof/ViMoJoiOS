@@ -20,4 +20,6 @@ struct EditorTextConstants {
     static let ADD_VIDEO = "add_video"
     static let ADD_GALLERY = "add_gallery"
     static let ADD_TEXT_TO_VIDEO = "add_text"
+	static let ADD_VOICEOVER = "add_voiceover"
+	static let ADD_AUDIO_FOR_VIDEO = "add_audio_for_video"
 }

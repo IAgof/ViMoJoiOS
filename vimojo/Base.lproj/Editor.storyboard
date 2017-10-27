@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -382,7 +382,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7j1-Q1-aSm">
-                                                            <rect key="frame" x="-8" y="-8" width="66" height="66"/>
+                                                            <rect key="frame" x="8" y="12" width="34" height="46"/>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fD7-iG-ych">
                                                             <rect key="frame" x="32" y="2" width="16" height="26"/>
@@ -475,21 +475,20 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqn-cb-4Pg">
-                                <rect key="frame" x="242" y="457" width="54" height="54"/>
+                                <rect key="frame" x="246" y="450" width="54" height="54"/>
                                 <state key="normal" image="activity_edit_floating_button">
                                     <color key="titleShadowColor" red="0.7843137255" green="0.85882352939999995" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="pushAddFloatingButton:" destination="U7Z-wj-ZL9" eventType="touchUpInside" id="XF8-Lw-EhN"/>
-                                    <action selector="pushGenericShare:" destination="IW3-3U-wVk" eventType="touchUpInside" id="Dkv-j7-qxb"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dqn-cb-4Pg" secondAttribute="trailing" constant="20" id="AR2-gF-H8w"/>
                             <constraint firstItem="6Yj-Ra-O6r" firstAttribute="leading" secondItem="vBN-xW-xuQ" secondAttribute="leading" id="F18-dY-OHe"/>
-                            <constraint firstItem="5CZ-S0-lou" firstAttribute="top" secondItem="dqn-cb-4Pg" secondAttribute="bottom" constant="8" id="OAm-xP-kWd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dqn-cb-4Pg" secondAttribute="trailing" constant="8" id="Q2y-fq-yBy"/>
+                            <constraint firstItem="5CZ-S0-lou" firstAttribute="top" secondItem="dqn-cb-4Pg" secondAttribute="bottom" constant="15" id="OAm-xP-kWd"/>
                             <constraint firstAttribute="trailing" secondItem="6Yj-Ra-O6r" secondAttribute="trailing" id="RwE-ak-LtR"/>
                             <constraint firstItem="6Yj-Ra-O6r" firstAttribute="top" secondItem="ay9-oE-VH7" secondAttribute="bottom" id="kfY-ri-MtH"/>
                             <constraint firstItem="5CZ-S0-lou" firstAttribute="top" secondItem="6Yj-Ra-O6r" secondAttribute="bottom" constant="16" id="poG-1H-q4U"/>
@@ -569,22 +568,23 @@
                                     <action selector="pushExpandButton:" destination="bnB-1P-Nds" eventType="touchUpInside" id="kaN-qU-8zo"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pNh-Md-GBE" customClass="KCFloatingActionButton" customModule="KCFloatingActionButton">
-                                <rect key="frame" x="244" y="443" width="56" height="56"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="56" id="U5i-lR-3Nx"/>
-                                    <constraint firstAttribute="height" constant="56" id="igf-Vz-Ksn"/>
-                                </constraints>
-                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91R-BJ-xu3">
+                                <rect key="frame" x="246" y="450" width="54" height="54"/>
+                                <state key="normal" image="activity_edit_floating_button">
+                                    <color key="titleShadowColor" red="0.7843137255" green="0.85882352939999995" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pushAddFloatingButton:" destination="bnB-1P-Nds" eventType="touchUpInside" id="hxE-9b-FJD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GIi-1P-cfX" firstAttribute="top" secondItem="Fp3-hW-jGQ" secondAttribute="bottom" id="51n-YX-r5v"/>
-                            <constraint firstItem="GIi-1P-cfX" firstAttribute="top" secondItem="pNh-Md-GBE" secondAttribute="bottom" constant="20" id="7xp-y7-87r"/>
+                            <constraint firstAttribute="trailing" secondItem="91R-BJ-xu3" secondAttribute="trailing" constant="20" id="6Gs-i3-qPs"/>
                             <constraint firstAttribute="trailing" secondItem="Fp3-hW-jGQ" secondAttribute="trailing" id="Eb0-gc-pyq"/>
                             <constraint firstItem="Fp3-hW-jGQ" firstAttribute="leading" secondItem="daU-Tx-zTj" secondAttribute="leading" id="Wz2-f7-HCf"/>
-                            <constraint firstAttribute="trailing" secondItem="pNh-Md-GBE" secondAttribute="trailing" constant="20" id="m2a-BS-z6Z"/>
+                            <constraint firstItem="GIi-1P-cfX" firstAttribute="top" secondItem="91R-BJ-xu3" secondAttribute="bottom" constant="15" id="blq-hg-Cl4"/>
                             <constraint firstItem="s1i-MY-LSq" firstAttribute="top" secondItem="v8b-hN-qJV" secondAttribute="bottom" constant="15" id="qUp-dd-rhu"/>
                             <constraint firstAttribute="trailing" secondItem="s1i-MY-LSq" secondAttribute="trailing" constant="15" id="r56-vq-nnR"/>
                             <constraint firstItem="Fp3-hW-jGQ" firstAttribute="top" secondItem="v8b-hN-qJV" secondAttribute="bottom" id="yns-3z-Atu"/>
@@ -593,8 +593,8 @@
                     <tabBarItem key="tabBarItem" tag="2" title="Audio" image="activity_edit_sound_normal" id="fHl-8J-ZSZ"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="addFloatingButton" destination="91R-BJ-xu3" id="Z1O-4c-mkN"/>
                         <outlet property="expandPlayerButton" destination="s1i-MY-LSq" id="Qpe-FT-jYa"/>
-                        <outlet property="fabButton" destination="pNh-Md-GBE" id="yRf-oZ-aNx"/>
                         <outlet property="playerView" destination="c8O-jG-he3" id="T9A-Dw-w5A"/>
                         <outlet property="tableView" destination="13P-VO-q7T" id="ifC-3r-lMl"/>
                     </connections>
@@ -924,7 +924,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkZ-ED-Gqd">
-                                <rect key="frame" x="258" y="457" width="54" height="54"/>
+                                <rect key="frame" x="246" y="450" width="54" height="54"/>
                                 <state key="normal" image="activity_edit_floating_button">
                                     <color key="titleShadowColor" red="0.7843137255" green="0.85882352939999995" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -943,9 +943,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="xqo-f5-Pa5" secondAttribute="trailing" id="5kG-fN-fHW"/>
-                            <constraint firstAttribute="trailing" secondItem="fkZ-ED-Gqd" secondAttribute="trailing" constant="8" id="Zbf-XO-CzA"/>
+                            <constraint firstAttribute="trailing" secondItem="fkZ-ED-Gqd" secondAttribute="trailing" constant="20" id="Zbf-XO-CzA"/>
                             <constraint firstItem="uTh-2X-7DX" firstAttribute="trailing" secondItem="aEf-KX-WbJ" secondAttribute="trailingMargin" id="cSJ-Uy-3dB"/>
-                            <constraint firstItem="apB-Zm-2Y5" firstAttribute="top" secondItem="fkZ-ED-Gqd" secondAttribute="bottom" constant="8" id="dDJ-eU-xP0"/>
+                            <constraint firstItem="apB-Zm-2Y5" firstAttribute="top" secondItem="fkZ-ED-Gqd" secondAttribute="bottom" constant="15" id="dDJ-eU-xP0"/>
                             <constraint firstItem="apB-Zm-2Y5" firstAttribute="top" secondItem="xqo-f5-Pa5" secondAttribute="bottom" id="ey7-gG-zig"/>
                             <constraint firstItem="uTh-2X-7DX" firstAttribute="top" secondItem="dEr-mP-UUR" secondAttribute="bottom" constant="16" id="qeR-R1-8aD"/>
                             <constraint firstItem="xqo-f5-Pa5" firstAttribute="top" secondItem="dEr-mP-UUR" secondAttribute="bottom" id="rhi-Ew-7Fe"/>
@@ -1154,6 +1154,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zm4-cu-Q7g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="349" y="644"/>
         </scene>
     </scenes>
     <resources>
@@ -1176,7 +1177,7 @@
         <image name="activity_edit_video_expand" width="19" height="19"/>
         <image name="button_edit_decrement_clips_pressed" width="57" height="58"/>
         <image name="button_edit_increment_clips_pressed" width="70" height="70"/>
-        <image name="common_icon_play" width="34" height="34"/>
+        <image name="common_icon_play" width="32" height="32"/>
         <image name="common_icon_play_normal" width="32" height="32"/>
     </resources>
 </document>
