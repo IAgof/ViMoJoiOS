@@ -194,7 +194,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         DispatchQueue.main.async(execute: {
             self.delegate?.hideResolutionView()
             self.delegate?.hideSpaceOnDiskView()
-            self.hideAllModeConfigsIfNeccesary()
             self.delegate?.hideBatteryView()
         })
     }
