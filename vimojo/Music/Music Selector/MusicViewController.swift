@@ -35,7 +35,6 @@ class MusicViewController: EditingRoomItemController, MusicPresenterDelegate, Pl
 	// MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         configureTable()
         eventHandler?.viewDidLoad()
     }
@@ -94,6 +93,10 @@ class MusicViewController: EditingRoomItemController, MusicPresenterDelegate, Pl
         tableView.dataSource = self
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
+		
+		let bgView = UIView()
+		bgView.backgroundColor = UIColor.white
+		self.tableView.backgroundView = bgView
     }
 	
 	func createAlertWithAddOptions(title: String,
