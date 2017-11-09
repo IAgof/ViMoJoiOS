@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import GPUImage
 
 protocol CameraRecorderInterface {
 

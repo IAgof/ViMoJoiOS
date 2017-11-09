@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GPUImage
 import VideonaProject
 
 class RecordController: ViMoJoController, UINavigationControllerDelegate {
@@ -46,7 +45,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     @IBOutlet weak var drawerButtonRight: UIButton!
 
     // MARK: - Custom
-    @IBOutlet weak var cameraView: GPUImageView!
+    @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var batteryView: BatteryRemainingView!
     @IBOutlet weak var spaceOnDiskView: SpaceOnDiskView!
     @IBOutlet weak var isoConfigurationView: ISOConfigurationView!
@@ -105,8 +104,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Let's see how can we erase GPUImage and introduce AVFoundation on this step
-        eventHandler?.viewDidLoad(cameraView)
+        eventHandler?.viewDidLoad()
         self.configureViews()
         // Try to allow rotation -- It's just boring to landscape the capture in a static mode
         configureRotationObserver()

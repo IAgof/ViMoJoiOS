@@ -7,10 +7,9 @@
 //
 
 import Foundation
-import GPUImage
 
 protocol RecordPresenterInterface {
-    func viewDidLoad(_ displayView: GPUImageView)
+    func viewDidLoad()
     func viewWillDisappear()
     func viewWillAppear()
 

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import GPUImage
+import AVFoundation
 import VideonaProject
 
 struct IconsImage {
@@ -15,7 +15,7 @@ struct IconsImage {
     var pressed: UIImage!
 }
 
-class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDelegate, TimerInteractorDelegate {
+class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelegate {
     // MARK: - Variables VIPER
     var delegate: RecordPresenterDelegate?
     var cameraInteractor: CameraInteractorInterface?
@@ -78,12 +78,12 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     }
 
     // MARK: - Event handler
-    func viewDidLoad(_ displayView: GPUImageView) {
+    func viewDidLoad() {
         
         delegate?.configureView()
-        cameraInteractor = CameraInteractor(display: displayView,
-                                            cameraDelegate: self,
-                                            project: (interactor?.getProject())! )
+//        cameraInteractor = CameraInteractor(display: displayView,
+//                                            cameraDelegate: self,
+//                                            project: (interactor?.getProject())! )
         
         // Checks wheter the mic is plugged in/out
         NotificationCenter.default.addObserver(self, selector:#selector(RecordPresenter.audioRouteChangeListener(_:)), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
@@ -105,7 +105,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             }
             FlashInteractor().turnOffWhenViewWillDissappear()
             DispatchQueue.main.async(execute: {
-                self.cameraInteractor?.stopCamera()
+//                self.cameraInteractor?.stopCamera()
                 self.delegate?.showFlashOn(false)
 				self.delegate?.enableIdleTimer(false)
             })
@@ -113,8 +113,8 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     }
 
     func viewWillAppear() {
-        cameraInteractor?.setResolution()
-        cameraInteractor?.startCamera()
+//        cameraInteractor?.setResolution()
+//        cameraInteractor?.startCamera()
 
         if let resolution = interactor?.getResolution() {
             delegate?.setResolutionToView(resolution)
@@ -142,7 +142,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     }
 
     func pushRotateCamera() {
-        cameraInteractor!.rotateCamera()
+//        cameraInteractor!.rotateCamera()
     }
 
     func pushVideoSettingsConfig() {
@@ -397,7 +397,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     }
 
     func resetRecorder() {
-        cameraInteractor?.removeFilters()
+//        cameraInteractor?.removeFilters()
         delegate?.hideRecordedVideoThumb()
 //        delegate?.disableShareButton()
 
@@ -474,7 +474,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
         interactor?.saveResolution(resolution: resolution)
 
-        cameraInteractor?.setResolution()
+//        cameraInteractor?.setResolution()
 
         interactor?.getResolutionImage(resolution)
     }
@@ -504,15 +504,15 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         delegate?.buttonsWithRecording(isEnabled: false)
         
         DispatchQueue.main.async(execute: {
-            self.cameraInteractor?.setIsRecording(true)
+//            self.cameraInteractor?.setIsRecording(true)
 
-            self.cameraInteractor?.startRecordVideo({answer in
-                print("Record Presenter \(answer)")
-                Utils().delay(1, closure: {
-                    self.delegate?.recordButtonEnable(true)
-					self.delegate?.recordButtonSecondaryEnable(true)
-                })
-            })
+//            self.cameraInteractor?.startRecordVideo({answer in
+//                print("Record Presenter \(answer)")
+//                Utils().delay(1, closure: {
+//                    self.delegate?.recordButtonEnable(true)
+//                    self.delegate?.recordButtonSecondaryEnable(true)
+//                })
+//            })
             self.delegate?.selectRecordButton()
 			self.delegate?.selectSecondaryRecordButton()
             self.delegate?.hideThumbnailButtonAndLabel()
@@ -533,7 +533,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         isRecording = false
         DispatchQueue.global().async {
             // do some task
-            self.cameraInteractor?.setIsRecording(false)
+//            self.cameraInteractor?.setIsRecording(false)
 
             DispatchQueue.main.async(execute: {
 				self.delegate?.unselectSecondaryRecordButton()
