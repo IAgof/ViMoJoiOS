@@ -100,11 +100,14 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     override var isStatusBarHidden: Bool {
         return true
     }
+    
+    var cam: CameraView!
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         eventHandler?.viewDidLoad()
+//        cam = CameraView(frame: self.view.frame)
         self.configureViews()
         // Try to allow rotation -- It's just boring to landscape the capture in a static mode
         configureRotationObserver()
@@ -114,6 +117,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         super.viewWillAppear(animated)
         print("Recorder view will appear")
         eventHandler?.viewWillAppear()
+//        cam.startSession()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 
         let value = UIInterfaceOrientation.landscapeRight.rawValue
@@ -125,7 +129,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         eventHandler?.viewWillDisappear()
-
+//        cam.stopSession()
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
 
