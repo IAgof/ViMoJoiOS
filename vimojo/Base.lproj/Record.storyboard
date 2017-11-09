@@ -34,6 +34,9 @@
                             <view verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hax-3B-Lc5">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pql-2H-c5V" customClass="PreviewView" customModule="PeriodistaCelular" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                    </view>
                                     <imageView hidden="YES" autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_rec_grid" translatesAutoresizingMaskIntoConstraints="NO" id="0V7-5h-nKZ">
                                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                     </imageView>
@@ -583,8 +586,10 @@
                                     <constraint firstItem="Vel-Gg-DCb" firstAttribute="height" secondItem="hax-3B-Lc5" secondAttribute="height" multiplier="0.39" id="IHQ-E1-U6C"/>
                                     <constraint firstItem="Dnm-Zp-iJ8" firstAttribute="height" secondItem="hax-3B-Lc5" secondAttribute="height" multiplier="0.12" id="IrA-Mr-deK"/>
                                     <constraint firstAttribute="bottom" secondItem="eCP-P5-tk2" secondAttribute="bottom" constant="10" id="Isa-l3-lGB"/>
+                                    <constraint firstAttribute="bottom" secondItem="Pql-2H-c5V" secondAttribute="bottom" id="KbD-gR-Sjm"/>
                                     <constraint firstItem="Dnm-Zp-iJ8" firstAttribute="top" secondItem="bd7-YM-xmD" secondAttribute="bottom" constant="7" id="L2L-jC-oJR"/>
                                     <constraint firstItem="5X8-bB-gAq" firstAttribute="centerY" secondItem="hax-3B-Lc5" secondAttribute="centerY" id="MCy-ab-iMG"/>
+                                    <constraint firstItem="Pql-2H-c5V" firstAttribute="top" secondItem="hax-3B-Lc5" secondAttribute="top" id="MKZ-uF-LDb"/>
                                     <constraint firstItem="eCP-P5-tk2" firstAttribute="width" secondItem="hax-3B-Lc5" secondAttribute="width" multiplier="0.1" id="MsG-WL-fll"/>
                                     <constraint firstItem="ihb-Jx-744" firstAttribute="leading" secondItem="nbb-jx-SNd" secondAttribute="trailing" constant="15" id="NLG-cV-gj0"/>
                                     <constraint firstItem="bd7-YM-xmD" firstAttribute="centerX" secondItem="hax-3B-Lc5" secondAttribute="centerX" id="O4f-4I-Htm"/>
@@ -593,6 +598,7 @@
                                     <constraint firstItem="Vel-Gg-DCb" firstAttribute="width" secondItem="hax-3B-Lc5" secondAttribute="width" multiplier="0.39" id="OMa-sq-5ha"/>
                                     <constraint firstItem="1Sz-Cx-Stq" firstAttribute="height" secondItem="ihb-Jx-744" secondAttribute="width" id="P6W-r3-9F3"/>
                                     <constraint firstItem="Vuo-zZ-7lL" firstAttribute="height" secondItem="ihb-Jx-744" secondAttribute="width" id="QB9-ew-jna"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pql-2H-c5V" secondAttribute="trailing" id="QzS-CH-k2N"/>
                                     <constraint firstItem="WEb-ih-mOX" firstAttribute="centerX" secondItem="ihb-Jx-744" secondAttribute="centerX" id="R6V-7i-IsO"/>
                                     <constraint firstItem="Dnm-Zp-iJ8" firstAttribute="centerX" secondItem="hax-3B-Lc5" secondAttribute="centerX" id="UTO-SF-n7o"/>
                                     <constraint firstItem="WEb-ih-mOX" firstAttribute="centerY" secondItem="hax-3B-Lc5" secondAttribute="centerY" id="UY3-7W-QB0"/>
@@ -624,6 +630,7 @@
                                     <constraint firstItem="lpZ-Hu-RXr" firstAttribute="centerY" secondItem="hax-3B-Lc5" secondAttribute="centerY" id="x5N-qS-DCS"/>
                                     <constraint firstItem="ihb-Jx-744" firstAttribute="width" secondItem="hax-3B-Lc5" secondAttribute="width" multiplier="0.08" id="xFx-EU-sig"/>
                                     <constraint firstItem="nbb-jx-SNd" firstAttribute="leading" secondItem="hax-3B-Lc5" secondAttribute="leading" constant="15" id="yfk-Qw-ehu"/>
+                                    <constraint firstItem="Pql-2H-c5V" firstAttribute="leading" secondItem="hax-3B-Lc5" secondAttribute="leading" id="yho-Ny-cdg"/>
                                 </constraints>
                             </view>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_icon_spin" translatesAutoresizingMaskIntoConstraints="NO" id="Nip-fZ-kTg">
@@ -649,7 +656,7 @@
                         <outlet property="batteryView" destination="5X8-bB-gAq" id="ttD-Kh-gZH"/>
                         <outlet property="cameraRotationButton" destination="Qft-6a-P9q" id="SXl-j6-6cI"/>
                         <outlet property="cameraSimpleView" destination="eCP-P5-tk2" id="zY3-Wr-vH6"/>
-                        <outlet property="cameraView" destination="hax-3B-Lc5" id="Xql-MW-CJj"/>
+                        <outlet property="cameraView" destination="hax-3B-Lc5" id="bBF-QH-CZE"/>
                         <outlet property="chronometrer" destination="216-mj-D5y" id="Cfy-mx-axI"/>
                         <outlet property="defaultModesButton" destination="Rwp-4f-byO" id="l7B-uY-VK8"/>
                         <outlet property="deviceMicButton" destination="51U-lg-bQm" id="g23-xI-CYl"/>
@@ -671,6 +678,7 @@
                         <outlet property="jackMicButton" destination="Dra-Hy-CZB" id="WGh-5N-BwH"/>
                         <outlet property="modeContainerView" destination="Dnm-Zp-iJ8" id="NAa-Gr-hC2"/>
                         <outlet property="overlayGrid" destination="0V7-5h-nKZ" id="M53-dl-qLI"/>
+                        <outlet property="previewView" destination="Pql-2H-c5V" id="gMc-cE-Szm"/>
                         <outlet property="recordAreaContainerView" destination="8Aq-i6-oZd" id="gEO-H8-h0n"/>
                         <outlet property="recordButton" destination="YP7-c0-irG" id="EZw-ft-NyL"/>
                         <outlet property="recordingIndicator" destination="Ieq-fI-exk" id="mRi-hd-cds"/>

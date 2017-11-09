@@ -46,6 +46,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 
     // MARK: - Custom
     @IBOutlet weak var cameraView: UIView!
+	@IBOutlet weak var previewView: PreviewView!
     @IBOutlet weak var batteryView: BatteryRemainingView!
     @IBOutlet weak var spaceOnDiskView: SpaceOnDiskView!
     @IBOutlet weak var isoConfigurationView: ISOConfigurationView!
@@ -100,14 +101,12 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     override var isStatusBarHidden: Bool {
         return true
     }
-    
-    var cam: CameraView!
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         eventHandler?.viewDidLoad()
-//        cam = CameraView(frame: self.view.frame)
+//		previewView = PreviewView(frame: self.view.frame)
         self.configureViews()
         // Try to allow rotation -- It's just boring to landscape the capture in a static mode
         configureRotationObserver()
@@ -117,9 +116,8 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         super.viewWillAppear(animated)
         print("Recorder view will appear")
         eventHandler?.viewWillAppear()
-//        cam.startSession()
+		previewView.startSession()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
         
@@ -129,10 +127,9 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         eventHandler?.viewWillDisappear()
-//        cam.stopSession()
+		previewView.stopSession()
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
-
         drawerButtonRight.isHidden = true
     }
 

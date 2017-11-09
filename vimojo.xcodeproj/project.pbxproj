@@ -1003,10 +1003,10 @@
 		A9FB3A541E53F15F00C21918 /* ProjectParametersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A521E53F15F00C21918 /* ProjectParametersViewModel.swift */; };
 		A9FB3A551E53F15F00C21918 /* ProjectParametersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A521E53F15F00C21918 /* ProjectParametersViewModel.swift */; };
 		AE1F58AE1F3B69FC006F75B3 /* Vimojo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9D076D21E2F7F84003AE96B /* Vimojo.xcassets */; };
-		AE2D07EB1FB4D1E300E6E5FF /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2D07EA1FB4D1E300E6E5FF /* CameraView.swift */; };
-		AE2D07EC1FB4D1E300E6E5FF /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2D07EA1FB4D1E300E6E5FF /* CameraView.swift */; };
-		AE2D07ED1FB4D1E300E6E5FF /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2D07EA1FB4D1E300E6E5FF /* CameraView.swift */; };
-		AE2D07EE1FB4D1E300E6E5FF /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2D07EA1FB4D1E300E6E5FF /* CameraView.swift */; };
+		AE2D07EB1FB4D1E300E6E5FF /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2D07EA1FB4D1E300E6E5FF /* PreviewView.swift */; };
+		AE2D07EC1FB4D1E300E6E5FF /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2D07EA1FB4D1E300E6E5FF /* PreviewView.swift */; };
+		AE2D07ED1FB4D1E300E6E5FF /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2D07EA1FB4D1E300E6E5FF /* PreviewView.swift */; };
+		AE2D07EE1FB4D1E300E6E5FF /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2D07EA1FB4D1E300E6E5FF /* PreviewView.swift */; };
 		AE31942D1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */; };
 		AE31942E1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */; };
 		AE31942F1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */; };
@@ -1784,7 +1784,7 @@
 		A9FB3A4A1E53D6A900C21918 /* FilterProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterProvider.swift; path = AddFilterToVideo/FilterProvider.swift; sourceTree = "<group>"; };
 		A9FB3A4E1E53D97300C21918 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterCollectionViewCell.swift; path = AddFilterToVideo/FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		A9FB3A521E53F15F00C21918 /* ProjectParametersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectParametersViewModel.swift; path = AddFilterToVideo/ProjectParametersViewModel.swift; sourceTree = "<group>"; };
-		AE2D07EA1FB4D1E300E6E5FF /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraView.swift; path = Recorder/CameraView.swift; sourceTree = "<group>"; };
+		AE2D07EA1FB4D1E300E6E5FF /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreviewView.swift; path = Recorder/PreviewView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareMoJoFyInteractor.swift; path = Share/ShareMoJoFyInteractor.swift; sourceTree = "<group>"; };
 		AE3628AD1F9800D300E762CE /* UIBarButtonItem+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+extension.swift"; sourceTree = "<group>"; };
 		AE491F681F3AFE6400B20B70 /* ThomsonFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThomsonFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2921,7 +2921,7 @@
 				A9B3863E1D7D537C0065D3EC /* Timer */,
 				A9B3863B1D7D536A0065D3EC /* Thumbnail */,
 				A9B386351D7D53350065D3EC /* CustomAlbum */,
-				AE2D07EA1FB4D1E300E6E5FF /* CameraView.swift */,
+				AE2D07EA1FB4D1E300E6E5FF /* PreviewView.swift */,
 			);
 			name = Interactor;
 			sourceTree = "<group>";
@@ -4501,7 +4501,7 @@
 				A99BAD3D1E49DC9D00A465C7 /* TwitterVideoUpload.m in Sources */,
 				A9CABA501EC36A6700AB6CE8 /* ProjectListInteractorInterface.swift in Sources */,
 				A9CAB8CF1EC360CC00AB6CE8 /* RootWireframe.swift in Sources */,
-				AE2D07ED1FB4D1E300E6E5FF /* CameraView.swift in Sources */,
+				AE2D07ED1FB4D1E300E6E5FF /* PreviewView.swift in Sources */,
 				A9CABB111EC36C6700AB6CE8 /* RealmVideoToVideoMapper.swift in Sources */,
 				AE31942F1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */,
 				A99BAD401E49DC9D00A465C7 /* EditorInteractorInterface.swift in Sources */,
@@ -4799,7 +4799,7 @@
 				A91760BB1D9146BF008915DA /* EditorInteractorInterface.swift in Sources */,
 				A9CC20071E55AED800F0B00E /* ShareSave.swift in Sources */,
 				A953AD581E53475600DC0D84 /* AddFilterToVideoPresenterInterface.swift in Sources */,
-				AE2D07EB1FB4D1E300E6E5FF /* CameraView.swift in Sources */,
+				AE2D07EB1FB4D1E300E6E5FF /* PreviewView.swift in Sources */,
 				A9CABB0F1EC36C6700AB6CE8 /* RealmVideoToVideoMapper.swift in Sources */,
 				AE31942D1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */,
 				A91760AE1D9146B5008915DA /* EditingRoomWireframe.swift in Sources */,
@@ -5107,7 +5107,7 @@
 				A9CAB9701EC3672700AB6CE8 /* SaveVideosFromGalleryInteractor.swift in Sources */,
 				A9CABA4F1EC36A6700AB6CE8 /* ProjectListInteractorInterface.swift in Sources */,
 				A9CAB97B1EC3676000AB6CE8 /* GoToRecordOrGalleryWireframe.swift in Sources */,
-				AE2D07EC1FB4D1E300E6E5FF /* CameraView.swift in Sources */,
+				AE2D07EC1FB4D1E300E6E5FF /* PreviewView.swift in Sources */,
 				A9CABB101EC36C6700AB6CE8 /* RealmVideoToVideoMapper.swift in Sources */,
 				AE31942E1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */,
 				A9D077BA1E2F80B1003AE96B /* EditorInteractorInterface.swift in Sources */,
@@ -5405,7 +5405,7 @@
 				AE491F521F3AFE6400B20B70 /* EditorInteractorInterface.swift in Sources */,
 				AE491F531F3AFE6400B20B70 /* ShareSave.swift in Sources */,
 				AE491F541F3AFE6400B20B70 /* AddFilterToVideoPresenterInterface.swift in Sources */,
-				AE2D07EE1FB4D1E300E6E5FF /* CameraView.swift in Sources */,
+				AE2D07EE1FB4D1E300E6E5FF /* PreviewView.swift in Sources */,
 				AE491F551F3AFE6400B20B70 /* RealmVideoToVideoMapper.swift in Sources */,
 				AE3194301F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */,
 				AE491F561F3AFE6400B20B70 /* EditingRoomWireframe.swift in Sources */,
