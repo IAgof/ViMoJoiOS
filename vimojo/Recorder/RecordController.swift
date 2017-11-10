@@ -273,6 +273,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     }
 
     @IBAction func pushRotateCamera(_ sender: AnyObject) {
+		previewView.rotateCamera()
         eventHandler?.pushRotateCamera()
     }
 

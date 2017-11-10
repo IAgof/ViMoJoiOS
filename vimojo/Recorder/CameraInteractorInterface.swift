@@ -13,14 +13,11 @@ import VideonaProject
 protocol CameraInteractorInterface {
 	init(parameters: RecorderParameters,
 		 project: Project)
-	func startRecording()
+	func startRecording(_ completion:@escaping (String) -> Void)
 	func stopRecording()
 //    func setResolution()
 //    func setIsRecording(_ isRecording: Bool)
 //    func startRecordVideo(_ completion:@escaping (String) -> Void)
-    func rotateCamera()
-//    func stopCamera()
-//    func startCamera()
 }
 
 protocol CameraInteractorDelegate {

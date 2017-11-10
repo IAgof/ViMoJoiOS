@@ -131,4 +131,24 @@ class PreviewView: UIView {
 			}
 		}
 	}
+	public func rotateCamera() {
+		let input = try? AVCaptureDeviceInput(device: cameraPosition)
+		captureSession.removeInput(activeInput)
+		if captureSession.canAddInput(input) {
+			captureSession.addInput(input)
+			activeInput = input
+		}
+	}
+}
+extension PreviewView {
+	var cameraPosition: AVCaptureDevice {
+		switch activeInput.device.position {
+		case .back:
+			return AVCaptureDevice.defaultDevice(withDeviceType: .builtInWideAngleCamera, mediaType: AVMediaTypeVideo, position: .front)
+		case .front:
+			return AVCaptureDevice.defaultDevice(withDeviceType: .builtInWideAngleCamera, mediaType: AVMediaTypeVideo, position: .back)
+		default:
+			return AVCaptureDevice.defaultDevice(withDeviceType: .builtInWideAngleCamera, mediaType: AVMediaTypeVideo, position: .back)
+		}
+	}
 }

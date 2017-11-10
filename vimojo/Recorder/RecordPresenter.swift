@@ -133,7 +133,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelega
 	}
 	
 	func pushRotateCamera() {
-		cameraInteractor!.rotateCamera()
+		//		cameraInteractor!.rotateCamera()
 	}
 	
 	func pushVideoSettingsConfig() {
@@ -492,15 +492,15 @@ class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelega
 		delegate?.buttonsWithRecording(isEnabled: false)
 		
 		DispatchQueue.main.async(execute: {
-			//            self.cameraInteractor?.setIsRecording(true)
+//			self.cameraInteractor?.setIsRecording(true)
 			
-			//            self.cameraInteractor?.startRecordVideo({answer in
-			//                print("Record Presenter \(answer)")
-			//                Utils().delay(1, closure: {
-			self.delegate?.recordButtonEnable(true)
-			self.delegate?.recordButtonSecondaryEnable(true)
-			//                })
-			//            })
+			self.cameraInteractor?.startRecording({answer in
+				print("Record Presenter \(answer)")
+				Utils().delay(1, closure: {
+					self.delegate?.recordButtonEnable(true)
+					self.delegate?.recordButtonSecondaryEnable(true)
+				})
+			})
 			self.delegate?.selectRecordButton()
 			self.delegate?.selectSecondaryRecordButton()
 			self.delegate?.hideThumbnailButtonAndLabel()
@@ -523,7 +523,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelega
 		DispatchQueue.global().async {
 			// do some task
 			//            self.cameraInteractor?.setIsRecording(false)
-			
+			self.cameraInteractor?.stopRecording()
 			DispatchQueue.main.async(execute: {
 				self.delegate?.unselectSecondaryRecordButton()
 				
