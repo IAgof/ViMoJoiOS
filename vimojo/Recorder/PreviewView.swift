@@ -92,19 +92,8 @@ class PreviewView: UIView {
 		completion(sessionIsEnabled)
 	}
 	private func setupCamera() -> Bool {
-		//		let devices = AVCaptureDevice.devices().filter{ ($0 as AnyObject).hasMediaType(AVMediaTypeVideo) && ($0 as AnyObject).position == AVCaptureDevicePosition.back }
-		//		if let captureDevice = devices.first as? AVCaptureDevice  {
-		//			//        guard let camera = AVCaptureDevice.default(AVCaptureDevice.DeviceType.builtInWideAngleCamera, for: .video, position: .back),
-		//			let input = try? AVCaptureDeviceInput(device: captureDevice)
-		//			//            else { return false }
-		//			if captureSession.canAddInput(input) {
-		//				captureSession.addInput(input)
-		//				activeInput = input
-		//			}
-		//		}
-		//		return true
-		let camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) as AVCaptureDevice
-		let input = try? AVCaptureDeviceInput(device: camera)
+		guard let camera = AVCaptureDevice.defaultDevice(withDeviceType: .builtInWideAngleCamera, mediaType: AVMediaTypeVideo, position: .back),
+			let input = try? AVCaptureDeviceInput(device: camera) else { return false }
 		if captureSession.canAddInput(input) {
 			captureSession.addInput(input)
 			activeInput = input
@@ -112,11 +101,11 @@ class PreviewView: UIView {
 		return true
 	}
 	private func setupMic() -> Bool {
-//		guard let microphone = AVCaptureDevice.default(for: AVMediaType.audio),
-//			let micInput = try? AVCaptureDeviceInput(device: microphone) else { return false }
-//		if captureSession.canAddInput(micInput) {
-//			captureSession.addInput(micInput)
-//		}
+		guard let microphone = AVCaptureDevice.defaultDevice(withDeviceType: .builtInMicrophone, mediaType: AVMediaTypeAudio, position: .unspecified),
+		let micInput = try? AVCaptureDeviceInput(device: microphone) else { return false }
+		if captureSession.canAddInput(micInput) {
+			captureSession.addInput(micInput)
+		}
 		return true
 	}
 	func setupOutput() -> Bool {

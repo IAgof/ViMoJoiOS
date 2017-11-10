@@ -14,18 +14,11 @@ enum VideoResponse {
 	case error(Error)
 	case success(URL)
 }
-protocol RecorderProtocol {
-	func startRecording()
-	func stopRecording()
-}
-protocol RecorderDelegate {
-	func recordStopped(with response: VideoResponse )
-}
 class CameraInteractor: NSObject, CameraInteractorInterface {
 	var outputURL: URL
 	var movieOutput: AVCaptureMovieFileOutput
 	var activeInput: AVCaptureDeviceInput
-	var delegate: CameraInteractorDelegate
+	var delegate: CameraInteractorDelegate!
 	var project: Project?
 	
 	required init(parameters: RecorderParameters,
@@ -61,10 +54,13 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
 			stopRecording()
 		}
 	}
-	func stopRecording() {
+	public func stopRecording() {
 		if movieOutput.isRecording == true {
 			movieOutput.stopRecording()
 		}
+	}
+	public func rotateCamera() {
+		
 	}
 }
 

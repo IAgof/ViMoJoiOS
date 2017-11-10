@@ -18,7 +18,7 @@ protocol CameraInteractorInterface {
 //    func setResolution()
 //    func setIsRecording(_ isRecording: Bool)
 //    func startRecordVideo(_ completion:@escaping (String) -> Void)
-//    func rotateCamera()
+    func rotateCamera()
 //    func stopCamera()
 //    func startCamera()
 }

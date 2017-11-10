@@ -100,7 +100,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelega
             }
             FlashInteractor().turnOffWhenViewWillDissappear()
             DispatchQueue.main.async(execute: {
-//                self.cameraInteractor?.stopCamera()
                 self.delegate?.showFlashOn(false)
 				self.delegate?.enableIdleTimer(false)
             })
@@ -108,9 +107,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelega
     }
 
     func viewWillAppear() {
-//        cameraInteractor?.setResolution()
-//        cameraInteractor?.startCamera()
-
         if let resolution = interactor?.getResolution() {
             delegate?.setResolutionToView(resolution)
         }
@@ -137,7 +133,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelega
     }
 
     func pushRotateCamera() {
-//        cameraInteractor!.rotateCamera()
+        cameraInteractor!.rotateCamera()
     }
 
     func pushVideoSettingsConfig() {
@@ -223,9 +219,9 @@ class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelega
             if secondaryViewIsShowing {
                 delegate?.showRecordChronometerContainer()
 
-//                delegate?.hideSecondaryRecordChronometerContainer()
+                delegate?.hideSecondaryRecordChronometerContainer()
             } else {
-//                delegate?.showSecondaryRecordChronometerContainer()
+                delegate?.showSecondaryRecordChronometerContainer()
 
                 delegate?.hideRecordChronometerContainer()
             }
@@ -392,10 +388,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelega
     }
 
     func resetRecorder() {
-//        cameraInteractor?.removeFilters()
         delegate?.hideRecordedVideoThumb()
-//        delegate?.disableShareButton()
-
         interactor?.clearProject()
     }
 
@@ -504,8 +497,8 @@ class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelega
 //            self.cameraInteractor?.startRecordVideo({answer in
 //                print("Record Presenter \(answer)")
 //                Utils().delay(1, closure: {
-//                    self.delegate?.recordButtonEnable(true)
-//                    self.delegate?.recordButtonSecondaryEnable(true)
+                    self.delegate?.recordButtonEnable(true)
+                    self.delegate?.recordButtonSecondaryEnable(true)
 //                })
 //            })
             self.delegate?.selectRecordButton()
@@ -783,7 +776,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelega
 
             } else {
                 self.delegate?.hideRecordedVideoThumb()
-                //            self.delegate?.disableShareButton()
             }
         }
     }
