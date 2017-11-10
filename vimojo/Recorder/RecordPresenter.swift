@@ -78,19 +78,14 @@ class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelega
     }
 
     // MARK: - Event handler
-    func viewDidLoad() {
-        
+    func viewDidLoad(parameters: RecorderParameters) {
         delegate?.configureView()
-//        cameraInteractor = CameraInteractor(display: displayView,
-//                                            cameraDelegate: self,
-//                                            project: (interactor?.getProject())! )
-        
+        cameraInteractor = CameraInteractor(parameters: parameters,
+                                            project: (interactor?.getProject())!)
         // Checks wheter the mic is plugged in/out
         NotificationCenter.default.addObserver(self, selector:#selector(RecordPresenter.audioRouteChangeListener(_:)), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
-
         self.checkFlashAvaliable()
         self.checkIfMicIsAvailable()
-		
         DispatchQueue.main.async(execute: {
 			self.delegate?.enableIdleTimer(true)
         })

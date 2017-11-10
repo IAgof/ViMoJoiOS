@@ -9,7 +9,7 @@
 import Foundation
 
 protocol RecordPresenterInterface {
-    func viewDidLoad()
+    func viewDidLoad(parameters: RecorderParameters)
     func viewWillDisappear()
     func viewWillAppear()
 

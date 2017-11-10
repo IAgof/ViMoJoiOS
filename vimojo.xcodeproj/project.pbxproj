@@ -1011,6 +1011,10 @@
 		AE31942E1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */; };
 		AE31942F1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */; };
 		AE3194301F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */; };
+		AE3355441FB5090100CA3956 /* CameraInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3355431FB5090100CA3956 /* CameraInteractor.swift */; };
+		AE3355451FB5090100CA3956 /* CameraInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3355431FB5090100CA3956 /* CameraInteractor.swift */; };
+		AE3355461FB5090100CA3956 /* CameraInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3355431FB5090100CA3956 /* CameraInteractor.swift */; };
+		AE3355471FB5090100CA3956 /* CameraInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3355431FB5090100CA3956 /* CameraInteractor.swift */; };
 		AE3628AE1F9800D300E762CE /* UIBarButtonItem+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3628AD1F9800D300E762CE /* UIBarButtonItem+extension.swift */; };
 		AE3628AF1F9800D300E762CE /* UIBarButtonItem+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3628AD1F9800D300E762CE /* UIBarButtonItem+extension.swift */; };
 		AE3628B01F9800D300E762CE /* UIBarButtonItem+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3628AD1F9800D300E762CE /* UIBarButtonItem+extension.swift */; };
@@ -1786,6 +1790,7 @@
 		A9FB3A521E53F15F00C21918 /* ProjectParametersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectParametersViewModel.swift; path = AddFilterToVideo/ProjectParametersViewModel.swift; sourceTree = "<group>"; };
 		AE2D07EA1FB4D1E300E6E5FF /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreviewView.swift; path = Recorder/PreviewView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareMoJoFyInteractor.swift; path = Share/ShareMoJoFyInteractor.swift; sourceTree = "<group>"; };
+		AE3355431FB5090100CA3956 /* CameraInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraInteractor.swift; path = Recorder/CameraInteractor.swift; sourceTree = "<group>"; };
 		AE3628AD1F9800D300E762CE /* UIBarButtonItem+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+extension.swift"; sourceTree = "<group>"; };
 		AE491F681F3AFE6400B20B70 /* ThomsonFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThomsonFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE491F691F3AFE6500B20B70 /* vimojo copy3-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "vimojo copy3-Info.plist"; path = "/Users/devstarlight/Documents/Videona/ViMoJoiOS/vimojo copy3-Info.plist"; sourceTree = "<absolute>"; };
@@ -2912,6 +2917,7 @@
 		A9B3861B1D7D52370065D3EC /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				AE3355431FB5090100CA3956 /* CameraInteractor.swift */,
 				A9CABA691EC36AEC00AB6CE8 /* CameraInteractorInterface.swift */,
 				A9CABA751EC36AEC00AB6CE8 /* RecorderInteractor.swift */,
 				A9CABA761EC36AEC00AB6CE8 /* RecorderInteractorInterface.swift */,
@@ -4310,6 +4316,7 @@
 				A9CAB90C1EC364FB00AB6CE8 /* DrawerMenuInteractorInterface.swift in Sources */,
 				A99BAC921E49DC9D00A465C7 /* MusicModels.swift in Sources */,
 				A91995571EC5029C00D24B0E /* KYDrawerController.swift in Sources */,
+				AE3355461FB5090100CA3956 /* CameraInteractor.swift in Sources */,
 				A9CABA111EC3691E00AB6CE8 /* MixAudioModel.swift in Sources */,
 				A99BAD851E49DCE300A465C7 /* PeriodistaCelularConfiguration.swift in Sources */,
 				A9CAB9F61EC3691E00AB6CE8 /* GetVoiceOverComposition.swift in Sources */,
@@ -4608,6 +4615,7 @@
 				A91995551EC5029C00D24B0E /* KYDrawerController.swift in Sources */,
 				A900C7461DC3575700A65730 /* FTPErrorType.swift in Sources */,
 				A9CAB8A61EC35F7800AB6CE8 /* DPTheme.swift in Sources */,
+				AE3355441FB5090100CA3956 /* CameraInteractor.swift in Sources */,
 				A9CAB9D11EC367BD00AB6CE8 /* MusicListViewController.swift in Sources */,
 				A9CAB92C1EC3658E00AB6CE8 /* DuplicateInterface.swift in Sources */,
 				A9CAB8F21EC361B500AB6CE8 /* AddTextPresenter.swift in Sources */,
@@ -4916,6 +4924,7 @@
 				A9D077261E2F80B1003AE96B /* ShareViewModel.swift in Sources */,
 				A91995561EC5029C00D24B0E /* KYDrawerController.swift in Sources */,
 				A9D077291E2F80B1003AE96B /* SettingsContent.swift in Sources */,
+				AE3355451FB5090100CA3956 /* CameraInteractor.swift in Sources */,
 				A9CABAE91EC36C6700AB6CE8 /* AudioToRealmAudioMapper.swift in Sources */,
 				A9D0772C1E2F80B1003AE96B /* FullScreenPlayerViewController.swift in Sources */,
 				A9D0772E1E2F80B1003AE96B /* DetailTextInteractorInterface.swift in Sources */,
@@ -5214,6 +5223,7 @@
 				AE491E931F3AFE6400B20B70 /* FTPErrorType.swift in Sources */,
 				AE491E941F3AFE6400B20B70 /* DPTheme.swift in Sources */,
 				AE491E951F3AFE6400B20B70 /* MusicListViewController.swift in Sources */,
+				AE3355471FB5090100CA3956 /* CameraInteractor.swift in Sources */,
 				AE491E961F3AFE6400B20B70 /* DuplicateInterface.swift in Sources */,
 				AE491E971F3AFE6400B20B70 /* AddTextPresenter.swift in Sources */,
 				AE491E981F3AFE6400B20B70 /* DrawerMenuTableViewController.swift in Sources */,
@@ -5796,7 +5806,7 @@
 					"MIXPANEL_ERROR=1",
 				);
 				INFOPLIST_FILE = vimojo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR)";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DDEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojo;
@@ -5838,7 +5848,7 @@
 					"GTM_OAUTH2_USE_FRAMEWORK_IMPORTS=1",
 				);
 				INFOPLIST_FILE = vimojo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR) @loader_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DRELEASE\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojo;

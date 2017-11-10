@@ -7,29 +7,24 @@
 //
 
 import Foundation
+import AVFoundation
 import VideonaProject
 
 protocol CameraInteractorInterface {
-//    init(display: GPUImageView,
-//         cameraDelegate: CameraInteractorDelegate,
-//         project: Project)
+	init(parameters: RecorderParameters,
+		 project: Project)
+	func startRecording()
+	func stopRecording()
 //    func setResolution()
-//
 //    func setIsRecording(_ isRecording: Bool)
 //    func startRecordVideo(_ completion:@escaping (String) -> Void)
 //    func rotateCamera()
-//
-//    func changeBlendImage(_ image: UIImage)
-//    func changeFilter(_ newFilter: GPUImageFilter)
-//    func removeFilters()
-//    func removeOverlay()
-//    func removeShaders()
-//
 //    func stopCamera()
 //    func startCamera()
 }
 
 protocol CameraInteractorDelegate {
+	func recordStopped(with response: VideoResponse )
 //    func trackVideoRecorded(_ videoLenght: Double)
 //    func flashOn()
 //    func flashOff()

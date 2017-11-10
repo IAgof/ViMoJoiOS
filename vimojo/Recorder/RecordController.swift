@@ -7,7 +7,14 @@
 //
 
 import UIKit
+import AVKit
 import VideonaProject
+
+struct RecorderParameters {
+	let movieOutput: AVCaptureMovieFileOutput
+	let activeInput: AVCaptureDeviceInput
+	let outputURL: URL!
+}
 
 class RecordController: ViMoJoController, UINavigationControllerDelegate {
     // MARK: - Variables VIPER
@@ -105,8 +112,9 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        eventHandler?.viewDidLoad()
-//		previewView = PreviewView(frame: self.view.frame)
+		eventHandler?.viewDidLoad(parameters: RecorderParameters(movieOutput: previewView.movieOutput,
+																 activeInput: previewView.activeInput,
+																 outputURL: previewView.tempURL))
         self.configureViews()
         // Try to allow rotation -- It's just boring to landscape the capture in a static mode
         configureRotationObserver()
