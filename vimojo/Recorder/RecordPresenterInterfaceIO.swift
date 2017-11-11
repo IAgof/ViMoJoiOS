@@ -15,7 +15,6 @@ protocol RecordPresenterInterface {
 
     func pushRecord(_ sender: String)
     func pushFlash()
-    func pushRotateCamera()
     func pushVideoSettingsConfig()
     func thumbnailHasTapped()
     func pushShare()

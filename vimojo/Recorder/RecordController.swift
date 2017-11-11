@@ -274,7 +274,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 
     @IBAction func pushRotateCamera(_ sender: AnyObject) {
 		previewView.rotateCamera()
-        eventHandler?.pushRotateCamera()
     }
 
     @IBAction func pushVideoSettingsConfig(_ sender: AnyObject) {
@@ -1035,7 +1034,6 @@ extension RecordController:AudioLevelBarDelegate {
 extension RecordController:ExpositionModesDelegate {
     func showExpositionSlider() {
         fadeInView([exposureConfigurationView])
-
         drawerButtonRight.isHidden = true
     }
     func hideExpositionSlider() {
@@ -1054,7 +1052,6 @@ extension RecordController: FocusDelegate {
     }
     func hideFocusLens() {
         fadeOutView([focalLensSliderView])
-
         drawerButtonRight.isHidden = false
     }
 }
@@ -1062,6 +1059,7 @@ extension RecordController: FocusDelegate {
 // MARK: - Resolutions delegate
 extension RecordController: ResolutionsSelectorDelegate {
     func resolutionToChangeReceived(_ resolution: String) {
+        previewView.captureSessionPreset = resolution
         eventHandler?.saveResolutionToDefaults(resolution)
     }
 

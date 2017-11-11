@@ -131,11 +131,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelega
 		delegate?.showFlashOn(flashState)
 		self.trackFlash(flashState)
 	}
-	
-	func pushRotateCamera() {
-		//		cameraInteractor!.rotateCamera()
-	}
-	
 	func pushVideoSettingsConfig() {
 		if videoSettingsConfigViewIsShowing {
 			videoSettingsConfigViewIsShowing = false
@@ -461,9 +456,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelega
 	func saveResolutionToDefaults(_ resolution: String) {
 		
 		interactor?.saveResolution(resolution: resolution)
-		
-		//        cameraInteractor?.setResolution()
-		
 		interactor?.getResolutionImage(resolution)
 	}
 	

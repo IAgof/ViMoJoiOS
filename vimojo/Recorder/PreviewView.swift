@@ -17,7 +17,8 @@ class PreviewView: UIView {
 	var movieOutput: AVCaptureMovieFileOutput = AVCaptureMovieFileOutput()
 	var isCameraConfigured: Bool = false
 	
-	var captureSessionPreset = AVCaptureSessionPresetHigh {
+    // MARK: Variables
+	var captureSessionPreset = AVCaptureSessionPreset1280x720 {
 		didSet{
 			if captureSession.canSetSessionPreset(captureSessionPreset)
 			{ captureSession.sessionPreset = captureSessionPreset }
@@ -32,6 +33,7 @@ class PreviewView: UIView {
 		return nil
 	}
 	
+    // MARK: Init
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		configureCamera()
