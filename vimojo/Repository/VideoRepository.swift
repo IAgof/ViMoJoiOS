@@ -10,8 +10,7 @@ import Foundation
 import VideonaProject
 import RealmSwift
 
-public protocol VideoRepository: Repository {
-    typealias T = Video
+public protocol VideoRepository: Repository where T==Video{
 
     func update(item: Video, realmProject: RealmProject)
     func getVideos()->Results<RealmVideo>

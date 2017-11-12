@@ -14,8 +14,6 @@ public class VideoRealmRepository: VideoRepository {
     var toRealmVideoMapper: VideoToRealmVideoMapper
     var toVideoMapper: RealmVideoToVideoMapper
 
-    //    protected VideoRepository videoRepository = new VideoRealmRepository();
-
     init() {
         self.toRealmVideoMapper = VideoToRealmVideoMapper()
         self.toVideoMapper = RealmVideoToVideoMapper()
@@ -23,7 +21,7 @@ public class VideoRealmRepository: VideoRepository {
 
     public func add(item: Video) {
         do {
-            let realm = try! Realm()
+            let realm = try Realm()
             try realm.write {
                 let realmVideo =  toRealmVideoMapper.map(from: item)
                 realm.add(realmVideo)
@@ -39,28 +37,37 @@ public class VideoRealmRepository: VideoRepository {
     }
 
     public func update(item: Video) {
-        let realm = try! Realm()
-
-        try! realm.write {
-            realm.add(toRealmVideoMapper.map(from: item), update: true)
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(toRealmVideoMapper.map(from: item), update: true)
+            }
+        } catch {
+            print("Error writing project:\(error)")
         }
     }
 
     public func update(item: Video,
                        realmProject: RealmProject) {
-        let realm = try! Realm()
-
-        try! realm.write {
-            realm.add(toRealmVideoMapper.map(from: item), update: true)
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(toRealmVideoMapper.map(from: item), update: true)
+            }
+        } catch {
+            print("Error writing project:\(error)")
         }
     }
 
     public func remove(item: Video) {
-        let realm = try! Realm()
-
-        try! realm.write {
-            let result = realm.objects(RealmVideo.self).filter("uuid ='\(item.uuid)'")
-            realm.delete(result)
+        do {
+            let realm = try Realm()
+            try realm.write {
+                let result = realm.objects(RealmVideo.self).filter("uuid ='\(item.uuid)'")
+                realm.delete(result)
+            }
+        } catch {
+            print("Error writing project:\(error)")
         }
     }
 
@@ -69,10 +76,13 @@ public class VideoRealmRepository: VideoRepository {
     }
 
     public func removeAllVideos() {
-        let realm = try! Realm()
-
-        try! realm.write {
-            realm.delete(realm.objects(RealmVideo.self))
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.delete(realm.objects(RealmVideo.self))
+            }
+        } catch {
+            print("Error writing project:\(error)")
         }
     }
 
@@ -83,30 +93,51 @@ public class VideoRealmRepository: VideoRepository {
     }
 
     public func getVideos() -> Results<RealmVideo> {
-        let realm = try! Realm()
-        return realm.objects(RealmVideo.self)
+        //TODO: Is unused, and will make problems with the old unwrapping
+        var results:Results<RealmVideo>!
+        do {
+            let realm = try Realm()
+            try realm.write {
+                results = realm.objects(RealmVideo.self)
+            }
+        } catch {
+            print("Error writing project:\(error)")
+        }
+        return results
     }
 
     public func duplicateVideo(realmVideo: RealmVideo, completion: (RealmVideo) -> Void) {
-        let realm = try! Realm()
-
-        try! realm.write {
-            if let videoToCopy = realm.objects(RealmVideo.self).filter("uuid ='\(realmVideo.uuid)'").last {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                guard let videoToCopy = realm.objects(RealmVideo.self).filter("uuid ='\(realmVideo.uuid)'").last else { return }
                 let newVideoRealm = RealmVideo()
                 newVideoRealm.uuid = UUID().uuidString
-                newVideoRealm.title = realmVideo.title
-                newVideoRealm.stopTime = realmVideo.stopTime
-                newVideoRealm.startTime = realmVideo.startTime
-                newVideoRealm.position = realmVideo.position
-                newVideoRealm.mediaPath = realmVideo.mediaPath
-                newVideoRealm.videoURL = realmVideo.videoURL
-                newVideoRealm.clipTextPosition = realmVideo.clipTextPosition
-                newVideoRealm.clipText = realmVideo.clipText
-
+                newVideoRealm.title = videoToCopy.title
+                newVideoRealm.stopTime = videoToCopy.stopTime
+                newVideoRealm.startTime = videoToCopy.startTime
+                newVideoRealm.position = videoToCopy.position
+                newVideoRealm.mediaPath = videoToCopy.mediaPath
+                newVideoRealm.videoURL = videoToCopy.videoURL
+                newVideoRealm.clipTextPosition = videoToCopy.clipTextPosition
+                newVideoRealm.clipText = videoToCopy.clipText
+                
                 realm.add(newVideoRealm)
                 completion(newVideoRealm)
             }
+        } catch {
+            print("Error writing project:\(error)")
         }
     }
-
+    //TODO: make this function readabled
+//    public func writeOnRealm(){
+//        do {
+//            let realm = try Realm()
+//            try realm.write {
+//
+//            }
+//        } catch {
+//            print("Error writing project:\(error)")
+//        }
+//    }
 }
