@@ -21,7 +21,7 @@ public class AudioRealmRepository: AudioRepository {
 
     public func add(item: Audio) {
         do {
-            let realm = try! Realm()
+            let realm = try Realm()
             try realm.write {
                 let realmAudio =  toRealmAudioMapper.map(from: item)
                 realm.add(realmAudio)
@@ -37,28 +37,37 @@ public class AudioRealmRepository: AudioRepository {
     }
 
     public func update(item: Audio) {
-        let realm = try! Realm()
-
-        try! realm.write {
-            realm.add(toRealmAudioMapper.map(from: item), update: true)
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(toRealmAudioMapper.map(from: item), update: true)
+            }
+        } catch {
+            print("Error writing project:\(error)")
         }
     }
 
     public func update(item: Audio,
                        realmProject: RealmProject) {
-        let realm = try! Realm()
-
-        try! realm.write {
-            realm.add(toRealmAudioMapper.map(from: item), update: true)
+        do {
+            let realm = try Realm()
+            try realm.write {
+                   realm.add(toRealmAudioMapper.map(from: item), update: true)
+            }
+        } catch {
+            print("Error writing project:\(error)")
         }
     }
 
     public func remove(item: Audio) {
-        let realm = try! Realm()
-
-        try! realm.write {
-            let result = realm.objects(RealmAudio.self).filter("uuid ='\(item.uuid)'")
-            realm.delete(result)
+        do {
+            let realm = try Realm()
+            try realm.write {
+                let result = realm.objects(RealmAudio.self).filter("uuid ='\(item.uuid)'")
+                realm.delete(result)
+            }
+        } catch {
+            print("Error writing project:\(error)")
         }
     }
 

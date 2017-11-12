@@ -23,10 +23,14 @@ public class ProjectRealmRepository: ProjectRepository {
     }
 
     public func add(item: Project) {
-            let realm = try! Realm()
-            try! realm.write {
+        do {
+            let realm = try Realm()
+            try realm.write {
                 realm.add(toRealmProjectMapper.map(from: item))
             }
+        } catch {
+            print("Error writing project:\(error)")
+        }
     }
 
     public func add(items: [Project]) {
@@ -35,19 +39,25 @@ public class ProjectRealmRepository: ProjectRepository {
         }
     }
     public func update(item: Project) {
-        let realm = try! Realm()
-
-        try! realm.write {
-            realm.add(toRealmProjectMapper.map(from: item), update: true)
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(toRealmProjectMapper.map(from: item), update: true)
+            }
+        } catch {
+            print("Error writing project:\(error)")
         }
     }
 
     public func remove(item: Project) {
-        let realm = try! Realm()
-
-        try! realm.write {
-            let result = realm.objects(RealmProject.self).filter("uuid ='\(item.uuid)'")
-            realm.delete(result)
+        do {
+            let realm = try Realm()
+            try realm.write {
+                let result = realm.objects(RealmProject.self).filter("uuid ='\(item.uuid)'")
+                realm.delete(result)
+            }
+        } catch {
+            print("Error writing project:\(error)")
         }
     }
 
@@ -63,67 +73,74 @@ public class ProjectRealmRepository: ProjectRepository {
 
     public func getCurrentProject() -> Project {
         var project = Project()
-        let realm = try! Realm()
-
-        try! realm.write {
-           if let result = realm.objects(RealmProject.self).sorted(byProperty: "modificationDate", ascending: false).first {
-                project = self.toProjectMapper.map(from: result)
-            } else {
-                realm.add(self.toRealmProjectMapper.map(from: project))
-                try! realm.commitWrite()
+        do {
+            let realm = try Realm()
+            try realm.write {
+                if let result = realm.objects(RealmProject.self).sorted(byProperty: "modificationDate", ascending: false).first {
+                    project = self.toProjectMapper.map(from: result)
+                } else {
+                    realm.add(self.toRealmProjectMapper.map(from: project))
+                    try realm.commitWrite()
+                }
             }
+        } catch {
+            print("Error writing project:\(error)")
         }
         return project
     }
 
     public func getProjectByUUID(uuid: String) -> Project? {
-        let realm = try! Realm()
         var project: Project?
-
-        try! realm.write {
-            if let result = realm.objects(RealmProject.self).filter("uuid ='\(uuid)'").last {
-                project = self.toProjectMapper.map(from: result)
+        do {
+            let realm = try Realm()
+            try realm.write {
+                if let result = realm.objects(RealmProject.self).filter("uuid ='\(uuid)'").last {
+                    project = self.toProjectMapper.map(from: result)
+                }
             }
+        } catch {
+            print("Error writing project:\(error)")
         }
         return project
     }
 
     public func duplicateProject(id: String) {
-        let realm = try! Realm()
         var projectToCopy: RealmProject? = nil
-
-        try! realm.write {
-            projectToCopy = realm.objects(RealmProject.self).filter("uuid ='\(id)'").last
-        }
-
-        if projectToCopy != nil {
-            duplicateVideos(videos: projectToCopy!.videos, completion: {
-                duplicateVideoList in
-
-                let copyText = "Copy"
-
-                let newProjectRealm = RealmProject()
-                newProjectRealm.frameRate = projectToCopy!.frameRate
-                newProjectRealm.musicTitle = projectToCopy!.musicTitle
-                newProjectRealm.musicVolume = projectToCopy!.musicVolume
-                newProjectRealm.projectPath = projectToCopy!.projectPath
-                newProjectRealm.quality = projectToCopy!.quality
-                newProjectRealm.resolution = projectToCopy!.resolution
-                newProjectRealm.videos = duplicateVideoList
-                newProjectRealm.uuid = UUID().uuidString
-                newProjectRealm.exportedDate = projectToCopy?.exportedDate
-                newProjectRealm.exportedPath = projectToCopy?.exportedPath
-                newProjectRealm.modificationDate = projectToCopy?.modificationDate
-
-                if let title = projectToCopy?.title {
-                    newProjectRealm.title = copyText.appending(title)
-                } else {
-                    newProjectRealm.title = "Copy project"
+        do {
+            let realm = try Realm()
+            try realm.write {
+                projectToCopy = realm.objects(RealmProject.self).filter("uuid ='\(id)'").last
+                if projectToCopy != nil {
+                    duplicateVideos(videos: projectToCopy!.videos, completion: {
+                        duplicateVideoList in
+                        
+                        let copyText = "Copy"
+                        
+                        let newProjectRealm = RealmProject()
+                        newProjectRealm.frameRate = projectToCopy!.frameRate
+                        newProjectRealm.musicTitle = projectToCopy!.musicTitle
+                        newProjectRealm.musicVolume = projectToCopy!.musicVolume
+                        newProjectRealm.projectPath = projectToCopy!.projectPath
+                        newProjectRealm.quality = projectToCopy!.quality
+                        newProjectRealm.resolution = projectToCopy!.resolution
+                        newProjectRealm.videos = duplicateVideoList
+                        newProjectRealm.uuid = UUID().uuidString
+                        newProjectRealm.exportedDate = projectToCopy?.exportedDate
+                        newProjectRealm.exportedPath = projectToCopy?.exportedPath
+                        newProjectRealm.modificationDate = projectToCopy?.modificationDate
+                        
+                        if let title = projectToCopy?.title {
+                            newProjectRealm.title = copyText.appending(title)
+                        } else {
+                            newProjectRealm.title = "Copy project"
+                        }
+                        
+                        realm.add(newProjectRealm)
+                    })
                 }
-
-                realm.add(newProjectRealm)
-            })
-
+            }
+        } catch {
+            print("Error writing project:\(error)")
         }
     }
 
@@ -149,11 +166,14 @@ public class ProjectRealmRepository: ProjectRepository {
 
     public func getAllProjects() -> [Project] {
         var projects: [Project] = []
-        let realm = try! Realm()
-
-        try! realm.write {
-            let results = realm.objects(RealmProject.self).sorted(byProperty: "modificationDate", ascending: false)
-            projects = results.map({ self.toProjectMapper.map(from: $0) })
+        do {
+            let realm = try Realm()
+            try realm.write {
+                let results = realm.objects(RealmProject.self).sorted(byProperty: "modificationDate", ascending: false)
+                projects = results.map({ self.toProjectMapper.map(from: $0) })
+            }
+        } catch {
+            print("Error writing project:\(error)")
         }
         return projects
     }
