@@ -10,20 +10,18 @@ import UIKit
 import AVFoundation
 import VideonaProject
 
-enum VideoResponse {
-	case error(Error)
-	case success(URL)
-}
 class CameraInteractor: NSObject, CameraInteractorInterface {
 	var outputURL: URL
 	var clipsArray: [String] = []
 	var movieOutput: AVCaptureMovieFileOutput
 	var activeInput: AVCaptureDeviceInput
-	var delegate: CameraInteractorDelegate!
+    var delegate: RecordPresenter
 	var project: Project?
 	
-	required init(parameters: RecorderParameters,
+    required init(delegate: RecordPresenter,
+                  parameters: RecorderParameters,
 				  project: Project) {
+        self.delegate = delegate
 		self.project = project
 		self.movieOutput = parameters.movieOutput
 		self.activeInput = parameters.activeInput
@@ -56,30 +54,45 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
 			movieOutput.stopRecording()
 		}
 	}
+    func getNewTitle() -> String {
+        return "\(Utils().giveMeTimeNow())videonaClip.m4v"
+    }
+    func getNewClipPath(_ title: String) -> String {
+        var path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        path =  path + "/\(title)"
+        return path
+    }
+    func getVideoLenght(_ url: URL) -> Double {
+        let asset = AVAsset.init(url: url)
+        return asset.duration.seconds
+    }
 }
 
 extension CameraInteractor: AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureFileOutputRecordingDelegate {
+    
 	//TODO: make it rain
 	func capture(_ captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [Any]!) {
-		print("Start capture didStartRecordingToOutputFileAt with fileURL \n\(fileURL)")
+        let title = self.getNewTitle()
+        let clipPath = self.getNewClipPath("\(title)")
+        self.clipsArray.append(clipPath)
+        AddVideoToProjectUseCase().add(videoPath: clipPath,
+                                       title: title,
+                                       project: self.project!)
 	}
-	func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
-		print("fileOutput didFinishRecordingTo with fileURL \n\(outputFileURL)")
-		
-		guard let actualProject = self.project else {return}
-		
-		ClipsAlbum.sharedInstance.saveVideo(outputFileURL, project: actualProject, completion: {
-			saved, videoURL in
-			if saved, let videoURLAssets = videoURL {}
-		})
-		
-		let response: VideoResponse!
-		if let hasError = error { response = .error(hasError) }
-		else { response = .success(outputFileURL) }
-		delegate.recordStopped(with: response)
-	}
+	func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {}
 	
-	func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) { }
+	func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
+        DispatchQueue.global().async {
+            guard let actualProject = self.project else {return}
+            ClipsAlbum.sharedInstance.saveVideo(outputFileURL, project: actualProject, completion: {
+                saved, videoURL in
+                if saved, let videoURLAssets = videoURL {
+                    self.delegate.trackVideoRecorded(self.getVideoLenght(outputFileURL))
+                    self.delegate.updateThumbnail(videoURL: videoURLAssets)
+                }
+            })
+        }
+    }
 }
 
 extension AVCaptureDevice {

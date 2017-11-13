@@ -11,8 +11,6 @@ import AVFoundation
 import VideonaProject
 
 protocol CameraInteractorInterface {
-	init(parameters: RecorderParameters,
-		 project: Project)
 	func startRecording(_ completion:@escaping (String) -> Void)
 	func stopRecording()
 //    func setResolution()
@@ -21,13 +19,6 @@ protocol CameraInteractorInterface {
 }
 
 protocol CameraInteractorDelegate {
-	func recordStopped(with response: VideoResponse )
-//    func trackVideoRecorded(_ videoLenght: Double)
-//    func flashOn()
-//    func flashOff()
-//    func cameraFront()
-//    func cameraRear()
-//    func resetZoom()
-//    func showFocus(_ center: CGPoint)
-//    func updateThumbnail(videoURL: URL?)
+    func trackVideoRecorded(_ videoLenght: Double)
+    func updateThumbnail(_ videoURL: URL?)
 }

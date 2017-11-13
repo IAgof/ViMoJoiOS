@@ -31,10 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         CustomDPTheme().configureTheme()
 
         //MIXPANEL
-        mixpanel = Mixpanel.sharedInstance(withToken: AnalyticsConstants().MIXPANEL_TOKEN)
-        mixpanel?.enableLogging = false
+//        mixpanel = Mixpanel.sharedInstance(withToken: AnalyticsConstants().MIXPANEL_TOKEN)
+//        mixpanel?.enableLogging = false
 
-        self.configureGoogleSignIn()
+//        self.configureGoogleSignIn()
 
         // Optional: configure GAI options.
 //        let gai = GAI.sharedInstance()
@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 //        gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
 //        
         //CRASHLYTICS
-        Fabric.with([Crashlytics.self])
+//        Fabric.with([Crashlytics.self])
 
         self.setupStartApp()
 

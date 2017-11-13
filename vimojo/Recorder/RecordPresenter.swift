@@ -80,7 +80,8 @@ class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelega
 	// MARK: - Event handler
 	func viewDidLoad(parameters: RecorderParameters) {
 		delegate?.configureView()
-		cameraInteractor = CameraInteractor(parameters: parameters,
+		cameraInteractor = CameraInteractor(delegate: self,
+                                            parameters: parameters,
 											project: (interactor?.getProject())!)
 		// Checks wheter the mic is plugged in/out
 		NotificationCenter.default.addObserver(self, selector:#selector(RecordPresenter.audioRouteChangeListener(_:)), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
@@ -484,8 +485,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelega
 		delegate?.buttonsWithRecording(isEnabled: false)
 		
 		DispatchQueue.main.async(execute: {
-//			self.cameraInteractor?.setIsRecording(true)
-			
 			self.cameraInteractor?.startRecording({answer in
 				print("Record Presenter \(answer)")
 				Utils().delay(1, closure: {
@@ -513,8 +512,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelega
 		
 		isRecording = false
 		DispatchQueue.global().async {
-			// do some task
-			//            self.cameraInteractor?.setIsRecording(false)
 			self.cameraInteractor?.stopRecording()
 			DispatchQueue.main.async(execute: {
 				self.delegate?.unselectSecondaryRecordButton()
@@ -755,6 +752,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelega
 	}
 	
 	func updateThumbnail( videoURL: URL? = nil) {
+        print("hey")
 		if let nClips = interactor?.getNumberOfClipsInProject() {
 			if nClips > 0 {
 				
