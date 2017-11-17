@@ -9,10 +9,10 @@
 import UIKit
 import AVFoundation
 import VideonaProject
+import Photos
 
 class CameraInteractor: NSObject, CameraInteractorInterface {
 	var outputURL: URL
-	var clipsArray: [String] = []
 	var movieOutput: AVCaptureMovieFileOutput
 	var activeInput: AVCaptureDeviceInput
     var delegate: RecordPresenter
@@ -72,34 +72,53 @@ extension CameraInteractor: AVCaptureVideoDataOutputSampleBufferDelegate, AVCapt
     
 	//TODO: make it rain
 	func capture(_ captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [Any]!) {
-        let title = self.getNewTitle()
-        let clipPath = self.getNewClipPath("\(title)")
-        self.clipsArray.append(clipPath)
-        AddVideoToProjectUseCase().add(videoPath: clipPath,
-                                       title: title,
-                                       project: self.project!)
 	}
 	func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
-		if (error != nil) {
-			fatalError("el video se ha roto!! \n didFinishRecordingTo \(error?.localizedDescription)")
+		if let error = error {
+			fatalError("el video se ha roto!! \n didFinishRecordingTo \(error.localizedDescription)")
 		}
 	}
-	
-	func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
-		if (error != nil) {
-			fatalError("el video se ha roto!! \n didFinishRecordingToOutputFileAt \(error?.localizedDescription)")
-		}
-        DispatchQueue.global().async {
-            guard let actualProject = self.project else {return}
-            ClipsAlbum.sharedInstance.saveVideo(outputFileURL, project: actualProject, completion: {
-                saved, videoURL in
-                if saved, let videoURLAssets = videoURL {
-                    self.delegate.trackVideoRecorded(self.getVideoLenght(outputFileURL))
-                    self.delegate.updateThumbnail(videoURL: videoURLAssets)
+    
+    func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
+        if let error = error {
+            fatalError("el video se ha roto!! \n didFinishRecordingToOutputFileAt \(error.localizedDescription)")
+        }
+        ClipsAlbum.sharedInstance.saveVideo(outputFileURL) { (response) in
+            switch response {
+            case .error(let error): print("do something with this \(error)")
+            case .success(let localIdentifier):
+                guard let actualProject = self.project else { fatalError("Project is nil! never should be nil") }
+                let title = self.getNewTitle()
+                let clipPath = self.getNewClipPath("\(title)")
+                AddVideoToProjectUseCase().add(videoPath: clipPath,
+                                               title: title,
+                                               project: actualProject)
+                self.setVideoUrlParameters(localIdentifier,
+                                           project: actualProject)
+                Utils().removeFileFromURL(outputFileURL)
+            }
+        }
+    }
+    func setVideoUrlParameters(_ localIdentifier: String, project: Project) {
+        if let video = project.getVideoList().last {
+            let phFetchAsset = PHAsset.fetchAssets(withLocalIdentifiers: [localIdentifier], options: nil)
+            let phAsset = phFetchAsset[0]
+            PHImageManager.default().requestAVAsset(forVideo: phAsset, options: nil, resultHandler: {
+                avasset, _, _ in
+                if let asset = avasset as? AVURLAsset {
+                    video.videoURL = asset.url
+                    video.mediaRecordedFinished()
+                    VideoRealmRepository().add(item: video)
+                    ViMoJoTracker.sharedInstance.sendVideoRecordedTracking(video.getDuration())
+                    project.updateModificationDate()
+                    ProjectRealmRepository().update(item: project)
+                    self.delegate.trackVideoRecorded(video.getDuration())
+                    self.delegate.updateThumbnail(videoURL: asset.url)
                 }
             })
         }
     }
+
 }
 
 extension AVCaptureDevice {

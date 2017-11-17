@@ -71,61 +71,35 @@ class ClipsAlbum: NSObject {
     }
 
     var savedLocalIdentifier: String?
-
-    func saveVideo(_ clipPath: URL, project: Project, completion:@escaping (Bool, URL?) -> Void) {
+    /// VideoResponse:
+    enum VideoResponse {
+        case error(Error)
+        case success(localIdentifier: String)
+    }
+    enum VideoRecordError: Error {
+        case unknownError
+    }
+    func saveVideo(_ clipPath: URL, response:@escaping (VideoResponse) -> Void) {
         if assetCollection == nil {
             return
         }
-
+        
         PHPhotoLibrary.shared().performChanges({
-
+            
             guard let assetChangeRequest = PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: clipPath) else {return}
             guard let assetPlaceHolder = assetChangeRequest.placeholderForCreatedAsset  else {return}
-
+            
             self.savedLocalIdentifier = assetPlaceHolder.localIdentifier
-
+            
             let albumChangeRequest = PHAssetCollectionChangeRequest(for: self.assetCollection)
             let enumeration: NSArray = [assetPlaceHolder]
             albumChangeRequest!.addAssets(enumeration)
-            }, completionHandler: {
-                saved, _ in
-
-                if saved {
-                    if let localIdentifier = self.savedLocalIdentifier {
-                        self.setVideoUrlParameters(localIdentifier,
-                                                   project: project, completion: { videoURL in
-                                                    completion(true, videoURL)
-                        })
-                        Utils().removeFileFromURL(clipPath)
-                    }
-                } else {
-                    completion(false, nil)
-                }
+        }, completionHandler: {
+            saved, error in
+            if let error = error { response(.error(error)) }
+            else if saved, let localIdentifier = self.savedLocalIdentifier {
+                response(.success(localIdentifier: localIdentifier))
+            } else { response(.error(VideoRecordError.unknownError)) }
         })
-    }
-
-    func removeVideoFromDocuments(_ clipPath: URL) {
-
-    }
-
-    func setVideoUrlParameters(_ localIdentifier: String,
-                               project: Project, completion: @escaping (URL) -> Void) {
-
-        if let video = project.getVideoList().last {
-            let phFetchAsset = PHAsset.fetchAssets(withLocalIdentifiers: [localIdentifier], options: nil)
-            let phAsset = phFetchAsset[0]
-            PHImageManager.default().requestAVAsset(forVideo: phAsset, options: nil, resultHandler: {
-                avasset, _, _ in
-                if let asset = avasset as? AVURLAsset {
-                    video.videoURL = asset.url
-                    video.mediaRecordedFinished()
-                    VideoRealmRepository().add(item: video)
-                    ViMoJoTracker.sharedInstance.sendVideoRecordedTracking(video.getDuration())
-                    project.updateModificationDate()
-                    ProjectRealmRepository().update(item: project)
-                    completion(asset.url)
-                }
-            })
-        }
     }
 }
