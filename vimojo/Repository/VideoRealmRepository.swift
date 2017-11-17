@@ -23,7 +23,7 @@ public class VideoRealmRepository: VideoRepository {
         do {
             let realm = try Realm()
             try realm.write {
-                let realmVideo =  toRealmVideoMapper.map(from: item)
+                let realmVideo = toRealmVideoMapper.map(from: item)
                 realm.add(realmVideo)
             }
         } catch {

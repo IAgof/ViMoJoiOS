@@ -33,10 +33,10 @@ platform :ios do
 
   # build your iOS app
   gym(
-    scheme: “vimojo”,
-    export_method: "app-store”
-  )
-    enable_automatic_code_signing(path: “./vimojo.xcodeproj")
+    scheme: "vimojo",
+    export_method: "app-store"
+	)
+  enable_automatic_code_signing(path: "./vimojo.xcodeproj")
   # upload to Testflight
   pilot(skip_waiting_for_build_processing: true)
   end
@@ -45,7 +45,11 @@ platform :ios do
   lane :release do
     # match(type: "appstore")
     # snapshot
-    gym # Build your app - more options available
+    gym(
+			scheme: "vimojo",
+			export_method: "app-store"
+		)
+		enable_automatic_code_signing(path: "./vimojo.xcodeproj")
     deliver(force: true)
     # frameit
   end

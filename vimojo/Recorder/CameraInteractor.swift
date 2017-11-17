@@ -79,9 +79,16 @@ extension CameraInteractor: AVCaptureVideoDataOutputSampleBufferDelegate, AVCapt
                                        title: title,
                                        project: self.project!)
 	}
-	func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {}
+	func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
+		if (error != nil) {
+			fatalError("el video se ha roto!! \n didFinishRecordingTo \(error?.localizedDescription)")
+		}
+	}
 	
 	func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
+		if (error != nil) {
+			fatalError("el video se ha roto!! \n didFinishRecordingToOutputFileAt \(error?.localizedDescription)")
+		}
         DispatchQueue.global().async {
             guard let actualProject = self.project else {return}
             ClipsAlbum.sharedInstance.saveVideo(outputFileURL, project: actualProject, completion: {

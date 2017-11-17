@@ -514,8 +514,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelega
 		DispatchQueue.global().async {
 			self.cameraInteractor?.stopRecording()
 			DispatchQueue.main.async(execute: {
-				self.delegate?.unselectSecondaryRecordButton()
-				
 				if sender == "pro" {
 					self.delegate?.showThumbnailButtonAndLabel()
 				}
@@ -524,6 +522,10 @@ class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelega
 				self.delegate?.showStopButton()
 				self.delegate?.stopRecordingIndicatorBlink()
 				self.delegate?.hideDrawerButton()
+
+				Utils().delay(1, closure: {
+					self.delegate?.unselectSecondaryRecordButton()
+				})
 			})
 		}
 		self.stopTimer()
