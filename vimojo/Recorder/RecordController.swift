@@ -862,6 +862,11 @@ extension RecordController:RecordPresenterDelegate {
         fadeOutView([secondaryChronometerContainer])
     }
 
+	func renewOutputSession() {
+		previewView.renewOutput()
+		eventHandler?.renewCameraInteractor(movieOutput: previewView.movieOutput)
+	}
+
     func setDefaultAllModes() {
 //        zoomView.setZoomSliderValue(1)
 //		zoomView.setDefaultZoom(1)

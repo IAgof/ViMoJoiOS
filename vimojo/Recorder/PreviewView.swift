@@ -133,6 +133,13 @@ class PreviewView: UIView {
 			}
 		}
 	}
+	public func renewOutput() {
+		captureSession.removeOutput(movieOutput);
+		movieOutput = AVCaptureMovieFileOutput()
+		if captureSession.canAddOutput(movieOutput) {
+			captureSession.addOutput(movieOutput)
+		}
+	}
 	public func rotateCamera() {
 		let input = try? AVCaptureDeviceInput(device: cameraPosition)
 		captureSession.removeInput(activeInput)

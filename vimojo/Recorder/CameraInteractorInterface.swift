@@ -13,6 +13,7 @@ import VideonaProject
 protocol CameraInteractorInterface {
 	func startRecording(_ completion:@escaping (String) -> Void)
 	func stopRecording()
+	func renewMovieOutput(movieOutput: AVCaptureMovieFileOutput)
 //    func setResolution()
 //    func setIsRecording(_ isRecording: Bool)
 //    func startRecordVideo(_ completion:@escaping (String) -> Void)
