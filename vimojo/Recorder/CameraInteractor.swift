@@ -27,10 +27,6 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
 		self.activeInput = parameters.activeInput
 		self.outputURL = parameters.outputURL
 	}
-
-	public func setMovieOutput(movieOutput: AVCaptureMovieFileOutput) {
-		self.movieOutput = movieOutput
-	}
 	
 	public func startRecording(_ completion:@escaping (String) -> Void) {
 		let connection = movieOutput.connection(withMediaType: AVMediaTypeVideo)
@@ -79,8 +75,7 @@ extension CameraInteractor: AVCaptureVideoDataOutputSampleBufferDelegate, AVCapt
         let title = self.getNewTitle()
         let clipPath = self.getNewClipPath("\(title)")
         self.clipsArray.append(clipPath)
-		AddVideoToProjectUseCase().add(fileURL: fileURL,
-									   videoPath: clipPath,
+		AddVideoToProjectUseCase().add(videoPath: clipPath,
                                        title: title,
                                        project: self.project!)
 	}
@@ -91,9 +86,9 @@ extension CameraInteractor: AVCaptureVideoDataOutputSampleBufferDelegate, AVCapt
 	}
 	
 	func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
-//		if (error != nil) {
-//			fatalError("el video se ha roto!! \n didFinishRecordingToOutputFileAt \(error?.localizedDescription)")
-//		}
+		if (error != nil) {
+			fatalError("el video se ha roto!! \n didFinishRecordingToOutputFileAt \(error?.localizedDescription)")
+		}
 		DispatchQueue.global().async {
 			guard let actualProject = self.project else {return}
 			ClipsAlbum.sharedInstance.saveVideo(outputFileURL, project: actualProject, completion: {
@@ -101,6 +96,7 @@ extension CameraInteractor: AVCaptureVideoDataOutputSampleBufferDelegate, AVCapt
 				if saved, let videoURLAssets = videoURL {
 					self.delegate.trackVideoRecorded(self.getVideoLenght(outputFileURL))
 					self.delegate.updateThumbnail(videoURL: videoURLAssets)
+					self.delegate.allowRecord()
 				}
 			})
 		}

@@ -112,6 +112,7 @@ class PreviewView: UIView {
 	}
 	func setupOutput() -> Bool {
 		// Movie output
+		movieOutput.minFreeDiskSpaceLimit = 1024 * 1024;
 		if captureSession.canAddOutput(movieOutput) {
 			captureSession.addOutput(movieOutput)
 			return true
@@ -131,13 +132,6 @@ class PreviewView: UIView {
 			videoQueue.async {
 				self.captureSession.stopRunning()
 			}
-		}
-	}
-	public func renewOutput() {
-		captureSession.removeOutput(movieOutput);
-		movieOutput = AVCaptureMovieFileOutput()
-		if captureSession.canAddOutput(movieOutput) {
-			captureSession.addOutput(movieOutput)
 		}
 	}
 	public func rotateCamera() {

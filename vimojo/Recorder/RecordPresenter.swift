@@ -92,10 +92,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelega
 		})
 		self.pushHideMode()
 	}
-
-	func renewCameraInteractor(movieOutput: AVCaptureMovieFileOutput) {
-		cameraInteractor?.setMovieOutput(movieOutput: movieOutput)
-	}
 	
 	func viewWillDisappear() {
 		lastOrientationEnabled = UIDevice.current.orientation.rawValue
@@ -511,26 +507,27 @@ class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelega
 		isRecording = false
 
 		DispatchQueue.global().async {
-			self.delegate?.renewOutputSession()
-//			self.cameraInteractor?.stopRecording()
-		}
-
-		DispatchQueue.main.async(execute: {
-
-			if sender == "pro" {
-				self.delegate?.showThumbnailButtonAndLabel()
-			}
-
-			self.delegate?.selectRecordButton()
-			self.delegate?.showStopButton()
-			self.delegate?.stopRecordingIndicatorBlink()
-			self.delegate?.hideDrawerButton()
-
-			Utils().delay(1, closure: {
+			self.cameraInteractor?.stopRecording()
+			DispatchQueue.main.async(execute: {
+				if sender == "pro" {
+					self.delegate?.showThumbnailButtonAndLabel()
+				}
+				self.delegate?.selectRecordButton()
+				self.delegate?.showStopButton()
+				self.delegate?.recordButtonEnable(false)
+				self.delegate?.stopRecordingIndicatorBlink()
+				self.delegate?.hideDrawerButton()
 				self.delegate?.unselectSecondaryRecordButton()
 			})
-		})
+		}
+
 		self.stopTimer()
+	}
+
+  	func allowRecord() {
+	  DispatchQueue.main.async(execute: {
+		  self.delegate?.recordButtonEnable(true)
+	  })
 	}
 	
 	func thumbnailHasTapped() {
@@ -756,7 +753,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, TimerInteractorDelega
 	}
 	
 	func updateThumbnail( videoURL: URL? = nil) {
-        print("hey")
 		if let nClips = interactor?.getNumberOfClipsInProject() {
 			if nClips > 0 {
 				

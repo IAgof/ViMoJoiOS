@@ -92,8 +92,7 @@ class ClipsAlbum: NSObject {
 
 			if saved {
 				if let localIdentifier = self.savedLocalIdentifier {
-					self.setVideoUrlParameters(clipPath,
-											   localIdentifier,
+					self.setVideoUrlParameters(localIdentifier,
 											   project: project,
 											   completion: { videoURL in
 												completion(true, videoURL)
@@ -110,30 +109,25 @@ class ClipsAlbum: NSObject {
 
 	}
 
-	func setVideoUrlParameters(_ clipPath: URL,
-							   _ localIdentifier: String,
+	func setVideoUrlParameters(_ localIdentifier: String,
 							   project: Project,
 							   completion: @escaping (URL) -> Void) {
 
-		let videoList = project.getVideoList()
-
-		for video in videoList {
-			if (video.getInternalFileURL() == clipPath) {
-				let phFetchAsset = PHAsset.fetchAssets(withLocalIdentifiers: [localIdentifier], options: nil)
-				let phAsset = phFetchAsset[0]
-				PHImageManager.default().requestAVAsset(forVideo: phAsset, options: nil, resultHandler: {
-					avasset, _, _ in
-					if let asset = avasset as? AVURLAsset {
-						video.videoURL = asset.url
-						video.mediaRecordedFinished()
-						VideoRealmRepository().add(item: video)
-						ViMoJoTracker.sharedInstance.sendVideoRecordedTracking(video.getDuration())
-						project.updateModificationDate()
-						ProjectRealmRepository().update(item: project)
-						completion(asset.url)
-					}
-				})
-			}
+		if let video = project.getVideoList().last {
+			let phFetchAsset = PHAsset.fetchAssets(withLocalIdentifiers: [localIdentifier], options: nil)
+			let phAsset = phFetchAsset[0]
+			PHImageManager.default().requestAVAsset(forVideo: phAsset, options: nil, resultHandler: {
+				avasset, _, _ in
+				if let asset = avasset as? AVURLAsset {
+					video.videoURL = asset.url
+					video.mediaRecordedFinished()
+					VideoRealmRepository().add(item: video)
+					ViMoJoTracker.sharedInstance.sendVideoRecordedTracking(video.getDuration())
+					project.updateModificationDate()
+					ProjectRealmRepository().update(item: project)
+					completion(asset.url)
+				}
+			})
 		}
 	}
 }

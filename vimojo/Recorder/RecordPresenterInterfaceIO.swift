@@ -55,7 +55,6 @@ protocol RecordPresenterInterface {
 	func pushCameraPro()
     
     func cameraViewHasTapped()
-	func renewCameraInteractor(movieOutput: AVCaptureMovieFileOutput)
 }
 
 protocol RecordPresenterDelegate {
@@ -187,5 +186,4 @@ protocol RecordPresenterDelegate {
     func resizeAllIcons()
 	
 	func enableIdleTimer(_ value: Bool)
-	func renewOutputSession()
 }
