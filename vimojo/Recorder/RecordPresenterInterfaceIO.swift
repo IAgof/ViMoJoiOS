@@ -7,16 +7,14 @@
 //
 
 import Foundation
-import GPUImage
 
 protocol RecordPresenterInterface {
-    func viewDidLoad(_ displayView: GPUImageView)
+    func viewDidLoad(parameters: RecorderParameters)
     func viewWillDisappear()
     func viewWillAppear()
 
     func pushRecord(_ sender: String)
     func pushFlash()
-    func pushRotateCamera()
     func pushVideoSettingsConfig()
     func thumbnailHasTapped()
     func pushShare()

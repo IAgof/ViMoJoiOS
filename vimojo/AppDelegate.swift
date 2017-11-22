@@ -39,8 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Optional: configure GAI options.
 //        let gai = GAI.sharedInstance()
 //        gai.trackUncaughtExceptions = true  // report uncaught exceptions
-//        gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
-//        
+//		gai.logger.logLevel = SyncLogLevel.Verbose  // remove before app release
+
         //CRASHLYTICS
         Fabric.with([Crashlytics.self])
 
