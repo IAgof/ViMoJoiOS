@@ -89,8 +89,10 @@ class PreviewView: UIView {
 	//MARK:- Setup Camera
 	func setupSession(completion: (Bool) -> Void) {
 		var sessionIsEnabled = false
+		captureSession.beginConfiguration()
 		sessionIsEnabled = setupCamera() && setupMic() && setupOutput()
 		captureSessionPreset = AVCaptureSessionPresetHigh
+		captureSession.commitConfiguration()
 		completion(sessionIsEnabled)
 	}
 	private func setupCamera() -> Bool {
@@ -112,7 +114,7 @@ class PreviewView: UIView {
 	}
 	func setupOutput() -> Bool {
 		// Movie output
-		movieOutput.minFreeDiskSpaceLimit = 1024 * 1024;
+		movieOutput.movieFragmentInterval = kCMTimeInvalid
 		if captureSession.canAddOutput(movieOutput) {
 			captureSession.addOutput(movieOutput)
 			return true
