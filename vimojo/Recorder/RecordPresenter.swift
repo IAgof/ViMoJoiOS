@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import GPUImage
+import AVFoundation
 import VideonaProject
 
 struct IconsImage {
@@ -78,12 +78,12 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     }
 
     // MARK: - Event handler
-    func viewDidLoad(_ displayView: GPUImageView) {
+    func viewDidLoad(parameters: RecorderParameters) {
         
         delegate?.configureView()
-        cameraInteractor = CameraInteractor(display: displayView,
-                                            cameraDelegate: self,
-                                            project: (interactor?.getProject())! )
+		cameraInteractor = CameraInteractor(delegate: self,
+											parameters: parameters,
+											project: (interactor?.getProject())!)
         
         // Checks wheter the mic is plugged in/out
         NotificationCenter.default.addObserver(self, selector:#selector(RecordPresenter.audioRouteChangeListener(_:)), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
@@ -105,7 +105,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             }
             FlashInteractor().turnOffWhenViewWillDissappear()
             DispatchQueue.main.async(execute: {
-                self.cameraInteractor?.stopCamera()
                 self.delegate?.showFlashOn(false)
 				self.delegate?.enableIdleTimer(false)
             })
@@ -113,8 +112,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     }
 
     func viewWillAppear() {
-        cameraInteractor?.setResolution()
-        cameraInteractor?.startCamera()
 
         if let resolution = interactor?.getResolution() {
             delegate?.setResolutionToView(resolution)
@@ -141,9 +138,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         self.trackFlash(flashState)
     }
 
-    func pushRotateCamera() {
-        cameraInteractor!.rotateCamera()
-    }
 
     func pushVideoSettingsConfig() {
         if videoSettingsConfigViewIsShowing {
@@ -228,9 +222,9 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             if secondaryViewIsShowing {
                 delegate?.showRecordChronometerContainer()
 
-//                delegate?.hideSecondaryRecordChronometerContainer()
+                delegate?.hideSecondaryRecordChronometerContainer()
             } else {
-//                delegate?.showSecondaryRecordChronometerContainer()
+                delegate?.showSecondaryRecordChronometerContainer()
 
                 delegate?.hideRecordChronometerContainer()
             }
@@ -397,9 +391,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     }
 
     func resetRecorder() {
-        cameraInteractor?.removeFilters()
         delegate?.hideRecordedVideoThumb()
-//        delegate?.disableShareButton()
 
         interactor?.clearProject()
     }
@@ -474,7 +466,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
         interactor?.saveResolution(resolution: resolution)
 
-        cameraInteractor?.setResolution()
 
         interactor?.getResolutionImage(resolution)
     }
@@ -496,17 +487,9 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     }
 
     func startRecord() {
-        
         self.trackStartRecord()
-        
-        delegate?.recordButtonEnable(false)
-		delegate?.recordButtonSecondaryEnable(false)
-        delegate?.buttonsWithRecording(isEnabled: false)
-        
         DispatchQueue.main.async(execute: {
-            self.cameraInteractor?.setIsRecording(true)
-
-            self.cameraInteractor?.startRecordVideo({answer in
+			self.cameraInteractor?.startRecording({answer in
                 print("Record Presenter \(answer)")
                 Utils().delay(1, closure: {
                     self.delegate?.recordButtonEnable(true)
@@ -519,6 +502,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 			self.delegate?.startRecordingIndicatorBlink()
 			self.delegate?.startSecondaryRecordingIndicatorBlink()
             self.delegate?.buttonsWithRecording(isEnabled: false)
+			self.delegate?.showDrawerButton()
         })
 
         isRecording = true
@@ -532,12 +516,8 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
         isRecording = false
         DispatchQueue.global().async {
-            // do some task
-            self.cameraInteractor?.setIsRecording(false)
-
+			self.cameraInteractor?.stopRecording()
             DispatchQueue.main.async(execute: {
-				self.delegate?.unselectSecondaryRecordButton()
-				
 				if sender == "pro" {
 					self.delegate?.showThumbnailButtonAndLabel()
 				}
@@ -545,10 +525,19 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 				self.delegate?.selectRecordButton()
                 self.delegate?.showStopButton()
                 self.delegate?.stopRecordingIndicatorBlink()
+				self.delegate?.recordButtonEnable(false)
+				self.delegate?.hideDrawerButton()
+				self.delegate?.unselectSecondaryRecordButton()
             })
         }
         self.stopTimer()
     }
+
+	func allowRecord() {
+		DispatchQueue.main.async(execute: {
+			self.delegate?.recordButtonEnable(true)
+		})
+	}
 
     func thumbnailHasTapped() {
         if let nClips = interactor?.getNumberOfClipsInProject() {
@@ -788,7 +777,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
             } else {
                 self.delegate?.hideRecordedVideoThumb()
-                //            self.delegate?.disableShareButton()
             }
         }
     }
