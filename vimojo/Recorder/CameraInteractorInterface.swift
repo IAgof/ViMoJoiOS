@@ -17,6 +17,6 @@ protocol CameraInteractorInterface {
 
 protocol CameraInteractorDelegate {
 	func trackVideoRecorded(_ videoLenght: Double)
-	func updateThumbnail(_ videoURL: URL?)
+	func updateThumbnail(videoURL: URL?)
 	func allowRecord()
 }

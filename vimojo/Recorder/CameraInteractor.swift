@@ -11,14 +11,17 @@ import AVFoundation
 import VideonaProject
 
 class CameraInteractor: NSObject, CameraInteractorInterface {
+	var cameraDelegate: CameraInteractorDelegate
 	var outputURL: URL
 	var clipsArray: [String] = []
 	var movieOutput: AVCaptureMovieFileOutput
 	var activeInput: AVCaptureDeviceInput
 	var project: Project?
 
-	required init(parameters: RecorderParameters,
+	required init(delegate: RecordPresenter,
+				  parameters: RecorderParameters,
 				  project: Project) {
+		self.cameraDelegate = delegate
 		self.project = project
 		self.movieOutput = parameters.movieOutput
 		self.activeInput = parameters.activeInput
@@ -91,9 +94,9 @@ extension CameraInteractor: AVCaptureVideoDataOutputSampleBufferDelegate, AVCapt
 			ClipsAlbum.sharedInstance.saveVideo(outputFileURL, project: actualProject, completion: {
 				saved, videoURL in
 				if saved, let videoURLAssets = videoURL {
-					self.delegate.trackVideoRecorded(self.getVideoLenght(outputFileURL))
-					self.delegate.updateThumbnail(videoURL: videoURLAssets)
-					self.delegate.allowRecord()
+					self.cameraDelegate.trackVideoRecorded(self.getVideoLenght(outputFileURL))
+					self.cameraDelegate.updateThumbnail(videoURL: videoURLAssets)
+					self.cameraDelegate.allowRecord()
 				}
 			})
 		}

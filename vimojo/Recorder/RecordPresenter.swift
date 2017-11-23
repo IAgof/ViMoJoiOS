@@ -761,7 +761,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         }
     }
 
-    func updateThumbnail( videoURL: URL? = nil) {
+	func updateThumbnail(videoURL: URL? = nil) {
         if let nClips = interactor?.getNumberOfClipsInProject() {
             if nClips > 0 {
 
