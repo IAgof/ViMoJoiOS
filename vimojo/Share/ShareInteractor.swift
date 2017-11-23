@@ -121,21 +121,21 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
         }
     }
 	
-	func postToCloud(_ path:String) {
-		guard let actualProject = project, let exportPath = actualProject.getExportedPath() else { fatalError("Failed posting to the cloud") }
-		
-		let sharePaths = ShareVideoPath(cameraRollPath: moviePath, documentsPath: exportPath)
-		
-		
-		
-		let action = ShareMoJoFyInteractor(shareProject: actualProject)
-		action.share(sharePaths)
-		action.postVideoToMoJoFy(path, callback: {
-			result in
-			print("result")
-			print(result)
-		})
-	}
+//    func postToCloud(_ path:String) {
+//        guard let actualProject = project, let exportPath = actualProject.getExportedPath() else { fatalError("Failed posting to the cloud") }
+//
+//        let sharePaths = ShareVideoPath(cameraRollPath: moviePath, documentsPath: exportPath)
+//
+//
+//
+//        let action = ShareMoJoFyInteractor(shareProject: actualProject)
+//        action.share(sharePaths)
+//        action.postVideoToMoJoFy(path, callback: {
+//            result in
+//            print("result")
+//            print(result)
+//        })
+//    }
 	
     func postToYoutube(_ token:String){
         for socialNetwork in socialNetworks{

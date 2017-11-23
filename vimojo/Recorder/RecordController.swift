@@ -7,8 +7,14 @@
 //
 
 import UIKit
-import GPUImage
+import AVKit
 import VideonaProject
+
+struct RecorderParameters {
+	let movieOutput: AVCaptureMovieFileOutput
+	let activeInput: AVCaptureDeviceInput
+	let outputURL: URL!
+}
 
 class RecordController: ViMoJoController, UINavigationControllerDelegate {
     // MARK: - Variables VIPER
@@ -46,7 +52,8 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     @IBOutlet weak var drawerButtonRight: UIButton!
 
     // MARK: - Custom
-    @IBOutlet weak var cameraView: GPUImageView!
+    @IBOutlet weak var cameraView: UIView!
+	@IBOutlet weak var previewView: PreviewView!
     @IBOutlet weak var batteryView: BatteryRemainingView!
     @IBOutlet weak var spaceOnDiskView: SpaceOnDiskView!
     @IBOutlet weak var isoConfigurationView: ISOConfigurationView!
@@ -105,8 +112,9 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Let's see how can we erase GPUImage and introduce AVFoundation on this step
-        eventHandler?.viewDidLoad(cameraView)
+		eventHandler?.viewDidLoad(parameters: RecorderParameters(movieOutput: previewView.movieOutput,
+																 activeInput: previewView.activeInput,
+																 outputURL: previewView.tempURL))
         self.configureViews()
         // Try to allow rotation -- It's just boring to landscape the capture in a static mode
         configureRotationObserver()
@@ -116,8 +124,8 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         super.viewWillAppear(animated)
         print("Recorder view will appear")
         eventHandler?.viewWillAppear()
+		previewView.startSession()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
         
@@ -127,10 +135,9 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         eventHandler?.viewWillDisappear()
-
+		previewView.stopSession()
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
-
         drawerButtonRight.isHidden = true
     }
 
@@ -266,7 +273,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     }
 
     @IBAction func pushRotateCamera(_ sender: AnyObject) {
-        eventHandler?.pushRotateCamera()
+		previewView.rotateCamera()
     }
 
     @IBAction func pushVideoSettingsConfig(_ sender: AnyObject) {
@@ -1027,7 +1034,6 @@ extension RecordController:AudioLevelBarDelegate {
 extension RecordController:ExpositionModesDelegate {
     func showExpositionSlider() {
         fadeInView([exposureConfigurationView])
-
         drawerButtonRight.isHidden = true
     }
     func hideExpositionSlider() {
@@ -1046,7 +1052,6 @@ extension RecordController: FocusDelegate {
     }
     func hideFocusLens() {
         fadeOutView([focalLensSliderView])
-
         drawerButtonRight.isHidden = false
     }
 }
@@ -1054,6 +1059,7 @@ extension RecordController: FocusDelegate {
 // MARK: - Resolutions delegate
 extension RecordController: ResolutionsSelectorDelegate {
     func resolutionToChangeReceived(_ resolution: String) {
+        previewView.captureSessionPreset = resolution
         eventHandler?.saveResolutionToDefaults(resolution)
     }
 
