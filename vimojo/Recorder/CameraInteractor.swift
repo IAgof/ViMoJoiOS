@@ -18,7 +18,7 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
 	var activeInput: AVCaptureDeviceInput
 	var project: Project?
 
-	required init(delegate: RecordPresenter,
+	required init(delegate: CameraInteractorDelegate,
 				  parameters: RecorderParameters,
 				  project: Project) {
 		self.cameraDelegate = delegate
@@ -69,8 +69,6 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
 }
 
 extension CameraInteractor: AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureFileOutputRecordingDelegate {
-
-	//TODO: make it rain
 	func capture(_ captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [Any]!) {}
 	func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
 		if let error = error {
