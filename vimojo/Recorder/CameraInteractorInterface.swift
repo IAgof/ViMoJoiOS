@@ -11,7 +11,7 @@ import AVFoundation
 import VideonaProject
 
 protocol CameraInteractorInterface {
-	func startRecording(_ completion:@escaping (String) -> Void)
+	func startRecording(_ closure:@escaping () -> Void)
 	func stopRecording()
 }
 

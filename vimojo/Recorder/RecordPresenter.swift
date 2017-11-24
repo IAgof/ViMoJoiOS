@@ -488,25 +488,20 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
     func startRecord() {
         self.trackStartRecord()
-        DispatchQueue.main.async(execute: {
-			self.cameraInteractor?.startRecording({answer in
-                print("Record Presenter \(answer)")
-                Utils().delay(1, closure: {
-                    self.delegate?.recordButtonEnable(true)
-					self.delegate?.recordButtonSecondaryEnable(true)
-                })
-            })
-            self.delegate?.selectRecordButton()
-			self.delegate?.selectSecondaryRecordButton()
-            self.delegate?.hideThumbnailButtonAndLabel()
-			self.delegate?.startRecordingIndicatorBlink()
-			self.delegate?.startSecondaryRecordingIndicatorBlink()
-            self.delegate?.buttonsWithRecording(isEnabled: false)
-			self.delegate?.showDrawerButton()
-        })
-
+		self.cameraInteractor?.startRecording({
+			DispatchQueue.main.async {
+			  self.delegate?.recordButtonEnable(true)
+			  self.delegate?.recordButtonSecondaryEnable(true)
+			  self.delegate?.selectRecordButton()
+			  self.delegate?.selectSecondaryRecordButton()
+			  self.delegate?.hideThumbnailButtonAndLabel()
+			  self.delegate?.startRecordingIndicatorBlink()
+			  self.delegate?.startSecondaryRecordingIndicatorBlink()
+			  self.delegate?.buttonsWithRecording(isEnabled: false)
+			  self.delegate?.showDrawerButton()
+			}
+		})
         isRecording = true
-
         self.startTimer()
     }
 
