@@ -122,7 +122,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
-        
         drawerButtonRight.isHidden = false
     }
 
@@ -133,7 +132,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 		previewView.stopSession()
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
-
         drawerButtonRight.isHidden = true
     }
 
@@ -325,10 +323,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         eventHandler?.pushGain()
     }
 
-    @IBAction func pushShareButton(_ sender: AnyObject) {
-        eventHandler?.pushShare()
-    }
-
     @IBAction func showSideDrawer(_ sender: AnyObject) {
         print("Show side drawer")
         var parent = self.parent
@@ -339,6 +333,12 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
             parent = parent?.parent
         }
     }
+
+	func setDrawerGestureStatus(_ value: Bool) {
+		if let drawer = parent as? KYDrawerController {
+			drawer.screenEdgePanGestureEnabled = value
+		}
+	}
 
     //MARK : - Inner functions
 
