@@ -184,6 +184,8 @@ protocol RecordPresenterDelegate {
     func unselectSecondaryRecordButton()
     
     func resizeAllIcons()
+
 	func blockCameraWhenRecording(_ value: Bool)
+	func setDrawerGestureStatus(_ value: Bool)
 	func enableIdleTimer(_ value: Bool)
 }
