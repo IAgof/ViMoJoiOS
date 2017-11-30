@@ -144,6 +144,9 @@ class PreviewView: UIView {
 			activeInput = input
 		}
 	}
+	public func checkIfCameraHasFlash() -> Bool {
+		return activeInput.device.hasTorch ? true : false
+	}
 }
 extension PreviewView {
 	var cameraPosition: AVCaptureDevice {
