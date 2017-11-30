@@ -10,7 +10,7 @@ import Foundation
 import Photos
 
 struct EditorViewModel {
-    var phAsset: PHAsset
+    var thumbnail: UIImage
     var timeText: String
     var positionText: String
 }

@@ -16,6 +16,7 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
     var moviePath: String = ""
     var project: Project?
     var socialNetworks: [SocialNetwork] = []
+	var exporter: ExporterInteractor?
 
     func setShareMoviePath(_ moviePath: String) {
         self.moviePath = moviePath
@@ -57,7 +58,9 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
             }
         }
     }
-
+	func cancelExport() {
+		exporter?.exportSession?.cancelExport()
+	}
     func exportVideoAction() {
         guard let actualProject = project else {return}
 
@@ -69,8 +72,8 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
         }
 
         DispatchQueue.global(qos: .background).async {
-            let exporter = ExporterInteractor(project: actualProject)
-            exporter.exportVideos({
+			self.exporter = ExporterInteractor(project: actualProject)
+			self.exporter?.exportVideos({
                 exportURL, exportFail in
                 self.delegate?.exportFinished(withError: exportFail)
                 if !exportFail {
@@ -83,7 +86,9 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
                     }
                 }
 
-            })
+			}, { progress in
+				print("Export progress update: \(progress)")
+			})
         }
     }
 

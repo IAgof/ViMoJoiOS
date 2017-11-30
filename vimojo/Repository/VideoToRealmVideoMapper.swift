@@ -25,6 +25,9 @@ public class VideoToRealmVideoMapper: Mapper {
         realmVideo.clipTextPosition = from.textPositionToVideo
         realmVideo.clipText = from.textToVideo
         realmVideo.videoURL = from.videoURL.absoluteString
+		realmVideo.fileStopTime = from.fileStopTime
+		// TODO: change data unwrapping
+		if let image = from.thumbnailImage { realmVideo.thumbnailData = (UIImagePNGRepresentation(image) as! Data) }
 
         return realmVideo
     }

@@ -167,9 +167,10 @@ UITableViewDelegate, UITableViewDataSource, FullScreenWireframeDelegate {
 }
 
 extension ShareViewController:SharePresenterDelegate {
+
     //Presenter delegate
 
-    func createAlertWaitToExport() {
+	func createAlertWaitToExport(cancelAction: @escaping () -> Void) {
         let title = Utils().getStringByKeyFromSettings(RecordConstants().WAIT_TITLE)
         let message = Utils().getStringByKeyFromSettings(RecordConstants().WAIT_DESCRIPTION)
 
@@ -180,6 +181,11 @@ extension ShareViewController:SharePresenterDelegate {
         guard let alertC = alertController else {return}
         alertC.setTintColor()
 
+		// TODO: Change text
+		alertController?.addAction(UIAlertAction(title: "Cancel",
+												 style: .default, handler: { (_) in
+													cancelAction()
+		}))
         let activityIndicator = UIActivityIndicatorView.init(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
 
         activityIndicator.center = CGPoint(x: 130.5, y: 67)

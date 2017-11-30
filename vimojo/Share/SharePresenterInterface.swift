@@ -28,7 +28,7 @@ protocol SharePresenterInterface {
 }
 
 protocol SharePresenterDelegate {
-    func createAlertWaitToExport()
+	func createAlertWaitToExport(cancelAction: @escaping () -> Void)
     func dissmissAlertWaitToExport()
     func createAlertExportFailed()
 

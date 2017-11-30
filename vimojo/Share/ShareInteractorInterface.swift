@@ -18,6 +18,7 @@ protocol ShareInteractorInterface {
     func getProject() -> Project
     func exportVideo()
     func getShareExportURL() -> URL?
+	func cancelExport()
 }
 
 protocol ShareInteractorDelegate {

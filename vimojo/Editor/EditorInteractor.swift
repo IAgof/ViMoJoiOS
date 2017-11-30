@@ -64,7 +64,7 @@ class EditorInteractor: NSObject, EditorInteractorInterface {
             for video in self.videosList {
                 let timeToString = self.hourToString(video.getStopTime() - video.getStartTime())
                 videoListToView.append(EditorViewModel(
-                    phAsset: video.videoPHAsset,
+                    thumbnail: video.thumbnailImage ?? #imageLiteral(resourceName: "video_removed"),
                     timeText: timeToString,
                     positionText: "\(video.getPosition())"))
             }
