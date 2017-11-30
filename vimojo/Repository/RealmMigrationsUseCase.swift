@@ -38,7 +38,7 @@ class RealmMigrationsUseCase {
         // Now that we've told Realm how to handle the schema change, opening the file
         // will automatically perform the migration
         do {
-            let realm = try Realm()
+			try Realm()
         } catch {
             print("RealmMigrationsUseCase Error:\(error)")
         }

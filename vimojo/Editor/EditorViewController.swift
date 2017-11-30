@@ -106,16 +106,7 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
         let indexItem = indexPath.item
 
         if  videoList.indices.contains(indexItem) {
-            DispatchQueue.main.async {
-                PHImageManager.default().requestImage(for: self.videoList[indexItem].phAsset,
-                                                      targetSize: cell.thumbnailImageView.size,
-                                                      contentMode: .aspectFill,
-                                                      options: nil,
-                                                      resultHandler: {(result, _)in
-                                                        cell.thumbnailImageView.image = result ?? #imageLiteral(resourceName: "video_removed")
-                })
-            }
-
+			cell.thumbnailImageView.image = videoList[indexItem].thumbnail
             cell.timeLabel.text = videoList[indexItem].timeText
             cell.positionNumberLabel.text = "\(indexItem + 1)"
         }
@@ -123,7 +114,6 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
         let selectedBackgroundView = UIView()
         selectedBackgroundView.backgroundColor = configuration.mainColor
         cell.selectedBackgroundView = selectedBackgroundView
-
         cell.isSelected = (selectedCellIndexPath == indexPath)
         cell.removeClipButton.tag = indexItem
         cell.removeClipButton.addTarget(self, action: #selector(EditorViewController.pushRemoveVideoClip(_:)), for: UIControlEvents.touchUpInside)
