@@ -43,7 +43,11 @@ class SharePresenter: NSObject, SharePresenterInterface {
     }
 
     func viewDidAppear() {
-        delegate?.createAlertWaitToExport()
+		delegate?.createAlertWaitToExport {
+			self.delegate?.dissmissAlertWaitToExport()
+			self.interactor?.cancelExport()
+			self.wireframe?.presentEditor()
+		}
 
         interactor?.exportVideo()
     }
