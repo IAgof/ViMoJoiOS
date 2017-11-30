@@ -162,6 +162,10 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         secondaryChronometerLabel.adjustsFontSizeToFitWidth = true
     }
 
+	func blockCameraWhenRecording(_ value: Bool) {
+		cameraRotationButton.isEnabled = value
+	}
+
     func configureTapDisplay() {
         tapDisplay = UITapGestureRecognizer(target: self, action: #selector(RecordController.displayTapped))
         self.cameraView.addGestureRecognizer(tapDisplay!)
