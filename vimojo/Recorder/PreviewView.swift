@@ -33,6 +33,10 @@ class PreviewView: UIView {
 		return nil
 	}
 
+	var cameraHasFlash: Bool {
+		return activeInput.device.hasTorch
+	}
+
 	// MARK: Init
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -143,9 +147,6 @@ class PreviewView: UIView {
 			captureSession.addInput(input)
 			activeInput = input
 		}
-	}
-	public func checkIfCameraHasFlash() -> Bool {
-		return activeInput.device.hasTorch ? true : false
 	}
 }
 extension PreviewView {

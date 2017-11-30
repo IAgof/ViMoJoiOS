@@ -272,7 +272,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 
     @IBAction func pushRotateCamera(_ sender: AnyObject) {
         previewView.rotateCamera()
-		flashButton.isEnabled = previewView.checkIfCameraHasFlash()
+		flashButton.isEnabled = previewView.cameraHasFlash
     }
 
     @IBAction func pushHideMode(_ sender: AnyObject) {
