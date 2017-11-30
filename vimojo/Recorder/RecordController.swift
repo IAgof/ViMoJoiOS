@@ -122,7 +122,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
-        
         drawerButtonRight.isHidden = false
     }
 
@@ -133,7 +132,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 		previewView.stopSession()
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
-
         drawerButtonRight.isHidden = true
     }
 
@@ -161,6 +159,10 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         self.thumbnailNumberClips.adjustsFontSizeToFitWidth = true
         secondaryChronometerLabel.adjustsFontSizeToFitWidth = true
     }
+
+	func blockCameraWhenRecording(_ value: Bool) {
+		cameraRotationButton.isEnabled = value
+	}
 
     func configureTapDisplay() {
         tapDisplay = UITapGestureRecognizer(target: self, action: #selector(RecordController.displayTapped))
@@ -270,18 +272,11 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 
     @IBAction func pushRotateCamera(_ sender: AnyObject) {
         previewView.rotateCamera()
-    }
-
-    @IBAction func pushVideoSettingsConfig(_ sender: AnyObject) {
-        eventHandler?.pushVideoSettingsConfig()
+		flashButton.isEnabled = previewView.cameraHasFlash
     }
 
     @IBAction func pushHideMode(_ sender: AnyObject) {
         eventHandler?.pushHideMode()
-    }
-
-    @IBAction func pushHideButtons(_ sender: AnyObject) {
-        eventHandler?.pushHideAllButtons()
     }
 
     @IBAction func pushGrid(_ sender: AnyObject) {
@@ -325,10 +320,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         eventHandler?.pushGain()
     }
 
-    @IBAction func pushShareButton(_ sender: AnyObject) {
-        eventHandler?.pushShare()
-    }
-
     @IBAction func showSideDrawer(_ sender: AnyObject) {
         print("Show side drawer")
         var parent = self.parent
@@ -339,6 +330,12 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
             parent = parent?.parent
         }
     }
+
+	func setDrawerGestureStatus(_ value: Bool) {
+		if let drawer = parent as? KYDrawerController {
+			drawer.screenEdgePanGestureEnabled = value
+		}
+	}
 
     //MARK : - Inner functions
 

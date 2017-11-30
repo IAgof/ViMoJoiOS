@@ -490,7 +490,9 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         self.trackStartRecord()
 		self.cameraInteractor?.startRecording({
 			DispatchQueue.main.async {
+			  self.delegate?.blockCameraWhenRecording(false)
 			  self.delegate?.recordButtonEnable(true)
+			  self.delegate?.setDrawerGestureStatus(false)
 			  self.delegate?.recordButtonSecondaryEnable(true)
 			  self.delegate?.selectRecordButton()
 			  self.delegate?.selectSecondaryRecordButton()
@@ -516,7 +518,8 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 				if sender == "pro" {
 					self.delegate?.showThumbnailButtonAndLabel()
 				}
-				
+				self.delegate?.blockCameraWhenRecording(true)
+				self.delegate?.setDrawerGestureStatus(true)
 				self.delegate?.selectRecordButton()
                 self.delegate?.showStopButton()
                 self.delegate?.stopRecordingIndicatorBlink()

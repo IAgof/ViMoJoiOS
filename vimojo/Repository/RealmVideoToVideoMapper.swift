@@ -8,6 +8,7 @@
 
 import Foundation
 import VideonaProject
+import UIKit
 
 public class RealmVideoToVideoMapper: Mapper {
     public typealias From = RealmVideo
@@ -22,9 +23,9 @@ public class RealmVideoToVideoMapper: Mapper {
         video.setStartTime(from.startTime)
         video.textToVideo = from.clipText
         video.textPositionToVideo = from.clipTextPosition
+		video.thumbnailImage = UIImage(data: from.thumbnailData, scale: 1)
+		video.fileStopTime = from.fileStopTime
         video.videoURL = URL(string: from.videoURL)!
-
-        video.setDefaultVideoParameters()
 
         return video
     }

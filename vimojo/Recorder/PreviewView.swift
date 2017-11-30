@@ -33,6 +33,10 @@ class PreviewView: UIView {
 		return nil
 	}
 
+	var cameraHasFlash: Bool {
+		return activeInput.device.hasTorch
+	}
+
 	// MARK: Init
 	override init(frame: CGRect) {
 		super.init(frame: frame)
