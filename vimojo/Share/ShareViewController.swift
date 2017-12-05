@@ -226,10 +226,12 @@ extension ShareViewController:SharePresenterDelegate {
     }
 
     func dissmissAlertWaitToExport() {
+		let buttons: [UIButton] = [self.shareGenericButton, self.expandPlayerButton]
         DispatchQueue.main.async {
             self.alertController?.dismiss(animated: true, completion: nil)
-            self.shareGenericButton.isHidden = false
-            self.expandPlayerButton.isHidden = false
+			for button in buttons {
+				button.isHidden = false
+			}
         }
     }
 

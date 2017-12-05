@@ -19,7 +19,7 @@ class ExporterInteractor: NSObject {
         super.init()
         self.project = project
     }
-	func exportVideos(_ completionHandler:@escaping (_ url: URL?, _ failed: Bool) -> Void, _ progressUpdate: @escaping (Float) -> Void ) {
+	func exportVideos(_ completionHandler:@escaping (_ url: URL?, _ failed: Bool) -> Void) {
 
         let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let exportPath = (documentDirectory as NSString).appendingPathComponent("\(Utils().giveMeTimeNow())_VimojoClip_exported.m4v")

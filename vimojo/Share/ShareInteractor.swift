@@ -68,7 +68,6 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
     func getExportedElapsedSessionTime(_ progressUpdate: @escaping (Int) -> Void) {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {_ in
             if let progress = self.exporter?.exportSession?.progress {
-                print(progress)
                 progressUpdate(Int(progress * 100))
             }
         }
@@ -99,8 +98,6 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
                     }
                 }
 
-			}, { progress in
-				print("Export progress update: \(progress)")
 			})
         }
     }
