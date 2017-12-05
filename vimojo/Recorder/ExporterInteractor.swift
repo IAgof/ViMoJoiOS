@@ -57,15 +57,10 @@ class ExporterInteractor: NSObject {
         if let audioMix = videonaComposition.audioMix {
             exportSession!.audioMix = audioMix
         }
-//		let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (_) in
-//			if let progress = self.exportSession?.progress {
-//				progressUpdate(progress)
-//			}
-//		}
         // 6 - Perform the Export
 		exportSession?.exportAsynchronously(completionHandler: {
 			if self.exportSession?.status == .completed {
-//				timer.invalidate()
+//                timer.invalidate()
 				ExportedAlbum.sharedInstance.saveVideo(url, completion: {
 					videoURL in
 					self.project?.setExportedPath(path: exportPath)

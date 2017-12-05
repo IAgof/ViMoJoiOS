@@ -51,6 +51,13 @@ class SharePresenter: NSObject, SharePresenterInterface {
 
         interactor?.exportVideo()
     }
+    
+    func getSessionExportProgress(_ progressUpdate: @escaping (Int) -> Void ) {
+        self.interactor?.getExportedElapsedSessionTime({
+            progress in
+            progressUpdate(progress)
+        })
+    }
 
     func viewWillDisappear() {
         if !isGoingToExpandPlayer {

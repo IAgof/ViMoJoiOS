@@ -69,6 +69,8 @@ UITableViewDelegate, UITableViewDataSource, FullScreenWireframeDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationBarWithDrawerAndOptions()
+        self.shareGenericButton.isHidden = true
+        self.expandPlayerButton.isHidden = true
     }
 
     // MARK: - View Init
@@ -173,10 +175,15 @@ extension ShareViewController:SharePresenterDelegate {
 	func createAlertWaitToExport(cancelAction: @escaping () -> Void) {
         let title = Utils().getStringByKeyFromSettings(RecordConstants().WAIT_TITLE)
         let message = Utils().getStringByKeyFromSettings(RecordConstants().WAIT_DESCRIPTION)
-
+        let currentTimeExportedMessage = Utils().getStringByKeyFromSettings(RecordConstants().WAIT_EXPORTING)
+        self.eventHandler?.getSessionExportProgress({
+            progress in
+            self.alertController?.message = currentTimeExportedMessage + " \(progress)%"
+        })
+        
         alertController = UIAlertController(title: title,
-                                                message: message,
-                                                preferredStyle: .alert)
+                                            message: message,
+                                            preferredStyle: .alert)
 
         guard let alertC = alertController else {return}
         alertC.setTintColor()
@@ -221,6 +228,8 @@ extension ShareViewController:SharePresenterDelegate {
     func dissmissAlertWaitToExport() {
         DispatchQueue.main.async {
             self.alertController?.dismiss(animated: true, completion: nil)
+            self.shareGenericButton.isHidden = false
+            self.expandPlayerButton.isHidden = false
         }
     }
 
