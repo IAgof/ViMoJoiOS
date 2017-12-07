@@ -11,6 +11,7 @@ class RecordConstants: NSObject {
     // MARK: - ADVANCED_SECTION
     let WAIT_TITLE = "please_wait"
     let WAIT_DESCRIPTION = "dialog_processing"
+    let WAIT_EXPORTING = "dialog_exporting_percentage"
 }
 
 enum VideoModeConfigurations {

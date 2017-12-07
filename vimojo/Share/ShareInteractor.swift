@@ -10,13 +10,15 @@ import Foundation
 import UIKit
 import VideonaProject
 
-class ShareInteractor: NSObject, ShareInteractorInterface {
+class ShareInteractor: NSObject, ShareInteractorInterface {   
 
     var delegate: ShareInteractorDelegate?
     var moviePath: String = ""
     var project: Project?
     var socialNetworks: [SocialNetwork] = []
 	var exporter: ExporterInteractor?
+    
+    var timer: Timer?
 
     func setShareMoviePath(_ moviePath: String) {
         self.moviePath = moviePath
@@ -54,13 +56,22 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
 //				self.postToCloud(exportURL.lastPathComponent)
             }else{
                 print("File doesn't exist")
-                exportVideoAction()
+                
+                ()
             }
         }
     }
 	func cancelExport() {
+        timer?.invalidate()
 		exporter?.exportSession?.cancelExport()
 	}
+    func getExportedElapsedSessionTime(_ progressUpdate: @escaping (Int) -> Void) {
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {_ in
+            if let progress = self.exporter?.exportSession?.progress {
+                progressUpdate(Int(progress * 100))
+            }
+        }
+    }
     func exportVideoAction() {
         guard let actualProject = project else {return}
 
@@ -75,6 +86,7 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
 			self.exporter = ExporterInteractor(project: actualProject)
 			self.exporter?.exportVideos({
                 exportURL, exportFail in
+                self.timer?.invalidate()
                 self.delegate?.exportFinished(withError: exportFail)
                 if !exportFail {
                     if let url = exportURL {
@@ -86,8 +98,6 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
                     }
                 }
 
-			}, { progress in
-				print("Export progress update: \(progress)")
 			})
         }
     }

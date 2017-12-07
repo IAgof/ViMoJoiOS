@@ -19,6 +19,7 @@ protocol ShareInteractorInterface {
     func exportVideo()
     func getShareExportURL() -> URL?
 	func cancelExport()
+    func getExportedElapsedSessionTime(_ progressUpdate: @escaping (Int) -> Void)
 }
 
 protocol ShareInteractorDelegate {

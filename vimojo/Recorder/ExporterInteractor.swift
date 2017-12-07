@@ -19,7 +19,7 @@ class ExporterInteractor: NSObject {
         super.init()
         self.project = project
     }
-	func exportVideos(_ completionHandler:@escaping (_ url: URL?, _ failed: Bool) -> Void, _ progressUpdate: @escaping (Float) -> Void ) {
+	func exportVideos(_ completionHandler:@escaping (_ url: URL?, _ failed: Bool) -> Void) {
 
         let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let exportPath = (documentDirectory as NSString).appendingPathComponent("\(Utils().giveMeTimeNow())_VimojoClip_exported.m4v")
@@ -57,15 +57,10 @@ class ExporterInteractor: NSObject {
         if let audioMix = videonaComposition.audioMix {
             exportSession!.audioMix = audioMix
         }
-//		let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (_) in
-//			if let progress = self.exportSession?.progress {
-//				progressUpdate(progress)
-//			}
-//		}
         // 6 - Perform the Export
 		exportSession?.exportAsynchronously(completionHandler: {
 			if self.exportSession?.status == .completed {
-//				timer.invalidate()
+//                timer.invalidate()
 				ExportedAlbum.sharedInstance.saveVideo(url, completion: {
 					videoURL in
 					self.project?.setExportedPath(path: exportPath)

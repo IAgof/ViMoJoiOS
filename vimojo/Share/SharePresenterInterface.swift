@@ -25,10 +25,11 @@ protocol SharePresenterInterface {
     func pushOptions()
 
     func exportFailOkPushed()
+    func getSessionExportProgress(_ progress: @escaping (Int) -> Void)
 }
 
 protocol SharePresenterDelegate {
-	func createAlertWaitToExport(cancelAction: @escaping () -> Void)
+    func createAlertWaitToExport(cancelAction: @escaping () -> Void)
     func dissmissAlertWaitToExport()
     func createAlertExportFailed()
 
