@@ -17,9 +17,6 @@ def shared_pods
 	pod 'TTRangeSlider'
     pod 'MBCircularProgressBar', '0.3.4'
     pod 'KCFloatingActionButton'
-    
-    #Set your own VideonaProject folder
-    pod 'VideonaProject', :path => '../iOS-SDK'
 end
 
 target 'vimojo' do

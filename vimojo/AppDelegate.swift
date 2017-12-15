@@ -44,8 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         //CRASHLYTICS
         Fabric.with([Crashlytics.self])
 
-        self.setupStartApp()
-
+//        self.setupStartApp()
+        let controller = PurchaseRouter.createModule()
+        window!.rootViewController = controller
+        
         CheckMicPermissionUseCase().askIfNeeded()
         CheckPhotoRollPermissionUseCase().askIfNeeded()
         CheckCameraPermissionUseCase().askIfNeeded()
@@ -122,8 +124,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
             ViMoJoTracker.sharedInstance.trackAppStartupProperties(false)
 
-            appDependencies.installRecordToRootViewControllerIntoWindow(window!)
-//            appDependencies.installEditorRoomToRootViewControllerIntoWindow(window!)
+//            appDependencies.installRecordToRootViewControllerIntoWindow(window!)
+            appDependencies.installEditorRoomToRootViewControllerIntoWindow(window!)
         } else {
             // other version
             defaults.set(currentAppVersion, forKey: "appVersion")
