@@ -17,7 +17,7 @@ struct ProductViewModel {
     let buttonText: String?
     let buyAction: Action
     
-    init(with product: SKProduct, action: Action) {
+    init(with product: SKProduct, action: @escaping Action) {
         self.title = product.localizedTitle
         self.subtitle = product.localizedDescription
         self.buttonText =
@@ -41,8 +41,9 @@ class PurchasePresenter: PurchasePresenterProtocol {
             switch response {
             case .error(let error): print("Error")
             case .success(let products):
-                self.view?.products = products.map({ ProductViewModel(with: $0, action: {
-                    self.interactor?.buyProduct(product: $0)
+                self.view?.products = products.map({ product in
+                    ProductViewModel(with: product, action: {
+                    self.interactor?.buyProduct(product: product)
                 }) })
             }
         })

@@ -10,12 +10,12 @@ import Foundation
 import StoreKit
 
 public enum PurchaseProduct: String {
-    case removeWatermark = "Removewatermark"
+    case removeWatermark = "RemoveWatermark"
     
     static var availableProducts: [SKProduct] = []
     
     var productIdentifier: String {
-        return self.rawValue
+        return "com.videona.vimojo.\(self.rawValue)"
     }
     var notification: String {
         switch self {

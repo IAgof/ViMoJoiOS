@@ -13,7 +13,7 @@ import Foundation
 import StoreKit
 
 enum ProductResponse {
-    case error(error: Error)
+    case error
     case success(products: [SKProduct])
 }
 //MARK: Wireframe -
