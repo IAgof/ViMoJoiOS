@@ -18,11 +18,6 @@ struct ProductViewModel {
     let buttonText: String?
     let buyAction: BoolAction
     
-    private var wasBought: (String) -> Bool {
-        return { key in
-            return UserDefaults.standard.bool(forKey: key)
-        }
-    }
     init(with product: SKProduct, action: @escaping BoolAction) {
         self.title = product.localizedTitle
         self.subtitle = product.localizedDescription

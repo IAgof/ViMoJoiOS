@@ -63,10 +63,23 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
     func removePhoto() {
         interactor?.removePhoto()
     }
+    func switchWatermark() {
+        if SettingsConstants.watermarkWasBought {
+            SettingsConstants.watermarkIsEnabled.toogle()
+            delegate?.watermarkIsEnabled = SettingsConstants.watermarkIsEnabled
+        } else {
+            wireframe?.presentPurchaseSceen()
+        }
+    }
 }
 
 extension DrawerMenuPresenter:DrawerMenuInteractorDelegate {
     func imageIsSave() {
         delegate?.updateProfileCell()
+    }
+}
+extension Bool {
+    mutating func toogle() {
+        self = !self
     }
 }

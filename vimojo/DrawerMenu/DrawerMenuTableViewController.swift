@@ -8,14 +8,41 @@
 
 import UIKit
 
+extension SettingsConstants {
+    private static let watermarkSwitchKey = "watermarkSwitchKey"
+    private static let watermarkWasBoughtKey = "watermarkWasBoughtKey"
+    static var watermarkIsEnabled: Bool {
+        set {
+            UserDefaults.standard.set(newValue, forKey: SettingsConstants.watermarkSwitchKey)
+        }
+        get {
+            return UserDefaults.standard.bool(forKey: SettingsConstants.watermarkSwitchKey)
+        }
+    }
+    static var watermarkWasBought: Bool {
+        set {
+            UserDefaults.standard.set(newValue, forKey: SettingsConstants.watermarkWasBoughtKey)
+        }
+        get {
+            return UserDefaults.standard.bool(forKey: SettingsConstants.watermarkWasBoughtKey)
+        }
+    }
+}
 class DrawerMenuTableViewController: UITableViewController {
     var eventHandler: DrawerMenuPresenterInterface?
 
+    @IBOutlet weak var watermarkSwitch: UISwitch!
     @IBOutlet weak var userContentView: UIView!
-
+    
+    var watermarkIsEnabled: Bool = SettingsConstants.watermarkIsEnabled {
+        didSet {
+            watermarkSwitch.setOn(SettingsConstants.watermarkIsEnabled, animated: false)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         userContentView.backgroundColor = configuration.mainColor
+        watermarkIsEnabled = SettingsConstants.watermarkIsEnabled
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -26,7 +53,10 @@ class DrawerMenuTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
 
     }
-
+    @IBAction func watermarkPushed(_ sender: Any) {
+        watermarkSwitch.setOn(SettingsConstants.watermarkIsEnabled, animated: false)
+        eventHandler?.switchWatermark()
+    }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         eventHandler?.didSelectAtIndexPath(indexPath: indexPath)
     }

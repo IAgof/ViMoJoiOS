@@ -15,7 +15,7 @@ protocol DrawerMenuPresenterInterface {
     func takePhoto()
     func takeFromGallery()
     func removePhoto()
-
+    func switchWatermark()
     func saveImageSelected(image: UIImage)
 }
 
@@ -26,4 +26,5 @@ protocol DrawerMenuPresenterDelegate {
 
     func presentPickerController(withOptionSelected option: TakePhotoFromOptions)
     func updateProfileCell()
+    var watermarkIsEnabled: Bool { get set }
 }

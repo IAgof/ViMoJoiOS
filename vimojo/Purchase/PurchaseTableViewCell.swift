@@ -13,7 +13,8 @@ class PurchaseTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var buyButton: UIButton!
-    private var action: Action?
+    private var isPurchased: Bool = SettingsConstants.watermarkWasBought
+    private var action: BoolAction?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,7 +29,7 @@ class PurchaseTableViewCell: UITableViewCell {
         buyButton.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
     }
     func tapButton() {
-        action?()
+        action?(isPurchased)
     }
 }
 
