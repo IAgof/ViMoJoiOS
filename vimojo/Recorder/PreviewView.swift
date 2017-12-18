@@ -37,6 +37,23 @@ class PreviewView: UIView {
 		return activeInput.device.hasTorch
 	}
 
+	var isFocusModeSupported: Bool {
+		return activeInput.device.isFocusModeSupported(activeInput.device.focusMode)
+	}
+
+	var isExposureModeSupported: Bool {
+		return activeInput.device.isExposureModeSupported(activeInput.device.exposureMode)
+	}
+
+	var isWhiteBalanceModeSupported: Bool {
+		return activeInput.device.isWhiteBalanceModeSupported(activeInput.device.whiteBalanceMode)
+	}
+
+	var isInputGainSettable: Bool {
+		let audioSession = AVAudioSession.sharedInstance()
+		return audioSession.isInputGainSettable ? true : false
+	}
+
 	// MARK: Init
 	override init(frame: CGRect) {
 		super.init(frame: frame)
