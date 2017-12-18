@@ -15,6 +15,12 @@ class PurchaseTableViewCell: UITableViewCell {
     @IBOutlet weak var buyButton: UIButton!
     private var action: Action?
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        titleLabel.wordWrap()
+        descriptionLabel.wordWrap()
+        selectionStyle = .none
+    }
     func setup(with viewModel: ProductViewModel) {
         titleLabel.text = viewModel.title
         descriptionLabel.text = viewModel.subtitle
@@ -23,5 +29,12 @@ class PurchaseTableViewCell: UITableViewCell {
     }
     func tapButton() {
         action?()
+    }
+}
+
+extension UILabel {
+    func wordWrap() {
+        self.numberOfLines = 0
+        self.lineBreakMode = .byWordWrapping
     }
 }

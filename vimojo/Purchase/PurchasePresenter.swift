@@ -11,13 +11,19 @@
 import UIKit
 import StoreKit
 
+typealias BoolAction = (Bool) -> Void
 struct ProductViewModel {
     let title: String?
     let subtitle: String?
     let buttonText: String?
-    let buyAction: Action
+    let buyAction: BoolAction
     
-    init(with product: SKProduct, action: @escaping Action) {
+    private var wasBought: (String) -> Bool {
+        return { key in
+            return UserDefaults.standard.bool(forKey: key)
+        }
+    }
+    init(with product: SKProduct, action: @escaping BoolAction) {
         self.title = product.localizedTitle
         self.subtitle = product.localizedDescription
         self.buttonText =
@@ -42,8 +48,9 @@ class PurchasePresenter: PurchasePresenterProtocol {
             case .error(let error): print("Error")
             case .success(let products):
                 self.view?.products = products.map({ product in
-                    ProductViewModel(with: product, action: {
-                    self.interactor?.buyProduct(product: product)
+                    ProductViewModel(with: product, action: { wasBought in
+                        if wasBought { print("Already bought this product \(product.localizedDescription)")}        
+                        else { self.interactor?.buyProduct(product: product) }
                 }) })
             }
         })

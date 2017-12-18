@@ -28,6 +28,7 @@ class PurchaseViewController: UIViewController, PurchaseViewProtocol {
         let nib = UINib(nibName: "PurchaseTableViewCell", bundle: Bundle.main)
         tableView.register(nib, forCellReuseIdentifier: PurchaseTableViewCell.reuseIdentifier)
         tableView.dataSource = self
+        tableView.separatorStyle = .none
     }
     func showError(with title: String, description: String) {
         let controller = UIAlertController.defaultAlert(title, description)
