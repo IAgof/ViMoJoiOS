@@ -239,11 +239,11 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     }
 
 	func checkCameraProSupportedFeatures() {
-		focusButton.isEnabled = previewView.isFocusModeSupported
-		exposureModesButton.isEnabled = previewView.isExposureModeSupported
-		flashButton.isEnabled = previewView.cameraHasFlash
-		whiteBalanceButton.isEnabled = previewView.isWhiteBalanceModeSupported
-		gainButton.isEnabled = previewView.isInputGainSettable
+		focusButton.isHidden = !previewView.isFocusModeSupported
+		exposureModesButton.isHidden = !previewView.isExposureModeSupported
+		flashButton.isHidden = !previewView.cameraHasFlash
+		whiteBalanceButton.isHidden = !previewView.isWhiteBalanceModeSupported
+		gainButton.isHidden = !previewView.isInputGainSettable
 	}
 
     override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
