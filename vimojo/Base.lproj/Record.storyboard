@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -377,7 +377,7 @@
                                         <rect key="frame" x="179" y="268" width="309" height="45"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
-                                    <view hidden="YES" verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTG-lk-0Ju" customClass="WhiteBalanceView" customModule="VideonaProject">
+                                    <view hidden="YES" verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RTG-lk-0Ju" customClass="WhiteBalanceView" customModule="VideonaProject">
                                         <rect key="frame" x="222.5" y="268" width="222" height="45"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
@@ -395,7 +395,7 @@
                                             <userDefinedRuntimeAttribute type="image" keyPath="autoImageHighlightedAndPressed" value="activity_rec_white_balance_automatic_pressed"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view hidden="YES" verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dex-fY-oYP" customClass="FocusView" customModule="VideonaProject">
+                                    <view hidden="YES" verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dex-fY-oYP" customClass="FocusView" customModule="VideonaProject">
                                         <rect key="frame" x="276.5" y="268" width="114" height="45"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
@@ -407,7 +407,7 @@
                                             <userDefinedRuntimeAttribute type="image" keyPath="manualTapImageHighlightedAndPressed" value="activity_rec_focus_touch_pressed"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view hidden="YES" verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bd7-YM-xmD" customClass="ExpositionModesView" customModule="VideonaProject">
+                                    <view hidden="YES" verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bd7-YM-xmD" customClass="ExpositionModesView" customModule="VideonaProject">
                                         <rect key="frame" x="256.5" y="268" width="154" height="45"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -638,9 +638,9 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hax-3B-Lc5" firstAttribute="leading" secondItem="j7H-ws-M5v" secondAttribute="leading" id="5EJ-3n-BVf"/>
+                            <constraint firstItem="hax-3B-Lc5" firstAttribute="top" secondItem="zwt-vs-gCi" secondAttribute="bottom" id="35V-U2-Mfe"/>
+                            <constraint firstItem="RJj-LY-m3o" firstAttribute="top" secondItem="hax-3B-Lc5" secondAttribute="bottom" id="8Kt-HN-upQ"/>
                             <constraint firstItem="Nip-fZ-kTg" firstAttribute="centerX" secondItem="j7H-ws-M5v" secondAttribute="centerX" id="CZP-cp-0KK"/>
-                            <constraint firstAttribute="trailing" secondItem="hax-3B-Lc5" secondAttribute="trailing" id="Cep-yl-JX3"/>
                             <constraint firstItem="hax-3B-Lc5" firstAttribute="centerY" secondItem="j7H-ws-M5v" secondAttribute="centerY" id="gjy-mm-qEZ"/>
                             <constraint firstItem="hax-3B-Lc5" firstAttribute="centerX" secondItem="j7H-ws-M5v" secondAttribute="centerX" id="rAE-Sg-bcn"/>
                             <constraint firstItem="Nip-fZ-kTg" firstAttribute="centerY" secondItem="j7H-ws-M5v" secondAttribute="centerY" id="vDh-n7-LTH"/>
