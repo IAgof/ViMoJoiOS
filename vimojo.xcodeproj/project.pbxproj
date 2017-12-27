@@ -1012,6 +1012,8 @@
 		A9ED005A1D917B7200969F31 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00571D917B7200969F31 /* FBSDKCoreKit.framework */; };
 		A9ED005B1D917B7200969F31 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00581D917B7200969F31 /* FBSDKLoginKit.framework */; };
 		A9ED005C1D917B7200969F31 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00591D917B7200969F31 /* FBSDKShareKit.framework */; };
+		A9FA041F1FF3AC6700C06A7A /* VideonaProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A90C67981FE08C3F005958DB /* VideonaProject.framework */; };
+		A9FA04201FF3AC6700C06A7A /* VideonaProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A90C67981FE08C3F005958DB /* VideonaProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9FB3A341E53D5BE00C21918 /* AddFilterToVideoCollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A331E53D5BE00C21918 /* AddFilterToVideoCollectionViewExtension.swift */; };
 		A9FB3A391E53D5CB00C21918 /* VideoParameterSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A953AD691E53670500DC0D84 /* VideoParameterSlider.swift */; };
 		A9FB3A3A1E53D5CB00C21918 /* AddFilterToVideoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A953AD5B1E53476B00DC0D84 /* AddFilterToVideoInteractor.swift */; };
@@ -1406,6 +1408,13 @@
 			remoteGlobalIDString = A9B385E51D7D51380065D3EC;
 			remoteInfo = vimojo;
 		};
+		A9FA04211FF3AC6700C06A7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A90C67921FE08C3F005958DB /* VideonaProject.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A9BD5FBC1D9120F40080CE97;
+			remoteInfo = VideonaProject;
+		};
 		AE4AAFA01F704D8700504428 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A9B385DE1D7D51380065D3EC /* Project object */;
@@ -1432,6 +1441,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A9FA04201FF3AC6700C06A7A /* VideonaProject.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1890,6 +1900,7 @@
 				A90C679F1FE08F63005958DB /* StoreKit.framework in Frameworks */,
 				A9ED005B1D917B7200969F31 /* FBSDKLoginKit.framework in Frameworks */,
 				1DB86149493A266582050C42 /* Pods_vimojo.framework in Frameworks */,
+				A9FA041F1FF3AC6700C06A7A /* VideonaProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3548,6 +3559,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A9FA04221FF3AC6700C06A7A /* PBXTargetDependency */,
 			);
 			name = vimojo;
 			productName = vimojo;
@@ -5588,6 +5600,11 @@
 			target = A9B385E51D7D51380065D3EC /* vimojo */;
 			targetProxy = A9B385FB1D7D51380065D3EC /* PBXContainerItemProxy */;
 		};
+		A9FA04221FF3AC6700C06A7A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = VideonaProject;
+			targetProxy = A9FA04211FF3AC6700C06A7A /* PBXContainerItemProxy */;
+		};
 		AE4AAFA11F704D8700504428 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A9B385E51D7D51380065D3EC /* vimojo */;
@@ -5921,6 +5938,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DEB50E8D05F1EF1E6D2B3561 /* Pods-vimojo.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -5964,6 +5982,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 436F9341308AA24746456CA4 /* Pods-vimojo.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;

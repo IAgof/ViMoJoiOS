@@ -16,13 +16,17 @@ struct ProductViewModel {
     let title: String?
     let subtitle: String?
     let buttonText: String?
+    let isPurchased: Bool?
     let buyAction: BoolAction
     
-    init(with product: SKProduct, action: @escaping BoolAction) {
+    init(with product: SKProduct,
+         action: @escaping BoolAction) {
         self.title = product.localizedTitle
         self.subtitle = product.localizedDescription
         self.buttonText =
         "Compra ahora por: \(product.price)\(String(describing: product.priceLocale.currencySymbol)))"
+        let product = PurchaseProduct(rawValue: product.productIdentifier)
+        self.isPurchased = product != nil ? PurchaseProduct.isProductPurchased(product: product!): false
         self.buyAction = action
     }
 }
@@ -32,10 +36,15 @@ class PurchasePresenter: PurchasePresenterProtocol {
     var interactor: PurchaseInteractorProtocol?
     private let router: PurchaseWireframeProtocol
 
-    init(interface: PurchaseViewProtocol, interactor: PurchaseInteractorProtocol?, router: PurchaseWireframeProtocol) {
+    init(interface: PurchaseViewProtocol,
+         interactor: PurchaseInteractorProtocol?,
+         router: PurchaseWireframeProtocol) {
         self.view = interface
         self.interactor = interactor
         self.router = router
+        NotificationCenter.default.addObserver(self, selector: #selector(purchasedProduct),
+                                               name: NSNotification.Name(rawValue: IAPHelper.IAPHelperPurchaseNotification),
+                                               object: nil)
     }
     func loadProducts() {
         interactor?.loadProducts(response: { (response) in
@@ -49,5 +58,8 @@ class PurchasePresenter: PurchasePresenterProtocol {
                 }) })
             }
         })
+    }
+    @objc func purchasedProduct() {
+        loadProducts()
     }
 }

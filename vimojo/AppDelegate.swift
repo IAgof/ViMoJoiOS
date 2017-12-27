@@ -44,9 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         //CRASHLYTICS
         Fabric.with([Crashlytics.self])
 
-//        self.setupStartApp()
-        let controller = PurchaseRouter.createModule()
-        window!.rootViewController = controller
+        self.setupStartApp()
+//        let controller = PurchaseRouter.createModule()
+//        window!.rootViewController = controller
         
         CheckMicPermissionUseCase().askIfNeeded()
         CheckPhotoRollPermissionUseCase().askIfNeeded()

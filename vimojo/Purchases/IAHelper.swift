@@ -46,8 +46,7 @@ extension IAPHelper {
         productsRequest?.cancel()
         productsRequestCompletionHandler = completionHandler
 
-        productsRequest = SKProductsRequest()
-        //SKProductsRequest(productIdentifiers: Set(products.map({ $0.productIdentifier })))
+        productsRequest = SKProductsRequest(productIdentifiers: Set(products.map({ $0.productIdentifier })))
         productsRequest!.delegate = self
         productsRequest!.start()
     }
@@ -144,7 +143,6 @@ extension IAPHelper: SKPaymentTransactionObserver {
                 print("Transaction Error: \(transaction.error?.localizedDescription)")
             }
         }
-        
         SKPaymentQueue.default().finishTransaction(transaction)
     }
     
@@ -154,7 +152,7 @@ extension IAPHelper: SKPaymentTransactionObserver {
         
         purchasedProductIdentifiers.insert(product)
         
-        UserDefaults.standard.set(true, forKey: product.dbKey)
+        UserDefaults.standard.set(true, forKey: product.productIdentifier)
 
         UserDefaults.standard.synchronize()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: IAPHelper.IAPHelperPurchaseNotification),

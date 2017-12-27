@@ -13,7 +13,7 @@ class PurchaseTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var buyButton: UIButton!
-    private var isPurchased: Bool = SettingsConstants.watermarkWasBought
+    private var isPurchased: Bool = false
     private var action: BoolAction?
     
     override func awakeFromNib() {

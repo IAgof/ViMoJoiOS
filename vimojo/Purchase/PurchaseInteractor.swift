@@ -21,7 +21,7 @@ class PurchaseInteractor: PurchaseInteractorProtocol {
     }
     
     func buyProduct(product: SKProduct) {
-        
+        PurchaseProduct.store.buyProduct(product)
     }
 }
 

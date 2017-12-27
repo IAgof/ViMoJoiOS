@@ -10,31 +10,39 @@ import Foundation
 import StoreKit
 
 public enum PurchaseProduct: String {
-    case removeWatermark = "RemoveWatermark"
+    case removeWatermark = "com.videona.vimojo.RemoveWatermark"
     
     static var availableProducts: [SKProduct] = []
-    
+    public static let store = IAPHelper(products: PurchaseProduct.all)
+
     var productIdentifier: String {
-        return "com.videona.vimojo.\(self.rawValue)"
+        return self.rawValue
     }
     var notification: String {
         switch self {
         case .removeWatermark: return "ProductPurchaseNotification"
         }
     }
-    var dbKey: String {
+    fileprivate var isEnabledKey: String {
         switch self {
-        case .removeWatermark: return "\(self.productIdentifier)Key"
+        case .removeWatermark: return "\(self.productIdentifier)isEnabledKey"
         }
+    }
+    var isEnabled: Bool {
+        set { UserDefaults.standard.set(newValue, forKey: isEnabledKey) }
+        get { return UserDefaults.standard.bool(forKey: isEnabledKey) }
+    }
+    var isPurchased: Bool {
+        return UserDefaults.standard.bool(forKey: productIdentifier)
     }
     private static var all: Set<PurchaseProduct> {
         return [.removeWatermark]
     }
-    
-    public static let store = IAPHelper(products: PurchaseProduct.all)
-    
     public static func isProductPurchased(product: PurchaseProduct) -> Bool {
-        return UserDefaults.standard.bool(forKey: product.dbKey)
+        return UserDefaults.standard.bool(forKey: product.productIdentifier)
+    }
+    public static func setEnabled(state: Bool, product: PurchaseProduct) {
+        UserDefaults.standard.set(state, forKey: product.isEnabledKey)
     }
     public static func reloadProducts() {
         PurchaseProduct.store.requestProducts { (success, products) in
