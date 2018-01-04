@@ -105,9 +105,9 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-		eventHandler?.viewDidLoad(parameters: RecorderParameters(movieOutput: previewView.movieOutput,
-																 activeInput: previewView.activeInput,
-																 outputURL: previewView.tempURL))
+//		eventHandler?.viewDidLoad(parameters: RecorderParameters(movieOutput: previewView.movieOutput,
+//																 activeInput: previewView.activeInput,
+//																 outputURL: previewView.tempURL))
         self.configureViews()
         // Try to allow rotation -- It's just boring to landscape the capture in a static mode
         configureRotationObserver()
@@ -117,7 +117,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         super.viewWillAppear(animated)
         print("Recorder view will appear")
         eventHandler?.viewWillAppear()
-		previewView.startSession()
+//		previewView.startSession()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 
         let value = UIInterfaceOrientation.landscapeRight.rawValue
