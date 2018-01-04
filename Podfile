@@ -34,6 +34,10 @@ target 'ThomsonFoundation' do
 	shared_pods
 end
 
+target 'M4N' do
+  shared_pods
+end
+
 target 'vimojoUITests' do
 	shared_pods
 end
