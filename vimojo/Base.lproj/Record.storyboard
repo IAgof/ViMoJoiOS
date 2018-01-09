@@ -22,32 +22,32 @@
         <!--Record Controller-->
         <scene sceneID="OMU-J4-lsS">
             <objects>
-                <viewController storyboardIdentifier="RecordViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Nz1-JK-f3B" customClass="RecordController" customModule="PeriodistaCelular" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecordViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Nz1-JK-f3B" customClass="RecordController" customModule="M4N" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zwt-vs-gCi"/>
                         <viewControllerLayoutGuide type="bottom" id="RJj-LY-m3o"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="j7H-ws-M5v">
-                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hax-3B-Lc5">
-                                <rect key="frame" x="0.0" y="20" width="1112" height="814"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pql-2H-c5V" customClass="PreviewView" customModule="PeriodistaCelular" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="1112" height="814"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pql-2H-c5V" customClass="PreviewView" customModule="M4N" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                     </view>
                                     <imageView hidden="YES" autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_rec_grid" translatesAutoresizingMaskIntoConstraints="NO" id="0V7-5h-nKZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="1112" height="814"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                     </imageView>
                                     <view verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dnm-Zp-iJ8">
-                                        <rect key="frame" x="169" y="706.5" width="774.5" height="97.5"/>
+                                        <rect key="frame" x="94.5" y="320" width="478.5" height="45"/>
                                         <subviews>
                                             <view verifyAmbiguity="ignoreSizes" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Aq-i6-oZd">
-                                                <rect key="frame" x="27" y="0.0" width="411" height="45"/>
+                                                <rect key="frame" x="29.5" y="0.0" width="408" height="45"/>
                                                 <subviews>
                                                     <stackView verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ewd-xp-MaT">
-                                                        <rect key="frame" x="15" y="4" width="381" height="37"/>
+                                                        <rect key="frame" x="15" y="4" width="378" height="37"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rwp-4f-byO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="26" height="37"/>
@@ -120,7 +120,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0La-NE-dnt">
-                                                                <rect key="frame" x="286" y="0.0" width="14" height="37"/>
+                                                                <rect key="frame" x="286" y="0.0" width="11" height="37"/>
                                                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                                                 <state key="normal" image="activity_rec_wb_flash"/>
                                                                 <state key="selected" image="activity_rec_flash_pressed"/>
@@ -130,7 +130,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qft-6a-P9q">
-                                                                <rect key="frame" x="315" y="0.0" width="26" height="37"/>
+                                                                <rect key="frame" x="312" y="0.0" width="26" height="37"/>
                                                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                                                 <state key="normal" image="activity_rec_rotate"/>
                                                                 <state key="selected" image="activity_rec_rotate_pressed"/>
@@ -140,7 +140,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQa-c5-bas">
-                                                                <rect key="frame" x="356" y="0.0" width="25" height="37"/>
+                                                                <rect key="frame" x="353" y="0.0" width="25" height="37"/>
                                                                 <state key="normal" image="activity_rec_zoom_normal"/>
                                                                 <state key="selected" image="activity_rec_zoom_normal_pressed"/>
                                                                 <state key="highlighted" image="activity_rec_zoom_normal_pressed"/>
@@ -170,10 +170,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJ9-4j-6gH">
-                                                <rect key="frame" x="706" y="29.5" width="68.5" height="68"/>
+                                                <rect key="frame" x="447.5" y="13.5" width="31" height="31.5"/>
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gn6-UX-bN2">
-                                                        <rect key="frame" x="17" y="17" width="34.5" height="34.5"/>
+                                                        <rect key="frame" x="7.5" y="8" width="16" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Gn6-UX-bN2" secondAttribute="height" multiplier="1:1" id="TlK-LA-NfX"/>
                                                         </constraints>
@@ -209,22 +209,22 @@
                                         </constraints>
                                     </view>
                                     <view autoresizesSubviews="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ihb-Jx-744" userLabel="Clips Recorded View">
-                                        <rect key="frame" x="1008" y="10" width="89" height="163"/>
+                                        <rect key="frame" x="598.5" y="10" width="53.5" height="75"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_rec_gallery" highlightedImage="activity_rec_gallery_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="OjL-sb-H1o" userLabel="Clips Recorded Empty Image">
-                                                <rect key="frame" x="8" y="10" width="73" height="73"/>
+                                                <rect key="frame" x="8" y="10" width="37.5" height="37.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="OjL-sb-H1o" secondAttribute="height" multiplier="1:1" id="LI1-K0-8k3"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Galleria" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kak-fM-psP" userLabel="Clips Recorded Info Label">
-                                                <rect key="frame" x="25" y="91" width="38" height="64"/>
+                                                <rect key="frame" x="7.5" y="55.5" width="38" height="11.5"/>
                                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="11"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7C-x1-dO0" userLabel="Clips Recorded Number of Clips">
-                                                <rect key="frame" x="44" y="46" width="0.0" height="0.0"/>
+                                                <rect key="frame" x="26.5" y="28" width="0.0" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -248,13 +248,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbb-jx-SNd">
-                                        <rect key="frame" x="15" y="10" width="978" height="97.5"/>
+                                        <rect key="frame" x="15" y="10" width="568.5" height="45"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uJI-6M-3RO">
-                                                <rect key="frame" x="5" y="4" width="342.5" height="89.5"/>
+                                                <rect key="frame" x="5" y="4" width="199" height="37"/>
                                                 <subviews>
                                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwJ-gK-90e">
-                                                        <rect key="frame" x="0.0" y="0.0" width="68.5" height="89.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="37"/>
                                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                                         <state key="normal" image="activity_record_ic_settings"/>
                                                         <state key="selected" image="activity_record_ic_settings_pressed"/>
@@ -269,14 +269,14 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhg-e3-51Y" userLabel="Show Camera Simple Button">
-                                                        <rect key="frame" x="68.5" y="0.0" width="68.5" height="89.5"/>
+                                                        <rect key="frame" x="40" y="0.0" width="39.5" height="37"/>
                                                         <state key="normal" image="activity_rec_expand"/>
                                                         <connections>
                                                             <action selector="pushCameraSimple:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="Cf6-jO-aI8"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8j-Vd-5dC">
-                                                        <rect key="frame" x="137" y="0.0" width="68.5" height="89.5"/>
+                                                        <rect key="frame" x="79.5" y="0.0" width="40" height="37"/>
                                                         <state key="normal" image="activity_record_memory_100"/>
                                                         <state key="selected" image="activity_record_memory_100"/>
                                                         <state key="highlighted" image="activity_record_memory_100"/>
@@ -285,7 +285,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veW-ha-Wav">
-                                                        <rect key="frame" x="205.5" y="0.0" width="68.5" height="89.5"/>
+                                                        <rect key="frame" x="119.5" y="0.0" width="39.5" height="37"/>
                                                         <state key="normal" image="activity_record_battery_100"/>
                                                         <state key="selected" image="activity_record_battery_100_pressed"/>
                                                         <state key="highlighted" image="activity_record_battery_100_pressed"/>
@@ -294,7 +294,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6R-qJ-vTS">
-                                                        <rect key="frame" x="274" y="0.0" width="68.5" height="89.5"/>
+                                                        <rect key="frame" x="159" y="0.0" width="40" height="37"/>
                                                         <state key="normal" image="activity_rec_resolution_1080"/>
                                                         <state key="selected" image="activity_rec_resolution_1080_pressed"/>
                                                         <state key="highlighted" image="activity_rec_resolution_1080_pressed"/>
@@ -305,13 +305,13 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="J1b-y4-awN">
-                                                <rect key="frame" x="442" y="9" width="94.5" height="80.5"/>
+                                                <rect key="frame" x="255.5" y="9" width="58" height="28"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_record_icon_recording" translatesAutoresizingMaskIntoConstraints="NO" id="Ieq-fI-exk" userLabel="Recording Indicator">
-                                                        <rect key="frame" x="0.0" y="0.0" width="15" height="80.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="7" height="28"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="216-mj-D5y" userLabel="Recording Chronometrer">
-                                                        <rect key="frame" x="20" y="0.0" width="74.5" height="80.5"/>
+                                                        <rect key="frame" x="12" y="0.0" width="46" height="28"/>
                                                         <accessibility key="accessibilityConfiguration">
                                                             <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                                         </accessibility>
@@ -325,24 +325,24 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m5U-jD-h1y">
-                                                <rect key="frame" x="672" y="8" width="294" height="81.5"/>
+                                                <rect key="frame" x="385.5" y="8" width="171" height="29"/>
                                                 <subviews>
                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dra-Hy-CZB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="81.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="29"/>
                                                         <accessibility key="accessibilityConfiguration">
                                                             <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
                                                         </accessibility>
                                                         <state key="normal" image="activity_rec_micro_connected_normal"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51U-lg-bQm" userLabel="Device Mic Button">
-                                                        <rect key="frame" x="0.0" y="0.0" width="139.5" height="81.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="16.5" height="29"/>
                                                         <accessibility key="accessibilityConfiguration">
                                                             <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
                                                         </accessibility>
                                                         <state key="normal" image="activity_rec_phone_micro_activated_normal"/>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAM-ZC-cFG" customClass="AudioLevelBarView" customModule="VideonaProject">
-                                                        <rect key="frame" x="139.5" y="0.0" width="154.5" height="81.5"/>
+                                                        <rect key="frame" x="16.5" y="0.0" width="154.5" height="29"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <accessibility key="accessibilityConfiguration">
                                                             <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -374,11 +374,11 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="owx-Ns-ABx" customClass="ISOConfigurationView" customModule="VideonaProject">
-                                        <rect key="frame" x="179" y="601.5" width="309" height="98"/>
+                                        <rect key="frame" x="179" y="268" width="309" height="45"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <view hidden="YES" verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTG-lk-0Ju" customClass="WhiteBalanceView" customModule="VideonaProject">
-                                        <rect key="frame" x="367" y="601.5" width="378" height="98"/>
+                                        <rect key="frame" x="222.5" y="268" width="222" height="45"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="cloudyImageNormal" value="activity_rec_white_balance_cloudy"/>
@@ -396,7 +396,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dex-fY-oYP" customClass="FocusView" customModule="VideonaProject">
-                                        <rect key="frame" x="460" y="601.5" width="192" height="98"/>
+                                        <rect key="frame" x="276.5" y="268" width="114" height="45"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="autoImageNormal" value="activity_rec_focus_automatic"/>
@@ -408,7 +408,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bd7-YM-xmD" customClass="ExpositionModesView" customModule="VideonaProject">
-                                        <rect key="frame" x="425" y="601.5" width="262" height="98"/>
+                                        <rect key="frame" x="256.5" y="268" width="154" height="45"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
@@ -423,7 +423,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YP7-c0-irG">
-                                        <rect key="frame" x="958.5" y="666" width="138.5" height="138"/>
+                                        <rect key="frame" x="588" y="301.5" width="64" height="63.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="YP7-c0-irG" secondAttribute="height" multiplier="1:1" id="hKG-kL-Q4c"/>
                                         </constraints>
@@ -434,7 +434,7 @@
                                         </connections>
                                     </button>
                                     <view hidden="YES" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEb-ih-mOX" customClass="InputSoundGainControlView" customModule="VideonaProject">
-                                        <rect key="frame" x="848.5" y="363" width="407" height="89"/>
+                                        <rect key="frame" x="531" y="161.5" width="187.5" height="53"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="lowerValueImage" value="activity_rec_micro_volume_low"/>
@@ -442,7 +442,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xIW-qf-psD" customClass="ExposureView" customModule="VideonaProject">
-                                        <rect key="frame" x="848.5" y="363" width="407" height="89"/>
+                                        <rect key="frame" x="531" y="161.5" width="187.5" height="53"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="lowerValueImage" value="activity_rec_minus"/>
@@ -450,7 +450,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vuo-zZ-7lL" userLabel="Zoom Slider" customClass="ZoomSliderView" customModule="VideonaProject">
-                                        <rect key="frame" x="848.5" y="363" width="407" height="89"/>
+                                        <rect key="frame" x="531" y="161.5" width="187.5" height="53"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="upperValueImage" value="activity_rec_plus"/>
@@ -458,7 +458,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Sz-Cx-Stq" userLabel="Focal Lens Slider" customClass="FocalLensSliderView" customModule="VideonaProject">
-                                        <rect key="frame" x="848.5" y="363" width="407" height="89"/>
+                                        <rect key="frame" x="531" y="161.5" width="187.5" height="53"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="upperValueImage" value="activity_rec_focus_slider_infinite"/>
@@ -466,57 +466,57 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vel-Gg-DCb" customClass="SpaceOnDiskView" customModule="VideonaProject">
-                                        <rect key="frame" x="339.5" y="248.5" width="433" height="318"/>
+                                        <rect key="frame" x="203.5" y="114.5" width="260" height="147"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3Q-hj-CRb" userLabel="Drawer Button Right">
-                                        <rect key="frame" x="15" y="387" width="21" height="40"/>
+                                        <rect key="frame" x="15" y="176.5" width="11" height="22"/>
                                         <state key="normal" image="activity_rec_show_projects"/>
                                         <connections>
                                             <action selector="showSideDrawer:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="FIx-nm-Uwa"/>
                                         </connections>
                                     </button>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5X8-bB-gAq" customClass="BatteryRemainingView" customModule="VideonaProject">
-                                        <rect key="frame" x="339.5" y="248" width="433" height="318"/>
+                                        <rect key="frame" x="203.5" y="114" width="260" height="147"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_record_icon_focus_focused" translatesAutoresizingMaskIntoConstraints="NO" id="lpZ-Hu-RXr">
-                                        <rect key="frame" x="488" y="339" width="136" height="136"/>
+                                        <rect key="frame" x="299.5" y="153.5" width="68" height="68"/>
                                     </imageView>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iei-TN-55D" customClass="ResolutionsSelectorView" customModule="VideonaProject">
-                                        <rect key="frame" x="339" y="117.5" width="433" height="474"/>
+                                        <rect key="frame" x="203" y="65" width="260" height="193"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <view hidden="YES" verifyAmbiguity="ignoreSizes" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eCP-P5-tk2" userLabel="Wrapped View">
-                                        <rect key="frame" x="986" y="560.5" width="111" height="243.5"/>
+                                        <rect key="frame" x="585.5" y="201" width="66.5" height="164"/>
                                         <subviews>
                                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V62-32-pM2" userLabel="Show Camera Pro Button">
-                                                <rect key="frame" x="39.5" y="12" width="31" height="32"/>
+                                                <rect key="frame" x="25" y="12" width="16" height="22"/>
                                                 <state key="normal" image="activity_rec_expand"/>
                                                 <connections>
                                                     <action selector="pushCameraPro:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="G0S-Cd-f1D"/>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_rec_gallery" highlightedImage="activity_rec_gallery_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="RhQ-Vq-oSU" userLabel="Thumbnail Image View">
-                                                <rect key="frame" x="27.5" y="59" width="55.5" height="48.5"/>
+                                                <rect key="frame" x="16.5" y="49" width="33" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="RhQ-Vq-oSU" secondAttribute="height" multiplier="8:7" id="lNy-wn-aKP"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea4-bi-gA8" userLabel="Clips Recorded Number of Clips">
-                                                <rect key="frame" x="55.5" y="83.5" width="0.0" height="0.0"/>
+                                                <rect key="frame" x="33.5" y="64" width="0.0" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ieK-Sw-Rd6">
-                                                <rect key="frame" x="16" y="122.5" width="77.5" height="32.5"/>
+                                                <rect key="frame" x="9.5" y="93" width="46" height="13.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_record_icon_recording" translatesAutoresizingMaskIntoConstraints="NO" id="l2N-7L-tuG">
-                                                        <rect key="frame" x="0.0" y="9" width="9" height="15"/>
+                                                        <rect key="frame" x="0.0" y="3.5" width="5.5" height="7"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHA-0I-LE1">
-                                                        <rect key="frame" x="11" y="0.0" width="66.5" height="32.5"/>
+                                                        <rect key="frame" x="7.5" y="0.0" width="38.5" height="13.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -527,7 +527,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVO-Ig-tAv" userLabel="Record button secondary">
-                                                <rect key="frame" x="16" y="158" width="77.5" height="77.5"/>
+                                                <rect key="frame" x="9.5" y="109.5" width="46" height="46.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="sVO-Ig-tAv" secondAttribute="height" multiplier="1:1" id="OSE-n0-5Bi"/>
                                                 </constraints>
@@ -632,7 +632,7 @@
                                 </constraints>
                             </view>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_icon_spin" translatesAutoresizingMaskIntoConstraints="NO" id="Nip-fZ-kTg">
-                                <rect key="frame" x="453.5" y="314.5" width="205" height="205"/>
+                                <rect key="frame" x="282.5" y="136.5" width="102" height="102"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -709,7 +709,7 @@
         <!--Record Drawer Controller-->
         <scene sceneID="unw-yP-Ewr">
             <objects>
-                <viewController storyboardIdentifier="RecordDrawerController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="l3A-zU-we5" customClass="RecordDrawerController" customModule="PeriodistaCelular" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecordDrawerController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="l3A-zU-we5" customClass="RecordDrawerController" customModule="M4N" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qog-pj-qgd"/>
                         <viewControllerLayoutGuide type="bottom" id="9jI-rL-CH4"/>
@@ -719,33 +719,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9k2-iV-g8H">
-                                <rect key="frame" x="42" y="191" width="107" height="85"/>
+                                <rect key="frame" x="68.5" y="212" width="54" height="43"/>
                                 <state key="normal" image="activity_rec_all_projects"/>
                                 <connections>
                                     <action selector="pushProjects:" destination="l3A-zU-we5" eventType="touchUpInside" id="d3A-Rn-px2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMM-bZ-8sb">
-                                <rect key="frame" x="29.5" y="376" width="141" height="117"/>
+                                <rect key="frame" x="65" y="355" width="70" height="59"/>
                                 <state key="normal" image="activity_rec_new_project"/>
                                 <connections>
                                     <action selector="pushNewProject:" destination="l3A-zU-we5" eventType="touchUpInside" id="cgi-WA-4q4"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Projects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fP-Go-3MY">
-                                <rect key="frame" x="64" y="284" width="63" height="21"/>
+                                <rect key="frame" x="64" y="263" width="63" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8y8-yz-ThF">
-                                <rect key="frame" x="54" y="496" width="93" height="21"/>
+                                <rect key="frame" x="54" y="417" width="93" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lR8-fb-B5J">
-                                <rect key="frame" x="171" y="314" width="21" height="40"/>
+                                <rect key="frame" x="182" y="323" width="10" height="22"/>
                                 <state key="normal" image="activity_rec_show_tools"/>
                                 <connections>
                                     <action selector="pushCloseDrawer:" destination="l3A-zU-we5" eventType="touchUpInside" id="oGU-Tn-YOK"/>
@@ -777,83 +777,83 @@
         </scene>
     </scenes>
     <resources>
-        <image name="activity_edit_aperture_control" width="52" height="52"/>
-        <image name="activity_edit_aperture_control_pressed" width="52" height="52"/>
-        <image name="activity_rec_all_projects" width="107" height="85"/>
-        <image name="activity_rec_expand" width="31" height="32"/>
-        <image name="activity_rec_flash_pressed" width="28" height="54"/>
-        <image name="activity_rec_focus" width="52" height="53"/>
-        <image name="activity_rec_focus_automatic" width="52" height="53"/>
-        <image name="activity_rec_focus_automatic_pressed" width="52" height="53"/>
-        <image name="activity_rec_focus_macro" width="22" height="22"/>
-        <image name="activity_rec_focus_manual" width="52" height="53"/>
-        <image name="activity_rec_focus_manual_pressed" width="52" height="53"/>
-        <image name="activity_rec_focus_pressed" width="52" height="53"/>
-        <image name="activity_rec_focus_slider_infinite" width="29" height="18"/>
-        <image name="activity_rec_focus_touch" width="52" height="53"/>
-        <image name="activity_rec_focus_touch_pressed" width="52" height="53"/>
-        <image name="activity_rec_gallery" width="65" height="56"/>
-        <image name="activity_rec_gallery_pressed" width="65" height="56"/>
-        <image name="activity_rec_grid" width="1101" height="621"/>
-        <image name="activity_rec_hide_tools" width="21" height="40"/>
-        <image name="activity_rec_hide_tools_pressed" width="21" height="40"/>
-        <image name="activity_rec_iso" width="52" height="53"/>
-        <image name="activity_rec_iso_pressed" width="52" height="53"/>
-        <image name="activity_rec_metering_automatic" width="52" height="53"/>
-        <image name="activity_rec_metering_automatic_pressed" width="52" height="53"/>
-        <image name="activity_rec_metering_manual_normal" width="54" height="54"/>
-        <image name="activity_rec_metering_manual_pressed" width="54" height="54"/>
-        <image name="activity_rec_metering_normal" width="52" height="53"/>
-        <image name="activity_rec_metering_pressed" width="52" height="53"/>
-        <image name="activity_rec_metering_spot" width="52" height="53"/>
-        <image name="activity_rec_metering_spot_pressed" width="52" height="53"/>
-        <image name="activity_rec_metering_touch_normal" width="52" height="53"/>
-        <image name="activity_rec_metering_touch_pressed" width="52" height="53"/>
-        <image name="activity_rec_micro_connected_normal" width="33" height="37"/>
-        <image name="activity_rec_micro_volume_loud" width="23" height="20"/>
-        <image name="activity_rec_micro_volume_low" width="25" height="20"/>
-        <image name="activity_rec_minus" width="22" height="22"/>
-        <image name="activity_rec_new_project" width="141" height="117"/>
-        <image name="activity_rec_phone_micro_activated_normal" width="32" height="40"/>
-        <image name="activity_rec_plus" width="22" height="22"/>
-        <image name="activity_rec_resolution_1080" width="46" height="24"/>
-        <image name="activity_rec_resolution_1080_pressed" width="46" height="24"/>
-        <image name="activity_rec_rotate" width="53" height="54"/>
-        <image name="activity_rec_rotate_pressed" width="53" height="54"/>
-        <image name="activity_rec_show_projects" width="21" height="40"/>
-        <image name="activity_rec_show_tools" width="21" height="40"/>
-        <image name="activity_rec_start_recording" width="87" height="88"/>
-        <image name="activity_rec_stop_recording" width="87" height="88"/>
-        <image name="activity_rec_tools_menu" width="53" height="54"/>
-        <image name="activity_rec_volume_control_normal" width="49" height="44"/>
-        <image name="activity_rec_volume_control_pressed" width="49" height="44"/>
-        <image name="activity_rec_wb_flash" width="22" height="43"/>
-        <image name="activity_rec_wb_flash_pressed" width="22" height="43"/>
-        <image name="activity_rec_white_balance" width="52" height="53"/>
-        <image name="activity_rec_white_balance_automatic" width="27" height="27"/>
-        <image name="activity_rec_white_balance_automatic_pressed" width="27" height="27"/>
-        <image name="activity_rec_white_balance_cloudy" width="52" height="36"/>
-        <image name="activity_rec_white_balance_cloudy_pressed" width="52" height="36"/>
-        <image name="activity_rec_white_balance_fluorescent" width="52" height="53"/>
-        <image name="activity_rec_white_balance_fluorescent_pressed" width="52" height="53"/>
-        <image name="activity_rec_white_balance_pressed" width="52" height="53"/>
-        <image name="activity_rec_white_balance_sunny" width="52" height="53"/>
-        <image name="activity_rec_white_balance_sunny_pressed" width="52" height="53"/>
-        <image name="activity_rec_white_balance_tungsten" width="51" height="53"/>
-        <image name="activity_rec_white_balance_tungsten_pressed" width="51" height="53"/>
-        <image name="activity_rec_zoom_normal" width="51" height="53"/>
-        <image name="activity_rec_zoom_normal_pressed" width="51" height="53"/>
-        <image name="activity_record_battery_100" width="34" height="16"/>
-        <image name="activity_record_battery_100_pressed" width="34" height="16"/>
-        <image name="activity_record_default_normal" width="53" height="53"/>
-        <image name="activity_record_default_pressed" width="53" height="53"/>
-        <image name="activity_record_grid_normal" width="51" height="44"/>
-        <image name="activity_record_grid_pressed" width="51" height="44"/>
-        <image name="activity_record_ic_settings" width="30" height="30"/>
-        <image name="activity_record_ic_settings_pressed" width="30" height="28"/>
-        <image name="activity_record_icon_focus_focused" width="136" height="136"/>
-        <image name="activity_record_icon_recording" width="15" height="15"/>
-        <image name="activity_record_memory_100" width="30" height="30"/>
-        <image name="common_icon_spin" width="205" height="205"/>
+        <image name="activity_edit_aperture_control" width="26" height="26"/>
+        <image name="activity_edit_aperture_control_pressed" width="26" height="26"/>
+        <image name="activity_rec_all_projects" width="54" height="43"/>
+        <image name="activity_rec_expand" width="16" height="16"/>
+        <image name="activity_rec_flash_pressed" width="14" height="27"/>
+        <image name="activity_rec_focus" width="26" height="26"/>
+        <image name="activity_rec_focus_automatic" width="26" height="26"/>
+        <image name="activity_rec_focus_automatic_pressed" width="26" height="26"/>
+        <image name="activity_rec_focus_macro" width="11" height="11"/>
+        <image name="activity_rec_focus_manual" width="26" height="26"/>
+        <image name="activity_rec_focus_manual_pressed" width="26" height="26"/>
+        <image name="activity_rec_focus_pressed" width="26" height="26"/>
+        <image name="activity_rec_focus_slider_infinite" width="15" height="9"/>
+        <image name="activity_rec_focus_touch" width="26" height="26"/>
+        <image name="activity_rec_focus_touch_pressed" width="26" height="26"/>
+        <image name="activity_rec_gallery" width="32" height="28"/>
+        <image name="activity_rec_gallery_pressed" width="32" height="28"/>
+        <image name="activity_rec_grid" width="550" height="310"/>
+        <image name="activity_rec_hide_tools" width="11" height="20"/>
+        <image name="activity_rec_hide_tools_pressed" width="11" height="20"/>
+        <image name="activity_rec_iso" width="26" height="26"/>
+        <image name="activity_rec_iso_pressed" width="26" height="26"/>
+        <image name="activity_rec_metering_automatic" width="26" height="26"/>
+        <image name="activity_rec_metering_automatic_pressed" width="26" height="26"/>
+        <image name="activity_rec_metering_manual_normal" width="27" height="27"/>
+        <image name="activity_rec_metering_manual_pressed" width="27" height="27"/>
+        <image name="activity_rec_metering_normal" width="26" height="26"/>
+        <image name="activity_rec_metering_pressed" width="26" height="26"/>
+        <image name="activity_rec_metering_spot" width="26" height="26"/>
+        <image name="activity_rec_metering_spot_pressed" width="26" height="26"/>
+        <image name="activity_rec_metering_touch_normal" width="26" height="26"/>
+        <image name="activity_rec_metering_touch_pressed" width="26" height="26"/>
+        <image name="activity_rec_micro_connected_normal" width="16" height="19"/>
+        <image name="activity_rec_micro_volume_loud" width="11" height="10"/>
+        <image name="activity_rec_micro_volume_low" width="12" height="10"/>
+        <image name="activity_rec_minus" width="11" height="11"/>
+        <image name="activity_rec_new_project" width="70" height="59"/>
+        <image name="activity_rec_phone_micro_activated_normal" width="16" height="20"/>
+        <image name="activity_rec_plus" width="11" height="11"/>
+        <image name="activity_rec_resolution_1080" width="23" height="12"/>
+        <image name="activity_rec_resolution_1080_pressed" width="23" height="12"/>
+        <image name="activity_rec_rotate" width="26" height="27"/>
+        <image name="activity_rec_rotate_pressed" width="26" height="27"/>
+        <image name="activity_rec_show_projects" width="11" height="20"/>
+        <image name="activity_rec_show_tools" width="10" height="20"/>
+        <image name="activity_rec_start_recording" width="44" height="44"/>
+        <image name="activity_rec_stop_recording" width="44" height="44"/>
+        <image name="activity_rec_tools_menu" width="26" height="27"/>
+        <image name="activity_rec_volume_control_normal" width="25" height="22"/>
+        <image name="activity_rec_volume_control_pressed" width="25" height="22"/>
+        <image name="activity_rec_wb_flash" width="11" height="22"/>
+        <image name="activity_rec_wb_flash_pressed" width="11" height="22"/>
+        <image name="activity_rec_white_balance" width="26" height="26"/>
+        <image name="activity_rec_white_balance_automatic" width="14" height="14"/>
+        <image name="activity_rec_white_balance_automatic_pressed" width="14" height="14"/>
+        <image name="activity_rec_white_balance_cloudy" width="26" height="18"/>
+        <image name="activity_rec_white_balance_cloudy_pressed" width="26" height="18"/>
+        <image name="activity_rec_white_balance_fluorescent" width="26" height="26"/>
+        <image name="activity_rec_white_balance_fluorescent_pressed" width="26" height="26"/>
+        <image name="activity_rec_white_balance_pressed" width="26" height="26"/>
+        <image name="activity_rec_white_balance_sunny" width="26" height="26"/>
+        <image name="activity_rec_white_balance_sunny_pressed" width="26" height="26"/>
+        <image name="activity_rec_white_balance_tungsten" width="26" height="26"/>
+        <image name="activity_rec_white_balance_tungsten_pressed" width="26" height="26"/>
+        <image name="activity_rec_zoom_normal" width="25" height="26"/>
+        <image name="activity_rec_zoom_normal_pressed" width="25" height="26"/>
+        <image name="activity_record_battery_100" width="17" height="8"/>
+        <image name="activity_record_battery_100_pressed" width="17" height="8"/>
+        <image name="activity_record_default_normal" width="26" height="26"/>
+        <image name="activity_record_default_pressed" width="26" height="26"/>
+        <image name="activity_record_grid_normal" width="26" height="22"/>
+        <image name="activity_record_grid_pressed" width="26" height="22"/>
+        <image name="activity_record_ic_settings" width="15" height="15"/>
+        <image name="activity_record_ic_settings_pressed" width="15" height="14"/>
+        <image name="activity_record_icon_focus_focused" width="68" height="68"/>
+        <image name="activity_record_icon_recording" width="7" height="7"/>
+        <image name="activity_record_memory_100" width="15" height="15"/>
+        <image name="common_icon_spin" width="102" height="102"/>
     </resources>
 </document>

@@ -116,9 +116,8 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("Recorder view will appear")
-        eventHandler?.viewWillAppear()
 		previewView.startSession()
-		checkCameraProSupportedFeatures()
+        eventHandler?.viewWillAppear()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 
         let value = UIInterfaceOrientation.landscapeRight.rawValue
@@ -241,6 +240,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 	func checkCameraProSupportedFeatures() {
 		focusButton.isHidden = !previewView.isFocusModeSupported
 		exposureModesButton.isHidden = !previewView.isExposureModeSupported
+		print(previewView.cameraHasFlash)
 		flashButton.isHidden = !previewView.cameraHasFlash
 		whiteBalanceButton.isHidden = !previewView.isWhiteBalanceModeSupported
 		gainButton.isHidden = !previewView.isInputGainSettable
@@ -280,9 +280,8 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     }
 
     @IBAction func pushRotateCamera(_ sender: AnyObject) {
+		previewView.rotateCamera()
 		eventHandler?.hideAllModeConfigsIfNeccesary()
-        previewView.rotateCamera()
-		checkCameraProSupportedFeatures()
     }
 
     @IBAction func pushHideMode(_ sender: AnyObject) {
