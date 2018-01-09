@@ -56,6 +56,8 @@ protocol RecordPresenterInterface {
     
     func cameraViewHasTapped()
 	func hideAllModeConfigsIfNeccesary()
+
+	func rotateCamera()
 }
 
 protocol RecordPresenterDelegate {
@@ -189,4 +191,6 @@ protocol RecordPresenterDelegate {
 	func blockCameraWhenRecording(_ value: Bool)
 	func setDrawerGestureStatus(_ value: Bool)
 	func enableIdleTimer(_ value: Bool)
+
+	func checkCameraProSupportedFeatures()
 }

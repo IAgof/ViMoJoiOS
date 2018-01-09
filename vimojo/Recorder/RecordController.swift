@@ -281,8 +281,8 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 
     @IBAction func pushRotateCamera(_ sender: AnyObject) {
 		eventHandler?.hideAllModeConfigsIfNeccesary()
-        previewView.rotateCamera()
-		checkCameraProSupportedFeatures()
+		previewView.rotateCamera()
+		eventHandler?.rotateCamera()
     }
 
     @IBAction func pushHideMode(_ sender: AnyObject) {

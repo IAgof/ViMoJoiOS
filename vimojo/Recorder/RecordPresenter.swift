@@ -121,6 +121,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         
         DispatchQueue.main.async(execute: {
             self.delegate?.resizeAllIcons()
+			self.rotateCamera()
         })
     }
 
@@ -691,6 +692,10 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
         hideInputGainIfYouCan()
     }
+
+	func rotateCamera() {
+		delegate?.checkCameraProSupportedFeatures()
+	}
 
     func hideModeView() {
         if modeViewIsShowed {
