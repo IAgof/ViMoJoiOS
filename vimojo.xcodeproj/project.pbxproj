@@ -1331,6 +1331,8 @@
 		AE12E8EE1FFEA87200F2342E /* configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4E66C81FFDAE10002C45CD /* configuration.swift */; };
 		AE12E8F01FFEA87900F2342E /* M4N.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE4E66C91FFDAE10002C45CD /* M4N.xcassets */; };
 		AE12E8F31FFEB8AF00F2342E /* Pods_M4N.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE12E8F41FFEB8AF00F2342E /* Pods_M4N.framework */; };
+		AE12E8F61FFEE9C800F2342E /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE12E8F51FFEE9C800F2342E /* SnapshotHelper.swift */; };
+		AE1F58AE1F3B69FC006F75B3 /* Vimojo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9D076D21E2F7F84003AE96B /* Vimojo.xcassets */; };
 		AE31942D1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */; };
 		AE31942E1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */; };
 		AE31942F1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */; };
@@ -2129,6 +2131,7 @@
 		A9FB3A521E53F15F00C21918 /* ProjectParametersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectParametersViewModel.swift; path = AddFilterToVideo/ProjectParametersViewModel.swift; sourceTree = "<group>"; };
 		AE12E8EC1FFEA7AB00F2342E /* M4N.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = M4N.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE12E8F41FFEB8AF00F2342E /* Pods_M4N.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_M4N.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE12E8F51FFEE9C800F2342E /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareMoJoFyInteractor.swift; path = Share/ShareMoJoFyInteractor.swift; sourceTree = "<group>"; };
 		AE3628AD1F9800D300E762CE /* UIBarButtonItem+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+extension.swift"; sourceTree = "<group>"; };
 		AE491F681F3AFE6400B20B70 /* ThomsonFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThomsonFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3748,6 +3751,7 @@
 		AE4AAF9C1F704D8600504428 /* vimojoUITests */ = {
 			isa = PBXGroup;
 			children = (
+				AE12E8F51FFEE9C800F2342E /* SnapshotHelper.swift */,
 				AE4AAF9D1F704D8700504428 /* vimojoUITests.swift */,
 				AE4AAF9F1F704D8700504428 /* Info.plist */,
 			);
@@ -6241,6 +6245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE4AAF9E1F704D8700504428 /* vimojoUITests.swift in Sources */,
+				AE12E8F61FFEE9C800F2342E /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6953,9 +6958,10 @@
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 98YJ9HU6W9;
 				INFOPLIST_FILE = vimojoUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -6976,7 +6982,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = vimojoUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
