@@ -118,7 +118,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         print("Recorder view will appear")
         eventHandler?.viewWillAppear()
 		previewView.startSession()
-		checkCameraProSupportedFeatures()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 
         let value = UIInterfaceOrientation.landscapeRight.rawValue
@@ -280,7 +279,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     }
 
     @IBAction func pushRotateCamera(_ sender: AnyObject) {
-		eventHandler?.hideAllModeConfigsIfNeccesary()
 		previewView.rotateCamera()
 		eventHandler?.rotateCamera()
     }

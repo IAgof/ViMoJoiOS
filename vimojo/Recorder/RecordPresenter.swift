@@ -112,13 +112,12 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     }
 
     func viewWillAppear() {
-
         if let resolution = interactor?.getResolution() {
             delegate?.setResolutionToView(resolution)
         }
 
         self.updateThumbnail()
-        
+        delegate?.checkCameraProSupportedFeatures()
         DispatchQueue.main.async(execute: {
             self.delegate?.resizeAllIcons()
 			self.rotateCamera()
@@ -695,6 +694,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
 	func rotateCamera() {
 		delegate?.checkCameraProSupportedFeatures()
+        hideAllModeConfigsIfNeccesary()
 	}
 
     func hideModeView() {
