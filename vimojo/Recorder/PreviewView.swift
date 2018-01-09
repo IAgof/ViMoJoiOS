@@ -33,10 +33,6 @@ class PreviewView: UIView {
 		return nil
 	}
 
-	var cameraHasFlash: Bool {
-		return activeInput.device.hasTorch
-	}
-
 	// MARK: Init
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -159,5 +155,21 @@ extension PreviewView {
 		default:
 			return AVCaptureDevice.defaultDevice(withDeviceType: .builtInWideAngleCamera, mediaType: AVMediaTypeVideo, position: .back)
 		}
+	}
+	var cameraHasFlash: Bool {
+		return activeInput.device.hasTorch
+	}
+	var isFocusModeSupported: Bool {
+		return activeInput.device.isFocusModeSupported(activeInput.device.focusMode)
+	}
+	var isExposureModeSupported: Bool {
+		return activeInput.device.isExposureModeSupported(activeInput.device.exposureMode)
+	}
+	var isWhiteBalanceModeSupported: Bool {
+		return activeInput.device.isWhiteBalanceModeSupported(activeInput.device.whiteBalanceMode)
+	}
+	var isInputGainSettable: Bool {
+		let audioSession = AVAudioSession.sharedInstance()
+		return audioSession.isInputGainSettable ? true : false
 	}
 }
