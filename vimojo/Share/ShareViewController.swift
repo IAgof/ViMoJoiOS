@@ -53,17 +53,19 @@ UITableViewDelegate, UITableViewDataSource, FullScreenWireframeDelegate {
 
         super.viewDidLoad()
         print("ViewDid Load")
-
+		UIApplication.shared.statusBarView?.backgroundColor = configuration.mainColor
         eventHandler?.viewDidLoad()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         eventHandler?.viewDidAppear()
+		self.tabBarController?.tabBar.isHidden = true
+		configureNavigationBarHidden()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
+		configureNavigationBarVissible()
         eventHandler?.viewWillDisappear()
     }
 
@@ -232,6 +234,8 @@ extension ShareViewController:SharePresenterDelegate {
 			for button in buttons {
 				button.isHidden = false
 			}
+			self.configureNavigationBarVissible()
+			self.tabBarController?.tabBar.isHidden = false
         }
     }
 
