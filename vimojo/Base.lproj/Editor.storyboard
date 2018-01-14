@@ -38,17 +38,22 @@
                                         <rect key="frame" x="0.0" y="162.5" width="320" height="339.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KqX-gu-Zf5" customClass="UIImageView">
-                                                <rect key="frame" x="201" y="142" width="99" height="56"/>
+                                                <rect key="frame" x="210.5" y="142" width="71.5" height="56"/>
                                                 <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="KqX-gu-Zf5" secondAttribute="height" multiplier="169:95" id="GTt-jC-0Wm"/>
+                                                    <constraint firstAttribute="width" secondItem="KqX-gu-Zf5" secondAttribute="height" multiplier="1:1" id="GTt-jC-0Wm"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="58"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIa-H9-jEv">
-                                                <rect key="frame" x="256" y="214" width="34" height="56"/>
-                                                <state key="normal" image="activity_edit_duplicate_clip_plus_normal"/>
+                                                <rect key="frame" x="234" y="214" width="56" height="56"/>
+                                                <state key="normal" image="activity_edit_duplicate_clip_plus_pressed"/>
                                                 <state key="selected" image="button_edit_increment_clips_pressed"/>
-                                                <state key="highlighted" image="activity_edit_duplicate_clip_plus_pressed"/>
+                                                <state key="highlighted" image="activity_edit_duplicate_clip_plus_normal"/>
                                                 <connections>
                                                     <action selector="pushPlusClips:" destination="qOb-Qv-UDy" eventType="touchUpInside" id="27c-p6-YZl"/>
                                                 </connections>
@@ -63,20 +68,25 @@
                                                 </variation>
                                             </label>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qTL-Ct-FfM" customClass="UIImageView">
-                                                <rect key="frame" x="20" y="141" width="101" height="57"/>
+                                                <rect key="frame" x="38" y="141" width="72.5" height="57"/>
                                                 <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="qTL-Ct-FfM" secondAttribute="height" multiplier="167:94" id="fQI-JQ-Gxl"/>
+                                                    <constraint firstAttribute="width" secondItem="qTL-Ct-FfM" secondAttribute="height" multiplier="1:1" id="fQI-JQ-Gxl"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="58"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="x2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhe-GL-M2w">
-                                                <rect key="frame" x="151" y="159.5" width="19" height="20.5"/>
+                                                <rect key="frame" x="140.5" y="159.5" width="40" height="20.5"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="19" id="kCp-wz-awp">
+                                                    <constraint firstAttribute="width" constant="40" id="kCp-wz-awp">
                                                         <variation key="heightClass=regular-widthClass=regular" constant="50"/>
                                                     </constraint>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <color key="textColor" red="0.94901960780000005" green="0.29411764709999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="heightClass=regular-widthClass=regular">
@@ -85,7 +95,7 @@
                                             </label>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BA5-Lb-W8H">
                                                 <rect key="frame" x="30" y="214" width="48" height="58"/>
-                                                <state key="normal" image="activity_edit_duplicate_clip_minus_normal"/>
+                                                <state key="normal" image="activity_edit_duplicate_clip_minus_pressed"/>
                                                 <state key="selected" image="button_edit_decrement_clips_pressed"/>
                                                 <state key="highlighted" image="activity_edit_duplicate_clip_minus_pressed"/>
                                                 <connections>
@@ -95,29 +105,29 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="KqX-gu-Zf5" firstAttribute="leading" secondItem="uhe-GL-M2w" secondAttribute="trailing" priority="250" constant="31" id="2f4-na-zUW"/>
-                                            <constraint firstItem="BA5-Lb-W8H" firstAttribute="top" secondItem="qTL-Ct-FfM" secondAttribute="bottom" constant="15" id="6E9-v0-ESN"/>
+                                            <constraint firstItem="KqX-gu-Zf5" firstAttribute="leading" secondItem="uhe-GL-M2w" secondAttribute="trailing" priority="250" constant="30" id="2f4-na-zUW"/>
+                                            <constraint firstItem="BA5-Lb-W8H" firstAttribute="top" secondItem="qTL-Ct-FfM" secondAttribute="bottom" constant="25" id="6E9-v0-ESN"/>
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qTL-Ct-FfM" secondAttribute="bottom" constant="129" id="FWQ-KN-Tk9">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="80"/>
                                             </constraint>
                                             <constraint firstItem="KqX-gu-Zf5" firstAttribute="top" secondItem="3U5-iX-HyG" secondAttribute="bottom" priority="250" constant="21" id="G0r-rC-y0q">
                                                 <variation key="heightClass=compact" constant="40"/>
-                                                <variation key="heightClass=regular-widthClass=compact" constant="45"/>
+                                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                                             </constraint>
                                             <constraint firstItem="uhe-GL-M2w" firstAttribute="centerY" secondItem="QPo-sx-2xK" secondAttribute="centerY" id="Jf4-mP-hkj"/>
                                             <constraint firstItem="3U5-iX-HyG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="QPo-sx-2xK" secondAttribute="top" constant="169" id="MOS-b0-rfE">
-                                                <variation key="heightClass=regular-widthClass=compact" constant="8"/>
+                                                <variation key="heightClass=regular-widthClass=compact" constant="2"/>
                                             </constraint>
                                             <constraint firstItem="KqX-gu-Zf5" firstAttribute="centerY" secondItem="uhe-GL-M2w" secondAttribute="centerY" id="Q1o-Jz-8UK"/>
                                             <constraint firstItem="qTL-Ct-FfM" firstAttribute="centerY" secondItem="uhe-GL-M2w" secondAttribute="centerY" id="T7M-Qa-uS1"/>
-                                            <constraint firstAttribute="trailing" secondItem="KqX-gu-Zf5" secondAttribute="trailing" constant="20" id="TKi-75-unN">
+                                            <constraint firstAttribute="trailing" secondItem="KqX-gu-Zf5" secondAttribute="trailing" constant="38" id="TKi-75-unN">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="50"/>
                                             </constraint>
                                             <constraint firstItem="uhe-GL-M2w" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qTL-Ct-FfM" secondAttribute="trailing" constant="10" id="TN4-95-tcW"/>
                                             <constraint firstItem="BA5-Lb-W8H" firstAttribute="leading" secondItem="QPo-sx-2xK" secondAttribute="leading" constant="30" id="YSK-3i-mo8"/>
                                             <constraint firstItem="KqX-gu-Zf5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uhe-GL-M2w" secondAttribute="trailing" constant="10" id="ZAX-JT-z6l"/>
-                                            <constraint firstItem="qTL-Ct-FfM" firstAttribute="leading" secondItem="QPo-sx-2xK" secondAttribute="leading" constant="20" id="ZiT-cN-54V">
+                                            <constraint firstItem="qTL-Ct-FfM" firstAttribute="leading" secondItem="QPo-sx-2xK" secondAttribute="leading" constant="38" id="ZiT-cN-54V">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="50"/>
                                             </constraint>
                                             <constraint firstItem="KqX-gu-Zf5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3U5-iX-HyG" secondAttribute="bottom" constant="67" id="dSl-oK-t17">
@@ -130,7 +140,7 @@
                                             <constraint firstItem="uhe-GL-M2w" firstAttribute="leading" secondItem="qTL-Ct-FfM" secondAttribute="trailing" priority="250" constant="30" id="ef8-5M-Bic"/>
                                             <constraint firstItem="YIa-H9-jEv" firstAttribute="top" secondItem="KqX-gu-Zf5" secondAttribute="bottom" priority="250" constant="11" id="etB-xT-RXN">
                                                 <variation key="heightClass=compact" constant="30"/>
-                                                <variation key="heightClass=regular-widthClass=compact" constant="15"/>
+                                                <variation key="heightClass=regular-widthClass=compact" constant="25"/>
                                                 <variation key="heightClass=regular-widthClass=regular" constant="50"/>
                                             </constraint>
                                             <constraint firstAttribute="trailing" secondItem="YIa-H9-jEv" secondAttribute="trailing" constant="30" id="imE-Ae-0pN"/>
@@ -1183,7 +1193,6 @@
         <image name="activity_edit_cancel_pressed" width="15" height="15"/>
         <image name="activity_edit_clips_normal" width="19" height="19"/>
         <image name="activity_edit_delete_clip_normal" width="12" height="15"/>
-        <image name="activity_edit_duplicate_clip_minus_normal" width="48" height="50"/>
         <image name="activity_edit_duplicate_clip_minus_pressed" width="48" height="50"/>
         <image name="activity_edit_duplicate_clip_plus_normal" width="34" height="34"/>
         <image name="activity_edit_duplicate_clip_plus_pressed" width="56" height="56"/>
@@ -1196,7 +1205,7 @@
         <image name="activity_edit_video_expand" width="19" height="19"/>
         <image name="button_edit_decrement_clips_pressed" width="57" height="58"/>
         <image name="button_edit_increment_clips_pressed" width="70" height="70"/>
-        <image name="common_icon_play" width="34" height="34"/>
+        <image name="common_icon_play" width="32" height="32"/>
         <image name="common_icon_play_normal" width="32" height="32"/>
     </resources>
 </document>
