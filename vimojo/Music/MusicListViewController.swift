@@ -34,6 +34,7 @@ class MusicListViewController: EditingRoomItemController {
 
         eventHandler?.viewWillAppear()
 
+		configureNavigationBarVissible()
         if configuration.VOICE_OVER_FEATURE {
             configureNavigationBarWithBackButton()
         } else {
@@ -48,6 +49,7 @@ class MusicListViewController: EditingRoomItemController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         eventHandler?.viewWillDisappear()
+		configureNavigationBarHidden()
     }
 
     override func pushOptions() {

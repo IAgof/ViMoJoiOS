@@ -118,7 +118,7 @@ class MusicListPresenter: MusicListPresenterInterface {
 
         ViMoJoTracker.sharedInstance.trackMusicSet()
 
-        wireframe?.presentEditor()
+		wireframe?.removeController()
     }
 
     func removeDetailButtonPushed() {
