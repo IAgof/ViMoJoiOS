@@ -22,8 +22,7 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
     var videoWriter: AVAssetWriter?
     var dataOutput: AVCaptureVideoDataOutput?
     let audioDataOutput: AVCaptureAudioDataOutput?
-    let videoStreamingQueue = DispatchQueue(label: "com.somedomain.videoStreamingQueue")
-    let audioStreamingQueue = DispatchQueue(label: "com.somedomain.audioStreamingQueue")
+    let recordingQueue = DispatchQueue(label: "com.somedomain.recordingQueue")
     
     lazy var lastSampleTime: CMTime = {
         let lastSampleTime = kCMTimeZero
@@ -44,8 +43,8 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
         self.activeInput = parameters.activeInput
         self.outputURL = parameters.outputURL
         super.init()
-        dataOutput?.setSampleBufferDelegate(self, queue: videoStreamingQueue)
-        audioDataOutput?.setSampleBufferDelegate(self, queue: audioStreamingQueue)
+        dataOutput?.setSampleBufferDelegate(self, queue: recordingQueue)
+        audioDataOutput?.setSampleBufferDelegate(self, queue: recordingQueue)
     }
     
     fileprivate func setUpAudioWriter(_ videoWriter: AVAssetWriter) {
@@ -112,12 +111,13 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
         }
     }
     public func stopRecording() {
-        self.isRecordingVideo = false
-        self.videoWriter!.finishWriting {
-            if self.videoWriter!.status == AVAssetWriterStatus.completed {
-                self.saveOnClipsAlbum()
-            } else {
-                print("WARN:::The videoWriter status is not completed, stauts: \(self.videoWriter!.status)")
+        if isRecordingVideo {
+            self.isRecordingVideo = false
+            self.videoWriter?.endSession(atSourceTime: lastSampleTime)
+            self.videoWriter!.finishWriting {
+                if self.videoWriter!.status == AVAssetWriterStatus.completed {
+                    self.saveOnClipsAlbum()
+                }
             }
         }
     }
@@ -156,13 +156,15 @@ extension CameraInteractor: AVCaptureVideoDataOutputSampleBufferDelegate,
             videoWriter.startWriting()
             videoWriter.startSession(atSourceTime: lastSampleTime)
         }
-        let isVideo = output is AVCaptureVideoDataOutput
-        let isAudio = output is AVCaptureAudioDataOutput
-        
-        if isVideo && videoWriterInput.isReadyForMoreMediaData {
-            newVideoSample(sampleBuffer: sampleBuffer)
-        } else if isAudio && audioWriterInput.isReadyForMoreMediaData {
-            newAudioSample(sampleBuffer: sampleBuffer)
+        if videoWriter.status == .writing {
+            let isVideo = output is AVCaptureVideoDataOutput
+            let isAudio = output is AVCaptureAudioDataOutput
+            
+            if isVideo && videoWriterInput.isReadyForMoreMediaData {
+                newVideoSample(sampleBuffer: sampleBuffer)
+            } else if isAudio && audioWriterInput.isReadyForMoreMediaData {
+                newAudioSample(sampleBuffer: sampleBuffer)
+            }
         }
     }
     
