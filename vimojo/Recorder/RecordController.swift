@@ -105,7 +105,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-		eventHandler?.viewDidLoad(parameters: RecorderParameters(movieOutput: previewView.movieOutput,
+		eventHandler?.viewDidLoad(parameters: RecorderParameters(
 																 activeInput: previewView.activeInput,
                                                                  dataOutput: previewView.dataOutput,
                                                                  audioDataOutput: previewView.audioDataOutput,

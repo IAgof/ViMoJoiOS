@@ -14,7 +14,6 @@ class PreviewView: UIView {
 	var previewLayer: AVCaptureVideoPreviewLayer!
 	var activeInput: AVCaptureDeviceInput!
 	var videoQueue: DispatchQueue { return DispatchQueue.main }
-	var movieOutput: AVCaptureMovieFileOutput = AVCaptureMovieFileOutput()
     let audioDataOutput: AVCaptureAudioDataOutput = AVCaptureAudioDataOutput()
     var isCameraConfigured: Bool = false
     var dataOutput = AVCaptureVideoDataOutput()

@@ -967,6 +967,16 @@
 		A9D077FA1E2F80DD003AE96B /* RTVE.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9D076D41E2F7F97003AE96B /* RTVE.xcassets */; };
 		A9D078011E2F8315003AE96B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9F03D361E1E542D00DE2880 /* Assets.xcassets */; };
 		A9D078051E2F8315003AE96B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9F03D361E1E542D00DE2880 /* Assets.xcassets */; };
+		A9E41FD920126F4A00E9F2AD /* AudioSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E41FD820126F4A00E9F2AD /* AudioSettings.swift */; };
+		A9E41FDA20126F4A00E9F2AD /* AudioSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E41FD820126F4A00E9F2AD /* AudioSettings.swift */; };
+		A9E41FDB20126F4A00E9F2AD /* AudioSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E41FD820126F4A00E9F2AD /* AudioSettings.swift */; };
+		A9E41FDC20126F4A00E9F2AD /* AudioSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E41FD820126F4A00E9F2AD /* AudioSettings.swift */; };
+		A9E41FDD20126F4A00E9F2AD /* AudioSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E41FD820126F4A00E9F2AD /* AudioSettings.swift */; };
+		A9E41FE0201273AB00E9F2AD /* VideoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E41FDF201273AB00E9F2AD /* VideoSettings.swift */; };
+		A9E41FE1201273AB00E9F2AD /* VideoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E41FDF201273AB00E9F2AD /* VideoSettings.swift */; };
+		A9E41FE2201273AB00E9F2AD /* VideoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E41FDF201273AB00E9F2AD /* VideoSettings.swift */; };
+		A9E41FE3201273AB00E9F2AD /* VideoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E41FDF201273AB00E9F2AD /* VideoSettings.swift */; };
+		A9E41FE4201273AB00E9F2AD /* VideoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E41FDF201273AB00E9F2AD /* VideoSettings.swift */; };
 		A9E5B7941EF525C600A286DF /* VideoCarrusselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E5B7921EF525C600A286DF /* VideoCarrusselCollectionViewCell.swift */; };
 		A9E5B7951EF525C600A286DF /* VideoCarrusselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E5B7921EF525C600A286DF /* VideoCarrusselCollectionViewCell.swift */; };
 		A9E5B7961EF525C600A286DF /* VideoCarrusselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E5B7921EF525C600A286DF /* VideoCarrusselCollectionViewCell.swift */; };
@@ -2140,6 +2150,8 @@
 		A9D076D21E2F7F84003AE96B /* Vimojo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Vimojo.xcassets; sourceTree = "<group>"; };
 		A9D076D41E2F7F97003AE96B /* RTVE.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = RTVE.xcassets; sourceTree = "<group>"; };
 		A9D077F21E2F80B1003AE96B /* RTVE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RTVE.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9E41FD820126F4A00E9F2AD /* AudioSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AudioSettings.swift; path = vimojo/Recorder/AudioSettings.swift; sourceTree = "<group>"; };
+		A9E41FDF201273AB00E9F2AD /* VideoSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VideoSettings.swift; path = vimojo/Recorder/VideoSettings.swift; sourceTree = "<group>"; };
 		A9E5B7921EF525C600A286DF /* VideoCarrusselCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoCarrusselCollectionViewCell.swift; path = "Music/Music Selector/VideoCarrusselCollectionViewCell.swift"; sourceTree = "<group>"; };
 		A9E5B7931EF525C600A286DF /* VideoCarrusselCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VideoCarrusselCollectionViewCell.xib; path = "Music/Music Selector/VideoCarrusselCollectionViewCell.xib"; sourceTree = "<group>"; };
 		A9ED004F1D9178CB00969F31 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
@@ -3194,6 +3206,8 @@
 		A9B385DD1D7D51380065D3EC = {
 			isa = PBXGroup;
 			children = (
+				A9E41FD820126F4A00E9F2AD /* AudioSettings.swift */,
+				A9E41FDF201273AB00E9F2AD /* VideoSettings.swift */,
 				A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */,
 				A9D076D01E2F7F74003AE96B /* Targets */,
 				A9B385E81D7D51380065D3EC /* vimojo */,
@@ -4807,6 +4821,7 @@
 				A9CABAB41EC36AEC00AB6CE8 /* RecorderInteractorInterface.swift in Sources */,
 				A9FB3A511E53D97300C21918 /* FilterCollectionViewCell.swift in Sources */,
 				A9CFF3261F054D75007C2305 /* Operation.swift in Sources */,
+				A9E41FDC20126F4A00E9F2AD /* AudioSettings.swift in Sources */,
 				A9CAB94B1EC366BE00AB6CE8 /*  GetSeekTimeFromValueOnVideo.swift in Sources */,
 				A9CAB8E41EC3619700AB6CE8 /* AddTextInteractor.swift in Sources */,
 				A9CABB491EC36CE900AB6CE8 /* SettingsCameraSettings.swift in Sources */,
@@ -4815,6 +4830,7 @@
 				A99BAC5D1E49DC9D00A465C7 /* EditorTextConstants.swift in Sources */,
 				A99BAC5E1E49DC9D00A465C7 /* DetailTextWireframe.swift in Sources */,
 				A9CABAFF1EC36C6700AB6CE8 /* RealmAudio.swift in Sources */,
+				A9E41FE3201273AB00E9F2AD /* VideoSettings.swift in Sources */,
 				A9CABAA51EC36AEC00AB6CE8 /* RecordController.swift in Sources */,
 				A91995441EC5017300D24B0E /* MusicListPresenterInterface.swift in Sources */,
 				A99BAC601E49DC9D00A465C7 /* DetailProjectInteractor.swift in Sources */,
@@ -5106,6 +5122,7 @@
 				A9CABA881EC36AEC00AB6CE8 /* CameraInteractor.swift in Sources */,
 				A9CAB8D61EC360CC00AB6CE8 /* ViMoJoInterface.swift in Sources */,
 				A9CFF3241F054D75007C2305 /* Operation.swift in Sources */,
+				A9E41FD920126F4A00E9F2AD /* AudioSettings.swift in Sources */,
 				A9320B861E2CD65F004DC8A1 /* ViMoJoConfiguration.swift in Sources */,
 				A9CABA8B1EC36AEC00AB6CE8 /* CameraInteractorInterface.swift in Sources */,
 				A9CABB471EC36CE900AB6CE8 /* SettingsCameraSettings.swift in Sources */,
@@ -5114,6 +5131,7 @@
 				A91760DA1D9146FE008915DA /* FullScreenPlayerWireframe.swift in Sources */,
 				A9CAB9261EC3657200AB6CE8 /* DrawerMenuWireframe.swift in Sources */,
 				A9CAB8F51EC361B500AB6CE8 /* AddTextPresenterInterface.swift in Sources */,
+				A9E41FE0201273AB00E9F2AD /* VideoSettings.swift in Sources */,
 				A9CABA371EC36A4700AB6CE8 /* ReloadProjectWithProjectAction.swift in Sources */,
 				A91995421EC5017300D24B0E /* MusicListPresenterInterface.swift in Sources */,
 				A9CABAFD1EC36C6700AB6CE8 /* RealmAudio.swift in Sources */,
@@ -5415,6 +5433,7 @@
 				A9CABAB31EC36AEC00AB6CE8 /* RecorderInteractorInterface.swift in Sources */,
 				A9FB3A401E53D5CB00C21918 /* AddFilterToVideoWireframe.swift in Sources */,
 				A9CFF3251F054D75007C2305 /* Operation.swift in Sources */,
+				A9E41FDD20126F4A00E9F2AD /* AudioSettings.swift in Sources */,
 				A9D076E81E2F80B1003AE96B /* FullScreenPlayerWireframe.swift in Sources */,
 				A9CABB481EC36CE900AB6CE8 /* SettingsCameraSettings.swift in Sources */,
 				A9D076E91E2F80B1003AE96B /* EditorTextConstants.swift in Sources */,
@@ -5423,6 +5442,7 @@
 				A97243EF1E37A8FF00BD5E9B /* DetailProjectInteractor.swift in Sources */,
 				A97243F71E37A90C00BD5E9B /* DetailProjectPresenterInterface.swift in Sources */,
 				A9CABAFE1EC36C6700AB6CE8 /* RealmAudio.swift in Sources */,
+				A9E41FE4201273AB00E9F2AD /* VideoSettings.swift in Sources */,
 				A9CABAA41EC36AEC00AB6CE8 /* RecordController.swift in Sources */,
 				A91995431EC5017300D24B0E /* MusicListPresenterInterface.swift in Sources */,
 				A9CAB89E1EC35F4700AB6CE8 /* UIViewFadeViewsExtension.swift in Sources */,
@@ -5714,6 +5734,7 @@
 				AE12E7C91FFEA7AB00F2342E /* CameraInteractor.swift in Sources */,
 				AE12E7CA1FFEA7AB00F2342E /* ViMoJoInterface.swift in Sources */,
 				AE12E7CB1FFEA7AB00F2342E /* Operation.swift in Sources */,
+				A9E41FDB20126F4A00E9F2AD /* AudioSettings.swift in Sources */,
 				AE12E7CD1FFEA7AB00F2342E /* CameraInteractorInterface.swift in Sources */,
 				AE12E7CE1FFEA7AB00F2342E /* SettingsCameraSettings.swift in Sources */,
 				AE12E7CF1FFEA7AB00F2342E /* CustomDPTheme.swift in Sources */,
@@ -5722,6 +5743,7 @@
 				AE12E7D21FFEA7AB00F2342E /* DrawerMenuWireframe.swift in Sources */,
 				AE12E7D31FFEA7AB00F2342E /* AddTextPresenterInterface.swift in Sources */,
 				AE12E7D41FFEA7AB00F2342E /* ReloadProjectWithProjectAction.swift in Sources */,
+				A9E41FE2201273AB00E9F2AD /* VideoSettings.swift in Sources */,
 				AE12E7D51FFEA7AB00F2342E /* MusicListPresenterInterface.swift in Sources */,
 				AE12E7D61FFEA7AB00F2342E /* RealmAudio.swift in Sources */,
 				AE12E7D71FFEA7AB00F2342E /* EditorTextConstants.swift in Sources */,
@@ -6013,6 +6035,7 @@
 				AE491E451F3AFE6400B20B70 /* CameraInteractor.swift in Sources */,
 				AE491E461F3AFE6400B20B70 /* ViMoJoInterface.swift in Sources */,
 				AE491E471F3AFE6400B20B70 /* Operation.swift in Sources */,
+				A9E41FDA20126F4A00E9F2AD /* AudioSettings.swift in Sources */,
 				AE491E491F3AFE6400B20B70 /* CameraInteractorInterface.swift in Sources */,
 				AE491E4A1F3AFE6400B20B70 /* SettingsCameraSettings.swift in Sources */,
 				AE491E4B1F3AFE6400B20B70 /* CustomDPTheme.swift in Sources */,
@@ -6021,6 +6044,7 @@
 				AE491E4E1F3AFE6400B20B70 /* DrawerMenuWireframe.swift in Sources */,
 				AE491E4F1F3AFE6400B20B70 /* AddTextPresenterInterface.swift in Sources */,
 				AE491E501F3AFE6400B20B70 /* ReloadProjectWithProjectAction.swift in Sources */,
+				A9E41FE1201273AB00E9F2AD /* VideoSettings.swift in Sources */,
 				AE491E511F3AFE6400B20B70 /* MusicListPresenterInterface.swift in Sources */,
 				AE491E521F3AFE6400B20B70 /* RealmAudio.swift in Sources */,
 				AE491E531F3AFE6400B20B70 /* EditorTextConstants.swift in Sources */,
