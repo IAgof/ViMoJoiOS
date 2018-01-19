@@ -12,5 +12,7 @@ import AVKit
 struct RecorderParameters {
 	let movieOutput: AVCaptureMovieFileOutput
 	let activeInput: AVCaptureDeviceInput
+    let dataOutput: AVCaptureVideoDataOutput
+    let audioDataOutput: AVCaptureAudioDataOutput
 	let outputURL: URL!
 }

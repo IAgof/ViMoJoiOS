@@ -98,6 +98,8 @@
 		A91995611EC5029C00D24B0E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = A91995541EC5029C00D24B0E /* README.md */; };
 		A91995621EC5029C00D24B0E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = A91995541EC5029C00D24B0E /* README.md */; };
 		A91995631EC5029C00D24B0E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = A91995541EC5029C00D24B0E /* README.md */; };
+		A919EAD0200D21C2004A7D27 /* VideonaProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A919EACD200D21B9004A7D27 /* VideonaProject.framework */; };
+		A919EAD1200D21C2004A7D27 /* VideonaProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A919EACD200D21B9004A7D27 /* VideonaProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A91BDB831E43651200BE4F1C /* MusicDetailView.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91BDB861E43651200BE4F1C /* MusicDetailView.strings */; };
 		A91BDB841E43651200BE4F1C /* MusicDetailView.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91BDB861E43651200BE4F1C /* MusicDetailView.strings */; };
 		A9320B861E2CD65F004DC8A1 /* ViMoJoConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9320B851E2CD65F004DC8A1 /* ViMoJoConfiguration.swift */; };
@@ -1332,7 +1334,6 @@
 		AE12E8F01FFEA87900F2342E /* M4N.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE4E66C91FFDAE10002C45CD /* M4N.xcassets */; };
 		AE12E8F31FFEB8AF00F2342E /* Pods_M4N.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE12E8F41FFEB8AF00F2342E /* Pods_M4N.framework */; };
 		AE12E8F61FFEE9C800F2342E /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE12E8F51FFEE9C800F2342E /* SnapshotHelper.swift */; };
-		AE1F58AE1F3B69FC006F75B3 /* Vimojo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9D076D21E2F7F84003AE96B /* Vimojo.xcassets */; };
 		AE31942D1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */; };
 		AE31942E1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */; };
 		AE31942F1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */; };
@@ -1680,6 +1681,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A919EACC200D21B9004A7D27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A9BD5FBD1D9120F40080CE97;
+			remoteInfo = VideonaProject;
+		};
+		A919EACE200D21B9004A7D27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A9928A0C1E5370CE002A4E60;
+			remoteInfo = VideonaProjectTarget;
+		};
+		A919EAD2200D21C2004A7D27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A9BD5FBC1D9120F40080CE97;
+			remoteInfo = VideonaProject;
+		};
 		A9B385FB1D7D51380065D3EC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A9B385DE1D7D51380065D3EC /* Project object */;
@@ -1723,6 +1745,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A919EAD1200D21C2004A7D27 /* VideonaProject.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1829,6 +1852,7 @@
 		A91995521EC5029C00D24B0E /* KYEmbedMainControllerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYEmbedMainControllerSegue.swift; sourceTree = "<group>"; };
 		A91995531EC5029C00D24B0E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		A91995541EC5029C00D24B0E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = VideonaProject.xcodeproj; path = "../iOS-SDK/VideonaProject.xcodeproj"; sourceTree = "<group>"; };
 		A91BDB851E43651200BE4F1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/MusicDetailView.strings; sourceTree = "<group>"; };
 		A91BDB871E43651400BE4F1C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MusicDetailView.strings; sourceTree = "<group>"; };
 		A9320B851E2CD65F004DC8A1 /* ViMoJoConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViMoJoConfiguration.swift; path = vimojo/ViMoJoConfiguration.swift; sourceTree = "<group>"; };
@@ -2174,6 +2198,7 @@
 				A9ED00501D9178CB00969F31 /* Alamofire.framework in Frameworks */,
 				A9ED005A1D917B7200969F31 /* FBSDKCoreKit.framework in Frameworks */,
 				A9ED005C1D917B7200969F31 /* FBSDKShareKit.framework in Frameworks */,
+				A919EAD0200D21C2004A7D27 /* VideonaProject.framework in Frameworks */,
 				A9ED005B1D917B7200969F31 /* FBSDKLoginKit.framework in Frameworks */,
 				1DB86149493A266582050C42 /* Pods_vimojo.framework in Frameworks */,
 			);
@@ -2414,6 +2439,15 @@
 				A91995521EC5029C00D24B0E /* KYEmbedMainControllerSegue.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		A919EAC8200D21B9004A7D27 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A919EACD200D21B9004A7D27 /* VideonaProject.framework */,
+				A919EACF200D21B9004A7D27 /* VideonaProjectTarget.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		A91BDB7F1E4364E500BE4F1C /* Strings */ = {
@@ -3160,6 +3194,7 @@
 		A9B385DD1D7D51380065D3EC = {
 			isa = PBXGroup;
 			children = (
+				A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */,
 				A9D076D01E2F7F74003AE96B /* Targets */,
 				A9B385E81D7D51380065D3EC /* vimojo */,
 				A9B385FD1D7D51380065D3EC /* vimojoTests */,
@@ -3824,6 +3859,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A919EAD3200D21C2004A7D27 /* PBXTargetDependency */,
 			);
 			name = vimojo;
 			productName = vimojo;
@@ -3993,6 +4029,12 @@
 			mainGroup = A9B385DD1D7D51380065D3EC;
 			productRefGroup = A9B385E71D7D51380065D3EC /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A919EAC8200D21B9004A7D27 /* Products */;
+					ProjectRef = A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				A9B385E51D7D51380065D3EC /* vimojo */,
@@ -4005,6 +4047,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A919EACD200D21B9004A7D27 /* VideonaProject.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = VideonaProject.framework;
+			remoteRef = A919EACC200D21B9004A7D27 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A919EACF200D21B9004A7D27 /* VideonaProjectTarget.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = VideonaProjectTarget.framework;
+			remoteRef = A919EACE200D21B9004A7D27 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A99BAD541E49DC9D00A465C7 /* Resources */ = {
@@ -4253,7 +4312,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		45244F6698CB1B865CE5B75A /* [CP] Copy Pods Resources */ = {
@@ -4289,7 +4348,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		4956937A8FC61D6BA812F7B8 /* [CP] Check Pods Manifest.lock */ = {
@@ -4307,7 +4366,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6760216FD77FA70ADC8C81EC /* [CP] Embed Pods Frameworks */ = {
@@ -4607,7 +4666,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		AE491E3B1F3AFE6400B20B70 /* ShellScript */ = {
@@ -4729,7 +4788,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -6252,6 +6311,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A919EAD3200D21C2004A7D27 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = VideonaProject;
+			targetProxy = A919EAD2200D21C2004A7D27 /* PBXContainerItemProxy */;
+		};
 		A9B385FC1D7D51380065D3EC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A9B385E51D7D51380065D3EC /* vimojo */;
@@ -6592,6 +6656,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7A8B1D02CC10085E78CFAF27 /* Pods-vimojo.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Iago Fernández cedron (JVQF87BH8Q)";
@@ -6621,8 +6686,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DDEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bf8a56d6-7db6-4b68-9908-5694a59ec33b";
-				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Test Vimojo";
+				PROVISIONING_PROFILE = "fb768ea7-5073-492c-aab5-736982a422cd";
+				PROVISIONING_PROFILE_SPECIFIER = "Vimojo development";
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -6634,6 +6699,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C6ADAEE2CE649F1B62914162 /* Pods-vimojo.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Videona SocialMedia S.L. (98YJ9HU6W9)";

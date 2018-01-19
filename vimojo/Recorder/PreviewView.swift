@@ -15,7 +15,9 @@ class PreviewView: UIView {
 	var activeInput: AVCaptureDeviceInput!
 	var videoQueue: DispatchQueue { return DispatchQueue.main }
 	var movieOutput: AVCaptureMovieFileOutput = AVCaptureMovieFileOutput()
-	var isCameraConfigured: Bool = false
+    let audioDataOutput: AVCaptureAudioDataOutput = AVCaptureAudioDataOutput()
+    var isCameraConfigured: Bool = false
+    var dataOutput = AVCaptureVideoDataOutput()
 
 	// MARK: Variables
 	var captureSessionPreset = AVCaptureSessionPreset1280x720 {
@@ -27,7 +29,7 @@ class PreviewView: UIView {
 	var tempURL: URL? {
 		let directory = NSTemporaryDirectory() as NSString
 		if directory != "" {
-			let path = directory.appendingPathComponent(NSUUID().uuidString + ".mp4")
+			let path = directory.appendingPathComponent(NSUUID().uuidString + ".m4v")
 			return URL(fileURLWithPath: path)
 		}
 		return nil
@@ -44,6 +46,7 @@ class PreviewView: UIView {
 	}
 	private func configureCamera() {
 		if !isCameraConfigured {
+            self.transform = CGAffineTransform(rotationAngle: .pi)
 			setupRecorder()
 			isCameraConfigured = true
 		}
@@ -65,9 +68,9 @@ class PreviewView: UIView {
 				switch (orientation) {
 				case .portrait: updatePreviewLayer(layer: previewLayerConnection, orientation: .portrait)
 					break
-				case .landscapeRight: updatePreviewLayer(layer: previewLayerConnection, orientation: .landscapeLeft)
+				case .landscapeRight: updatePreviewLayer(layer: previewLayerConnection, orientation: .landscapeRight)
 					break
-				case .landscapeLeft: updatePreviewLayer(layer: previewLayerConnection, orientation: .landscapeRight)
+				case .landscapeLeft: updatePreviewLayer(layer: previewLayerConnection, orientation: .landscapeLeft)
 					break
 				default: updatePreviewLayer(layer: previewLayerConnection, orientation: .landscapeLeft)
 					break
@@ -112,15 +115,20 @@ class PreviewView: UIView {
 		}
 		return true
 	}
-	func setupOutput() -> Bool {
-		// Movie output
-		movieOutput.movieFragmentInterval = kCMTimeInvalid
-		if captureSession.canAddOutput(movieOutput) {
-			captureSession.addOutput(movieOutput)
-			return true
-		}
-		return false
-	}
+    func setupOutput() -> Bool {
+        // Movie output
+        dataOutput.videoSettings = [
+            kCVPixelBufferPixelFormatTypeKey as String : NSNumber(value: kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)
+        ]
+        dataOutput.alwaysDiscardsLateVideoFrames = true
+        if self.captureSession.canAddOutput(dataOutput) &&
+            self.captureSession.canAddOutput(audioDataOutput){
+            self.captureSession.addOutput(dataOutput)
+            self.captureSession.addOutput(audioDataOutput)
+            return true
+        }
+        return false
+    }
 	//MARK:- Camera Session
 	public func startSession() {
 		if !captureSession.isRunning {

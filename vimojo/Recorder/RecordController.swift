@@ -107,7 +107,9 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         super.viewDidLoad()
 		eventHandler?.viewDidLoad(parameters: RecorderParameters(movieOutput: previewView.movieOutput,
 																 activeInput: previewView.activeInput,
-																 outputURL: previewView.tempURL))
+                                                                 dataOutput: previewView.dataOutput,
+                                                                 audioDataOutput: previewView.audioDataOutput,
+                                                                 outputURL: previewView.tempURL))
         self.configureViews()
         // Try to allow rotation -- It's just boring to landscape the capture in a static mode
         configureRotationObserver()
@@ -278,8 +280,10 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         eventHandler?.pushFlash()
     }
 
+    public static var isFrontCamera: Bool = false
     @IBAction func pushRotateCamera(_ sender: AnyObject) {
-		previewView.rotateCamera()
+		RecordController.isFrontCamera.toggle()
+        previewView.rotateCamera()
 		eventHandler?.rotateCamera()
     }
 
