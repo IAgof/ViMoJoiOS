@@ -10,21 +10,23 @@ import Foundation
 import AVFoundation
 
 public class AudioSettings {
+    static var defaults = UserDefaults.standard
+    
     static var format: AudioFormat = .mpeg4 {
         didSet {
-            // TODO: Write to defaults
+            defaults.set(format, forKey: format.defaultsKey)
         }
     }
     // TODO: solve this, must not to be hardCoded
     private static var numberOfChannelsKey = 1
     static var sampleRateKey: AudioSampleRateKey = .fortyK {
         didSet {
-            // TODO: Write to defaults
+            defaults.set(sampleRateKey, forKey: sampleRateKey.defaultsKey)
         }
     }
     static var bitRateKey: AudioBitRateKey = .sixtyFourK {
         didSet {
-            // TODO: Write to defaults
+            defaults.set(bitRateKey, forKey: bitRateKey.defaultsKey)
         }
     }
     
@@ -37,14 +39,19 @@ public class AudioSettings {
         ]
     }
     
-    init() {
-        // TODO: on creation load data from defaults
+    static func loadValues() {
+        format = (defaults.object(forKey: format.defaultsKey) as? AudioFormat) ?? .mpeg4
+        sampleRateKey = (defaults.object(forKey: sampleRateKey.defaultsKey) as? AudioSampleRateKey) ?? .fortyK
+        bitRateKey = (defaults.object(forKey: bitRateKey.defaultsKey) as? AudioBitRateKey) ?? .sixtyFourK
     }
 }
 
 enum AudioBitRateKey {
     case sixtyFourK
     
+    var defaultsKey: String {
+        return "AudioSettingsAudioBitRateKey"
+    }
     var value: NSNumber {
         switch self {
         case .sixtyFourK: return 64000
@@ -54,6 +61,9 @@ enum AudioBitRateKey {
 enum AudioSampleRateKey {
     case fortyK
     
+    var defaultsKey: String {
+        return "AudioSettingsAudioSampleRateKey"
+    }
     var value: NSNumber {
         switch self {
         case .fortyK: return 44100.0
@@ -63,6 +73,9 @@ enum AudioSampleRateKey {
 enum AudioFormat {
     case mpeg4
     
+    var defaultsKey: String {
+        return "AudioSettingsAudioFormat"
+    }
     var value: AudioFormatID {
         switch self {
         case .mpeg4: return kAudioFormatMPEG4AAC
