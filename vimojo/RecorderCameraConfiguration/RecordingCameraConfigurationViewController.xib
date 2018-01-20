@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,9 +16,130 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ajuste de cámara" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xgu-oq-7c5">
+                    <rect key="frame" x="10" y="15" width="133" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLm-PZ-MER">
+                    <rect key="frame" x="518" y="15" width="30" height="30"/>
+                    <state key="normal" title="OK"/>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="v8P-E7-3Hs">
+                    <rect key="frame" x="10" y="50" width="548" height="260"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IUg-QB-wPp">
+                            <rect key="frame" x="0.0" y="0.0" width="548" height="125"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sPu-Ia-UKs">
+                                    <rect key="frame" x="0.0" y="0.0" width="269" height="125"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Camera pro/basic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0DK-Hi-zaZ">
+                                            <rect key="frame" x="62.5" y="10" width="145" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Um9-xc-W2V">
+                                            <rect key="frame" x="10" y="41" width="249" height="74"/>
+                                        </pickerView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Um9-xc-W2V" secondAttribute="trailing" constant="10" id="0r4-2W-rw7"/>
+                                        <constraint firstItem="Um9-xc-W2V" firstAttribute="top" secondItem="0DK-Hi-zaZ" secondAttribute="bottom" constant="10" id="Bwg-Vm-15t"/>
+                                        <constraint firstItem="Um9-xc-W2V" firstAttribute="leading" secondItem="sPu-Ia-UKs" secondAttribute="leading" constant="10" id="EuD-qi-Nn7"/>
+                                        <constraint firstItem="0DK-Hi-zaZ" firstAttribute="centerX" secondItem="sPu-Ia-UKs" secondAttribute="centerX" id="V6e-zJ-7kj"/>
+                                        <constraint firstItem="0DK-Hi-zaZ" firstAttribute="top" secondItem="sPu-Ia-UKs" secondAttribute="top" constant="10" id="Yiw-cA-why"/>
+                                        <constraint firstAttribute="bottom" secondItem="Um9-xc-W2V" secondAttribute="bottom" constant="10" id="xKM-c3-Xu2"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TWZ-4c-1F2">
+                                    <rect key="frame" x="279" y="0.0" width="269" height="125"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resolution" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCN-Ih-1g9">
+                                            <rect key="frame" x="91.5" y="8" width="87" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XV7-Qf-dXg">
+                                            <rect key="frame" x="10" y="23" width="249" height="83"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </pickerView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="lCN-Ih-1g9" firstAttribute="centerX" secondItem="TWZ-4c-1F2" secondAttribute="centerX" id="SCD-fT-n8l"/>
+                                        <constraint firstItem="lCN-Ih-1g9" firstAttribute="top" secondItem="TWZ-4c-1F2" secondAttribute="top" constant="8" id="qgR-FU-3SB"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WcA-QG-RsG">
+                            <rect key="frame" x="0.0" y="135" width="548" height="125"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWC-hb-k86">
+                                    <rect key="frame" x="0.0" y="0.0" width="269" height="125"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frame rate (aprox)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOD-wN-tBX">
+                                            <rect key="frame" x="58.5" y="8" width="152.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mNe-SF-63o">
+                                            <rect key="frame" x="10" y="23" width="249" height="83"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </pickerView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="MOD-wN-tBX" firstAttribute="centerX" secondItem="HWC-hb-k86" secondAttribute="centerX" id="ZQ1-c3-cHd"/>
+                                        <constraint firstItem="MOD-wN-tBX" firstAttribute="top" secondItem="HWC-hb-k86" secondAttribute="top" constant="8" id="qcQ-rR-oxn"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TkN-JN-sdM">
+                                    <rect key="frame" x="279" y="0.0" width="269" height="125"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quality" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1F-uM-t7q">
+                                            <rect key="frame" x="105.5" y="8" width="58.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qdH-Ua-iSC">
+                                            <rect key="frame" x="10" y="23" width="249" height="83"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </pickerView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="H1F-uM-t7q" firstAttribute="top" secondItem="TkN-JN-sdM" secondAttribute="top" constant="8" id="Di3-Gd-Flz"/>
+                                        <constraint firstItem="H1F-uM-t7q" firstAttribute="centerX" secondItem="TkN-JN-sdM" secondAttribute="centerX" id="ELk-oF-12m"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.96823459201388884" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="vLm-PZ-MER" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="XAU-p0-P0j"/>
+                <constraint firstItem="Xgu-oq-7c5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="cLv-LM-DDz"/>
+                <constraint firstItem="v8P-E7-3Hs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="eAR-GX-Uaj"/>
+                <constraint firstAttribute="trailing" secondItem="vLm-PZ-MER" secondAttribute="trailing" constant="20" id="f5a-xh-9Gt"/>
+                <constraint firstItem="v8P-E7-3Hs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="jeM-8C-ZcL"/>
+                <constraint firstAttribute="trailing" secondItem="v8P-E7-3Hs" secondAttribute="trailing" constant="10" id="kFA-tu-amo"/>
+                <constraint firstAttribute="bottom" secondItem="v8P-E7-3Hs" secondAttribute="bottom" constant="10" id="l9X-B5-8xi"/>
+                <constraint firstItem="Xgu-oq-7c5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="w6h-g2-S1G"/>
+            </constraints>
+            <point key="canvasLocation" x="-12" y="37"/>
         </view>
     </objects>
 </document>
