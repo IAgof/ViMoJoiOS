@@ -9,8 +9,38 @@
 //
 
 import UIKit
+typealias RecordingCameraValues = (RecordingCameraActions.Camera,
+    Resolution,
+    FrameRate,
+    BitRate)
 
 class RecordingCameraConfigurationInteractor: RecordingCameraConfigurationInteractorInputProtocol {
-
+  
     weak var presenter: RecordingCameraConfigurationInteractorOutputProtocol?
+    
+    func loadValues(completion: (RecordingCameraValues) -> Void ) {
+        completion((
+            RecordingCameraActions.Camera.cameraBasic,
+            VideoSettings.resolution,
+            VideoSettings.fps,
+            VideoSettings.bitRate))
+    }
+    func actionPush(with action: RecordingCameraActions){
+        switch action {
+        case .camera(let camera):
+            cameraAction(camera)
+        case .resolution(let resolution):
+            VideoSettings.resolution = resolution
+        case .fps(let fps):
+            VideoSettings.fps = fps
+        case .mbps(let mbps):
+            VideoSettings.bitRate = mbps
+        }
+    }
+    fileprivate func cameraAction(_ camera: (RecordingCameraActions.Camera)) {
+        switch camera {
+        case .cameraPro: return
+        case .cameraBasic: return
+        }
+    }
 }

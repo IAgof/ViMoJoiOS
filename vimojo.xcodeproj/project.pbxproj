@@ -983,6 +983,16 @@
 		A9E5B7971EF525C600A286DF /* VideoCarrusselCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E5B7931EF525C600A286DF /* VideoCarrusselCollectionViewCell.xib */; };
 		A9E5B7981EF525C600A286DF /* VideoCarrusselCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E5B7931EF525C600A286DF /* VideoCarrusselCollectionViewCell.xib */; };
 		A9E5B7991EF525C600A286DF /* VideoCarrusselCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E5B7931EF525C600A286DF /* VideoCarrusselCollectionViewCell.xib */; };
+		A9EABF4A20135442004E031B /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EABF4820135441004E031B /* SSRadioButtonsController.swift */; };
+		A9EABF4B20135442004E031B /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EABF4820135441004E031B /* SSRadioButtonsController.swift */; };
+		A9EABF4C20135442004E031B /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EABF4820135441004E031B /* SSRadioButtonsController.swift */; };
+		A9EABF4D20135442004E031B /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EABF4820135441004E031B /* SSRadioButtonsController.swift */; };
+		A9EABF4E20135442004E031B /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EABF4820135441004E031B /* SSRadioButtonsController.swift */; };
+		A9EABF4F20135442004E031B /* SSRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EABF4920135442004E031B /* SSRadioButton.swift */; };
+		A9EABF5020135442004E031B /* SSRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EABF4920135442004E031B /* SSRadioButton.swift */; };
+		A9EABF5120135442004E031B /* SSRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EABF4920135442004E031B /* SSRadioButton.swift */; };
+		A9EABF5220135442004E031B /* SSRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EABF4920135442004E031B /* SSRadioButton.swift */; };
+		A9EABF5320135442004E031B /* SSRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EABF4920135442004E031B /* SSRadioButton.swift */; };
 		A9ED00501D9178CB00969F31 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED004F1D9178CB00969F31 /* Alamofire.framework */; };
 		A9ED005A1D917B7200969F31 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00571D917B7200969F31 /* FBSDKCoreKit.framework */; };
 		A9ED005B1D917B7200969F31 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00581D917B7200969F31 /* FBSDKLoginKit.framework */; };
@@ -2184,6 +2194,8 @@
 		A9E41FDF201273AB00E9F2AD /* VideoSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VideoSettings.swift; path = vimojo/Recorder/VideoSettings.swift; sourceTree = "<group>"; };
 		A9E5B7921EF525C600A286DF /* VideoCarrusselCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoCarrusselCollectionViewCell.swift; path = "Music/Music Selector/VideoCarrusselCollectionViewCell.swift"; sourceTree = "<group>"; };
 		A9E5B7931EF525C600A286DF /* VideoCarrusselCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VideoCarrusselCollectionViewCell.xib; path = "Music/Music Selector/VideoCarrusselCollectionViewCell.xib"; sourceTree = "<group>"; };
+		A9EABF4820135441004E031B /* SSRadioButtonsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSRadioButtonsController.swift; sourceTree = "<group>"; };
+		A9EABF4920135442004E031B /* SSRadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSRadioButton.swift; sourceTree = "<group>"; };
 		A9ED004F1D9178CB00969F31 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		A9ED00571D917B7200969F31 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		A9ED00581D917B7200969F31 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -3463,6 +3475,7 @@
 		A9B3865B1D7D55440065D3EC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A9EABF462013542E004E031B /* SSRadioButton */,
 				A9CAB8C31EC360CC00AB6CE8 /* Vimojo As Module */,
 				A9CAB8A91EC35FAC00AB6CE8 /* UseCase */,
 				A9CAB8A01EC35F7800AB6CE8 /* Theme */,
@@ -3812,6 +3825,15 @@
 				A9CABAE11EC36C6700AB6CE8 /* VideoToRealmVideoMapper.swift */,
 			);
 			name = Video;
+			sourceTree = "<group>";
+		};
+		A9EABF462013542E004E031B /* SSRadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				A9EABF4920135442004E031B /* SSRadioButton.swift */,
+				A9EABF4820135441004E031B /* SSRadioButtonsController.swift */,
+			);
+			path = SSRadioButton;
 			sourceTree = "<group>";
 		};
 		A9EDDD5A1DEC80CC001F7DD9 /* Project List */ = {
@@ -4381,7 +4403,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		45244F6698CB1B865CE5B75A /* [CP] Copy Pods Resources */ = {
@@ -4417,7 +4439,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		4956937A8FC61D6BA812F7B8 /* [CP] Check Pods Manifest.lock */ = {
@@ -4435,7 +4457,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6760216FD77FA70ADC8C81EC /* [CP] Embed Pods Frameworks */ = {
@@ -4727,7 +4749,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		AE491E3B1F3AFE6400B20B70 /* ShellScript */ = {
@@ -4847,7 +4869,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -4880,6 +4902,7 @@
 				A91995441EC5017300D24B0E /* MusicListPresenterInterface.swift in Sources */,
 				A99BAC601E49DC9D00A465C7 /* DetailProjectInteractor.swift in Sources */,
 				A99BAC611E49DC9D00A465C7 /* DetailProjectPresenterInterface.swift in Sources */,
+				A9EABF5220135442004E031B /* SSRadioButton.swift in Sources */,
 				A99BAC631E49DC9D00A465C7 /* SocialNetwork.swift in Sources */,
 				A9CABA601EC36A9200AB6CE8 /* ProjectListViewController.swift in Sources */,
 				A9CAB9441EC366A700AB6CE8 /* TrimRangeBarViewModel.swift in Sources */,
@@ -4958,6 +4981,7 @@
 				A99BAC9B1E49DC9D00A465C7 /* EditorInteractor.swift in Sources */,
 				A9CAB89C1EC35F4700AB6CE8 /* UIApplicationExtensionGetTopController.swift in Sources */,
 				A919954C1EC5019100D24B0E /* MusicListInteractorInterface.swift in Sources */,
+				A9EABF4D20135442004E031B /* SSRadioButtonsController.swift in Sources */,
 				A99BAC9D1E49DC9D00A465C7 /* ShareViewController.swift in Sources */,
 				A99BAC9E1E49DC9D00A465C7 /* ShareViewModel.swift in Sources */,
 				A9CAB9601EC3671A00AB6CE8 /* CustomExportedVideosGalleryViewController.swift in Sources */,
@@ -5186,6 +5210,7 @@
 				A91995421EC5017300D24B0E /* MusicListPresenterInterface.swift in Sources */,
 				A9CABAFD1EC36C6700AB6CE8 /* RealmAudio.swift in Sources */,
 				A91760BE1D9146BF008915DA /* EditorTextConstants.swift in Sources */,
+				A9EABF4F20135442004E031B /* SSRadioButton.swift in Sources */,
 				A95BE99A1D990C4100602DCD /* DetailTextWireframe.swift in Sources */,
 				A9CABAB81EC36AEC00AB6CE8 /* RecordPresenterInterfaceIO.swift in Sources */,
 				A97243EE1E37A8FF00BD5E9B /* DetailProjectInteractor.swift in Sources */,
@@ -5264,6 +5289,7 @@
 				A919954A1EC5019100D24B0E /* MusicListInteractorInterface.swift in Sources */,
 				A9CAB96C1EC3672700AB6CE8 /* GalleryWireframe.swift in Sources */,
 				A9FB3A4F1E53D97300C21918 /* FilterCollectionViewCell.swift in Sources */,
+				A9EABF4A20135442004E031B /* SSRadioButtonsController.swift in Sources */,
 				A9325FAD1E091E1D00400AD6 /* ExportTemporalVideoToShare.swift in Sources */,
 				A9CAB90A1EC364FB00AB6CE8 /* DrawerMenuInteractorInterface.swift in Sources */,
 				A9CABBBA1EC36DD000AB6CE8 /* ViMoJoTracker.swift in Sources */,
@@ -5502,6 +5528,7 @@
 				A91995431EC5017300D24B0E /* MusicListPresenterInterface.swift in Sources */,
 				A9CAB89E1EC35F4700AB6CE8 /* UIViewFadeViewsExtension.swift in Sources */,
 				A9CAB9301EC3658E00AB6CE8 /* DuplicateViewController.swift in Sources */,
+				A9EABF5320135442004E031B /* SSRadioButton.swift in Sources */,
 				A9D076ED1E2F80B1003AE96B /* SocialNetwork.swift in Sources */,
 				A9CABA5F1EC36A9200AB6CE8 /* ProjectListViewController.swift in Sources */,
 				A9D076EF1E2F80B1003AE96B /* ShareWireframe.swift in Sources */,
@@ -5580,6 +5607,7 @@
 				A9CAB91B1EC3656000AB6CE8 /* DrawerProfileTableViewCell.swift in Sources */,
 				A9CAB95F1EC3671A00AB6CE8 /* CustomExportedVideosGalleryViewController.swift in Sources */,
 				A919954B1EC5019100D24B0E /* MusicListInteractorInterface.swift in Sources */,
+				A9EABF4E20135442004E031B /* SSRadioButtonsController.swift in Sources */,
 				A9CAB8DA1EC360CC00AB6CE8 /* VimojoWireframeInterface.swift in Sources */,
 				A9CABBBB1EC36DD000AB6CE8 /* ViMoJoTracker.swift in Sources */,
 				A9CABAF81EC36C6700AB6CE8 /* ProjectRepository.swift in Sources */,
@@ -5808,6 +5836,7 @@
 				AE12E7D61FFEA7AB00F2342E /* RealmAudio.swift in Sources */,
 				AE12E7D71FFEA7AB00F2342E /* EditorTextConstants.swift in Sources */,
 				AE12E7D81FFEA7AB00F2342E /* DetailTextWireframe.swift in Sources */,
+				A9EABF5120135442004E031B /* SSRadioButton.swift in Sources */,
 				AE12E7D91FFEA7AB00F2342E /* RecordPresenterInterfaceIO.swift in Sources */,
 				AE12E7DA1FFEA7AB00F2342E /* DetailProjectInteractor.swift in Sources */,
 				AE12E7DB1FFEA7AB00F2342E /* DuplicateViewController.swift in Sources */,
@@ -5886,6 +5915,7 @@
 				AE12E8201FFEA7AB00F2342E /* MusicListInteractorInterface.swift in Sources */,
 				AE12E8211FFEA7AB00F2342E /* GalleryWireframe.swift in Sources */,
 				AE12E8221FFEA7AB00F2342E /* FilterCollectionViewCell.swift in Sources */,
+				A9EABF4C20135442004E031B /* SSRadioButtonsController.swift in Sources */,
 				AE12E8231FFEA7AB00F2342E /* ExportTemporalVideoToShare.swift in Sources */,
 				AE12E8241FFEA7AB00F2342E /* DrawerMenuInteractorInterface.swift in Sources */,
 				AE12E8251FFEA7AB00F2342E /* ViMoJoTracker.swift in Sources */,
@@ -6114,6 +6144,7 @@
 				AE491E521F3AFE6400B20B70 /* RealmAudio.swift in Sources */,
 				AE491E531F3AFE6400B20B70 /* EditorTextConstants.swift in Sources */,
 				AE491E541F3AFE6400B20B70 /* DetailTextWireframe.swift in Sources */,
+				A9EABF5020135442004E031B /* SSRadioButton.swift in Sources */,
 				AE491E551F3AFE6400B20B70 /* RecordPresenterInterfaceIO.swift in Sources */,
 				AE491E561F3AFE6400B20B70 /* DetailProjectInteractor.swift in Sources */,
 				AE491E571F3AFE6400B20B70 /* DuplicateViewController.swift in Sources */,
@@ -6192,6 +6223,7 @@
 				AE491E9D1F3AFE6400B20B70 /* GalleryWireframe.swift in Sources */,
 				AE491E9E1F3AFE6400B20B70 /* FilterCollectionViewCell.swift in Sources */,
 				AE491E9F1F3AFE6400B20B70 /* ExportTemporalVideoToShare.swift in Sources */,
+				A9EABF4B20135442004E031B /* SSRadioButtonsController.swift in Sources */,
 				AE491EA01F3AFE6400B20B70 /* DrawerMenuInteractorInterface.swift in Sources */,
 				AE491EA11F3AFE6400B20B70 /* ViMoJoTracker.swift in Sources */,
 				AE491EA21F3AFE6400B20B70 /* MusicPresenter.swift in Sources */,

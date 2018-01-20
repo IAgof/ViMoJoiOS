@@ -10,6 +10,18 @@
 
 import Foundation
 
+enum RecordingCameraActions {
+    enum Camera {
+        case cameraPro
+        case cameraBasic
+    }
+ 
+    case camera(Camera)
+    case resolution(Resolution)
+    case fps(FrameRate)
+    case mbps(BitRate)
+}
+
 //MARK: Wireframe -
 protocol RecordingCameraConfigurationWireframeProtocol: class {
 
@@ -18,6 +30,9 @@ protocol RecordingCameraConfigurationWireframeProtocol: class {
 protocol RecordingCameraConfigurationPresenterProtocol: class {
 
     var interactor: RecordingCameraConfigurationInteractorInputProtocol? { get set }
+    
+    func viewDidLoad()
+    func actionPush(with action: RecordingCameraActions)
 }
 
 //MARK: Interactor -
@@ -29,6 +44,9 @@ protocol RecordingCameraConfigurationInteractorOutputProtocol: class {
 protocol RecordingCameraConfigurationInteractorInputProtocol: class {
 
     var presenter: RecordingCameraConfigurationInteractorOutputProtocol?  { get set }
+
+    func loadValues(completion: (RecordingCameraValues) -> Void )
+    func actionPush(with action: RecordingCameraActions)
 
     /* Presenter -> Interactor */
 }

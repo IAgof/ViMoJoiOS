@@ -84,13 +84,6 @@ enum BitRate {
     case sixteenMB
     case thirtyTwoMB
     
-//    init(value: Int) {
-//        switch value {
-//        case mega(16): self = .sixteenMB
-//        case mega(32): self = .thirtyTwoMB
-//        default: self = .sixteenMB
-//        }
-//    }
     var defaultsKey: String {
         return "VideoSettingsBitRate"
     }
@@ -109,17 +102,7 @@ enum BitRate {
 }
 enum VideoCodec {
     case H264
-    
-//    init(value: String?) {
-//        guard let value = value else {
-//            self = .H264
-//            return
-//        }
-//        switch value {
-//        case AVVideoCodecH264: self = .H264
-//        default: self = .H264
-//        }
-//    }
+
     var defaultsKey: String {
         return "VideoSettingsVideoCodec"
     }
@@ -131,7 +114,7 @@ enum VideoCodec {
 }
 enum FrameRate: NSNumber {
     case thirty = 30
-    case twentyFour = 24
+    case twentyFive = 25
     case sixty = 60
    
     var defaultsKey: String {

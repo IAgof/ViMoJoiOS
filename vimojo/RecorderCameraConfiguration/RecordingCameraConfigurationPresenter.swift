@@ -21,5 +21,13 @@ class RecordingCameraConfigurationPresenter: RecordingCameraConfigurationPresent
         self.interactor = interactor
         self.router = router
     }
-
+    
+    func viewDidLoad() {
+        interactor?.loadValues(completion: { (loadedValues) in
+            
+        })
+    }
+    func actionPush(with action: RecordingCameraActions) {
+        interactor?.actionPush(with: action)
+    }
 }
