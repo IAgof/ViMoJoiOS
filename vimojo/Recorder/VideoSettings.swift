@@ -15,12 +15,12 @@ public class VideoSettings {
     
     static var codec: VideoCodec = .H264 {
         didSet {
-			defaults.set(codec.value, forKey: codec.defaultsKey)
+			defaults.set(codec.rawValue, forKey: codec.defaultsKey)
         }
     }
     static var resolution: Resolution = .sevenHundred {
         didSet {
-            defaults.set(resolution.height, forKey: resolution.defaultsKey)
+            defaults.set(resolution.rawValue, forKey: resolution.defaultsKey)
         }
     }
     static var fps: FrameRate = .thirty {
@@ -30,13 +30,13 @@ public class VideoSettings {
     }
     static var bitRate: BitRate = .sixteenMB {
         didSet {
-            defaults.set(bitRate.value, forKey: bitRate.defaultsKey)
+            defaults.set(bitRate.rawValue, forKey: bitRate.defaultsKey)
         }
     }
     
     private static var compressionProperties: [String: Any] = [
         AVVideoAverageBitRateKey : bitRate.value,
-        AVVideoExpectedSourceFrameRateKey : fps.rawValue,
+        AVVideoExpectedSourceFrameRateKey : fps.value,
     ]
     public static var videoSettings: [String: Any] {
         return [
@@ -48,15 +48,15 @@ public class VideoSettings {
     }
     
     static func loadValues() {
-        codec = (defaults.object(forKey: codec.defaultsKey) as? VideoCodec) ?? .H264
-        resolution = (defaults.object(forKey: resolution.defaultsKey) as? Resolution) ?? .sevenHundred
-        bitRate = (defaults.object(forKey: bitRate.defaultsKey) as? BitRate) ?? .sixteenMB
-        fps = (defaults.object(forKey: fps.defaultsKey) as? FrameRate) ?? .thirty
+        codec = VideoCodec(rawValue: defaults.integer(forKey: codec.defaultsKey)) ?? .H264
+        resolution = Resolution(rawValue: defaults.integer(forKey: resolution.defaultsKey)) ?? .sevenHundred
+        bitRate = BitRate(rawValue: defaults.integer(forKey: bitRate.defaultsKey)) ?? .sixteenMB
+        fps = FrameRate(rawValue: defaults.integer(forKey: fps.defaultsKey)) ?? .thirty
     }
 }
 
-enum Resolution {
-    case sevenHundred
+enum Resolution: Int {
+    case sevenHundred = 0
     case oneThousand
     case fourThousand
     
@@ -70,7 +70,6 @@ enum Resolution {
         case .fourThousand: return 3840
         }
     }
-    
     var height: NSNumber {
         switch self {
         case .sevenHundred: return 720
@@ -79,9 +78,8 @@ enum Resolution {
         }
     }
 }
-enum BitRate {
-    
-    case sixteenMB
+enum BitRate: Int {
+    case sixteenMB = 0
     case thirtyTwoMB
     
     var defaultsKey: String {
@@ -92,7 +90,6 @@ enum BitRate {
             return 1024*1024*value
         }
     }
-    
     var value: Int {
         switch self {
         case .sixteenMB: return mega(16)
@@ -100,7 +97,7 @@ enum BitRate {
         }
     }
 }
-enum VideoCodec {
+enum VideoCodec: Int {
     case H264
 
     var defaultsKey: String {
@@ -112,12 +109,20 @@ enum VideoCodec {
         }
     }
 }
-enum FrameRate: NSNumber {
-    case thirty = 30
-    case twentyFive = 25
-    case sixty = 60
+enum FrameRate: Int {
+    case twentyFive = 0
+    case thirty
+    case sixty
    
     var defaultsKey: String {
         return "VideoSettingsFrameRate"
+    }
+    
+    var value: NSNumber {
+        switch self {
+        case .twentyFive: return 25
+        case .thirty: return 30
+        case .sixty: return 60
+        }
     }
 }

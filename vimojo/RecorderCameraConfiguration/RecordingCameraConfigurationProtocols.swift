@@ -11,8 +11,8 @@
 import Foundation
 
 enum RecordingCameraActions {
-    enum Camera {
-        case cameraPro
+    enum Camera: Int {
+        case cameraPro = 0
         case cameraBasic
     }
  

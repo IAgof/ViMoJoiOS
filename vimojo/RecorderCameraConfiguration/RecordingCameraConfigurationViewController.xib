@@ -37,6 +37,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLm-PZ-MER">
                     <rect key="frame" x="518" y="15" width="30" height="30"/>
                     <state key="normal" title="OK"/>
+                    <connections>
+                        <action selector="okPush:" destination="-1" eventType="touchUpInside" id="Tlx-tw-kl0"/>
+                    </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="v8P-E7-3Hs">
                     <rect key="frame" x="10" y="50" width="548" height="260"/>

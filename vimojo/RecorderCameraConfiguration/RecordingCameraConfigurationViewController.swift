@@ -11,7 +11,7 @@
 import UIKit
 
 class RecordingCameraConfigurationViewController: UIViewController, RecordingCameraConfigurationViewProtocol {
-
+    
     // MARK: Outlets
     @IBOutlet weak var cameraProButton: UIButton!
     @IBOutlet weak var cameraBasicButton: UIButton!
@@ -24,19 +24,37 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
     @IBOutlet weak var thirtyTwoMbpsButton: UIButton!
     
     // MARK: SSRadioControllers
-    var cameraSSRBController: SSRadioButtonsController?
-    var resolutionSSRBController: SSRadioButtonsController?
-    var fpsSSRBController: SSRadioButtonsController?
-    var mbpsSSRBController: SSRadioButtonsController?
-
+    var cameraSSRBController: SSRadioButtonsController = SSRadioButtonsController()
+    var resolutionSSRBController: SSRadioButtonsController = SSRadioButtonsController()
+    var fpsSSRBController: SSRadioButtonsController = SSRadioButtonsController()
+    var mbpsSSRBController: SSRadioButtonsController = SSRadioButtonsController()
+    
+    var cameraButtons: [UIButton] = []
+    var resolutionButtons: [UIButton] = []
+    var fpsButtons: [UIButton] = []
+    var mbpsButtons: [UIButton] = []
+    
     var presenter: RecordingCameraConfigurationPresenterProtocol?
-
-	override func viewDidLoad() {
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
-        cameraSSRBController = SSRadioButtonsController(buttons: cameraProButton, cameraBasicButton)
-        resolutionSSRBController = SSRadioButtonsController(buttons: sevenTwentyResolutionButton, oneEightyResolutionButton)
-        fpsSSRBController = SSRadioButtonsController(buttons: thirtyFpsButton, twentyFivefpsButton, sixtyFpsButton)
-        mbpsSSRBController = SSRadioButtonsController(buttons: sixtySixMbpsButton, thirtyTwoMbpsButton)
+        setUpButtonsArray()
+        setupSSControllers()
+        presenter?.viewDidLoad()
+    }
+    func setupSSControllers() {
+        cameraSSRBController.setButtonsArray(cameraButtons)
+        resolutionSSRBController.setButtonsArray(resolutionButtons)
+        fpsSSRBController.setButtonsArray(fpsButtons)
+        mbpsSSRBController.setButtonsArray(mbpsButtons)
+    }
+    func setUpButtonsArray() {
+        cameraButtons = [ cameraProButton, cameraBasicButton ]
+        fpsButtons = [twentyFivefpsButton, thirtyFpsButton, sixtyFpsButton]
+        mbpsButtons = [sixtySixMbpsButton, thirtyTwoMbpsButton]
+        resolutionButtons =
+            [sevenTwentyResolutionButton
+                , oneEightyResolutionButton]
     }
     // MARK: Actions
     @IBAction func cameraProPush(_ sender: Any)
@@ -45,17 +63,25 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
     { presenter?.actionPush(with: .camera(.cameraBasic)) }
     @IBAction func sevenTwentyResolutioPush(_ sender: Any)
     { presenter?.actionPush(with: .resolution(.sevenHundred)) }
-    @IBAction func oneEightyResolutionPush(_ sender: Any)    { presenter?.actionPush(with: .resolution(.oneThousand)) }
-    @IBAction func twentyFivefpsPush(_ sender: Any) { presenter?.actionPush(with: .fps(.twentyFive)) }
-    @IBAction func thirtyFpsPush(_ sender: Any) { presenter?.actionPush(with: .fps(.thirty)) }
-    @IBAction func sixtyFpsPush(_ sender: Any) { presenter?.actionPush(with: .fps(.sixty)) }
-    @IBAction func sixtySixMbpsPush(_ sender: Any) { presenter?.actionPush(with: .mbps(.sixteenMB)) }
-    @IBAction func thirtyTwoMbpsPush(_ sender: Any) { presenter?.actionPush(with: .mbps(.thirtyTwoMB)) }
-
-	func setDefaultValues(loadedValues: RecordingCameraValues) {
-		cameraSSRBController?.pressed(loadedValues.0)
-		resolutionSSRBController?.pressed(loadedValues.1)
-		fpsSSRBController?.pressed(loadedValues.2)
-		mbpsSSRBController?.pressed(loadedValues.3)
-	}
+    @IBAction func oneEightyResolutionPush(_ sender: Any)
+    { presenter?.actionPush(with: .resolution(.oneThousand)) }
+    @IBAction func twentyFivefpsPush(_ sender: Any)
+    { presenter?.actionPush(with: .fps(.twentyFive)) }
+    @IBAction func thirtyFpsPush(_ sender: Any)
+    { presenter?.actionPush(with: .fps(.thirty)) }
+    @IBAction func sixtyFpsPush(_ sender: Any)
+    { presenter?.actionPush(with: .fps(.sixty)) }
+    @IBAction func sixtySixMbpsPush(_ sender: Any)
+    { presenter?.actionPush(with: .mbps(.sixteenMB)) }
+    @IBAction func thirtyTwoMbpsPush(_ sender: Any)
+    { presenter?.actionPush(with: .mbps(.thirtyTwoMB)) }
+    @IBAction func okPush(_ sender: Any)
+    { self.navigationController?.popViewController() }
+    
+    func setDefaultValues(loadedValues: RecordingCameraValues) {
+        cameraSSRBController.pressed(cameraButtons[loadedValues.0.rawValue])
+        resolutionSSRBController.pressed(resolutionButtons[loadedValues.1.rawValue])
+        fpsSSRBController.pressed(fpsButtons[loadedValues.2.rawValue])
+        mbpsSSRBController.pressed(mbpsButtons[loadedValues.3.rawValue])
+    }
 }

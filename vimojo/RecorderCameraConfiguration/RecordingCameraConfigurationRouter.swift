@@ -27,9 +27,4 @@ class RecordingCameraConfigurationRouter: RecordingCameraConfigurationWireframeP
 
         return view
     }
-
-	static func presentSettingsInterfaceFromViewController(_ prevController: UIViewController) {
-		let viewController = RecordingCameraConfigurationRouter.createModule()
-		viewController.show(viewController, sender: nil)
-	}
 }

@@ -59,6 +59,7 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
     fileprivate func setUpVideoWriter(_ videoWriter: AVAssetWriter) {
         let videoWriterInput = AVAssetWriterInput(mediaType: AVMediaTypeVideo,
                                                   outputSettings: VideoSettings.videoSettings)
+        
         videoWriterInput.expectsMediaDataInRealTime = true
         if videoWriter.canAdd(videoWriterInput) {
             videoWriter.add(videoWriterInput)
@@ -90,7 +91,7 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
                                                project: actualProject)
                 self.setVideoUrlParameters(localIdentifier,
                                            project: actualProject)
-                Utils().removeFileFromURL(self.outputURL)
+//                Utils().removeFileFromURL(self.outputURL)
                 self.cameraDelegate.allowRecord()
             }
         }
