@@ -36,15 +36,11 @@ public class VideoSettings {
     
     private static var compressionProperties: [String: Any] = [
         AVVideoAverageBitRateKey : bitRate.value,
-        AVVideoExpectedSourceFrameRateKey : fps.value,
     ]
-    public static var videoSettings: [String: Any] {
-        return [
-            AVVideoCodecKey: codec.value,
-            AVVideoWidthKey: resolution.width,
-            AVVideoHeightKey: resolution.height,
-            AVVideoCompressionPropertiesKey: compressionProperties
-        ]
+    public static var videoSettings: [String: Any]? {
+        let outputSettings = AVOutputSettingsAssistant(preset: resolution.preset)
+        outputSettings?.sourceVideoAverageFrameDuration = CMTimeMake(1, Int32(fps.value))
+        return outputSettings?.videoSettings
     }
     
     static func loadValues() {
@@ -75,6 +71,13 @@ enum Resolution: Int {
         case .sevenHundred: return 720
         case .oneThousand: return 1080
         case .fourThousand: return 2160
+        }
+    }
+    var preset: String {
+        switch self {
+        case .sevenHundred: return AVOutputSettingsPreset1280x720
+        case .oneThousand: return AVOutputSettingsPreset1920x1080
+        case .fourThousand: return AVOutputSettingsPreset3840x2160
         }
     }
 }

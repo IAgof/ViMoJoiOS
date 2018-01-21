@@ -118,6 +118,7 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
             self.videoWriter!.finishWriting {
                 if self.videoWriter!.status == AVAssetWriterStatus.completed {
                     self.saveOnClipsAlbum()
+                    self.videoWriter = nil
                 }
             }
         }
