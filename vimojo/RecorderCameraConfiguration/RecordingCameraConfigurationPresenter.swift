@@ -24,7 +24,7 @@ class RecordingCameraConfigurationPresenter: RecordingCameraConfigurationPresent
     
     func viewDidLoad() {
         interactor?.loadValues(completion: { (loadedValues) in
-            
+			view?.setDefaultValues(loadedValues: loadedValues)
         })
     }
     func actionPush(with action: RecordingCameraActions) {

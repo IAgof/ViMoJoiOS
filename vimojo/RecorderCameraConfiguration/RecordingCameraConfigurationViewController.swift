@@ -51,4 +51,11 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
     @IBAction func sixtyFpsPush(_ sender: Any) { presenter?.actionPush(with: .fps(.sixty)) }
     @IBAction func sixtySixMbpsPush(_ sender: Any) { presenter?.actionPush(with: .mbps(.sixteenMB)) }
     @IBAction func thirtyTwoMbpsPush(_ sender: Any) { presenter?.actionPush(with: .mbps(.thirtyTwoMB)) }
+
+	func setDefaultValues(loadedValues: RecordingCameraValues) {
+		cameraSSRBController?.pressed(loadedValues.0)
+		resolutionSSRBController?.pressed(loadedValues.1)
+		fpsSSRBController?.pressed(loadedValues.2)
+		mbpsSSRBController?.pressed(loadedValues.3)
+	}
 }

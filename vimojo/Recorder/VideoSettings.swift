@@ -15,22 +15,22 @@ public class VideoSettings {
     
     static var codec: VideoCodec = .H264 {
         didSet {
-                defaults.set(codec, forKey: codec.defaultsKey)
+			defaults.set(codec.value, forKey: codec.defaultsKey)
         }
     }
     static var resolution: Resolution = .sevenHundred {
         didSet {
-            defaults.set(resolution, forKey: resolution.defaultsKey)
+            defaults.set(resolution.height, forKey: resolution.defaultsKey)
         }
     }
     static var fps: FrameRate = .thirty {
         didSet {
-            defaults.set(fps, forKey: fps.defaultsKey)
+            defaults.set(fps.rawValue, forKey: fps.defaultsKey)
         }
     }
     static var bitRate: BitRate = .sixteenMB {
         didSet {
-            defaults.set(bitRate, forKey: bitRate.defaultsKey)
+            defaults.set(bitRate.value, forKey: bitRate.defaultsKey)
         }
     }
     

@@ -14,19 +14,19 @@ public class AudioSettings {
     
     static var format: AudioFormat = .mpeg4 {
         didSet {
-            defaults.set(format, forKey: format.defaultsKey)
+            defaults.set(format.value, forKey: format.defaultsKey)
         }
     }
     // TODO: solve this, must not to be hardCoded
     private static var numberOfChannelsKey = 1
     static var sampleRateKey: AudioSampleRateKey = .fortyK {
         didSet {
-            defaults.set(sampleRateKey, forKey: sampleRateKey.defaultsKey)
+            defaults.set(sampleRateKey.value, forKey: sampleRateKey.defaultsKey)
         }
     }
     static var bitRateKey: AudioBitRateKey = .sixtyFourK {
         didSet {
-            defaults.set(bitRateKey, forKey: bitRateKey.defaultsKey)
+            defaults.set(bitRateKey.value, forKey: bitRateKey.defaultsKey)
         }
     }
     

@@ -80,7 +80,7 @@ class RecordWireframe: NSObject {
     }
 
     func presentSettingsInterface() {
-        recordViewController?.setNavigationBarHidden(isHidden: false)
-        settingsWireframe?.presentSettingsInterfaceFromViewController(recordViewController!)
+        recordViewController?.setNavigationBarHidden(isHidden: true)
+		RecordingCameraConfigurationRouter.presentSettingsInterfaceFromViewController(recordViewController!)
     }
 }
