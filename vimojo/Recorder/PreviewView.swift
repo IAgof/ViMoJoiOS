@@ -133,6 +133,7 @@ class PreviewView: UIView {
 		if !captureSession.isRunning {
 			videoQueue.async {
 				self.captureSession.startRunning()
+                VideoSettings.updateFps(with: self.activeInput.device)
 			}
 		}
 	}
@@ -149,6 +150,7 @@ class PreviewView: UIView {
 		if captureSession.canAddInput(input) {
 			captureSession.addInput(input)
 			activeInput = input
+            VideoSettings.updateFps(with: self.activeInput.device)
 		}
 	}
 }

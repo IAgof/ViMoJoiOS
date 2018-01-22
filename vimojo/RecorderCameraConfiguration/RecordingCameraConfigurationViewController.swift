@@ -19,7 +19,6 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
     @IBOutlet weak var oneEightyResolutionButton: UIButton!
     @IBOutlet weak var twentyFivefpsButton: UIButton!
     @IBOutlet weak var thirtyFpsButton: UIButton!
-    @IBOutlet weak var sixtyFpsButton: UIButton!
     @IBOutlet weak var sixtySixMbpsButton: UIButton!
     @IBOutlet weak var thirtyTwoMbpsButton: UIButton!
     
@@ -50,7 +49,7 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
     }
     func setUpButtonsArray() {
         cameraButtons = [ cameraProButton, cameraBasicButton ]
-        fpsButtons = [twentyFivefpsButton, thirtyFpsButton, sixtyFpsButton]
+        fpsButtons = [twentyFivefpsButton, thirtyFpsButton]
         mbpsButtons = [sixtySixMbpsButton, thirtyTwoMbpsButton]
         resolutionButtons =
             [sevenTwentyResolutionButton
@@ -69,8 +68,6 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
     { presenter?.actionPush(with: .fps(.twentyFive)) }
     @IBAction func thirtyFpsPush(_ sender: Any)
     { presenter?.actionPush(with: .fps(.thirty)) }
-    @IBAction func sixtyFpsPush(_ sender: Any)
-    { presenter?.actionPush(with: .fps(.sixty)) }
     @IBAction func sixtySixMbpsPush(_ sender: Any)
     { presenter?.actionPush(with: .mbps(.sixteenMB)) }
     @IBAction func thirtyTwoMbpsPush(_ sender: Any)

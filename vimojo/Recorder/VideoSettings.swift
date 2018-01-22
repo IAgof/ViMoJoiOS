@@ -33,14 +33,26 @@ public class VideoSettings {
             defaults.set(bitRate.rawValue, forKey: bitRate.defaultsKey)
         }
     }
-    
+    static func updateFps(with device: AVCaptureDevice) {
+        do {
+            try device.lockForConfiguration()
+            device.activeVideoMinFrameDuration = CMTime(value: 1, timescale: CMTimeScale(fps.value))
+            device.activeVideoMaxFrameDuration = CMTime(value: 1, timescale: CMTimeScale(fps.value))
+            device.unlockForConfiguration()
+        } catch {
+            return
+        }
+    }
     private static var compressionProperties: [String: Any] = [
         AVVideoAverageBitRateKey : bitRate.value,
     ]
-    public static var videoSettings: [String: Any]? {
-        let outputSettings = AVOutputSettingsAssistant(preset: resolution.preset)
-        outputSettings?.sourceVideoAverageFrameDuration = CMTimeMake(1, Int32(fps.value))
-        return outputSettings?.videoSettings
+    public static var videoSettings: [String: Any] {
+        return [
+            AVVideoCodecKey: codec.value,
+            AVVideoWidthKey: resolution.width,
+            AVVideoHeightKey: resolution.height,
+            AVVideoCompressionPropertiesKey: compressionProperties
+        ]
     }
     
     static func loadValues() {
@@ -115,7 +127,6 @@ enum VideoCodec: Int {
 enum FrameRate: Int {
     case twentyFive = 0
     case thirty
-    case sixty
    
     var defaultsKey: String {
         return "VideoSettingsFrameRate"
@@ -125,7 +136,6 @@ enum FrameRate: Int {
         switch self {
         case .twentyFive: return 25
         case .thirty: return 30
-        case .sixty: return 60
         }
     }
 }

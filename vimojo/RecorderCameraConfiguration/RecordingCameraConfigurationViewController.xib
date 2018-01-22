@@ -15,7 +15,6 @@
                 <outlet property="cameraProButton" destination="tFb-0u-fHV" id="y6H-B1-eXm"/>
                 <outlet property="oneEightyResolutionButton" destination="t2e-Yu-XbC" id="dDX-cB-Urj"/>
                 <outlet property="sevenTwentyResolutionButton" destination="9ZS-yE-OVr" id="S9s-c3-w2Q"/>
-                <outlet property="sixtyFpsButton" destination="xAU-Xv-v7d" id="VsD-8F-LgW"/>
                 <outlet property="sixtySixMbpsButton" destination="edn-Ke-fh6" id="6Sj-nM-21g"/>
                 <outlet property="thirtyFpsButton" destination="Nn0-ZM-SNw" id="abh-fy-wdI"/>
                 <outlet property="thirtyTwoMbpsButton" destination="KMF-rd-T5b" id="Nu7-Ex-hZS"/>
@@ -139,14 +138,6 @@
                                             <state key="normal" title="30fps"/>
                                             <connections>
                                                 <action selector="thirtyFpsPush:" destination="-1" eventType="touchUpInside" id="r6w-kj-al3"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAU-Xv-v7d">
-                                            <rect key="frame" x="146" y="36" width="41" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="60fps"/>
-                                            <connections>
-                                                <action selector="sixtyFpsPush:" destination="-1" eventType="touchUpInside" id="l77-JN-7Et"/>
                                             </connections>
                                         </button>
                                     </subviews>
