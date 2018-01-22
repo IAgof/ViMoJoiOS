@@ -33,7 +33,7 @@ public class VideoSettings {
             defaults.set(bitRate.rawValue, forKey: bitRate.defaultsKey)
         }
     }
-    static func updateFps(with device: AVCaptureDevice) {
+    static func updateFps(to device: AVCaptureDevice) {
         do {
             try device.lockForConfiguration()
             device.activeVideoMinFrameDuration = CMTime(value: 1, timescale: CMTimeScale(fps.value))
@@ -45,6 +45,7 @@ public class VideoSettings {
     }
     private static var compressionProperties: [String: Any] = [
         AVVideoAverageBitRateKey : bitRate.value,
+        AVVideoProfileLevelKey: AVVideoProfileLevelH264High40
     ]
     public static var videoSettings: [String: Any] {
         return [
@@ -85,11 +86,18 @@ enum Resolution: Int {
         case .fourThousand: return 2160
         }
     }
-    var preset: String {
-        switch self {
-        case .sevenHundred: return AVOutputSettingsPreset1280x720
-        case .oneThousand: return AVOutputSettingsPreset1920x1080
-        case .fourThousand: return AVOutputSettingsPreset3840x2160
+    var preset: (AVCaptureDevice) -> String {
+        return { device in
+            let isFrontCamera = device.position == .front
+            switch self {
+            case .sevenHundred:
+                return AVOutputSettingsPreset1280x720
+            case .oneThousand:
+                return AVOutputSettingsPreset1920x1080
+            case .fourThousand:
+                return isFrontCamera ?
+                AVOutputSettingsPreset3840x2160 : AVCaptureSessionPreset1920x1080
+            }
         }
     }
 }
