@@ -91,7 +91,7 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
                                                project: actualProject)
                 self.setVideoUrlParameters(localIdentifier,
                                            project: actualProject)
-//                Utils().removeFileFromURL(self.outputURL)
+                Utils().removeFileFromURL(self.outputURL)
                 self.cameraDelegate.allowRecord()
             }
         }
@@ -107,18 +107,14 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
             }
             setupWritter { closure() }
         }
-        else {
-            stopRecording()
-        }
     }
     public func stopRecording() {
         if isRecordingVideo {
             self.isRecordingVideo = false
             self.videoWriter?.endSession(atSourceTime: lastSampleTime)
-            self.videoWriter!.finishWriting {
+            self.videoWriter?.finishWriting {
                 if self.videoWriter!.status == AVAssetWriterStatus.completed {
                     self.saveOnClipsAlbum()
-                    self.videoWriter = nil
                 }
             }
         }
@@ -147,14 +143,14 @@ extension CameraInteractor: AVCaptureVideoDataOutputSampleBufferDelegate,
     
     func captureOutput(_ output: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!,
                        from connection: AVCaptureConnection!) {
+        lastSampleTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
         guard CMSampleBufferDataIsReady(sampleBuffer),
             isRecordingVideo,
             let videoWriter = self.videoWriter,
             let videoWriterInput = self.videoWriterInput,
             let audioWriterInput = self.audioWriterInput else { return }
-        
-        lastSampleTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
-        if videoWriter.status != AVAssetWriterStatus.writing {
+        let status = videoWriter.status
+        if status != .writing && status != .failed {
             videoWriter.startWriting()
             videoWriter.startSession(atSourceTime: lastSampleTime)
         }
