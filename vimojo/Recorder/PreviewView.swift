@@ -22,7 +22,9 @@ class PreviewView: UIView {
 	var captureSessionPreset = AVCaptureSessionPreset1280x720 {
 		didSet{
 			if captureSession.canSetSessionPreset(captureSessionPreset)
-			{ captureSession.sessionPreset = captureSessionPreset }
+			{
+                captureSession.sessionPreset = captureSessionPreset
+            }
 		}
 	}
 	var tempURL: URL? {
@@ -133,10 +135,14 @@ class PreviewView: UIView {
 		if !captureSession.isRunning {
 			videoQueue.async {
 				self.captureSession.startRunning()
-                VideoSettings.updateFps(with: self.activeInput.device)
+                self.configureDeviceVideoSettings()
 			}
 		}
 	}
+    private func configureDeviceVideoSettings () {
+        VideoSettings.updateFps(with: self.activeInput.device)
+        self.captureSessionPreset = VideoSettings.resolution.preset
+    }
 	public func stopSession() {
 		if captureSession.isRunning {
 			videoQueue.async {
