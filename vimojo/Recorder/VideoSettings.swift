@@ -135,6 +135,7 @@ enum VideoCodec: Int {
 enum FrameRate: Int {
     case twentyFive = 0
     case thirty
+	case sixty
    
     var defaultsKey: String {
         return "VideoSettingsFrameRate"
@@ -144,6 +145,7 @@ enum FrameRate: Int {
         switch self {
         case .twentyFive: return 25
         case .thirty: return 30
+		case .sixty: return 60
         }
     }
 }

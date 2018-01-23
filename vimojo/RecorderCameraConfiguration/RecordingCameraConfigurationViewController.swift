@@ -17,9 +17,11 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
     @IBOutlet weak var cameraBasicButton: UIButton!
     @IBOutlet weak var sevenTwentyResolutionButton: UIButton!
     @IBOutlet weak var oneEightyResolutionButton: UIButton!
-    @IBOutlet weak var twentyFivefpsButton: UIButton!
+	@IBOutlet weak var fourKResolutionButton: UIButton!
+	@IBOutlet weak var twentyFivefpsButton: UIButton!
     @IBOutlet weak var thirtyFpsButton: UIButton!
-    @IBOutlet weak var sixtySixMbpsButton: UIButton!
+	@IBOutlet weak var sixtyFpsButton: UIButton!
+    @IBOutlet weak var sixteenMbpsButton: UIButton!
     @IBOutlet weak var thirtyTwoMbpsButton: UIButton!
     
     // MARK: SSRadioControllers
@@ -49,11 +51,11 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
     }
     func setUpButtonsArray() {
         cameraButtons = [ cameraProButton, cameraBasicButton ]
-        fpsButtons = [twentyFivefpsButton, thirtyFpsButton]
-        mbpsButtons = [sixtySixMbpsButton, thirtyTwoMbpsButton]
+        fpsButtons = [twentyFivefpsButton, thirtyFpsButton, sixtyFpsButton]
+        mbpsButtons = [sixteenMbpsButton, thirtyTwoMbpsButton]
         resolutionButtons =
             [sevenTwentyResolutionButton
-                , oneEightyResolutionButton]
+				, oneEightyResolutionButton, fourKResolutionButton]
     }
     // MARK: Actions
     @IBAction func cameraProPush(_ sender: Any)
@@ -64,11 +66,15 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
     { presenter?.actionPush(with: .resolution(.sevenHundred)) }
     @IBAction func oneEightyResolutionPush(_ sender: Any)
     { presenter?.actionPush(with: .resolution(.oneThousand)) }
+	@IBAction func fourKResolutionPush(_ sender: Any)
+	{ presenter?.actionPush(with: .resolution(.fourThousand)) }
     @IBAction func twentyFivefpsPush(_ sender: Any)
     { presenter?.actionPush(with: .fps(.twentyFive)) }
     @IBAction func thirtyFpsPush(_ sender: Any)
     { presenter?.actionPush(with: .fps(.thirty)) }
-    @IBAction func sixtySixMbpsPush(_ sender: Any)
+	@IBAction func sixtyFpsPush(_ sender: Any)
+	{ presenter?.actionPush(with: .fps(.sixty)) }
+    @IBAction func sixteenMbpsButton(_ sender: Any)
     { presenter?.actionPush(with: .mbps(.sixteenMB)) }
     @IBAction func thirtyTwoMbpsPush(_ sender: Any)
     { presenter?.actionPush(with: .mbps(.thirtyTwoMB)) }

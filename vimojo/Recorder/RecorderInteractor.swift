@@ -37,18 +37,6 @@ class RecorderInteractor: RecorderInteractorInterface {
         return project!
     }
 
-    func getResolutionImage(_ resolution: String) {
-        let resolution = ResolutionImage(resolution: resolution)
-
-        if let resImage = resolution.image {
-            delegate?.resolutionImageFound(resImage)
-        }
-
-        if let resImagePressed = resolution.imagePressed {
-            delegate?.resolutionImagePressedFound(resImagePressed)
-        }
-    }
-
     func getResolution() -> String {
         guard let actualProject = project else {return AVCaptureSessionPreset1920x1080}
 

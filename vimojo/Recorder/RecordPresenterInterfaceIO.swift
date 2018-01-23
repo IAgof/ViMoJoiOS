@@ -137,10 +137,6 @@ protocol RecordPresenterDelegate {
     func showExposureModesView()
     func hideExposureModesView()
 
-    func setResolutionToView(_ resolution: String)
-    func setResolutionIconImage(_ image: UIImage)
-    func setResolutionIconImagePressed(_ image: UIImage)
-
     func hideThumbnailButtonAndLabel()
     func showThumbnailButtonAndLabel()
 
@@ -156,7 +152,6 @@ protocol RecordPresenterDelegate {
     func hideSecondaryRecordChronometerContainer()
 
     func setDefaultAllModes()
-    func buttonsWithRecording(isEnabled: Bool)
 
     func selectDeviceMicButton()
     func selectJackMicButton()
