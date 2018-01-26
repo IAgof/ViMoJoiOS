@@ -15,7 +15,7 @@ import Photos
 class EditorViewController: EditingRoomItemController, EditorPresenterDelegate, FullScreenWireframeDelegate,
 UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate {
 
-    // MARK: - VIPER variables
+	// MARK: - VIPER variables
     var eventHandler: EditorPresenterInterface?
 
     // MARK: - Variables
@@ -52,7 +52,7 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		UIApplication.shared.statusBarView?.backgroundColor = configuration.mainColor
         eventHandler?.viewDidLoad()
     }
 
@@ -65,7 +65,7 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        configureNavigationBarWithDrawerAndEditorOptions()
+		configureNavigationBarHidden()
         let value = UIInterfaceOrientation.portrait.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
     }
@@ -73,22 +73,6 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         eventHandler?.viewWillDisappear()
-    }
-
-    func configureNavigationBarWithDrawerAndEditorOptions() {
-		// let showSideSliderItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_drawer"), style: .plain, target: self, action: #selector(pushShowDrawer))
-		// let duplicateItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_clips_duplicate"), style: .plain, target: self, action: #selector(pushDuplicateClip(_:)))
-		// let trimItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_clips_trim"), style: .plain, target: self, action: #selector(pushTrimClip))
-		// let splitItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_clips_split"), style: .plain, target: self, action: #selector(pushDivideClip(_:)))
-		// let optionsItem = UIBarButtonItem(image: #imageLiteral(resourceName: "activity_edit_options"), style: .plain, target: self, action: #selector(pushOptions))
-		
-		// UIApplication.topViewController()?.navigationItem.rightBarButtonItems = [optionsItem, splitItem, duplicateItem, trimItem]
-		
-		UIApplication.topViewController()?.navigationItem.leftBarButtonItem = UIBarButtonItem(with: self, image: #imageLiteral(resourceName: "activity_edit_drawer"), selector: #selector(pushShowDrawer))
-		UIApplication.topViewController()?.navigationItem.rightBarButtonItems = [
-			UIBarButtonItem(with: self, image: #imageLiteral(resourceName: "activity_edit_clips_split"), selector: #selector(pushDivideClip), rect: CGRect(x: 0, y: 0, width: 22, height: 21)),
-			UIBarButtonItem(with: self, image: #imageLiteral(resourceName: "activity_edit_clips_duplicate"), selector: #selector(pushDuplicateClip(_:)), rect: CGRect(x: 0, y: 0, width: 22, height: 22)),
-			UIBarButtonItem(with: self, image: #imageLiteral(resourceName: "activity_edit_clips_trim"), selector: #selector(pushTrimClip), rect: CGRect(x: 0, y: 0, width: 29, height: 22))]
     }
 
     override func didReceiveMemoryWarning() {
@@ -157,7 +141,7 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
         eventHandler?.pushDuplicateHandler()
     }
 
-    func pushTrimClip() {
+	@IBAction func pushTrimClip(_ sender: AnyObject) {
         eventHandler?.pushTrimHandler()
     }
 
@@ -282,9 +266,9 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
     }
 
     func cameFromFullScreenPlayer(_ playerView: PlayerView) {
-        self.playerView.addSubview(playerView)
-        self.playerView.bringSubview(toFront: expandPlayerButton)
-        eventHandler?.updatePlayerLayer()
+		self.playerView.addSubview(playerView)
+		self.playerView.bringSubview(toFront: expandPlayerButton)
+		eventHandler?.updatePlayerLayer()
     }
 
     // MARK: - Drag and Drop handler

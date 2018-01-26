@@ -116,7 +116,7 @@ class MicRecorderPresenter: MicRecorderPresenterInterface {
         resetAudioParams()
         ViMoJoTracker.sharedInstance.trackVoiceOverAdded()
 
-        wireframe?.presentEditor()
+		wireframe?.removeController()
     }
 
     func cancelPushed() {

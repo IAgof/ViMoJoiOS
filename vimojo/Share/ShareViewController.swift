@@ -65,12 +65,10 @@ UITableViewDelegate, UITableViewDataSource, FullScreenWireframeDelegate {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-		configureNavigationBarVissible()
         eventHandler?.viewWillDisappear()
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        configureNavigationBarWithDrawerAndOptions()
         self.shareGenericButton.isHidden = true
         self.expandPlayerButton.isHidden = true
     }
@@ -234,7 +232,6 @@ extension ShareViewController:SharePresenterDelegate {
 			for button in buttons {
 				button.isHidden = false
 			}
-			self.configureNavigationBarVissible()
 			self.tabBarController?.tabBar.isHidden = false
         }
     }

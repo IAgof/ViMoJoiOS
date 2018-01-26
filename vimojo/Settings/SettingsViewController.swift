@@ -31,7 +31,12 @@ class SettingsViewController: ViMoJoController,
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
+		configureNavigationBarVissible()
 		UIApplication.topViewController()?.navigationItem.leftBarButtonItem = UIBarButtonItem(with: self, image: #imageLiteral(resourceName: "activity_edit_back"), selector: #selector(pushBackBarButton))
+	}
+
+	override func viewWillDisappear(_ animated: Bool) {
+		configureNavigationBarHidden()
 	}
 	
     // MARK: - Actions

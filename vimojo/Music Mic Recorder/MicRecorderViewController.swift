@@ -119,7 +119,6 @@ class MicRecorderViewController: ViMoJoController, PlayerViewSetter {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         eventHandler?.viewWillDisappear()
-		configureNavigationBarVissible()
     }
 
     override func didReceiveMemoryWarning() {

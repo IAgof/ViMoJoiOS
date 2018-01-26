@@ -217,6 +217,11 @@
                             <constraint firstAttribute="bottom" secondItem="JTi-Mc-F7L" secondAttribute="bottom" constant="15" id="tKv-Dg-G7g"/>
                             <constraint firstItem="SZn-wu-f2Y" firstAttribute="height" secondItem="4Ub-oa-8Vs" secondAttribute="height" multiplier="0.125" id="wx1-Ha-qsZ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="hK2-dv-6yA"/>
+                            </mask>
+                        </variation>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
@@ -466,20 +471,6 @@
                                     <constraint firstItem="kYm-Ep-AgN" firstAttribute="top" secondItem="23Q-6k-a99" secondAttribute="top" constant="10" id="n14-2Z-vQo"/>
                                     <constraint firstItem="1JI-oo-Oqe" firstAttribute="top" secondItem="kYm-Ep-AgN" secondAttribute="bottom" constant="13" id="tYt-vG-piX"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="2" height="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -500,6 +491,11 @@
                             <constraint firstItem="4wQ-2f-JFb" firstAttribute="top" secondItem="7Vs-XF-vIM" secondAttribute="bottom" id="veW-nw-kL4"/>
                             <constraint firstItem="23Q-6k-a99" firstAttribute="leading" secondItem="HJB-34-OpP" secondAttribute="leading" constant="15" id="xDF-8J-gBI"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Fd3-2Q-8bH"/>
+                            </mask>
+                        </variation>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
@@ -954,6 +950,11 @@
                             <constraint firstItem="ELx-Bp-jH5" firstAttribute="top" secondItem="xTC-kA-uQv" secondAttribute="bottom" id="p9p-jA-IRw"/>
                             <constraint firstItem="4eE-Cq-Gw0" firstAttribute="top" secondItem="HBS-zl-m0N" secondAttribute="bottom" constant="15" id="s0A-YC-PVs"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="4eE-Cq-Gw0"/>
+                            </mask>
+                        </variation>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
