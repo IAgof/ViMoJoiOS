@@ -11,14 +11,14 @@ import Foundation
 public class CamSettings {
 	static var defaults = UserDefaults.standard
 
-	static var cameraSimplePro: CameraStatus = .cameraPro {
+	static var cameraStatus: CameraStatus = .cameraPro {
 		didSet {
-			defaults.set(cameraSimplePro.rawValue, forKey: cameraSimplePro.defaultsKey)
+			defaults.set(cameraStatus.rawValue, forKey: cameraStatus.defaultsKey)
 		}
 	}
 
 	static func loadValues() {
-		cameraSimplePro = CameraStatus(rawValue: defaults.integer(forKey: cameraSimplePro.defaultsKey)) ?? .cameraPro
+		cameraStatus = CameraStatus(rawValue: defaults.integer(forKey: cameraStatus.defaultsKey)) ?? .cameraPro
 	}
 }
 

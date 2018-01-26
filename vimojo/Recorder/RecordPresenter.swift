@@ -116,10 +116,9 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         delegate?.checkCameraProSupportedFeatures()
         DispatchQueue.main.async(execute: {
             self.delegate?.resizeAllIcons()
-			if CamSettings.cameraSimplePro.value == 0 {
-				self.pushCameraPro()
-			} else {
-				self.pushCameraSimple()
+			switch(CamSettings.cameraStatus) {
+			case .cameraPro: self.pushCameraPro()
+			case .cameraBasic: self.pushCameraSimple()
 			}
 			self.rotateCamera()
         })
@@ -172,7 +171,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 	
 	func pushCameraPro() {
 		// TO-DO: This must be in interactor and not presenter
-		CamSettings.cameraSimplePro = CameraStatus.cameraPro
+		CamSettings.cameraStatus = .cameraPro
 		DispatchQueue.main.async(execute: {
 			self.delegate?.hideCameraSimpleView()
 			self.delegate?.showUpperContainerView()

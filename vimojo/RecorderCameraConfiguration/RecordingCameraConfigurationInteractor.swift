@@ -20,7 +20,7 @@ class RecordingCameraConfigurationInteractor: RecordingCameraConfigurationIntera
     
     func loadValues(completion: (RecordingCameraValues) -> Void ) {
         completion((
-            CamSettings.cameraSimplePro,
+            CamSettings.cameraStatus,
             VideoSettings.resolution,
             VideoSettings.fps,
             VideoSettings.bitRate))
@@ -28,7 +28,7 @@ class RecordingCameraConfigurationInteractor: RecordingCameraConfigurationIntera
     func actionPush(with action: RecordingCameraActions){
         switch action {
         case .camera(let camera):
-			CamSettings.cameraSimplePro = camera
+			CamSettings.cameraStatus = camera
         case .resolution(let resolution):
             VideoSettings.resolution = resolution
         case .fps(let fps):
