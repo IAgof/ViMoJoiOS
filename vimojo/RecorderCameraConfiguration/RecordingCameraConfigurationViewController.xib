@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecordingCameraConfigurationViewController">
+            <connections>
+                <outlet property="cameraBasicButton" destination="7PJ-Yb-X6V" id="jqe-Bc-EiH"/>
+                <outlet property="cameraProButton" destination="tFb-0u-fHV" id="y6H-B1-eXm"/>
+                <outlet property="fourKResolutionButton" destination="tWA-us-2Kf" id="6vv-lj-ewi"/>
+                <outlet property="okButton" destination="vLm-PZ-MER" id="DS6-ds-jbc"/>
+                <outlet property="oneEightyResolutionButton" destination="t2e-Yu-XbC" id="dDX-cB-Urj"/>
+                <outlet property="sevenTwentyResolutionButton" destination="9ZS-yE-OVr" id="S9s-c3-w2Q"/>
+                <outlet property="sixteenMbpsButton" destination="edn-Ke-fh6" id="TZp-Ri-XRY"/>
+                <outlet property="sixtyFpsButton" destination="xAU-Xv-v7d" id="Lbi-Yq-4fn"/>
+                <outlet property="thirtyFpsButton" destination="Nn0-ZM-SNw" id="abh-fy-wdI"/>
+                <outlet property="thirtyTwoMbpsButton" destination="KMF-rd-T5b" id="Nu7-Ex-hZS"/>
+                <outlet property="twentyFivefpsButton" destination="XIy-DO-3tp" id="t6e-Re-Ysk"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ajuste de cámara" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xgu-oq-7c5">
+                    <rect key="frame" x="10" y="15" width="133" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLm-PZ-MER">
+                    <rect key="frame" x="518" y="15" width="30" height="30"/>
+                    <state key="normal" title="OK"/>
+                    <connections>
+                        <action selector="okPush:" destination="-1" eventType="touchUpInside" id="Tlx-tw-kl0"/>
+                    </connections>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="v8P-E7-3Hs">
+                    <rect key="frame" x="10" y="50" width="548" height="260"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IUg-QB-wPp">
+                            <rect key="frame" x="0.0" y="0.0" width="548" height="125"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sPu-Ia-UKs">
+                                    <rect key="frame" x="0.0" y="0.0" width="269" height="125"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Camera pro/basica" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0DK-Hi-zaZ">
+                                            <rect key="frame" x="57.5" y="10" width="155" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7PJ-Yb-X6V" customClass="SSRadioButton" customModule="M4N" customModuleProvider="target">
+                                            <rect key="frame" x="40" y="65" width="219" height="30"/>
+                                            <state key="normal" title="Camara basica"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="cameraBasicPush:" destination="-1" eventType="touchUpInside" id="IUi-2J-goj"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tFb-0u-fHV" customClass="SSRadioButton" customModule="M4N" customModuleProvider="target">
+                                            <rect key="frame" x="40" y="35" width="219" height="30"/>
+                                            <state key="normal" title="Camara pro"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="cameraProPush:" destination="-1" eventType="touchUpInside" id="Mdb-bk-3NH"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="7PJ-Yb-X6V" secondAttribute="trailing" constant="10" id="6UN-gd-JnO"/>
+                                        <constraint firstItem="tFb-0u-fHV" firstAttribute="leading" secondItem="sPu-Ia-UKs" secondAttribute="leading" constant="40" id="6Vw-Cj-2fy"/>
+                                        <constraint firstItem="tFb-0u-fHV" firstAttribute="top" secondItem="0DK-Hi-zaZ" secondAttribute="bottom" constant="5" id="L51-iy-FZ3"/>
+                                        <constraint firstItem="0DK-Hi-zaZ" firstAttribute="centerX" secondItem="sPu-Ia-UKs" secondAttribute="centerX" id="V6e-zJ-7kj"/>
+                                        <constraint firstItem="0DK-Hi-zaZ" firstAttribute="top" secondItem="sPu-Ia-UKs" secondAttribute="top" constant="10" id="Yiw-cA-why"/>
+                                        <constraint firstItem="7PJ-Yb-X6V" firstAttribute="leading" secondItem="sPu-Ia-UKs" secondAttribute="leading" constant="40" id="anb-YN-qO9"/>
+                                        <constraint firstAttribute="trailing" secondItem="tFb-0u-fHV" secondAttribute="trailing" constant="10" id="bqY-ss-nwK"/>
+                                        <constraint firstItem="7PJ-Yb-X6V" firstAttribute="top" secondItem="tFb-0u-fHV" secondAttribute="bottom" id="fHN-Cc-Tsj"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TWZ-4c-1F2">
+                                    <rect key="frame" x="279" y="0.0" width="269" height="125"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resolución" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCN-Ih-1g9">
+                                            <rect key="frame" x="89.5" y="8" width="90" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ZS-yE-OVr" customClass="SSRadioButton" customModule="M4N" customModuleProvider="target">
+                                            <rect key="frame" x="40" y="33.5" width="219" height="30"/>
+                                            <state key="normal" title="720p"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="sevenTwentyResolutioPush:" destination="-1" eventType="touchUpInside" id="jeP-fv-Zwu"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2e-Yu-XbC" customClass="SSRadioButton" customModule="M4N" customModuleProvider="target">
+                                            <rect key="frame" x="40" y="63.5" width="219" height="30"/>
+                                            <state key="normal" title="1080p"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="oneEightyResolutionPush:" destination="-1" eventType="touchUpInside" id="Isi-oi-My0"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWA-us-2Kf" customClass="SSRadioButton" customModule="M4N" customModuleProvider="target">
+                                            <rect key="frame" x="40" y="93.5" width="219" height="30"/>
+                                            <state key="normal" title="4K"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="fourKResolutionPush:" destination="-1" eventType="touchUpInside" id="NCa-0m-bdT"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="9ZS-yE-OVr" firstAttribute="top" secondItem="lCN-Ih-1g9" secondAttribute="bottom" constant="5" id="1by-mX-e0Q"/>
+                                        <constraint firstAttribute="trailing" secondItem="9ZS-yE-OVr" secondAttribute="trailing" constant="10" id="Abq-Yo-19x"/>
+                                        <constraint firstItem="t2e-Yu-XbC" firstAttribute="top" secondItem="9ZS-yE-OVr" secondAttribute="bottom" id="CkH-ub-nqB"/>
+                                        <constraint firstItem="t2e-Yu-XbC" firstAttribute="leading" secondItem="TWZ-4c-1F2" secondAttribute="leading" constant="40" id="Jt4-Bz-BMr"/>
+                                        <constraint firstItem="9ZS-yE-OVr" firstAttribute="leading" secondItem="TWZ-4c-1F2" secondAttribute="leading" constant="40" id="Kxs-P5-ZQI"/>
+                                        <constraint firstItem="lCN-Ih-1g9" firstAttribute="centerX" secondItem="TWZ-4c-1F2" secondAttribute="centerX" id="SCD-fT-n8l"/>
+                                        <constraint firstAttribute="trailing" secondItem="tWA-us-2Kf" secondAttribute="trailing" constant="10" id="Zmg-Cu-Heb"/>
+                                        <constraint firstItem="tWA-us-2Kf" firstAttribute="top" secondItem="t2e-Yu-XbC" secondAttribute="bottom" id="e1d-kd-mgl"/>
+                                        <constraint firstItem="lCN-Ih-1g9" firstAttribute="top" secondItem="TWZ-4c-1F2" secondAttribute="top" constant="8" id="qgR-FU-3SB"/>
+                                        <constraint firstAttribute="trailing" secondItem="t2e-Yu-XbC" secondAttribute="trailing" constant="10" id="t1q-xf-eHo"/>
+                                        <constraint firstItem="tWA-us-2Kf" firstAttribute="leading" secondItem="TWZ-4c-1F2" secondAttribute="leading" constant="40" id="tfY-UW-akI"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WcA-QG-RsG">
+                            <rect key="frame" x="0.0" y="135" width="548" height="125"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWC-hb-k86">
+                                    <rect key="frame" x="0.0" y="0.0" width="269" height="125"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frame rate (aprox)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOD-wN-tBX">
+                                            <rect key="frame" x="58.5" y="8" width="152.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIy-DO-3tp" customClass="SSRadioButton" customModule="M4N" customModuleProvider="target">
+                                            <rect key="frame" x="40" y="33.5" width="219" height="30"/>
+                                            <state key="normal" title="25fps"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="twentyFivefpsPush:" destination="-1" eventType="touchUpInside" id="Cop-FD-U0f"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nn0-ZM-SNw" customClass="SSRadioButton" customModule="M4N" customModuleProvider="target">
+                                            <rect key="frame" x="40" y="63.5" width="219" height="30"/>
+                                            <state key="normal" title="30fps"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="thirtyFpsPush:" destination="-1" eventType="touchUpInside" id="r6w-kj-al3"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAU-Xv-v7d" customClass="SSRadioButton" customModule="M4N" customModuleProvider="target">
+                                            <rect key="frame" x="40" y="93.5" width="219" height="30"/>
+                                            <state key="normal" title="60fps"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="sixtyFpsPush:" destination="-1" eventType="touchUpInside" id="ArM-dl-z3t"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="XIy-DO-3tp" secondAttribute="trailing" constant="10" id="4qg-tW-pRt"/>
+                                        <constraint firstItem="XIy-DO-3tp" firstAttribute="top" secondItem="MOD-wN-tBX" secondAttribute="bottom" constant="5" id="9Ch-HX-P41"/>
+                                        <constraint firstItem="XIy-DO-3tp" firstAttribute="leading" secondItem="HWC-hb-k86" secondAttribute="leading" constant="40" id="AKt-vY-iic"/>
+                                        <constraint firstItem="Nn0-ZM-SNw" firstAttribute="leading" secondItem="HWC-hb-k86" secondAttribute="leading" constant="40" id="HLs-88-4IR"/>
+                                        <constraint firstItem="xAU-Xv-v7d" firstAttribute="leading" secondItem="HWC-hb-k86" secondAttribute="leading" constant="40" id="KMF-ek-m8y"/>
+                                        <constraint firstItem="Nn0-ZM-SNw" firstAttribute="top" secondItem="XIy-DO-3tp" secondAttribute="bottom" id="Tc3-hi-akt"/>
+                                        <constraint firstItem="MOD-wN-tBX" firstAttribute="centerX" secondItem="HWC-hb-k86" secondAttribute="centerX" id="ZQ1-c3-cHd"/>
+                                        <constraint firstAttribute="trailing" secondItem="Nn0-ZM-SNw" secondAttribute="trailing" constant="10" id="ZiA-hK-hTs"/>
+                                        <constraint firstAttribute="trailing" secondItem="xAU-Xv-v7d" secondAttribute="trailing" constant="10" id="cgk-BC-AuM"/>
+                                        <constraint firstItem="MOD-wN-tBX" firstAttribute="top" secondItem="HWC-hb-k86" secondAttribute="top" constant="8" id="qcQ-rR-oxn"/>
+                                        <constraint firstItem="xAU-Xv-v7d" firstAttribute="top" secondItem="Nn0-ZM-SNw" secondAttribute="bottom" id="sTV-nw-RWq"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="xAU-Xv-v7d"/>
+                                        </mask>
+                                    </variation>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TkN-JN-sdM">
+                                    <rect key="frame" x="279" y="0.0" width="269" height="125"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calidad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1F-uM-t7q">
+                                            <rect key="frame" x="103.5" y="8" width="62" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edn-Ke-fh6" customClass="SSRadioButton" customModule="M4N" customModuleProvider="target">
+                                            <rect key="frame" x="40" y="33" width="219" height="30"/>
+                                            <state key="normal" title="16 Mbps"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="sixteenMbpsButton:" destination="-1" eventType="touchUpInside" id="1Jm-I0-vyH"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMF-rd-T5b" customClass="SSRadioButton" customModule="M4N" customModuleProvider="target">
+                                            <rect key="frame" x="40" y="63" width="219" height="30"/>
+                                            <state key="normal" title="32 Mbps"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="thirtyTwoMbpsPush:" destination="-1" eventType="touchUpInside" id="iXG-eI-SXy"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="H1F-uM-t7q" firstAttribute="top" secondItem="TkN-JN-sdM" secondAttribute="top" constant="8" id="Di3-Gd-Flz"/>
+                                        <constraint firstItem="H1F-uM-t7q" firstAttribute="centerX" secondItem="TkN-JN-sdM" secondAttribute="centerX" id="ELk-oF-12m"/>
+                                        <constraint firstItem="KMF-rd-T5b" firstAttribute="leading" secondItem="TkN-JN-sdM" secondAttribute="leading" constant="40" id="K3k-Ki-6zf"/>
+                                        <constraint firstAttribute="trailing" secondItem="KMF-rd-T5b" secondAttribute="trailing" constant="10" id="Kmu-2h-f8S"/>
+                                        <constraint firstItem="edn-Ke-fh6" firstAttribute="leading" secondItem="TkN-JN-sdM" secondAttribute="leading" constant="40" id="gOw-Zq-E9Z"/>
+                                        <constraint firstAttribute="trailing" secondItem="edn-Ke-fh6" secondAttribute="trailing" constant="10" id="lid-Hc-Kb9"/>
+                                        <constraint firstItem="KMF-rd-T5b" firstAttribute="top" secondItem="edn-Ke-fh6" secondAttribute="bottom" id="pNj-kn-Gwf"/>
+                                        <constraint firstItem="edn-Ke-fh6" firstAttribute="top" secondItem="H1F-uM-t7q" secondAttribute="bottom" constant="5" id="rHH-fK-eOH"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="vLm-PZ-MER" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="XAU-p0-P0j"/>
+                <constraint firstItem="Xgu-oq-7c5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="cLv-LM-DDz"/>
+                <constraint firstItem="v8P-E7-3Hs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="eAR-GX-Uaj"/>
+                <constraint firstAttribute="trailing" secondItem="vLm-PZ-MER" secondAttribute="trailing" constant="20" id="f5a-xh-9Gt"/>
+                <constraint firstItem="v8P-E7-3Hs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="jeM-8C-ZcL"/>
+                <constraint firstAttribute="trailing" secondItem="v8P-E7-3Hs" secondAttribute="trailing" constant="10" id="kFA-tu-amo"/>
+                <constraint firstAttribute="bottom" secondItem="v8P-E7-3Hs" secondAttribute="bottom" constant="10" id="l9X-B5-8xi"/>
+                <constraint firstItem="Xgu-oq-7c5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="w6h-g2-S1G"/>
+            </constraints>
+            <point key="canvasLocation" x="-12" y="37"/>
+        </view>
+    </objects>
+</document>

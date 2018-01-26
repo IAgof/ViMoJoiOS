@@ -11,6 +11,13 @@ import UIKit
 import Mixpanel
 import SwifterSwift
 
+public func printIsolated(message: String = "",
+                          object: Any) {
+    print("--------------\(message)-----------------")
+    print(object)
+    print("-------------------------------")
+}
+
 public class ViMoJoController: UIViewController,
 ViMoJoInterface {
 
