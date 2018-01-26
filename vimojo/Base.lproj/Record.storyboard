@@ -251,10 +251,10 @@
                                         <rect key="frame" x="15" y="10" width="568.5" height="45"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uJI-6M-3RO">
-                                                <rect key="frame" x="5" y="4" width="199" height="37"/>
+                                                <rect key="frame" x="5" y="4" width="170.5" height="37"/>
                                                 <subviews>
                                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwJ-gK-90e">
-                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="37"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="42.5" height="37"/>
                                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                                         <state key="normal" image="activity_record_ic_settings"/>
                                                         <state key="selected" image="activity_record_ic_settings_pressed"/>
@@ -269,14 +269,14 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhg-e3-51Y" userLabel="Show Camera Simple Button">
-                                                        <rect key="frame" x="40" y="0.0" width="39.5" height="37"/>
+                                                        <rect key="frame" x="42.5" y="0.0" width="43" height="37"/>
                                                         <state key="normal" image="activity_rec_expand"/>
                                                         <connections>
                                                             <action selector="pushCameraSimple:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="Cf6-jO-aI8"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8j-Vd-5dC">
-                                                        <rect key="frame" x="79.5" y="0.0" width="40" height="37"/>
+                                                        <rect key="frame" x="85.5" y="0.0" width="42.5" height="37"/>
                                                         <state key="normal" image="activity_record_memory_100"/>
                                                         <state key="selected" image="activity_record_memory_100"/>
                                                         <state key="highlighted" image="activity_record_memory_100"/>
@@ -285,21 +285,12 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veW-ha-Wav">
-                                                        <rect key="frame" x="119.5" y="0.0" width="39.5" height="37"/>
+                                                        <rect key="frame" x="128" y="0.0" width="42.5" height="37"/>
                                                         <state key="normal" image="activity_record_battery_100"/>
                                                         <state key="selected" image="activity_record_battery_100_pressed"/>
                                                         <state key="highlighted" image="activity_record_battery_100_pressed"/>
                                                         <connections>
                                                             <action selector="pushBattery:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="HSS-iy-Dzy"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6R-qJ-vTS">
-                                                        <rect key="frame" x="159" y="0.0" width="40" height="37"/>
-                                                        <state key="normal" image="activity_rec_resolution_1080"/>
-                                                        <state key="selected" image="activity_rec_resolution_1080_pressed"/>
-                                                        <state key="highlighted" image="activity_rec_resolution_1080_pressed"/>
-                                                        <connections>
-                                                            <action selector="pushResolution:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="Gpf-gM-kTU"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -355,7 +346,7 @@
                                         <constraints>
                                             <constraint firstItem="m5U-jD-h1y" firstAttribute="width" secondItem="nbb-jx-SNd" secondAttribute="width" multiplier="0.3" id="0S4-id-UFw"/>
                                             <constraint firstItem="uJI-6M-3RO" firstAttribute="leading" secondItem="nbb-jx-SNd" secondAttribute="leading" constant="5" id="66Z-B9-kmW"/>
-                                            <constraint firstItem="uJI-6M-3RO" firstAttribute="width" secondItem="nbb-jx-SNd" secondAttribute="width" multiplier="0.35" id="9rl-S5-Ap6"/>
+                                            <constraint firstItem="uJI-6M-3RO" firstAttribute="width" secondItem="nbb-jx-SNd" secondAttribute="width" multiplier="0.3" id="9rl-S5-Ap6"/>
                                             <constraint firstItem="J1b-y4-awN" firstAttribute="top" secondItem="nbb-jx-SNd" secondAttribute="top" constant="9" id="DPS-tY-mfv"/>
                                             <constraint firstItem="m5U-jD-h1y" firstAttribute="centerY" secondItem="nbb-jx-SNd" secondAttribute="centerY" id="Egy-WM-Rue"/>
                                             <constraint firstItem="uJI-6M-3RO" firstAttribute="centerY" secondItem="nbb-jx-SNd" secondAttribute="centerY" id="J1M-wg-9P4"/>
@@ -681,7 +672,6 @@
                         <outlet property="recordAreaContainerView" destination="8Aq-i6-oZd" id="gEO-H8-h0n"/>
                         <outlet property="recordButton" destination="YP7-c0-irG" id="EZw-ft-NyL"/>
                         <outlet property="recordingIndicator" destination="Ieq-fI-exk" id="mRi-hd-cds"/>
-                        <outlet property="resolutionButton" destination="l6R-qJ-vTS" id="XtJ-UP-FJ7"/>
                         <outlet property="resolutionsView" destination="Iei-TN-55D" id="OML-OV-gLE"/>
                         <outlet property="secondaryChronometerLabel" destination="RHA-0I-LE1" id="uh0-Bd-zCi"/>
                         <outlet property="secondaryRecordButton" destination="sVO-Ig-tAv" id="zkU-h3-4do"/>
@@ -816,8 +806,6 @@
         <image name="activity_rec_new_project" width="70" height="59"/>
         <image name="activity_rec_phone_micro_activated_normal" width="16" height="20"/>
         <image name="activity_rec_plus" width="11" height="11"/>
-        <image name="activity_rec_resolution_1080" width="23" height="12"/>
-        <image name="activity_rec_resolution_1080_pressed" width="23" height="12"/>
         <image name="activity_rec_rotate" width="26" height="27"/>
         <image name="activity_rec_rotate_pressed" width="26" height="27"/>
         <image name="activity_rec_show_projects" width="11" height="20"/>

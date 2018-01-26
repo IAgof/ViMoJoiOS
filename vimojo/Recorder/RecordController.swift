@@ -21,7 +21,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     @IBOutlet weak var configModesButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var secondaryRecordButton: UIButton!
-    @IBOutlet weak var resolutionButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
 //    @IBOutlet weak var showModeViewButton: UIButton!
     @IBOutlet weak var hideModeViewButton: UIButton!
@@ -105,12 +104,15 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-		eventHandler?.viewDidLoad(parameters: RecorderParameters(movieOutput: previewView.movieOutput,
+		eventHandler?.viewDidLoad(parameters: RecorderParameters(
 																 activeInput: previewView.activeInput,
-																 outputURL: previewView.tempURL))
+                                                                 dataOutput: previewView.dataOutput,
+                                                                 audioDataOutput: previewView.audioDataOutput,
+                                                                 outputURL: previewView.tempURL))
         self.configureViews()
         // Try to allow rotation -- It's just boring to landscape the capture in a static mode
         configureRotationObserver()
+		
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -278,8 +280,10 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         eventHandler?.pushFlash()
     }
 
+    public static var isFrontCamera: Bool = false
     @IBAction func pushRotateCamera(_ sender: AnyObject) {
-		previewView.rotateCamera()
+		RecordController.isFrontCamera.toggle()
+        previewView.rotateCamera()
 		eventHandler?.rotateCamera()
     }
 
@@ -317,10 +321,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 
     @IBAction func pushBattery(_ sender: AnyObject) {
         eventHandler?.pushBattery()
-    }
-
-    @IBAction func pushResolution(_ sender: AnyObject) {
-        eventHandler?.pushResolution()
     }
 
     // Display or hide the gain slider depending of its status
@@ -811,14 +811,6 @@ extension RecordController:RecordPresenterDelegate {
         resolutionsView.setResolutionAtInit(resolution)
     }
 
-    func setResolutionIconImage(_ image: UIImage) {
-        resolutionButton.setImage(image, for: UIControlState())
-    }
-    func setResolutionIconImagePressed(_ image: UIImage) {
-        resolutionButton.setImage(image, for: .highlighted)
-        resolutionButton.setImage(image, for: .selected)
-    }
-
     func hideThumbnailButtonAndLabel() {
         fadeOutView([thumbnailViewParent])
     }
@@ -871,10 +863,6 @@ extension RecordController:RecordPresenterDelegate {
         focusView.setAutoFocus()
         expositionModesView.setAutoExposure()
 		defaultModesButton.isSelected = true
-    }
-
-    func buttonsWithRecording(isEnabled: Bool) {
-        resolutionButton.isEnabled = isEnabled
     }
 	
 	func hideSettingsContainerView() {
@@ -991,12 +979,10 @@ extension RecordController:RecordPresenterDelegate {
     }
     
     func showResolutionView() {
-        resolutionButton.isSelected = true
         fadeInView([resolutionsView])
     }
     
     func hideResolutionView() {
-        resolutionButton.isSelected = false
         fadeOutView([resolutionsView])
     }
 	func enableIdleTimer(_ value: Bool) {

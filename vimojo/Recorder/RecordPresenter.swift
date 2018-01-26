@@ -112,14 +112,14 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     }
 
     func viewWillAppear() {
-        if let resolution = interactor?.getResolution() {
-            delegate?.setResolutionToView(resolution)
-        }
-
         self.updateThumbnail()
         delegate?.checkCameraProSupportedFeatures()
         DispatchQueue.main.async(execute: {
             self.delegate?.resizeAllIcons()
+			switch(CamSettings.cameraStatus) {
+			case .cameraPro: self.pushCameraPro()
+			case .cameraBasic: self.pushCameraSimple()
+			}
 			self.rotateCamera()
         })
     }
@@ -170,6 +170,8 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 	}
 	
 	func pushCameraPro() {
+		// TO-DO: This must be in interactor and not presenter
+		CamSettings.cameraStatus = .cameraPro
 		DispatchQueue.main.async(execute: {
 			self.delegate?.hideCameraSimpleView()
 			self.delegate?.showUpperContainerView()
@@ -463,11 +465,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     }
 
     func saveResolutionToDefaults(_ resolution: String) {
-
         interactor?.saveResolution(resolution: resolution)
-
-
-        interactor?.getResolutionImage(resolution)
     }
 
     // MARK: - Inner functions
@@ -499,7 +497,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 			  self.delegate?.hideThumbnailButtonAndLabel()
 			  self.delegate?.startRecordingIndicatorBlink()
 			  self.delegate?.startSecondaryRecordingIndicatorBlink()
-			  self.delegate?.buttonsWithRecording(isEnabled: false)
 			  self.delegate?.showDrawerButton()
 			}
 		})
@@ -509,7 +506,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
 	func stopRecord(_ sender: String) {
         self.trackStopRecord()
-        delegate?.buttonsWithRecording(isEnabled: true)
 
         isRecording = false
         DispatchQueue.global().async {
@@ -564,11 +560,8 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     }
     
     func pushHideMode() {
-//        delegate?.hideModeViewAndButtonStateEnabled()
-//        delegate?.showModeViewAndButtonStateDisabled()
-
         self.hideAllModeConfigsIfNeccesary()
-        
+
         if !modeViewIsShowed {
             modeViewIsShowed = true
             delegate?.showVideoSettingsConfig()
@@ -886,15 +879,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     func updateTimer(_ time: String) {
         delegate?.updateChronometer(time)
     }
-
 }
 
 extension RecordPresenter:RecorderInteractorDelegate {
-    func resolutionImageFound(_ image: UIImage) {
-        delegate?.setResolutionIconImage(image)
-    }
-
-    func resolutionImagePressedFound(_ image: UIImage) {
-        delegate?.setResolutionIconImagePressed(image)
-    }
 }
