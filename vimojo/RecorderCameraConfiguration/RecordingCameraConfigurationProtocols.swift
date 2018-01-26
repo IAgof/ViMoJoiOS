@@ -11,12 +11,7 @@
 import Foundation
 
 enum RecordingCameraActions {
-    enum Camera: Int {
-        case cameraPro = 0
-        case cameraBasic
-    }
- 
-    case camera(Camera)
+    case camera(CameraStatus)
     case resolution(Resolution)
     case fps(FrameRate)
     case mbps(BitRate)
