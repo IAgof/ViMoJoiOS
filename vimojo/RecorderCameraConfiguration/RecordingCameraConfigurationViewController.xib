@@ -14,6 +14,7 @@
                 <outlet property="cameraBasicButton" destination="7PJ-Yb-X6V" id="jqe-Bc-EiH"/>
                 <outlet property="cameraProButton" destination="tFb-0u-fHV" id="y6H-B1-eXm"/>
                 <outlet property="fourKResolutionButton" destination="tWA-us-2Kf" id="6vv-lj-ewi"/>
+                <outlet property="okButton" destination="vLm-PZ-MER" id="DS6-ds-jbc"/>
                 <outlet property="oneEightyResolutionButton" destination="t2e-Yu-XbC" id="dDX-cB-Urj"/>
                 <outlet property="sevenTwentyResolutionButton" destination="9ZS-yE-OVr" id="S9s-c3-w2Q"/>
                 <outlet property="sixteenMbpsButton" destination="edn-Ke-fh6" id="TZp-Ri-XRY"/>
@@ -220,6 +221,11 @@
                                         <constraint firstItem="MOD-wN-tBX" firstAttribute="top" secondItem="HWC-hb-k86" secondAttribute="top" constant="8" id="qcQ-rR-oxn"/>
                                         <constraint firstItem="xAU-Xv-v7d" firstAttribute="top" secondItem="Nn0-ZM-SNw" secondAttribute="bottom" id="sTV-nw-RWq"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="xAU-Xv-v7d"/>
+                                        </mask>
+                                    </variation>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TkN-JN-sdM">
                                     <rect key="frame" x="279" y="0.0" width="269" height="125"/>

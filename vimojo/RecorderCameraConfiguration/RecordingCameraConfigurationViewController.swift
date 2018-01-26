@@ -11,8 +11,9 @@
 import UIKit
 
 class RecordingCameraConfigurationViewController: UIViewController, RecordingCameraConfigurationViewProtocol {
-    
-    // MARK: Outlets
+
+	// MARK: Outlets
+	@IBOutlet weak var okButton: UIButton!
     @IBOutlet weak var cameraProButton: UIButton!
     @IBOutlet weak var cameraBasicButton: UIButton!
     @IBOutlet weak var sevenTwentyResolutionButton: UIButton!
@@ -41,6 +42,7 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
         super.viewDidLoad()
         setUpButtonsArray()
         setupSSControllers()
+		okButton.setTitleColor(UIColor.black, for: UIControlState.normal)
         presenter?.viewDidLoad()
     }
 	override open var shouldAutorotate: Bool {
