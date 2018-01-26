@@ -43,6 +43,9 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
         setupSSControllers()
         presenter?.viewDidLoad()
     }
+	override open var shouldAutorotate: Bool {
+		return false
+	}
     func setupSSControllers() {
         cameraSSRBController.setButtonsArray(cameraButtons)
         resolutionSSRBController.setButtonsArray(resolutionButtons)
