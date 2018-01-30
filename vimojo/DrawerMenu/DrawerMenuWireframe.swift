@@ -54,6 +54,12 @@ class DrawerMenuWireframe {
         }
     }
 
+	func presentProfile() {
+		if let controller = UIApplication.topViewController() {
+			controller.show(LoginRouter.createModule(), sender: nil)
+		}
+	}
+
     func presentGoToRecordOrGalleryWireframe() {
         if let controller = UIApplication.topViewController() {
             goToRecordOrGalleryWireframe?.presentInterfaceFromViewController(controller)
