@@ -83,6 +83,7 @@ class AddTextViewController: ViMoJoController {
         setPlayerPlayButtonState(state: false)
         playerHandler?.timeLabels(isHidden: false)
 		configureNavigationBarVissible()
+        moveViewDown()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -169,34 +170,25 @@ extension AddTextViewController:PlayerViewSetter {
         self.playerView.addSubview(player)
     }
 }
-
 extension AddTextViewController:UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         guard let text = addTextTextView.text else {return}
-
         eventHandler?.textHasChanged(text)
     }
-
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         guard let currentString: NSString = textView.text as NSString? else {return false}
-
         if (checkIfHasLineBreak(currentString as String) && text == "\n") {
-
             return false
         } else if range.length == 0 {
             let replacementString = addLineBreakIfNeccesary(currentString as String) as NSString
-
             textView.text = replacementString as String
-
             let shouldChange = ((replacementString.length <= limitLength))
             print("Should change text in textView: \(shouldChange)")
-
             return shouldChange
         } else {
             return true
         }
     }
-
     func checkIfHasLineBreak(_ text: String) -> Bool {
         if(((text as String).range(of: "\n")) != nil) {
             return true
@@ -204,7 +196,6 @@ extension AddTextViewController:UITextViewDelegate {
             return false
         }
     }
-
     func addLineBreakIfNeccesary(_ text: String) -> String {
         if ((text.characters.count == maxCharForLine) && !checkIfHasLineBreak(text) ) {
             let nextLine = "\n"
@@ -215,75 +206,70 @@ extension AddTextViewController:UITextViewDelegate {
             if postText.characters.count >  maxCharForLine {
                 return text
             }
-
             let finalText = preText + nextLine + postText
-
             return finalText
         }
-
         guard let linebreakPosition = text.range(of: "\n") else {
             return text
         }
         let nextLine = "\n"
-
         let preText = text.substring(with: (text.startIndex ..< linebreakPosition.lowerBound))
         let postText = text.substring(with: (linebreakPosition.upperBound ..< text.endIndex))
-
         if postText.characters.count >  maxCharForLine {
             let postText = postText.substring(with: (postText.startIndex ..< postText.characters.index(postText.startIndex, offsetBy: maxCharForLine)))
-
             return (preText + nextLine + postText)
         }
-
         return text
     }
 }
 
 // MARK: Keyboard handler
 extension AddTextViewController {
+    fileprivate func moveViewUp() {
+        guard self.view.frame.origin.y == 0 else { return }
+        UIView.animate(withDuration: 0.5) {
+            self.view.frame.origin.y -= (self.addTextTextView.frame.height / 2)
+        }
+    }
+    fileprivate func moveViewDown() {
+        guard self.view.frame.origin.y != 0 else { return }
+        UIView.animate(withDuration: 0.5) {
+            self.view.frame.origin = .zero
+        }
+    }
     func keyboardWillShow(_ notification: Notification) {
-        if self.navigationController?.view.frame.origin.y == 0 {
-            self.navigationController?.view.frame.origin.y -= (addTextTextView.frame.height / 2)
-        }
+        moveViewUp()
     }
-
     func keyboardWillHide(_ notification: Notification) {
-        if self.navigationController?.view.frame.origin.y == (-(addTextTextView.frame.height / 2)) {
-            self.navigationController?.view.frame.origin.y += (addTextTextView.frame.height / 2)
-        }
+        moveViewDown()
     }
-
     func addDoneButtonOnKeyboard() {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
         doneToolbar.barStyle = UIBarStyle.blackTranslucent
         doneToolbar.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(AddTextViewController.doneButtonAction))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace,
+                                        target: nil,
+                                        action: nil)
+        let done: UIBarButtonItem =
+            UIBarButtonItem(barButtonSystemItem: .done,
+                            target: self,
+                            action: #selector(AddTextViewController.doneButtonAction))
         done.tintColor = UIColor.white
-
         doneToolbar.items = [flexSpace, done]
         doneToolbar.sizeToFit()
-
         self.addTextTextView.inputAccessoryView = doneToolbar
-        self.addTextTextView.inputAccessoryView = doneToolbar
-
     }
-
     func doneButtonAction() {
-        view.endEditing(true)
+        dismissKeyboard()
     }
 }
-
 extension AddTextViewController:PlayerViewFinishedDelegate {
     func playerHasLoaded() {
         setPlayerPlayButtonState(state: true)
     }
-
     func playerPause() {
         setPlayerPlayButtonState(state: true)
     }
-
     func setPlayerPlayButtonState(state: Bool) {
         for view in playerView.subviews {
             if let player =  view as? PlayerView {
@@ -295,12 +281,6 @@ extension AddTextViewController:PlayerViewFinishedDelegate {
             }
         }
     }
-
-    func playerStartsToPlay() {
-
-    }
-
-    func playerSeeksTo(_ value: Float) {
-
-    }
+    func playerStartsToPlay() {}
+    func playerSeeksTo(_ value: Float) {}
 }

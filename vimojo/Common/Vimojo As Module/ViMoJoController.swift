@@ -52,27 +52,20 @@ ViMoJoInterface {
         print("View will dissappear in \n \(self)")
 
         tracker.identifyMixpanel()
-
         tracker.startTimeInActivityEvent()
-
 //        tracker.sendControllerGAITracker(getControllerName())
         UIApplication.shared.isIdleTimerDisabled = false
     }
-
     override public func viewWillDisappear(_ animated: Bool) {
         print("View will dissappear in \n \(self)")
-
         tracker.sendTimeInActivity(getControllerName())
     }
-
     func getControllerName() -> String {
         return String(describing: type(of: self))
     }
-
     func getTrackerObject() -> ViMoJoTracker {
         return self.tracker
     }
-
     func getController() -> UIViewController {
         return self
     }
