@@ -70,7 +70,7 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
                                        product: product)
             delegate?.watermarkIsEnabled = product.isEnabled
         } else {
-            wireframe?.presentPurchaseSceen()
+            wireframe?.presentPurchaseScreen()
         }
     }
 }

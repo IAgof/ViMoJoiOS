@@ -127,8 +127,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
             ViMoJoTracker.sharedInstance.trackAppStartupProperties(false)
 
-//            appDependencies.installRecordToRootViewControllerIntoWindow(window!)
-            appDependencies.installEditorRoomToRootViewControllerIntoWindow(window!)
+            appDependencies.installRecordToRootViewControllerIntoWindow(window!)
+//            appDependencies.installEditorRoomToRootViewControllerIntoWindow(window!)
         } else {
             // other version
             defaults.set(currentAppVersion, forKey: "appVersion")
