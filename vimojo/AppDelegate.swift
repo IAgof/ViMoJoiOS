@@ -24,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     var mixpanel: Mixpanel?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        AudioSettings.loadValues()
+        VideoSettings.loadValues()
+        
         RealmMigrationsUseCase().updateMigrationDefault()
 
         appDependencies = AppDependencies()

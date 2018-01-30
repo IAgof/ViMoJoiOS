@@ -53,22 +53,22 @@ UITableViewDelegate, UITableViewDataSource, FullScreenWireframeDelegate {
 
         super.viewDidLoad()
         print("ViewDid Load")
-
+		UIApplication.shared.statusBarView?.backgroundColor = configuration.mainColor
         eventHandler?.viewDidLoad()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         eventHandler?.viewDidAppear()
+		self.tabBarController?.tabBar.isHidden = true
+		configureNavigationBarHidden()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
         eventHandler?.viewWillDisappear()
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        configureNavigationBarWithDrawerAndOptions()
         self.shareGenericButton.isHidden = true
         self.expandPlayerButton.isHidden = true
     }
@@ -232,6 +232,7 @@ extension ShareViewController:SharePresenterDelegate {
 			for button in buttons {
 				button.isHidden = false
 			}
+			self.tabBarController?.tabBar.isHidden = false
         }
     }
 

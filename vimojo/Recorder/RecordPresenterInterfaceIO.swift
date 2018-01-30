@@ -55,6 +55,9 @@ protocol RecordPresenterInterface {
 	func pushCameraPro()
     
     func cameraViewHasTapped()
+	func hideAllModeConfigsIfNeccesary()
+
+	func rotateCamera()
 }
 
 protocol RecordPresenterDelegate {
@@ -134,10 +137,6 @@ protocol RecordPresenterDelegate {
     func showExposureModesView()
     func hideExposureModesView()
 
-    func setResolutionToView(_ resolution: String)
-    func setResolutionIconImage(_ image: UIImage)
-    func setResolutionIconImagePressed(_ image: UIImage)
-
     func hideThumbnailButtonAndLabel()
     func showThumbnailButtonAndLabel()
 
@@ -153,7 +152,6 @@ protocol RecordPresenterDelegate {
     func hideSecondaryRecordChronometerContainer()
 
     func setDefaultAllModes()
-    func buttonsWithRecording(isEnabled: Bool)
 
     func selectDeviceMicButton()
     func selectJackMicButton()
@@ -188,4 +186,6 @@ protocol RecordPresenterDelegate {
 	func blockCameraWhenRecording(_ value: Bool)
 	func setDrawerGestureStatus(_ value: Bool)
 	func enableIdleTimer(_ value: Bool)
+
+	func checkCameraProSupportedFeatures()
 }

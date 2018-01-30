@@ -48,7 +48,6 @@ class ExporterInteractor: NSObject {
         exportSession = AVAssetExportSession(asset: mutableComposition, presetName: exportQuality)
         exportSession!.outputURL = url
         exportSession!.outputFileType = AVFileTypeQuickTimeMovie
-        exportSession!.shouldOptimizeForNetworkUse = true
 
         if (videoComposition != nil) {
             exportSession!.videoComposition = videoComposition

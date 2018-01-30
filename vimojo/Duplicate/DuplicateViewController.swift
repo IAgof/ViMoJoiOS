@@ -51,8 +51,15 @@ class DuplicateViewController: ViMoJoController, DuplicateInterface, DuplicatePr
 
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationBarHidden()
-		 wireframe?.presentPlayerInterface()
+		wireframe?.presentPlayerInterface()
     }
+
+	override func viewWillLayoutSubviews() {
+		super.viewWillLayoutSubviews()
+		thumbLeft.layer.cornerRadius = self.thumbLeft.frame.width / 2.0
+		thumbRight.layer.cornerRadius = self.thumbRight.frame.width / 2.0
+	}
+
     // MARK: - Actions
     @IBAction func pushCancelButton(_ sender: AnyObject) {
         eventHandler?.pushCancelHandler()
