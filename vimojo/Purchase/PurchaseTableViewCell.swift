@@ -27,6 +27,7 @@ class PurchaseTableViewCell: UITableViewCell {
         descriptionLabel.text = viewModel.subtitle
         action = viewModel.buyAction
         buyButton.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
+		buyButton.setTitle(viewModel.buttonText, for: UIControlState.normal)
     }
     func tapButton() {
         action?(isPurchased)

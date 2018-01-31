@@ -23,8 +23,8 @@ struct ProductViewModel {
          action: @escaping BoolAction) {
         self.title = product.localizedTitle
         self.subtitle = product.localizedDescription
-        self.buttonText =
-        "Compra ahora por: \(product.price)\(String(describing: product.priceLocale.currencySymbol)))"
+		let buttonText = "action_accept_purchase".localized(.purchase)
+		self.buttonText = "\(buttonText) \(product.price)\(String(describing: product.priceLocale.currencySymbol!))"
         let product = PurchaseProduct(rawValue: product.productIdentifier)
         self.isPurchased = product != nil ? PurchaseProduct.isProductPurchased(product: product!): false
         self.buyAction = action

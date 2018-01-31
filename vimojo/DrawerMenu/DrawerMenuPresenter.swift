@@ -17,7 +17,8 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
     enum cellType: Int {
         case projects = 0
         case newProject = 1
-        case options = 2
+		case removeWatermark = 2
+        case options = 3
     }
     let optionsSection = 1
 
@@ -32,6 +33,9 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
                     interactor?.createNewProject()
                     wireframe?.presentGoToRecordOrGalleryWireframe()
                     break
+				case .removeWatermark:
+					self.switchWatermark()
+					break;
                 case .options:
                     wireframe?.presentSettings()
                     break
