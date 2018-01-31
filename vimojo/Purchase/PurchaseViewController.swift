@@ -22,7 +22,18 @@ class PurchaseViewController: UIViewController, PurchaseViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.loadProducts()
+        if navigationController == nil {
+            let dismissButton = UIButton(frame: CGRect(x: self.view.width/2 - 50,
+                                                       y: self.view.height - 50,
+                                                       width: 100, height: 30))
+            dismissButton.setTitle("activity_drawer_alert_option_cancel".localized(.drawerMenu), for: .normal)
+            dismissButton.addTarget(self, action: #selector(dismissController), for: .touchUpInside)
+            self.view.addSubview(dismissButton)
+        }
         configureTable()
+    }
+    func dismissController() {
+        self.dismiss(animated: true, completion: nil)
     }
     private func configureTable() {
         let nib = UINib(nibName: "PurchaseTableViewCell", bundle: Bundle.main)
