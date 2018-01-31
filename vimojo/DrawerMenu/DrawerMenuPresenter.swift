@@ -18,6 +18,7 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
         case projects = 0
         case newProject = 1
         case options = 2
+		case profile = 3
     }
     let optionsSection = 1
 
@@ -35,6 +36,9 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
                 case .options:
                     wireframe?.presentSettings()
                     break
+				case .profile:
+					wireframe?.presentProfile()
+					break
                 }
             }
         }
