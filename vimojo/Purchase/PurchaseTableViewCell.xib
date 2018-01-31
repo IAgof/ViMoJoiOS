@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="174" id="KGk-i7-Jjw" customClass="PurchaseTableViewCell" customModule="PeriodistaCelular" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="337" height="174"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="337" height="173.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3IE-AK-bwm">
+                        <rect key="frame" x="4" y="4" width="329" height="165.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desactiva la marca de agua (Vimojo periodista movil)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQx-2P-P7G">
+                                <rect key="frame" x="8" y="8" width="313" height="41"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Elimina la marca de agua en tus videos exportados" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWX-Na-cnI">
+                                <rect key="frame" x="8" y="57" width="313" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pmx-TB-7Zc">
+                                <rect key="frame" x="8" y="106" width="313" height="51.5"/>
+                                <color key="backgroundColor" red="0.89168733359999997" green="0.27135449649999999" blue="0.30768677589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Compra ahora!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Pmx-TB-7Zc" firstAttribute="leading" secondItem="3IE-AK-bwm" secondAttribute="leading" constant="8" id="8AL-yw-a2e"/>
+                            <constraint firstItem="UWX-Na-cnI" firstAttribute="leading" secondItem="3IE-AK-bwm" secondAttribute="leading" constant="8" id="IxQ-O4-1Gh"/>
+                            <constraint firstItem="QQx-2P-P7G" firstAttribute="top" secondItem="3IE-AK-bwm" secondAttribute="top" constant="8" id="O2U-E1-HdY"/>
+                            <constraint firstItem="UWX-Na-cnI" firstAttribute="top" secondItem="QQx-2P-P7G" secondAttribute="bottom" constant="8" id="OAp-VR-SCZ"/>
+                            <constraint firstItem="QQx-2P-P7G" firstAttribute="leading" secondItem="3IE-AK-bwm" secondAttribute="leading" constant="8" id="Tuc-WH-Xgb"/>
+                            <constraint firstAttribute="trailing" secondItem="UWX-Na-cnI" secondAttribute="trailing" constant="8" id="Umh-RS-IPL"/>
+                            <constraint firstAttribute="trailing" secondItem="Pmx-TB-7Zc" secondAttribute="trailing" constant="8" id="bmG-cb-jOw"/>
+                            <constraint firstAttribute="bottom" secondItem="Pmx-TB-7Zc" secondAttribute="bottom" constant="8" id="jra-Qy-j7r"/>
+                            <constraint firstAttribute="trailing" secondItem="QQx-2P-P7G" secondAttribute="trailing" constant="8" id="pGY-24-ceZ"/>
+                            <constraint firstItem="Pmx-TB-7Zc" firstAttribute="top" secondItem="UWX-Na-cnI" secondAttribute="bottom" constant="8" id="tJe-vn-Muv"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="1" height="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="3IE-AK-bwm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="7eN-3m-bDK"/>
+                    <constraint firstItem="3IE-AK-bwm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="Ka4-Oi-I2a"/>
+                    <constraint firstAttribute="trailing" secondItem="3IE-AK-bwm" secondAttribute="trailing" constant="4" id="hXG-Xe-UNT"/>
+                    <constraint firstAttribute="bottom" secondItem="3IE-AK-bwm" secondAttribute="bottom" constant="4" id="uGc-TC-ONm"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="buyButton" destination="Pmx-TB-7Zc" id="E7X-o7-40N"/>
+                <outlet property="descriptionLabel" destination="UWX-Na-cnI" id="bWn-Xp-TRr"/>
+                <outlet property="titleLabel" destination="QQx-2P-P7G" id="yzr-VE-k6f"/>
+            </connections>
+            <point key="canvasLocation" x="43.5" y="120"/>
+        </tableViewCell>
+    </objects>
+</document>
