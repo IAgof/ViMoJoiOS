@@ -11,22 +11,33 @@ import UIKit
 class DrawerMenuTableViewController: UITableViewController {
     var eventHandler: DrawerMenuPresenterInterface?
 
+    @IBOutlet weak var watermarkSwitch: UISwitch!
     @IBOutlet weak var userContentView: UIView!
-
+    
+    var watermarkIsEnabled: Bool = PurchaseProduct.removeWatermark.isEnabled {
+        didSet {
+            watermarkSwitch.setOn(PurchaseProduct.removeWatermark.isEnabled,
+                                  animated: true)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         userContentView.backgroundColor = configuration.mainColor
+        watermarkIsEnabled = PurchaseProduct.removeWatermark.isEnabled
     }
 
     override func viewWillAppear(_ animated: Bool) {
-            print("View will appear")
+		self.navigationController?.isNavigationBarHidden = false
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
     }
-
+    @IBAction func watermarkPushed(_ sender: Any) {
+        watermarkSwitch.setOn(PurchaseProduct.removeWatermark.isEnabled, animated: false)
+        eventHandler?.switchWatermark()
+    }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         eventHandler?.didSelectAtIndexPath(indexPath: indexPath)
     }

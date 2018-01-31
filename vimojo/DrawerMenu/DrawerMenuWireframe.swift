@@ -59,4 +59,9 @@ class DrawerMenuWireframe {
             goToRecordOrGalleryWireframe?.presentInterfaceFromViewController(controller)
         }
     }
+    func presentPurchaseScreen() {
+        if let controller = UIApplication.topViewController() {
+            controller.show(PurchaseRouter.createModule(), sender: nil)
+        }
+    }
 }

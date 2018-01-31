@@ -19,6 +19,7 @@ extension String{
         case micRecorder = "MicRecorder"
         case projectList = "ProjectList"
         case share = "Share"
+		case purchase = "Purchase"
     }
     
     func localize(inTable table: String? = nil) -> String{
