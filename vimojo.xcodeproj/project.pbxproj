@@ -125,8 +125,6 @@
 		A91995611EC5029C00D24B0E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = A91995541EC5029C00D24B0E /* README.md */; };
 		A91995621EC5029C00D24B0E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = A91995541EC5029C00D24B0E /* README.md */; };
 		A91995631EC5029C00D24B0E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = A91995541EC5029C00D24B0E /* README.md */; };
-		A919EAD0200D21C2004A7D27 /* VideonaProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A919EACD200D21B9004A7D27 /* VideonaProject.framework */; };
-		A919EAD1200D21C2004A7D27 /* VideonaProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A919EACD200D21B9004A7D27 /* VideonaProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A91BDB831E43651200BE4F1C /* MusicDetailView.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91BDB861E43651200BE4F1C /* MusicDetailView.strings */; };
 		A91BDB841E43651200BE4F1C /* MusicDetailView.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91BDB861E43651200BE4F1C /* MusicDetailView.strings */; };
 		A9320B861E2CD65F004DC8A1 /* ViMoJoConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9320B851E2CD65F004DC8A1 /* ViMoJoConfiguration.swift */; };
@@ -1773,6 +1771,8 @@
 		AED66A5020214410001AF351 /* Purchase.strings in Resources */ = {isa = PBXBuildFile; fileRef = AED66A4E20214410001AF351 /* Purchase.strings */; };
 		AED66A5120214410001AF351 /* Purchase.strings in Resources */ = {isa = PBXBuildFile; fileRef = AED66A4E20214410001AF351 /* Purchase.strings */; };
 		AED66A5220214410001AF351 /* Purchase.strings in Resources */ = {isa = PBXBuildFile; fileRef = AED66A4E20214410001AF351 /* Purchase.strings */; };
+		B25A96592022461B00F53BE7 /* VideonaProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A919EACD200D21B9004A7D27 /* VideonaProject.framework */; };
+		B25A965A2022461B00F53BE7 /* VideonaProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A919EACD200D21B9004A7D27 /* VideonaProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1790,13 +1790,6 @@
 			remoteGlobalIDString = A9928A0C1E5370CE002A4E60;
 			remoteInfo = VideonaProjectTarget;
 		};
-		A919EAD2200D21C2004A7D27 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A9BD5FBC1D9120F40080CE97;
-			remoteInfo = VideonaProject;
-		};
 		A9B385FB1D7D51380065D3EC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A9B385DE1D7D51380065D3EC /* Project object */;
@@ -1810,6 +1803,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A9B385E51D7D51380065D3EC;
 			remoteInfo = vimojo;
+		};
+		B25A965B2022461B00F53BE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A9BD5FBC1D9120F40080CE97;
+			remoteInfo = VideonaProject;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -1834,17 +1834,6 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AE491E001F3AF7C700B20B70 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				A919EAD1200D21C2004A7D27 /* VideonaProject.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AE491E051F3AFDF200B20B70 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1861,6 +1850,17 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B25A965D2022461C00F53BE7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B25A965A2022461B00F53BE7 /* VideonaProject.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4029,12 +4029,12 @@
 				9A074B3DE6BD852F425D6A56 /* [CP] Embed Pods Frameworks */,
 				A9B385E21D7D51380065D3EC /* Sources */,
 				45244F6698CB1B865CE5B75A /* [CP] Copy Pods Resources */,
-				AE491E001F3AF7C700B20B70 /* Embed Frameworks */,
+				B25A965D2022461C00F53BE7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A919EAD3200D21C2004A7D27 /* PBXTargetDependency */,
+				B25A965C2022461B00F53BE7 /* PBXTargetDependency */,
 			);
 			name = vimojo;
 			productName = vimojo;
@@ -4523,7 +4523,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4617,7 +4617,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4635,7 +4635,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4935,7 +4935,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4953,7 +4953,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -6574,11 +6574,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A919EAD3200D21C2004A7D27 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = VideonaProject;
-			targetProxy = A919EAD2200D21C2004A7D27 /* PBXContainerItemProxy */;
-		};
 		A9B385FC1D7D51380065D3EC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A9B385E51D7D51380065D3EC /* vimojo */;
@@ -6588,6 +6583,11 @@
 			isa = PBXTargetDependency;
 			target = A9B385E51D7D51380065D3EC /* vimojo */;
 			targetProxy = AE4AAFA01F704D8700504428 /* PBXContainerItemProxy */;
+		};
+		B25A965C2022461B00F53BE7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = VideonaProject;
+			targetProxy = B25A965B2022461B00F53BE7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -6949,8 +6949,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DDEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "312d4c81-fb15-4fb2-844c-b2ec8277a8ed";
-				PROVISIONING_PROFILE_SPECIFIER = "Vimojo development";
+				PROVISIONING_PROFILE = "f38c3087-6fc4-4c17-84ca-576f7804c973";
+				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Test Vimojo";
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;

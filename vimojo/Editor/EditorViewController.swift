@@ -65,13 +65,15 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
     }
 
     override func viewWillAppear(_ animated: Bool) {
-		configureNavigationBarHidden()
+		configureNavigationBarWithDrawerAndOptions()
+		configureNavigationBarVissible()
         let value = UIInterfaceOrientation.portrait.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+		configureNavigationBarHidden()
         eventHandler?.viewWillDisappear()
     }
 
