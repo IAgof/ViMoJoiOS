@@ -154,8 +154,41 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="80" id="aHk-Cz-4P7">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="80" id="auR-0e-nvj">
                                         <rect key="frame" x="0.0" y="390" width="414" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="auR-0e-nvj" id="015-H1-d13">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="79.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_drawer_cell_locked" highlightedImage="activity_drawer_cell_locked" translatesAutoresizingMaskIntoConstraints="NO" id="fUL-IH-TeE">
+                                                    <rect key="frame" x="12" y="19.333333333333329" width="34" height="42"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watermark enabled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RtI-Zc-Rba">
+                                                    <rect key="frame" x="63" y="29" width="150" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zpe-ld-Hgq">
+                                                    <rect key="frame" x="343" y="25" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="watermarkPushed:" destination="s83-2h-qSy" eventType="touchUpInside" id="4ax-5E-6sx"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Zpe-ld-Hgq" secondAttribute="trailing" constant="2" id="4Sc-6f-ecY"/>
+                                                <constraint firstItem="Zpe-ld-Hgq" firstAttribute="centerY" secondItem="015-H1-d13" secondAttribute="centerY" id="7yT-16-Q1l"/>
+                                                <constraint firstItem="RtI-Zc-Rba" firstAttribute="leading" secondItem="fUL-IH-TeE" secondAttribute="trailing" constant="17" id="IiD-as-xQX"/>
+                                                <constraint firstItem="fUL-IH-TeE" firstAttribute="centerY" secondItem="015-H1-d13" secondAttribute="centerY" id="VKv-8z-XuJ"/>
+                                                <constraint firstItem="fUL-IH-TeE" firstAttribute="leading" secondItem="015-H1-d13" secondAttribute="leading" constant="12" id="bj3-Kx-Us5"/>
+                                                <constraint firstItem="RtI-Zc-Rba" firstAttribute="centerY" secondItem="fUL-IH-TeE" secondAttribute="centerY" id="nR5-Rg-dVo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="80" id="aHk-Cz-4P7">
+                                        <rect key="frame" x="0.0" y="470" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aHk-Cz-4P7" id="nTp-Be-0SI">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="79.666666666666671"/>
@@ -291,6 +324,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="userContentView" destination="mw6-BE-9sC" id="Uk3-le-s56"/>
+                        <outlet property="watermarkSwitch" destination="Zpe-ld-Hgq" id="vhc-7l-aNN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J8W-zh-Wqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -299,6 +333,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="activity_drawer_cell_locked" width="34" height="42"/>
         <image name="activity_drawer_close" width="34" height="34"/>
         <image name="activity_drawer_edit_tutorial" width="30" height="30"/>
         <image name="activity_drawer_logo" width="82" height="43"/>

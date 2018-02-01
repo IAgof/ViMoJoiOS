@@ -37,20 +37,23 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
                     interactor?.createNewProject()
                     wireframe?.presentGoToRecordOrGalleryWireframe()
                     break
-                case .removeWatermark:
-                    break
+				case .removeWatermark:
+					self.switchWatermark()
+					break;
                 case .options:
                     wireframe?.presentSettings()
                     break
                 case .shop:
-                    wireframe?.goToShop()
+                    self.switchWatermark()
                     break
                 case .mojokit:
                     wireframe?.goToMojoKit()
                     break
                 case .recordTutorial:
+                    wireframe?.presentRecordTutorial()
                     break
                 case .editionTutorial:
+                    wireframe?.presentEditTutorial()
                     break
                 }
             }
@@ -80,10 +83,25 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
     func removePhoto() {
         interactor?.removePhoto()
     }
+    func switchWatermark() {
+        let product = PurchaseProduct.removeWatermark
+        if product.isPurchased {
+            PurchaseProduct.setEnabled(state: !product.isEnabled,
+                                       product: product)
+            delegate?.watermarkIsEnabled = product.isEnabled
+        } else {
+            wireframe?.presentPurchaseScreen()
+        }
+    }
 }
 
 extension DrawerMenuPresenter:DrawerMenuInteractorDelegate {
     func imageIsSave() {
         delegate?.updateProfileCell()
+    }
+}
+extension Bool {
+    mutating func toogle() {
+        self = !self
     }
 }

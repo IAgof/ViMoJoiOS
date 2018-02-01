@@ -20,7 +20,16 @@ class SettingsWatermarkAction: SettingsActionInterface {
         self.project = project
     }
 
+    
     func executeSettingsAction(_ index: IndexPath) {
+        if PurchaseProduct.removeWatermark.isPurchased {
+            showAlert(index)
+        } else {
+            guard let controller = UIApplication.topViewController() else { return }
+            controller.present(PurchaseRouter.createModule(), animated: true, completion: nil)
+        }
+    }
+    fileprivate func showAlert(_ index: IndexPath) {
         let title =  Utils().getStringByKeyFromSettings(SettingsConstants().WATERMARK_TITLE)
         
         let options = ["watermarkEnabled".localized(.settings), "watermarkDisabled".localized(.settings)]
@@ -38,7 +47,6 @@ class SettingsWatermarkAction: SettingsActionInterface {
             settingsController.present(alertController, animated: true, completion: nil)
         }
     }
-  
     func saveOnProject(_ saveString:String){
         project.hasWatermark = saveString == "watermarkEnabled".localized(.settings)
 

@@ -61,11 +61,25 @@ class DrawerMenuWireframe {
     }
     
     func goToMojoKit() {
-        let twitterBrowserURL = URL(string: "http://vimojo.co/mojokit/?utm_source=vimojo_ios&utm_medium=app_link")
-        UIApplication.shared.open(twitterBrowserURL!, options: [:], completionHandler: nil)
+        let mojokitURL = URL(string: "mojokit".localized(.urls))
+        UIApplication.shared.open(mojokitURL!, options: [:], completionHandler: nil)
     }
     
-    func goToShop() {
-        // Open cart
+    func presentPurchaseScreen() {
+        if let controller = UIApplication.topViewController() {
+            controller.show(PurchaseRouter.createModule(), sender: nil)
+        }
+    }
+    
+    func presentRecordTutorial() {
+        if let controller = UIApplication.topViewController() {
+            controller.show(SlideTutorial.recordingTut.viewController, sender: nil)
+        }
+    }
+    
+    func presentEditTutorial() {
+        if let controller = UIApplication.topViewController() {
+            controller.show(SlideTutorial.editTut.viewController, sender: nil)
+        }
     }
 }
