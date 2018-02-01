@@ -74,12 +74,14 @@ class DrawerMenuWireframe {
     func presentRecordTutorial() {
         if let controller = UIApplication.topViewController() {
             controller.show(SlideTutorial.recordingTut.viewController, sender: nil)
+            SlideTutorial.recordingTut.viewController.orientation = .portraitUpsideDown
         }
     }
     
     func presentEditTutorial() {
         if let controller = UIApplication.topViewController() {
             controller.show(SlideTutorial.editTut.viewController, sender: nil)
+            SlideTutorial.editTut.viewController.orientation = .portrait
         }
     }
 }
