@@ -58,6 +58,7 @@ protocol RecordPresenterInterface {
 	func hideAllModeConfigsIfNeccesary()
 
 	func rotateCamera()
+    func pushTutorial()
 }
 
 protocol RecordPresenterDelegate {
