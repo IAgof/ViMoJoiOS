@@ -17,7 +17,12 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
     enum cellType: Int {
         case projects = 0
         case newProject = 1
-        case options = 2
+		case removeWatermark = 2
+        case options = 3
+        case shop = 4
+        case mojokit = 5
+        case recordTutorial = 6
+        case editionTutorial = 7
     }
     let optionsSection = 1
 
@@ -32,8 +37,20 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
                     interactor?.createNewProject()
                     wireframe?.presentGoToRecordOrGalleryWireframe()
                     break
+                case .removeWatermark:
+                    break
                 case .options:
                     wireframe?.presentSettings()
+                    break
+                case .shop:
+                    wireframe?.goToShop()
+                    break
+                case .mojokit:
+                    wireframe?.goToMojoKit()
+                    break
+                case .recordTutorial:
+                    break
+                case .editionTutorial:
                     break
                 }
             }

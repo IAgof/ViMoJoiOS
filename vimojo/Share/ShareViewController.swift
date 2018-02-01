@@ -60,7 +60,6 @@ UITableViewDelegate, UITableViewDataSource, FullScreenWireframeDelegate {
     override func viewDidAppear(_ animated: Bool) {
         eventHandler?.viewDidAppear()
 		self.tabBarController?.tabBar.isHidden = true
-		configureNavigationBarHidden()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -71,6 +70,9 @@ UITableViewDelegate, UITableViewDataSource, FullScreenWireframeDelegate {
     override func viewWillAppear(_ animated: Bool) {
         self.shareGenericButton.isHidden = true
         self.expandPlayerButton.isHidden = true
+        configureNavigationBarHidden()
+        self.view.frame.origin.y = 0
+        self.view.frame.size.height += 64.0
     }
 
     // MARK: - View Init

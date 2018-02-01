@@ -1733,6 +1733,10 @@
 		AED6471D201B267600DD9281 /* CameraSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED64717201AC7B500DD9281 /* CameraSettings.swift */; };
 		B25A96592022461B00F53BE7 /* VideonaProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A919EACD200D21B9004A7D27 /* VideonaProject.framework */; };
 		B25A965A2022461B00F53BE7 /* VideonaProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A919EACD200D21B9004A7D27 /* VideonaProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B2ECFE822023728A00790FEC /* M4N.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2ECFE812023728A00790FEC /* M4N.strings */; };
+		B2ECFE852023742300790FEC /* ThomsonFoundation.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2ECFE842023742300790FEC /* ThomsonFoundation.strings */; };
+		B2ECFE872023743B00790FEC /* Vimojo.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2ECFE862023743B00790FEC /* Vimojo.strings */; };
+		B2ECFE892023745200790FEC /* RTVE.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2ECFE882023745200790FEC /* RTVE.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2239,6 +2243,10 @@
 		AECAA1EB1FC722FF00B0ADA5 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreviewView.swift; path = Recorder/PreviewView.swift; sourceTree = "<group>"; };
 		AED64717201AC7B500DD9281 /* CameraSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraSettings.swift; path = vimojo/Recorder/CameraSettings.swift; sourceTree = "<group>"; };
 		AEF0D2521F4ADF9D00DB42F3 /* Pods_vimojo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_vimojo.framework; path = "Pods/../build/Debug-iphoneos/Pods_vimojo.framework"; sourceTree = "<group>"; };
+		B2ECFE812023728A00790FEC /* M4N.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = M4N.strings; sourceTree = "<group>"; };
+		B2ECFE842023742300790FEC /* ThomsonFoundation.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = ThomsonFoundation.strings; sourceTree = "<group>"; };
+		B2ECFE862023743B00790FEC /* Vimojo.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Vimojo.strings; sourceTree = "<group>"; };
+		B2ECFE882023745200790FEC /* RTVE.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = RTVE.strings; sourceTree = "<group>"; };
 		C6ADAEE2CE649F1B62914162 /* Pods-vimojo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojo.release.xcconfig"; path = "Pods/Target Support Files/Pods-vimojo/Pods-vimojo.release.xcconfig"; sourceTree = "<group>"; };
 		CB586E6DDDB51926A3B11FCA /* Pods_vimojo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vimojo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE5297002B33E4FE5AE9426E /* Pods-M4N.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-M4N.debug.xcconfig"; path = "Pods/Target Support Files/Pods-M4N/Pods-M4N.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2582,6 +2590,7 @@
 				A910AD061E3A2F0B00A4EC90 /* MusicProviderForRTVE.swift */,
 				A9320CB81E2CE7AC004DC8A1 /* RTVELaunchScreen.storyboard */,
 				A9D076D41E2F7F97003AE96B /* RTVE.xcassets */,
+				B2ECFE882023745200790FEC /* RTVE.strings */,
 			);
 			path = RTVE;
 			sourceTree = "<group>";
@@ -3786,6 +3795,7 @@
 				A910AD081E3A2F1200A4EC90 /* MusicProviderForVimojo.swift */,
 				A9B385F21D7D51380065D3EC /* VimojoLaunchScreen.storyboard */,
 				A9D076D21E2F7F84003AE96B /* Vimojo.xcassets */,
+				B2ECFE862023743B00790FEC /* Vimojo.strings */,
 			);
 			name = Vimojo;
 			sourceTree = "<group>";
@@ -3859,6 +3869,7 @@
 				AE491FD11F3B030F00B20B70 /* Info.plist */,
 				AE9B190D1F3B62560035C9BD /* launchScreen.storyboard */,
 				AE491FD31F3B030F00B20B70 /* ThomsonFoundation.xcassets */,
+				B2ECFE842023742300790FEC /* ThomsonFoundation.strings */,
 			);
 			path = ThomsonFoundation;
 			sourceTree = "<group>";
@@ -3879,6 +3890,7 @@
 				AE4E66C81FFDAE10002C45CD /* configuration.swift */,
 				AE4E66CA1FFDAE10002C45CD /* Info.plist */,
 				AE4E66C91FFDAE10002C45CD /* M4N.xcassets */,
+				B2ECFE812023728A00790FEC /* M4N.strings */,
 			);
 			path = M4N;
 			sourceTree = "<group>";
@@ -4234,6 +4246,7 @@
 				A9D078011E2F8315003AE96B /* Assets.xcassets in Resources */,
 				A9B385EF1D7D51380065D3EC /* Main.storyboard in Resources */,
 				A9CAB8D01EC360CC00AB6CE8 /* VideonaFooterView.xib in Resources */,
+				B2ECFE872023743B00790FEC /* Vimojo.strings in Resources */,
 				A9320CC61E2D3AB4004DC8A1 /* Editor.storyboard in Resources */,
 				A949658D1EAE8EEC003FCBF6 /* MusicProvider.strings in Resources */,
 				A919955E1EC5029C00D24B0E /* LICENSE in Resources */,
@@ -4289,6 +4302,7 @@
 				A9D077E11E2F80B1003AE96B /* ProjectList.storyboard in Resources */,
 				A9D077E31E2F80B1003AE96B /* FREE_THE_COLD_WIND.mp3 in Resources */,
 				A9D077E41E2F80B1003AE96B /* MusicDetailView.xib in Resources */,
+				B2ECFE892023745200790FEC /* RTVE.strings in Resources */,
 				A9D077E51E2F80B1003AE96B /* WE_BEAT_AS_ONE.mp3 in Resources */,
 				A9D077E61E2F80B1003AE96B /* Share.strings in Resources */,
 				A91BDB841E43651200BE4F1C /* MusicDetailView.strings in Resources */,
@@ -4336,6 +4350,7 @@
 				AE12E7BB1FFEA7AB00F2342E /* VideoCarrusselCollectionViewCell.xib in Resources */,
 				AE12E7BC1FFEA7AB00F2342E /* acousticbreeze.mp3 in Resources */,
 				AE12E7BD1FFEA7AB00F2342E /* MusicDetailView.xib in Resources */,
+				B2ECFE822023728A00790FEC /* M4N.strings in Resources */,
 				AE12E7BE1FFEA7AB00F2342E /* Share.strings in Resources */,
 				AE12E7BF1FFEA7AB00F2342E /* filter_free.png in Resources */,
 			);
@@ -4363,6 +4378,7 @@
 				AE491E251F3AFE6400B20B70 /* GoogleService-Info.plist in Resources */,
 				AE491E261F3AFE6400B20B70 /* Settings.strings in Resources */,
 				AE491E271F3AFE6400B20B70 /* goinghigher.mp3 in Resources */,
+				B2ECFE852023742300790FEC /* ThomsonFoundation.strings in Resources */,
 				AE491E281F3AFE6400B20B70 /* Drawer.storyboard in Resources */,
 				AE491E2A1F3AFE6400B20B70 /* ukulele.mp3 in Resources */,
 				AE491E2B1F3AFE6400B20B70 /* Info.plist in Resources */,

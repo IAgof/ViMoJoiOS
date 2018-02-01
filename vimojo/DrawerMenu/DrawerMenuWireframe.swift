@@ -59,4 +59,13 @@ class DrawerMenuWireframe {
             goToRecordOrGalleryWireframe?.presentInterfaceFromViewController(controller)
         }
     }
+    
+    func goToMojoKit() {
+        let twitterBrowserURL = URL(string: "http://vimojo.co/mojokit/?utm_source=vimojo_ios&utm_medium=app_link")
+        UIApplication.shared.open(twitterBrowserURL!, options: [:], completionHandler: nil)
+    }
+    
+    func goToShop() {
+        // Open cart
+    }
 }
