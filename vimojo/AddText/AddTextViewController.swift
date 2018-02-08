@@ -82,6 +82,7 @@ class AddTextViewController: ViMoJoController {
     override func viewWillDisappear(_ animated: Bool) {
         setPlayerPlayButtonState(state: false)
         playerHandler?.timeLabels(isHidden: false)
+        setViewOnZero()
 		configureNavigationBarVissible()
     }
 
@@ -242,15 +243,19 @@ extension AddTextViewController:UITextViewDelegate {
 // MARK: Keyboard handler
 extension AddTextViewController {
     func keyboardWillShow(_ notification: Notification) {
-        if self.navigationController?.view.frame.origin.y == 0 {
-            self.navigationController?.view.frame.origin.y -= (addTextTextView.frame.height / 2)
-        }
+        guard let x = self.navigationController?.view.frame.origin.x,
+           let y = self.navigationController?.view.frame.origin.y else { return }
+        let newPoint = CGPoint(x: x,
+                               y: y - (addTextTextView.frame.height / 2))
+        moveViewTo(point: newPoint)
     }
 
+    fileprivate func setViewOnZero() {
+        moveViewTo(point: CGPoint.zero)
+    }
+    
     func keyboardWillHide(_ notification: Notification) {
-        if self.navigationController?.view.frame.origin.y == (-(addTextTextView.frame.height / 2)) {
-            self.navigationController?.view.frame.origin.y += (addTextTextView.frame.height / 2)
-        }
+        setViewOnZero()
     }
 
     func addDoneButtonOnKeyboard() {
