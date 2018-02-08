@@ -264,9 +264,10 @@ extension AddTextViewController {
         doneToolbar.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
 
         let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(AddTextViewController.doneButtonAction))
+        let done: UIBarButtonItem = UIBarButtonItem(with: "Done", target: self,
+                                                    action: #selector(AddTextViewController.doneButtonAction))
         done.tintColor = UIColor.white
-
+        
         doneToolbar.items = [flexSpace, done]
         doneToolbar.sizeToFit()
 
@@ -307,5 +308,14 @@ extension AddTextViewController:PlayerViewFinishedDelegate {
 
     func playerSeeksTo(_ value: Float) {
 
+    }
+}
+extension UIBarButtonItem {
+    public convenience init(with text: String, target: Any, action: Selector) {
+        let button = UIButton()
+        button.setTitle(text, for: .normal)
+        button.addTarget(target, action: action, for: .touchUpInside)
+        
+        self.init(customView: button)
     }
 }
