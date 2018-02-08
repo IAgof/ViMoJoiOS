@@ -42,7 +42,7 @@ class FlashInteractor {
         return device!.torchMode == .on
     }
 
-    func turnOffWhenViewWillDissappear() {
+    func turnOffIfIsOn() {
         if self.isFlashTurnOn() {
             self.switchFlashState()
         }
