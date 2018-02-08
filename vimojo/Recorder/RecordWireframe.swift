@@ -84,4 +84,10 @@ class RecordWireframe: NSObject {
             .show(RecordingCameraConfigurationRouter.createModule(),
                                                          sender: nil)
     }
+    func presentRecordTutorial() {
+        if let controller = UIApplication.topViewController() {
+            controller.show(SlideTutorial.recordingTut.viewController, sender: nil)
+            SlideTutorial.recordingTut.viewController.orientation = .portraitUpsideDown
+        }
+    }
 }

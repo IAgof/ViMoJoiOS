@@ -84,6 +84,8 @@ class AddTextViewController: ViMoJoController {
         playerHandler?.timeLabels(isHidden: false)
         setViewOnZero()
 		configureNavigationBarVissible()
+        self.view.frame.origin.y = 0
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {

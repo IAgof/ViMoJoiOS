@@ -59,9 +59,29 @@ class DrawerMenuWireframe {
             goToRecordOrGalleryWireframe?.presentInterfaceFromViewController(controller)
         }
     }
+    
+    func goToMojoKit() {
+        let mojokitURL = URL(string: "mojokit".localized(.urls))
+        UIApplication.shared.open(mojokitURL!, options: [:], completionHandler: nil)
+    }
+    
     func presentPurchaseScreen() {
         if let controller = UIApplication.topViewController() {
             controller.show(PurchaseRouter.createModule(), sender: nil)
+        }
+    }
+    
+    func presentRecordTutorial() {
+        if let controller = UIApplication.topViewController() {
+            controller.show(SlideTutorial.recordingTut.viewController, sender: nil)
+            SlideTutorial.recordingTut.viewController.orientation = .portraitUpsideDown
+        }
+    }
+    
+    func presentEditTutorial() {
+        if let controller = UIApplication.topViewController() {
+            controller.show(SlideTutorial.editTut.viewController, sender: nil)
+            SlideTutorial.editTut.viewController.orientation = .portrait
         }
     }
 }

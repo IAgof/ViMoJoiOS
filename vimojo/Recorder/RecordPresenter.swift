@@ -245,6 +245,9 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             batteryIsShowed = true
         }
     }
+    func pushTutorial() {
+        recordWireframe?.presentRecordTutorial()
+    }
 
     func pushSpaceOnDisk() {
         if spaceOnDiskIsShowed {
