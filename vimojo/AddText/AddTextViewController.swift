@@ -242,6 +242,14 @@ extension AddTextViewController:UITextViewDelegate {
     }
 }
 
+extension UIViewController {
+    func moveViewTo(point: CGPoint) {
+        UIView.animate(withDuration: 0.5) {
+            self.view.frame.origin = point
+        }
+    }
+}
+
 // MARK: Keyboard handler
 extension AddTextViewController {
     func keyboardWillShow(_ notification: Notification) {

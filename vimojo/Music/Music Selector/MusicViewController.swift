@@ -41,9 +41,6 @@ class MusicViewController: EditingRoomItemController, MusicPresenterDelegate, Pl
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configureNavigationBarHidden()
-        self.view.frame.origin.y = 0
-        self.view.frame.size.height += 64.0
         eventHandler?.viewWillAppear()
     }
 
