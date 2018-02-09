@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class RecordingCameraConfigurationViewController: UIViewController, RecordingCameraConfigurationViewProtocol {
 
@@ -43,6 +44,7 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
         setUpButtonsArray()
         setupSSControllers()
 		okButton.setTitleColor(UIColor.black, for: UIControlState.normal)
+        configureCameraResolutions()
         presenter?.viewDidLoad()
     }
 	override open var shouldAutorotate: Bool {
@@ -91,5 +93,46 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
         resolutionSSRBController.pressed(resolutionButtons[loadedValues.1.rawValue])
         fpsSSRBController.pressed(fpsButtons[loadedValues.2.rawValue])
         mbpsSSRBController.pressed(mbpsButtons[loadedValues.3.rawValue])
+    }
+    
+    // All resolutions in back camera supports 720 and 1080p. Only some supports 4k
+    func configureCameraResolutions() {
+        let deviceModel = UIDevice.current.modelName
+        switch CamSettings.cameraPosition {
+        case .back:
+            oneEightyResolutionButton.isEnabled = true
+            oneEightyResolutionButton.isHidden = false
+            if (deviceModel == "iPhone SE" ||
+                deviceModel == "iPhone 6" ||
+                deviceModel == "iPhone 6 Plus" ||
+                deviceModel == "iPhone 6s" ||
+                deviceModel == "iPhone 6s Plus" ||
+                deviceModel == "iPhone 7" ||
+                deviceModel == "iPhone 7 Plus" ||
+                deviceModel == "iPhone 8" ||
+                deviceModel == "iPhone 8 Plus" ||
+                deviceModel == "iPhone X") {
+                fourKResolutionButton.isEnabled = true
+                fourKResolutionButton.isHidden = false
+            } else {
+                fourKResolutionButton.isEnabled = false
+                fourKResolutionButton.isHidden = true
+            }
+        case .front:
+            fourKResolutionButton.isEnabled = false
+            fourKResolutionButton.isHidden = true
+            if (deviceModel == "iPhone 7" ||
+                deviceModel == "iPhone 7 Plus" ||
+                deviceModel == "iPhone 8" ||
+                deviceModel == "iPhone 8 Plus" ||
+                deviceModel == "iPhone X" ||
+                deviceModel == "iPad Pro") {
+                oneEightyResolutionButton.isEnabled = true
+                oneEightyResolutionButton.isHidden = false
+            } else {
+                oneEightyResolutionButton.isEnabled = false
+                oneEightyResolutionButton.isHidden = true
+            }
+        }
     }
 }

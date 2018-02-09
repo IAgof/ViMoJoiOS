@@ -159,6 +159,9 @@ class PreviewView: UIView {
             configureDeviceVideoSettings()
         }
     }
+    public func getCameraPosition() -> AVCaptureDevicePosition {
+        return activeInput.device.position
+    }
 }
 extension PreviewView {
     var cameraPosition: AVCaptureDevice {
