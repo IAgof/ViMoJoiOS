@@ -43,7 +43,6 @@ class MusicViewController: EditingRoomItemController, MusicPresenterDelegate, Pl
         super.viewWillAppear(animated)
 		configureNavigationBarVissible()
         eventHandler?.viewWillAppear()
-        configureNavigationBarWithDrawerAndOptions()
     }
 
     override func viewDidAppear(_ animated: Bool) {

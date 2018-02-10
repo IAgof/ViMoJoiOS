@@ -27,7 +27,7 @@ class DrawerMenuTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-		self.navigationController?.isNavigationBarHidden = false
+		self.navigationController?.isNavigationBarHidden = true
     }
 
     override func didReceiveMemoryWarning() {
