@@ -282,6 +282,11 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
 
     public static var isFrontCamera: Bool = false
     @IBAction func pushRotateCamera(_ sender: AnyObject) {
+		if RecordController.isFrontCamera == true {
+			CamSettings.cameraPosition = .back
+		} else {
+			CamSettings.cameraPosition = .front
+		}
 		RecordController.isFrontCamera.toggle()
         previewView.rotateCamera()
 		eventHandler?.rotateCamera()
