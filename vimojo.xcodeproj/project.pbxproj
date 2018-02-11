@@ -1787,6 +1787,11 @@
 		AED66A5020214410001AF351 /* Purchase.strings in Resources */ = {isa = PBXBuildFile; fileRef = AED66A4E20214410001AF351 /* Purchase.strings */; };
 		AED66A5120214410001AF351 /* Purchase.strings in Resources */ = {isa = PBXBuildFile; fileRef = AED66A4E20214410001AF351 /* Purchase.strings */; };
 		AED66A5220214410001AF351 /* Purchase.strings in Resources */ = {isa = PBXBuildFile; fileRef = AED66A4E20214410001AF351 /* Purchase.strings */; };
+		AEDE4B29202F6627004E72BD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDE4B27202F6627004E72BD /* UIViewController+Extension.swift */; };
+		AEDE4B2B202F6643004E72BD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDE4B27202F6627004E72BD /* UIViewController+Extension.swift */; };
+		AEDE4B2C202F6643004E72BD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDE4B27202F6627004E72BD /* UIViewController+Extension.swift */; };
+		AEDE4B2D202F6644004E72BD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDE4B27202F6627004E72BD /* UIViewController+Extension.swift */; };
+		AEDE4B2E202F6644004E72BD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDE4B27202F6627004E72BD /* UIViewController+Extension.swift */; };
 		B25A965A2022461B00F53BE7 /* VideonaProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A919EACD200D21B9004A7D27 /* VideonaProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -2309,6 +2314,7 @@
 		AECAA1EB1FC722FF00B0ADA5 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreviewView.swift; path = Recorder/PreviewView.swift; sourceTree = "<group>"; };
 		AED64717201AC7B500DD9281 /* CameraSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraSettings.swift; path = vimojo/Recorder/CameraSettings.swift; sourceTree = "<group>"; };
 		AED66A4E20214410001AF351 /* Purchase.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Purchase.strings; path = Purchase/Purchase.strings; sourceTree = "<group>"; };
+		AEDE4B27202F6627004E72BD /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		AEF0D2521F4ADF9D00DB42F3 /* Pods_vimojo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_vimojo.framework; path = "Pods/../build/Debug-iphoneos/Pods_vimojo.framework"; sourceTree = "<group>"; };
 		C6ADAEE2CE649F1B62914162 /* Pods-vimojo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojo.release.xcconfig"; path = "Pods/Target Support Files/Pods-vimojo/Pods-vimojo.release.xcconfig"; sourceTree = "<group>"; };
 		CB586E6DDDB51926A3B11FCA /* Pods_vimojo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vimojo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3778,6 +3784,7 @@
 		A9CAB8931EC35F4700AB6CE8 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				AEDE4B27202F6627004E72BD /* UIViewController+Extension.swift */,
 				A9CAB8941EC35F4700AB6CE8 /* DateCompareExtension.swift */,
 				A96C6F281F06717D006EDD04 /* NotificationsName+Extension.swift */,
 				A9B406711EF33519004C9854 /* CMTimeExtension.swift */,
@@ -5092,6 +5099,7 @@
 				A9CAB9061EC364FB00AB6CE8 /* DrawerConstants.swift in Sources */,
 				A9FB3A491E53D69600C21918 /* FilterFoundModel.swift in Sources */,
 				A9CAB9281EC3657200AB6CE8 /* DrawerMenuWireframe.swift in Sources */,
+				AEDE4B2D202F6644004E72BD /* UIViewController+Extension.swift in Sources */,
 				A9FB3A411E53D5CC00C21918 /* AddFilterToVideoCollectionViewExtension.swift in Sources */,
 				A99BAC861E49DC9D00A465C7 /* ShareWhatsappInteractor.swift in Sources */,
 				A9CABBC41EC379C900AB6CE8 /* TrimWireframe.swift in Sources */,
@@ -5409,6 +5417,7 @@
 				A953AD541E53474A00DC0D84 /* AddFilterToVideoPresenter.swift in Sources */,
 				A90F57441F63F7FE00B41929 /* VImojoCard.swift in Sources */,
 				A9CABAA61EC36AEC00AB6CE8 /* RecordDrawerController.swift in Sources */,
+				AEDE4B29202F6627004E72BD /* UIViewController+Extension.swift in Sources */,
 				A9CABA061EC3691E00AB6CE8 /* MicRecorderViewController.swift in Sources */,
 				A9CABA531EC36A7200AB6CE8 /* ProjectListPresenter.swift in Sources */,
 				A9CABAB51EC36AEC00AB6CE8 /* RecordPresenter.swift in Sources */,
@@ -5740,6 +5749,7 @@
 				A9CAB8BB1EC35FD300AB6CE8 /* CheckMicPermissionUseCase.swift in Sources */,
 				A9D077121E2F80B1003AE96B /* SharePresenter.swift in Sources */,
 				A9D077131E2F80B1003AE96B /* FTPErrorType.swift in Sources */,
+				AEDE4B2E202F6644004E72BD /* UIViewController+Extension.swift in Sources */,
 				A9FB3A3F1E53D5CB00C21918 /* AddFilterToVideoCollectionViewExtension.swift in Sources */,
 				A9CABBC31EC379C900AB6CE8 /* TrimWireframe.swift in Sources */,
 				A9D0771B1E2F80B1003AE96B /* MusicModels.swift in Sources */,
@@ -6143,6 +6153,7 @@
 				AE12E8571FFEA7AB00F2342E /* NSLocale+ISO639_2.m in Sources */,
 				AE12E8581FFEA7AB00F2342E /* GetVoiceOverComposition.swift in Sources */,
 				AE12E8591FFEA7AB00F2342E /* SettingsFTPBreakingNewsUsernameAction.swift in Sources */,
+				AEDE4B2C202F6643004E72BD /* UIViewController+Extension.swift in Sources */,
 				AE12E85A1FFEA7AB00F2342E /* SettingsUtils.swift in Sources */,
 				AE12E85B1FFEA7AB00F2342E /* SettingsFTPUsernameAction.swift in Sources */,
 				AE12E85C1FFEA7AB00F2342E /* MusicDetailViewModel.swift in Sources */,
@@ -6370,6 +6381,7 @@
 				AE491E811F3AFE6400B20B70 /* ProjectListPresenter.swift in Sources */,
 				AE491E821F3AFE6400B20B70 /* RecordPresenter.swift in Sources */,
 				AE491E831F3AFE6400B20B70 /* EditorClipsCell.swift in Sources */,
+				AEDE4B2B202F6643004E72BD /* UIViewController+Extension.swift in Sources */,
 				AE491E841F3AFE6400B20B70 /* EditorPresenter.swift in Sources */,
 				AE491E851F3AFE6400B20B70 /* GoToRecordOrGalleryWireframe.swift in Sources */,
 				AE491E861F3AFE6400B20B70 /* TrimWireframe.swift in Sources */,

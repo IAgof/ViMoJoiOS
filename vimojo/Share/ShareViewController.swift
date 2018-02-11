@@ -50,7 +50,6 @@ UITableViewDelegate, UITableViewDataSource, FullScreenWireframeDelegate {
     var alertController: UIAlertController?
 
     override func viewDidLoad() {
-
         super.viewDidLoad()
         print("ViewDid Load")
 		UIApplication.shared.statusBarView?.backgroundColor = configuration.mainColor
