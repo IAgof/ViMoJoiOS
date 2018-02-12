@@ -50,7 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         self.setupStartApp()
 //        let controller = PurchaseRouter.createModule()
 //        window!.rootViewController = controller
-        
         CheckMicPermissionUseCase().askIfNeeded()
         CheckPhotoRollPermissionUseCase().askIfNeeded()
         CheckCameraPermissionUseCase().askIfNeeded()
