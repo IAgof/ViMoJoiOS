@@ -10,6 +10,7 @@ import SnapKit
 
 class SlideViewController: UIViewController {
     var images: [UIImage] = []
+    private var positionImage: UIImage = #imageLiteral(resourceName: "fuck")
     var orientation: UIInterfaceOrientation = .portrait {
         didSet {
             let value = orientation.rawValue
@@ -23,17 +24,20 @@ class SlideViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
-        let slideView: SliderView = SliderView()
-        slideView.images = images
-        self.view.addSubview(slideView)
-        slideView.snp.makeConstraints { (make) in
+        let onBoardingPages: SliderView = SliderView()
+        onBoardingPages.images = images
+        onBoardingPages.positionImage = positionImage
+        self.view.addSubview(onBoardingPages)
+        onBoardingPages.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
             make.bottom.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }
         let exitButton = UIButton()
-        exitButton.setTitle("exit".localized(.settings), for: .normal)
+        // Change on VIMOJO
+        //        exitButton.setTitle("exit".localized(.settings), for: .normal)
+        exitButton.setTitle("exit", for: .normal)
         exitButton.addTarget(self, action: #selector(exitButtonPush), for: .touchUpInside)
         self.view.addSubview(exitButton)
         exitButton.snp.makeConstraints { (make) in

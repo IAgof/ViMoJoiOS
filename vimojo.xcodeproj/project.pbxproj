@@ -1788,6 +1788,7 @@
 		AEDE4B2D202F6644004E72BD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDE4B27202F6627004E72BD /* UIViewController+Extension.swift */; };
 		AEDE4B2E202F6644004E72BD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDE4B27202F6627004E72BD /* UIViewController+Extension.swift */; };
 		B25A965A2022461B00F53BE7 /* VideonaProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A919EACD200D21B9004A7D27 /* VideonaProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B27D8B392031103B00F1BF99 /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D8B382031103A00F1BF99 /* SlideViewController.swift */; };
 		B2A0F5EC202379EF002716E6 /* URLs.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2A0F5EE202379EF002716E6 /* URLs.strings */; };
 		B2A0F5F220237A12002716E6 /* URLs.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2A0F5F420237A12002716E6 /* URLs.strings */; };
 		B2A0F5FA20237A5E002716E6 /* URLs.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2A0F5FC20237A5E002716E6 /* URLs.strings */; };
@@ -2315,6 +2316,7 @@
 		AED66A4E20214410001AF351 /* Purchase.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Purchase.strings; path = Purchase/Purchase.strings; sourceTree = "<group>"; };
 		AEDE4B27202F6627004E72BD /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		AEF0D2521F4ADF9D00DB42F3 /* Pods_vimojo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_vimojo.framework; path = "Pods/../build/Debug-iphoneos/Pods_vimojo.framework"; sourceTree = "<group>"; };
+		B27D8B382031103A00F1BF99 /* SlideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideViewController.swift; sourceTree = "<group>"; };
 		B2A0F5ED202379EF002716E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/URLs.strings; sourceTree = "<group>"; };
 		B2A0F5EF202379F0002716E6 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/URLs.strings; sourceTree = "<group>"; };
 		B2A0F5F320237A12002716E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/URLs.strings; sourceTree = "<group>"; };
@@ -2323,7 +2325,6 @@
 		B2A0F5FD20237A5F002716E6 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/URLs.strings; sourceTree = "<group>"; };
 		B2A0F5FF20237AEE002716E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/URLs.strings; sourceTree = "<group>"; };
 		B2A0F60120237AF0002716E6 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/URLs.strings; sourceTree = "<group>"; };
-		B2ECFE90202376CD00790FEC /* SlideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideViewController.swift; sourceTree = "<group>"; };
 		C6ADAEE2CE649F1B62914162 /* Pods-vimojo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojo.release.xcconfig"; path = "Pods/Target Support Files/Pods-vimojo/Pods-vimojo.release.xcconfig"; sourceTree = "<group>"; };
 		CB586E6DDDB51926A3B11FCA /* Pods_vimojo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vimojo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE5297002B33E4FE5AE9426E /* Pods-M4N.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-M4N.debug.xcconfig"; path = "Pods/Target Support Files/Pods-M4N/Pods-M4N.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2458,7 +2459,7 @@
 		A9031CF8202273AF00E672BF /* TutorialSlides */ = {
 			isa = PBXGroup;
 			children = (
-				B2ECFE90202376CD00790FEC /* SlideViewController.swift */,
+				B27D8B382031103A00F1BF99 /* SlideViewController.swift */,
 				A9031D102022775200E672BF /* tutorial.xcassets */,
 				A9031CFD2022762E00E672BF /* SlideTutorial.swift */,
 				A9031CFF2022762E00E672BF /* SlideView.swift */,
@@ -5508,6 +5509,7 @@
 				A9CABB0C1EC36C6700AB6CE8 /* RealmVideo.swift in Sources */,
 				A9CABA251EC369F600AB6CE8 /* MusicPresenterInterface.swift in Sources */,
 				A9CABA001EC3691E00AB6CE8 /* MicRecorderPresenter.swift in Sources */,
+				B27D8B392031103B00F1BF99 /* SlideViewController.swift in Sources */,
 				A9CAB9321EC3658E00AB6CE8 /* DuplicateWireframe.swift in Sources */,
 				A9CFF3331F054D75007C2305 /* WriteStreamOperation.swift in Sources */,
 				A9CABABB1EC36AEC00AB6CE8 /* RecordWireframe.swift in Sources */,

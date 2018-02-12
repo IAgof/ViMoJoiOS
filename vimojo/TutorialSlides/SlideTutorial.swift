@@ -20,7 +20,7 @@ enum SlideTutorial {
     }
     private var orientation: UIInterfaceOrientation {
         switch self {
-        case .recordingTut: return .portraitUpsideDown
+        case .recordingTut: return .landscapeRight
         case .editTut: return .portrait
         }
     }

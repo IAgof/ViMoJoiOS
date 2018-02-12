@@ -58,3 +58,4 @@ extension SliderView: FSPagerViewDataSource, FSPagerViewDelegate {
         pageControl.currentPage = index
     }
 }
+
