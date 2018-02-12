@@ -57,4 +57,3 @@ extension UIApplication {
         return UIApplication.shared.languageCode == "es"
     }
 }
-

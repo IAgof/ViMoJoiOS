@@ -338,7 +338,9 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
             parent = parent?.parent
         }
     }
-
+    @IBAction func showTutorial(_ sender: Any) {
+        eventHandler?.pushTutorial()
+    }
 	func setDrawerGestureStatus(_ value: Bool) {
 		if let drawer = parent as? KYDrawerController {
 			drawer.screenEdgePanGestureEnabled = value

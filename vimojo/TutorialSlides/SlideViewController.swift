@@ -24,18 +24,6 @@ class SlideViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
-        setupOnboardingSliderView()
-        setupExitButton()
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        let value = UIInterfaceOrientation.portrait.rawValue
-        UIDevice.current.setValue(value, forKey: "orientation")
-    }
-    @objc func exitButtonPush() {
-        self.navigationController?.popViewController(animated: true)
-    }
-    func setupOnboardingSliderView() {
         let onBoardingPages: SliderView = SliderView()
         onBoardingPages.images = images
         onBoardingPages.positionImage = positionImage
@@ -46,8 +34,6 @@ class SlideViewController: UIViewController {
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }
-    }
-    func setupExitButton() {
         let exitButton = UIButton()
         // Change on VIMOJO
         //        exitButton.setTitle("exit".localized(.settings), for: .normal)
@@ -58,5 +44,13 @@ class SlideViewController: UIViewController {
             make.leading.equalToSuperview().offset(16)
             make.bottom.equalToSuperview()
         }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
+    }
+    @objc func exitButtonPush() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
