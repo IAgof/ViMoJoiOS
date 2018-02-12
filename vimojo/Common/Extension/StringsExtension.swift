@@ -20,6 +20,7 @@ extension String{
         case projectList = "ProjectList"
         case share = "Share"
 		case purchase = "Purchase"
+        case urls = "URLs"
     }
     
     func localize(inTable table: String? = nil) -> String{
