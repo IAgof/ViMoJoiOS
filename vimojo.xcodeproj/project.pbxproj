@@ -18,11 +18,6 @@
 		A9031D022022762F00E672BF /* SlideTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9031CFD2022762E00E672BF /* SlideTutorial.swift */; };
 		A9031D032022762F00E672BF /* SlideTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9031CFD2022762E00E672BF /* SlideTutorial.swift */; };
 		A9031D042022762F00E672BF /* SlideTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9031CFD2022762E00E672BF /* SlideTutorial.swift */; };
-		A9031D052022762F00E672BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9031CFE2022762E00E672BF /* ViewController.swift */; };
-		A9031D062022762F00E672BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9031CFE2022762E00E672BF /* ViewController.swift */; };
-		A9031D072022762F00E672BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9031CFE2022762E00E672BF /* ViewController.swift */; };
-		A9031D082022762F00E672BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9031CFE2022762E00E672BF /* ViewController.swift */; };
-		A9031D092022762F00E672BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9031CFE2022762E00E672BF /* ViewController.swift */; };
 		A9031D0A2022762F00E672BF /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9031CFF2022762E00E672BF /* SlideView.swift */; };
 		A9031D0B2022762F00E672BF /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9031CFF2022762E00E672BF /* SlideView.swift */; };
 		A9031D0C2022762F00E672BF /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9031CFF2022762E00E672BF /* SlideView.swift */; };
@@ -1793,6 +1788,7 @@
 		AEDE4B2D202F6644004E72BD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDE4B27202F6627004E72BD /* UIViewController+Extension.swift */; };
 		AEDE4B2E202F6644004E72BD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDE4B27202F6627004E72BD /* UIViewController+Extension.swift */; };
 		B25A965A2022461B00F53BE7 /* VideonaProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A919EACD200D21B9004A7D27 /* VideonaProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B27D8B392031103B00F1BF99 /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D8B382031103A00F1BF99 /* SlideViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1902,9 +1898,8 @@
 		98398B354FE92A87A0B69BE4 /* Pods-vimojoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vimojoUITests/Pods-vimojoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A900C7451DC3575700A65730 /* FTPErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTPErrorType.swift; sourceTree = "<group>"; };
 		A900C7581DC35FB500A65730 /* ShareFTPBreakingNewsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareFTPBreakingNewsInteractor.swift; sourceTree = "<group>"; };
-		A9031CFD2022762E00E672BF /* SlideTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideTutorial.swift; path = "../../../../../Downloads/paperTest 2/paperTest/SliderView/SlideTutorial.swift"; sourceTree = "<group>"; };
-		A9031CFE2022762E00E672BF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A9031CFF2022762E00E672BF /* SlideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideView.swift; path = "../../../../../Downloads/paperTest 2/paperTest/SliderView/SlideView.swift"; sourceTree = "<group>"; };
+		A9031CFD2022762E00E672BF /* SlideTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideTutorial.swift; sourceTree = "<group>"; };
+		A9031CFF2022762E00E672BF /* SlideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideView.swift; sourceTree = "<group>"; };
 		A9031D102022775200E672BF /* tutorial.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = tutorial.xcassets; sourceTree = "<group>"; };
 		A906CCDC1DB0D03700AC8FFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/MicRecorder.strings; sourceTree = "<group>"; };
 		A906CCDE1DB0D03900AC8FFB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MicRecorder.strings; sourceTree = "<group>"; };
@@ -2316,6 +2311,7 @@
 		AED66A4E20214410001AF351 /* Purchase.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Purchase.strings; path = Purchase/Purchase.strings; sourceTree = "<group>"; };
 		AEDE4B27202F6627004E72BD /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		AEF0D2521F4ADF9D00DB42F3 /* Pods_vimojo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_vimojo.framework; path = "Pods/../build/Debug-iphoneos/Pods_vimojo.framework"; sourceTree = "<group>"; };
+		B27D8B382031103A00F1BF99 /* SlideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideViewController.swift; sourceTree = "<group>"; };
 		C6ADAEE2CE649F1B62914162 /* Pods-vimojo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojo.release.xcconfig"; path = "Pods/Target Support Files/Pods-vimojo/Pods-vimojo.release.xcconfig"; sourceTree = "<group>"; };
 		CB586E6DDDB51926A3B11FCA /* Pods_vimojo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vimojo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE5297002B33E4FE5AE9426E /* Pods-M4N.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-M4N.debug.xcconfig"; path = "Pods/Target Support Files/Pods-M4N/Pods-M4N.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2450,10 +2446,10 @@
 		A9031CF8202273AF00E672BF /* TutorialSlides */ = {
 			isa = PBXGroup;
 			children = (
+				B27D8B382031103A00F1BF99 /* SlideViewController.swift */,
 				A9031D102022775200E672BF /* tutorial.xcassets */,
 				A9031CFD2022762E00E672BF /* SlideTutorial.swift */,
 				A9031CFF2022762E00E672BF /* SlideView.swift */,
-				A9031CFE2022762E00E672BF /* ViewController.swift */,
 			);
 			path = TutorialSlides;
 			sourceTree = "<group>";
@@ -4547,7 +4543,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		45244F6698CB1B865CE5B75A /* [CP] Copy Pods Resources */ = {
@@ -4583,7 +4579,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4956937A8FC61D6BA812F7B8 /* [CP] Check Pods Manifest.lock */ = {
@@ -4601,7 +4597,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6760216FD77FA70ADC8C81EC /* [CP] Embed Pods Frameworks */ = {
@@ -4612,6 +4608,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-vimojoUITests/Pods-vimojoUITests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -4621,12 +4618,14 @@
 				"${BUILT_PRODUCTS_DIR}/NMRangeSlider/NMRangeSlider.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/TTRangeSlider/TTRangeSlider.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -4636,6 +4635,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NMRangeSlider.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTRangeSlider.framework",
 			);
@@ -4688,6 +4688,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-M4N/Pods-M4N-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -4697,12 +4698,14 @@
 				"${BUILT_PRODUCTS_DIR}/NMRangeSlider/NMRangeSlider.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/TTRangeSlider/TTRangeSlider.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -4712,6 +4715,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NMRangeSlider.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTRangeSlider.framework",
 			);
@@ -4728,6 +4732,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -4737,12 +4742,14 @@
 				"${BUILT_PRODUCTS_DIR}/NMRangeSlider/NMRangeSlider.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/TTRangeSlider/TTRangeSlider.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -4752,6 +4759,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NMRangeSlider.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTRangeSlider.framework",
 			);
@@ -4768,6 +4776,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RTVE/Pods-RTVE-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -4777,12 +4786,14 @@
 				"${BUILT_PRODUCTS_DIR}/NMRangeSlider/NMRangeSlider.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/TTRangeSlider/TTRangeSlider.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -4792,6 +4803,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NMRangeSlider.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTRangeSlider.framework",
 			);
@@ -4893,7 +4905,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AE491E3B1F3AFE6400B20B70 /* ShellScript */ = {
@@ -4930,6 +4942,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ThomsonFoundation/Pods-ThomsonFoundation-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -4939,12 +4952,14 @@
 				"${BUILT_PRODUCTS_DIR}/NMRangeSlider/NMRangeSlider.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/TTRangeSlider/TTRangeSlider.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -4954,6 +4969,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NMRangeSlider.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTRangeSlider.framework",
 			);
@@ -5013,7 +5029,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -5315,7 +5331,6 @@
 				A99BAD3A1E49DC9D00A465C7 /* DetailTextPresenterInterface.swift in Sources */,
 				A99BAD3C1E49DC9D00A465C7 /* ShareUtils.swift in Sources */,
 				A9CABA0E1EC3691E00AB6CE8 /* MicRecorderWireframe.swift in Sources */,
-				A9031D082022762F00E672BF /* ViewController.swift in Sources */,
 				A99BAD3D1E49DC9D00A465C7 /* TwitterVideoUpload.m in Sources */,
 				A9CABA501EC36A6700AB6CE8 /* ProjectListInteractorInterface.swift in Sources */,
 				A9CAB8CF1EC360CC00AB6CE8 /* RootWireframe.swift in Sources */,
@@ -5473,6 +5488,7 @@
 				A9CABB0C1EC36C6700AB6CE8 /* RealmVideo.swift in Sources */,
 				A9CABA251EC369F600AB6CE8 /* MusicPresenterInterface.swift in Sources */,
 				A9CABA001EC3691E00AB6CE8 /* MicRecorderPresenter.swift in Sources */,
+				B27D8B392031103B00F1BF99 /* SlideViewController.swift in Sources */,
 				A9CAB9321EC3658E00AB6CE8 /* DuplicateWireframe.swift in Sources */,
 				A9CFF3331F054D75007C2305 /* WriteStreamOperation.swift in Sources */,
 				A9CABABB1EC36AEC00AB6CE8 /* RecordWireframe.swift in Sources */,
@@ -5638,7 +5654,6 @@
 				A91761241D916F48008915DA /* TwitterVideoUpload.m in Sources */,
 				A9CABA621EC36AA300AB6CE8 /* ProjectListWireframe.swift in Sources */,
 				A9CAB8B71EC35FD300AB6CE8 /* CheckCameraPermissionUseCase.swift in Sources */,
-				A9031D052022762F00E672BF /* ViewController.swift in Sources */,
 				A91760BB1D9146BF008915DA /* EditorInteractorInterface.swift in Sources */,
 				A9CC20071E55AED800F0B00E /* ShareSave.swift in Sources */,
 				A953AD581E53475600DC0D84 /* AddFilterToVideoPresenterInterface.swift in Sources */,
@@ -5965,7 +5980,6 @@
 				A9D077B71E2F80B1003AE96B /* ShareUtils.swift in Sources */,
 				A9D077B81E2F80B1003AE96B /* TwitterVideoUpload.m in Sources */,
 				A9CABA0D1EC3691E00AB6CE8 /* MicRecorderWireframe.swift in Sources */,
-				A9031D092022762F00E672BF /* ViewController.swift in Sources */,
 				A9CAB9701EC3672700AB6CE8 /* SaveVideosFromGalleryInteractor.swift in Sources */,
 				A9CABA4F1EC36A6700AB6CE8 /* ProjectListInteractorInterface.swift in Sources */,
 				A9CAB97B1EC3676000AB6CE8 /* GoToRecordOrGalleryWireframe.swift in Sources */,
@@ -6280,7 +6294,6 @@
 				AE12E8D31FFEA7AB00F2342E /* TwitterVideoUpload.m in Sources */,
 				AE12E8D41FFEA7AB00F2342E /* ProjectListWireframe.swift in Sources */,
 				AE12E8D51FFEA7AB00F2342E /* CheckCameraPermissionUseCase.swift in Sources */,
-				A9031D072022762F00E672BF /* ViewController.swift in Sources */,
 				AE12E8D61FFEA7AB00F2342E /* EditorInteractorInterface.swift in Sources */,
 				AE12E8D71FFEA7AB00F2342E /* ShareSave.swift in Sources */,
 				AE12E8D81FFEA7AB00F2342E /* AddFilterToVideoPresenterInterface.swift in Sources */,
@@ -6597,7 +6610,6 @@
 				AE491F4F1F3AFE6400B20B70 /* TwitterVideoUpload.m in Sources */,
 				AE491F501F3AFE6400B20B70 /* ProjectListWireframe.swift in Sources */,
 				AE491F511F3AFE6400B20B70 /* CheckCameraPermissionUseCase.swift in Sources */,
-				A9031D062022762F00E672BF /* ViewController.swift in Sources */,
 				AE491F521F3AFE6400B20B70 /* EditorInteractorInterface.swift in Sources */,
 				AE491F531F3AFE6400B20B70 /* ShareSave.swift in Sources */,
 				AE491F541F3AFE6400B20B70 /* AddFilterToVideoPresenterInterface.swift in Sources */,
