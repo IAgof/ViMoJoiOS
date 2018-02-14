@@ -17,9 +17,9 @@ public class CheckPhotoRollPermissionUseCase: CheckPermission {
             PHPhotoLibrary.requestAuthorization { (status) in
                 switch status {
                 case .restricted, .denied, .notDetermined:
-                    self.askIfNeeded()
+                    self.appSystemSetPermissions()
                 default:
-                    self.askIfNeeded()
+                    self.appSystemSetPermissions()
                 }
             }
         default:
