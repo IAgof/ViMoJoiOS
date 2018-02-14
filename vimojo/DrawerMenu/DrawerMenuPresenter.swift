@@ -19,6 +19,10 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
         case newProject = 1
 		case removeWatermark = 2
         case options = 3
+        case shop = 4
+        case mojokit = 5
+        case recordTutorial = 6
+        case editionTutorial = 7
     }
     let optionsSection = 1
 
@@ -38,6 +42,18 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
 					break;
                 case .options:
                     wireframe?.presentSettings()
+                    break
+                case .shop:
+                    self.switchWatermark()
+                    break
+                case .mojokit:
+                    wireframe?.goToMojoKit()
+                    break
+                case .recordTutorial:
+                    wireframe?.presentRecordTutorial()
+                    break
+                case .editionTutorial:
+                    wireframe?.presentEditTutorial()
                     break
                 }
             }

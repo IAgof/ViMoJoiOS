@@ -17,6 +17,8 @@ def shared_pods
 	pod 'TTRangeSlider'
     pod 'MBCircularProgressBar', '0.3.4'
     pod 'KCFloatingActionButton'
+    pod 'FSPagerView'
+    pod 'SnapKit', '~> 3.0.0'
     
     #Set your own VideonaProject folder
 #    pod 'VideonaProject', :path => '../iOS-SDK'

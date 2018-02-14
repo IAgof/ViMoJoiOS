@@ -67,13 +67,14 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
     override func viewWillAppear(_ animated: Bool) {
 		configureNavigationBarWithDrawerAndOptions()
 		configureNavigationBarVissible()
+        self.view.frame.origin.y = 0
+        self.view.frame.size.height -= 64.0
         let value = UIInterfaceOrientation.portrait.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-		configureNavigationBarHidden()
         eventHandler?.viewWillDisappear()
     }
 

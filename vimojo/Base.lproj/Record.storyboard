@@ -254,7 +254,7 @@
                                                 <rect key="frame" x="5" y="4" width="170.5" height="37"/>
                                                 <subviews>
                                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwJ-gK-90e">
-                                                        <rect key="frame" x="0.0" y="0.0" width="42.5" height="37"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="34" height="37"/>
                                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                                         <state key="normal" image="activity_record_ic_settings"/>
                                                         <state key="selected" image="activity_record_ic_settings_pressed"/>
@@ -268,15 +268,22 @@
                                                             <action selector="pushSettings:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="i2f-U6-ocy"/>
                                                         </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGa-4U-mXz" userLabel="tutorial">
+                                                        <rect key="frame" x="34" y="0.0" width="34" height="37"/>
+                                                        <state key="normal" image="activity_record_tutorial"/>
+                                                        <connections>
+                                                            <action selector="showTutorial:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="PWF-Bm-Daa"/>
+                                                        </connections>
+                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhg-e3-51Y" userLabel="Show Camera Simple Button">
-                                                        <rect key="frame" x="42.5" y="0.0" width="43" height="37"/>
+                                                        <rect key="frame" x="68" y="0.0" width="34.5" height="37"/>
                                                         <state key="normal" image="activity_rec_expand"/>
                                                         <connections>
                                                             <action selector="pushCameraSimple:" destination="Nz1-JK-f3B" eventType="touchUpInside" id="Cf6-jO-aI8"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8j-Vd-5dC">
-                                                        <rect key="frame" x="85.5" y="0.0" width="42.5" height="37"/>
+                                                        <rect key="frame" x="102.5" y="0.0" width="34" height="37"/>
                                                         <state key="normal" image="activity_record_memory_100"/>
                                                         <state key="selected" image="activity_record_memory_100"/>
                                                         <state key="highlighted" image="activity_record_memory_100"/>
@@ -285,7 +292,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veW-ha-Wav">
-                                                        <rect key="frame" x="128" y="0.0" width="42.5" height="37"/>
+                                                        <rect key="frame" x="136.5" y="0.0" width="34" height="37"/>
                                                         <state key="normal" image="activity_record_battery_100"/>
                                                         <state key="selected" image="activity_record_battery_100_pressed"/>
                                                         <state key="highlighted" image="activity_record_battery_100_pressed"/>
@@ -842,6 +849,7 @@
         <image name="activity_record_icon_focus_focused" width="68" height="68"/>
         <image name="activity_record_icon_recording" width="7" height="7"/>
         <image name="activity_record_memory_100" width="15" height="15"/>
+        <image name="activity_record_tutorial" width="20" height="20"/>
         <image name="common_icon_spin" width="102" height="102"/>
     </resources>
 </document>
