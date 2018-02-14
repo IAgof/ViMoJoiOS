@@ -10,7 +10,6 @@ import SnapKit
 
 class SlideViewController: UIViewController {
     var images: [UIImage] = []
-    private var positionImage: UIImage = #imageLiteral(resourceName: "fuck")
     var orientation: UIInterfaceOrientation = .portrait {
         didSet {
             let value = orientation.rawValue
@@ -26,7 +25,6 @@ class SlideViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
         let onBoardingPages: SliderView = SliderView()
         onBoardingPages.images = images
-        onBoardingPages.positionImage = positionImage
         self.view.addSubview(onBoardingPages)
         onBoardingPages.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
