@@ -40,7 +40,7 @@ class MusicInteractor: MusicInteractorInterface {
         case .voiceOver: project.voiceOver.forEach({ $0.audioLevel = audio.volume })
         default: break
         }
-
+        project.updateModificationDate()
         ProjectRealmRepository().update(item: project)
         updateAudioMix()
     }
