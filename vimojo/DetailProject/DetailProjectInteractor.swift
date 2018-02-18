@@ -33,7 +33,7 @@ class DetailProjectInteractor: DetailProjectInteractorInterface {
             let videoParameters = getVideoParams(filePath: exportedPath)
 
             let projectFoundParams = DetailProjectFound(thumbImage: thumbImage,
-                                                        projectName: project.getTitle(),
+                                                        projectName: project.projectInfo.title,
                                                         size: getProjectSize(filePath:exportedPath),
                                                         duration: project.getDuration(),
                                                         quality: project.getProfile().getResolution(),
@@ -101,7 +101,7 @@ class DetailProjectInteractor: DetailProjectInteractorInterface {
 
     func saveProjectName() {
         if let project = ProjectRealmRepository().getProjectByUUID(uuid: videoUUID) {
-            project.setTitle(projectName)
+            project.projectInfo.title = projectName
 
             ProjectRealmRepository().update(item: project)
         }

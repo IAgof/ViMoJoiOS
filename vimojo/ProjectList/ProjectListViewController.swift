@@ -29,6 +29,9 @@ class ProjectListViewController: ViMoJoController {
         eventHandler?.viewWillAppear()
         self.navigationController?.isNavigationBarHidden = false
     }
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
     override func pushBack() {
         eventHandler?.pushBack()
     }
