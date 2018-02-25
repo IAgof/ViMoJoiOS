@@ -33,12 +33,34 @@ public class VideoSettings {
             defaults.set(bitRate.rawValue, forKey: bitRate.defaultsKey)
         }
     }
+    static var activeFormat: (Array<AVCaptureDevice.Format>) -> AVCaptureDevice.Format? {
+        return { formats in
+            var formats = formats
+            formats = formats.filter({ (format) -> Bool in
+                let timeRanges = format.videoSupportedFrameRateRanges as!  [AVFrameRateRange]
+                let containsTimeRange = timeRanges.contains(where: {
+                    print("$0.maxFrameDuration.seconds > Double(fps.value)")
+                    print($0.maxFrameRate)
+                    return $0.maxFrameRate > Double(fps.value)
+                })
+                let containsResolution =
+                    format.highResolutionStillImageDimensions.height >
+                        Int32(VideoSettings.resolution.height)
+                return containsTimeRange && containsResolution
+            })
+            return formats.first
+        }
+    }
     static func updateFps(to device: AVCaptureDevice) {
         do {
-            try device.lockForConfiguration()
-            device.activeVideoMinFrameDuration = CMTime(value: 1, timescale: CMTimeScale(fps.value))
-            device.activeVideoMaxFrameDuration = CMTime(value: 1, timescale: CMTimeScale(fps.value))
-            device.unlockForConfiguration()
+            let formats = device.formats as! Array<AVCaptureDevice.Format>
+            if let activeFormat = activeFormat(formats) {
+                try device.lockForConfiguration()
+                device.activeFormat = activeFormat
+                device.activeVideoMinFrameDuration = CMTime(value: 1, timescale: CMTimeScale(fps.value))
+                device.activeVideoMaxFrameDuration = CMTime(value: 1, timescale: CMTimeScale(fps.value))
+                device.unlockForConfiguration()
+            }
         } catch {
             return
         }
@@ -55,7 +77,6 @@ public class VideoSettings {
             AVVideoCompressionPropertiesKey: compressionProperties
         ]
     }
-    
     static func loadValues() {
         codec = VideoCodec(rawValue: defaults.integer(forKey: codec.defaultsKey)) ?? .H264
         resolution = Resolution(rawValue: defaults.integer(forKey: resolution.defaultsKey)) ?? .sevenHundred

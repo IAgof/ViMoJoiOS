@@ -164,18 +164,27 @@ class PreviewView: UIView {
 		return activeInput.device.position
 	}
 }
+extension AVCaptureDevice {
+    static var videoDevice: (AVCaptureDevice.Position) -> AVCaptureDevice {
+        return { position in
+            AVCaptureDevice.defaultDevice(withDeviceType: .builtInWideAngleCamera,
+                                          mediaType: AVMediaTypeVideo,
+                                          position: position)
+        }
+    }
+}
 extension PreviewView {
     var cameraPosition: AVCaptureDevice {
         switch activeInput.device.position {
         case .back:
             CamSettings.cameraPosition = .front
-            return AVCaptureDevice.defaultDevice(withDeviceType: .builtInWideAngleCamera, mediaType: AVMediaTypeVideo, position: .front)
+            return AVCaptureDevice.videoDevice(.front)
         case .front:
             CamSettings.cameraPosition = .back
-            return AVCaptureDevice.defaultDevice(withDeviceType: .builtInWideAngleCamera, mediaType: AVMediaTypeVideo, position: .back)
+            return AVCaptureDevice.videoDevice(.back)
         default:
             CamSettings.cameraPosition = .back
-            return AVCaptureDevice.defaultDevice(withDeviceType: .builtInWideAngleCamera, mediaType: AVMediaTypeVideo, position: .back)
+            return AVCaptureDevice.videoDevice(.back)
         }
     }
     var cameraHasFlash: Bool {
