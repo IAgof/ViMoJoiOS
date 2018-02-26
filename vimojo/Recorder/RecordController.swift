@@ -135,7 +135,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         eventHandler?.viewWillDisappear()
-
+        NotificationCenter.default.removeObserver(self)
 		previewView.stopSession()
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
