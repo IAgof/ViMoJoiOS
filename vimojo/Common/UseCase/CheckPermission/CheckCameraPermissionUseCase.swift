@@ -18,7 +18,7 @@ public class CheckCameraPermissionUseCase: CheckPermission {
              .denied:
             AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { (didAllow) in
                 if !didAllow {
-                    self.askIfNeeded()
+                    self.appSystemSetPermissions()
                 }
             })
         default:

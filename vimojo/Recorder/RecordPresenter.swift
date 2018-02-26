@@ -251,6 +251,9 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             batteryIsShowed = true
         }
     }
+    func pushTutorial() {
+        recordWireframe?.presentRecordTutorial()
+    }
 
     func pushSpaceOnDisk() {
         if spaceOnDiskIsShowed {
@@ -699,6 +702,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     }
 
 	func rotateCamera() {
+        delegate?.setDefaultAllModes()
 		delegate?.checkCameraProSupportedFeatures()
         hideAllModeConfigsIfNeccesary()
 	}

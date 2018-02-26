@@ -73,7 +73,6 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-		configureNavigationBarHidden()
         eventHandler?.viewWillDisappear()
     }
 

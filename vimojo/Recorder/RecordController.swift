@@ -343,7 +343,9 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
             parent = parent?.parent
         }
     }
-
+    @IBAction func showTutorial(_ sender: Any) {
+        eventHandler?.pushTutorial()
+    }
 	func setDrawerGestureStatus(_ value: Bool) {
 		if let drawer = parent as? KYDrawerController {
 			drawer.screenEdgePanGestureEnabled = value
@@ -862,10 +864,12 @@ extension RecordController:RecordPresenterDelegate {
 
     func setDefaultAllModes() {
         zoomView.setZoomSliderValue(1)
-		zoomView.setDefaultZoom(1)
+        zoomView.setDefaultZoom(1)
         isoConfigurationView.setAutoISO()
         wbConfigurationView.setAutoWB()
         focusView.setAutoFocus()
+        focalLensSliderView.setDefaultFocus()
+        exposureConfigurationView.setDefaultExposure()
         expositionModesView.setAutoExposure()
 		defaultModesButton.isSelected = true
     }
