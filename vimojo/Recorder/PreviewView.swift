@@ -141,6 +141,7 @@ class PreviewView: UIView {
     private func configureDeviceVideoSettings () {
         guard let device = self.activeInput.device else { return }
         VideoSettings.updateFps(to: device)
+        VideoSettings.resolution = .sevenHundred
         self.captureSessionPreset = VideoSettings.resolution.preset(device)
     }
     public func stopSession() {
@@ -159,15 +160,21 @@ class PreviewView: UIView {
             configureDeviceVideoSettings()
         }
     }
+	public func getCameraPosition() -> AVCaptureDevicePosition {
+		return activeInput.device.position
+	}
 }
 extension PreviewView {
     var cameraPosition: AVCaptureDevice {
         switch activeInput.device.position {
         case .back:
+            CamSettings.cameraPosition = .front
             return AVCaptureDevice.defaultDevice(withDeviceType: .builtInWideAngleCamera, mediaType: AVMediaTypeVideo, position: .front)
         case .front:
+            CamSettings.cameraPosition = .back
             return AVCaptureDevice.defaultDevice(withDeviceType: .builtInWideAngleCamera, mediaType: AVMediaTypeVideo, position: .back)
         default:
+            CamSettings.cameraPosition = .back
             return AVCaptureDevice.defaultDevice(withDeviceType: .builtInWideAngleCamera, mediaType: AVMediaTypeVideo, position: .back)
         }
     }

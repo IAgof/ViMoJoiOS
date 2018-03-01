@@ -689,6 +689,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     }
 
 	func rotateCamera() {
+        delegate?.setDefaultAllModes()
 		delegate?.checkCameraProSupportedFeatures()
         hideAllModeConfigsIfNeccesary()
 	}
