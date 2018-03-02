@@ -9,6 +9,8 @@
 import Foundation
 import VideonaProject
 import AVFoundation
+import Crashlytics
+
 
 class AddTextInteractor: AddTextInteractorInterface {
     var delegate: AddTextInteractorDelegate?
@@ -16,6 +18,10 @@ class AddTextInteractor: AddTextInteractorInterface {
     var videoPosition: Int?
 
     let fontSize = CGFloat(80)
+    
+    enum JSONParsingError: String, Error {
+        case DataFailed
+    }
 
     init(project: Project) {
         self.project = project
@@ -97,6 +103,7 @@ class AddTextInteractor: AddTextInteractorInterface {
         guard let videoPos = videoPosition,
             let project = self.project,
             project.getVideoList().indices.contains(videoPos) else {
+                Crashlytics.sharedInstance().recordError(JSONParsingError.DataFailed)
                 return
         }
         let video = project.getVideoList()[videoPos]
