@@ -44,6 +44,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     var micIsEnabled = false
     var modeViewIsShowed = true
     var inputGainViewIsShowed = false
+    var flashIsEnabled = false
 
     enum batteryImages: String {
         case charged = "activity_record_battery_100"
@@ -103,7 +104,8 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             if self.isRecording {
                 self.stopRecord("")
             }
-            FlashInteractor().turnOffWhenViewWillDissappear()
+            FlashInteractor().turnOffIfIsOn()
+            self.flashIsEnabled = false
             DispatchQueue.main.async(execute: {
                 self.delegate?.showFlashOn(false)
 				self.delegate?.enableIdleTimer(false)
@@ -120,6 +122,9 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 			case .cameraPro: self.pushCameraPro()
 			case .cameraBasic: self.pushCameraSimple()
 			}
+            if self.flashIsEnabled == true {
+                FlashInteractor().switchFlashState()
+            }
 			self.rotateCamera()
         })
     }
@@ -134,6 +139,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
     func pushFlash() {
         let flashState = FlashInteractor().switchFlashState()
+        self.flashIsEnabled = flashState
         delegate?.showFlashOn(flashState)
         self.trackFlash(flashState)
     }
@@ -383,8 +389,15 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         hideWBConfigIfYouCan()
         hideExposureModesIfYouCan()
 		hideGridIfYouCan()
-
+        turnFlashOffIfYouCan()
+        
         delegate?.setDefaultAllModes()
+    }
+    
+    func turnFlashOffIfYouCan() {
+        FlashInteractor().turnOffIfIsOn()
+        self.flashIsEnabled = false
+        delegate?.showFlashOn(false)
     }
 
     func pushCloseBatteryButton() {
