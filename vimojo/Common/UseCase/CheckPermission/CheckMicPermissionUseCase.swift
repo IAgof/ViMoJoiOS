@@ -17,10 +17,9 @@ public class CheckMicPermissionUseCase: CheckPermission {
             avSession.requestRecordPermission({
                 granted in
                 if !granted {
-                    self.askIfNeeded()
+                    self.appSystemSetPermissions()
                 }
             })
-
             break
         default:
             break
