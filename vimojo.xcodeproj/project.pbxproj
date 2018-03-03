@@ -1793,6 +1793,20 @@
 		B20240382033B7EC00B9669A /* SystemSettingsPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20240342033B7EB00B9669A /* SystemSettingsPaths.swift */; };
 		B20240392033B7EC00B9669A /* SystemSettingsPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20240342033B7EB00B9669A /* SystemSettingsPaths.swift */; };
 		B25A965A2022461B00F53BE7 /* VideonaProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A919EACD200D21B9004A7D27 /* VideonaProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B27D2934204AFF9100457240 /* VideonaProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A919EACD200D21B9004A7D27 /* VideonaProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B27D2937204AFFE800457240 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE4E66CA1FFDAE10002C45CD /* Info.plist */; };
+		B27D2938204B003900457240 /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D8B382031103A00F1BF99 /* SlideViewController.swift */; };
+		B27D2939204B003E00457240 /* tutorial.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9031D102022775200E672BF /* tutorial.xcassets */; };
+		B27D293A204B004B00457240 /* PurchaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67A61FE45DAF005958DB /* PurchaseInteractor.swift */; };
+		B27D293B204B004E00457240 /* PurchaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E957D81FE5915800D0E087 /* PurchaseTableViewCell.swift */; };
+		B27D293C204B005700457240 /* PurchasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67A71FE45DAF005958DB /* PurchasePresenter.swift */; };
+		B27D293D204B005900457240 /* PurchaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67A81FE45DAF005958DB /* PurchaseProtocols.swift */; };
+		B27D293E204B005C00457240 /* PurchaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67A91FE45DAF005958DB /* PurchaseRouter.swift */; };
+		B27D293F204B005F00457240 /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67AA1FE45DAF005958DB /* PurchaseViewController.swift */; };
+		B27D2940204B006200457240 /* PurchaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A90C67AB1FE45DAF005958DB /* PurchaseViewController.xib */; };
+		B27D2941204B00DC00457240 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A90C679E1FE08F63005958DB /* StoreKit.framework */; };
+		B27D2942204B01DA00457240 /* IAHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67A11FE455B5005958DB /* IAHelper.swift */; };
+		B27D2943204B01DC00457240 /* PurchaseProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67A31FE45BA6005958DB /* PurchaseProduct.swift */; };
 		B27D8B392031103B00F1BF99 /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D8B382031103A00F1BF99 /* SlideViewController.swift */; };
 		B2A0F5EC202379EF002716E6 /* URLs.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2A0F5EE202379EF002716E6 /* URLs.strings */; };
 		B2A0F5F220237A12002716E6 /* URLs.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2A0F5F420237A12002716E6 /* URLs.strings */; };
@@ -1837,6 +1851,13 @@
 			remoteGlobalIDString = A9BD5FBC1D9120F40080CE97;
 			remoteInfo = VideonaProject;
 		};
+		B27D2935204AFF9100457240 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A9BD5FBC1D9120F40080CE97;
+			remoteInfo = VideonaProject;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -1856,6 +1877,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				B27D2934204AFF9100457240 /* VideonaProject.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2386,6 +2408,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B27D2941204B00DC00457240 /* StoreKit.framework in Frameworks */,
 				AE12E7961FFEA7AB00F2342E /* Alamofire.framework in Frameworks */,
 				AE12E7971FFEA7AB00F2342E /* FBSDKCoreKit.framework in Frameworks */,
 				AE12E7981FFEA7AB00F2342E /* FBSDKShareKit.framework in Frameworks */,
@@ -4155,6 +4178,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				B27D2936204AFF9100457240 /* PBXTargetDependency */,
 			);
 			name = M4N;
 			productName = vimojo;
@@ -4466,6 +4490,7 @@
 				AE12E7A21FFEA7AB00F2342E /* Gallery.storyboard in Resources */,
 				AE12E7A31FFEA7AB00F2342E /* water_mark.png in Resources */,
 				B2A0F5EC202379EF002716E6 /* URLs.strings in Resources */,
+				B27D2939204B003E00457240 /* tutorial.xcassets in Resources */,
 				AEBB051A20128DFC0094E65E /* RecordingCameraConfigurationViewController.xib in Resources */,
 				AE12E7A41FFEA7AB00F2342E /* iso639_2.bundle in Resources */,
 				AE12E7A51FFEA7AB00F2342E /* ShareCell.xib in Resources */,
@@ -4482,6 +4507,7 @@
 				AE12E7B11FFEA7AB00F2342E /* DrawerMenu.strings in Resources */,
 				AE12E7B21FFEA7AB00F2342E /* EditorStrings.strings in Resources */,
 				AE12E7B41FFEA7AB00F2342E /* Main.storyboard in Resources */,
+				B27D2940204B006200457240 /* PurchaseViewController.xib in Resources */,
 				AED66A5120214410001AF351 /* Purchase.strings in Resources */,
 				AE12E7B51FFEA7AB00F2342E /* VideonaFooterView.xib in Resources */,
 				AE12E7B61FFEA7AB00F2342E /* Editor.storyboard in Resources */,
@@ -4495,6 +4521,7 @@
 				AE12E7BD1FFEA7AB00F2342E /* MusicDetailView.xib in Resources */,
 				AE12E7BE1FFEA7AB00F2342E /* Share.strings in Resources */,
 				AE12E7BF1FFEA7AB00F2342E /* filter_free.png in Resources */,
+				B27D2937204AFFE800457240 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6081,6 +6108,7 @@
 				AEBB051520128DFC0094E65E /* RecordingCameraConfigurationInteractor.swift in Sources */,
 				AE12E7E71FFEA7AB00F2342E /* AddTextInteractorInterface.swift in Sources */,
 				AE12E7E81FFEA7AB00F2342E /* SettingsFTPBreakingNewsEditedDestination.swift in Sources */,
+				B27D293E204B005C00457240 /* PurchaseRouter.swift in Sources */,
 				AE12E7E91FFEA7AB00F2342E /* TakePhotoFromOptions.swift in Sources */,
 				AE12E7EA1FFEA7AB00F2342E /* VideoRepository.swift in Sources */,
 				AE12E7EB1FFEA7AB00F2342E /* SettingsResolutionAction.swift in Sources */,
@@ -6089,7 +6117,9 @@
 				AE12E7EE1FFEA7AB00F2342E /* SplitViewController.swift in Sources */,
 				AE12E7EF1FFEA7AB00F2342E /* Session.swift in Sources */,
 				AE12E7F01FFEA7AB00F2342E /* AddTextWireframe.swift in Sources */,
+				B27D293C204B005700457240 /* PurchasePresenter.swift in Sources */,
 				AE12E7F11FFEA7AB00F2342E /* MusicListWireframe.swift in Sources */,
+				B27D2943204B01DC00457240 /* PurchaseProduct.swift in Sources */,
 				AE12E7F21FFEA7AB00F2342E /* RecorderInteractor.swift in Sources */,
 				AE12E7F31FFEA7AB00F2342E /* UIViewFadeViewsExtension.swift in Sources */,
 				AE12E7F41FFEA7AB00F2342E /* ApplyTextOverlayToVideoCompositionUseCase.swift in Sources */,
@@ -6114,6 +6144,7 @@
 				AE12E8071FFEA7AB00F2342E /* ProjectListPresenter.swift in Sources */,
 				AE12E8081FFEA7AB00F2342E /* RecordPresenter.swift in Sources */,
 				AE12E8091FFEA7AB00F2342E /* EditorClipsCell.swift in Sources */,
+				B27D293B204B004E00457240 /* PurchaseTableViewCell.swift in Sources */,
 				AE12E80A1FFEA7AB00F2342E /* EditorPresenter.swift in Sources */,
 				AE12E80B1FFEA7AB00F2342E /* GoToRecordOrGalleryWireframe.swift in Sources */,
 				AE12E80C1FFEA7AB00F2342E /* TrimWireframe.swift in Sources */,
@@ -6188,6 +6219,7 @@
 				AE12E84C1FFEA7AB00F2342E /* CreateNewProjectUseCase.swift in Sources */,
 				AE12E84D1FFEA7AB00F2342E /* ConfigPreferences.swift in Sources */,
 				AE12E84E1FFEA7AB00F2342E /* SettingsQualityAction.swift in Sources */,
+				B27D2938204B003900457240 /* SlideViewController.swift in Sources */,
 				AE12E84F1FFEA7AB00F2342E /* EditorPresenterInterface.swift in Sources */,
 				AE12E8501FFEA7AB00F2342E /* DuplicateProjectOnProjectListAction.swift in Sources */,
 				AE12E8511FFEA7AB00F2342E /* FilterProvider.swift in Sources */,
@@ -6203,6 +6235,7 @@
 				AE12E85A1FFEA7AB00F2342E /* SettingsUtils.swift in Sources */,
 				AE12E85B1FFEA7AB00F2342E /* SettingsFTPUsernameAction.swift in Sources */,
 				AE12E85C1FFEA7AB00F2342E /* MusicDetailViewModel.swift in Sources */,
+				B27D2942204B01DA00457240 /* IAHelper.swift in Sources */,
 				AE12E85D1FFEA7AB00F2342E /* ResourceListOperation.swift in Sources */,
 				AE12E85E1FFEA7AB00F2342E /* RemoveProjectOnProjectListAction.swift in Sources */,
 				AE12E85F1FFEA7AB00F2342E /* DetailProjectFoundToDetailProjectViewModelMapper.swift in Sources */,
@@ -6248,6 +6281,7 @@
 				AE12E8861FFEA7AB00F2342E /* ThumbnailListInteractor.swift in Sources */,
 				AE12E8871FFEA7AB00F2342E /* ProjectListViewController.swift in Sources */,
 				AE12E8881FFEA7AB00F2342E /* CheckPermission.swift in Sources */,
+				B27D293D204B005900457240 /* PurchaseProtocols.swift in Sources */,
 				AE12E8891FFEA7AB00F2342E /* TimerInteractorInterface.swift in Sources */,
 				AE12E88A1FFEA7AB00F2342E /* SettingsFTP.swift in Sources */,
 				AE12E88B1FFEA7AB00F2342E /* ResolutionsImages.swift in Sources */,
@@ -6302,9 +6336,11 @@
 				AE12E8BA1FFEA7AB00F2342E /* StreamOperation.swift in Sources */,
 				AE12E8BB1FFEA7AB00F2342E /* SettingsProvider.swift in Sources */,
 				AE12E8BC1FFEA7AB00F2342E /* DetailProjectInteractorInterface.swift in Sources */,
+				B27D293A204B004B00457240 /* PurchaseInteractor.swift in Sources */,
 				AE12E8BD1FFEA7AB00F2342E /* EstimationByQualityAndDuration.swift in Sources */,
 				AE12E8BE1FFEA7AB00F2342E /* VimojoWireframeInterface.swift in Sources */,
 				AE12E8BF1FFEA7AB00F2342E /* FilterFoundModel.swift in Sources */,
+				B27D293F204B005F00457240 /* PurchaseViewController.swift in Sources */,
 				AE12E8C01FFEA7AB00F2342E /* SettingsUsernameAction.swift in Sources */,
 				AE12E8C11FFEA7AB00F2342E /* GoToRecordOrGalleryViewController.swift in Sources */,
 				AE12E8C21FFEA7AB00F2342E /* ProjectRealmRepository.swift in Sources */,
@@ -6692,6 +6728,11 @@
 			isa = PBXTargetDependency;
 			name = VideonaProject;
 			targetProxy = B25A965B2022461B00F53BE7 /* PBXContainerItemProxy */;
+		};
+		B27D2936204AFF9100457240 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = VideonaProject;
+			targetProxy = B27D2935204AFF9100457240 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -7257,6 +7298,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DE5297002B33E4FE5AE9426E /* Pods-M4N.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -7300,6 +7342,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 74DD0E3ED30DF82C36D14A78 /* Pods-M4N.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
