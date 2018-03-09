@@ -125,12 +125,17 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
         drawerButtonRight.isHidden = false
+        NotificationCenter.default.addObserver(self, selector: #selector(self.viewWillEnterForeground), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+    }
+    
+    func viewWillEnterForeground() {
+        eventHandler?.viewWillAppear()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         eventHandler?.viewWillDisappear()
-
+        NotificationCenter.default.removeObserver(self)
 		previewView.stopSession()
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
