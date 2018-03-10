@@ -14,66 +14,62 @@ class ExporterInteractor: NSObject {
     var clipDuration = 0.0
     var project: Project?
     var exportSession: AVAssetExportSession?
-
+    
     init(project: Project) {
         super.init()
         self.project = project
     }
-	func exportVideos(_ completionHandler:@escaping (_ url: URL?, _ failed: Bool) -> Void) {
-
+    func exportVideos(_ completionHandler:@escaping (_ url: URL?, _ failed: Bool) -> Void) {
+ 
+        guard let project = project else {
+            completionHandler(nil, true)
+            return
+        }
+        let videonaComposition = GetActualProjectAVCompositionUseCase().getComposition(project: project)
+        guard let mutableComposition = videonaComposition.mutableComposition else {
+            completionHandler(nil, true)
+            return
+        }
+        let videoComposition = videonaComposition.videoComposition ?? AVMutableVideoComposition(propertiesOf: mutableComposition)
+        
         let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let exportPath = (documentDirectory as NSString).appendingPathComponent("\(Utils().giveMeTimeNow())_VimojoClip_exported.m4v")
-
-        let videonaComposition = GetActualProjectAVCompositionUseCase().getComposition(project: project!)
-        var videoComposition = videonaComposition.videoComposition
-
-        guard let mutableComposition = videonaComposition.mutableComposition else {return}
+        
 
         // 4 - Get path
         let url = URL(fileURLWithPath: exportPath)
-
+        
         // 5 - Create Exporter
-        if (videoComposition == nil) {
-            videoComposition = AVMutableVideoComposition(propertiesOf: mutableComposition)
-        }
-        guard let actualProject = project else {return}
-
-        ApplyTextOverlayToVideoCompositionUseCase(project: actualProject, videonaComposition: videonaComposition).applyVideoOverlayAnimation()
+        ApplyTextOverlayToVideoCompositionUseCase(project: project, videonaComposition: videonaComposition).applyVideoOverlayAnimation()
         var exportQuality = AVAssetExportPresetHighestQuality
-
-        if let projectQuality = project?.getProfile().getQuality() {
-            exportQuality = AVQualityParse().parseResolutionsToInteractor(textResolution: projectQuality)
-        }
-
+        exportQuality = AVQualityParse().parseResolutionsToInteractor(textResolution: project.getProfile().getQuality())
+        
         exportSession = AVAssetExportSession(asset: mutableComposition, presetName: exportQuality)
-        exportSession!.outputURL = url
-        exportSession!.outputFileType = AVFileTypeQuickTimeMovie
-
-        if (videoComposition != nil) {
-            exportSession!.videoComposition = videoComposition
-        }
-
+        exportSession?.outputURL = url
+        exportSession?.outputFileType = AVFileTypeQuickTimeMovie
+        exportSession?.videoComposition = videoComposition
+        
         if let audioMix = videonaComposition.audioMix {
-            exportSession!.audioMix = audioMix
+            exportSession?.audioMix = audioMix
         }
         // 6 - Perform the Export
-		exportSession?.exportAsynchronously(completionHandler: {
-			if self.exportSession?.status == .completed {
-//                timer.invalidate()
-				ExportedAlbum.sharedInstance.saveVideo(url, completion: {
-					videoURL in
-					self.project?.setExportedPath(path: exportPath)
-					if let project = self.project {
-						ViMoJoTracker.sharedInstance.sendExportedVideoMetadataTracking(project.getDuration(),
-																					   numberOfClips: project.getVideoList().count)
-					}
-					completionHandler(videoURL, false)
-				})
-			} else if self.exportSession?.status == .cancelled {
-				completionHandler(nil, false)
-			} else {
-				completionHandler(nil, true)
-			}
-		})
+        exportSession?.exportAsynchronously(completionHandler: {
+            if self.exportSession?.status == .completed {
+                ExportedAlbum.sharedInstance.saveVideo(url, completion: {
+                    videoURL in
+                    self.project?.setExportedPath(path: exportPath)
+                    if let project = self.project {
+                        ViMoJoTracker.sharedInstance.sendExportedVideoMetadataTracking(project.getDuration(),
+                                                                                       numberOfClips: project.getVideoList().count)
+                    }
+                    completionHandler(videoURL, false)
+                })
+            } else if self.exportSession?.status == .cancelled {
+                completionHandler(nil, false)
+            } else {
+                completionHandler(nil, true)
+            }
+        })
     }
 }
+
