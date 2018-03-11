@@ -114,6 +114,11 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
             sixtyFpsButton.isEnabled = fpsAvailables.contains(.sixty)
             oneHundredTwentyFpsButton.isEnabled = fpsAvailables.contains(.oneHundredTwenty)
             twoHundredfortyFpsButton.isEnabled = fpsAvailables.contains(.twoHundredforty)
+            
+            if let button = fpsSSRBController.selectedButton(),
+                !button.isEnabled {
+                twentyFivefpsButton.sendActions(for: .touchUpInside)
+            }
         }
     }
 	// All resolutions in back camera supports 720 and 1080p. Only some supports 4k
