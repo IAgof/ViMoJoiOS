@@ -33,8 +33,8 @@ public class VideoSettings {
             defaults.set(bitRate.rawValue, forKey: bitRate.defaultsKey)
         }
     }
-    static var activeFormat: (Array<AVCaptureDevice.Format>) -> AVCaptureDevice.Format? {
-        return { formats in
+    static var activeFormat: (Array<AVCaptureDevice.Format>, FrameRate) -> AVCaptureDevice.Format? {
+        return { formats, fps in
             var formats = formats
             formats = formats.filter({ (format) -> Bool in
                 let timeRanges = format.videoSupportedFrameRateRanges as!  [AVFrameRateRange]
@@ -43,8 +43,11 @@ public class VideoSettings {
                     print($0.maxFrameRate)
                     return $0.maxFrameRate > Double(fps.value)
                 })
+                print("format.highResolutionStillImageDimensions.height")
+                print(format.highResolutionStillImageDimensions.height)
+                print(VideoSettings.resolution.height)
                 let containsResolution =
-                    format.highResolutionStillImageDimensions.height >
+                    format.highResolutionStillImageDimensions.height >=
                         Int32(VideoSettings.resolution.height)
                 return containsTimeRange && containsResolution
             })
@@ -54,7 +57,7 @@ public class VideoSettings {
     static func updateFps(to device: AVCaptureDevice) {
         do {
             let formats = device.formats as! Array<AVCaptureDevice.Format>
-            if let activeFormat = activeFormat(formats) {
+            if let activeFormat = activeFormat(formats, fps) {
                 try device.lockForConfiguration()
                 device.activeFormat = activeFormat
                 device.activeVideoMinFrameDuration = CMTime(value: 1, timescale: CMTimeScale(fps.value))
@@ -64,6 +67,14 @@ public class VideoSettings {
         } catch {
             return
         }
+    }
+    static func availableFPS(completion: ([FrameRate]) -> Void) {
+        let formats = AVCaptureDevice.videoDevice(.back).formats as! Array<AVCaptureDevice.Format>
+        var fpsAvailable: [FrameRate] = []
+        FrameRate.allValues.forEach {
+            if activeFormat(formats, $0) != nil { fpsAvailable.append($0) }
+        }
+        completion(fpsAvailable)
     }
     private static var compressionProperties: [String: Any] = [
         AVVideoAverageBitRateKey : bitRate.value,
@@ -156,8 +167,13 @@ enum VideoCodec: Int {
 enum FrameRate: Int {
     case twentyFive = 0
     case thirty
-	case sixty
-   
+    case fifty
+    case sixty
+    case oneHundredTwenty
+    case twoHundredforty
+
+    static var allValues: [FrameRate] = [.twentyFive, .thirty, .fifty,
+                                         .sixty, .oneHundredTwenty, twoHundredforty]
     var defaultsKey: String {
         return "VideoSettingsFrameRate"
     }
@@ -166,7 +182,10 @@ enum FrameRate: Int {
         switch self {
         case .twentyFive: return 25
         case .thirty: return 30
+        case .fifty: return 50
 		case .sixty: return 60
+        case .oneHundredTwenty: return 120
+        case .twoHundredforty: return 240
         }
     }
 }

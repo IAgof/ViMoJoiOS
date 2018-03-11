@@ -29,5 +29,9 @@ class RecordingCameraConfigurationPresenter: RecordingCameraConfigurationPresent
     }
     func actionPush(with action: RecordingCameraActions) {
         interactor?.actionPush(with: action)
+        switch action {
+        case .resolution: view?.configureFps()
+        default: break
+        }
     }
 }
