@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import VideonaProject
 
 protocol DrawerMenuInteractorInterface {
     func createNewProject()
     func saveUserPhoto(image: UIImage)
     func removePhoto()
+    var project: Project { get set }
 }
 
 protocol DrawerMenuInteractorDelegate {

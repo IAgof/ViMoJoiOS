@@ -12,7 +12,8 @@ import VideonaProject
 class ReloadProjectWithProjectAction {
     func reload(actualProject: Project,
                 newProject: Project) {
-
         actualProject.reloadProjectWith(project: newProject)
+        actualProject.hasWatermark = PurchaseProduct
+            .isProductPurchased(product: .removeWatermark)
     }
 }
