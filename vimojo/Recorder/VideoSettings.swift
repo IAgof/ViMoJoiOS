@@ -41,7 +41,7 @@ public class VideoSettings {
                 let containsTimeRange = timeRanges.contains(where: {
                     print("$0.maxFrameDuration.seconds > Double(fps.value)")
                     print($0.maxFrameRate)
-                    return $0.maxFrameRate > Double(fps.value)
+                    return $0.maxFrameRate >= Double(fps.value)
                 })
                 print("format.highResolutionStillImageDimensions.height")
                 print(format.highResolutionStillImageDimensions.height)
