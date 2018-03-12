@@ -1040,7 +1040,6 @@
 		A9ED005A1D917B7200969F31 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00571D917B7200969F31 /* FBSDKCoreKit.framework */; };
 		A9ED005B1D917B7200969F31 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00581D917B7200969F31 /* FBSDKLoginKit.framework */; };
 		A9ED005C1D917B7200969F31 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00591D917B7200969F31 /* FBSDKShareKit.framework */; };
-		A9FA041F1FF3AC6700C06A7A /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		A9FB3A341E53D5BE00C21918 /* AddFilterToVideoCollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A331E53D5BE00C21918 /* AddFilterToVideoCollectionViewExtension.swift */; };
 		A9FB3A391E53D5CB00C21918 /* VideoParameterSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A953AD691E53670500DC0D84 /* VideoParameterSlider.swift */; };
 		A9FB3A3A1E53D5CB00C21918 /* AddFilterToVideoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A953AD5B1E53476B00DC0D84 /* AddFilterToVideoInteractor.swift */; };
@@ -1815,24 +1814,11 @@
 		B2A0F5F220237A12002716E6 /* URLs.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2A0F5F420237A12002716E6 /* URLs.strings */; };
 		B2A0F5FA20237A5E002716E6 /* URLs.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2A0F5FC20237A5E002716E6 /* URLs.strings */; };
 		B2A0F5FE20237AEE002716E6 /* URLs.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2A0F60020237AEE002716E6 /* URLs.strings */; };
+		B2A4A5DA2053634C00C26433 /* VideonaProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2A4A5D3205362F900C26433 /* VideonaProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B2ECFE91202376CD00790FEC /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A919EACC200D21B9004A7D27 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A9BD5FBD1D9120F40080CE97;
-			remoteInfo = VideonaProject;
-		};
-		A919EACE200D21B9004A7D27 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A9928A0C1E5370CE002A4E60;
-			remoteInfo = VideonaProjectTarget;
-		};
 		A9B385FB1D7D51380065D3EC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A9B385DE1D7D51380065D3EC /* Project object */;
@@ -1847,7 +1833,21 @@
 			remoteGlobalIDString = A9B385E51D7D51380065D3EC;
 			remoteInfo = vimojo;
 		};
-		B25A965B2022461B00F53BE7 /* PBXContainerItemProxy */ = {
+		B2A4A5D2205362F900C26433 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A9BD5FBD1D9120F40080CE97;
+			remoteInfo = VideonaProject;
+		};
+		B2A4A5D4205362F900C26433 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A9928A0C1E5370CE002A4E60;
+			remoteInfo = VideonaProjectTarget;
+		};
+		B2A4A5DB2053634C00C26433 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */;
 			proxyType = 1;
@@ -1911,7 +1911,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B25A965A2022461B00F53BE7 /* VideonaProject.framework in Embed Frameworks */,
+				B2A4A5DA2053634C00C26433 /* VideonaProject.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2010,7 +2010,7 @@
 		A91995521EC5029C00D24B0E /* KYEmbedMainControllerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYEmbedMainControllerSegue.swift; sourceTree = "<group>"; };
 		A91995531EC5029C00D24B0E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		A91995541EC5029C00D24B0E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = VideonaProject.xcodeproj; path = "../iOS-SDK/VideonaProject.xcodeproj"; sourceTree = "<group>"; };
+		A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = VideonaProject.xcodeproj; path = "iOS-SDK/VideonaProject.xcodeproj"; sourceTree = "<group>"; };
 		A91BDB851E43651200BE4F1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/MusicDetailView.strings; sourceTree = "<group>"; };
 		A91BDB871E43651400BE4F1C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MusicDetailView.strings; sourceTree = "<group>"; };
 		A9320B851E2CD65F004DC8A1 /* ViMoJoConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViMoJoConfiguration.swift; path = vimojo/ViMoJoConfiguration.swift; sourceTree = "<group>"; };
@@ -2385,7 +2385,6 @@
 				A90C679F1FE08F63005958DB /* StoreKit.framework in Frameworks */,
 				A9ED005B1D917B7200969F31 /* FBSDKLoginKit.framework in Frameworks */,
 				1DB86149493A266582050C42 /* Pods_vimojo.framework in Frameworks */,
-				A9FA041F1FF3AC6700C06A7A /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2662,15 +2661,6 @@
 				A91995521EC5029C00D24B0E /* KYEmbedMainControllerSegue.swift */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		A919EAC8200D21B9004A7D27 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A919EACD200D21B9004A7D27 /* VideonaProject.framework */,
-				A919EACF200D21B9004A7D27 /* VideonaProjectTarget.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		A91BDB7F1E4364E500BE4F1C /* Strings */ = {
@@ -4063,6 +4053,15 @@
 			name = RecordingCameraConfiguration;
 			sourceTree = "<group>";
 		};
+		B2A4A5CE205362F900C26433 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B2A4A5D3205362F900C26433 /* VideonaProject.framework */,
+				B2A4A5D5205362F900C26433 /* VideonaProjectTarget.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		BCC440BCA8009FA05E7A4053 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -4119,7 +4118,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				B25A965C2022461B00F53BE7 /* PBXTargetDependency */,
+				B2A4A5DC2053634C00C26433 /* PBXTargetDependency */,
 			);
 			name = vimojo;
 			productName = vimojo;
@@ -4297,7 +4296,7 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = A919EAC8200D21B9004A7D27 /* Products */;
+					ProductGroup = B2A4A5CE205362F900C26433 /* Products */;
 					ProjectRef = A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */;
 				},
 			);
@@ -4315,18 +4314,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		A919EACD200D21B9004A7D27 /* VideonaProject.framework */ = {
+		B2A4A5D3205362F900C26433 /* VideonaProject.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = VideonaProject.framework;
-			remoteRef = A919EACC200D21B9004A7D27 /* PBXContainerItemProxy */;
+			remoteRef = B2A4A5D2205362F900C26433 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		A919EACF200D21B9004A7D27 /* VideonaProjectTarget.framework */ = {
+		B2A4A5D5205362F900C26433 /* VideonaProjectTarget.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = VideonaProjectTarget.framework;
-			remoteRef = A919EACE200D21B9004A7D27 /* PBXContainerItemProxy */;
+			remoteRef = B2A4A5D4205362F900C26433 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -6732,10 +6731,10 @@
 			target = A9B385E51D7D51380065D3EC /* vimojo */;
 			targetProxy = AE4AAFA01F704D8700504428 /* PBXContainerItemProxy */;
 		};
-		B25A965C2022461B00F53BE7 /* PBXTargetDependency */ = {
+		B2A4A5DC2053634C00C26433 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = VideonaProject;
-			targetProxy = B25A965B2022461B00F53BE7 /* PBXContainerItemProxy */;
+			targetProxy = B2A4A5DB2053634C00C26433 /* PBXContainerItemProxy */;
 		};
 		B27D2936204AFF9100457240 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
