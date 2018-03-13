@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         AudioSettings.loadValues()
         VideoSettings.loadValues()
         
-        RealmMigrationsUseCase().updateMigrationDefault()
+        RealmMigrationsUseCase.updateMigrationDefault()
 
         appDependencies = AppDependencies()
 
