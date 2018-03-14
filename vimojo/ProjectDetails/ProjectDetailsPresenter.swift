@@ -18,10 +18,6 @@ struct ProjectInfoVideoModel {
     let author: String
     let location: String
     let description: String
-    let resolution: String
-    let frameRate: Int
-    let quality: String
-    let duration: Double
 }
 extension ProjectInfo {
     var viewModel: ProjectInfoVideoModel {
@@ -29,11 +25,7 @@ extension ProjectInfo {
                                      date: date.dateString(),
                                      author: author,
                                      location: location,
-                                     description: description,
-                                     resolution: resolution,
-                                     frameRate: frameRate,
-                                     quality: quality,
-                                     duration: Project().getDuration())
+                                     description: description)
     }
 }
 class ProjectDetailsPresenter: ProjectDetailsPresenterProtocol {
