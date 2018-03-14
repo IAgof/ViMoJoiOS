@@ -19,6 +19,9 @@ class ProjectDetailsViewController: UIViewController, ProjectDetailsViewProtocol
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var frameRate: UILabel!
+    @IBOutlet weak var quality: UILabel!
+    @IBOutlet weak var duration: UILabel!
     
     var presenter: ProjectDetailsPresenterProtocol?
     var stackViewInitPoint: CGPoint!
@@ -32,6 +35,9 @@ class ProjectDetailsViewController: UIViewController, ProjectDetailsViewProtocol
             authorLabel.text = viewModel.author
             locationTextField.text = viewModel.location
             descriptionTextView.text = viewModel.description
+            frameRate.text = String(viewModel.frameRate)
+            quality.text = viewModel.quality
+            duration.text = String(viewModel.duration)
         })
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ProjectDetailsViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -65,7 +71,7 @@ class ProjectDetailsViewController: UIViewController, ProjectDetailsViewProtocol
 }
 extension ProjectDetailsViewController: UITextViewDelegate {
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        stackView.moveTo(y: -100)
+        stackView.moveTo(y: -65)
         return true
     }
 }
