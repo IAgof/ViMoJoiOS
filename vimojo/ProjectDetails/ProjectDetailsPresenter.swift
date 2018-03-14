@@ -18,14 +18,22 @@ struct ProjectInfoVideoModel {
     let author: String
     let location: String
     let description: String
+    let resolution: String
+    let frameRate: Int
+    let quality: String
+    let duration: Double
 }
-extension ProjectInfo {
+extension Project {
     var viewModel: ProjectInfoVideoModel {
-        return ProjectInfoVideoModel(title: title,
-                                     date: date.dateString(),
-                                     author: author,
-                                     location: location,
-                                     description: description)
+        return ProjectInfoVideoModel(title: projectInfo.title,
+                                     date: projectInfo.date.dateString(),
+                                     author: projectInfo.author,
+                                     location: projectInfo.location,
+                                     description: projectInfo.description,
+                                     resolution: getProfile().getResolution(),
+                                     frameRate: getProfile().frameRate,
+                                     quality: getProfile().getQuality(),
+                                     duration: getDuration())
     }
 }
 class ProjectDetailsPresenter: ProjectDetailsPresenterProtocol {
@@ -43,7 +51,7 @@ class ProjectDetailsPresenter: ProjectDetailsPresenterProtocol {
     }
     func loadValues(loaded: (ProjectInfoVideoModel) -> Void) {
         guard let project = interactor?.project else { return }
-        loaded(project.projectInfo.viewModel)
+        loaded(project.viewModel)
     }
     func saveValues(title: String?, location: String?, description: String?) {
         interactor?.saveValues(title: title, location: location, description: description)
