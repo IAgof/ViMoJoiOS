@@ -19,6 +19,9 @@ def shared_pods
     pod 'KCFloatingActionButton'
     pod 'FSPagerView'
     pod 'SnapKit', '~> 3.0.0'
+    pod 'Permission/Camera'
+    pod 'Permission/Microphone'
+    pod 'Permission/Photos'
     
     #Set your own VideonaProject folder
 #    pod 'VideonaProject', :path => '../iOS-SDK'

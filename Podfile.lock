@@ -28,6 +28,13 @@ PODS:
   - MBCircularProgressBar (0.3.4)
   - Mixpanel (3.2.1)
   - NMRangeSlider (1.2.1)
+  - Permission/Camera (2.0.4):
+    - Permission/Core
+  - Permission/Core (2.0.4)
+  - Permission/Microphone (2.0.4):
+    - Permission/Core
+  - Permission/Photos (2.0.4):
+    - Permission/Core
   - Realm (2.10.2):
     - Realm/Headers (= 2.10.2)
   - Realm/Headers (2.10.2)
@@ -47,6 +54,9 @@ DEPENDENCIES:
   - MBCircularProgressBar (= 0.3.4)
   - Mixpanel
   - NMRangeSlider (~> 1.2)
+  - Permission/Camera
+  - Permission/Microphone
+  - Permission/Photos
   - RealmSwift
   - SnapKit (~> 3.0.0)
   - SwifterSwift (~> 1.2)
@@ -65,12 +75,13 @@ SPEC CHECKSUMS:
   MBCircularProgressBar: ff3b8e2f441214d9ee122a24ba0d4d00cc7de881
   Mixpanel: a88b1db0a1e381f9d37a1756aa37a9c670d22f61
   NMRangeSlider: 317ded652431eb90501c8421d9cddc3930d891e6
+  Permission: 6853b9694e66a6c9197468c66d1935c3629cbf9c
   Realm: 0ef72b837fb67e9f4b098bac771ddd72c7fdbb69
   RealmSwift: 07a9ae0505091eda6b2ee7c190c3786d6e90a7b0
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   SwifterSwift: 92c73c47c3cbf7d5f788adf6459bf07b5d23d3fb
   TTRangeSlider: 2f2ce4a33b32bb323c6575b9f5161c4664459c58
 
-PODFILE CHECKSUM: 40493df3bc2df5140eaaf359fbc25d4abd38c094
+PODFILE CHECKSUM: cd5bdbe465e70ee70e5dd58ff457a3c195a63956
 
 COCOAPODS: 1.4.0
