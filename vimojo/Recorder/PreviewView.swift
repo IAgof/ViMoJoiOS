@@ -141,7 +141,6 @@ class PreviewView: UIView {
     private func configureDeviceVideoSettings () {
         guard let device = self.activeInput.device else { return }
         VideoSettings.updateFps(to: device)
-        VideoSettings.resolution = .sevenHundred
         self.captureSessionPreset = VideoSettings.resolution.preset(device)
     }
     public func stopSession() {
