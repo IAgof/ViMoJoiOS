@@ -18,8 +18,10 @@ class PermissionsViewController: UIViewController, PermissionsViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         backgroundImage.image = appLaunchImage()
         presenter?.askForCameraPermissionIfNeeded()
+        
     }
     
     func appLaunchImage() -> UIImage? {

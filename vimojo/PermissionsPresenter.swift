@@ -56,7 +56,6 @@ class PermissionsPresenter: PermissionsPresenterProtocol {
             switch status {
             case .authorized:
                 self.router.goToRecorderScreen()
-                print("yay")
             case .denied, .disabled, .notDetermined:
                 self.askForGalleryPermissionIfNeeded()
             }
