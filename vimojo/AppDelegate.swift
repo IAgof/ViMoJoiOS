@@ -129,8 +129,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             ViMoJoTracker.sharedInstance.trackAppStartupProperties(false)
         }
         
-        let controller = PermissionsRouter.createModule(recordWireFrame: appDependencies.recordWireframe)
-        window!.rootViewController = UINavigationController(rootViewController: controller)
+        let controller = PermissionsRouter.createModule()
+        window!.rootViewController = controller
 
         ViMoJoTracker.sharedInstance.sendStartupAppTracking(initState: initState)
     }

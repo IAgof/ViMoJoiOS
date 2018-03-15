@@ -71,7 +71,7 @@ class GoToRecordOrGalleryWireframe: VimojoWireframeInterface {
 
     func presentRecorder() {
         if let controllerExist = viewController {
-          recordWireframe?.showRecordInterfaceFromViewController(controllerExist)
+          recordWireframe?.presentRecordInterfaceFromViewController(controllerExist)
         }
     }
 }

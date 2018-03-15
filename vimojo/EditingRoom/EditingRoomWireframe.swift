@@ -110,7 +110,7 @@ class EditingRoomWireframe: NSObject {
 
     func navigateToRecorder() {
         if let controller = editingRoomViewController {
-            recordWireframe?.showRecordInterfaceFromViewController(controller)
+            recordWireframe?.presentRecordInterfaceFromViewController(controller)
         }
     }
 
