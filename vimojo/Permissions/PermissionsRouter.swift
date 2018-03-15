@@ -13,25 +13,31 @@ import UIKit
 class PermissionsRouter: PermissionsWireframeProtocol {
 
     weak var viewController: UIViewController?
+    weak var recordWireFrame: RecordWireframe?
+    weak var drawerWireframe: RecordDrawerWireframe?
 
-    static func createModule() -> UIViewController {
+    static func createModule(recordWireFrame: RecordWireframe,
+                             drawerWireframe: RecordDrawerWireframe) -> UIViewController {
         // Change to get view from storyboard if not using progammatic UI
         let view = PermissionsViewController(nibName: nil, bundle: nil)
         let interactor = PermissionsInteractor()
         let router = PermissionsRouter()
         let presenter = PermissionsPresenter(interface: view, interactor: interactor, router: router)
         
+        router.recordWireFrame = recordWireFrame
         view.presenter = presenter
         interactor.presenter = presenter
         router.viewController = view
         
         return view
     }
-
-    func goToRecorderScreen() {        
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        let storyboard = UIStoryboard(name: "Record", bundle: Bundle.main)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "RecordController") as! RecordController
-        appDelegate?.window?.rootViewController = viewController
+   
+    func goToRecorderScreen() {
+        if  let recordController = recordWireFrame?.RecordViewControllerFromStoryboard(),
+            let viewControllerToPresent = drawerWireframe?.getDrawerController(viewController: recordController)
+            {
+            viewControllerToPresent.forceOrientation(orientation: .lanscapeOnly)
+            viewController?.present(viewControllerToPresent, animated: true, completion: nil)
+        }
     }
 }
