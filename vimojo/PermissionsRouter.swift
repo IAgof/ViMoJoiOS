@@ -26,6 +26,7 @@ class PermissionsRouter: PermissionsWireframeProtocol {
         let presenter = PermissionsPresenter(interface: view, interactor: interactor, router: router)
         
         router.recordWireFrame = recordWireFrame
+        router.drawerWireframe = drawerWireframe
         view.presenter = presenter
         interactor.presenter = presenter
         router.viewController = view
