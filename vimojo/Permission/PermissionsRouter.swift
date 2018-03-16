@@ -21,14 +21,11 @@ class PermissionsRouter: PermissionsWireframeProtocol {
                              drawerWireframe: RecordDrawerWireframe) -> UIViewController {
         // Change to get view from storyboard if not using progammatic UI
         let view = PermissionsViewController(nibName: nil, bundle: nil)
-        let interactor = PermissionsInteractor()
         let router = PermissionsRouter()
-        let presenter = PermissionsPresenter(interface: view, interactor: interactor, router: router)
         
         router.recordWireFrame = recordWireFrame
         router.drawerWireframe = drawerWireframe
-        view.presenter = presenter
-        interactor.presenter = presenter
+        view.router = router
         router.viewController = view
         
         return view

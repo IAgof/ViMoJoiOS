@@ -338,7 +338,6 @@
 		A99BAD731E49DC9D00A465C7 /* MusicDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91761271D916F53008915DA /* MusicDetailView.xib */; };
 		A99BAD741E49DC9D00A465C7 /* Share.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97772BB1DC244E700EA9291 /* Share.strings */; };
 		A99BAD751E49DC9D00A465C7 /* filter_free.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE751D7D92C300421BD0 /* filter_free.png */; };
-		A99BAD821E49DCE300A465C7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A99BAC461E49DC6E00A465C7 /* Info.plist */; };
 		A99BAD831E49DCE300A465C7 /* PeriodistaCelular.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A99BAC471E49DC6E00A465C7 /* PeriodistaCelular.storyboard */; };
 		A99BAD841E49DCE300A465C7 /* PeriodistaCelular.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A99BAC481E49DC6E00A465C7 /* PeriodistaCelular.xcassets */; };
 		A99BAD851E49DCE300A465C7 /* PeriodistaCelularConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99BAC491E49DC6E00A465C7 /* PeriodistaCelularConfiguration.swift */; };
@@ -365,6 +364,12 @@
 		A9B898E11EF7128900C698C9 /* Audio4VideoWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B898E01EF7128900C698C9 /* Audio4VideoWireframe.swift */; };
 		A9B898E21EF7128900C698C9 /* Audio4VideoWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B898E01EF7128900C698C9 /* Audio4VideoWireframe.swift */; };
 		A9B898E31EF7128900C698C9 /* Audio4VideoWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B898E01EF7128900C698C9 /* Audio4VideoWireframe.swift */; };
+		A9C7BBF5205C352D00B1DE0B /* PermissionLaunchImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A9C7BBF4205C352C00B1DE0B /* PermissionLaunchImage.jpg */; };
+		A9C7BBF8205C366100B1DE0B /* PermissionConfiguration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A9C7BBF7205C366100B1DE0B /* PermissionConfiguration.xcconfig */; };
+		A9C7BBF9205C366100B1DE0B /* PermissionConfiguration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A9C7BBF7205C366100B1DE0B /* PermissionConfiguration.xcconfig */; };
+		A9C7BBFA205C366100B1DE0B /* PermissionConfiguration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A9C7BBF7205C366100B1DE0B /* PermissionConfiguration.xcconfig */; };
+		A9C7BBFB205C366100B1DE0B /* PermissionConfiguration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A9C7BBF7205C366100B1DE0B /* PermissionConfiguration.xcconfig */; };
+		A9C7BBFC205C366100B1DE0B /* PermissionConfiguration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A9C7BBF7205C366100B1DE0B /* PermissionConfiguration.xcconfig */; };
 		A9CAB8861EC35F0000AB6CE8 /* ConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8851EC35F0000AB6CE8 /* ConfigurationProtocol.swift */; };
 		A9CAB8871EC35F0000AB6CE8 /* ConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8851EC35F0000AB6CE8 /* ConfigurationProtocol.swift */; };
 		A9CAB8881EC35F0000AB6CE8 /* ConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8851EC35F0000AB6CE8 /* ConfigurationProtocol.swift */; };
@@ -1765,9 +1770,7 @@
 		AEDE4B2C202F6643004E72BD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDE4B27202F6627004E72BD /* UIViewController+Extension.swift */; };
 		AEDE4B2D202F6644004E72BD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDE4B27202F6627004E72BD /* UIViewController+Extension.swift */; };
 		AEDE4B2E202F6644004E72BD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDE4B27202F6627004E72BD /* UIViewController+Extension.swift */; };
-		B27816D72059A06D0078691E /* Permission.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B27816D82059A06D0078691E /* Permission.framework */; };
 		B27D2934204AFF9100457240 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B27D2937204AFFE800457240 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE4E66CA1FFDAE10002C45CD /* Info.plist */; };
 		B27D2938204B003900457240 /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D8B382031103A00F1BF99 /* SlideViewController.swift */; };
 		B27D2939204B003E00457240 /* tutorial.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9031D102022775200E672BF /* tutorial.xcassets */; };
 		B27D293A204B004B00457240 /* PurchaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67A61FE45DAF005958DB /* PurchaseInteractor.swift */; };
@@ -1791,16 +1794,6 @@
 		B2A0F5FE20237AEE002716E6 /* URLs.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2A0F60020237AEE002716E6 /* URLs.strings */; };
 		B2A4A5DA2053634C00C26433 /* VideonaProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2A4A5D3205362F900C26433 /* VideonaProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B2ECFE91202376CD00790FEC /* (null) in Sources */ = {isa = PBXBuildFile; };
-		B2FD8F0F205A7B0200D1CF28 /* PermissionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F09205A7B0200D1CF28 /* PermissionsInteractor.swift */; };
-		B2FD8F10205A7B0200D1CF28 /* PermissionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F09205A7B0200D1CF28 /* PermissionsInteractor.swift */; };
-		B2FD8F11205A7B0200D1CF28 /* PermissionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F09205A7B0200D1CF28 /* PermissionsInteractor.swift */; };
-		B2FD8F12205A7B0200D1CF28 /* PermissionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F09205A7B0200D1CF28 /* PermissionsInteractor.swift */; };
-		B2FD8F13205A7B0200D1CF28 /* PermissionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F09205A7B0200D1CF28 /* PermissionsInteractor.swift */; };
-		B2FD8F14205A7B0200D1CF28 /* PermissionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F0A205A7B0200D1CF28 /* PermissionsPresenter.swift */; };
-		B2FD8F15205A7B0200D1CF28 /* PermissionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F0A205A7B0200D1CF28 /* PermissionsPresenter.swift */; };
-		B2FD8F16205A7B0200D1CF28 /* PermissionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F0A205A7B0200D1CF28 /* PermissionsPresenter.swift */; };
-		B2FD8F17205A7B0200D1CF28 /* PermissionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F0A205A7B0200D1CF28 /* PermissionsPresenter.swift */; };
-		B2FD8F18205A7B0200D1CF28 /* PermissionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F0A205A7B0200D1CF28 /* PermissionsPresenter.swift */; };
 		B2FD8F19205A7B0200D1CF28 /* PermissionsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F0B205A7B0200D1CF28 /* PermissionsProtocols.swift */; };
 		B2FD8F1A205A7B0200D1CF28 /* PermissionsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F0B205A7B0200D1CF28 /* PermissionsProtocols.swift */; };
 		B2FD8F1B205A7B0200D1CF28 /* PermissionsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F0B205A7B0200D1CF28 /* PermissionsProtocols.swift */; };
@@ -1816,11 +1809,6 @@
 		B2FD8F25205A7B0200D1CF28 /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F0D205A7B0200D1CF28 /* PermissionsViewController.swift */; };
 		B2FD8F26205A7B0200D1CF28 /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F0D205A7B0200D1CF28 /* PermissionsViewController.swift */; };
 		B2FD8F27205A7B0200D1CF28 /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F0D205A7B0200D1CF28 /* PermissionsViewController.swift */; };
-		B2FD8F28205A7B0200D1CF28 /* PermissionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2FD8F0E205A7B0200D1CF28 /* PermissionsViewController.xib */; };
-		B2FD8F29205A7B0200D1CF28 /* PermissionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2FD8F0E205A7B0200D1CF28 /* PermissionsViewController.xib */; };
-		B2FD8F2A205A7B0200D1CF28 /* PermissionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2FD8F0E205A7B0200D1CF28 /* PermissionsViewController.xib */; };
-		B2FD8F2B205A7B0200D1CF28 /* PermissionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2FD8F0E205A7B0200D1CF28 /* PermissionsViewController.xib */; };
-		B2FD8F2C205A7B0200D1CF28 /* PermissionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2FD8F0E205A7B0200D1CF28 /* PermissionsViewController.xib */; };
 		B2FD8F2E205A8E1900D1CF28 /* Permission.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B27816D82059A06D0078691E /* Permission.framework */; };
 		B2FD8F34205A8ED800D1CF28 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FD8F33205A8ED800D1CF28 /* SpriteKit.framework */; };
 		B2FD8F35205A8EDE00D1CF28 /* Permission.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B27816D82059A06D0078691E /* Permission.framework */; };
@@ -2141,6 +2129,8 @@
 		A9C6958F1DA2411400597646 /* GALLOPING.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GALLOPING.mp3; sourceTree = "<group>"; };
 		A9C695901DA2411400597646 /* SORROW_AND_SADNESS.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SORROW_AND_SADNESS.mp3; sourceTree = "<group>"; };
 		A9C695911DA2411400597646 /* WE_BEAT_AS_ONE.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WE_BEAT_AS_ONE.mp3; sourceTree = "<group>"; };
+		A9C7BBF4205C352C00B1DE0B /* PermissionLaunchImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = PermissionLaunchImage.jpg; path = Vimojo.xcassets/PermissionLaunchImage.jpg; sourceTree = "<group>"; };
+		A9C7BBF7205C366100B1DE0B /* PermissionConfiguration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PermissionConfiguration.xcconfig; sourceTree = "<group>"; };
 		A9CAB8851EC35F0000AB6CE8 /* ConfigurationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigurationProtocol.swift; path = Common/Configuration/ConfigurationProtocol.swift; sourceTree = "<group>"; };
 		A9CAB88B1EC35F1C00AB6CE8 /* AnalitycsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalitycsConstants.swift; sourceTree = "<group>"; };
 		A9CAB88C1EC35F1C00AB6CE8 /* ConfigPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigPreferences.swift; sourceTree = "<group>"; };
@@ -2381,12 +2371,9 @@
 		B2A0F5FD20237A5F002716E6 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/URLs.strings; sourceTree = "<group>"; };
 		B2A0F5FF20237AEE002716E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/URLs.strings; sourceTree = "<group>"; };
 		B2A0F60120237AF0002716E6 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/URLs.strings; sourceTree = "<group>"; };
-		B2FD8F09205A7B0200D1CF28 /* PermissionsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsInteractor.swift; sourceTree = "<group>"; };
-		B2FD8F0A205A7B0200D1CF28 /* PermissionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsPresenter.swift; sourceTree = "<group>"; };
 		B2FD8F0B205A7B0200D1CF28 /* PermissionsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsProtocols.swift; sourceTree = "<group>"; };
 		B2FD8F0C205A7B0200D1CF28 /* PermissionsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsRouter.swift; sourceTree = "<group>"; };
 		B2FD8F0D205A7B0200D1CF28 /* PermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewController.swift; sourceTree = "<group>"; };
-		B2FD8F0E205A7B0200D1CF28 /* PermissionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionsViewController.xib; sourceTree = "<group>"; };
 		B2FD8F33205A8ED800D1CF28 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		C6ADAEE2CE649F1B62914162 /* Pods-vimojo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojo.release.xcconfig"; path = "Pods/Target Support Files/Pods-vimojo/Pods-vimojo.release.xcconfig"; sourceTree = "<group>"; };
 		CB586E6DDDB51926A3B11FCA /* Pods_vimojo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vimojo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2410,7 +2397,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B27816D72059A06D0078691E /* Permission.framework in Frameworks */,
 				A9ED00501D9178CB00969F31 /* Alamofire.framework in Frameworks */,
 				A9ED005A1D917B7200969F31 /* FBSDKCoreKit.framework in Frameworks */,
 				A9ED005C1D917B7200969F31 /* FBSDKShareKit.framework in Frameworks */,
@@ -3549,12 +3535,7 @@
 				A91760DC1D9147ED008915DA /* Split */,
 				A93BCE411D7D598B00421BD0 /* Tracker */,
 				A91760DB1D9147E9008915DA /* Trim */,
-				B2FD8F09205A7B0200D1CF28 /* PermissionsInteractor.swift */,
-				B2FD8F0A205A7B0200D1CF28 /* PermissionsPresenter.swift */,
-				B2FD8F0B205A7B0200D1CF28 /* PermissionsProtocols.swift */,
-				B2FD8F0C205A7B0200D1CF28 /* PermissionsRouter.swift */,
-				B2FD8F0D205A7B0200D1CF28 /* PermissionsViewController.swift */,
-				B2FD8F0E205A7B0200D1CF28 /* PermissionsViewController.xib */,
+				A9C7BBF6205C363600B1DE0B /* Permission */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -3850,6 +3831,17 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		A9C7BBF6205C363600B1DE0B /* Permission */ = {
+			isa = PBXGroup;
+			children = (
+				B2FD8F0B205A7B0200D1CF28 /* PermissionsProtocols.swift */,
+				B2FD8F0C205A7B0200D1CF28 /* PermissionsRouter.swift */,
+				B2FD8F0D205A7B0200D1CF28 /* PermissionsViewController.swift */,
+				A9C7BBF7205C366100B1DE0B /* PermissionConfiguration.xcconfig */,
+			);
+			path = Permission;
+			sourceTree = "<group>";
+		};
 		A9CAB88A1EC35F1C00AB6CE8 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -3966,6 +3958,7 @@
 		A9D076D11E2F7F7C003AE96B /* Vimojo */ = {
 			isa = PBXGroup;
 			children = (
+				A9C7BBF4205C352C00B1DE0B /* PermissionLaunchImage.jpg */,
 				A95C07001E4B821C004A7040 /* SettingsLegalURLConstants.swift */,
 				A910AD001E3A2ECA00A4EC90 /* Music songs */,
 				A9320B851E2CD65F004DC8A1 /* ViMoJoConfiguration.swift */,
@@ -4274,7 +4267,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Videona;
 				TargetAttributes = {
 					A99BAC4A1E49DC9D00A465C7 = {
@@ -4369,9 +4362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2FD8F2B205A7B0200D1CF28 /* PermissionsViewController.xib in Resources */,
 				A99BAD551E49DC9D00A465C7 /* MusicDetailView.strings in Resources */,
-				A99BAD821E49DCE300A465C7 /* Info.plist in Resources */,
 				A99BAD561E49DC9D00A465C7 /* activity_record_rec_circle.png in Resources */,
 				A99BAD571E49DC9D00A465C7 /* jazzyfrenchy.mp3 in Resources */,
 				A99BAD581E49DC9D00A465C7 /* MicRecorder.strings in Resources */,
@@ -4387,6 +4378,7 @@
 				A96858421E57170600E5BD7A /* Record.storyboard in Resources */,
 				A99BAD641E49DC9D00A465C7 /* GoogleService-Info.plist in Resources */,
 				A99BAD651E49DC9D00A465C7 /* Settings.strings in Resources */,
+				A9C7BBFB205C366100B1DE0B /* PermissionConfiguration.xcconfig in Resources */,
 				A99BAD661E49DC9D00A465C7 /* goinghigher.mp3 in Resources */,
 				A99BAD671E49DC9D00A465C7 /* Drawer.storyboard in Resources */,
 				AEBB051B20128DFC0094E65E /* RecordingCameraConfigurationViewController.xib in Resources */,
@@ -4428,6 +4420,7 @@
 				A93BCE5E1D7D7A1300421BD0 /* iso639_2.bundle in Resources */,
 				A91761131D916F48008915DA /* ShareCell.xib in Resources */,
 				A93B5C931E38A7F9009E0279 /* DetailProject.strings in Resources */,
+				A9C7BBF8205C366100B1DE0B /* PermissionConfiguration.xcconfig in Resources */,
 				A9CAB9CE1EC367BC00AB6CE8 /* MusicListView.xib in Resources */,
 				A97B537F1E0AA0290001B288 /* ProjectList.strings in Resources */,
 				B2957FB7204B0C7400794065 /* MediaAssets.xcassets in Resources */,
@@ -4449,12 +4442,12 @@
 				A9B385EF1D7D51380065D3EC /* Main.storyboard in Resources */,
 				A9CAB8D01EC360CC00AB6CE8 /* VideonaFooterView.xib in Resources */,
 				A9320CC61E2D3AB4004DC8A1 /* Editor.storyboard in Resources */,
+				A9C7BBF5205C352D00B1DE0B /* PermissionLaunchImage.jpg in Resources */,
 				A949658D1EAE8EEC003FCBF6 /* MusicProvider.strings in Resources */,
 				A919955E1EC5029C00D24B0E /* LICENSE in Resources */,
 				A97DABF71EED6539002BDDA3 /* MuiscSelectorTableViewCell.xib in Resources */,
 				A9A2073C1DED94BB004AAEE2 /* ProjectList.storyboard in Resources */,
 				A9E5B7971EF525C600A286DF /* VideoCarrusselCollectionViewCell.xib in Resources */,
-				B2FD8F28205A7B0200D1CF28 /* PermissionsViewController.xib in Resources */,
 				A910ACFC1E3A2EC200A4EC90 /* acousticbreeze.mp3 in Resources */,
 				AED66A4F20214410001AF351 /* Purchase.strings in Resources */,
 				A91761321D916F53008915DA /* MusicDetailView.xib in Resources */,
@@ -4475,7 +4468,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2FD8F2C205A7B0200D1CF28 /* PermissionsViewController.xib in Resources */,
 				A9D077CC1E2F80B1003AE96B /* activity_record_rec_circle.png in Resources */,
 				A90C67C11FE45DAF005958DB /* PurchaseViewController.xib in Resources */,
 				A9D077CD1E2F80B1003AE96B /* MicRecorder.strings in Resources */,
@@ -4503,6 +4495,7 @@
 				A9D077DC1E2F80B1003AE96B /* Drawer.storyboard in Resources */,
 				A9E957DF1FE5915800D0E087 /* PurchaseTableViewCell.xib in Resources */,
 				A97DABF81EED6539002BDDA3 /* MuiscSelectorTableViewCell.xib in Resources */,
+				A9C7BBFC205C366100B1DE0B /* PermissionConfiguration.xcconfig in Resources */,
 				A9D077DE1E2F80B1003AE96B /* EditorStrings.strings in Resources */,
 				A9D077DF1E2F80B1003AE96B /* Main.storyboard in Resources */,
 				A9CAB8D11EC360CC00AB6CE8 /* VideonaFooterView.xib in Resources */,
@@ -4525,6 +4518,7 @@
 			files = (
 				AE12E79C1FFEA7AB00F2342E /* MusicDetailView.strings in Resources */,
 				AE12E79D1FFEA7AB00F2342E /* activity_record_rec_circle.png in Resources */,
+				A9C7BBFA205C366100B1DE0B /* PermissionConfiguration.xcconfig in Resources */,
 				AE12E79E1FFEA7AB00F2342E /* jazzyfrenchy.mp3 in Resources */,
 				AE12E79F1FFEA7AB00F2342E /* MicRecorder.strings in Resources */,
 				AED198AC1FFFB0AF005D9913 /* Assets.xcassets in Resources */,
@@ -4547,7 +4541,6 @@
 				AE12E7AF1FFEA7AB00F2342E /* ukulele.mp3 in Resources */,
 				AE12E7B01FFEA7AB00F2342E /* Info.plist in Resources */,
 				AE12E7B11FFEA7AB00F2342E /* DrawerMenu.strings in Resources */,
-				B2FD8F2A205A7B0200D1CF28 /* PermissionsViewController.xib in Resources */,
 				AE12E7B21FFEA7AB00F2342E /* EditorStrings.strings in Resources */,
 				AE12E7B41FFEA7AB00F2342E /* Main.storyboard in Resources */,
 				B27D2940204B006200457240 /* PurchaseViewController.xib in Resources */,
@@ -4565,7 +4558,6 @@
 				AE12E7BD1FFEA7AB00F2342E /* MusicDetailView.xib in Resources */,
 				AE12E7BE1FFEA7AB00F2342E /* Share.strings in Resources */,
 				AE12E7BF1FFEA7AB00F2342E /* filter_free.png in Resources */,
-				B27D2937204AFFE800457240 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4597,11 +4589,11 @@
 				AE491E2B1F3AFE6400B20B70 /* Info.plist in Resources */,
 				AE491E2C1F3AFE6400B20B70 /* DrawerMenu.strings in Resources */,
 				AE491E2D1F3AFE6400B20B70 /* EditorStrings.strings in Resources */,
-				B2FD8F29205A7B0200D1CF28 /* PermissionsViewController.xib in Resources */,
 				AE491E2E1F3AFE6400B20B70 /* Assets.xcassets in Resources */,
 				AE491E2F1F3AFE6400B20B70 /* Main.storyboard in Resources */,
 				AE491E301F3AFE6400B20B70 /* VideonaFooterView.xib in Resources */,
 				AE491E311F3AFE6400B20B70 /* Editor.storyboard in Resources */,
+				A9C7BBF9205C366100B1DE0B /* PermissionConfiguration.xcconfig in Resources */,
 				A90C67C31FE45DAF005958DB /* PurchaseViewController.xib in Resources */,
 				AE491E321F3AFE6400B20B70 /* MusicProvider.strings in Resources */,
 				AE491E331F3AFE6400B20B70 /* LICENSE in Resources */,
@@ -4644,7 +4636,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		45244F6698CB1B865CE5B75A /* [CP] Copy Pods Resources */ = {
@@ -4680,7 +4672,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		4956937A8FC61D6BA812F7B8 /* [CP] Check Pods Manifest.lock */ = {
@@ -4698,7 +4690,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6760216FD77FA70ADC8C81EC /* [CP] Embed Pods Frameworks */ = {
@@ -5014,7 +5006,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		AE491E3B1F3AFE6400B20B70 /* ShellScript */ = {
@@ -5140,7 +5132,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -5330,7 +5322,6 @@
 				A9CABA9C1EC36AEC00AB6CE8 /* ExportedAlbum.swift in Sources */,
 				A9CAB8B11EC35FAC00AB6CE8 /* CreateNewProjectUseCase.swift in Sources */,
 				A9CABAE41EC36C6700AB6CE8 /* AudioRealmRepository.swift in Sources */,
-				B2FD8F17205A7B0200D1CF28 /* PermissionsPresenter.swift in Sources */,
 				A99BACD21E49DC9D00A465C7 /* AppDelegate.swift in Sources */,
 				A9CABAC61EC36AEC00AB6CE8 /* ThumbnailInteractor.swift in Sources */,
 				A9CABB701EC36CE900AB6CE8 /* SettingsFTPPasswordAction.swift in Sources */,
@@ -5374,7 +5365,6 @@
 				A9CABAE71EC36C6700AB6CE8 /* AudioRepository.swift in Sources */,
 				A99BAD0B1E49DC9D00A465C7 /* ShareFacebookInteractor.swift in Sources */,
 				A9CAB9FC1EC3691E00AB6CE8 /* MicRecorderInteractor.swift in Sources */,
-				B2FD8F12205A7B0200D1CF28 /* PermissionsInteractor.swift in Sources */,
 				A99BAD0E1E49DC9D00A465C7 /* SocialNetworkProvider.swift in Sources */,
 				A9CABB9A1EC36CE900AB6CE8 /* SettingsTransition.swift in Sources */,
 				A9CABA991EC36AEC00AB6CE8 /* ClipsAlbum.swift in Sources */,
@@ -5596,7 +5586,6 @@
 				A9CABB5F1EC36CE900AB6CE8 /* SettingsFTPBreakingNewsPasswordAction.swift in Sources */,
 				A9CABB9B1EC36CE900AB6CE8 /* SettingsUserInfo.swift in Sources */,
 				A97A0C441F5DA5FE00C77DDB /* SettingsWatermarkAction.swift in Sources */,
-				B2FD8F0F205A7B0200D1CF28 /* PermissionsInteractor.swift in Sources */,
 				AE3628AE1F9800D300E762CE /* UIBarButtonItem+extension.swift in Sources */,
 				A9CABB0C1EC36C6700AB6CE8 /* RealmVideo.swift in Sources */,
 				A9CABA251EC369F600AB6CE8 /* MusicPresenterInterface.swift in Sources */,
@@ -5627,7 +5616,6 @@
 				A9CAB8AF1EC35FAC00AB6CE8 /* CreateNewProjectUseCase.swift in Sources */,
 				A9CAB8901EC35F1C00AB6CE8 /* ConfigPreferences.swift in Sources */,
 				A9CABB921EC36CE900AB6CE8 /* SettingsQualityAction.swift in Sources */,
-				B2FD8F14205A7B0200D1CF28 /* PermissionsPresenter.swift in Sources */,
 				A90C67B81FE45DAF005958DB /* PurchaseRouter.swift in Sources */,
 				A91760BD1D9146BF008915DA /* EditorPresenterInterface.swift in Sources */,
 				A9CABA341EC36A4700AB6CE8 /* DuplicateProjectOnProjectListAction.swift in Sources */,
@@ -5982,7 +5970,6 @@
 				A9CABA471EC36A5C00AB6CE8 /* ProjectListViewModel.swift in Sources */,
 				A9CAB8981EC35F4700AB6CE8 /* DateCompareExtension.swift in Sources */,
 				A9CABB6F1EC36CE900AB6CE8 /* SettingsFTPPasswordAction.swift in Sources */,
-				B2FD8F18205A7B0200D1CF28 /* PermissionsPresenter.swift in Sources */,
 				A9CABA541EC36A7200AB6CE8 /* ProjectListPresenter.swift in Sources */,
 				A9CABB041EC36C6700AB6CE8 /* RealmMigrationsUseCase.swift in Sources */,
 				A9CABB451EC36CE900AB6CE8 /* SettingsActionInterface.swift in Sources */,
@@ -6027,7 +6014,6 @@
 				A9CAB9FB1EC3691E00AB6CE8 /* MicRecorderInteractor.swift in Sources */,
 				A9D077941E2F80B1003AE96B /* ShareTwitterInteractor.swift in Sources */,
 				A9CABB991EC36CE900AB6CE8 /* SettingsTransition.swift in Sources */,
-				B2FD8F13205A7B0200D1CF28 /* PermissionsInteractor.swift in Sources */,
 				A9CABA981EC36AEC00AB6CE8 /* ClipsAlbum.swift in Sources */,
 				A9D077961E2F80B1003AE96B /* EditorWireframe.swift in Sources */,
 				A9D077971E2F80B1003AE96B /* SettingsInteractorInterface.swift in Sources */,
@@ -6223,7 +6209,6 @@
 				AE12E81D1FFEA7AB00F2342E /* AudioToRealmAudioMapper.swift in Sources */,
 				AEBB050B20128DFC0094E65E /* RecordingCameraConfigurationViewController.swift in Sources */,
 				AE12E81E1FFEA7AB00F2342E /* SetTrimParametersToVideo.swift in Sources */,
-				B2FD8F11205A7B0200D1CF28 /* PermissionsInteractor.swift in Sources */,
 				AEBB051020128DFC0094E65E /* RecordingCameraConfigurationProtocols.swift in Sources */,
 				AE12E81F1FFEA7AB00F2342E /* MusicModels.swift in Sources */,
 				AE12E8201FFEA7AB00F2342E /* MusicListInteractorInterface.swift in Sources */,
@@ -6287,7 +6272,6 @@
 				AE12E8551FFEA7AB00F2342E /* ShareCell.swift in Sources */,
 				AE12E8561FFEA7AB00F2342E /* RecorderInteractorInterface.swift in Sources */,
 				AE12E8571FFEA7AB00F2342E /* NSLocale+ISO639_2.m in Sources */,
-				B2FD8F16205A7B0200D1CF28 /* PermissionsPresenter.swift in Sources */,
 				AE12E8581FFEA7AB00F2342E /* GetVoiceOverComposition.swift in Sources */,
 				AE12E8591FFEA7AB00F2342E /* SettingsFTPBreakingNewsUsernameAction.swift in Sources */,
 				AEDE4B2C202F6643004E72BD /* UIViewController+Extension.swift in Sources */,
@@ -6623,7 +6607,6 @@
 				AE491EDE1F3AFE6400B20B70 /* CustomExportedVideosGalleryViewController.swift in Sources */,
 				AE491EDF1F3AFE6400B20B70 /* MusicInteractor.swift in Sources */,
 				AE491EE01F3AFE6400B20B70 /* ProjectListInteractor.swift in Sources */,
-				B2FD8F15205A7B0200D1CF28 /* PermissionsPresenter.swift in Sources */,
 				AE491EE11F3AFE6400B20B70 /* SharePresenterInterface.swift in Sources */,
 				AE491EE21F3AFE6400B20B70 /* DrawerMenuPresenterInterface.swift in Sources */,
 				AE491EE31F3AFE6400B20B70 /* AudioRealmRepository.swift in Sources */,
@@ -6668,7 +6651,6 @@
 				AE491F0B1F3AFE6400B20B70 /* ProjectListPresenterInterface.swift in Sources */,
 				AE491F0C1F3AFE6400B20B70 /* GalleryViewController.swift in Sources */,
 				AE491F0D1F3AFE6400B20B70 /* AudioRepository.swift in Sources */,
-				B2FD8F10205A7B0200D1CF28 /* PermissionsInteractor.swift in Sources */,
 				AE491F0E1F3AFE6400B20B70 /* AddFilterToVideoInteractorInterface.swift in Sources */,
 				AE491F0F1F3AFE6400B20B70 /* MicRecorderWireframe.swift in Sources */,
 				AE491F101F3AFE6400B20B70 /* README.md in Sources */,
@@ -7081,14 +7063,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -7130,14 +7118,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

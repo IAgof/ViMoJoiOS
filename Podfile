@@ -22,9 +22,6 @@ def shared_pods
     pod 'Permission/Camera'
     pod 'Permission/Microphone'
     pod 'Permission/Photos'
-    
-    #Set your own VideonaProject folder
-#    pod 'VideonaProject', :path => '../iOS-SDK'
 end
 
 target 'vimojo' do
