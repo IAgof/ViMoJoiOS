@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import VideonaProject
-import VideonaProject
 
 class AppDependencies {
     var project: Project?
