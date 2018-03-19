@@ -29,23 +29,26 @@ class PermissionsViewController: UIViewController {
             make.width.equalToSuperview()
             make.height.equalToSuperview()
         }
-        backgroundImage.image = #imageLiteral(resourceName: "PermissionLaunchImage.jpg")
-        requestAll()
-    }
-    func requestAll() {
-        DispatchQueue.main.async {
-            self.askForCameraPermissionIfNeeded()
-            self.askForGalleryPermissionIfNeeded()
-            self.askForMicrophonePermissionIfNeeded()
-        }
+        backgroundImage.image = appLaunchImage()
+        askForCameraPermissionIfNeeded()
+        askForMicrophonePermissionIfNeeded()
+        askForGalleryPermissionIfNeeded()
     }
     func updateStatus() {
-        if microphonePermission.status == .authorized,
-            cameraPermission.status == .authorized,
-            photoGalleryPermission.status == .authorized {
+        let permissionSet = PermissionSet(.camera, .microphone, .photos)
+        switch permissionSet.status {
+        case .authorized:
             router?.goToRecorderScreen()
-        } else {
-            requestAll()
+        case .denied, .disabled:
+            if microphonePermission.status != .authorized {
+                self.askForMicrophonePermissionIfNeeded()
+            } else if cameraPermission.status != .authorized {
+                self.askForCameraPermissionIfNeeded()
+            } else if photoGalleryPermission.status != .authorized {
+                self.askForGalleryPermissionIfNeeded()
+            }
+        case .notDetermined:
+            break
         }
     }
     func askForCameraPermissionIfNeeded() {
@@ -65,4 +68,22 @@ class PermissionsViewController: UIViewController {
             self.updateStatus()
         }
     }
+    func appLaunchImage() -> UIImage? {
+        let allPngImageNames = Bundle.main.paths(forResourcesOfType: "png", inDirectory: nil)
+        
+        for imageName in allPngImageNames {
+            guard imageName.contains("LaunchImage") else { continue }
+            
+            guard let image = UIImage(named: imageName) else { continue }
+            
+            // if the image has the same scale AND dimensions as the current device's screen...
+            
+            if (image.scale == UIScreen.main.scale) && (image.size.equalTo(UIScreen.main.bounds.size)) {
+                return image
+            }
+        }
+        
+        return nil
+    }
+
 }
