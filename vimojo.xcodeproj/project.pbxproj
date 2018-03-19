@@ -1810,7 +1810,6 @@
 		B2FD8F26205A7B0200D1CF28 /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F0D205A7B0200D1CF28 /* PermissionsViewController.swift */; };
 		B2FD8F27205A7B0200D1CF28 /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F0D205A7B0200D1CF28 /* PermissionsViewController.swift */; };
 		B2FD8F34205A8ED800D1CF28 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FD8F33205A8ED800D1CF28 /* SpriteKit.framework */; };
-		B2FD8F36205A8EE200D1CF28 /* VideonaProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A4A5D3205362F900C26433 /* VideonaProject.framework */; };
 		B2FD8F37205A8EE200D1CF28 /* VideonaProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2A4A5D3205362F900C26433 /* VideonaProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B2FD8F3A205A8F0000D1CF28 /* VideonaProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A4A5D3205362F900C26433 /* VideonaProject.framework */; };
 		B2FD8F3B205A8F0000D1CF28 /* VideonaProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2A4A5D3205362F900C26433 /* VideonaProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -1844,13 +1843,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = A9928A0C1E5370CE002A4E60;
 			remoteInfo = VideonaProjectTarget;
-		};
-		B2A4A5DB2053634C00C26433 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A9BD5FBC1D9120F40080CE97;
-			remoteInfo = VideonaProject;
 		};
 		B2FD8F31205A8E2900D1CF28 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -2441,7 +2433,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2FD8F36205A8EE200D1CF28 /* VideonaProject.framework in Frameworks */,
 				B2FD8F34205A8ED800D1CF28 /* SpriteKit.framework in Frameworks */,
 				AE491E101F3AFE6400B20B70 /* Alamofire.framework in Frameworks */,
 				AE491E111F3AFE6400B20B70 /* FBSDKCoreKit.framework in Frameworks */,
@@ -4139,7 +4130,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				B2A4A5DC2053634C00C26433 /* PBXTargetDependency */,
 			);
 			name = vimojo;
 			productName = vimojo;
@@ -6758,11 +6748,6 @@
 			target = A9B385E51D7D51380065D3EC /* vimojo */;
 			targetProxy = AE4AAFA01F704D8700504428 /* PBXContainerItemProxy */;
 		};
-		B2A4A5DC2053634C00C26433 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = VideonaProject;
-			targetProxy = B2A4A5DB2053634C00C26433 /* PBXContainerItemProxy */;
-		};
 		B2FD8F32205A8E2900D1CF28 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = VideonaProject;
@@ -7431,8 +7416,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DRELEASE\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.m4n;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2f6eadc2-2345-4c3d-8b4d-f88f8635dfb6";
-				PROVISIONING_PROFILE_SPECIFIER = "Vimojo - M4N";
+				PROVISIONING_PROFILE = "0c619391-3fbd-4c47-9b71-efd8bac00b73";
+				PROVISIONING_PROFILE_SPECIFIER = "Ad-hoc M4N Fabric - Beta";
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
