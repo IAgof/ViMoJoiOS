@@ -18,7 +18,7 @@ public class VideoSettings {
 			defaults.set(codec.rawValue, forKey: codec.defaultsKey)
         }
     }
-    static var resolution: Resolution = .sevenHundred {
+    static var resolution: Resolution = .oneThousand {
         didSet {
             defaults.set(resolution.rawValue, forKey: resolution.defaultsKey)
         }
