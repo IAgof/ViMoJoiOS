@@ -1790,8 +1790,7 @@
 		B20240372033B7EC00B9669A /* SystemSettingsPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20240342033B7EB00B9669A /* SystemSettingsPaths.swift */; };
 		B20240382033B7EC00B9669A /* SystemSettingsPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20240342033B7EB00B9669A /* SystemSettingsPaths.swift */; };
 		B20240392033B7EC00B9669A /* SystemSettingsPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20240342033B7EB00B9669A /* SystemSettingsPaths.swift */; };
-		B25A965A2022461B00F53BE7 /* VideonaProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A919EACD200D21B9004A7D27 /* VideonaProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B27D2934204AFF9100457240 /* VideonaProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A919EACD200D21B9004A7D27 /* VideonaProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B27D2934204AFF9100457240 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B27D2937204AFFE800457240 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE4E66CA1FFDAE10002C45CD /* Info.plist */; };
 		B27D2938204B003900457240 /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D8B382031103A00F1BF99 /* SlideViewController.swift */; };
 		B27D2939204B003E00457240 /* tutorial.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9031D102022775200E672BF /* tutorial.xcassets */; };
@@ -1833,6 +1832,13 @@
 			remoteGlobalIDString = A9B385E51D7D51380065D3EC;
 			remoteInfo = vimojo;
 		};
+		B27D2935204AFF9100457240 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A9BD5FBC1D9120F40080CE97;
+			remoteInfo = VideonaProject;
+		};
 		B2A4A5D2205362F900C26433 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */;
@@ -1848,13 +1854,6 @@
 			remoteInfo = VideonaProjectTarget;
 		};
 		B2A4A5DB2053634C00C26433 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A9BD5FBC1D9120F40080CE97;
-			remoteInfo = VideonaProject;
-		};
-		B27D2935204AFF9100457240 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */;
 			proxyType = 1;
@@ -1880,7 +1879,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B27D2934204AFF9100457240 /* VideonaProject.framework in Embed Frameworks */,
+				B27D2934204AFF9100457240 /* (null) in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -6731,15 +6730,15 @@
 			target = A9B385E51D7D51380065D3EC /* vimojo */;
 			targetProxy = AE4AAFA01F704D8700504428 /* PBXContainerItemProxy */;
 		};
-		B2A4A5DC2053634C00C26433 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = VideonaProject;
-			targetProxy = B2A4A5DB2053634C00C26433 /* PBXContainerItemProxy */;
-		};
 		B27D2936204AFF9100457240 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = VideonaProject;
 			targetProxy = B27D2935204AFF9100457240 /* PBXContainerItemProxy */;
+		};
+		B2A4A5DC2053634C00C26433 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = VideonaProject;
+			targetProxy = B2A4A5DB2053634C00C26433 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
