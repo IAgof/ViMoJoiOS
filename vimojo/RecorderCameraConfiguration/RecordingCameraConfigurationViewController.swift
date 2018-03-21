@@ -85,7 +85,7 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
     @IBAction func thirtyFpsPush(_ sender: Any)
     { presenter?.actionPush(with: .fps(.thirty)) }
 	@IBAction func fiftyFpsPush(_ sender: Any)
-	{ presenter?.actionPush(with: .fps(.sixty)) }
+	{ presenter?.actionPush(with: .fps(.fifty)) }
     @IBAction func sixtyFpsPush(_ sender: Any)
     { presenter?.actionPush(with: .fps(.sixty)) }
     @IBAction func oneHundredTwentyFpsPush(_ sender: Any)
