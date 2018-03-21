@@ -1716,7 +1716,6 @@
 		AE491FD41F3B030F00B20B70 /* configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE491FD01F3B030F00B20B70 /* configuration.swift */; };
 		AE491FD71F3B030F00B20B70 /* ThomsonFoundation.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE491FD31F3B030F00B20B70 /* ThomsonFoundation.xcassets */; };
 		AE4AAF9E1F704D8700504428 /* vimojoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4AAF9D1F704D8700504428 /* vimojoUITests.swift */; };
-		AE9B190B1F3B62560035C9BD /* launchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9B190D1F3B62560035C9BD /* launchScreen.storyboard */; };
 		AEBB04FF20128DFC0094E65E /* RecordingCameraConfigurationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB04F920128DFC0094E65E /* RecordingCameraConfigurationPresenter.swift */; };
 		AEBB050020128DFC0094E65E /* RecordingCameraConfigurationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB04F920128DFC0094E65E /* RecordingCameraConfigurationPresenter.swift */; };
 		AEBB050120128DFC0094E65E /* RecordingCameraConfigurationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB04F920128DFC0094E65E /* RecordingCameraConfigurationPresenter.swift */; };
@@ -1770,6 +1769,20 @@
 		AEDE4B2C202F6643004E72BD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDE4B27202F6627004E72BD /* UIViewController+Extension.swift */; };
 		AEDE4B2D202F6644004E72BD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDE4B27202F6627004E72BD /* UIViewController+Extension.swift */; };
 		AEDE4B2E202F6644004E72BD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDE4B27202F6627004E72BD /* UIViewController+Extension.swift */; };
+		B266B65B2061E067000A8D2F /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D8B382031103A00F1BF99 /* SlideViewController.swift */; };
+		B266B65C2061E068000A8D2F /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D8B382031103A00F1BF99 /* SlideViewController.swift */; };
+		B266B65D2061E069000A8D2F /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D8B382031103A00F1BF99 /* SlideViewController.swift */; };
+		B266B65E2061E06C000A8D2F /* tutorial.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9031D102022775200E672BF /* tutorial.xcassets */; };
+		B266B65F2061E06D000A8D2F /* tutorial.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9031D102022775200E672BF /* tutorial.xcassets */; };
+		B266B6602061E06E000A8D2F /* tutorial.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9031D102022775200E672BF /* tutorial.xcassets */; };
+		B266B6612061E07D000A8D2F /* PurchaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E957D91FE5915800D0E087 /* PurchaseTableViewCell.xib */; };
+		B266B6622061E088000A8D2F /* Purchase.strings in Resources */ = {isa = PBXBuildFile; fileRef = AED66A4E20214410001AF351 /* Purchase.strings */; };
+		B266B6632061E16E000A8D2F /* PurchaseProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67A31FE45BA6005958DB /* PurchaseProduct.swift */; };
+		B266B6642061E16F000A8D2F /* PurchaseProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67A31FE45BA6005958DB /* PurchaseProduct.swift */; };
+		B266B6652061E16F000A8D2F /* PurchaseProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67A31FE45BA6005958DB /* PurchaseProduct.swift */; };
+		B266B6662061E175000A8D2F /* IAHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67A11FE455B5005958DB /* IAHelper.swift */; };
+		B266B6672061E175000A8D2F /* IAHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67A11FE455B5005958DB /* IAHelper.swift */; };
+		B266B6682061E176000A8D2F /* IAHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67A11FE455B5005958DB /* IAHelper.swift */; };
 		B27D2934204AFF9100457240 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B27D2938204B003900457240 /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D8B382031103A00F1BF99 /* SlideViewController.swift */; };
 		B27D2939204B003E00457240 /* tutorial.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9031D102022775200E672BF /* tutorial.xcassets */; };
@@ -2337,7 +2350,6 @@
 		AE4E66C81FFDAE10002C45CD /* configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = configuration.swift; sourceTree = "<group>"; };
 		AE4E66C91FFDAE10002C45CD /* M4N.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = M4N.xcassets; sourceTree = "<group>"; };
 		AE4E66CA1FFDAE10002C45CD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE9B190C1F3B62560035C9BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/launchScreen.storyboard; sourceTree = "<group>"; };
 		AEBB04F920128DFC0094E65E /* RecordingCameraConfigurationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecordingCameraConfigurationPresenter.swift; path = RecorderCameraConfiguration/RecordingCameraConfigurationPresenter.swift; sourceTree = "<group>"; };
 		AEBB04FA20128DFC0094E65E /* RecordingCameraConfigurationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecordingCameraConfigurationRouter.swift; path = RecorderCameraConfiguration/RecordingCameraConfigurationRouter.swift; sourceTree = "<group>"; };
 		AEBB04FB20128DFC0094E65E /* RecordingCameraConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecordingCameraConfigurationViewController.swift; path = RecorderCameraConfiguration/RecordingCameraConfigurationViewController.swift; sourceTree = "<group>"; };
@@ -4024,7 +4036,6 @@
 			children = (
 				AE491FD01F3B030F00B20B70 /* configuration.swift */,
 				AE491FD11F3B030F00B20B70 /* Info.plist */,
-				AE9B190D1F3B62560035C9BD /* launchScreen.storyboard */,
 				AE491FD31F3B030F00B20B70 /* ThomsonFoundation.xcassets */,
 				B2A0F5F420237A12002716E6 /* URLs.strings */,
 			);
@@ -4208,7 +4219,6 @@
 				AE491E0E1F3AFE6400B20B70 /* [CP] Check Pods Manifest.lock */,
 				AE491E0F1F3AFE6400B20B70 /* Frameworks */,
 				AE491E161F3AFE6400B20B70 /* Resources */,
-				AE491E3B1F3AFE6400B20B70 /* ShellScript */,
 				AE491E3C1F3AFE6400B20B70 /* ShellScript */,
 				AE491E3D1F3AFE6400B20B70 /* [CP] Embed Pods Frameworks */,
 				AE491E3E1F3AFE6400B20B70 /* Sources */,
@@ -4349,11 +4359,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A99BAD551E49DC9D00A465C7 /* MusicDetailView.strings in Resources */,
+				B266B65F2061E06D000A8D2F /* tutorial.xcassets in Resources */,
 				A99BAD561E49DC9D00A465C7 /* activity_record_rec_circle.png in Resources */,
 				A99BAD571E49DC9D00A465C7 /* jazzyfrenchy.mp3 in Resources */,
 				A99BAD581E49DC9D00A465C7 /* MicRecorder.strings in Resources */,
 				A91995601EC5029C00D24B0E /* LICENSE in Resources */,
 				A99BAD5A1E49DC9D00A465C7 /* Gallery.storyboard in Resources */,
+				B266B6622061E088000A8D2F /* Purchase.strings in Resources */,
 				A99BAD5B1E49DC9D00A465C7 /* water_mark.png in Resources */,
 				A99BAD5C1E49DC9D00A465C7 /* iso639_2.bundle in Resources */,
 				A9CAB9B81EC367BC00AB6CE8 /* MusicListCell.xib in Resources */,
@@ -4489,6 +4501,7 @@
 				A9D077E11E2F80B1003AE96B /* ProjectList.storyboard in Resources */,
 				A9D077E31E2F80B1003AE96B /* FREE_THE_COLD_WIND.mp3 in Resources */,
 				A9D077E41E2F80B1003AE96B /* MusicDetailView.xib in Resources */,
+				B266B6602061E06E000A8D2F /* tutorial.xcassets in Resources */,
 				A9D077E51E2F80B1003AE96B /* WE_BEAT_AS_ONE.mp3 in Resources */,
 				A9D077E61E2F80B1003AE96B /* Share.strings in Resources */,
 				A91BDB841E43651200BE4F1C /* MusicDetailView.strings in Resources */,
@@ -4508,6 +4521,7 @@
 				AE12E79E1FFEA7AB00F2342E /* jazzyfrenchy.mp3 in Resources */,
 				AE12E79F1FFEA7AB00F2342E /* MicRecorder.strings in Resources */,
 				AED198AC1FFFB0AF005D9913 /* Assets.xcassets in Resources */,
+				B266B6612061E07D000A8D2F /* PurchaseTableViewCell.xib in Resources */,
 				AE12E7A11FFEA7AB00F2342E /* MusicListCell.xib in Resources */,
 				AE12E7A21FFEA7AB00F2342E /* Gallery.storyboard in Resources */,
 				AE12E7A31FFEA7AB00F2342E /* water_mark.png in Resources */,
@@ -4557,6 +4571,7 @@
 				AE491E191F3AFE6400B20B70 /* jazzyfrenchy.mp3 in Resources */,
 				AE491E1A1F3AFE6400B20B70 /* MicRecorder.strings in Resources */,
 				AE491E1C1F3AFE6400B20B70 /* MusicListCell.xib in Resources */,
+				B266B65E2061E06C000A8D2F /* tutorial.xcassets in Resources */,
 				AE491E1D1F3AFE6400B20B70 /* Gallery.storyboard in Resources */,
 				AE491E1E1F3AFE6400B20B70 /* water_mark.png in Resources */,
 				A9E957E11FE5915800D0E087 /* PurchaseTableViewCell.xib in Resources */,
@@ -4566,7 +4581,6 @@
 				AE491E221F3AFE6400B20B70 /* MusicListView.xib in Resources */,
 				AE491E231F3AFE6400B20B70 /* ProjectList.strings in Resources */,
 				AE491E241F3AFE6400B20B70 /* Record.storyboard in Resources */,
-				AE9B190B1F3B62560035C9BD /* launchScreen.storyboard in Resources */,
 				AE491E251F3AFE6400B20B70 /* GoogleService-Info.plist in Resources */,
 				AE491E261F3AFE6400B20B70 /* Settings.strings in Resources */,
 				AE491E271F3AFE6400B20B70 /* goinghigher.mp3 in Resources */,
@@ -4995,19 +5009,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AE491E3B1F3AFE6400B20B70 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
-		};
 		AE491E3C1F3AFE6400B20B70 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -5019,7 +5020,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/Fabric/run 1f6610673faf2f5fcde5824176e94c8f4570aa2c c529f00d2df71a2bc5215e4a75166cec6733c4781ea9e8df57d0c752e909701d";
+			shellScript = "${PODS_ROOT}/Fabric/run c5e050918c143441f6b23e7936f7f83faa1330b4 2c2a5661adbf7258c3dfb8711f48b40ed43d5291f9474ba8e4cda6d05b917b55";
 		};
 		AE491E3D1F3AFE6400B20B70 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -5244,6 +5245,7 @@
 				A9CABAF91EC36C6700AB6CE8 /* ProjectRepository.swift in Sources */,
 				A99BACA21E49DC9D00A465C7 /* SettingsContent.swift in Sources */,
 				A9CAB9411EC366A700AB6CE8 /* TrimParameters.swift in Sources */,
+				B266B6672061E175000A8D2F /* IAHelper.swift in Sources */,
 				A9CAB8EF1EC361A700AB6CE8 /* AddTextWireframe.swift in Sources */,
 				A99BACA51E49DC9D00A465C7 /* FullScreenPlayerViewController.swift in Sources */,
 				A9CABA3C1EC36A4700AB6CE8 /* RemoveProjectOnProjectListAction.swift in Sources */,
@@ -5380,6 +5382,7 @@
 				A9CAB8A51EC35F7800AB6CE8 /* CustomDPTheme.swift in Sources */,
 				A9CABBB51EC36DB000AB6CE8 /* SplitViewInterface.swift in Sources */,
 				A9CAB8FF1EC3648D00AB6CE8 /* DetailProjectViewModel.swift in Sources */,
+				B266B6642061E16F000A8D2F /* PurchaseProduct.swift in Sources */,
 				A99BAD261E49DC9D00A465C7 /* MusicCell.swift in Sources */,
 				A9CABAC31EC36AEC00AB6CE8 /* ResolutionsImages.swift in Sources */,
 				A9CAB8E71EC3619700AB6CE8 /* AddTextInteractorInterface.swift in Sources */,
@@ -5408,6 +5411,7 @@
 				A9CABA301EC369F700AB6CE8 /* MusicWireframe.swift in Sources */,
 				A9CABA141EC3691E00AB6CE8 /* RecordedTrackAreaViewModel.swift in Sources */,
 				A99BAD371E49DC9D00A465C7 /* SettingsWireframe.swift in Sources */,
+				B266B65D2061E069000A8D2F /* SlideViewController.swift in Sources */,
 				A91995411EC5017300D24B0E /* MusicListPresenter.swift in Sources */,
 				A9CABA4D1EC36A6700AB6CE8 /* ProjectListInteractor.swift in Sources */,
 				A96C6F2B1F06717D006EDD04 /* NotificationsName+Extension.swift in Sources */,
@@ -5892,6 +5896,7 @@
 				A9CABA3B1EC36A4700AB6CE8 /* RemoveProjectOnProjectListAction.swift in Sources */,
 				A9CAB8E61EC3619700AB6CE8 /* AddTextInteractorInterface.swift in Sources */,
 				A9CABB0D1EC36C6700AB6CE8 /* RealmVideo.swift in Sources */,
+				B266B6682061E176000A8D2F /* IAHelper.swift in Sources */,
 				A9CABB691EC36CE900AB6CE8 /* SettingsFTPEditedDestination.swift in Sources */,
 				A9CAB8EE1EC361A700AB6CE8 /* AddTextWireframe.swift in Sources */,
 				A9D0773D1E2F80B1003AE96B /* FullScreenPlayerPresenterInterface.swift in Sources */,
@@ -6028,6 +6033,7 @@
 				A9CABB811EC36CE900AB6CE8 /* SettingsLegalTextAction.swift in Sources */,
 				A9FB3A3E1E53D5CB00C21918 /* AddFilterToVideoViewController.swift in Sources */,
 				A9CABBB41EC36DB000AB6CE8 /* SplitViewInterface.swift in Sources */,
+				B266B6652061E16F000A8D2F /* PurchaseProduct.swift in Sources */,
 				A9D077A71E2F80B1003AE96B /* SettingsProvider.swift in Sources */,
 				A97243F11E37A8FF00BD5E9B /* DetailProjectInteractorInterface.swift in Sources */,
 				A9CABAC21EC36AEC00AB6CE8 /* ResolutionsImages.swift in Sources */,
@@ -6056,6 +6062,7 @@
 				A91995591EC5029C00D24B0E /* KYEmbedDrawerControllerSegue.swift in Sources */,
 				A9FB3A541E53F15F00C21918 /* ProjectParametersViewModel.swift in Sources */,
 				A9CABA131EC3691E00AB6CE8 /* RecordedTrackAreaViewModel.swift in Sources */,
+				B266B65C2061E068000A8D2F /* SlideViewController.swift in Sources */,
 				A9CABA4C1EC36A6700AB6CE8 /* ProjectListInteractor.swift in Sources */,
 				A91995401EC5017300D24B0E /* MusicListPresenter.swift in Sources */,
 				A9CABA571EC36A7200AB6CE8 /* ProjectListPresenterInterface.swift in Sources */,
@@ -6529,6 +6536,7 @@
 				AE491EA51F3AFE6400B20B70 /* CustomClipsGalleryViewController.swift in Sources */,
 				AE491EA61F3AFE6400B20B70 /* ShareViewController.swift in Sources */,
 				AE491EA71F3AFE6400B20B70 /* MixAudioModel.swift in Sources */,
+				B266B6662061E175000A8D2F /* IAHelper.swift in Sources */,
 				AE491EA81F3AFE6400B20B70 /* ShareViewModel.swift in Sources */,
 				AE491EA91F3AFE6400B20B70 /* TrimParameters.swift in Sources */,
 				AE491EAA1F3AFE6400B20B70 /* SettingsFTPEditedDestination.swift in Sources */,
@@ -6665,6 +6673,7 @@
 				AE491F261F3AFE6400B20B70 /* ShareTwitterInteractor.swift in Sources */,
 				AE491F271F3AFE6400B20B70 /* SettingsLegalTextAction.swift in Sources */,
 				AE491F281F3AFE6400B20B70 /* SplitViewInterface.swift in Sources */,
+				B266B6632061E16E000A8D2F /* PurchaseProduct.swift in Sources */,
 				AE491F291F3AFE6400B20B70 /* EditorWireframe.swift in Sources */,
 				AE491F2A1F3AFE6400B20B70 /* DetailProjectWireframe.swift in Sources */,
 				AE491F2B1F3AFE6400B20B70 /* SettingsInteractorInterface.swift in Sources */,
@@ -6693,6 +6702,7 @@
 				AE491F431F3AFE6400B20B70 /* DetailProjectFound.swift in Sources */,
 				AE491F441F3AFE6400B20B70 /* ShareInteractorInterface.swift in Sources */,
 				AE491F451F3AFE6400B20B70 /* VideoParameterSlider.swift in Sources */,
+				B266B65B2061E067000A8D2F /* SlideViewController.swift in Sources */,
 				AE491F461F3AFE6400B20B70 /* MusicListPresenter.swift in Sources */,
 				AE491F471F3AFE6400B20B70 /* SettingsWireframe.swift in Sources */,
 				AE491F481F3AFE6400B20B70 /* NotificationsName+Extension.swift in Sources */,
@@ -6902,14 +6912,6 @@
 				A9B54BB01DFEFD7600388002 /* es */,
 			);
 			name = Drawer.storyboard;
-			sourceTree = "<group>";
-		};
-		AE9B190D1F3B62560035C9BD /* launchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AE9B190C1F3B62560035C9BD /* Base */,
-			);
-			name = launchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 		B2A0F5EE202379EF002716E6 /* URLs.strings */ = {
