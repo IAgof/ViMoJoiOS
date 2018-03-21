@@ -111,7 +111,6 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
     public func stopRecording() {
         if isRecordingVideo {
             self.isRecordingVideo = false
-            self.videoWriter?.endSession(atSourceTime: lastSampleTime)
             self.videoWriter?.finishWriting {
                 if self.videoWriter!.status == AVAssetWriterStatus.completed {
                     self.saveOnClipsAlbum()
