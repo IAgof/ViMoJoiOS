@@ -46,14 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 //        
         //CRASHLYTICS
         Fabric.with([Crashlytics.self])
-
+        
         self.setupStartApp()
-//        let controller = PurchaseRouter.createModule()
-//        window!.rootViewController = controller
-        CheckMicPermissionUseCase().askIfNeeded()
-        CheckPhotoRollPermissionUseCase().askIfNeeded()
-        CheckCameraPermissionUseCase().askIfNeeded()
-
         return true
     }
 
@@ -117,17 +111,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             ViMoJoTracker.sharedInstance.trackUserProfile()
             ViMoJoTracker.sharedInstance.trackCreatedSuperProperty()
             ViMoJoTracker.sharedInstance.trackAppStartupProperties(true)
-
-            appDependencies.installRecordToRootViewControllerIntoWindow(window!)
         } else if previousVersion == currentAppVersion {
             // same version
             Utils().debugLog("setupStartApp Same version")
             initState = "returning"
 
             ViMoJoTracker.sharedInstance.trackAppStartupProperties(false)
-
-            appDependencies.installRecordToRootViewControllerIntoWindow(window!)
-//            appDependencies.installEditorRoomToRootViewControllerIntoWindow(window!)
         } else {
             // other version
             defaults.set(currentAppVersion, forKey: "appVersion")
@@ -138,8 +127,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
             ViMoJoTracker.sharedInstance.trackUserProfile()
             ViMoJoTracker.sharedInstance.trackAppStartupProperties(false)
-            appDependencies.installRecordToRootViewControllerIntoWindow(window!)
         }
+        
+        let controller = PermissionsRouter.createModule(recordWireFrame: appDependencies.recordWireframe, drawerWireframe: appDependencies.recordDrawerWireframe, window: window!)
+        window!.rootViewController = UINavigationController(rootViewController: controller)
 
         ViMoJoTracker.sharedInstance.sendStartupAppTracking(initState: initState)
     }

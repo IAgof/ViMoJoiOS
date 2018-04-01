@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import VideonaProject
-import VideonaProject
 
 class AppDependencies {
     var project: Project?
@@ -42,6 +41,8 @@ class AppDependencies {
     var projectListWireframe = ProjectListWireframe()
     var detailProjectWireframe = DetailProjectWireframe()
     var goToRecordOrGalleryWireframe = GoToRecordOrGalleryWireframe()
+    
+    var permissionWireframe = PermissionsRouter()
 
     var addFilterToVideoWireframe = AddFilterToVideoWireframe()
 
