@@ -28,7 +28,7 @@ class KindOfProjectViewController: UITableViewController, KindOfProjectViewProto
                            cellData(cell: 2, text: "Vídeo en bruto"),
                            cellData(cell: 3, text: "Colas"),
                            cellData(cell: 4, text: "Gráfico"),
-                           cellData(cell: 4, text: "Piezas")]
+                           cellData(cell: 5, text: "Piezas")]
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,6 +43,6 @@ class KindOfProjectViewController: UITableViewController, KindOfProjectViewProto
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 50
     }
 }

@@ -11,20 +11,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KindOfProjectViewController" customModule="M4N" customModuleProvider="target">
             <connections>
-                <outlet property="view" destination="I8I-S9-LVJ" id="laH-tK-7mQ"/>
+                <outlet property="view" destination="wtj-vY-wXC" id="t90-dz-WLf"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewController id="lQY-9f-3he" customClass="KindOfProjectViewController" customModule="M4N" customModuleProvider="target">
-            <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="I8I-S9-LVJ">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                <connections>
-                    <outlet property="dataSource" destination="lQY-9f-3he" id="5DW-3j-QOM"/>
-                    <outlet property="delegate" destination="lQY-9f-3he" id="06V-u7-Ayg"/>
-                </connections>
-            </tableView>
-        </tableViewController>
+        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" id="wtj-vY-wXC">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </tableView>
     </objects>
 </document>
