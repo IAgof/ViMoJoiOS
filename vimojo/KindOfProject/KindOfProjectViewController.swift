@@ -42,6 +42,11 @@ class KindOfProjectViewController: UITableViewController, KindOfProjectViewProto
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        let tableViewHeightSize = arrayOfCellData.count * 50
+        return self.view.bounds.height - CGFloat(tableViewHeightSize)
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
