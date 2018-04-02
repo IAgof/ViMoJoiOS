@@ -68,6 +68,9 @@ class ProjectDetailsViewController: UIViewController, ProjectDetailsViewProtocol
             self.locationTextField.text = location
         })
     }
+    @IBAction func goToSelectKindOfProject(_ sender: Any) {
+        presenter?.goToSelectKindOfProject()
+    }
 }
 extension ProjectDetailsViewController: UITextViewDelegate {
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {

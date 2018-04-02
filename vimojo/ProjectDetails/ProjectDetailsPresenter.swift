@@ -77,6 +77,9 @@ location("Can't update location")
             })
         })
     }
+    func goToSelectKindOfProject() {
+        router.goToSelectKindOfProject()
+    }
 }
 
 extension CLPlacemark {

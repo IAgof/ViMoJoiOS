@@ -31,4 +31,9 @@ class ProjectDetailsRouter: ProjectDetailsWireframeProtocol {
     func dismiss() {
         viewController?.navigationController?.popViewController()
     }
+    func goToSelectKindOfProject() {
+        if let controller = UIApplication.topViewController() {
+            controller.show(KindOfProjectRouter.createModule(), sender: nil)
+        }
+    }
 }

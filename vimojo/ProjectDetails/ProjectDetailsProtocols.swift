@@ -15,6 +15,7 @@ import CoreLocation
 //MARK: Wireframe -
 protocol ProjectDetailsWireframeProtocol: class {
     func dismiss()
+    func goToSelectKindOfProject()
 }
 //MARK: Presenter -
 protocol ProjectDetailsPresenterProtocol: class {
@@ -24,6 +25,7 @@ protocol ProjectDetailsPresenterProtocol: class {
                     description: String?)
     func cancel()
     func getLocation(location: @escaping (String) -> Void)
+    func goToSelectKindOfProject()
 }
 
 //MARK: Interactor -
