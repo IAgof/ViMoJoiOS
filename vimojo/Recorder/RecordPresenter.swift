@@ -514,6 +514,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 			  self.delegate?.startRecordingIndicatorBlink()
 			  self.delegate?.startSecondaryRecordingIndicatorBlink()
 			  self.delegate?.showDrawerButton()
+              self.delegate?.hideShowSettings(false)
 			}
 		})
         isRecording = true
@@ -538,6 +539,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 				self.delegate?.recordButtonEnable(false)
 				self.delegate?.hideDrawerButton()
 				self.delegate?.unselectSecondaryRecordButton()
+                self.delegate?.hideShowSettings(true)
             })
         }
         self.stopTimer()

@@ -24,7 +24,8 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     @IBOutlet weak var shareButton: UIButton!
 //    @IBOutlet weak var showModeViewButton: UIButton!
     @IBOutlet weak var hideModeViewButton: UIButton!
-
+    @IBOutlet weak var settingsButton: UIButton!
+    
     @IBOutlet weak var batteryButton: UIButton!
     @IBOutlet weak var jackMicButton: UIButton!
     @IBOutlet weak var gainButton: UIButton!
@@ -642,6 +643,10 @@ extension RecordController:RecordPresenterDelegate {
     func showVideoSettingsConfig() {
         fadeInView([recordAreaContainerView])
         hideModeViewButton.isSelected = false
+    }
+    
+    func hideShowSettings(_ sender: Bool) {
+        self.settingsButton.isEnabled = sender
     }
 
     func hideVideoSettingsConfig() {
