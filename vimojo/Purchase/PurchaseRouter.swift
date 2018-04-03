@@ -18,7 +18,6 @@ class PurchaseRouter: PurchaseWireframeProtocol {
         // Change to get view from storyboard if not using progammatic UI
         let view = PurchaseViewController(nibName: nil, bundle: nil)
         let interactor = PurchaseInteractor()
-//        let interactor = PurchaseMockedInteractor()
         let router = PurchaseRouter()
         let presenter = PurchasePresenter(interface: view, interactor: interactor, router: router)
         

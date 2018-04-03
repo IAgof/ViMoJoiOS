@@ -30,7 +30,12 @@ class PurchaseViewController: UIViewController, PurchaseViewProtocol {
             dismissButton.addTarget(self, action: #selector(dismissController), for: .touchUpInside)
             self.view.addSubview(dismissButton)
         }
+        let restoreButton = UIBarButtonItem(title: "action_restore".localized(.purchase),
+                                            style: .plain, target: self, action: #selector(restoreTapped))
         configureTable()
+    }
+    @objc private func restoreTapped() {
+        presenter?.restoreProducts()
     }
     func dismissController() {
         self.dismiss(animated: true, completion: nil)

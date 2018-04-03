@@ -49,7 +49,7 @@ class PurchasePresenter: PurchasePresenterProtocol {
     func loadProducts() {
         interactor?.loadProducts(response: { (response) in
             switch response {
-            case .error(let error): print("Error")
+            case .error: print("Error")
             case .success(let products):
                 self.view?.products = products.map({ product in
                     ProductViewModel(with: product, action: { wasBought in
@@ -58,6 +58,12 @@ class PurchasePresenter: PurchasePresenterProtocol {
                 }) })
             }
         })
+    }
+    func restoreProducts() {
+        interactor?.restoreProduct()
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.5) {
+            self.loadProducts()
+        }
     }
     @objc func purchasedProduct() {
         loadProducts()
