@@ -89,6 +89,7 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
             PurchaseProduct.setEnabled(state: !product.isEnabled,
                                        product: product)
             delegate?.watermarkIsEnabled = product.isEnabled
+            interactor?.setWatermarkStatus(product.isEnabled)
         } else {
             wireframe?.presentPurchaseScreen()
         }
