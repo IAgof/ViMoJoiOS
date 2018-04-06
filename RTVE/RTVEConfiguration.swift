@@ -28,6 +28,6 @@ final class RTVEConfiguration: ConfigurationProtocol {
         secondColorWithOpacity = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.5)
         VOICE_OVER_FEATURE = true
         FTP_FEATURE = true
-        WATERMARK_FEATURE = true
+        WATERMARK_FEATURE = false
     }
 }
