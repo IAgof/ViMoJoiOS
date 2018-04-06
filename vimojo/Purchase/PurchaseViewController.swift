@@ -30,8 +30,18 @@ class PurchaseViewController: UIViewController, PurchaseViewProtocol {
             dismissButton.addTarget(self, action: #selector(dismissController), for: .touchUpInside)
             self.view.addSubview(dismissButton)
         }
-        let restoreButton = UIBarButtonItem(title: "action_restore".localized(.purchase),
-                                            style: .plain, target: self, action: #selector(restoreTapped))
+        
+        let restoreButton = UIButton()
+        restoreButton.setTitle("action_restore".localized(.purchase), for: .normal)
+        restoreButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        restoreButton.addTarget(self, action: #selector(restoreTapped), for: .touchUpInside)
+        let barItem = UIBarButtonItem(customView: restoreButton)
+        
+        barItem.customView?.snp.makeConstraints({ (make) in
+            make.height.equalTo(22)
+        })
+
+        self.navigationItem.rightBarButtonItem  = barItem
         configureTable()
     }
     @objc private func restoreTapped() {
