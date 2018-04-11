@@ -15,11 +15,11 @@ struct cellData {
     let text: String!
 }
 
-class KindOfProjectViewController: UITableViewController, KindOfProjectViewProtocol {
-
-	var presenter: KindOfProjectPresenterProtocol?
+class KindOfProjectViewController: UITableViewController {
     
     var arrayOfCellData = [cellData]()
+    
+    @IBOutlet weak var mainLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +36,10 @@ class KindOfProjectViewController: UITableViewController, KindOfProjectViewProto
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = Bundle.main.loadNibNamed("KindOfProjectTableViewCell", owner: self, options: nil)?.first as! KindOfProjectTableViewCell
-        cell.tag = arrayOfCellData[indexPath.row].cell
-        cell.mainLabel.text = arrayOfCellData[indexPath.row].text
-        return cell
+        let cell = Bundle.main.loadNibNamed("KindOfProjectTableViewCell", owner: self, options: nil)?.first
+        mainLabel.tag = arrayOfCellData[indexPath.row].cell
+        mainLabel.text = arrayOfCellData[indexPath.row].text
+        return cell as! UITableViewCell
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

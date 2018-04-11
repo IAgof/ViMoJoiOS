@@ -33,7 +33,8 @@ class ProjectDetailsRouter: ProjectDetailsWireframeProtocol {
     }
     func goToSelectKindOfProject() {
         if let controller = UIApplication.topViewController() {
-            controller.show(KindOfProjectRouter.createModule(), sender: nil)
+            controller.show(KindOfProjectViewController(nibName: "KindOfProjectViewController", bundle: nil), sender: true)
+//            controller.show(KindOfProjectRouter.createModule(), sender: nil)
         }
     }
 }
