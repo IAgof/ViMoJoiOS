@@ -62,8 +62,13 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
     }
     func setUpButtonsArray() {
         cameraButtons = [ cameraProButton, cameraBasicButton ]
+        // TODO: Enable this two fps
+        [oneHundredTwentyFpsButton, twoHundredfortyFpsButton].forEach {
+            $0?.isHidden = true
+        }
         fpsButtons = [twentyFivefpsButton, thirtyFpsButton, fiftyyFpsButton,
-                      sixtyFpsButton, oneHundredTwentyFpsButton, twoHundredfortyFpsButton]
+                      sixtyFpsButton]
+        //, oneHundredTwentyFpsButton, twoHundredfortyFpsButton]
         mbpsButtons = [sixteenMbpsButton, thirtyTwoMbpsButton]
         resolutionButtons =
             [sevenTwentyResolutionButton
