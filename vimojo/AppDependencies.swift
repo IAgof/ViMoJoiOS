@@ -41,6 +41,8 @@ class AppDependencies {
     var projectListWireframe = ProjectListWireframe()
     var detailProjectWireframe = DetailProjectWireframe()
     var goToRecordOrGalleryWireframe = GoToRecordOrGalleryWireframe()
+    
+    var permissionWireframe = PermissionsRouter()
 
     var addFilterToVideoWireframe = AddFilterToVideoWireframe()
 
