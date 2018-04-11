@@ -22,7 +22,10 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
 	@IBOutlet weak var fourKResolutionButton: UIButton!
 	@IBOutlet weak var twentyFivefpsButton: UIButton!
     @IBOutlet weak var thirtyFpsButton: UIButton!
-	@IBOutlet weak var sixtyFpsButton: UIButton!
+    @IBOutlet weak var fiftyyFpsButton: UIButton!
+    @IBOutlet weak var sixtyFpsButton: UIButton!
+    @IBOutlet weak var oneHundredTwentyFpsButton: UIButton!
+    @IBOutlet weak var twoHundredfortyFpsButton: UIButton!
     @IBOutlet weak var sixteenMbpsButton: UIButton!
     @IBOutlet weak var thirtyTwoMbpsButton: UIButton!
     
@@ -45,6 +48,7 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
         setupSSControllers()
 		okButton.setTitleColor(UIColor.black, for: UIControlState.normal)
 		configureCameraResolutions()
+        configureFps()
         presenter?.viewDidLoad()
     }
 	override open var shouldAutorotate: Bool {
@@ -58,7 +62,13 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
     }
     func setUpButtonsArray() {
         cameraButtons = [ cameraProButton, cameraBasicButton ]
-        fpsButtons = [twentyFivefpsButton, thirtyFpsButton, sixtyFpsButton]
+        // TODO: Enable this two fps
+        [oneHundredTwentyFpsButton, twoHundredfortyFpsButton].forEach {
+            $0?.isHidden = true
+        }
+        fpsButtons = [twentyFivefpsButton, thirtyFpsButton, fiftyyFpsButton,
+                      sixtyFpsButton]
+        //, oneHundredTwentyFpsButton, twoHundredfortyFpsButton]
         mbpsButtons = [sixteenMbpsButton, thirtyTwoMbpsButton]
         resolutionButtons =
             [sevenTwentyResolutionButton
@@ -79,8 +89,14 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
     { presenter?.actionPush(with: .fps(.twentyFive)) }
     @IBAction func thirtyFpsPush(_ sender: Any)
     { presenter?.actionPush(with: .fps(.thirty)) }
-	@IBAction func sixtyFpsPush(_ sender: Any)
-	{ presenter?.actionPush(with: .fps(.sixty)) }
+	@IBAction func fiftyFpsPush(_ sender: Any)
+	{ presenter?.actionPush(with: .fps(.fifty)) }
+    @IBAction func sixtyFpsPush(_ sender: Any)
+    { presenter?.actionPush(with: .fps(.sixty)) }
+    @IBAction func oneHundredTwentyFpsPush(_ sender: Any)
+    { presenter?.actionPush(with: .fps(.oneHundredTwenty)) }
+    @IBAction func twoHundredfortyFpsPush(_ sender: Any)
+    { presenter?.actionPush(with: .fps(.twoHundredforty)) }
     @IBAction func sixteenMbpsButton(_ sender: Any)
     { presenter?.actionPush(with: .mbps(.sixteenMB)) }
     @IBAction func thirtyTwoMbpsPush(_ sender: Any)
@@ -95,6 +111,21 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
         mbpsSSRBController.pressed(mbpsButtons[loadedValues.3.rawValue])
     }
 
+    func configureFps() {
+        VideoSettings.availableFPS { (fpsAvailables) in
+            twentyFivefpsButton.isEnabled = fpsAvailables.contains(.twentyFive)
+            thirtyFpsButton.isEnabled = fpsAvailables.contains(.thirty)
+            fiftyyFpsButton.isEnabled = fpsAvailables.contains(.fifty)
+            sixtyFpsButton.isEnabled = fpsAvailables.contains(.sixty)
+            oneHundredTwentyFpsButton.isEnabled = fpsAvailables.contains(.oneHundredTwenty)
+            twoHundredfortyFpsButton.isEnabled = fpsAvailables.contains(.twoHundredforty)
+            
+            if let button = fpsSSRBController.selectedButton(),
+                !button.isEnabled {
+                twentyFivefpsButton.sendActions(for: .touchUpInside)
+            }
+        }
+    }
 	// All resolutions in back camera supports 720 and 1080p. Only some supports 4k
 	func configureCameraResolutions() {
 		let deviceModel = UIDevice.current.modelName
