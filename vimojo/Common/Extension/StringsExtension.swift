@@ -31,4 +31,10 @@ extension String{
             Bundle.main.localizedString(forKey: self, value: nil, table: table.rawValue)
         }
     }
+    func addColons() -> String {
+        return self + ":"
+    }
+    func addSpace() -> String {
+        return self + " "
+    }
 }
