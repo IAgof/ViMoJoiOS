@@ -41,6 +41,12 @@ public class RealmProjectToProjectMapper: Mapper {
         project.projectInfo.author = from.author
         project.projectInfo.location = from.location
         project.projectInfo.description = from.projectDescription
+     
+        project.projectInfo.fakeDirect = from.fakeDirect
+        project.projectInfo.bruteVideo = from.bruteVideo
+        project.projectInfo.queue = from.queue
+        project.projectInfo.grafic = from.grafic
+        project.projectInfo.pieces = from.pieces
         
         if from.filterName != ""{
             if let newFilter = CIFilter(name: from.filterName) {

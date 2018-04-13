@@ -17,7 +17,11 @@ public func printIsolated(message: String = "",
     print(object)
     print("-------------------------------")
 }
-
+func runOnDevice(action: () -> Void) {
+    #if !((arch(i386) || arch(x86_64)) && os(iOS))
+    action()
+    #endif
+}
 public class ViMoJoController: UIViewController,
 ViMoJoInterface {
 

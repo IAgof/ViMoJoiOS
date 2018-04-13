@@ -23,6 +23,12 @@ public class ProjectToRealmProjectMapper: Mapper {
         realmProject.author = from.projectInfo.author
         realmProject.location = from.projectInfo.location
         realmProject.projectDescription = from.projectInfo.description
+        realmProject.fakeDirect = from.projectInfo.fakeDirect
+        realmProject.bruteVideo = from.projectInfo.bruteVideo
+        realmProject.queue = from.projectInfo.queue
+        realmProject.grafic = from.projectInfo.grafic
+        realmProject.pieces = from.projectInfo.pieces
+
         
         realmProject.projectPath = from.getProjectPath()
         realmProject.quality = from.getProfile().getQuality()

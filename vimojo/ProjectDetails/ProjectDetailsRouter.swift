@@ -14,6 +14,7 @@ import VideonaProject
 class ProjectDetailsRouter: ProjectDetailsWireframeProtocol {
     
     weak var viewController: UIViewController?
+    weak var interactor: ProjectDetailsInteractorProtocol?
     
     static func createModule(with project: Project) -> UIViewController {
         // Change to get view from storyboard if not using progammatic UI
@@ -25,6 +26,7 @@ class ProjectDetailsRouter: ProjectDetailsWireframeProtocol {
         view.presenter = presenter
         interactor.presenter = presenter
         router.viewController = view
+        router.interactor = interactor
         
         return view
     }
@@ -32,9 +34,8 @@ class ProjectDetailsRouter: ProjectDetailsWireframeProtocol {
         viewController?.navigationController?.popViewController()
     }
     func goToSelectKindOfProject() {
-        if let controller = UIApplication.topViewController() {
-            controller.show(KindOfProjectViewController(nibName: "KindOfProjectViewController", bundle: nil), sender: true)
-//            controller.show(KindOfProjectRouter.createModule(), sender: nil)
-        }
+        let controller = KindOfProjectViewController()
+        controller.project = interactor?.project
+        viewController?.present(controller, animated: true, completion: nil)
     }
 }
