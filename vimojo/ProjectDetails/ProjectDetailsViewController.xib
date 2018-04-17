@@ -32,10 +32,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yQr-1M-nlz">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="571"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rB4-LH-jgE">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="571"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Fxu-KT-Ksn">
                                     <rect key="frame" x="16" y="16" width="288" height="476"/>
@@ -203,39 +203,12 @@
                                         </mask>
                                     </variation>
                                 </stackView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSs-mh-Jy5">
-                                    <rect key="frame" x="16" y="541" width="15" height="22"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="22" id="mLE-rx-6cu"/>
-                                    </constraints>
-                                    <state key="normal" image="activity_edit_cancel_normal"/>
-                                    <state key="highlighted" image="activity_edit_cancel_pressed"/>
-                                    <connections>
-                                        <action selector="cancelButtonTapped:" destination="-1" eventType="touchUpInside" id="JFF-Cp-gWq"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REL-a8-t3O">
-                                    <rect key="frame" x="283" y="541" width="21" height="22"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="22" id="JOq-3P-mXd"/>
-                                    </constraints>
-                                    <state key="normal" image="activity_edit_accept_normal"/>
-                                    <state key="highlighted" image="activity_edit_accept_pressed"/>
-                                    <connections>
-                                        <action selector="saveButtonTapped:" destination="-1" eventType="touchUpInside" id="NoJ-XY-plk"/>
-                                    </connections>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="REL-a8-t3O" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Fxu-KT-Ksn" secondAttribute="bottom" constant="8" id="3X1-RG-ykU"/>
                                 <constraint firstItem="Fxu-KT-Ksn" firstAttribute="leading" secondItem="rB4-LH-jgE" secondAttribute="leading" constant="16" id="875-HZ-fh6"/>
-                                <constraint firstItem="jSs-mh-Jy5" firstAttribute="leading" secondItem="rB4-LH-jgE" secondAttribute="leading" constant="16" id="BPO-87-Rkg"/>
-                                <constraint firstAttribute="bottom" secondItem="jSs-mh-Jy5" secondAttribute="bottom" constant="8" id="HdS-qK-ePP"/>
                                 <constraint firstAttribute="trailing" secondItem="Fxu-KT-Ksn" secondAttribute="trailing" constant="16" id="Zcy-c0-aeO"/>
                                 <constraint firstItem="Fxu-KT-Ksn" firstAttribute="top" secondItem="rB4-LH-jgE" secondAttribute="top" constant="16" id="bii-M2-ytz"/>
-                                <constraint firstAttribute="bottom" secondItem="REL-a8-t3O" secondAttribute="bottom" constant="8" id="ewl-9G-hlp"/>
-                                <constraint firstAttribute="trailing" secondItem="REL-a8-t3O" secondAttribute="trailing" constant="16" id="gxg-dn-31a"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -248,14 +221,40 @@
                         <constraint firstAttribute="trailing" secondItem="rB4-LH-jgE" secondAttribute="trailing" id="oPa-mP-oCy"/>
                     </constraints>
                 </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSs-mh-Jy5">
+                    <rect key="frame" x="15" y="534" width="15" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="mLE-rx-6cu"/>
+                    </constraints>
+                    <state key="normal" image="activity_edit_cancel_normal"/>
+                    <state key="highlighted" image="activity_edit_cancel_pressed"/>
+                    <connections>
+                        <action selector="cancelButtonTapped:" destination="-1" eventType="touchUpInside" id="JFF-Cp-gWq"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REL-a8-t3O">
+                    <rect key="frame" x="284" y="534" width="21" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="JOq-3P-mXd"/>
+                    </constraints>
+                    <state key="normal" image="activity_edit_accept_normal"/>
+                    <state key="highlighted" image="activity_edit_accept_pressed"/>
+                    <connections>
+                        <action selector="saveButtonTapped:" destination="-1" eventType="touchUpInside" id="NoJ-XY-plk"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="REL-a8-t3O" secondAttribute="trailing" constant="15" id="7Ss-JF-CAS"/>
+                <constraint firstAttribute="bottom" secondItem="jSs-mh-Jy5" secondAttribute="bottom" constant="15" id="83l-eL-xzd"/>
                 <constraint firstItem="yQr-1M-nlz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Gs1-Jd-z1k"/>
+                <constraint firstItem="REL-a8-t3O" firstAttribute="top" secondItem="yQr-1M-nlz" secondAttribute="bottom" constant="15" id="Jks-Nn-Z86"/>
+                <constraint firstItem="jSs-mh-Jy5" firstAttribute="top" secondItem="yQr-1M-nlz" secondAttribute="bottom" constant="15" id="NxF-4r-cDi"/>
                 <constraint firstItem="yQr-1M-nlz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VTo-jv-olE"/>
-                <constraint firstAttribute="bottom" secondItem="yQr-1M-nlz" secondAttribute="bottom" id="mCY-Xc-aMq"/>
+                <constraint firstAttribute="bottom" secondItem="REL-a8-t3O" secondAttribute="bottom" constant="15" id="X1j-6u-y7i"/>
+                <constraint firstItem="jSs-mh-Jy5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="dwz-gX-C8c"/>
                 <constraint firstAttribute="trailing" secondItem="yQr-1M-nlz" secondAttribute="trailing" id="tx4-qe-zw8"/>
-                <constraint firstItem="rB4-LH-jgE" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="xd2-5l-gwx"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="37" y="60.5"/>
