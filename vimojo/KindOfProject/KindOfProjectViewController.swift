@@ -49,29 +49,29 @@ class KindOfProjectViewController: ViMoJoController {
         configureTableView()
         // TODO: Change to localized texts
         arrayOfCellData = [
-            KindOfProjectViewModel(text: "PRODUCT_TYPE_LIVE_ON_TAPE".localized(.projectDetails), option: projectInfo.LIVE_ON_TAPE,
+            KindOfProjectViewModel(text: "product_type_live_on_tape".localized(.projectDetails), option: projectInfo.liveOnTape,
                                    updateOption: { [weak self] newOption in
-                                    self?.projectInfo.LIVE_ON_TAPE = newOption
+                                    self?.projectInfo.liveOnTape = newOption
             }),
-            KindOfProjectViewModel(text: "PRODUCT_TYPE_B_ROLL".localized(.projectDetails), option: projectInfo.B_ROLL,
+            KindOfProjectViewModel(text: "product_type_b_roll".localized(.projectDetails), option: projectInfo.bRoll,
                                    updateOption: { [weak self] newOption in
-                                    self?.projectInfo.B_ROLL = newOption
+                                    self?.projectInfo.bRoll = newOption
             }),
-            KindOfProjectViewModel(text: "PRODUCT_TYPE_NAT_VO".localized(.projectDetails), option: projectInfo.NAT_VO,
+            KindOfProjectViewModel(text: "product_type_nat_vo".localized(.projectDetails), option: projectInfo.natVO,
                                    updateOption: { [weak self] newOption in
-                                    self?.projectInfo.NAT_VO = newOption
+                                    self?.projectInfo.natVO = newOption
             }),
-            KindOfProjectViewModel(text: "PRODUCT_TYPE_INTERVIEW".localized(.projectDetails), option: projectInfo.INTERVIEW,
+            KindOfProjectViewModel(text: "product_type_interview".localized(.projectDetails), option: projectInfo.interview,
                                    updateOption: { [weak self] newOption in
-                                    self?.projectInfo.INTERVIEW = newOption
+                                    self?.projectInfo.interview = newOption
             }),
-            KindOfProjectViewModel(text: "PRODUCT_TYPE_GRAPHICS".localized(.projectDetails), option: projectInfo.GRAPHICS,
+            KindOfProjectViewModel(text: "product_type_graphics".localized(.projectDetails), option: projectInfo.graphics,
                                    updateOption: { [weak self] newOption in
-                                    self?.projectInfo.GRAPHICS = newOption
+                                    self?.projectInfo.graphics = newOption
             }),
-            KindOfProjectViewModel(text: "PRODUCT_TYPE_PIECE".localized(.projectDetails), option: projectInfo.PIECE,
+            KindOfProjectViewModel(text: "product_type_piece".localized(.projectDetails), option: projectInfo.piece,
                                    updateOption: { [weak self] newOption in
-                                    self?.projectInfo.PIECE = newOption
+                                    self?.projectInfo.piece = newOption
             })
         ]
     }
