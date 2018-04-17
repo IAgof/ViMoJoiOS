@@ -17,6 +17,7 @@ class ProjectDetailsViewController: UIViewController, ProjectDetailsViewProtocol
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var locationButton: UIButton!
+    @IBOutlet weak var projectTypesButton: UIButton!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var frameRate: UILabel!
@@ -25,28 +26,10 @@ class ProjectDetailsViewController: UIViewController, ProjectDetailsViewProtocol
     
     var presenter: ProjectDetailsPresenterProtocol?
     var stackViewInitPoint: CGPoint!
-    var formatText: (String, String) -> String {
-        return { prefix, sufix in
-            return prefix
-                .addColons()
-                .addSpace()
-                .appending(sufix)
-        }
-    }
+    
 	override func viewDidLoad() {
         super.viewDidLoad()
         stackViewInitPoint = stackView.frame.origin
-        // TODO: move formatting to presenter
-        presenter?.loadValues(loaded: { (viewModel) in
-            titleTextField.text = viewModel.title
-            dateLabel.text = formatText("date_label".localized(.detailProject), viewModel.date)
-            authorLabel.text = formatText("author_label".localized(.detailProject), viewModel.author)
-            locationTextField.text = formatText("location_label".localized(.detailProject), viewModel.location)
-            descriptionTextView.text = formatText("description_label".localized(.detailProject), viewModel.description)
-            frameRate.text = formatText("frame_rate_label".localized(.detailProject), viewModel.frameRate.string)
-            quality.text = formatText("quality_label".localized(.detailProject), viewModel.quality)
-            duration.text = formatText("duration_label".localized(.detailProject), viewModel.duration.string)
-        })
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ProjectDetailsViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         addObserverToShowAndHideKeyboard()
@@ -55,6 +38,17 @@ class ProjectDetailsViewController: UIViewController, ProjectDetailsViewProtocol
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        presenter?.loadValues(loaded: { (viewModel) in
+            titleTextField.text = viewModel.title
+            dateLabel.text = viewModel.date
+            authorLabel.text = viewModel.author
+            locationTextField.text = viewModel.location
+            descriptionTextView.text = viewModel.description
+            frameRate.text = viewModel.frameRate
+            quality.text = viewModel.quality
+            duration.text = viewModel.duration
+            projectTypesButton.setAttributedTitle(viewModel.kindOfProjectsSelected, for: .normal)
+        })
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

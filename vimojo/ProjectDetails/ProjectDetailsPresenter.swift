@@ -19,21 +19,47 @@ struct ProjectInfoVideoModel {
     let location: String
     let description: String
     let resolution: String
-    let frameRate: Int
+    let frameRate: String
     let quality: String
-    let duration: Double
+    let duration: String
+    let kindOfProjectsSelected: NSAttributedString
 }
 extension Project {
+    private var formatText: (String, String) -> String {
+        return { prefix, sufix in
+            return prefix
+                .addColons()
+                .addSpace()
+                .appending(sufix)
+        }
+    }
     var viewModel: ProjectInfoVideoModel {
         return ProjectInfoVideoModel(title: projectInfo.title,
-                                     date: projectInfo.date.dateString(),
-                                     author: projectInfo.author,
-                                     location: projectInfo.location,
-                                     description: projectInfo.description,
+                                     date: formatText("date_label".localized(.detailProject), projectInfo.date.dateString()),
+                                     author: formatText("author_label".localized(.detailProject), projectInfo.author),
+                                     location: formatText("location_label".localized(.detailProject), projectInfo.location),
+                                     description: formatText("description_label".localized(.detailProject), projectInfo.description),
                                      resolution: getProfile().getResolution(),
-                                     frameRate: getProfile().frameRate,
-                                     quality: getProfile().getQuality(),
-                                     duration: getDuration())
+                                     frameRate: formatText("frame_rate_label".localized(.detailProject), getProfile().frameRate.string),
+                                     quality: formatText("quality_label".localized(.detailProject), getProfile().getQuality()),
+                                     duration: formatText("duration_label".localized(.detailProject), getDuration().string),
+                                     kindOfProjectsSelected: projectsSelectedTexts)
+    }
+    private var projectsSelectedTexts: NSAttributedString {
+        var arrayString: [String] = []
+        if projectInfo.liveOnTape { arrayString.append("product_type_live_on_tape".localized(.projectDetails)) }
+        if projectInfo.bRoll { arrayString.append("product_type_b_roll".localized(.projectDetails)) }
+        if projectInfo.natVO { arrayString.append("product_type_nat_vo".localized(.projectDetails)) }
+        if projectInfo.interview { arrayString.append("product_type_interview".localized(.projectDetails)) }
+        if projectInfo.graphics { arrayString.append("product_type_graphics".localized(.projectDetails)) }
+        if projectInfo.piece { arrayString.append("product_type_piece".localized(.projectDetails)) }
+        
+        let attrString: NSMutableAttributedString = NSMutableAttributedString(string: "project_type_label".localized(.detailProject))
+        attrString.addAttribute(NSForegroundColorAttributeName, value: UIColor.black, range: NSMakeRange(0, attrString.length))
+        let descString: NSMutableAttributedString = NSMutableAttributedString(string:  arrayString.reduce("", { "\($0) \($1)" }))
+        descString.addAttribute(NSForegroundColorAttributeName, value: configuration.mainColor, range: NSMakeRange(0, descString.length))
+        attrString.append(descString)
+        return attrString
     }
 }
 class ProjectDetailsPresenter: ProjectDetailsPresenterProtocol {

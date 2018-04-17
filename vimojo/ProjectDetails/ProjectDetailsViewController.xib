@@ -19,6 +19,7 @@
                 <outlet property="frameRate" destination="4vM-9Z-Uda" id="ru8-zR-UYA"/>
                 <outlet property="locationButton" destination="cKa-5X-neB" id="Jvr-Xw-AbF"/>
                 <outlet property="locationTextField" destination="MtA-HS-fUc" id="OiS-zf-UVk"/>
+                <outlet property="projectTypesButton" destination="Mtc-s5-ZsN" id="BhB-59-2Do"/>
                 <outlet property="quality" destination="fhR-x1-gVc" id="SSr-JY-eDT"/>
                 <outlet property="stackView" destination="Fxu-KT-Ksn" id="xUa-5P-jDQ"/>
                 <outlet property="titleTextField" destination="C9F-Ip-F86" id="NWD-OU-ZH4"/>
@@ -37,7 +38,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="571"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Fxu-KT-Ksn">
-                                    <rect key="frame" x="16" y="16" width="288" height="517"/>
+                                    <rect key="frame" x="16" y="16" width="288" height="476"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Project title" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C9F-Ip-F86">
                                             <rect key="frame" x="0.0" y="0.0" width="288" height="55"/>
@@ -73,63 +74,81 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </textView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mtc-s5-ZsN">
-                                            <rect key="frame" x="0.0" y="221" width="288" height="71"/>
-                                            <state key="normal" title="Tipo de proyecto"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mtc-s5-ZsN">
+                                            <rect key="frame" x="0.0" y="221" width="288" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="bwJ-0J-Rc7"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <state key="normal" title="Tipo de proyecto">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="4"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="goToSelectKindOfProject:" destination="-1" eventType="touchUpInside" id="k6U-18-gqs"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detalles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6P-zr-kLn">
-                                            <rect key="frame" x="0.0" y="300" width="288" height="17"/>
+                                            <rect key="frame" x="0.0" y="259" width="288" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVF-fk-3mI" userLabel="Creation date value label">
-                                            <rect key="frame" x="0.0" y="325" width="288" height="17"/>
+                                            <rect key="frame" x="0.0" y="284" width="288" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author: DevStarlight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Vt-Gk-W2K" userLabel="Author value Label">
-                                            <rect key="frame" x="0.0" y="350" width="288" height="17"/>
+                                            <rect key="frame" x="0.0" y="309" width="288" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duracion: 00:01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRC-8q-yG7" userLabel="Duration Value Label">
-                                            <rect key="frame" x="0.0" y="375" width="288" height="17"/>
+                                            <rect key="frame" x="0.0" y="334" width="288" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tamaño: 1.81 Mb" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPQ-8L-3TD" userLabel="Size value Label">
-                                            <rect key="frame" x="0.0" y="400" width="288" height="17"/>
+                                            <rect key="frame" x="0.0" y="359" width="288" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calidad: 1280" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhR-x1-gVc" userLabel="Quality value Label">
-                                            <rect key="frame" x="0.0" y="425" width="288" height="17"/>
+                                            <rect key="frame" x="0.0" y="384" width="288" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Formato: mp4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5X8-Di-44P" userLabel="Format value Label">
-                                            <rect key="frame" x="0.0" y="450" width="288" height="17"/>
+                                            <rect key="frame" x="0.0" y="409" width="288" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitrate: 16.0 Mbps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKJ-3m-ngd" userLabel="Bitrate value Label">
-                                            <rect key="frame" x="0.0" y="475" width="288" height="17"/>
+                                            <rect key="frame" x="0.0" y="434" width="288" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Framerate: 120" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vM-9Z-Uda" userLabel="Framerate value Label">
-                                            <rect key="frame" x="0.0" y="500" width="288" height="17"/>
+                                            <rect key="frame" x="0.0" y="459" width="288" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -209,7 +228,7 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="REL-a8-t3O" firstAttribute="top" secondItem="Fxu-KT-Ksn" secondAttribute="bottom" constant="8" id="3X1-RG-ykU"/>
+                                <constraint firstItem="REL-a8-t3O" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Fxu-KT-Ksn" secondAttribute="bottom" constant="8" id="3X1-RG-ykU"/>
                                 <constraint firstItem="Fxu-KT-Ksn" firstAttribute="leading" secondItem="rB4-LH-jgE" secondAttribute="leading" constant="16" id="875-HZ-fh6"/>
                                 <constraint firstItem="jSs-mh-Jy5" firstAttribute="leading" secondItem="rB4-LH-jgE" secondAttribute="leading" constant="16" id="BPO-87-Rkg"/>
                                 <constraint firstAttribute="bottom" secondItem="jSs-mh-Jy5" secondAttribute="bottom" constant="8" id="HdS-qK-ePP"/>

@@ -13,8 +13,8 @@ class RealmMigrationsUseCase {
 
     static func updateMigrationDefault() {
         
-        let newVersion = UInt64(7)
-        let oldVersion = UInt64(6)
+        let newVersion = UInt64(9)
+        let oldVersion = UInt64(8)
 
         let config = Realm.Configuration(
             schemaVersion: newVersion,

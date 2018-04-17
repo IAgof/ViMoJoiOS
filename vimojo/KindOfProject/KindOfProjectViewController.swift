@@ -47,7 +47,6 @@ class KindOfProjectViewController: ViMoJoController {
         addTableView()
         addButtons()
         configureTableView()
-        // TODO: Change to localized texts
         arrayOfCellData = [
             KindOfProjectViewModel(text: "product_type_live_on_tape".localized(.projectDetails), option: projectInfo.liveOnTape,
                                    updateOption: { [weak self] newOption in
