@@ -17,11 +17,12 @@ public class RealmProject: Object {
     dynamic var author: String = ""
     dynamic var location: String = ""
     dynamic var projectDescription: String = ""
-    dynamic var fakeDirect: Bool = false
-    dynamic var bruteVideo: Bool = false
-    dynamic var queue: Bool = false
-    dynamic var grafic: Bool = false
-    dynamic var pieces: Bool = false
+    dynamic var LIVE_ON_TAPE: Bool = false
+    dynamic var B_ROLL: Bool = false
+    dynamic var NAT_VO: Bool = false
+    dynamic var INTERVIEW: Bool = false
+    dynamic var GRAPHICS: Bool = false
+    dynamic var PIECE: Bool = false
     // Project Info end
     dynamic var projectPath = ""
     dynamic var quality = ""

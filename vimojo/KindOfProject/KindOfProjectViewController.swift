@@ -49,25 +49,29 @@ class KindOfProjectViewController: ViMoJoController {
         configureTableView()
         // TODO: Change to localized texts
         arrayOfCellData = [
-            KindOfProjectViewModel(text: "Falso directo", option: projectInfo.fakeDirect,
+            KindOfProjectViewModel(text: "Falso directo", option: projectInfo.LIVE_ON_TAPE,
                                    updateOption: { [weak self] newOption in
-                                    self?.projectInfo.fakeDirect = newOption
+                                    self?.projectInfo.LIVE_ON_TAPE = newOption
             }),
-            KindOfProjectViewModel(text: "Vídeo en bruto", option: projectInfo.bruteVideo,
+            KindOfProjectViewModel(text: "Vídeo en bruto", option: projectInfo.B_ROLL,
                                    updateOption: { [weak self] newOption in
-                                    self?.projectInfo.bruteVideo = newOption
+                                    self?.projectInfo.B_ROLL = newOption
             }),
-            KindOfProjectViewModel(text: "Colas", option: projectInfo.queue,
+            KindOfProjectViewModel(text: "Colas", option: projectInfo.NAT_VO,
                                    updateOption: { [weak self] newOption in
-                                    self?.projectInfo.queue = newOption
+                                    self?.projectInfo.NAT_VO = newOption
             }),
-            KindOfProjectViewModel(text: "Gráfico", option: projectInfo.grafic,
+            KindOfProjectViewModel(text: "Total", option: projectInfo.INTERVIEW,
                                    updateOption: { [weak self] newOption in
-                                    self?.projectInfo.grafic = newOption
+                                    self?.projectInfo.INTERVIEW = newOption
             }),
-            KindOfProjectViewModel(text: "Piezas", option: projectInfo.pieces,
+            KindOfProjectViewModel(text: "Gráfico", option: projectInfo.GRAPHICS,
                                    updateOption: { [weak self] newOption in
-                                    self?.projectInfo.pieces = newOption
+                                    self?.projectInfo.GRAPHICS = newOption
+            }),
+            KindOfProjectViewModel(text: "Piezas", option: projectInfo.PIECE,
+                                   updateOption: { [weak self] newOption in
+                                    self?.projectInfo.PIECE = newOption
             })
         ]
     }
