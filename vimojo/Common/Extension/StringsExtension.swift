@@ -11,6 +11,7 @@ import Foundation
 extension String{
     enum LocalizeTable: String {
         case settings = "Settings"
+        case projectDetails = "ProjectDetails"
         case detailProject = "DetailProject"
         case drawerMenu = "DrawerMenu"
         case editor = "EditorStrings"

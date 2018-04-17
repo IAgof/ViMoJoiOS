@@ -49,27 +49,27 @@ class KindOfProjectViewController: ViMoJoController {
         configureTableView()
         // TODO: Change to localized texts
         arrayOfCellData = [
-            KindOfProjectViewModel(text: "Falso directo", option: projectInfo.LIVE_ON_TAPE,
+            KindOfProjectViewModel(text: "PRODUCT_TYPE_LIVE_ON_TAPE".localized(.projectDetails), option: projectInfo.LIVE_ON_TAPE,
                                    updateOption: { [weak self] newOption in
                                     self?.projectInfo.LIVE_ON_TAPE = newOption
             }),
-            KindOfProjectViewModel(text: "Vídeo en bruto", option: projectInfo.B_ROLL,
+            KindOfProjectViewModel(text: "PRODUCT_TYPE_B_ROLL".localized(.projectDetails), option: projectInfo.B_ROLL,
                                    updateOption: { [weak self] newOption in
                                     self?.projectInfo.B_ROLL = newOption
             }),
-            KindOfProjectViewModel(text: "Colas", option: projectInfo.NAT_VO,
+            KindOfProjectViewModel(text: "PRODUCT_TYPE_NAT_VO".localized(.projectDetails), option: projectInfo.NAT_VO,
                                    updateOption: { [weak self] newOption in
                                     self?.projectInfo.NAT_VO = newOption
             }),
-            KindOfProjectViewModel(text: "Total", option: projectInfo.INTERVIEW,
+            KindOfProjectViewModel(text: "PRODUCT_TYPE_INTERVIEW".localized(.projectDetails), option: projectInfo.INTERVIEW,
                                    updateOption: { [weak self] newOption in
                                     self?.projectInfo.INTERVIEW = newOption
             }),
-            KindOfProjectViewModel(text: "Gráfico", option: projectInfo.GRAPHICS,
+            KindOfProjectViewModel(text: "PRODUCT_TYPE_GRAPHICS".localized(.projectDetails), option: projectInfo.GRAPHICS,
                                    updateOption: { [weak self] newOption in
                                     self?.projectInfo.GRAPHICS = newOption
             }),
-            KindOfProjectViewModel(text: "Piezas", option: projectInfo.PIECE,
+            KindOfProjectViewModel(text: "PRODUCT_TYPE_PIECE".localized(.projectDetails), option: projectInfo.PIECE,
                                    updateOption: { [weak self] newOption in
                                     self?.projectInfo.PIECE = newOption
             })
