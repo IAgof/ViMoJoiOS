@@ -187,6 +187,9 @@ protocol RecordPresenterDelegate {
 	func blockCameraWhenRecording(_ value: Bool)
 	func setDrawerGestureStatus(_ value: Bool)
 	func enableIdleTimer(_ value: Bool)
+    
+    func settingsEnabled(_ value: Bool)
+    func tutorialEnabled(_ sender: Bool)
 
 	func checkCameraProSupportedFeatures()
 }
