@@ -88,8 +88,8 @@ class KindOfProjectViewController: ViMoJoController {
         }
         view.addSubview(acceptButton)
         acceptButton.snp.makeConstraints { (make) in
-            make.trailing.equalToSuperview().offset(-16)
-            make.bottom.equalToSuperview().offset(-16)
+            make.trailing.equalToSuperview().offset(-15)
+            make.bottom.equalToSuperview().offset(-15)
         }
         cancelButton = UIButton.cancelButton
         cancelButton.add(for: .touchUpInside) { [weak self] in
@@ -97,18 +97,18 @@ class KindOfProjectViewController: ViMoJoController {
         }
         view.addSubview(cancelButton)
         cancelButton.snp.makeConstraints { (make) in
-            make.leading.equalToSuperview().offset(16)
-            make.bottom.equalToSuperview().offset(-16)
+            make.leading.equalToSuperview().offset(15)
+            make.bottom.equalToSuperview().offset(-15)
         }
     }
     fileprivate func addTableView() {
         tableView = UITableView(frame: CGRect.zero)
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(30)
             make.bottom.equalToSuperview()
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-15)
         }
     }
     private func configureTableView() {
@@ -134,7 +134,7 @@ extension KindOfProjectViewController: UITableViewDataSource {
         cell.setup(viewModel: arrayOfCellData[indexPath.row])
         return cell
     }
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    private func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         let tableViewHeightSize = arrayOfCellData.count * 50
         return self.view.bounds.height - CGFloat(tableViewHeightSize)
     }
