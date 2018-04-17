@@ -44,10 +44,16 @@ class KindOfProjectTableViewCell: UITableViewCell {
     private func configView() {
         self.backgroundColor = .clear
         selectionStyle = .none
+        configureTapGesture()
         addLabel()
         addSwitch()
         makeConstraints()
         optionSwitch.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
+    }
+    func configureTapGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(changeSwitchValue))
+        self.isUserInteractionEnabled = true
+        self.addGestureRecognizer(tap)
     }
     func switchValueChanged() {
         viewModel.updateOption(optionSwitch.isOn)
@@ -61,9 +67,6 @@ class KindOfProjectTableViewCell: UITableViewCell {
     }
     fileprivate func addLabel() {
         label = UILabel(frame: CGRect.zero)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(changeSwitchValue))
-        label.isUserInteractionEnabled = true
-        label.addGestureRecognizer(tap)
         self.addSubview(label)
     }
     fileprivate func addSwitch() {
@@ -72,7 +75,7 @@ class KindOfProjectTableViewCell: UITableViewCell {
     }
     private func makeConstraints() {
         label.snp.makeConstraints { (make) in
-            make.leading.equalToSuperview().offset(8)
+            make.leading.equalToSuperview()
             make.centerY.equalToSuperview()
         }
         optionSwitch.snp.makeConstraints { (make) in
