@@ -47,16 +47,23 @@ class KindOfProjectTableViewCell: UITableViewCell {
         addLabel()
         addSwitch()
         makeConstraints()
-        optionSwitch.addTarget(self, action: #selector(switchValueChanged(view:)), for: .valueChanged)
+        optionSwitch.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
     }
-    @objc func switchValueChanged(view: UISwitch) {
-        viewModel.updateOption(view.isOn)
+    func switchValueChanged() {
+        viewModel.updateOption(optionSwitch.isOn)
+    }
+    func changeSwitchValue() {
+        optionSwitch.setOn(!optionSwitch.isOn, animated: true)
+        switchValueChanged()
     }
     func setup(viewModel: KindOfProjectViewModel) {
         self.viewModel = viewModel
     }
     fileprivate func addLabel() {
         label = UILabel(frame: CGRect.zero)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(changeSwitchValue))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(tap)
         self.addSubview(label)
     }
     fileprivate func addSwitch() {
