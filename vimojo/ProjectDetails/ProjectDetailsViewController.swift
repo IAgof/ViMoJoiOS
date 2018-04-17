@@ -59,9 +59,7 @@ class ProjectDetailsViewController: UIViewController, ProjectDetailsViewProtocol
         presenter?.cancel()
     }
     @IBAction func saveButtonTapped(_ sender: Any) {
-        presenter?.saveValues(title: titleTextField.text,
-                              location: locationTextField.text,
-                              description: descriptionTextView.text)
+        saveValues()
     }
     @IBAction func locationButtonTapped(_ sender: Any) {
         presenter?.getLocation(location: { (location) in
@@ -69,7 +67,14 @@ class ProjectDetailsViewController: UIViewController, ProjectDetailsViewProtocol
         })
     }
     @IBAction func goToSelectKindOfProject(_ sender: Any) {
+        saveValues()
         presenter?.goToSelectKindOfProject()
+    }
+    
+    func saveValues() {
+        presenter?.saveValues(title: titleTextField.text,
+                              location: locationTextField.text,
+                              description: descriptionTextView.text)
     }
 }
 extension ProjectDetailsViewController: UITextViewDelegate {
