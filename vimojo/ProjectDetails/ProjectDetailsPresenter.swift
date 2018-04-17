@@ -24,6 +24,18 @@ struct ProjectInfoVideoModel {
     let duration: String
     let kindOfProjectsSelected: NSAttributedString
 }
+extension Double {
+    var formattedTime: String {
+        var formattedTime = "00:00:00"
+        if self > 0 {
+            let hours = Int(self / 3600)
+            let minutes = Int(truncatingRemainder(dividingBy: 3600) / 60)
+            let seconds = Int(truncatingRemainder(dividingBy: 3600))
+            formattedTime = String(hours) + ":" + (minutes < 10 ? "0" + String(minutes) : String(minutes)) + ":" + (seconds < 10 ? "0" + String(seconds) : String(seconds))
+        }
+        return formattedTime
+    }
+}
 extension Project {
     private var formatText: (String, String) -> String {
         return { prefix, sufix in
@@ -34,15 +46,23 @@ extension Project {
         }
     }
     var viewModel: ProjectInfoVideoModel {
+        var description = ""
+        
+        if projectInfo.description.isEmpty {
+            description = formatText("description_label".localized(.projectDetails), projectInfo.description)
+        } else {
+            description = projectInfo.description
+        }
+        
         return ProjectInfoVideoModel(title: projectInfo.title,
                                      date: formatText("date_label".localized(.projectDetails), projectInfo.date.dateString()),
                                      author: formatText("author_label".localized(.projectDetails), projectInfo.author),
                                      location: formatText("location_label".localized(.projectDetails), projectInfo.location),
-                                     description: formatText("description_label".localized(.projectDetails), projectInfo.description),
+                                     description: description,
                                      resolution: getProfile().getResolution(),
-                                     frameRate: formatText("frame_rate_label".localized(.projectDetails), getProfile().frameRate.string),
+                                     frameRate: formatText("frame_rate_label".localized(.projectDetails), getProfile().frameRate.string + " FPS"),
                                      quality: formatText("quality_label".localized(.projectDetails), getProfile().getQuality()),
-                                     duration: formatText("duration_label".localized(.projectDetails), getDuration().string),
+                                     duration: formatText("duration_label".localized(.projectDetails), getDuration().formattedTime),
                                      kindOfProjectsSelected: projectsSelectedTexts)
     }
     private var projectsSelectedTexts: NSAttributedString {
@@ -56,7 +76,7 @@ extension Project {
         
         let attrString: NSMutableAttributedString = NSMutableAttributedString(string: "project_type_label".localized(.projectDetails))
         attrString.addAttribute(NSForegroundColorAttributeName, value: UIColor.black, range: NSMakeRange(0, attrString.length))
-        let descString: NSMutableAttributedString = NSMutableAttributedString(string:  arrayString.reduce("", { "\($0) \($1)" }))
+        let descString: NSMutableAttributedString = NSMutableAttributedString(string: arrayString.reduce("", { "\($0) \($1)" }))
         descString.addAttribute(NSForegroundColorAttributeName, value: configuration.mainColor, range: NSMakeRange(0, descString.length))
         attrString.append(descString)
         return attrString

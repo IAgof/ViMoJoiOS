@@ -40,8 +40,6 @@ class ProjectDetailsViewController: UIViewController, ProjectDetailsViewProtocol
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         presenter?.loadValues(loaded: { (viewModel) in
             titleTextField.text = viewModel.title
-            dateLabel.text = viewModel.date
-            authorLabel.text = viewModel.author
             locationTextField.text = viewModel.location
             descriptionTextView.text = viewModel.description
             frameRate.text = viewModel.frameRate

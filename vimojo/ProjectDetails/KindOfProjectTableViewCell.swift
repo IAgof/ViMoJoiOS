@@ -79,7 +79,7 @@ class KindOfProjectTableViewCell: UITableViewCell {
             make.centerY.equalToSuperview()
         }
         optionSwitch.snp.makeConstraints { (make) in
-            make.trailing.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-2)
             make.centerY.equalToSuperview()
         }
     }
