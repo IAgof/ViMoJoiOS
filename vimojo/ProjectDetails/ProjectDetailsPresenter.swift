@@ -35,14 +35,14 @@ extension Project {
     }
     var viewModel: ProjectInfoVideoModel {
         return ProjectInfoVideoModel(title: projectInfo.title,
-                                     date: formatText("date_label".localized(.detailProject), projectInfo.date.dateString()),
-                                     author: formatText("author_label".localized(.detailProject), projectInfo.author),
-                                     location: formatText("location_label".localized(.detailProject), projectInfo.location),
-                                     description: formatText("description_label".localized(.detailProject), projectInfo.description),
+                                     date: formatText("date_label".localized(.projectDetails), projectInfo.date.dateString()),
+                                     author: formatText("author_label".localized(.projectDetails), projectInfo.author),
+                                     location: formatText("location_label".localized(.projectDetails), projectInfo.location),
+                                     description: formatText("description_label".localized(.projectDetails), projectInfo.description),
                                      resolution: getProfile().getResolution(),
-                                     frameRate: formatText("frame_rate_label".localized(.detailProject), getProfile().frameRate.string),
-                                     quality: formatText("quality_label".localized(.detailProject), getProfile().getQuality()),
-                                     duration: formatText("duration_label".localized(.detailProject), getDuration().string),
+                                     frameRate: formatText("frame_rate_label".localized(.projectDetails), getProfile().frameRate.string),
+                                     quality: formatText("quality_label".localized(.projectDetails), getProfile().getQuality()),
+                                     duration: formatText("duration_label".localized(.projectDetails), getDuration().string),
                                      kindOfProjectsSelected: projectsSelectedTexts)
     }
     private var projectsSelectedTexts: NSAttributedString {
@@ -54,7 +54,7 @@ extension Project {
         if projectInfo.graphics { arrayString.append("product_type_graphics".localized(.projectDetails)) }
         if projectInfo.piece { arrayString.append("product_type_piece".localized(.projectDetails)) }
         
-        let attrString: NSMutableAttributedString = NSMutableAttributedString(string: "project_type_label".localized(.detailProject))
+        let attrString: NSMutableAttributedString = NSMutableAttributedString(string: "project_type_label".localized(.projectDetails))
         attrString.addAttribute(NSForegroundColorAttributeName, value: UIColor.black, range: NSMakeRange(0, attrString.length))
         let descString: NSMutableAttributedString = NSMutableAttributedString(string:  arrayString.reduce("", { "\($0) \($1)" }))
         descString.addAttribute(NSForegroundColorAttributeName, value: configuration.mainColor, range: NSMakeRange(0, descString.length))

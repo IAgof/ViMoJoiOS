@@ -15,7 +15,7 @@ protocol ProjectListPresenterInterface {
     func duplicateProject(projectNumber: Int)
     func editProject(projectNumber: Int)
     func shareProject(projectNumber: Int)
-    func detailProject(projectNumber: Int)
+    func projectDetails(projectNumber: Int)
 
     func pushBack()
 

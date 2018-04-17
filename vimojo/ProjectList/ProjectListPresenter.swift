@@ -43,10 +43,10 @@ class ProjectListPresenter: NSObject, ProjectListPresenterInterface {
         interactor?.duplicateProjectAction(projectNumber: projectNumber)
     }
 
-    func detailProject(projectNumber: Int) {
+    func projectDetails(projectNumber: Int) {
         interactor?.setProjectSelected(projectNumber: projectNumber)
 
-        wireframe?.presentDetailProjectInterface()
+        wireframe?.presentProjectDetailsInterface()
     }
 }
 
