@@ -21,6 +21,11 @@
 		610725EF2080C899005A65BD /* UIButton+AddTargetClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610725EC2080C899005A65BD /* UIButton+AddTargetClosure.swift */; };
 		610725F02080C899005A65BD /* UIButton+AddTargetClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610725EC2080C899005A65BD /* UIButton+AddTargetClosure.swift */; };
 		610725F12080C899005A65BD /* UIButton+AddTargetClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610725EC2080C899005A65BD /* UIButton+AddTargetClosure.swift */; };
+		61FA5CF020872CBC00A1B096 /* ProjectInfoVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FA5CEF20872CBC00A1B096 /* ProjectInfoVideoModel.swift */; };
+		61FA5CF120872CBC00A1B096 /* ProjectInfoVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FA5CEF20872CBC00A1B096 /* ProjectInfoVideoModel.swift */; };
+		61FA5CF220872CBC00A1B096 /* ProjectInfoVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FA5CEF20872CBC00A1B096 /* ProjectInfoVideoModel.swift */; };
+		61FA5CF320872CBC00A1B096 /* ProjectInfoVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FA5CEF20872CBC00A1B096 /* ProjectInfoVideoModel.swift */; };
+		61FA5CF420872CBC00A1B096 /* ProjectInfoVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FA5CEF20872CBC00A1B096 /* ProjectInfoVideoModel.swift */; };
 		A900C7461DC3575700A65730 /* FTPErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C7451DC3575700A65730 /* FTPErrorType.swift */; };
 		A900C7591DC35FB500A65730 /* ShareFTPBreakingNewsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C7581DC35FB500A65730 /* ShareFTPBreakingNewsInteractor.swift */; };
 		A9031D002022762F00E672BF /* SlideTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9031CFD2022762E00E672BF /* SlideTutorial.swift */; };
@@ -1928,6 +1933,7 @@
 		5AF04F172FB15A5CC0DEE9E8 /* Pods-ThomsonFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThomsonFoundation.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThomsonFoundation/Pods-ThomsonFoundation.release.xcconfig"; sourceTree = "<group>"; };
 		610725E42080BD83005A65BD /* KindOfProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KindOfProjectTableViewCell.swift; path = ProjectDetails/KindOfProjectTableViewCell.swift; sourceTree = "<group>"; };
 		610725EC2080C899005A65BD /* UIButton+AddTargetClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+AddTargetClosure.swift"; sourceTree = "<group>"; };
+		61FA5CEF20872CBC00A1B096 /* ProjectInfoVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectInfoVideoModel.swift; path = ProjectDetails/ProjectInfoVideoModel.swift; sourceTree = "<group>"; };
 		74184388107E5765A1BF3496 /* Pods_M4N.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_M4N.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74DD0E3ED30DF82C36D14A78 /* Pods-M4N.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-M4N.release.xcconfig"; path = "Pods/Target Support Files/Pods-M4N/Pods-M4N.release.xcconfig"; sourceTree = "<group>"; };
 		7632CB83B0D9EBF5233B0541 /* Pods_vimojoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vimojoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2729,6 +2735,7 @@
 			isa = PBXGroup;
 			children = (
 				A929DF3C2039D40A000F62AF /* ProjectDetailsInteractor.swift */,
+				61FA5CEF20872CBC00A1B096 /* ProjectInfoVideoModel.swift */,
 				A929DF3D2039D40A000F62AF /* ProjectDetailsPresenter.swift */,
 				A929DF3E2039D40A000F62AF /* ProjectDetailsProtocols.swift */,
 				A929DF3F2039D40A000F62AF /* ProjectDetailsRouter.swift */,
@@ -4584,7 +4591,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4684,7 +4691,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4702,7 +4709,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5026,7 +5033,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5044,7 +5051,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5224,6 +5231,7 @@
 				A99BACB71E49DC9D00A465C7 /* FullScreenPlayerPresenterInterface.swift in Sources */,
 				A9CFF3291F054D75007C2305 /* ReadStreamOperation.swift in Sources */,
 				A99BACB81E49DC9D00A465C7 /* EditorPresenterInterface.swift in Sources */,
+				61FA5CF320872CBC00A1B096 /* ProjectInfoVideoModel.swift in Sources */,
 				A9CAB91C1EC3656000AB6CE8 /* DrawerProfileTableViewCell.swift in Sources */,
 				A9CAB9381EC365C100AB6CE8 /* EditingRoomItemController.swift in Sources */,
 				A99BACBE1E49DC9D00A465C7 /* ShareCell.swift in Sources */,
@@ -5650,6 +5658,7 @@
 				A9CABB801EC36CE900AB6CE8 /* SettingsLegalTextAction.swift in Sources */,
 				A9CABBB31EC36DB000AB6CE8 /* SplitViewInterface.swift in Sources */,
 				A91760C11D9146BF008915DA /* EditorWireframe.swift in Sources */,
+				61FA5CF020872CBC00A1B096 /* ProjectInfoVideoModel.swift in Sources */,
 				A95BE9831D990A4A00602DCD /* SettingsInteractorInterface.swift in Sources */,
 				A9CABAA01EC36AEC00AB6CE8 /* FlashInteractor.swift in Sources */,
 				A9B898DD1EF70FC100C698C9 /* Audio4VideoInteractor.swift in Sources */,
@@ -5867,6 +5876,7 @@
 				A9FB3A3C1E53D5CB00C21918 /* AddFilterToVideoPresenter.swift in Sources */,
 				A9CFF3281F054D75007C2305 /* ReadStreamOperation.swift in Sources */,
 				A9FB3A3D1E53D5CB00C21918 /* AddFilterToVideoPresenterInterface.swift in Sources */,
+				61FA5CF420872CBC00A1B096 /* ProjectInfoVideoModel.swift in Sources */,
 				A9CABB931EC36CE900AB6CE8 /* SettingsQualityAction.swift in Sources */,
 				A9D077521E2F80B1003AE96B /* ShareYoutubeInteractor.swift in Sources */,
 				A9CAB9F81EC3691E00AB6CE8 /* MicRecorderConstants.swift in Sources */,
@@ -6239,6 +6249,7 @@
 				AE12E8771FFEA7AB00F2342E /* RecordedTrackAreaViewModel.swift in Sources */,
 				AE12E8781FFEA7AB00F2342E /* SettingsLegalURLConstants.swift in Sources */,
 				AE12E8791FFEA7AB00F2342E /* VideoToRealmVideoMapper.swift in Sources */,
+				61FA5CF220872CBC00A1B096 /* ProjectInfoVideoModel.swift in Sources */,
 				AE12E87A1FFEA7AB00F2342E /* DrawerMenuInteractor.swift in Sources */,
 				AE12E87B1FFEA7AB00F2342E /* DrawerProfileTableViewCell.swift in Sources */,
 				AE12E87C1FFEA7AB00F2342E /* ShareConstants.swift in Sources */,
@@ -6500,6 +6511,7 @@
 				AE491EC01F3AFE6400B20B70 /* MusicProviderForVimojo.swift in Sources */,
 				AE491EC11F3AFE6400B20B70 /* AddWatermarkUseCase.swift in Sources */,
 				AE491EC21F3AFE6400B20B70 /* RecordController.swift in Sources */,
+				61FA5CF120872CBC00A1B096 /* ProjectInfoVideoModel.swift in Sources */,
 				AE491EC31F3AFE6400B20B70 /* Audio4VideoViewController.swift in Sources */,
 				AE491EC41F3AFE6400B20B70 /* ProjectListInteractorInterface.swift in Sources */,
 				AE491EC51F3AFE6400B20B70 /* FullScreenPlayerPresenterInterface.swift in Sources */,

@@ -12,82 +12,15 @@ import UIKit
 import VideonaProject
 import CoreLocation
 
-struct ProjectInfoVideoModel {
-    let title: String
-    let date: String
-    let author: String
-    let location: String
-    let description: String
-    let resolution: String
-    let frameRate: String
-    let quality: String
-    let duration: String
-    let kindOfProjectsSelected: NSAttributedString
-}
-extension Double {
-    var formattedTime: String {
-        var formattedTime = "00:00:00"
-        if self > 0 {
-            let hours = Int(self / 3600)
-            let minutes = Int(truncatingRemainder(dividingBy: 3600) / 60)
-            let seconds = Int(truncatingRemainder(dividingBy: 3600))
-            formattedTime = String(hours) + ":" + (minutes < 10 ? "0" + String(minutes) : String(minutes)) + ":" + (seconds < 10 ? "0" + String(seconds) : String(seconds))
-        }
-        return formattedTime
-    }
-}
-extension Project {
-    private var formatText: (String, String) -> String {
-        return { prefix, sufix in
-            return prefix
-                .addColons()
-                .addSpace()
-                .appending(sufix)
-        }
-    }
-    var viewModel: ProjectInfoVideoModel {
-        var description = ""
-        
-        if projectInfo.description.isEmpty {
-            description = formatText("description_label".localized(.projectDetails), projectInfo.description)
-        } else {
-            description = projectInfo.description
-        }
-        
-        return ProjectInfoVideoModel(title: projectInfo.title,
-                                     date: formatText("date_label".localized(.projectDetails), projectInfo.date.dateString()),
-                                     author: formatText("author_label".localized(.projectDetails), projectInfo.author),
-                                     location: formatText("location_label".localized(.projectDetails), projectInfo.location),
-                                     description: description,
-                                     resolution: getProfile().getResolution(),
-                                     frameRate: formatText("frame_rate_label".localized(.projectDetails), getProfile().frameRate.string + " FPS"),
-                                     quality: formatText("quality_label".localized(.projectDetails), getProfile().getQuality()),
-                                     duration: formatText("duration_label".localized(.projectDetails), getDuration().formattedTime),
-                                     kindOfProjectsSelected: projectsSelectedTexts)
-    }
-    private var projectsSelectedTexts: NSAttributedString {
-        var arrayString: [String] = []
-        if projectInfo.liveOnTape { arrayString.append("product_type_live_on_tape".localized(.projectDetails)) }
-        if projectInfo.bRoll { arrayString.append("product_type_b_roll".localized(.projectDetails)) }
-        if projectInfo.natVO { arrayString.append("product_type_nat_vo".localized(.projectDetails)) }
-        if projectInfo.interview { arrayString.append("product_type_interview".localized(.projectDetails)) }
-        if projectInfo.graphics { arrayString.append("product_type_graphics".localized(.projectDetails)) }
-        if projectInfo.piece { arrayString.append("product_type_piece".localized(.projectDetails)) }
-        
-        let attrString: NSMutableAttributedString = NSMutableAttributedString(string: "project_type_label".localized(.projectDetails))
-        attrString.addAttribute(NSForegroundColorAttributeName, value: UIColor.black, range: NSMakeRange(0, attrString.length))
-        let descString: NSMutableAttributedString = NSMutableAttributedString(string: arrayString.reduce("", { "\($0) \($1)" }))
-        descString.addAttribute(NSForegroundColorAttributeName, value: configuration.mainColor, range: NSMakeRange(0, descString.length))
-        attrString.append(descString)
-        return attrString
-    }
-}
-class ProjectDetailsPresenter: ProjectDetailsPresenterProtocol {
 
+class ProjectDetailsPresenter: ProjectDetailsPresenterProtocol {
+    
     weak private var view: ProjectDetailsViewProtocol?
     var interactor: ProjectDetailsInteractorProtocol?
     private let router: ProjectDetailsWireframeProtocol
-
+    // MARK: format variables
+    
+    
     init(interface: ProjectDetailsViewProtocol,
          interactor: ProjectDetailsInteractorProtocol?,
          router: ProjectDetailsWireframeProtocol) {
@@ -97,7 +30,7 @@ class ProjectDetailsPresenter: ProjectDetailsPresenterProtocol {
     }
     func loadValues(loaded: (ProjectInfoVideoModel) -> Void) {
         guard let project = interactor?.project else { return }
-        loaded(project.viewModel)
+        loaded(ProjectInfoVideoModel(project: project))
     }
     func saveValues(title: String?, location: String?, description: String?) {
         interactor?.saveValues(title: title, location: location, description: description)
@@ -118,7 +51,7 @@ class ProjectDetailsPresenter: ProjectDetailsPresenterProtocol {
                     let firstPlaceMark = placeMark.first{
                     location("\(firstPlaceMark.city.notNil),\(firstPlaceMark.country.notNil)")
                 } else {
-location("Can't update location")
+                    location("Can't update location")
                 }
             })
         })
