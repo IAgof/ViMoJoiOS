@@ -104,7 +104,10 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
             if self.isRecording {
                 self.stopRecord("")
             }
-            FlashInteractor().turnOffIfIsOn()
+            runOnDevice {
+                FlashInteractor().turnOffIfIsOn()
+            }
+
             self.flashIsEnabled = false
             DispatchQueue.main.async(execute: {
                 self.delegate?.showFlashOn(false)
