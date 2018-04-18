@@ -67,8 +67,9 @@ class ProjectDetailsViewController: UIViewController, ProjectDetailsViewProtocol
         })
     }
     @IBAction func goToSelectKindOfProject(_ sender: Any) {
-        saveValues()
-        presenter?.goToSelectKindOfProject()
+        presenter?.goToSelectKindOfProject(title: titleTextField.text,
+                                           location: locationTextField.text,
+                                           description: descriptionTextView.text)
     }
     
     func saveValues() {

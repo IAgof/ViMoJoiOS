@@ -12,7 +12,6 @@ import UIKit
 import VideonaProject
 import CoreLocation
 
-
 class ProjectDetailsPresenter: ProjectDetailsPresenterProtocol {
     
     weak private var view: ProjectDetailsViewProtocol?
@@ -56,8 +55,22 @@ class ProjectDetailsPresenter: ProjectDetailsPresenterProtocol {
             })
         })
     }
-    func goToSelectKindOfProject() {
+    func goToSelectKindOfProject(title: String?, location: String?, description: String?) {
+        interactor?.saveValues(title: title, location: location, description: description)
         router.goToSelectKindOfProject()
+    }
+}
+
+extension Double {
+    var formattedTime: String {
+        var formattedTime = "00:00:00"
+        if self > 0 {
+            let hours = Int(self / 3600)
+            let minutes = Int(truncatingRemainder(dividingBy: 3600) / 60)
+            let seconds = Int(truncatingRemainder(dividingBy: 3600))
+            formattedTime = String(hours) + ":" + (minutes < 10 ? "0" + String(minutes) : String(minutes)) + ":" + (seconds < 10 ? "0" + String(seconds) : String(seconds))
+        }
+        return formattedTime
     }
 }
 

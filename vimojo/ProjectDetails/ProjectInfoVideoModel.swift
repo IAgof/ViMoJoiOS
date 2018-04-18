@@ -49,15 +49,23 @@ struct ProjectInfoVideoModel {
     }
     
     init(project: Project) {
+        var description = ""
+        
+        if project.projectInfo.description.isEmpty {
+            description = formatText("description_label".localized(.projectDetails), project.projectInfo.description)
+        } else {
+            description = project.projectInfo.description
+        }
+        
         title = project.projectInfo.title
         date = formatText("date_label".localized(.projectDetails), project.projectInfo.date.dateString())
         author = formatText("author_label".localized(.projectDetails), project.projectInfo.author)
         location = formatText("location_label".localized(.projectDetails), project.projectInfo.location)
-        description = formatText("description_label".localized(.projectDetails), project.projectInfo.description)
+        self.description = description
         resolution = project.getProfile().getResolution()
-        frameRate = formatText("frame_rate_label".localized(.projectDetails), project.getProfile().frameRate.string)
+        frameRate = formatText("frame_rate_label".localized(.projectDetails), project.getProfile().frameRate.string + " FPS")
         quality = formatText("quality_label".localized(.projectDetails), project.getProfile().getQuality())
-        duration = formatText("duration_label".localized(.projectDetails), project.getDuration().string)
+        duration = formatText("duration_label".localized(.projectDetails), project.getDuration().formattedTime)
         kindOfProjectsSelected = projectsSelectedTexts(project)
     }
 }
