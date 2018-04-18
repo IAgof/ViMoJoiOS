@@ -39,7 +39,7 @@ struct ProjectInfoVideoModel {
             if project.projectInfo.graphics { arrayString.append("product_type_graphics".localized(.projectDetails)) }
             if project.projectInfo.piece { arrayString.append("product_type_piece".localized(.projectDetails)) }
             
-            let attrString: NSMutableAttributedString = NSMutableAttributedString(string: "project_type_label".localized(.detailProject))
+            let attrString: NSMutableAttributedString = NSMutableAttributedString(string: "project_type_label".localized(.projectDetails))
             attrString.addAttribute(NSForegroundColorAttributeName, value: UIColor.black, range: NSMakeRange(0, attrString.length))
             let descString: NSMutableAttributedString = NSMutableAttributedString(string:  arrayString.reduce("", { "\($0) \($1)" }))
             descString.addAttribute(NSForegroundColorAttributeName, value: configuration.mainColor, range: NSMakeRange(0, descString.length))
@@ -50,14 +50,14 @@ struct ProjectInfoVideoModel {
     
     init(project: Project) {
         title = project.projectInfo.title
-        date = formatText("date_label".localized(.detailProject), project.projectInfo.date.dateString())
-        author = formatText("author_label".localized(.detailProject), project.projectInfo.author)
-        location = formatText("location_label".localized(.detailProject), project.projectInfo.location)
-        description = formatText("description_label".localized(.detailProject), project.projectInfo.description)
+        date = formatText("date_label".localized(.projectDetails), project.projectInfo.date.dateString())
+        author = formatText("author_label".localized(.projectDetails), project.projectInfo.author)
+        location = formatText("location_label".localized(.projectDetails), project.projectInfo.location)
+        description = formatText("description_label".localized(.projectDetails), project.projectInfo.description)
         resolution = project.getProfile().getResolution()
-        frameRate = formatText("frame_rate_label".localized(.detailProject), project.getProfile().frameRate.string)
-        quality = formatText("quality_label".localized(.detailProject), project.getProfile().getQuality())
-        duration = formatText("duration_label".localized(.detailProject), project.getDuration().string)
+        frameRate = formatText("frame_rate_label".localized(.projectDetails), project.getProfile().frameRate.string)
+        quality = formatText("quality_label".localized(.projectDetails), project.getProfile().getQuality())
+        duration = formatText("duration_label".localized(.projectDetails), project.getDuration().string)
         kindOfProjectsSelected = projectsSelectedTexts(project)
     }
 }
