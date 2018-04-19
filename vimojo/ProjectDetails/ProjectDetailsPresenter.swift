@@ -12,14 +12,11 @@ import UIKit
 import VideonaProject
 import CoreLocation
 
-
 class ProjectDetailsPresenter: ProjectDetailsPresenterProtocol {
     
     weak private var view: ProjectDetailsViewProtocol?
     var interactor: ProjectDetailsInteractorProtocol?
     private let router: ProjectDetailsWireframeProtocol
-    // MARK: format variables
-    
     
     init(interface: ProjectDetailsViewProtocol,
          interactor: ProjectDetailsInteractorProtocol?,
@@ -60,7 +57,6 @@ class ProjectDetailsPresenter: ProjectDetailsPresenterProtocol {
         router.goToSelectKindOfProject()
     }
 }
-
 extension CLPlacemark {
     var city: String? {
         return addressDictionary?["City"] as? String
