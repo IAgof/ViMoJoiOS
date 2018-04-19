@@ -9,9 +9,21 @@
 import Foundation
 
 extension UIViewController {
+    func moveViewTo(x: CGFloat = 0, y: CGFloat = 0) {
+        self.view.moveTo(x: x, y: y)
+    }
     func moveViewTo(point: CGPoint) {
+        self.view.moveTo(point: point)
+    }
+}
+extension UIView {
+    func moveTo(x: CGFloat = 0, y: CGFloat = 0) {
+        moveTo(point: CGPoint(x: self.frame.origin.x + x,
+                              y: self.frame.origin.y + y))
+    }
+    func moveTo(point: CGPoint) {
         UIView.animate(withDuration: 0.5) {
-             self.view.frame.origin = point
+            self.frame.origin = point
         }
     }
 }

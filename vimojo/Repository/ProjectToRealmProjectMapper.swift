@@ -18,7 +18,19 @@ public class ProjectToRealmProjectMapper: Mapper {
 
     public func map(from: Project) -> RealmProject {
         let realmProject = RealmProject()
-        realmProject.title = from.getTitle()
+        realmProject.title = from.projectInfo.title
+        realmProject.date = from.projectInfo.date
+        realmProject.author = from.projectInfo.author
+        realmProject.location = from.projectInfo.location
+        realmProject.projectDescription = from.projectInfo.description
+        realmProject.liveOnTape = from.projectInfo.liveOnTape
+        realmProject.bRoll = from.projectInfo.bRoll
+        realmProject.natVO = from.projectInfo.natVO
+        realmProject.interview = from.projectInfo.interview
+        realmProject.graphics = from.projectInfo.graphics
+        realmProject.piece = from.projectInfo.piece
+
+        
         realmProject.projectPath = from.getProjectPath()
         realmProject.quality = from.getProfile().getQuality()
         realmProject.resolution = from.getProfile().getResolution()

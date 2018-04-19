@@ -18,7 +18,6 @@ class ProjectListWireframe: NSObject {
 
     var prevController: UIViewController?
     var editorRoomWireframe: EditingRoomWireframe?
-    var detailProjectWireframe: DetailProjectWireframe?
     var goToRecordOrGalleryWireframe: GoToRecordOrGalleryWireframe?
 
     func presentInterfaceFromWindow(_ window: UIWindow) {
@@ -67,12 +66,11 @@ class ProjectListWireframe: NSObject {
         }
     }
 
-    func presentDetailProjectInterface() {
-        if let viewControllerExist = viewController {
-            if let uuid = presenter?.interactor?.selectedProjectUUID {
-                detailProjectWireframe?.presentInterfaceFromViewController(viewControllerExist,
-                                                                           videoUUID: uuid)
-            }
+    func presentProjectDetailsInterface() {
+        if let viewControllerExist = viewController ,
+            let uuid = presenter?.interactor?.selectedProjectUUID,
+            let project = ProjectRealmRepository().getProjectByUUID(uuid: uuid) {
+            viewControllerExist.show(ProjectDetailsRouter.createModule(with: project), sender: nil)
         }
     }
 
