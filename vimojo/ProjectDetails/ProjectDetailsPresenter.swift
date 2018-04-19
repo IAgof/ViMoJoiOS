@@ -17,8 +17,6 @@ class ProjectDetailsPresenter: ProjectDetailsPresenterProtocol {
     weak private var view: ProjectDetailsViewProtocol?
     var interactor: ProjectDetailsInteractorProtocol?
     private let router: ProjectDetailsWireframeProtocol
-    // MARK: format variables
-    
     
     init(interface: ProjectDetailsViewProtocol,
          interactor: ProjectDetailsInteractorProtocol?,
@@ -60,20 +58,6 @@ class ProjectDetailsPresenter: ProjectDetailsPresenterProtocol {
         router.goToSelectKindOfProject()
     }
 }
-
-extension Double {
-    var formattedTime: String {
-        var formattedTime = "00:00:00"
-        if self > 0 {
-            let hours = Int(self / 3600)
-            let minutes = Int(truncatingRemainder(dividingBy: 3600) / 60)
-            let seconds = Int(truncatingRemainder(dividingBy: 3600))
-            formattedTime = String(hours) + ":" + (minutes < 10 ? "0" + String(minutes) : String(minutes)) + ":" + (seconds < 10 ? "0" + String(seconds) : String(seconds))
-        }
-        return formattedTime
-    }
-}
-
 extension CLPlacemark {
     var city: String? {
         return addressDictionary?["City"] as? String
