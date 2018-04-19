@@ -49,12 +49,9 @@ struct ProjectInfoVideoModel {
     }
     
     init(project: Project) {
-        var description = ""
-        
+        var description = project.projectInfo.description
         if project.projectInfo.description.isEmpty {
             description = formatText("description_label".localized(.projectDetails), project.projectInfo.description)
-        } else {
-            description = project.projectInfo.description
         }
         
         title = project.projectInfo.title
