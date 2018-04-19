@@ -25,9 +25,7 @@ protocol ProjectDetailsPresenterProtocol: class {
                     description: String?)
     func cancel()
     func getLocation(location: @escaping (String) -> Void)
-    func goToSelectKindOfProject(title: String?,
-                                 location: String?,
-                                 description: String?)
+    func goToSelectKindOfProject()
 }
 
 //MARK: Interactor -

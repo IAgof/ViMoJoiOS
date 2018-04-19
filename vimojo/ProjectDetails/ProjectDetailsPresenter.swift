@@ -53,8 +53,7 @@ class ProjectDetailsPresenter: ProjectDetailsPresenterProtocol {
             })
         })
     }
-    func goToSelectKindOfProject(title: String?, location: String?, description: String?) {
-        interactor?.saveValues(title: title, location: location, description: description)
+    func goToSelectKindOfProject() {
         router.goToSelectKindOfProject()
     }
 }

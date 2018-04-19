@@ -34,10 +34,6 @@ class ProjectDetailsViewController: UIViewController, ProjectDetailsViewProtocol
         view.addGestureRecognizer(tap)
         addObserverToShowAndHideKeyboard()
         descriptionTextView.delegate = self
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
         presenter?.loadValues(loaded: { (viewModel) in
             titleTextField.text = viewModel.title
             locationTextField.text = viewModel.location
@@ -45,6 +41,12 @@ class ProjectDetailsViewController: UIViewController, ProjectDetailsViewProtocol
             frameRate.text = viewModel.frameRate
             quality.text = viewModel.quality
             duration.text = viewModel.duration
+        })
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        presenter?.loadValues(loaded: { (viewModel) in
             projectTypesButton.setAttributedTitle(viewModel.kindOfProjectsSelected, for: .normal)
         })
     }
@@ -67,9 +69,7 @@ class ProjectDetailsViewController: UIViewController, ProjectDetailsViewProtocol
         })
     }
     @IBAction func goToSelectKindOfProject(_ sender: Any) {
-        presenter?.goToSelectKindOfProject(title: titleTextField.text,
-                                           location: locationTextField.text,
-                                           description: descriptionTextView.text)
+        presenter?.goToSelectKindOfProject()
     }
     
     func saveValues() {
