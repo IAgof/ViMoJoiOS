@@ -31,7 +31,7 @@ class ProjectListInteractor: ProjectListInteractorInterface {
 
     func setProjectFoundModel(project: Project) -> ProjectFound {
         let duration = project.getDuration()
-        let title = project.getTitle()
+        let title = project.projectInfo.title
 
         var videoURL: URL? = nil
         if let url = project.getVideoList().first?.videoURL {

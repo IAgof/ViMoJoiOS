@@ -29,6 +29,9 @@ class ProjectListViewController: ViMoJoController {
         eventHandler?.viewWillAppear()
         self.navigationController?.isNavigationBarHidden = false
     }
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
     override func pushBack() {
         eventHandler?.pushBack()
     }
@@ -70,7 +73,7 @@ extension ProjectListViewController:UITableViewDataSource {
 
 extension ProjectListViewController {
     @IBAction func pushEditProjectButton(sender: UIButton) {
-        eventHandler?.detailProject(projectNumber: sender.tag)
+        eventHandler?.projectDetails(projectNumber: sender.tag)
     }
 
     @IBAction func pushRemoveProjectButton(sender: UIButton) {
