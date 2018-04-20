@@ -16,18 +16,18 @@ struct ProductViewModel {
     let title: String?
     let subtitle: String?
     let buttonText: String?
-    let isPurchased: Bool?
+    let isPurchased: Bool
     let buyAction: BoolAction
     
     init(with product: SKProduct,
          action: @escaping BoolAction) {
         self.title = product.localizedTitle
         self.subtitle = product.localizedDescription
-		let buttonText = "action_accept_purchase".localized(.purchase)
-		self.buttonText = "\(buttonText) \(product.price)\(String(describing: product.priceLocale.currencySymbol!))"
-        let product = PurchaseProduct(rawValue: product.productIdentifier)
-        self.isPurchased = product != nil ? PurchaseProduct.isProductPurchased(product: product!): false
+		 let purchaseProduct = PurchaseProduct(rawValue: product.productIdentifier)
+        self.isPurchased = purchaseProduct != nil ? PurchaseProduct.isProductPurchased(product: purchaseProduct!): false
         self.buyAction = action
+        let unpurchasedText = "\("action_accept_purchase".localized(.purchase)) \(product.price)\(String(describing: product.priceLocale.currencySymbol!))"
+        self.buttonText = isPurchased ? "product_purchased".localized(.purchase) : unpurchasedText
     }
 }
 class PurchasePresenter: PurchasePresenterProtocol {

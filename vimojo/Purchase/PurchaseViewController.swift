@@ -67,7 +67,10 @@ extension PurchaseViewController: UITableViewDataSource {
         return products.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: PurchaseTableViewCell.reuseIdentifier, for: indexPath) as? PurchaseTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView
+            .dequeueReusableCell(withIdentifier:
+                PurchaseTableViewCell.reuseIdentifier,
+                                 for: indexPath) as? PurchaseTableViewCell else { return UITableViewCell() }
         cell.setup(with: products[indexPath.row])
         return cell
     }
