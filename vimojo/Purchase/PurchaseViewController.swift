@@ -13,6 +13,8 @@ import UIKit
 class PurchaseViewController: UIViewController, PurchaseViewProtocol {
 
 	var presenter: PurchasePresenterProtocol?
+    var alertController: AIndicatorAlertController?
+    
     @IBOutlet weak var tableView: UITableView!
     var products: [ProductViewModel] = [] {
         didSet{
@@ -22,6 +24,7 @@ class PurchaseViewController: UIViewController, PurchaseViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.loadProducts()
+        NotificationCenter.default.addObserver(self, selector: #selector(restoredPurchases), name: NSNotification.Name(rawValue: IAPHelper.IAPHelperPurchaseNotification), object: nil)
         if navigationController == nil {
             let dismissButton = UIButton(frame: CGRect(x: self.view.width/2 - 50,
                                                        y: self.view.height - 50,
@@ -45,6 +48,13 @@ class PurchaseViewController: UIViewController, PurchaseViewProtocol {
         configureTable()
     }
     @objc private func restoreTapped() {
+        let newAlertController = AIndicatorAlertController(title: "Restore".localized(.purchase),
+                                                           message: "Restoring purchases\nplease wait",
+                                                           defaultActionButtonTitle: "Cancel".localized(.editor),
+                                                           tintColor: configuration.mainColor)
+        self.present(newAlertController, animated: true, completion: {
+            self.alertController = newAlertController
+        })
         presenter?.restoreProducts()
     }
     func dismissController() {
@@ -59,6 +69,12 @@ class PurchaseViewController: UIViewController, PurchaseViewProtocol {
     func showError(with title: String, description: String) {
         let controller = UIAlertController.defaultAlert(title, description)
         self.present(controller, animated: true, completion: nil)
+    }
+    @objc func restoredPurchases() {
+        alertController?.dismiss(animated: true, completion: {
+            self.alertController = nil
+        })
+        presenter?.loadProducts()
     }
 }
 
