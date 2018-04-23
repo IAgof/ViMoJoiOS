@@ -12,6 +12,8 @@ import VideonaProject
 public class CreateDefaultProjectUseCase {
     public static func loadOrCreateProject() -> Project {
         let project = ProjectRealmRepository().getCurrentProject()
+        project.hasWatermark = PurchaseProduct
+            .isProductPurchased(product: .removeWatermark)
         return project
     }
 }

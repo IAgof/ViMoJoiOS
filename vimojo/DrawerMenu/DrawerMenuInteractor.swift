@@ -12,16 +12,14 @@ import VideonaProject
 class DrawerMenuInteractor: DrawerMenuInteractorInterface {
     var delegate: DrawerMenuInteractorDelegate?
 
-    var project: Project?
+    var project: Project
 
     init(project: Project) {
         self.project = project
     }
 
     func createNewProject() {
-        if project != nil {
-            CreateNewProjectUseCase().create(project: project!)
-        }
+        CreateNewProjectUseCase().create(project: project)
     }
 
     func saveUserPhoto(image: UIImage) {

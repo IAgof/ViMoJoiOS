@@ -84,11 +84,12 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
         interactor?.removePhoto()
     }
     func switchWatermark() {
-        let product = PurchaseProduct.removeWatermark
-        if product.isPurchased {
-            PurchaseProduct.setEnabled(state: !product.isEnabled,
-                                       product: product)
-            delegate?.watermarkIsEnabled = product.isEnabled
+        let watermarkProduct = PurchaseProduct.removeWatermark
+        if watermarkProduct.isPurchased {
+            PurchaseProduct.setEnabled(state: !watermarkProduct.isEnabled,
+                                       product: watermarkProduct)
+            delegate?.watermarkIsEnabled = watermarkProduct.isEnabled
+            interactor?.project.hasWatermark = watermarkProduct.isEnabled
         } else {
             wireframe?.presentPurchaseScreen()
         }
