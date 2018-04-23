@@ -35,7 +35,7 @@ class DrawerMenuTableViewController: UITableViewController {
 
     }
     @IBAction func watermarkPushed(_ sender: Any) {
-        watermarkSwitch.setOn(PurchaseProduct.removeWatermark.isEnabled, animated: false)
+        watermarkSwitch.setOn(!PurchaseProduct.removeWatermark.isEnabled, animated: false)
         eventHandler?.switchWatermark()
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
