@@ -1761,6 +1761,11 @@
 		B24BF167208888BB003CF796 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24BF163208888B6003CF796 /* Double+Extension.swift */; };
 		B24BF168208888BB003CF796 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24BF163208888B6003CF796 /* Double+Extension.swift */; };
 		B24BF169208888BD003CF796 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24BF163208888B6003CF796 /* Double+Extension.swift */; };
+		B24DB87F208E62380090721E /* AIndicatorAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24DB87E208E62380090721E /* AIndicatorAlertController.swift */; };
+		B24DB880208E62380090721E /* AIndicatorAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24DB87E208E62380090721E /* AIndicatorAlertController.swift */; };
+		B24DB881208E62380090721E /* AIndicatorAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24DB87E208E62380090721E /* AIndicatorAlertController.swift */; };
+		B24DB882208E62380090721E /* AIndicatorAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24DB87E208E62380090721E /* AIndicatorAlertController.swift */; };
+		B24DB883208E62380090721E /* AIndicatorAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24DB87E208E62380090721E /* AIndicatorAlertController.swift */; };
 		B27D2934204AFF9100457240 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B27D2938204B003900457240 /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D8B382031103A00F1BF99 /* SlideViewController.swift */; };
 		B27D2939204B003E00457240 /* tutorial.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9031D102022775200E672BF /* tutorial.xcassets */; };
@@ -2351,6 +2356,7 @@
 		AEDE4B27202F6627004E72BD /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		AEF0D2521F4ADF9D00DB42F3 /* Pods_vimojo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_vimojo.framework; path = "Pods/../build/Debug-iphoneos/Pods_vimojo.framework"; sourceTree = "<group>"; };
 		B24BF163208888B6003CF796 /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		B24DB87E208E62380090721E /* AIndicatorAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AIndicatorAlertController.swift; path = vimojo/View/AIndicatorAlertController.swift; sourceTree = SOURCE_ROOT; };
 		B27816D82059A06D0078691E /* Permission.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Permission.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B27D8B382031103A00F1BF99 /* SlideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideViewController.swift; sourceTree = "<group>"; };
 		B27E3EC220861062002BCEA0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/ProjectDetails.strings; sourceTree = "<group>"; };
@@ -3603,6 +3609,7 @@
 		A9B3865B1D7D55440065D3EC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B24DB87C208E61F00090721E /* View */,
 				A90C67A01FE455A6005958DB /* Purchases */,
 				A9EABF462013542E004E031B /* SSRadioButton */,
 				A9CAB8C31EC360CC00AB6CE8 /* Vimojo As Module */,
@@ -4022,6 +4029,15 @@
 				AEBB04FE20128DFC0094E65E /* RecordingCameraConfigurationViewController.xib */,
 			);
 			name = RecordingCameraConfiguration;
+			sourceTree = "<group>";
+		};
+		B24DB87C208E61F00090721E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B24DB87E208E62380090721E /* AIndicatorAlertController.swift */,
+			);
+			name = View;
+			path = "New Group1";
 			sourceTree = "<group>";
 		};
 		B2A4A5CE205362F900C26433 /* Products */ = {
@@ -4599,7 +4615,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4699,7 +4715,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4717,7 +4733,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5041,7 +5057,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5059,7 +5075,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5171,6 +5187,7 @@
 				A9CAB9281EC3657200AB6CE8 /* DrawerMenuWireframe.swift in Sources */,
 				AEDE4B2D202F6644004E72BD /* UIViewController+Extension.swift in Sources */,
 				A9FB3A411E53D5CC00C21918 /* AddFilterToVideoCollectionViewExtension.swift in Sources */,
+				B24DB882208E62380090721E /* AIndicatorAlertController.swift in Sources */,
 				A99BAC861E49DC9D00A465C7 /* ShareWhatsappInteractor.swift in Sources */,
 				A9CABBC41EC379C900AB6CE8 /* TrimWireframe.swift in Sources */,
 				A9CAB9741EC3672700AB6CE8 /* SaveVideosFromGalleryInterface.swift in Sources */,
@@ -5692,6 +5709,7 @@
 				B2FD8F1E205A7B0200D1CF28 /* PermissionsRouter.swift in Sources */,
 				A90C67AC1FE45DAF005958DB /* PurchaseInteractor.swift in Sources */,
 				A91761181D916F48008915DA /* ShareInteractorInterface.swift in Sources */,
+				B24DB87F208E62380090721E /* AIndicatorAlertController.swift in Sources */,
 				A953AD6A1E53670500DC0D84 /* VideoParameterSlider.swift in Sources */,
 				A919953F1EC5017300D24B0E /* MusicListPresenter.swift in Sources */,
 				A95BE9891D990A4A00602DCD /* SettingsWireframe.swift in Sources */,
@@ -5819,6 +5837,7 @@
 				A9D077131E2F80B1003AE96B /* FTPErrorType.swift in Sources */,
 				AEDE4B2E202F6644004E72BD /* UIViewController+Extension.swift in Sources */,
 				A9FB3A3F1E53D5CB00C21918 /* AddFilterToVideoCollectionViewExtension.swift in Sources */,
+				B24DB883208E62380090721E /* AIndicatorAlertController.swift in Sources */,
 				A9CABBC31EC379C900AB6CE8 /* TrimWireframe.swift in Sources */,
 				A9D0771B1E2F80B1003AE96B /* MusicModels.swift in Sources */,
 				A9CABA291EC369F700AB6CE8 /* MusicViewController.swift in Sources */,
@@ -6208,6 +6227,7 @@
 				AE12E8491FFEA7AB00F2342E /* Audio4VideoViewController.swift in Sources */,
 				AE12E84A1FFEA7AB00F2342E /* ProjectListInteractorInterface.swift in Sources */,
 				AE12E84B1FFEA7AB00F2342E /* FullScreenPlayerPresenterInterface.swift in Sources */,
+				B24DB881208E62380090721E /* AIndicatorAlertController.swift in Sources */,
 				AE12E84C1FFEA7AB00F2342E /* CreateNewProjectUseCase.swift in Sources */,
 				AE12E84D1FFEA7AB00F2342E /* ConfigPreferences.swift in Sources */,
 				AE12E84E1FFEA7AB00F2342E /* SettingsQualityAction.swift in Sources */,
@@ -6456,6 +6476,7 @@
 				AE491E831F3AFE6400B20B70 /* EditorClipsCell.swift in Sources */,
 				AEDE4B2B202F6643004E72BD /* UIViewController+Extension.swift in Sources */,
 				AE491E841F3AFE6400B20B70 /* EditorPresenter.swift in Sources */,
+				B24DB880208E62380090721E /* AIndicatorAlertController.swift in Sources */,
 				AE491E851F3AFE6400B20B70 /* GoToRecordOrGalleryWireframe.swift in Sources */,
 				AE491E861F3AFE6400B20B70 /* TrimWireframe.swift in Sources */,
 				AE491E871F3AFE6400B20B70 /* EditorViewController.swift in Sources */,
