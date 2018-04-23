@@ -11,7 +11,7 @@ import Foundation
 extension String{
     enum LocalizeTable: String {
         case settings = "Settings"
-        case detailProject = "DetailProject"
+        case projectDetails = "ProjectDetails"
         case drawerMenu = "DrawerMenu"
         case editor = "EditorStrings"
         case musicDetail = "MusicDetailView"
@@ -30,5 +30,11 @@ extension String{
         return { table in 
             Bundle.main.localizedString(forKey: self, value: nil, table: table.rawValue)
         }
+    }
+    func addColons() -> String {
+        return self + ":"
+    }
+    func addSpace() -> String {
+        return self + " "
     }
 }

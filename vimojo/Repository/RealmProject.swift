@@ -11,7 +11,19 @@ import RealmSwift
 
 public class RealmProject: Object {
     dynamic var uuid = ""
+    // Project Info
     dynamic var title = ""
+    dynamic var date: Date = Date()
+    dynamic var author: String = ""
+    dynamic var location: String = ""
+    dynamic var projectDescription: String = ""
+    dynamic var liveOnTape: Bool = false
+    dynamic var bRoll: Bool = false
+    dynamic var natVO: Bool = false
+    dynamic var interview: Bool = false
+    dynamic var graphics: Bool = false
+    dynamic var piece: Bool = false
+    // Project Info end
     dynamic var projectPath = ""
     dynamic var quality = ""
     dynamic var resolution = ""
