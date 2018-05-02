@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,7 +24,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blob" translatesAutoresizingMaskIntoConstraints="NO" id="Kay-Y4-8n7">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PermissionLaunchImage.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Kay-Y4-8n7">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="QSe-Wq-Rxz">
@@ -64,21 +63,12 @@
                         </button>
                     </subviews>
                 </stackView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vimojoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="WCt-tf-wSE">
-                    <rect key="frame" x="56.5" y="168.5" width="262.5" height="54.5"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="WCt-tf-wSE" secondAttribute="height" multiplier="1619:337" id="gFa-cG-JzJ"/>
-                    </constraints>
-                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.045755587520000002" green="0.51762336490000005" blue="0.73804396390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="QSe-Wq-Rxz" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="6a8-0W-yhI"/>
-                <constraint firstItem="QSe-Wq-Rxz" firstAttribute="top" secondItem="WCt-tf-wSE" secondAttribute="bottom" constant="20" id="98R-XK-rcG"/>
-                <constraint firstItem="WCt-tf-wSE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NT0-wf-cQf"/>
                 <constraint firstItem="QSe-Wq-Rxz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Qt5-kd-c8R"/>
                 <constraint firstItem="Kay-Y4-8n7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Sw5-ZS-gOX"/>
-                <constraint firstItem="WCt-tf-wSE" firstAttribute="width" secondItem="Kay-Y4-8n7" secondAttribute="width" multiplier="0.7" id="TDX-HZ-IBW"/>
                 <constraint firstItem="Kay-Y4-8n7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VXg-QU-Qx6"/>
                 <constraint firstItem="QSe-Wq-Rxz" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="fwd-9c-Ccf"/>
                 <constraint firstAttribute="bottom" secondItem="Kay-Y4-8n7" secondAttribute="bottom" id="t61-iu-sLq"/>
@@ -89,7 +79,6 @@
         </view>
     </objects>
     <resources>
-        <image name="blob" width="1080" height="1920"/>
-        <image name="vimojoIcon" width="1619" height="337"/>
+        <image name="PermissionLaunchImage.jpg" width="1242" height="2208"/>
     </resources>
 </document>

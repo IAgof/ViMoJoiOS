@@ -11,15 +11,15 @@
 import UIKit
 
 class UserViewController: BaseRxController, UserViewProtocol {
-
+    
     @IBOutlet weak var usernameButton: UIButton!
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var videosRecordedLabel: UILabel!
     @IBOutlet weak var proyectsEditedLabel: UILabel!
     @IBOutlet weak var proyectsSharedLabel: UILabel!
-
+    
     var presenter: UserPresenterProtocol?
-
+    
     override func configureViews() {
         usernameButton.rx.tap.bind {
             self.presenter?.navigate()
@@ -27,5 +27,14 @@ class UserViewController: BaseRxController, UserViewProtocol {
         emailButton.rx.tap.bind {
             self.presenter?.navigate()
             }.disposed(by: disposableBag)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        switch loginState {
+        case .loggedIn(let user):
+            usernameButton.setTitle(user.name, for: .normal)
+            emailButton.setTitle(user.email, for: .normal)
+        default: break
+        }
     }
 }

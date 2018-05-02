@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HandOffViewController" customModule="LoginProject" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HandOffViewController" customModule="M4N" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,17 +20,11 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blob" translatesAutoresizingMaskIntoConstraints="NO" id="rnS-DD-OwU">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PermissionLaunchImage.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="rnS-DD-OwU">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vimojo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8q-Mp-CDb">
-                    <rect key="frame" x="128.5" y="100" width="118" height="48"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSc-hk-rhw">
-                    <rect key="frame" x="50" y="164" width="275" height="41"/>
+                    <rect key="frame" x="50" y="200" width="275" height="41"/>
                     <string key="text">Llegas buscando lo que te gusta
 Te quedas por lo que descubres.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -38,7 +32,7 @@ Te quedas por lo que descubres.</string>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsf-hz-yoP">
-                    <rect key="frame" x="75" y="263" width="225" height="45"/>
+                    <rect key="frame" x="75" y="299" width="225" height="45"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="9HO-to-0ur"/>
@@ -57,7 +51,7 @@ Te quedas por lo que descubres.</string>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2f-wk-seQ">
-                    <rect key="frame" x="75" y="324" width="225" height="45"/>
+                    <rect key="frame" x="75" y="360" width="225" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="7Yb-iE-9pP"/>
                     </constraints>
@@ -89,20 +83,18 @@ Te quedas por lo que descubres.</string>
                 <constraint firstItem="WSc-hk-rhw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="DIT-ja-FS0"/>
                 <constraint firstItem="v2f-wk-seQ" firstAttribute="top" secondItem="wsf-hz-yoP" secondAttribute="bottom" constant="16" id="G4F-x4-dYj"/>
                 <constraint firstItem="wsf-hz-yoP" firstAttribute="width" secondItem="rnS-DD-OwU" secondAttribute="width" multiplier="0.6" id="IZq-jc-WYF"/>
-                <constraint firstItem="WSc-hk-rhw" firstAttribute="top" secondItem="b8q-Mp-CDb" secondAttribute="bottom" constant="16" id="JgB-oW-vgQ"/>
                 <constraint firstAttribute="trailing" secondItem="WSc-hk-rhw" secondAttribute="trailing" constant="50" id="L1m-eM-h5h"/>
                 <constraint firstItem="WSc-hk-rhw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="MJw-dh-AiP"/>
                 <constraint firstItem="wsf-hz-yoP" firstAttribute="top" secondItem="WSc-hk-rhw" secondAttribute="bottom" constant="58" id="Sw8-NZ-6f5"/>
                 <constraint firstItem="v2f-wk-seQ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="U9I-uV-sxn"/>
                 <constraint firstAttribute="trailing" secondItem="rnS-DD-OwU" secondAttribute="trailing" id="VeD-CN-H29"/>
+                <constraint firstItem="WSc-hk-rhw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="200" id="ivd-og-nek"/>
                 <constraint firstItem="rnS-DD-OwU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lnf-n8-VB3"/>
-                <constraint firstItem="b8q-Mp-CDb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xQs-W3-laa"/>
                 <constraint firstItem="wsf-hz-yoP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zKK-Zy-NkI"/>
-                <constraint firstItem="b8q-Mp-CDb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="zT2-M2-3QC"/>
             </constraints>
         </view>
     </objects>
     <resources>
-        <image name="blob" width="1080" height="1920"/>
+        <image name="PermissionLaunchImage.jpg" width="1242" height="2208"/>
     </resources>
 </document>

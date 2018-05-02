@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,7 +27,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blob" translatesAutoresizingMaskIntoConstraints="NO" id="UH2-mR-2FY">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PermissionLaunchImage.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="UH2-mR-2FY">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="UqK-9P-Zzg">
@@ -120,32 +119,22 @@
                         </stackView>
                     </subviews>
                 </stackView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vimojoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ra9-Fn-7LO">
-                    <rect key="frame" x="56.5" y="124" width="262.5" height="54.5"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="ra9-Fn-7LO" secondAttribute="height" multiplier="1619:337" id="93U-ft-erj"/>
-                    </constraints>
-                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.045755587520000002" green="0.51762336490000005" blue="0.73804396390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="UH2-mR-2FY" secondAttribute="trailing" id="5CO-NP-iRC"/>
-                <constraint firstItem="ra9-Fn-7LO" firstAttribute="width" secondItem="UH2-mR-2FY" secondAttribute="width" multiplier="0.7" id="G1Z-Dp-GlK"/>
                 <constraint firstItem="UqK-9P-Zzg" firstAttribute="centerX" secondItem="9Ii-F3-XsB" secondAttribute="centerX" id="Jqk-1r-55E"/>
-                <constraint firstItem="ra9-Fn-7LO" firstAttribute="centerX" secondItem="9Ii-F3-XsB" secondAttribute="centerX" id="gkB-Ae-M0V"/>
                 <constraint firstItem="UqK-9P-Zzg" firstAttribute="width" secondItem="9Ii-F3-XsB" secondAttribute="width" multiplier="0.8" id="jCe-iE-vGe"/>
                 <constraint firstItem="UH2-mR-2FY" firstAttribute="top" secondItem="9Ii-F3-XsB" secondAttribute="top" id="po4-vg-quF"/>
                 <constraint firstAttribute="bottom" secondItem="UH2-mR-2FY" secondAttribute="bottom" id="rwa-sX-a6Z"/>
                 <constraint firstItem="UH2-mR-2FY" firstAttribute="leading" secondItem="9Ii-F3-XsB" secondAttribute="leading" id="tgr-do-roe"/>
                 <constraint firstItem="UqK-9P-Zzg" firstAttribute="centerY" secondItem="9Ii-F3-XsB" secondAttribute="centerY" id="yeI-8G-0Q4"/>
-                <constraint firstItem="UqK-9P-Zzg" firstAttribute="top" secondItem="ra9-Fn-7LO" secondAttribute="bottom" constant="20" id="yk1-Vz-9jV"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
     <resources>
-        <image name="blob" width="1080" height="1920"/>
-        <image name="vimojoIcon" width="1619" height="337"/>
+        <image name="PermissionLaunchImage.jpg" width="1242" height="2208"/>
     </resources>
 </document>
