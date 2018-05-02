@@ -22,6 +22,11 @@ def shared_pods
     pod 'Permission/Camera'
     pod 'Permission/Microphone'
     pod 'Permission/Photos'
+    
+    pod 'RxCocoa',    '~> 3.0'
+    pod 'Moya-ObjectMapper/RxSwift', '2.4.2'
+    pod 'TransitionButton', '0.3.0'
+    pod 'Whisper', '5.1.0'
 end
 
 target 'vimojo' do

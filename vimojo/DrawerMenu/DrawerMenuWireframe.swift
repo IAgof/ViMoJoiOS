@@ -82,4 +82,10 @@ class DrawerMenuWireframe {
             controller.show(SlideTutorial.editTut.viewController, sender: nil)
         }
     }
+    
+    func presentUserProfile() {
+        if let controller = UIApplication.topViewController() {
+            controller.show(UserRouter.createModule(), sender: nil)
+        }
+    }
 }
