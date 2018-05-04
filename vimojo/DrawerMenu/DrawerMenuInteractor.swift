@@ -37,9 +37,7 @@ class DrawerMenuInteractor: DrawerMenuInteractorInterface {
     }
     
     func setWatermarkStatus(_ value: Bool) {
-        if project != nil {
-            project?.hasWatermark = value
-            ProjectRealmRepository().update(item: project!)
-        }
+        project.hasWatermark = value
+        ProjectRealmRepository().update(item: project)
     }
 }
