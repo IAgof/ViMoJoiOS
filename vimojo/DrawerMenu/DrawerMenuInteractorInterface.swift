@@ -13,6 +13,7 @@ protocol DrawerMenuInteractorInterface {
     func createNewProject()
     func saveUserPhoto(image: UIImage)
     func removePhoto()
+    func setWatermarkStatus(_ value: Bool)
     var project: Project { get set }
 }
 

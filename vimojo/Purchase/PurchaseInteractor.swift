@@ -19,49 +19,10 @@ class PurchaseInteractor: PurchaseInteractorProtocol {
             else { response(.error) }
         }
     }
-    
+    func restoreProduct() {
+        PurchaseProduct.store.restorePurchases()
+    }
     func buyProduct(product: SKProduct) {
         PurchaseProduct.store.buyProduct(product)
-    }
-}
-
-class PurchaseMockedInteractor: PurchaseInteractorProtocol {
-    weak var presenter: PurchasePresenterProtocol?
-    var error = false
-    
-    func loadProducts(response: @escaping (ProductResponse) -> Void) {
-        return error ? response(.error):response(.success(products:
-            
-            [
-                MockedSKProduct(),
-                MockedSKProduct(),
-                MockedSKProduct(),
-                MockedSKProduct(),
-                MockedSKProduct(),
-                MockedSKProduct(),
-                MockedSKProduct()
-            ]))
-    }
-    func buyProduct(product: SKProduct) {
-        
-    }
-}
-class MockedSKProduct: SKProduct {
-    override var localizedTitle: String {
-        return "Mocked titlte looooooongggg tile title title"
-    }
-    override var localizedDescription: String {
-        return """
-        This is a mocked description
-        of the product to fetch
-        with a lot of lines
-        because we are testing this shit
-        """
-    }
-    override var price: NSDecimalNumber {
-        return 1.09
-    }
-    override var priceLocale: Locale {
-        return Locale.posix
     }
 }
