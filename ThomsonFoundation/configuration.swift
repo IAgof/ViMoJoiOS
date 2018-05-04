@@ -31,7 +31,7 @@ final class ThomsonFoundationConfiguration: ConfigurationProtocol {
 		VOICE_OVER_FEATURE = true
 		FTP_FEATURE = true
         IS_WATERMARK_PURCHABLE = false
-        IS_WATERMARK_SWITCHABLE = true
-        IS_WATERMARK_ENABLED = false
+        IS_WATERMARK_SWITCHABLE = false
+        IS_WATERMARK_ENABLED = true
 	}
 }
