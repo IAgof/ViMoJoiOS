@@ -23,6 +23,7 @@ protocol PurchaseWireframeProtocol: class {
 //MARK: Presenter -
 protocol PurchasePresenterProtocol: class {
     func loadProducts()
+    func restoreProducts()
 }
 
 //MARK: Interactor -
@@ -31,6 +32,7 @@ protocol PurchaseInteractorProtocol: class {
     var presenter: PurchasePresenterProtocol?  { get set }
     func loadProducts(response: @escaping (ProductResponse) -> Void)
     func buyProduct(product: SKProduct)
+    func restoreProduct()
 }
 
 //MARK: View -

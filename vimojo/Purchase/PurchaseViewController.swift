@@ -13,6 +13,8 @@ import UIKit
 class PurchaseViewController: UIViewController, PurchaseViewProtocol {
 
 	var presenter: PurchasePresenterProtocol?
+    var alertController: AIndicatorAlertController?
+    
     @IBOutlet weak var tableView: UITableView!
     var products: [ProductViewModel] = [] {
         didSet{
@@ -22,6 +24,7 @@ class PurchaseViewController: UIViewController, PurchaseViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.loadProducts()
+        NotificationCenter.default.addObserver(self, selector: #selector(restoredPurchases), name: NSNotification.Name(rawValue: IAPHelper.IAPHelperPurchaseNotification), object: nil)
         if navigationController == nil {
             let dismissButton = UIButton(frame: CGRect(x: self.view.width/2 - 50,
                                                        y: self.view.height - 50,
@@ -30,7 +33,29 @@ class PurchaseViewController: UIViewController, PurchaseViewProtocol {
             dismissButton.addTarget(self, action: #selector(dismissController), for: .touchUpInside)
             self.view.addSubview(dismissButton)
         }
+        
+        let restoreButton = UIButton()
+        restoreButton.setTitle("action_restore".localized(.purchase), for: .normal)
+        restoreButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        restoreButton.addTarget(self, action: #selector(restoreTapped), for: .touchUpInside)
+        let barItem = UIBarButtonItem(customView: restoreButton)
+        
+        barItem.customView?.snp.makeConstraints({ (make) in
+            make.height.equalTo(22)
+        })
+
+        self.navigationItem.rightBarButtonItem  = barItem
         configureTable()
+    }
+    @objc private func restoreTapped() {
+        let newAlertController = AIndicatorAlertController(title: "Restore".localized(.purchase),
+                                                           message: "Restoring purchases\nplease wait",
+                                                           defaultActionButtonTitle: "Cancel".localized(.editor),
+                                                           tintColor: configuration.mainColor)
+        self.present(newAlertController, animated: true, completion: {
+            self.alertController = newAlertController
+        })
+        presenter?.restoreProducts()
     }
     func dismissController() {
         self.dismiss(animated: true, completion: nil)
@@ -45,6 +70,12 @@ class PurchaseViewController: UIViewController, PurchaseViewProtocol {
         let controller = UIAlertController.defaultAlert(title, description)
         self.present(controller, animated: true, completion: nil)
     }
+    @objc func restoredPurchases() {
+        alertController?.dismiss(animated: true, completion: {
+            self.alertController = nil
+        })
+        presenter?.loadProducts()
+    }
 }
 
 extension PurchaseViewController: UITableViewDataSource {
@@ -52,7 +83,10 @@ extension PurchaseViewController: UITableViewDataSource {
         return products.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: PurchaseTableViewCell.reuseIdentifier, for: indexPath) as? PurchaseTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView
+            .dequeueReusableCell(withIdentifier:
+                PurchaseTableViewCell.reuseIdentifier,
+                                 for: indexPath) as? PurchaseTableViewCell else { return UITableViewCell() }
         cell.setup(with: products[indexPath.row])
         return cell
     }
