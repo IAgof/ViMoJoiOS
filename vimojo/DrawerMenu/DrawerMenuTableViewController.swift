@@ -43,13 +43,13 @@ class DrawerMenuTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if configuration.WATERMARK_FEATURE == false && indexPath.section == 1 && indexPath.row == 2 {
+        if configuration.IS_WATERMARK_SWITCHABLE == false && indexPath.section == 1 && indexPath.row == 2 {
             cell.isHidden = true
         }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if configuration.WATERMARK_FEATURE == false && indexPath.section == 1 && indexPath.row == 2 {
+        if configuration.IS_WATERMARK_SWITCHABLE == false && indexPath.section == 1 && indexPath.row == 2 {
             return 0
         } else {
             return super.tableView(tableView, heightForRowAt: indexPath)

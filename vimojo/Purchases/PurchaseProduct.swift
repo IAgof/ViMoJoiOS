@@ -33,7 +33,11 @@ public enum PurchaseProduct: String {
         get { return UserDefaults.standard.bool(forKey: isEnabledKey) }
     }
     var isPurchased: Bool {
-        return UserDefaults.standard.bool(forKey: productIdentifier)
+        if configuration.IS_WATERMARK_PURCHABLE {
+            return UserDefaults.standard.bool(forKey: productIdentifier)
+        } else {
+            return true
+        }
     }
     private static var all: Set<PurchaseProduct> {
         return [.removeWatermark]

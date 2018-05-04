@@ -18,7 +18,9 @@ final class M4NConfiguration: ConfigurationProtocol {
 	internal var secondColorWithOpacity: UIColor
 	internal var VOICE_OVER_FEATURE: Bool
 	internal var FTP_FEATURE: Bool
-    internal var WATERMARK_FEATURE: Bool
+    internal var IS_WATERMARK_PURCHABLE: Bool
+    internal var IS_WATERMARK_SWITCHABLE: Bool
+    internal var IS_WATERMARK_ENABLED: Bool
 
 	init() {
 		fontName = "Helvetica"
@@ -28,6 +30,8 @@ final class M4NConfiguration: ConfigurationProtocol {
 		secondColorWithOpacity = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.5)
 		VOICE_OVER_FEATURE = true
 		FTP_FEATURE = true
-        WATERMARK_FEATURE = false
+        IS_WATERMARK_PURCHABLE = false
+        IS_WATERMARK_SWITCHABLE = true
+        IS_WATERMARK_ENABLED = true
 	}
 }

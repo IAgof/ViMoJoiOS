@@ -79,6 +79,10 @@ public class ProjectRealmRepository: ProjectRepository {
                 if let result = realm.objects(RealmProject.self).sorted(byProperty: "modificationDate", ascending: false).first {
                     project = self.toProjectMapper.map(from: result)
                 } else {
+                    // TODO (DevStarlight): Let's see how can we move this to the mapper
+                    if !configuration.IS_WATERMARK_SWITCHABLE && !configuration.IS_WATERMARK_PURCHABLE {
+                        project.hasWatermark = configuration.IS_WATERMARK_ENABLED
+                    }
                     realm.add(self.toRealmProjectMapper.map(from: project))
                     try realm.commitWrite()
                 }

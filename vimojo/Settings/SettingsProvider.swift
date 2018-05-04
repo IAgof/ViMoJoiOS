@@ -82,7 +82,7 @@ class SettingsProvider: NSObject {
         settings.append(moreInfoSettings)
 
         // MARK: - WATERMARK SECTION
-        if configuration.WATERMARK_FEATURE {
+        if configuration.IS_WATERMARK_SWITCHABLE {
             let watermark = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().WATERMARK_TITLE),
                                             subTitle: project.hasWatermark ? "watermarkEnabled".localized(.settings):"watermarkDisabled".localized(.settings),
                                             action: SettingsWatermarkAction(delegate: delegate, project: project))
@@ -148,7 +148,7 @@ class SettingsProvider: NSObject {
         sections.append(Utils().getStringByKeyFromSettings(SettingsConstants().CAMERA_SECTION))
         sections.append(Utils().getStringByKeyFromSettings(SettingsConstants().MORE_INFO_SECTION))
 
-        if (configuration.WATERMARK_FEATURE) {
+        if (configuration.IS_WATERMARK_SWITCHABLE) {
             sections.append(Utils().getStringByKeyFromSettings(SettingsConstants().WATERMARK_TITLE))
         }
 
