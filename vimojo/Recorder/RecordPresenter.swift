@@ -479,29 +479,11 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         delegate?.setMemoryIcon(getMemoryIcon(value))
     }
 
-    func audioLevelHasChanged(_ value: Float) {
-        delegate?.setAudioColor(getAudioLevelColor(value))
-    }
-
     func saveResolutionToDefaults(_ resolution: String) {
         interactor?.saveResolution(resolution: resolution)
     }
 
     // MARK: - Inner functions
-    func getAudioLevelColor(_ value: Float) -> UIColor {
-        switch value {
-        case 0 ... 0.5:
-            return UIColor.green
-        case 0.5 ... 0.6:
-            return UIColor.yellow
-        case 0.6 ... 0.8:
-            return UIColor.orange
-        case 0.8 ... 1:
-            return UIColor.red
-        default:
-            return UIColor.green
-        }
-    }
 
     func startRecord() {
         self.trackStartRecord()
@@ -738,11 +720,9 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
                 // Headphones located
                 setMicButtonState(true)
                 setDeviceButtonState(false)
-                delegate?.getMicValues()
             } else {
                 setMicButtonState(false)
                 setDeviceButtonState(true)
-                delegate?.getMicValues()
             }
         }
     }

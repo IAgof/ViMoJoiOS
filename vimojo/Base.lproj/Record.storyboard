@@ -318,26 +318,19 @@
                                                 <rect key="frame" x="385.5" y="8" width="171" height="29"/>
                                                 <subviews>
                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dra-Hy-CZB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="29"/>
+                                                        <rect key="frame" x="-400.5" y="0.0" width="0.0" height="29"/>
                                                         <accessibility key="accessibilityConfiguration">
                                                             <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
                                                         </accessibility>
                                                         <state key="normal" image="activity_rec_micro_connected_normal"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51U-lg-bQm" userLabel="Device Mic Button">
-                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="29"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="171" height="29"/>
                                                         <accessibility key="accessibilityConfiguration">
                                                             <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
                                                         </accessibility>
                                                         <state key="normal" image="activity_rec_phone_micro_activated_normal"/>
                                                     </button>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAM-ZC-cFG" customClass="AudioLevelBarView" customModule="VideonaProject">
-                                                        <rect key="frame" x="16" y="0.0" width="155" height="29"/>
-                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <accessibility key="accessibilityConfiguration">
-                                                            <accessibilityTraits key="traits" notEnabled="YES"/>
-                                                        </accessibility>
-                                                    </view>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -640,7 +633,6 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="audioLevelView" destination="nAM-ZC-cFG" id="uu8-Ne-k4b"/>
                         <outlet property="batteryButton" destination="veW-ha-Wav" id="QH0-ew-DmB"/>
                         <outlet property="batteryView" destination="5X8-bB-gAq" id="ttD-Kh-gZH"/>
                         <outlet property="cameraRotationButton" destination="Qft-6a-P9q" id="SXl-j6-6cI"/>
@@ -665,6 +657,7 @@
                         <outlet property="isoButton" destination="aiN-vN-CHp" id="92F-gA-YX7"/>
                         <outlet property="isoConfigurationView" destination="owx-Ns-ABx" id="vCx-fE-j7H"/>
                         <outlet property="jackMicButton" destination="Dra-Hy-CZB" id="WGh-5N-BwH"/>
+                        <outlet property="jackStackView" destination="m5U-jD-h1y" id="bTz-JR-TA7"/>
                         <outlet property="modeContainerView" destination="Dnm-Zp-iJ8" id="NAa-Gr-hC2"/>
                         <outlet property="overlayGrid" destination="0V7-5h-nKZ" id="M53-dl-qLI"/>
                         <outlet property="previewView" destination="Pql-2H-c5V" id="gMc-cE-Szm"/>

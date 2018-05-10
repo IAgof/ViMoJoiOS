@@ -1766,7 +1766,7 @@
 		B24BF1C82088EC73003CF796 /* tutorial.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9031D102022775200E672BF /* tutorial.xcassets */; };
 		B24BF1C92088EC73003CF796 /* tutorial.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9031D102022775200E672BF /* tutorial.xcassets */; };
 		B24BF1CA20891F91003CF796 /* PurchaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E957D91FE5915800D0E087 /* PurchaseTableViewCell.xib */; };
-		B24BF1CB20891F9C003CF796 /* Purchase.strings in Resources */ = {isa = PBXBuildFile; fileRef = AED66A4E20214410001AF351 /* Purchase.strings */; };
+		B24BF1CB20891F9C003CF796 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		B24BF1CC20891FB2003CF796 /* PurchaseProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67A31FE45BA6005958DB /* PurchaseProduct.swift */; };
 		B24BF1CD20891FB3003CF796 /* PurchaseProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67A31FE45BA6005958DB /* PurchaseProduct.swift */; };
 		B24BF1CE20891FB3003CF796 /* PurchaseProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67A31FE45BA6005958DB /* PurchaseProduct.swift */; };
@@ -4246,9 +4246,9 @@
 					};
 					A9B385E51D7D51380065D3EC = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 98YJ9HU6W9;
+						DevelopmentTeam = 58TN26CK22;
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 1;
@@ -4339,7 +4339,7 @@
 				A99BAD581E49DC9D00A465C7 /* MicRecorder.strings in Resources */,
 				A91995601EC5029C00D24B0E /* LICENSE in Resources */,
 				A99BAD5A1E49DC9D00A465C7 /* Gallery.storyboard in Resources */,
-				B24BF1CB20891F9C003CF796 /* Purchase.strings in Resources */,
+				B24BF1CB20891F9C003CF796 /* (null) in Resources */,
 				A99BAD5B1E49DC9D00A465C7 /* water_mark.png in Resources */,
 				A99BAD5C1E49DC9D00A465C7 /* iso639_2.bundle in Resources */,
 				A9CAB9B81EC367BC00AB6CE8 /* MusicListCell.xib in Resources */,
@@ -7140,10 +7140,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Iago Fernández cedron (JVQF87BH8Q)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Iago Fernández cedron (JVQF87BH8Q)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 98YJ9HU6W9;
+				DEVELOPMENT_TEAM = 58TN26CK22;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7165,10 +7166,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR)";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DDEBUG\"";
-				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alejandro.arjonilal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3cf713cb-138e-4efc-905f-cecd0542d9a0";
-				PROVISIONING_PROFILE_SPECIFIER = "Vimojo Development";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -7184,9 +7185,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Videona SocialMedia S.L. (98YJ9HU6W9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Videona SocialMedia S.L. (98YJ9HU6W9)";
-				DEVELOPMENT_TEAM = 98YJ9HU6W9;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 58TN26CK22;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7209,10 +7211,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR) @loader_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DRELEASE\"";
-				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alejandro.arjonilal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5e398e73-7c38-4a18-9c9f-5e6f5fe1d9e6";
-				PROVISIONING_PROFILE_SPECIFIER = "Ad-hoc vimojo Fabric - Beta";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
