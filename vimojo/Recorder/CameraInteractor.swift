@@ -132,14 +132,10 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
     }
 }
 
-extension CameraInteractor: AVCaptureVideoDataOutputSampleBufferDelegate,
-    AVCaptureFileOutputRecordingDelegate
-    , AVCaptureAudioDataOutputSampleBufferDelegate
+extension CameraInteractor:
+    AVCaptureVideoDataOutputSampleBufferDelegate,
+    AVCaptureAudioDataOutputSampleBufferDelegate
 {
-    func capture(_ output: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
-        printIsolated(message: "didFinishRecordingToOutputFileAt", object: outputFileURL)
-    }
-    
     func captureOutput(_ output: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!,
                        from connection: AVCaptureConnection!) {
         lastSampleTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)

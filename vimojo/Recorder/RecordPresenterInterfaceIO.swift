@@ -14,7 +14,7 @@ protocol RecordPresenterInterface {
     func viewWillDisappear()
     func viewWillAppear()
 
-    func pushRecord(_ sender: String)
+    func pushRecord()
     func pushFlash()
     func pushVideoSettingsConfig()
     func thumbnailHasTapped()
@@ -137,9 +137,6 @@ protocol RecordPresenterDelegate {
 
     func showExposureModesView()
     func hideExposureModesView()
-
-    func hideThumbnailButtonAndLabel()
-    func showThumbnailButtonAndLabel()
 
     func showRecordChronometerContainer()
     func hideRecordChronometerContainer()

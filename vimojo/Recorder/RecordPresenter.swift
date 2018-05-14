@@ -14,7 +14,6 @@ struct IconsImage {
     var normal: UIImage!
     var pressed: UIImage!
 }
-
 class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDelegate, TimerInteractorDelegate {
     // MARK: - Variables VIPER
     var delegate: RecordPresenterDelegate?
@@ -102,7 +101,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         lastOrientationEnabled = UIDevice.current.orientation.rawValue
         DispatchQueue.global().async {
             if self.isRecording {
-                self.stopRecord("")
+                self.stopRecord()
             }
             runOnDevice {
                 FlashInteractor().turnOffIfIsOn()
@@ -132,9 +131,9 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         })
     }
 
-    func pushRecord(_ sender: String) {
+    func pushRecord() {
         if isRecording {
-            self.stopRecord(sender)
+            self.stopRecord()
         } else {
 			self.startRecord()
         }
@@ -164,6 +163,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     }
 	
 	func pushCameraSimple() {
+        CamSettings.cameraStatus = .cameraBasic
 		DispatchQueue.main.async(execute: {
 			self.delegate?.hideUpperContainerView()
 			self.delegate?.hideSettingsContainerView()
@@ -179,7 +179,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 	}
 	
 	func pushCameraPro() {
-		// TO-DO: This must be in interactor and not presenter
 		CamSettings.cameraStatus = .cameraPro
 		DispatchQueue.main.async(execute: {
 			self.delegate?.hideCameraSimpleView()
@@ -513,7 +512,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 			  self.delegate?.recordButtonSecondaryEnable(true)
 			  self.delegate?.selectRecordButton()
 			  self.delegate?.selectSecondaryRecordButton()
-			  self.delegate?.hideThumbnailButtonAndLabel()
+			  self.delegate?.hideClipsRecordedView()
 			  self.delegate?.startRecordingIndicatorBlink()
 			  self.delegate?.startSecondaryRecordingIndicatorBlink()
 			  self.delegate?.showDrawerButton()
@@ -525,16 +524,13 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         self.startTimer()
     }
 
-	func stopRecord(_ sender: String) {
+	func stopRecord() {
         self.trackStopRecord()
 
         isRecording = false
         DispatchQueue.global().async {
 			self.cameraInteractor?.stopRecording()
             DispatchQueue.main.async(execute: {
-				if sender == "pro" {
-					self.delegate?.showThumbnailButtonAndLabel()
-				}
 				self.delegate?.blockCameraWhenRecording(true)
 				self.delegate?.setDrawerGestureStatus(true)
 				self.delegate?.selectRecordButton()
@@ -553,6 +549,9 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 	func allowRecord() {
 		DispatchQueue.main.async(execute: {
 			self.delegate?.recordButtonEnable(true)
+            if CamSettings.cameraStatus.isCameraPro {
+                self.delegate?.showClipsRecordedView()
+            }
 		})
 	}
 
