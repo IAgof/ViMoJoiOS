@@ -89,10 +89,13 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
             PurchaseProduct.setEnabled(state: !watermarkProduct.isEnabled,
                                        product: watermarkProduct)
             delegate?.watermarkIsEnabled = watermarkProduct.isEnabled
-            interactor?.project.hasWatermark = watermarkProduct.isEnabled
+            interactor?.setWatermarkStatus(watermarkProduct.isEnabled)
         } else {
             wireframe?.presentPurchaseScreen()
         }
+    }
+    func loadWatermarkState(state: (Bool) -> Void) {
+        state(interactor?.project.hasWatermark ?? false)
     }
 }
 
