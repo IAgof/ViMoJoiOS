@@ -9,6 +9,7 @@
 //
 
 import Foundation
+import AVFoundation
 
 enum RecordingCameraActions {
     case camera(CameraStatus)
@@ -28,6 +29,7 @@ protocol RecordingCameraConfigurationPresenterProtocol: class {
     
     func viewDidLoad()
     func actionPush(with action: RecordingCameraActions)
+    func cameraSelected(cameraIndex: Int)
 }
 
 //MARK: Interactor -
@@ -40,7 +42,7 @@ protocol RecordingCameraConfigurationInteractorInputProtocol: class {
 
     var presenter: RecordingCameraConfigurationInteractorOutputProtocol?  { get set }
 
-    func loadValues(completion: (RecordingCameraValues) -> Void )
+    func loadValues(with camera: CameraPosition, completion: (RecordingCameraValues) -> Void )
     func actionPush(with action: RecordingCameraActions)
 
     /* Presenter -> Interactor */

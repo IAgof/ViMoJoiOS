@@ -25,7 +25,8 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
 	@IBOutlet weak var sixtyFpsButton: UIButton!
     @IBOutlet weak var sixteenMbpsButton: UIButton!
     @IBOutlet weak var thirtyTwoMbpsButton: UIButton!
-    
+    @IBOutlet weak var frontRearSegControl: UISegmentedControl!
+
     // MARK: SSRadioControllers
     var cameraSSRBController: SSRadioButtonsController = SSRadioButtonsController()
     var resolutionSSRBController: SSRadioButtonsController = SSRadioButtonsController()
@@ -87,6 +88,10 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
     { presenter?.actionPush(with: .mbps(.thirtyTwoMB)) }
     @IBAction func okPush(_ sender: Any)
     { self.navigationController?.popViewController() }
+    
+    @IBAction func frontRearSegControlChanged(_ sender: UISegmentedControl) {
+        presenter?.cameraSelected(cameraIndex: sender.selectedSegmentIndex)
+    }
     
     func setDefaultValues(loadedValues: RecordingCameraValues) {
         cameraSSRBController.pressed(cameraButtons[loadedValues.0.rawValue])

@@ -12,15 +12,38 @@ import AVFoundation
 
 public class VideoSettings {
     static var defaults = UserDefaults.standard
-    
+
     static var codec: VideoCodec = .H264 {
         didSet {
 			defaults.set(codec.rawValue, forKey: codec.defaultsKey)
         }
     }
-    static var resolution: Resolution = .sevenHundred {
+    static var resolution: Resolution {
+        get {
+            switch CamSettings.cameraPosition {
+            case .back:
+                return backResolution
+            case .front:
+                return frontResolution
+            }
+        }
+        set {
+            switch CamSettings.cameraPosition {
+            case .back:
+                backResolution = newValue
+            case .front:
+                frontResolution = newValue
+            }
+        }
+    }
+    static var backResolution: Resolution = .sevenHundred {
         didSet {
-            defaults.set(resolution.rawValue, forKey: resolution.defaultsKey)
+            defaults.set(backResolution.rawValue, forKey: Resolution.backDefaultsKey)
+        }
+    }
+    static var frontResolution: Resolution = .sevenHundred {
+        didSet {
+            defaults.set(frontResolution.rawValue, forKey: Resolution.frontDefaultsKey)
         }
     }
     static var fps: FrameRate = .thirty {
@@ -58,7 +81,8 @@ public class VideoSettings {
     
     static func loadValues() {
         codec = VideoCodec(rawValue: defaults.integer(forKey: codec.defaultsKey)) ?? .H264
-        resolution = Resolution(rawValue: defaults.integer(forKey: resolution.defaultsKey)) ?? .sevenHundred
+        backResolution = Resolution(rawValue: defaults.integer(forKey: Resolution.backDefaultsKey)) ?? .sevenHundred
+        frontResolution = Resolution(rawValue: defaults.integer(forKey: Resolution.frontDefaultsKey)) ?? .sevenHundred
         bitRate = BitRate(rawValue: defaults.integer(forKey: bitRate.defaultsKey)) ?? .sixteenMB
         fps = FrameRate(rawValue: defaults.integer(forKey: fps.defaultsKey)) ?? .thirty
     }
@@ -69,8 +93,11 @@ enum Resolution: Int {
     case oneThousand
     case fourThousand
     
-    var defaultsKey: String {
-        return "VideoSettingsResolution"
+    static var backDefaultsKey: String {
+        return "VideoSettingsResolutionBack"
+    }
+    static var frontDefaultsKey: String {
+        return "VideoSettingsResolutionFront"
     }
     var width: NSNumber {
         switch self {
@@ -93,10 +120,10 @@ enum Resolution: Int {
             case .sevenHundred:
                 return AVOutputSettingsPreset1280x720
             case .oneThousand:
-                return isFrontCamera ? AVOutputSettingsPreset1920x1080 : AVCaptureSessionPreset1280x720
+                return AVOutputSettingsPreset1920x1080
             case .fourThousand:
                 return isFrontCamera ?
-                AVOutputSettingsPreset3840x2160 : AVCaptureSessionPreset1280x720
+                AVOutputSettingsPreset3840x2160 : AVOutputSettingsPreset1920x1080
             }
         }
     }
