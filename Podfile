@@ -32,6 +32,10 @@ target 'RTVE' do
     shared_pods
 end
 
+target 'ElConfidencial' do
+  shared_pods
+end
+
 target 'ThomsonFoundation' do
 	shared_pods
 end

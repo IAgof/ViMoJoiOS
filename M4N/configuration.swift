@@ -21,6 +21,7 @@ final class M4NConfiguration: ConfigurationProtocol {
     internal var IS_WATERMARK_PURCHABLE: Bool
     internal var IS_WATERMARK_SWITCHABLE: Bool
     internal var IS_WATERMARK_ENABLED: Bool
+	internal var GO_TO_SHOP_ENABLED: Bool
 
 	init() {
 		fontName = "Helvetica"
@@ -33,5 +34,6 @@ final class M4NConfiguration: ConfigurationProtocol {
         IS_WATERMARK_PURCHABLE = false
         IS_WATERMARK_SWITCHABLE = true
         IS_WATERMARK_ENABLED = true
+		GO_TO_SHOP_ENABLED = true
 	}
 }
