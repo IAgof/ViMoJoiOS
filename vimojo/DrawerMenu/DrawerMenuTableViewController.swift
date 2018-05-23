@@ -8,6 +8,17 @@
 
 import UIKit
 
+enum rows: Int {
+    case projects = 0
+    case newProjects = 1
+    case watermark = 2
+    case settings = 3
+    case kitMojo = 4
+    case market = 5
+    case recTutorial = 6
+    case editTutorial = 7
+}
+
 class DrawerMenuTableViewController: UITableViewController {
     var eventHandler: DrawerMenuPresenterInterface?
 
@@ -41,21 +52,32 @@ class DrawerMenuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         eventHandler?.didSelectAtIndexPath(indexPath: indexPath)
     }
-    
+    // TODO: Explore better ways of doing it
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if configuration.IS_WATERMARK_SWITCHABLE == false && indexPath.section == 1 && indexPath.row == 2 || indexPath.row == 4 || indexPath.row == 5 {
-            cell.isHidden = true
-		}
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if configuration.IS_WATERMARK_SWITCHABLE == false && indexPath.section == 1 && indexPath.row == 2 {
-            return 0
-		} else if configuration.GO_TO_SHOP_ENABLED == false && indexPath.section == 1 && indexPath.row == 4 || indexPath.row == 5 {
-			return 0
-		} else {
-            return super.tableView(tableView, heightForRowAt: indexPath)
+        if indexPath.section == 1 {
+            if configuration.IS_WATERMARK_SWITCHABLE == false &&
+                indexPath.row == rows.watermark.rawValue ||
+                indexPath.row == rows.kitMojo.rawValue ||
+                indexPath.row == rows.market.rawValue {
+                cell.isHidden = true
+            }
         }
+    }
+    // TODO: Explore better ways of doing it
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 1 {
+            if configuration.IS_WATERMARK_SWITCHABLE == false &&
+                indexPath.row == rows.watermark.rawValue {
+                return 0
+            } else if configuration.GO_TO_SHOP_ENABLED == false &&
+                indexPath.row == rows.kitMojo.rawValue ||
+                indexPath.row == rows.market.rawValue {
+                return 0
+            } else {
+                return super.tableView(tableView, heightForRowAt: indexPath)
+            }
+        }
+        return 0
     }
 
     @IBAction func exitButtonPushed(_ sender: Any) {
