@@ -45,7 +45,7 @@ public class VideoSettings {
     }
     private static var compressionProperties: [String: Any] = [
         AVVideoAverageBitRateKey : bitRate.value,
-        AVVideoProfileLevelKey: AVVideoProfileLevelH264High40
+        AVVideoProfileLevelKey: AVVideoProfileLevelH264HighAutoLevel
     ]
     public static var videoSettings: [String: Any] {
         return [
@@ -91,12 +91,12 @@ enum Resolution: Int {
             let isFrontCamera = device.position == .front
             switch self {
             case .sevenHundred:
-                return AVOutputSettingsPreset1280x720
+                return AVCaptureSessionPreset1280x720
             case .oneThousand:
-                return isFrontCamera ? AVOutputSettingsPreset1920x1080 : AVCaptureSessionPreset1280x720
+                return isFrontCamera ? AVCaptureSessionPreset1920x1080 : AVCaptureSessionPreset1920x1080
             case .fourThousand:
                 return isFrontCamera ?
-                AVOutputSettingsPreset3840x2160 : AVCaptureSessionPreset1280x720
+                AVCaptureSessionPreset3840x2160: AVCaptureSessionPreset1280x720
             }
         }
     }

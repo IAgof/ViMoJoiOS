@@ -115,8 +115,8 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
 				fourKResolutionButton.isEnabled = true
 				fourKResolutionButton.isHidden = false
 			} else {
-				fourKResolutionButton.isEnabled = false
-				fourKResolutionButton.isHidden = true
+                fourKResolutionButton.isEnabled = false
+                fourKResolutionButton.isHidden = true
 			}
 		case .front:
 			fourKResolutionButton.isEnabled = false
