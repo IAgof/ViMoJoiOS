@@ -8,9 +8,9 @@
 
 import Foundation
 
-var configuration: ConfigurationProtocol = M4NConfiguration()
+var configuration: ConfigurationProtocol = ElConfidencialConfiguration()
 
-final class M4NConfiguration: ConfigurationProtocol {
+final class ElConfidencialConfiguration: ConfigurationProtocol {
 	internal var fontName: String
 	internal var mainColor: UIColor
 	internal var plainButtonColor: UIColor
