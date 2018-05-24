@@ -73,9 +73,10 @@ public class ProjectRealmRepository: ProjectRepository {
 
     public func getCurrentProject() -> Project {
         var project = Project()
-        if !configuration.IS_WATERMARK_SWITCHABLE && !configuration.IS_WATERMARK_PURCHABLE {
-            project.hasWatermark = configuration.IS_WATERMARK_ENABLED
-        }
+        // TODO: This logic should be out getCurrentProject only be checked when creating New Project
+//        if !configuration.IS_WATERMARK_SWITCHABLE && !configuration.IS_WATERMARK_PURCHABLE {
+//            project.hasWatermark = configuration.IS_WATERMARK_ENABLED
+//        }
         do {
             let realm = try Realm()
             try realm.write {
