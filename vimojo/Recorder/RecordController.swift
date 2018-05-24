@@ -42,7 +42,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     @IBOutlet weak var exposureModesButton: UIButton!
     @IBOutlet weak var defaultModesButton: UIButton!
     @IBOutlet weak var recordAreaContainerView: UIView!
-    @IBOutlet weak var jackStackView: UIStackView!
+    @IBOutlet weak var picometerStackView: UIStackView!
 
     @IBOutlet weak var drawerButtonRight: UIButton!
     
@@ -748,11 +748,11 @@ extension RecordController:RecordPresenterDelegate {
     func showMicLevelView() {
         let audioLevelBar = AudioLevelBar(frame: .zero)
         audioLevelBar.snp.makeConstraints {
-            $0.width.equalTo(100)
-            $0.height.equalTo(4)
+            $0.width.equalTo(picometerStackView.width * 0.8).priority(999)
+            $0.height.equalTo(picometerStackView.height * 0.5).priority(999)
         }
         audioLevelBar.alpha = 0.5
-        jackStackView.addArrangedSubview(audioLevelBar)
+        picometerStackView.addArrangedSubview(audioLevelBar)
         self.audioLevelBar = audioLevelBar
     }
     
