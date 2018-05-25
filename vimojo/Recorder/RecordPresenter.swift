@@ -728,20 +728,24 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     }
 
     func setMicButtonState(_ state: Bool) {
-        if !state {
-            delegate?.showJackMicButton()
-            return
-        } else {
-            delegate?.hideJackMicButton()
-        }
+		DispatchQueue.main.async(execute: {
+			if !state {
+				self.delegate?.showJackMicButton()
+				return
+			} else {
+				self.delegate?.hideJackMicButton()
+			}
+		})
     }
 
     func setDeviceButtonState(_ state: Bool) {
-        if !state {
-            delegate?.showFrontMicButton()
-        } else {
-            delegate?.hideFrontMicButton()
-        }
+		DispatchQueue.main.async(execute: {
+		  if !state {
+			  self.delegate?.showFrontMicButton()
+		  } else {
+			  self.delegate?.hideFrontMicButton()
+		  }
+		})
     }
 
     dynamic fileprivate func audioRouteChangeListener(_ notification: Notification) {
