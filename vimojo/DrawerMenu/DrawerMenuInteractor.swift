@@ -16,6 +16,7 @@ class DrawerMenuInteractor: DrawerMenuInteractorInterface {
 
     init(project: Project) {
         self.project = project
+        setWatermarkStatus(project.hasWatermark)
     }
 
     func createNewProject() {
@@ -33,5 +34,10 @@ class DrawerMenuInteractor: DrawerMenuInteractorInterface {
     func removePhoto() {
         UserDefaults.standard.set(nil, forKey: SettingsConstants().SETTINGS_PHOTO_USER)
         delegate?.imageIsSave()
-  }
+    }
+    
+    func setWatermarkStatus(_ value: Bool) {
+        project.hasWatermark = value
+        ProjectRealmRepository().update(item: project)
+    }
 }

@@ -12,7 +12,13 @@ import VideonaProject
 public class CreateNewProjectUseCase {
     func create( project: Project) {
         project.clear()
-
+        checkWatermarkStatus(project: project)
         ProjectRealmRepository().add(item: project)
+    }
+}
+
+func checkWatermarkStatus(project: Project) {
+    if !configuration.IS_WATERMARK_SWITCHABLE && !configuration.IS_WATERMARK_PURCHABLE {
+        project.hasWatermark = configuration.IS_WATERMARK_ENABLED
     }
 }

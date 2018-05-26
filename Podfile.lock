@@ -5,18 +5,18 @@ PODS:
   - Fabric (1.6.13)
   - FSPagerView (0.7.1)
   - GoogleSignIn (4.1.0):
-    - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
-    - GoogleToolboxForMac/NSString+URLArguments (~> 2.1)
+    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
+    - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
     - GTMOAuth2 (~> 1.0)
     - GTMSessionFetcher/Core (~> 1.1)
   - GoogleToolboxForMac/DebugUtils (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GoogleToolboxForMac/Defines (2.1.1)
-  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.1):
+  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.1.1)":
     - GoogleToolboxForMac/DebugUtils (= 2.1.1)
     - GoogleToolboxForMac/Defines (= 2.1.1)
-    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
-  - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
+    - "GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)"
+  - "GoogleToolboxForMac/NSString+URLArguments (2.1.1)"
   - GTMOAuth2 (1.1.5):
     - GTMSessionFetcher (~> 1.1)
   - GTMSessionFetcher (1.1.12):
@@ -27,7 +27,23 @@ PODS:
   - KCFloatingActionButton (2.2.0)
   - MBCircularProgressBar (0.3.4)
   - Mixpanel (3.2.1)
+  - Moya (9.0.0):
+    - Moya/Core (= 9.0.0)
+  - Moya-ObjectMapper/Core (2.4.2):
+    - Moya (~> 9.0)
+    - ObjectMapper (~> 2.2)
+  - Moya-ObjectMapper/RxSwift (2.4.2):
+    - Moya-ObjectMapper/Core
+    - Moya/RxSwift
+    - RxSwift (~> 3.3)
+  - Moya/Core (9.0.0):
+    - Alamofire (~> 4.1)
+    - Result (~> 3.0)
+  - Moya/RxSwift (9.0.0):
+    - Moya/Core
+    - RxSwift (~> 3.3)
   - NMRangeSlider (1.2.1)
+  - ObjectMapper (2.2.9)
   - Permission/Camera (2.0.4):
     - Permission/Core
   - Permission/Core (2.0.4)
@@ -40,9 +56,15 @@ PODS:
   - Realm/Headers (2.10.2)
   - RealmSwift (2.10.2):
     - Realm (= 2.10.2)
+  - Result (3.2.4)
+  - RxCocoa (3.6.1):
+    - RxSwift (~> 3.6)
+  - RxSwift (3.6.1)
   - SnapKit (3.0.2)
   - SwifterSwift (1.6.4)
+  - TransitionButton (0.3.0)
   - TTRangeSlider (1.0.5)
+  - Whisper (5.1.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -53,14 +75,47 @@ DEPENDENCIES:
   - KCFloatingActionButton
   - MBCircularProgressBar (= 0.3.4)
   - Mixpanel
+  - Moya-ObjectMapper/RxSwift (= 2.4.2)
   - NMRangeSlider (~> 1.2)
   - Permission/Camera
   - Permission/Microphone
   - Permission/Photos
   - RealmSwift
+  - RxCocoa (~> 3.0)
   - SnapKit (~> 3.0.0)
   - SwifterSwift (~> 1.2)
+  - TransitionButton (= 0.3.0)
   - TTRangeSlider
+  - Whisper (= 5.1.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Crashlytics
+    - Fabric
+    - FSPagerView
+    - GoogleSignIn
+    - GoogleToolboxForMac
+    - GTMOAuth2
+    - GTMSessionFetcher
+    - KCFloatingActionButton
+    - MBCircularProgressBar
+    - Mixpanel
+    - Moya
+    - Moya-ObjectMapper
+    - NMRangeSlider
+    - ObjectMapper
+    - Permission
+    - Realm
+    - RealmSwift
+    - Result
+    - RxCocoa
+    - RxSwift
+    - SnapKit
+    - SwifterSwift
+    - TransitionButton
+    - TTRangeSlider
+    - Whisper
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
@@ -74,14 +129,22 @@ SPEC CHECKSUMS:
   KCFloatingActionButton: 8c71fa25774e422c8d407f82b4b27809d0cd5233
   MBCircularProgressBar: ff3b8e2f441214d9ee122a24ba0d4d00cc7de881
   Mixpanel: a88b1db0a1e381f9d37a1756aa37a9c670d22f61
+  Moya: cf5e6ee93af526532f92614004b8ad2ea60fd845
+  Moya-ObjectMapper: 96cde46cc673000dc45dde7c476b2d53d59f0159
   NMRangeSlider: 317ded652431eb90501c8421d9cddc3930d891e6
+  ObjectMapper: 63cfe41bc6f8e7c8f44344c49901b8ae7de14c52
   Permission: 6853b9694e66a6c9197468c66d1935c3629cbf9c
   Realm: 0ef72b837fb67e9f4b098bac771ddd72c7fdbb69
   RealmSwift: 07a9ae0505091eda6b2ee7c190c3786d6e90a7b0
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
+  RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   SwifterSwift: 92c73c47c3cbf7d5f788adf6459bf07b5d23d3fb
+  TransitionButton: 0bf7e5ffe80030f9d10d57983a04acf2f511998a
   TTRangeSlider: 2f2ce4a33b32bb323c6575b9f5161c4664459c58
+  Whisper: 62e406a71a288476e605a4db06de8c6975bbb350
 
-PODFILE CHECKSUM: 06752bb47ec9ab9720d944af2cfd40e558dba03f
+PODFILE CHECKSUM: 64f6d75a3950383d99ff1808e8c496a13b3314d8
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

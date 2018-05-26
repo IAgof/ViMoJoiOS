@@ -17,5 +17,9 @@ protocol ConfigurationProtocol {
 
     var VOICE_OVER_FEATURE: Bool {get}
     var FTP_FEATURE: Bool {get}
-    var WATERMARK_FEATURE: Bool {get}
+    
+    var IS_WATERMARK_PURCHABLE: Bool {get}
+    var IS_WATERMARK_SWITCHABLE: Bool {get}
+    var IS_WATERMARK_ENABLED: Bool {get}
+	var GO_TO_SHOP_ENABLED: Bool {get}
 }

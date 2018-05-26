@@ -22,6 +22,7 @@ struct User: UserProtocol, Mappable {
     var email: String?
     var id: String?
     var token: String?
+    var pic: String?
     init?(map: Map) {
         mapping(map: map)
     }
@@ -39,10 +40,11 @@ struct User: UserProtocol, Mappable {
     }
     // Mappable
     mutating func mapping(map: Map) {
-        name <- map["name"]
+        name <- map["username"]
         password <- map["password"]
         email <- map["email"]
         id <- map["_id"]
         token <- map["token"]
+        pic <- map["pic"]
     }
 }

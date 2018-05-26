@@ -8,6 +8,17 @@
 
 import UIKit
 
+enum rows: Int {
+    case projects = 0
+    case newProjects
+    case watermark
+    case settings
+    case kitMojo
+    case shop
+    case recTutorial
+    case editTutorial
+}
+
 class DrawerMenuTableViewController: UITableViewController {
     var eventHandler: DrawerMenuPresenterInterface?
 
@@ -16,18 +27,19 @@ class DrawerMenuTableViewController: UITableViewController {
     
     var watermarkIsEnabled: Bool = PurchaseProduct.removeWatermark.isEnabled {
         didSet {
-            watermarkSwitch.setOn(PurchaseProduct.removeWatermark.isEnabled,
-                                  animated: true)
+            watermarkSwitch.setOn(watermarkIsEnabled, animated: true)
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         userContentView.backgroundColor = configuration.mainColor
-        watermarkIsEnabled = PurchaseProduct.removeWatermark.isEnabled
     }
 
     override func viewWillAppear(_ animated: Bool) {
 		self.navigationController?.isNavigationBarHidden = false
+        eventHandler?.loadWatermarkState {
+            watermarkIsEnabled = $0
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,6 +52,34 @@ class DrawerMenuTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         eventHandler?.didSelectAtIndexPath(indexPath: indexPath)
+    }
+    // TODO: Explore better ways of doing it
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            if configuration.IS_WATERMARK_SWITCHABLE == false &&
+                indexPath.row == rows.watermark.rawValue {
+                cell.isHidden = true
+            } else if configuration.GO_TO_SHOP_ENABLED == false &&
+                (indexPath.row == rows.kitMojo.rawValue ||
+                indexPath.row == rows.shop.rawValue) {
+                cell.isHidden = true
+            }
+        }
+    }
+    // TODO: Explore better ways of doing it
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if configuration.IS_WATERMARK_SWITCHABLE == false &&
+            indexPath.section == 1 &&
+            indexPath.row == rows.watermark.rawValue {
+            return 0
+        } else if configuration.GO_TO_SHOP_ENABLED == false &&
+            indexPath.section == 1 &&
+            (indexPath.row == rows.kitMojo.rawValue ||
+            indexPath.row == rows.shop.rawValue) {
+            return 0
+        } else {
+            return super.tableView(tableView, heightForRowAt: indexPath)
+        }
     }
 
     @IBAction func exitButtonPushed(_ sender: Any) {

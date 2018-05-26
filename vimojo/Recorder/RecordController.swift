@@ -42,7 +42,8 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     @IBOutlet weak var exposureModesButton: UIButton!
     @IBOutlet weak var defaultModesButton: UIButton!
     @IBOutlet weak var recordAreaContainerView: UIView!
-    
+    @IBOutlet weak var picometerStackView: UIStackView!
+
     @IBOutlet weak var drawerButtonRight: UIButton!
     
     // MARK: - Custom
@@ -54,7 +55,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     @IBOutlet weak var wbConfigurationView: WhiteBalanceView!
     @IBOutlet weak var exposureConfigurationView: ExposureView!
     @IBOutlet weak var overlayGrid: UIImageView!
-    @IBOutlet weak var audioLevelView: AudioLevelBarView!
     @IBOutlet weak var focusView: FocusView!
     @IBOutlet weak var focalLensSliderView: FocalLensSliderView!
     @IBOutlet weak var expositionModesView: ExpositionModesView!
@@ -88,6 +88,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     var alertController: UIAlertController?
     var tapDisplay: UIGestureRecognizer?
     var pinchDisplay: UIPinchGestureRecognizer?
+    var audioLevelBar: AudioLevelBar!
     
     var defaultThumbImage: UIImage {
         guard let image = UIImage(named: "activity_rec_gallery") else {
@@ -112,6 +113,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
                 dataOutput: previewView.dataOutput,
                 audioDataOutput: previewView.audioDataOutput,
                 outputURL: previewView.tempURL))
+            showMicLevelView()
         }
         self.configureViews()
         // Try to allow rotation -- It's just boring to landscape the capture in a static mode
@@ -150,7 +152,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         // Allow protocols to be injected in this controller as extensions of RecordController class
         batteryView.delegate = self
         spaceOnDiskView.delegate = self
-        audioLevelView.delegate = self
         focusView.delegate = self
         expositionModesView.delegate = self
         resolutionsView.delegate = self
@@ -280,11 +281,11 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     
     // MARK: - Button Actions
     @IBAction func pushRecord(_ sender: AnyObject) {
-        eventHandler?.pushRecord("pro")
+        eventHandler?.pushRecord()
     }
     
     @IBAction func pushRecordSecondary(_ sender: AnyObject) {
-        eventHandler?.pushRecord("simple")
+        eventHandler?.pushRecord()
     }
     
     @IBAction func pushFlash(_ sender: AnyObject) {
@@ -744,12 +745,15 @@ extension RecordController:RecordPresenterDelegate {
         whiteBalanceButton.isSelected = false
     }
     
-    func getMicValues() {
-        audioLevelView.getAudioLevel()
-    }
-    
     func showMicLevelView() {
-        audioLevelView.isHidden = false
+        let audioLevelBar = AudioLevelBar(frame: .zero)
+        audioLevelBar.snp.makeConstraints {
+            $0.width.equalTo(picometerStackView.width * 0.8).priority(999)
+            $0.height.equalTo(picometerStackView.height * 0.5).priority(999)
+        }
+        audioLevelBar.alpha = 0.5
+        picometerStackView.addArrangedSubview(audioLevelBar)
+        self.audioLevelBar = audioLevelBar
     }
     
     func selectInputGainSliderView() {
@@ -830,14 +834,6 @@ extension RecordController:RecordPresenterDelegate {
     
     func setResolutionToView(_ resolution: String) {
         resolutionsView.setResolutionAtInit(resolution)
-    }
-    
-    func hideThumbnailButtonAndLabel() {
-        fadeOutView([thumbnailViewParent])
-    }
-    
-    func showThumbnailButtonAndLabel() {
-        fadeInView([thumbnailViewParent])
     }
     
     func showRecordChronometerContainer() {
@@ -992,10 +988,6 @@ extension RecordController:RecordPresenterDelegate {
         secondaryRecordingIndicator.alpha = 0.0;
     }
     
-    func setAudioColor(_ color: UIColor) {
-        audioLevelView.setBarColor(color)
-    }
-    
     func hideSecondaryRecordingIndicator() {
         secondaryRecordingIndicator.fadeIn()
         // secondaryRecordingIndicator.isEnabled = false
@@ -1030,13 +1022,6 @@ extension RecordController:SpaceOnDiskDelegate {
     }
     func memoryValuesUpdated(_ value: Float) {
         eventHandler?.memoryValuesUpdate(value)
-    }
-}
-
-// MARK: - AudioLevelBar delegate
-extension RecordController:AudioLevelBarDelegate {
-    func audioLevelChange(_ value: Float) {
-        eventHandler?.audioLevelHasChanged(value)
     }
 }
 

@@ -26,8 +26,26 @@ enum LoginResonse {
 }
 enum LoginState {
     case idle, loggedIn(user: User)
+    
+    static var defaultsKey = "LoginStateDefaultKey"
+    
+    static func loadState() {
+        guard let user = UserDefaults.standard.value(forKey: LoginState.defaultsKey) as? [String: Any],
+        let userMapped = User(JSON: user )
+            else { return }
+        loginState = .loggedIn(user: userMapped)
+    }
 }
-var loginState: LoginState = .idle
+var loginState: LoginState = .idle {
+    didSet {
+        switch loginState {
+        case .idle:
+            UserDefaults.standard.set(nil, forKey: LoginState.defaultsKey)
+        case .loggedIn(let user):
+            UserDefaults.standard.set(user.toJSON(), forKey: LoginState.defaultsKey)
+        }
+    }
+}
 
 class LoginInteractor: LoginInteractorInputProtocol {
 
