@@ -27,18 +27,19 @@ class DrawerMenuTableViewController: UITableViewController {
     
     var watermarkIsEnabled: Bool = PurchaseProduct.removeWatermark.isEnabled {
         didSet {
-            watermarkSwitch.setOn(PurchaseProduct.removeWatermark.isEnabled,
-                                  animated: true)
+            watermarkSwitch.setOn(watermarkIsEnabled, animated: true)
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         userContentView.backgroundColor = configuration.mainColor
-        watermarkIsEnabled = PurchaseProduct.removeWatermark.isEnabled
     }
 
     override func viewWillAppear(_ animated: Bool) {
 		self.navigationController?.isNavigationBarHidden = false
+        eventHandler?.loadWatermarkState {
+            watermarkIsEnabled = $0
+        }
     }
 
     override func didReceiveMemoryWarning() {
