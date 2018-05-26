@@ -281,11 +281,11 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     
     // MARK: - Button Actions
     @IBAction func pushRecord(_ sender: AnyObject) {
-        eventHandler?.pushRecord("pro")
+        eventHandler?.pushRecord()
     }
     
     @IBAction func pushRecordSecondary(_ sender: AnyObject) {
-        eventHandler?.pushRecord("simple")
+        eventHandler?.pushRecord()
     }
     
     @IBAction func pushFlash(_ sender: AnyObject) {
@@ -834,14 +834,6 @@ extension RecordController:RecordPresenterDelegate {
     
     func setResolutionToView(_ resolution: String) {
         resolutionsView.setResolutionAtInit(resolution)
-    }
-    
-    func hideThumbnailButtonAndLabel() {
-        fadeOutView([thumbnailViewParent])
-    }
-    
-    func showThumbnailButtonAndLabel() {
-        fadeInView([thumbnailViewParent])
     }
     
     func showRecordChronometerContainer() {

@@ -42,6 +42,9 @@ enum CameraStatus: Int {
 		case .cameraBasic: return 1
 		}
 	}
+    var isCameraPro: Bool {
+        return self == .cameraPro
+    }
 }
 
 enum CameraPosition: String {
