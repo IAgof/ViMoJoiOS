@@ -17,6 +17,7 @@ protocol DrawerMenuPresenterInterface {
     func removePhoto()
     func switchWatermark()
     func saveImageSelected(image: UIImage)
+    func loadWatermarkState(state: (Bool) -> Void)
 }
 
 protocol DrawerMenuPresenterDelegate {
