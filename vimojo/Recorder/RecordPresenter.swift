@@ -14,7 +14,6 @@ struct IconsImage {
     var normal: UIImage!
     var pressed: UIImage!
 }
-
 class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDelegate, TimerInteractorDelegate {
     // MARK: - Variables VIPER
     var delegate: RecordPresenterDelegate?
@@ -102,7 +101,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         lastOrientationEnabled = UIDevice.current.orientation.rawValue
         DispatchQueue.global().async {
             if self.isRecording {
-                self.stopRecord("")
+                self.stopRecord()
             }
             runOnDevice {
                 FlashInteractor().turnOffIfIsOn()
@@ -132,9 +131,9 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         })
     }
 
-    func pushRecord(_ sender: String) {
+    func pushRecord() {
         if isRecording {
-            self.stopRecord(sender)
+            self.stopRecord()
         } else {
 			self.startRecord()
         }
@@ -164,6 +163,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     }
 	
 	func pushCameraSimple() {
+        CamSettings.cameraStatus = .cameraBasic
 		DispatchQueue.main.async(execute: {
 			self.delegate?.hideUpperContainerView()
 			self.delegate?.hideSettingsContainerView()
@@ -179,7 +179,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 	}
 	
 	func pushCameraPro() {
-		// TO-DO: This must be in interactor and not presenter
 		CamSettings.cameraStatus = .cameraPro
 		DispatchQueue.main.async(execute: {
 			self.delegate?.hideCameraSimpleView()
@@ -479,29 +478,11 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         delegate?.setMemoryIcon(getMemoryIcon(value))
     }
 
-    func audioLevelHasChanged(_ value: Float) {
-        delegate?.setAudioColor(getAudioLevelColor(value))
-    }
-
     func saveResolutionToDefaults(_ resolution: String) {
         interactor?.saveResolution(resolution: resolution)
     }
 
     // MARK: - Inner functions
-    func getAudioLevelColor(_ value: Float) -> UIColor {
-        switch value {
-        case 0 ... 0.5:
-            return UIColor.green
-        case 0.5 ... 0.6:
-            return UIColor.yellow
-        case 0.6 ... 0.8:
-            return UIColor.orange
-        case 0.8 ... 1:
-            return UIColor.red
-        default:
-            return UIColor.green
-        }
-    }
 
     func startRecord() {
         self.trackStartRecord()
@@ -513,7 +494,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 			  self.delegate?.recordButtonSecondaryEnable(true)
 			  self.delegate?.selectRecordButton()
 			  self.delegate?.selectSecondaryRecordButton()
-			  self.delegate?.hideThumbnailButtonAndLabel()
+			  self.delegate?.hideClipsRecordedView()
 			  self.delegate?.startRecordingIndicatorBlink()
 			  self.delegate?.startSecondaryRecordingIndicatorBlink()
 			  self.delegate?.showDrawerButton()
@@ -525,16 +506,13 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         self.startTimer()
     }
 
-	func stopRecord(_ sender: String) {
+	func stopRecord() {
         self.trackStopRecord()
 
         isRecording = false
         DispatchQueue.global().async {
 			self.cameraInteractor?.stopRecording()
             DispatchQueue.main.async(execute: {
-				if sender == "pro" {
-					self.delegate?.showThumbnailButtonAndLabel()
-				}
 				self.delegate?.blockCameraWhenRecording(true)
 				self.delegate?.setDrawerGestureStatus(true)
 				self.delegate?.selectRecordButton()
@@ -553,6 +531,9 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 	func allowRecord() {
 		DispatchQueue.main.async(execute: {
 			self.delegate?.recordButtonEnable(true)
+            if CamSettings.cameraStatus.isCameraPro {
+                self.delegate?.showClipsRecordedView()
+            }
 		})
 	}
 
@@ -738,30 +719,32 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
                 // Headphones located
                 setMicButtonState(true)
                 setDeviceButtonState(false)
-                delegate?.getMicValues()
             } else {
                 setMicButtonState(false)
                 setDeviceButtonState(true)
-                delegate?.getMicValues()
             }
         }
     }
 
     func setMicButtonState(_ state: Bool) {
-        if !state {
-            delegate?.showJackMicButton()
-            return
-        } else {
-            delegate?.hideJackMicButton()
-        }
+		DispatchQueue.main.async(execute: {
+			if !state {
+				self.delegate?.showJackMicButton()
+				return
+			} else {
+				self.delegate?.hideJackMicButton()
+			}
+		})
     }
 
     func setDeviceButtonState(_ state: Bool) {
-        if !state {
-            delegate?.showFrontMicButton()
-        } else {
-            delegate?.hideFrontMicButton()
-        }
+		DispatchQueue.main.async(execute: {
+		  if !state {
+			  self.delegate?.showFrontMicButton()
+		  } else {
+			  self.delegate?.hideFrontMicButton()
+		  }
+		})
     }
 
     dynamic fileprivate func audioRouteChangeListener(_ notification: Notification) {
