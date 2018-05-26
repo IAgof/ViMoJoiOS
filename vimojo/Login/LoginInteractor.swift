@@ -75,5 +75,10 @@ class LoginInteractor: LoginInteractorInputProtocol {
                 completion(self.responseHandler(value))
             }
         }
+        loginProvider.request(.upload(data: Data()), progress: { (progress) in
+            
+        }) { (response) in
+            
+        }
     }
 }

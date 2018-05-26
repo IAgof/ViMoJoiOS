@@ -29,6 +29,7 @@ enum UserAPI {
     case login(user: User)
     case logout
     case register(user: User)
+    case upload(data: Data)
 }
 extension UserAPI: TargetType {
     var baseURL: URL {
@@ -39,12 +40,13 @@ extension UserAPI: TargetType {
             case .login: return "/login"
             case .logout: return "/user/logout"
             case .register: return "/user"
+            case .upload: return "/video"
         }
     }
     var method: Moya.Method {
         switch self {
         case .logout : return .get
-        case .login, .register: return .post
+        case .login, .register, .upload: return .post
         }
     }
     var sampleData: Data {
@@ -80,6 +82,7 @@ extension UserAPI: TargetType {
             print(user.toJSON())
             return .requestParameters(parameters: user.toJSON(),
                                       encoding: URLEncoding.default)
+        case .upload(let data): return .requestPlain
         }
     }
     var validate: Bool {
