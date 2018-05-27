@@ -10,7 +10,7 @@ import Foundation
 import Moya
 import Moya_ObjectMapper
 
-let loginProvider = MoyaProvider<UserAPI>()
+var loginProvider = MoyaProvider<UserAPI>()
 var baseURLString: String {
     return "http://beta.viday.co/api/v1"
     //    return (Bundle.main.infoDictionary!["API_BASE_URL_ENDPOINT"] as? String) ?? ""
@@ -82,13 +82,30 @@ extension UserAPI: TargetType {
             print(user.toJSON())
             return .requestParameters(parameters: user.toJSON(),
                                       encoding: URLEncoding.default)
-        case .upload(let data): return .requestPlain
+        case .upload(let data):
+            return .uploadCompositeMultipart([
+                MultipartFormData(provider: .data(data),
+                                  name: "file",
+                                  fileName: "video.mp4",
+                                  mimeType: "application/octet-stream")
+                ], urlParameters: [
+                    "title" : "Alejandro's video",
+                    "description" : "Alejandro's video description",
+                    "owner" : loginState.user?.id ?? "noId"
+                ])
         }
     }
     var validate: Bool {
         return false
     }
     var headers: [String: String]? {
-        return nil
+        switch self {
+        case .upload:
+            guard let user = loginState.user else {
+                return nil
+            }
+            return ["Autorization" : "Bearer \(user.token ?? "")"]
+        default: return nil
+        }
     }
 }

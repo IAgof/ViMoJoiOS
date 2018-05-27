@@ -52,6 +52,11 @@ end
 target 'vimojoUITests' do
 	shared_pods
 end
+target 'vimojoTests' do
+    shared_pods
+    pod 'Quick'
+    pod 'Nimble'
+end
 
 
 post_install do |installer|
