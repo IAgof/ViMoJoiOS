@@ -9,7 +9,6 @@
 //
 
 import UIKit
-import AVFoundation
 
 class RecordingCameraConfigurationViewController: UIViewController, RecordingCameraConfigurationViewProtocol {
 
