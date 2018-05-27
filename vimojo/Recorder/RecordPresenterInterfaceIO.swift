@@ -184,4 +184,6 @@ protocol RecordPresenterDelegate {
     func tutorialEnabled(_ sender: Bool)
 
 	func checkCameraProSupportedFeatures()
+    
+    func showGainButton(_ value: Bool)
 }

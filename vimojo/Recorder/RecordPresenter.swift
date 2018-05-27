@@ -739,11 +739,12 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
     func setDeviceButtonState(_ state: Bool) {
 		DispatchQueue.main.async(execute: {
-		  if !state {
-			  self.delegate?.showFrontMicButton()
-		  } else {
-			  self.delegate?.hideFrontMicButton()
-		  }
+            self.delegate?.showGainButton(state)
+            if !state {
+                self.delegate?.showFrontMicButton()
+            } else {
+                self.delegate?.hideFrontMicButton()
+            }
 		})
     }
 

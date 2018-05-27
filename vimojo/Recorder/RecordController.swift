@@ -888,6 +888,11 @@ extension RecordController:RecordPresenterDelegate {
         fadeInView([modeContainerView])
     }
     
+    func showGainButton(_ value: Bool) {
+        gainButton.isSelected = value
+        gainButton.isHidden = value
+    }
+    
     func hideUpperContainerView() {
         fadeOutView([upperContainerView])
     }
