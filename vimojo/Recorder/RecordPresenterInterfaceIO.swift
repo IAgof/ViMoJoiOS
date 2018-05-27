@@ -14,7 +14,7 @@ protocol RecordPresenterInterface {
     func viewWillDisappear()
     func viewWillAppear()
 
-    func pushRecord(_ sender: String)
+    func pushRecord()
     func pushFlash()
     func pushVideoSettingsConfig()
     func thumbnailHasTapped()
@@ -47,7 +47,6 @@ protocol RecordPresenterInterface {
 
     func batteryValuesUpdate(_ value: Float)
     func memoryValuesUpdate(_ value: Float)
-    func audioLevelHasChanged(_ value: Float)
 
     func saveResolutionToDefaults(_ resolution: String)
 	
@@ -102,8 +101,6 @@ protocol RecordPresenterDelegate {
     func setBatteryIcon(_ images: IconsImage)
     func setMemoryIcon(_ images: IconsImage)
 
-    func setAudioColor(_ color: UIColor)
-
     func updateBatteryValues()
     func hideBatteryView()
 
@@ -116,8 +113,6 @@ protocol RecordPresenterDelegate {
     func showWBConfigView()
     func hideWBConfigView()
 
-    func getMicValues()
-    func showMicLevelView()
     func selectInputGainSliderView()
     func deselectInputGainSliderView()
 
@@ -137,9 +132,6 @@ protocol RecordPresenterDelegate {
 
     func showExposureModesView()
     func hideExposureModesView()
-
-    func hideThumbnailButtonAndLabel()
-    func showThumbnailButtonAndLabel()
 
     func showRecordChronometerContainer()
     func hideRecordChronometerContainer()
