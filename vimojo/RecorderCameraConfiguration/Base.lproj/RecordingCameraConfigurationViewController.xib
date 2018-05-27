@@ -13,7 +13,7 @@
             <connections>
                 <outlet property="cameraBasicButton" destination="7PJ-Yb-X6V" id="jqe-Bc-EiH"/>
                 <outlet property="cameraProButton" destination="tFb-0u-fHV" id="y6H-B1-eXm"/>
-                <outlet property="fourKResolutionButton" destination="tWA-us-2Kf" id="6vv-lj-ewi"/>
+                <outlet property="fourKResolutionButton" destination="lpA-nk-ZQB" id="G5X-sF-Zx3"/>
                 <outlet property="frontRearSegControl" destination="IIr-OD-mhp" id="5ZW-jE-vQK"/>
                 <outlet property="okButton" destination="vLm-PZ-MER" id="DS6-ds-jbc"/>
                 <outlet property="oneEightyResolutionButton" destination="t2e-Yu-XbC" id="dDX-cB-Urj"/>
@@ -129,38 +129,33 @@
                                                 <action selector="oneEightyResolutionPush:" destination="-1" eventType="touchUpInside" id="Isi-oi-My0"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWA-us-2Kf" customClass="SSRadioButton" customModule="ElConfidencial" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpA-nk-ZQB" customClass="SSRadioButton" customModule="ElConfidencial" customModuleProvider="target">
                                             <rect key="frame" x="40" y="93.5" width="219" height="30"/>
-                                            <state key="normal" title="4K"/>
+                                            <state key="normal" title="4k"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
                                                     <real key="value" value="10"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <action selector="fourKResolutionPush:" destination="-1" eventType="touchUpInside" id="NCa-0m-bdT"/>
+                                                <action selector="fourKResolutionPush:" destination="-1" eventType="touchUpInside" id="AZw-qX-z5S"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstItem="lpA-nk-ZQB" firstAttribute="top" secondItem="t2e-Yu-XbC" secondAttribute="bottom" id="1KF-Ya-VpV"/>
                                         <constraint firstItem="9ZS-yE-OVr" firstAttribute="top" secondItem="lCN-Ih-1g9" secondAttribute="bottom" constant="5" id="1by-mX-e0Q"/>
                                         <constraint firstAttribute="trailing" secondItem="9ZS-yE-OVr" secondAttribute="trailing" constant="10" id="Abq-Yo-19x"/>
                                         <constraint firstItem="t2e-Yu-XbC" firstAttribute="top" secondItem="9ZS-yE-OVr" secondAttribute="bottom" id="CkH-ub-nqB"/>
+                                        <constraint firstItem="lpA-nk-ZQB" firstAttribute="trailing" secondItem="t2e-Yu-XbC" secondAttribute="trailing" id="GUQ-kg-dhA"/>
                                         <constraint firstItem="t2e-Yu-XbC" firstAttribute="leading" secondItem="TWZ-4c-1F2" secondAttribute="leading" constant="40" id="Jt4-Bz-BMr"/>
                                         <constraint firstItem="9ZS-yE-OVr" firstAttribute="leading" secondItem="TWZ-4c-1F2" secondAttribute="leading" constant="40" id="Kxs-P5-ZQI"/>
                                         <constraint firstItem="lCN-Ih-1g9" firstAttribute="centerX" secondItem="TWZ-4c-1F2" secondAttribute="centerX" id="SCD-fT-n8l"/>
-                                        <constraint firstAttribute="trailing" secondItem="tWA-us-2Kf" secondAttribute="trailing" constant="10" id="Zmg-Cu-Heb"/>
-                                        <constraint firstItem="tWA-us-2Kf" firstAttribute="top" secondItem="t2e-Yu-XbC" secondAttribute="bottom" id="e1d-kd-mgl"/>
+                                        <constraint firstItem="lpA-nk-ZQB" firstAttribute="leading" secondItem="t2e-Yu-XbC" secondAttribute="leading" id="TIf-NT-qiN"/>
                                         <constraint firstItem="lCN-Ih-1g9" firstAttribute="top" secondItem="TWZ-4c-1F2" secondAttribute="top" constant="8" id="qgR-FU-3SB"/>
                                         <constraint firstAttribute="trailing" secondItem="t2e-Yu-XbC" secondAttribute="trailing" constant="10" id="t1q-xf-eHo"/>
-                                        <constraint firstItem="tWA-us-2Kf" firstAttribute="leading" secondItem="TWZ-4c-1F2" secondAttribute="leading" constant="40" id="tfY-UW-akI"/>
                                     </constraints>
-                                    <variation key="default">
-                                        <mask key="subviews">
-                                            <exclude reference="tWA-us-2Kf"/>
-                                        </mask>
-                                    </variation>
                                 </view>
                             </subviews>
                         </stackView>
