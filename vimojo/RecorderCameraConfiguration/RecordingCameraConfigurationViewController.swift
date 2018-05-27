@@ -9,7 +9,6 @@
 //
 
 import UIKit
-import AVFoundation
 
 class RecordingCameraConfigurationViewController: UIViewController, RecordingCameraConfigurationViewProtocol {
 
@@ -25,7 +24,8 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
 	@IBOutlet weak var sixtyFpsButton: UIButton!
     @IBOutlet weak var sixteenMbpsButton: UIButton!
     @IBOutlet weak var thirtyTwoMbpsButton: UIButton!
-    
+    @IBOutlet weak var frontRearSegControl: UISegmentedControl!
+
     // MARK: SSRadioControllers
     var cameraSSRBController: SSRadioButtonsController = SSRadioButtonsController()
     var resolutionSSRBController: SSRadioButtonsController = SSRadioButtonsController()
@@ -88,13 +88,19 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
     @IBAction func okPush(_ sender: Any)
     { self.navigationController?.popViewController() }
     
+    @IBAction func frontRearSegControlChanged(_ sender: UISegmentedControl) {
+        presenter?.cameraSelected(cameraIndex: sender.selectedSegmentIndex)
+    }
+    
     func setDefaultValues(loadedValues: RecordingCameraValues) {
         cameraSSRBController.pressed(cameraButtons[loadedValues.0.rawValue])
         resolutionSSRBController.pressed(resolutionButtons[loadedValues.1.rawValue])
         fpsSSRBController.pressed(fpsButtons[loadedValues.2.rawValue])
         mbpsSSRBController.pressed(mbpsButtons[loadedValues.3.rawValue])
     }
-
+    func reloadCamera() {
+        configureCameraResolutions()
+    }
 	// All resolutions in back camera supports 720 and 1080p. Only some supports 4k
 	func configureCameraResolutions() {
 		let deviceModel = UIDevice.current.modelName
@@ -115,8 +121,8 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
 				fourKResolutionButton.isEnabled = true
 				fourKResolutionButton.isHidden = false
 			} else {
-				fourKResolutionButton.isEnabled = false
-				fourKResolutionButton.isHidden = true
+                fourKResolutionButton.isEnabled = false
+                fourKResolutionButton.isHidden = true
 			}
 		case .front:
 			fourKResolutionButton.isEnabled = false
