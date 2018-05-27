@@ -855,18 +855,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         delegate?.resetZoom()
     }
 
-    func cameraRear() {
-        delegate?.showBackCameraSelected()
-        self.trackRearCamera()
-        delegate?.showFlashSupported(true)
-    }
-
-    func cameraFront() {
-        delegate?.showFrontCameraSelected()
-        self.trackFrontCamera()
-        delegate?.showFlashSupported(false)
-    }
-
     func startTimer() {
         timerInteractor = TimerInteractor()
         timerInteractor!.setDelegate(self)
