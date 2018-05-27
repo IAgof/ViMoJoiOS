@@ -747,10 +747,6 @@ extension RecordController:RecordPresenterDelegate {
     
     func showMicLevelView() {
         let audioLevelBar = AudioLevelBar(frame: .zero)
-        audioLevelBar.snp.makeConstraints {
-            $0.width.equalTo(picometerStackView.width * 0.8).priority(999)
-            $0.height.equalTo(picometerStackView.height * 0.5).priority(999)
-        }
         audioLevelBar.alpha = 0.5
         picometerStackView.addArrangedSubview(audioLevelBar)
         self.audioLevelBar = audioLevelBar
