@@ -99,7 +99,9 @@ class RecordingCameraConfigurationViewController: UIViewController, RecordingCam
         fpsSSRBController.pressed(fpsButtons[loadedValues.2.rawValue])
         mbpsSSRBController.pressed(mbpsButtons[loadedValues.3.rawValue])
     }
-
+    func reloadCamera() {
+        configureCameraResolutions()
+    }
 	// All resolutions in back camera supports 720 and 1080p. Only some supports 4k
 	func configureCameraResolutions() {
 		let deviceModel = UIDevice.current.modelName

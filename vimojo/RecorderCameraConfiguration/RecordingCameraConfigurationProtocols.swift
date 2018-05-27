@@ -54,6 +54,6 @@ protocol RecordingCameraConfigurationViewProtocol: class {
     var presenter: RecordingCameraConfigurationPresenterProtocol?  { get set }
 
 	func setDefaultValues(loadedValues: RecordingCameraValues)
-
+    func reloadCamera()
     /* Presenter -> ViewController */
 }

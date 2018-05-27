@@ -19,6 +19,7 @@ class RecordingCameraConfigurationPresenter: RecordingCameraConfigurationPresent
     private var cameraSelected: CameraPosition = .back {
         didSet {
             updateValues(cameraSelected: cameraSelected)
+            view?.reloadCamera()
         }
     }
     
