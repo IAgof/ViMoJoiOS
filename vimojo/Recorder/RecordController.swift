@@ -889,8 +889,9 @@ extension RecordController:RecordPresenterDelegate {
     }
     
     func showGainButton(_ value: Bool) {
-        gainButton.isSelected = value
+        gainButton.isSelected = !value
         gainButton.isHidden = value
+        gainButton.isEnabled = !value
     }
     
     func hideUpperContainerView() {
