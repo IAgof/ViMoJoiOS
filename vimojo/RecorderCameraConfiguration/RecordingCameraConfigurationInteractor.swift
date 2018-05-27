@@ -18,7 +18,8 @@ class RecordingCameraConfigurationInteractor: RecordingCameraConfigurationIntera
 
     weak var presenter: RecordingCameraConfigurationInteractorOutputProtocol?
     
-    func loadValues(completion: (RecordingCameraValues) -> Void ) {
+    func loadValues(with camera: CameraPosition, completion: (RecordingCameraValues) -> Void) {
+       CamSettings.cameraPosition = camera
         completion((
             CamSettings.cameraStatus,
             VideoSettings.resolution,
