@@ -120,7 +120,7 @@ enum Resolution: Int {
             case .sevenHundred:
                 return AVCaptureSessionPreset1280x720
             case .oneThousand:
-                return isFrontCamera ? AVCaptureSessionPreset1920x1080 : AVCaptureSessionPreset1920x1080
+                return isFrontCamera ? AVCaptureSessionPreset1920x1080 : AVCaptureSessionPreset1280x720
             case .fourThousand:
                 return isFrontCamera ?
                 AVCaptureSessionPreset3840x2160: AVCaptureSessionPreset1280x720
