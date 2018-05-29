@@ -675,7 +675,10 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         hideFocusIfYouCan()
         hideExposureModesIfYouCan()
         hideZoomViewIfYouCan()
-		pushGain()
+		DispatchQueue.main.async(execute: {
+		  self.delegate?.showGainSlider(false)
+		  self.inputGainViewIsShowed = false
+		})
     }
 
 	func rotateCamera() {
