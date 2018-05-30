@@ -30,6 +30,7 @@ class RecordingCameraConfigurationPresenter: RecordingCameraConfigurationPresent
     }
     
     func viewDidLoad() {
+        cameraSelected = .back
         updateValues(cameraSelected: cameraSelected)
     }
     func actionPush(with action: RecordingCameraActions) {
