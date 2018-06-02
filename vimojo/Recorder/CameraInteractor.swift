@@ -45,6 +45,9 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
         super.init()
         dataOutput?.setSampleBufferDelegate(self, queue: recordingQueue)
         audioDataOutput?.setSampleBufferDelegate(self, queue: recordingQueue)
+        setupWritter {
+            print("Okay makay!")
+        }
     }
     
     fileprivate func setUpAudioWriter(_ videoWriter: AVAssetWriter) {
@@ -75,7 +78,6 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
         guard let videoWriter = self.videoWriter else { return }
         setUpVideoWriter(videoWriter)
         setUpAudioWriter(videoWriter)
-        self.isRecordingVideo = true
         success()
     }
     fileprivate func saveOnClipsAlbum() {
@@ -105,7 +107,9 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
             if (connection.isVideoOrientationSupported) {
                 connection.videoOrientation = activeInput.device.currentVideoOrientation
             }
-            setupWritter { closure() }
+//            setupWritter { closure() }
+            self.isRecordingVideo = true
+            closure()
         }
     }
     public func stopRecording() {
@@ -114,6 +118,9 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
             self.videoWriter?.finishWriting {
                 if self.videoWriter!.status == AVAssetWriterStatus.completed {
                     self.saveOnClipsAlbum()
+                    self.setupWritter {
+                        print("Stop recording again")
+                    }
                 }
             }
         }
