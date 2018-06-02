@@ -115,6 +115,7 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
     public func stopRecording() {
         if isRecordingVideo {
             self.isRecordingVideo = false
+            self.videoWriter?.endSession(atSourceTime: lastSampleTime)
             self.videoWriter?.finishWriting {
                 if self.videoWriter!.status == AVAssetWriterStatus.completed {
                     self.saveOnClipsAlbum()
@@ -154,16 +155,20 @@ extension CameraInteractor:
         let status = videoWriter.status
         if status != .writing && status != .failed {
             videoWriter.startWriting()
-            videoWriter.startSession(atSourceTime: lastSampleTime)
+            let startingTimeDelay = CMTimeMakeWithSeconds(1, 600)
+            let startTimeToUse = CMTimeAdd(lastSampleTime, startingTimeDelay)
+            videoWriter.startSession(atSourceTime: startTimeToUse)
         }
         if videoWriter.status == .writing {
             let isVideo = output is AVCaptureVideoDataOutput
             let isAudio = output is AVCaptureAudioDataOutput
             
             if isVideo && videoWriterInput.isReadyForMoreMediaData {
-                newVideoSample(sampleBuffer: sampleBuffer)
+                guard (videoWriter.status == AVAssetWriterStatus.writing) else { return }
+                videoWriterInput.append(sampleBuffer)
             } else if isAudio && audioWriterInput.isReadyForMoreMediaData {
-                newAudioSample(sampleBuffer: sampleBuffer)
+                guard (videoWriter.status == AVAssetWriterStatus.writing) else { return }
+                audioWriterInput.append(sampleBuffer)
             }
         }
     }
