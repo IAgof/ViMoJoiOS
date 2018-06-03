@@ -19,4 +19,5 @@ protocol CameraInteractorDelegate {
 	func trackVideoRecorded(_ videoLenght: Double)
 	func updateThumbnail(videoURL: URL?)
 	func allowRecord()
+    func gotError(error: VimojoError)
 }

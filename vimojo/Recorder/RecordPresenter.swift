@@ -862,6 +862,10 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     func showFocus(_ center: CGPoint) {
         delegate?.showFocusAtPoint(center)
     }
+    
+    func gotError(error: VimojoError) {
+        delegate?.showError(error: error)
+    }
 
     // MARK: - Timer delegate
     func updateTimer(_ time: String) {

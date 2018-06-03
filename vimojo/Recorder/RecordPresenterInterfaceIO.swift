@@ -184,4 +184,5 @@ protocol RecordPresenterDelegate {
     
     func showGainButton()
 	func showGainSlider(_ value: Bool)
+    func showError(error: VimojoError)
 }
