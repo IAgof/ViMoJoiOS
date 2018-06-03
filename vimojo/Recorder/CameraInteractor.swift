@@ -125,7 +125,6 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
                 if self.videoWriter!.status == AVAssetWriterStatus.completed {
                     self.saveOnClipsAlbum()
                     self.setupWritter()
-                    self.cameraDelegate.gotError(error: .message("Porque me sale del huevo"))
                 }
             }
         }
