@@ -35,14 +35,23 @@ enum LoginState {
             else { return }
         loginState = .loggedIn(user: userMapped)
     }
+    var user: User? {
+        switch self {
+        case .idle: return nil
+        case .loggedIn(let user): return user
+        }
+    }
 }
 var loginState: LoginState = .idle {
     didSet {
         switch loginState {
         case .idle:
             UserDefaults.standard.set(nil, forKey: LoginState.defaultsKey)
+            loginProvider = MoyaProvider<UserAPI>()
         case .loggedIn(let user):
             UserDefaults.standard.set(user.toJSON(), forKey: LoginState.defaultsKey)
+            let authPlugin = AccessTokenPlugin(tokenClosure: user.token ?? "")
+            loginProvider = MoyaProvider<UserAPI>(plugins: [authPlugin])
         }
     }
 }

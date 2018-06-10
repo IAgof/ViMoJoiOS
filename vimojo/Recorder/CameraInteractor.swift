@@ -145,7 +145,9 @@ extension CameraInteractor:
             let videoWriterInput = self.videoWriterInput,
             let audioWriterInput = self.audioWriterInput else { return }
         let status = videoWriter.status
-        if status != .writing && status != .failed {
+        if status != .writing
+            && status != .failed
+            && status != .cancelled {
             videoWriter.startWriting()
             videoWriter.startSession(atSourceTime: lastSampleTime)
         }
