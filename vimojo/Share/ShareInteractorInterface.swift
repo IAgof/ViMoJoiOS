@@ -25,5 +25,5 @@ protocol ShareInteractorInterface {
 protocol ShareInteractorDelegate {
     func setShareObjectsToView(_ viewObjects: [ShareViewModel])
     func setPlayerUrl(videoURL: URL)
-    func exportFinished(withError: Bool)
+    func exportFinished(error: Error?)
 }

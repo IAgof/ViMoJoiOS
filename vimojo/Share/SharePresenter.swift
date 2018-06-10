@@ -115,7 +115,7 @@ class SharePresenter: NSObject, SharePresenterInterface {
     }
 }
 
-extension SharePresenter:ShareInteractorDelegate {
+extension SharePresenter: ShareInteractorDelegate {
     func setShareObjectsToView(_ viewObjects: [ShareViewModel]) {
         delegate?.setShareViewObjectsList(viewObjects)
     }
@@ -127,17 +127,15 @@ extension SharePresenter:ShareInteractorDelegate {
 
         playerPresenter?.createVideoPlayer(videoURL)
     }
-
-    func exportFinished(withError: Bool) {
+    func exportFinished(error: Error?) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.delegate?.dissmissAlertWaitToExport()
-
-            if withError {
+            
+            if let error = error {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self.delegate?.createAlertExportFailed()
+                    self.delegate?.createAlertExportFailed(error: error)
                 }
             }
         }
     }
-
 }

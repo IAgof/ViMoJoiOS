@@ -202,12 +202,10 @@ extension ShareViewController:SharePresenterDelegate {
         self.present(alertC, animated: true, completion: nil)
     }
 
-    func createAlertExportFailed() {
+    func createAlertExportFailed(error: Error) {
         let title = ShareConstants.EXPORT_FAILED_TITLE
-        let message = ShareConstants.EXPORT_FAILED_MESSAGE
-
         alertController = UIAlertController(title: title,
-                                            message: message,
+                                            message: error.localizedDescription,
                                             preferredStyle: .alert)
 
         guard let alertC = alertController else {return}

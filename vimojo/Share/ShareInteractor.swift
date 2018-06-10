@@ -52,7 +52,7 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
             if FileManager.default.fileExists(atPath: exportPath) {
                 let exportURL = URL(fileURLWithPath: exportPath)
                 self.delegate?.setPlayerUrl(videoURL: exportURL)
-                self.delegate?.exportFinished(withError: false)
+                self.delegate?.exportFinished(error: nil)
 //				self.postToCloud(exportURL.lastPathComponent)
             }else{
                 print("File doesn't exist")
@@ -84,21 +84,20 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
 
         DispatchQueue.global(qos: .background).async {
 			self.exporter = ExporterInteractor(project: actualProject)
-			self.exporter?.exportVideos({
-                exportURL, exportFail in
+            self.exporter?.export { response in
                 self.timer?.invalidate()
-                self.delegate?.exportFinished(withError: exportFail)
-                if !exportFail {
-                    if let url = exportURL {
-                        print("Export path response = \(url)")
-                        self.moviePath = url.absoluteString
-                        ProjectRealmRepository().update(item: actualProject)
-                        self.delegate?.setPlayerUrl(videoURL: url)
-//						self.postToCloud(url.lastPathComponent)
-                    }
+                switch response {
+                case .error(let error):
+                    self.delegate?.exportFinished(error: error)
+                case .success(let url):
+                    print("Export path response = \(url)")
+                    self.delegate?.exportFinished(error: nil)
+                    self.moviePath = url.absoluteString
+                    ProjectRealmRepository().update(item: actualProject)
+                    self.delegate?.setPlayerUrl(videoURL: url)
+                    //                        self.postToCloud(url.lastPathComponent)
                 }
-
-			})
+            }
         }
     }
 

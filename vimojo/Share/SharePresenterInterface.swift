@@ -31,7 +31,7 @@ protocol SharePresenterInterface {
 protocol SharePresenterDelegate {
     func createAlertWaitToExport(cancelAction: @escaping () -> Void)
     func dissmissAlertWaitToExport()
-    func createAlertExportFailed()
+    func createAlertExportFailed(error: Error)
 
     func showShareGeneric(_ movieURL: URL)
 
