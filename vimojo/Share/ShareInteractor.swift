@@ -27,33 +27,31 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
     func getProject() -> Project {
         return project!
     }
-    func exportVideo() {
+    func exportVideo(completion: @escaping (Response<URL>) -> Void) {
         guard let actualProject = project else {return}
         let realmProject = ProjectRealmRepository().getProjectByUUID(uuid: actualProject.uuid)
-
         guard let modDate = actualProject.modificationDate else {
-            exportVideoAction()
+            exportVideoAction(completion: completion)
             return
         }
-
+        
         guard let exportDate = realmProject?.exportDate else {
-            exportVideoAction()
+            exportVideoAction(completion: completion)
             return
         }
-
+        
         guard let exportPath = realmProject?.getExportedPath() else {
-            exportVideoAction()
+            exportVideoAction(completion: completion)
             return
         }
-
+        
         if modDate.isGreaterThanDate(dateToCompare: exportDate) {
-            exportVideoAction()
+            exportVideoAction(completion: completion)
         } else {
             if FileManager.default.fileExists(atPath: exportPath) {
                 let exportURL = URL(fileURLWithPath: exportPath)
-                self.delegate?.setPlayerUrl(videoURL: exportURL)
-                self.delegate?.exportFinished(error: nil)
-//				self.postToCloud(exportURL.lastPathComponent)
+                completion(.success(exportURL))
+                //                self.postToCloud(exportURL.lastPathComponent)
             }else{
                 print("File doesn't exist")
                 
@@ -72,7 +70,7 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
             }
         }
     }
-    func exportVideoAction() {
+    func exportVideoAction(completion: @escaping (Response<URL>) -> Void) {
         guard let actualProject = project else {return}
 
         if let exportPath = actualProject.getExportedPath() {
@@ -88,13 +86,12 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
                 self.timer?.invalidate()
                 switch response {
                 case .error(let error):
-                    self.delegate?.exportFinished(error: error)
+                    completion(.error(error))
                 case .success(let url):
                     print("Export path response = \(url)")
-                    self.delegate?.exportFinished(error: nil)
                     self.moviePath = url.absoluteString
                     ProjectRealmRepository().update(item: actualProject)
-                    self.delegate?.setPlayerUrl(videoURL: url)
+                    completion(.success(url))
                     //                        self.postToCloud(url.lastPathComponent)
                 }
             }

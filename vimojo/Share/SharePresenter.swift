@@ -44,12 +44,27 @@ class SharePresenter: NSObject, SharePresenterInterface {
 
     func viewDidAppear() {
 		delegate?.createAlertWaitToExport {
-			self.delegate?.dissmissAlertWaitToExport()
+            self.delegate?.dissmissAlertWaitToExport {}
 			self.interactor?.cancelExport()
 			self.wireframe?.presentEditor()
 		}
 
-        interactor?.exportVideo()
+        interactor?.exportVideo { response in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.delegate?.dissmissAlertWaitToExport() {
+                    switch response {
+                    case .error(let error):
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            self.delegate?.createAlertExportFailed(error: error)
+                        }
+                    case .success(let url):
+                        self.updatePlayerView()
+                        self.videoURL = url
+                        self.playerPresenter?.createVideoPlayer(url)
+                    }
+                }
+            }
+        }
     }
     
     func getSessionExportProgress(_ progressUpdate: @escaping (Int) -> Void ) {
@@ -63,7 +78,7 @@ class SharePresenter: NSObject, SharePresenterInterface {
         if !isGoingToExpandPlayer {
             playerPresenter?.onVideoStops()
         }
-        delegate?.dissmissAlertWaitToExport()
+        delegate?.dissmissAlertWaitToExport() {}
     }
 
     func setVideoExportedPath(_ url: URL) {
@@ -118,24 +133,5 @@ class SharePresenter: NSObject, SharePresenterInterface {
 extension SharePresenter: ShareInteractorDelegate {
     func setShareObjectsToView(_ viewObjects: [ShareViewModel]) {
         delegate?.setShareViewObjectsList(viewObjects)
-    }
-
-    func setPlayerUrl(videoURL: URL) {
-        updatePlayerView()
-
-        self.videoURL = videoURL
-
-        playerPresenter?.createVideoPlayer(videoURL)
-    }
-    func exportFinished(error: Error?) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.delegate?.dissmissAlertWaitToExport()
-            
-            if let error = error {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self.delegate?.createAlertExportFailed(error: error)
-                }
-            }
-        }
     }
 }
