@@ -99,17 +99,22 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
             self.cameraDelegate.allowRecord()
         }
     }
+    public func configureConnection() {
+        guard let connection = dataOutput?.connection(withMediaType: AVMediaTypeVideo)
+            else {return}
+        if (connection.isVideoStabilizationSupported) {
+            connection.preferredVideoStabilizationMode = AVCaptureVideoStabilizationMode.auto
+        }
+        if (connection.isVideoOrientationSupported) {
+            connection.videoOrientation = activeInput.device.currentVideoOrientation
+        }
+    }
     public func startRecording(_ closure:@escaping () -> Void) {
-        if isRecordingVideo == false,
-            let connection = dataOutput?.connection(withMediaType: AVMediaTypeVideo) {
-            if (connection.isVideoStabilizationSupported) {
-                connection.preferredVideoStabilizationMode = AVCaptureVideoStabilizationMode.auto
+        recordingQueue.sync {
+            if isRecordingVideo == false {
+                self.isRecordingVideo = true
+                closure()
             }
-            if (connection.isVideoOrientationSupported) {
-                connection.videoOrientation = activeInput.device.currentVideoOrientation
-            }
-            recordingQueue.sync { self.isRecordingVideo = true }
-            closure()
         }
     }
     public func stopRecording() {

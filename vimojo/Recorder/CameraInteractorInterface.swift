@@ -13,6 +13,7 @@ import VideonaProject
 protocol CameraInteractorInterface {
 	func startRecording(_ closure:@escaping () -> Void)
 	func stopRecording()
+    func configureConnection()
 }
 
 protocol CameraInteractorDelegate {
