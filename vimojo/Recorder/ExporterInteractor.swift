@@ -23,9 +23,9 @@ class ExporterInteractor: NSObject {
         case unknown
         var localizedDescription: String {
             switch self {
-            case .cancelled: return "Cancel error"
-            case .failed: return "Failed exporting video, please check storage size"
-            case .unknown: return "Unknown error"
+            case .cancelled: return "Cancel error".localized(.share)
+            case .failed: return "Failed exporting video, please check storage size".localized(.share)
+            case .unknown: return "Unknown error".localized(.share)
             }
         }
     }
