@@ -73,4 +73,9 @@ class ShareWireframe: NSObject {
     func presentEditor() {
         editingRoomWireframe?.editingRoomViewController?.selectedIndex = 0
     }
+    func presentLogin() {
+        if let controller = UIApplication.topViewController() {
+            controller.show(HandOffRouter.createModule(), sender: nil)
+        }
+    }
 }

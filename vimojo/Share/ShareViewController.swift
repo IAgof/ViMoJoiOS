@@ -168,7 +168,6 @@ UITableViewDelegate, UITableViewDataSource, FullScreenWireframeDelegate {
 }
 
 extension ShareViewController:SharePresenterDelegate {
-
     //Presenter delegate
 
 	func createAlertWaitToExport(cancelAction: @escaping () -> Void) {

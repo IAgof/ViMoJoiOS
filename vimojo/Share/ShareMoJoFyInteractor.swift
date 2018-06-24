@@ -10,22 +10,25 @@ import Foundation
 import Alamofire
 import VideonaProject
 
-class ShareMoJoFyInteractor{
+class ShareMoJoFyInteractor: ShareActionInterface {
 	var mediaPath:String?
 	var shareProject: Project
-	
-	init(shareProject project:Project){
+    var delegate: ShareActionDelegate
+
+    init(delegate: ShareActionDelegate,
+         shareProject project: Project){
 		self.shareProject = project
+        self.delegate = delegate
 	}
 	
 	// https://github.com/Alamofire/Alamofire#uploading-data-to-a-server
 	func share(_ sharePath: ShareVideoPath) {
 		trackShare()
-		
 		mediaPath = sharePath.documentsPath
+        postVideoToMoJoFy(sharePath.documentsPath)
 	}
 	
-	func postVideoToMoJoFy(_ fileName:String, callback: @escaping (Bool) -> Void) {
+	func postVideoToMoJoFy(_ fileName:String ) {
 		
 		let url = "http://35.195.141.208/media"
 		
@@ -51,13 +54,10 @@ class ShareMoJoFyInteractor{
 			case .success(let upload, _, _):
 				upload.responseJSON { response in
 					print(response)
-					callback(true)
-					
 					let message = ShareConstants.UPLOAD_SUCCESFULL
 					ShareUtils().setAlertCompletionMessageOnTopView(socialName: "MoJoFy", message: message)
 				}
 			case .failure(_):
-				callback(false)
 				let message = ShareConstants.UPLOAD_FAIL
 				ShareUtils().setAlertCompletionMessageOnTopView(socialName: "MoJoFy", message: message)
 			}

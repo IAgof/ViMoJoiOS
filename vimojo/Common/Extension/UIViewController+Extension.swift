@@ -7,13 +7,29 @@
 //
 
 import Foundation
-
+import Whisper
 extension UIViewController {
     func moveViewTo(x: CGFloat = 0, y: CGFloat = 0) {
         self.view.moveTo(x: x, y: y)
     }
     func moveViewTo(point: CGPoint) {
         self.view.moveTo(point: point)
+    }
+    func showDefaultAlert(title: String?, message: String?,
+                          okAction: Action? = nil, cancelAction: Action? = nil) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (_) in
+            okAction?()
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in
+            cancelAction?()
+        }))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    func showWhisper(with message: String = "", color: UIColor = .red) {
+        guard let navigationController = navigationController else { return }
+        let message = Message(title: message, backgroundColor: color)
+        Whisper.show(whisper: message, to: navigationController, action: .show)
     }
 }
 extension UIView {

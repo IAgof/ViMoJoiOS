@@ -18,6 +18,11 @@ class SocialNetworkProvider: NSObject {
         if configuration.FTP_FEATURE {
             socialNetworks.append(SocialNetwork(iconId: "activity_edit_share_ftp",
                                                 iconIdPressed: "activity_edit_share_ftp",
+                                                title: "Platform",
+                                                action: ShareMoJoFyInteractor(delegate: delegate,
+                                                                              shareProject:project)))
+            socialNetworks.append(SocialNetwork(iconId: "activity_edit_share_ftp",
+                                                iconIdPressed: "activity_edit_share_ftp",
                                                 title: "FTP",
                                                 action: ShareFTPInteractor(delegate: delegate,
                                                                            shareProject:project)))

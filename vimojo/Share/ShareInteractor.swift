@@ -9,17 +9,24 @@
 import Foundation
 import UIKit
 import VideonaProject
+import ReachabilitySwift
 
 class ShareInteractor: NSObject, ShareInteractorInterface {   
 
     var delegate: ShareInteractorDelegate?
     var moviePath: String = ""
     var project: Project?
+
     var socialNetworks: [SocialNetwork] = []
 	var exporter: ExporterInteractor?
-    
     var timer: Timer?
 
+    var isNotLoggedIn: Bool {
+        return loginState.user == nil
+    }
+    var isNotWifiConnected: Bool {
+        return !(Reachability()?.currentReachabilityStatus == .reachableViaWiFi)
+    }
     func setShareMoviePath(_ moviePath: String) {
         self.moviePath = moviePath
     }
@@ -104,11 +111,8 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
 
     func findSocialNetworks() {
         guard let project = project else {return}
-
         socialNetworks = SocialNetworkProvider().getSocialNetworks(self, project: project)
-
         var shareViewModelObjects: [ShareViewModel] = []
-
         for socialNetwork in socialNetworks {
             guard let iconImage = UIImage(named: socialNetwork.iconId)else {
                 print("Share icon image not found")
@@ -118,12 +122,10 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
                 print("Share icon pressed image not found")
                 return
             }
-
             shareViewModelObjects.append(ShareViewModel(icon: iconImage ,
                                            iconPressed: iconImagePressed,
                                            title: socialNetwork.title))
         }
-
         delegate?.setShareObjectsToView(shareViewModelObjects)
     }
 
@@ -135,22 +137,6 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
             self.socialNetworks[indexPath.item].action.share(sharePaths)
         }
     }
-	
-	func postToCloud(_ path:String) {
-		guard let actualProject = project, let exportPath = actualProject.getExportedPath() else { fatalError("Failed posting to the cloud") }
-		
-		let sharePaths = ShareVideoPath(cameraRollPath: moviePath, documentsPath: exportPath)
-		
-		
-		
-		let action = ShareMoJoFyInteractor(shareProject: actualProject)
-		action.share(sharePaths)
-		action.postVideoToMoJoFy(path, callback: {
-			result in
-			print("result")
-			print(result)
-		})
-	}
 	
     func postToYoutube(_ token:String){
         for socialNetwork in socialNetworks{
@@ -174,6 +160,10 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
 }
 
 extension ShareInteractor:ShareActionDelegate {
+    func updateStatus() {
+        
+    }
+    
     func executeFinished() {
 
     }

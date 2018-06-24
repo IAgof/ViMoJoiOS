@@ -16,8 +16,14 @@ protocol ShareActionInterface {
     var shareProject: Project {get set}
 }
 
+enum UploadResponse {
+    case failure(Error)
+    case success
+    case percentaje(Double)
+}
 protocol ShareActionDelegate {
     func executeFinished()
+    func updateStatus()
 }
 
 protocol ShareActionResponse {

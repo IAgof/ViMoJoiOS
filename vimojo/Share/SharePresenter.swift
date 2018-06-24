@@ -88,7 +88,27 @@ class SharePresenter: NSObject, SharePresenterInterface {
 
     func pushShare(_ indexPath: IndexPath) {
         if let path = videoURL?.absoluteString {
-            interactor?.shareVideo(indexPath, videoPath: path)
+            // TODO: refactor this bullshit
+            if indexPath.row == 0 {
+                // Check if it is logged in
+//                if interactor?.isNotLoggedIn ?? true {
+//                    delegate?.showDefaultAlert(title: "Login",
+//                                               message: "You are not logged in, and you must to".localized(.share),
+//                                               okAction: wireframe?.presentLogin, cancelAction: nil)
+//                } else
+                    if interactor?.isNotWifiConnected ?? true {
+                    delegate?.showDefaultAlert(title: "Connection",
+                                               message: "You are not connected via wifi, do you wanna upload?".localized(.share),
+                                               okAction: {
+                                                self.interactor?.shareVideo(indexPath, videoPath: path)
+                    }, cancelAction: nil)
+                } else {
+                    interactor?.shareVideo(indexPath, videoPath: path)
+                }
+                // Check if is wifi connected
+                
+                // Then: shareVideo...
+            }
         }
     }
 
