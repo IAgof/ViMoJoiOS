@@ -128,6 +128,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
                 FlashInteractor().switchFlashState()
             }
 			self.rotateCamera()
+			self.hideAllModeConfigsIfNeccesary()
         })
     }
 
@@ -150,13 +151,11 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     func pushVideoSettingsConfig() {
         if videoSettingsConfigViewIsShowing {
             videoSettingsConfigViewIsShowing = false
-
             delegate?.hideVideoSettingsConfig()
             hideAllModeConfigsIfNeccesary()
             delegate?.configModesButtonSelected(false)
         } else {
             videoSettingsConfigViewIsShowing = true
-
             delegate?.showVideoSettingsConfig()
             delegate?.configModesButtonSelected(true)
         }
@@ -286,10 +285,10 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
     func pushGain() {
         if inputGainViewIsShowed {
-            hideInputGainIfYouCan()
+			delegate?.showGainSlider(false)
+			inputGainViewIsShowed = false
         } else {
-            hideAllModeConfigsIfNeccesary()
-            delegate?.selectInputGainSliderView()
+            delegate?.showGainSlider(true)
             inputGainViewIsShowed = true
         }
     }
@@ -670,23 +669,16 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         exposureModesViewIsShowed = false
     }
 
-    func hideInputGainIfYouCan() {
-        if !inputGainViewIsShowed {
-            return
-        }
-
-        delegate?.deselectInputGainSliderView()
-        inputGainViewIsShowed = false
-    }
-
     func hideAllModeConfigsIfNeccesary() {
         hideWBConfigIfYouCan()
         hideISOConfigIfYouCan()
         hideFocusIfYouCan()
         hideExposureModesIfYouCan()
         hideZoomViewIfYouCan()
-
-        hideInputGainIfYouCan()
+		DispatchQueue.main.async(execute: {
+		  self.delegate?.showGainSlider(false)
+		  self.inputGainViewIsShowed = false
+		})
     }
 
 	func rotateCamera() {
@@ -739,11 +731,12 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
     func setDeviceButtonState(_ state: Bool) {
 		DispatchQueue.main.async(execute: {
-		  if !state {
-			  self.delegate?.showFrontMicButton()
-		  } else {
-			  self.delegate?.hideFrontMicButton()
-		  }
+			self.delegate?.showGainButton()
+            if !state {
+                self.delegate?.showFrontMicButton()
+            } else {
+                self.delegate?.hideFrontMicButton()
+            }
 		})
     }
 

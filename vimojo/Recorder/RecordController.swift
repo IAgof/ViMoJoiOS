@@ -536,6 +536,20 @@ extension RecordController {
 
 // MARK: - Presenter delegate
 extension RecordController:RecordPresenterDelegate {
+	func showGainButton() {
+		let isGainButtonSettable = inputGainSlider.isSettable()
+		gainButton.isSelected = false
+		gainButton.isHidden = !isGainButtonSettable
+		gainButton.isEnabled = isGainButtonSettable
+		fadeOutView([inputGainSlider])
+	}
+
+	func showGainSlider(_ value: Bool) {
+		gainButton.isSelected = value
+		drawerButtonRight.isHidden = true
+		value ? fadeInView([inputGainSlider]) : fadeOutView([inputGainSlider])
+	}
+
     // MARK: - Delegate Interface
     
     func showStopButton() {
@@ -750,18 +764,6 @@ extension RecordController:RecordPresenterDelegate {
         audioLevelBar.alpha = 0.5
         picometerStackView.addArrangedSubview(audioLevelBar)
         self.audioLevelBar = audioLevelBar
-    }
-    
-    func selectInputGainSliderView() {
-        fadeInView([inputGainSlider])
-        gainButton.isSelected = true
-        drawerButtonRight.isHidden = true
-    }
-    
-    func deselectInputGainSliderView() {
-        fadeOutView([inputGainSlider])
-        gainButton.isSelected = false
-        drawerButtonRight.isHidden = false
     }
     
     func selectDeviceMicButton() {
