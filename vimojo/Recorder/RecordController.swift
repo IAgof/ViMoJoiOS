@@ -118,7 +118,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         self.configureViews()
         // Try to allow rotation -- It's just boring to landscape the capture in a static mode
         configureRotationObserver()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -176,11 +175,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         cameraRotationButton.isEnabled = value
     }
     
-    func configureTapDisplay() {
-        tapDisplay = UITapGestureRecognizer(target: self, action: #selector(RecordController.displayTapped))
-        self.cameraView.addGestureRecognizer(tapDisplay!)
-    }
-    
     func configurePinchDisplay() {
         pinchDisplay = UIPinchGestureRecognizer(target: self, action: #selector(RecordController.displayPinched))
         self.cameraView.addGestureRecognizer(pinchDisplay!)
@@ -196,9 +190,9 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     }
     
     func configureCameraViewTapObserver() {
-        let tapGestureRecognizer1 = UITapGestureRecognizer(target:self, action:#selector(self.cameraViewHasTapped))
+        tapDisplay = UITapGestureRecognizer(target:self, action:#selector(self.cameraViewHasTapped))
         cameraView.isUserInteractionEnabled = true
-        cameraView.addGestureRecognizer(tapGestureRecognizer1)
+        cameraView.addGestureRecognizer(tapDisplay!)
     }
     
     func thumbnailTapped() {
@@ -209,6 +203,10 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     
     func cameraViewHasTapped() {
         eventHandler?.cameraViewHasTapped()
+        focusView.tapViewPointAndViewFrame((tapDisplay?.location(in: cameraView))!,
+                                           frame: cameraView.frame)
+        expositionModesView.tapViewPointAndViewFrame((tapDisplay?.location(in: cameraView))!,
+                                                     frame: cameraView.frame)
     }
     
     func configureRotationObserver() {
@@ -227,7 +225,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     func configureView() {
         self.navigationController?.isNavigationBarHidden = true
         
-        configureTapDisplay()
         configurePinchDisplay()
         configureThumbnailTapObserver()
         configureCameraViewTapObserver()
@@ -239,14 +236,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
         
         zoomView.setZoomWithPinchValues(scale,
                                         velocity:velocity)
-    }
-    
-    func displayTapped() {
-        focusView.tapViewPointAndViewFrame((tapDisplay?.location(in: cameraView))!,
-                                           frame: cameraView.frame)
-        
-        expositionModesView.tapViewPointAndViewFrame((tapDisplay?.location(in: cameraView))!,
-                                                     frame: cameraView.frame)
     }
     
     func checkCameraProSupportedFeatures() {
