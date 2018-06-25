@@ -32,7 +32,8 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
         let isRecordingVideo = false
         return isRecordingVideo
     }()
-    
+    var firstSampleTime: CMTime = kCMTimeZero
+    var lastOneSampleTime: CMTime  = kCMTimeZero
     required init(delegate: CameraInteractorDelegate,
                   parameters: RecorderParameters,
                   project: Project) {
@@ -45,6 +46,7 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
         super.init()
         dataOutput?.setSampleBufferDelegate(self, queue: recordingQueue)
         audioDataOutput?.setSampleBufferDelegate(self, queue: recordingQueue)
+        setupWritter()
     }
     
     fileprivate func setUpAudioWriter(_ videoWriter: AVAssetWriter) {
@@ -66,22 +68,23 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
             self.videoWriterInput = videoWriterInput
         }
     }
-    private func setupWritter(success: () -> Void) {
+    private func setupWritter() {
+        firstSampleTime = kCMTimeZero
+        lastOneSampleTime = kCMTimeZero
         do {
             self.videoWriter = try AVAssetWriter(outputURL: outputURL, fileType: AVFileTypeQuickTimeMovie)
         } catch let error as NSError {
             print("ERROR:::::>>>>>>>>>>>>>Cannot init videoWriter, error:\(error.localizedDescription)")
+            cameraDelegate.gotError(error: .message(error.localizedDescription))
         }
         guard let videoWriter = self.videoWriter else { return }
         setUpVideoWriter(videoWriter)
         setUpAudioWriter(videoWriter)
-        self.isRecordingVideo = true
-        success()
     }
     fileprivate func saveOnClipsAlbum() {
         ClipsAlbum.sharedInstance.saveVideo(self.outputURL) { (response) in
             switch response {
-            case .error(let error): print("do something with this \(error)")
+            case .error(let error): self.cameraDelegate.gotError(error: .message(error.localizedDescription))
             case .success(let localIdentifier):
                 guard let actualProject = self.project else { return }
                 let title = self.getNewTitle()
@@ -92,28 +95,41 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
                 self.setVideoUrlParameters(localIdentifier,
                                            project: actualProject)
                 Utils().removeFileFromURL(self.outputURL)
-                self.cameraDelegate.allowRecord()
             }
+            self.cameraDelegate.allowRecord()
+        }
+    }
+    public func configureConnection() {
+        guard let connection = dataOutput?.connection(withMediaType: AVMediaTypeVideo)
+            else {return}
+        if (connection.isVideoStabilizationSupported) {
+            connection.preferredVideoStabilizationMode = AVCaptureVideoStabilizationMode.auto
+        }
+        if (connection.isVideoOrientationSupported) {
+            connection.videoOrientation = activeInput.device.currentVideoOrientation
         }
     }
     public func startRecording(_ closure:@escaping () -> Void) {
-        if isRecordingVideo == false,
-            let connection = dataOutput?.connection(withMediaType: AVMediaTypeVideo) {
-            if (connection.isVideoStabilizationSupported) {
-                connection.preferredVideoStabilizationMode = AVCaptureVideoStabilizationMode.auto
+        recordingQueue.sync {
+            if isRecordingVideo == false {
+                self.isRecordingVideo = true
+                closure()
             }
-            if (connection.isVideoOrientationSupported) {
-                connection.videoOrientation = activeInput.device.currentVideoOrientation
-            }
-            setupWritter { closure() }
         }
     }
     public func stopRecording() {
-        if isRecordingVideo {
-            self.isRecordingVideo = false
+        guard isRecordingVideo,
+            videoWriter?.status == .writing else {return}
+        recordingQueue.sync {
+            lastOneSampleTime = lastSampleTime
+            let offset = CMTime(seconds: 0.5, preferredTimescale: 600)
+            self.videoWriter?.endSession(atSourceTime: CMTimeSubtract(lastOneSampleTime, offset))
             self.videoWriter?.finishWriting {
+                self.isRecordingVideo = false
+                printIsolated(message: "VideoWriter finished ", object: self.videoWriter!.status.description)
                 if self.videoWriter!.status == AVAssetWriterStatus.completed {
                     self.saveOnClipsAlbum()
+                    self.setupWritter()
                 }
             }
         }
@@ -138,25 +154,31 @@ extension CameraInteractor:
 {
     func captureOutput(_ output: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!,
                        from connection: AVCaptureConnection!) {
-        lastSampleTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
+        let sampleTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
+        self.lastSampleTime = sampleTime
         guard CMSampleBufferDataIsReady(sampleBuffer),
             isRecordingVideo,
             let videoWriter = self.videoWriter,
             let videoWriterInput = self.videoWriterInput,
             let audioWriterInput = self.audioWriterInput else { return }
-        let status = videoWriter.status
-        if status != .writing && status != .failed {
+        if firstSampleTime == kCMTimeZero {
             videoWriter.startWriting()
-            videoWriter.startSession(atSourceTime: lastSampleTime)
+            videoWriter.startSession(atSourceTime: sampleTime)
+            firstSampleTime = sampleTime
         }
-        if videoWriter.status == .writing {
+       
+        let status = videoWriter.status
+        if status == .writing,
+            lastOneSampleTime == kCMTimeZero {
             let isVideo = output is AVCaptureVideoDataOutput
             let isAudio = output is AVCaptureAudioDataOutput
             
             if isVideo && videoWriterInput.isReadyForMoreMediaData {
-                newVideoSample(sampleBuffer: sampleBuffer)
+                guard (videoWriter.status == AVAssetWriterStatus.writing) else { return }
+                videoWriterInput.append(sampleBuffer)
             } else if isAudio && audioWriterInput.isReadyForMoreMediaData {
-                newAudioSample(sampleBuffer: sampleBuffer)
+                guard (videoWriter.status == AVAssetWriterStatus.writing) else { return }
+                audioWriterInput.append(sampleBuffer)
             }
         }
     }
@@ -203,6 +225,17 @@ extension AVCaptureDevice {
         case .landscapeRight: return  AVCaptureVideoOrientation.landscapeLeft
         case .portraitUpsideDown: return AVCaptureVideoOrientation.portraitUpsideDown
         default: return AVCaptureVideoOrientation.landscapeRight
+        }
+    }
+}
+extension AVAssetWriterStatus {
+    var description: String {
+        switch self {
+        case .cancelled: return "Canceled"
+        case .completed: return "Completed"
+        case .failed: return "Failed"
+        case .unknown: return "Unnown"
+        case .writing: return "Writting"
         }
     }
 }

@@ -13,10 +13,12 @@ import VideonaProject
 protocol CameraInteractorInterface {
 	func startRecording(_ closure:@escaping () -> Void)
 	func stopRecording()
+    func configureConnection()
 }
 
 protocol CameraInteractorDelegate {
 	func trackVideoRecorded(_ videoLenght: Double)
 	func updateThumbnail(videoURL: URL?)
 	func allowRecord()
+    func gotError(error: VimojoError)
 }
