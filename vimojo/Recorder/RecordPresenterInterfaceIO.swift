@@ -73,6 +73,7 @@ protocol RecordPresenterDelegate {
     func showBackCameraSelected()
     func showFrontCameraSelected()
     func showFocusAtPoint(_ point: CGPoint)
+    func showExposureAtPoint(_ point: CGPoint)
     func showStopButton()
     func showBatteryView()
     func showSpaceOnDisk()

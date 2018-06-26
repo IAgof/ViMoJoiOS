@@ -81,6 +81,7 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     @IBOutlet weak var secondaryRecordingIndicator: UIImageView!
     @IBOutlet weak var secondaryThumbnailNumberClips: UILabel!
     @IBOutlet weak var focusImageView: UIImageView!
+    @IBOutlet weak var exposureImageView: UIImageView!
     @IBOutlet weak var thumbnailNumberClips: UILabel!
     @IBOutlet weak var thumbnailInfoLabel: UILabel!
     
@@ -631,6 +632,18 @@ extension RecordController:RecordPresenterDelegate {
         
         Utils().delay(0.5, closure: {
             self.focusImageView.isHidden = true
+        })
+    }
+    
+    func showExposureAtPoint(_ point: CGPoint) {
+        
+        eventHandler?.trackCameraViewTapped()
+        
+        exposureImageView.center = point
+        exposureImageView.isHidden = false
+        
+        Utils().delay(0.5, closure: {
+            self.exposureImageView.isHidden = true
         })
     }
     

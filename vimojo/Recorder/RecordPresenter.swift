@@ -869,6 +869,10 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     func showFocus(_ center: CGPoint) {
         delegate?.showFocusAtPoint(center)
     }
+    
+    func showExposure(_ center: CGPoint) {
+        delegate?.showExposureAtPoint(center)
+    }
 
     // MARK: - Timer delegate
     func updateTimer(_ time: String) {
