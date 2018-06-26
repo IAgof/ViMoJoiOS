@@ -624,6 +624,8 @@ extension RecordController:RecordPresenterDelegate {
     
     func showFocusAtPoint(_ point: CGPoint) {
         
+        eventHandler?.trackCameraViewTapped()
+        
         focusImageView.center = point
         focusImageView.isHidden = false
         

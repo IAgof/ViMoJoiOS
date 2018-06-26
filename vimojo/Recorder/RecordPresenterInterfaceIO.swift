@@ -58,6 +58,8 @@ protocol RecordPresenterInterface {
 
 	func rotateCamera()
     func pushTutorial()
+    
+    func trackCameraViewTapped()
 }
 
 protocol RecordPresenterDelegate {

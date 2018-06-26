@@ -829,6 +829,13 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
                                                                   interaction:  AnalyticsConstants().INTERACTION_OPEN_SETTINGS,
                                                                   result: "")
     }
+    
+    func trackCameraViewTapped() {
+        ViMoJoTracker.sharedInstance.sendUserInteractedTracking((delegate?.getControllerName())!,
+                                                                recording: isRecording,
+                                                                interaction: AnalyticsConstants().METERING,
+                                                                result: AnalyticsConstants().METERING)
+    }
 
     // MARK: - Camera delegate
     func trackVideoRecorded(_ videoLenght: Double) {
