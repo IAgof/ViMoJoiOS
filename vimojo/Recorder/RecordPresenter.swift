@@ -118,6 +118,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     func viewWillAppear() {
         self.updateThumbnail()
         delegate?.checkCameraProSupportedFeatures()
+        cameraInteractor?.configureConnection()
         DispatchQueue.main.async(execute: {
             self.delegate?.resizeAllIcons()
 			switch(CamSettings.cameraStatus) {
@@ -150,13 +151,11 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     func pushVideoSettingsConfig() {
         if videoSettingsConfigViewIsShowing {
             videoSettingsConfigViewIsShowing = false
-
             delegate?.hideVideoSettingsConfig()
             hideAllModeConfigsIfNeccesary()
             delegate?.configModesButtonSelected(false)
         } else {
             videoSettingsConfigViewIsShowing = true
-
             delegate?.showVideoSettingsConfig()
             delegate?.configModesButtonSelected(true)
         }
@@ -286,10 +285,10 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
     func pushGain() {
         if inputGainViewIsShowed {
-            hideInputGainIfYouCan()
+			delegate?.showGainSlider(false)
+			inputGainViewIsShowed = false
         } else {
-            hideAllModeConfigsIfNeccesary()
-            delegate?.selectInputGainSliderView()
+            delegate?.showGainSlider(true)
             inputGainViewIsShowed = true
         }
     }
@@ -486,22 +485,22 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
     func startRecord() {
         self.trackStartRecord()
-		self.cameraInteractor?.startRecording({
-			DispatchQueue.main.async {
-			  self.delegate?.blockCameraWhenRecording(false)
-			  self.delegate?.recordButtonEnable(true)
-			  self.delegate?.setDrawerGestureStatus(false)
-			  self.delegate?.recordButtonSecondaryEnable(true)
-			  self.delegate?.selectRecordButton()
-			  self.delegate?.selectSecondaryRecordButton()
-			  self.delegate?.hideClipsRecordedView()
-			  self.delegate?.startRecordingIndicatorBlink()
-			  self.delegate?.startSecondaryRecordingIndicatorBlink()
-			  self.delegate?.showDrawerButton()
-              self.delegate?.settingsEnabled(false)
-              self.delegate?.tutorialEnabled(false)
-			}
-		})
+        self.cameraInteractor?.startRecording {
+            DispatchQueue.main.async {
+                self.delegate?.blockCameraWhenRecording(false)
+                self.delegate?.recordButtonEnable(true)
+                self.delegate?.setDrawerGestureStatus(false)
+                self.delegate?.recordButtonSecondaryEnable(true)
+                self.delegate?.selectRecordButton()
+                self.delegate?.selectSecondaryRecordButton()
+                self.delegate?.hideClipsRecordedView()
+                self.delegate?.startRecordingIndicatorBlink()
+                self.delegate?.startSecondaryRecordingIndicatorBlink()
+                self.delegate?.showDrawerButton()
+                self.delegate?.settingsEnabled(false)
+                self.delegate?.tutorialEnabled(false)
+            }
+        }
         isRecording = true
         self.startTimer()
     }
@@ -670,23 +669,16 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
         exposureModesViewIsShowed = false
     }
 
-    func hideInputGainIfYouCan() {
-        if !inputGainViewIsShowed {
-            return
-        }
-
-        delegate?.deselectInputGainSliderView()
-        inputGainViewIsShowed = false
-    }
-
     func hideAllModeConfigsIfNeccesary() {
         hideWBConfigIfYouCan()
         hideISOConfigIfYouCan()
         hideFocusIfYouCan()
         hideExposureModesIfYouCan()
         hideZoomViewIfYouCan()
-
-        hideInputGainIfYouCan()
+		DispatchQueue.main.async(execute: {
+		  self.delegate?.showGainSlider(false)
+		  self.inputGainViewIsShowed = false
+		})
     }
 
 	func rotateCamera() {
@@ -739,11 +731,12 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
     func setDeviceButtonState(_ state: Bool) {
 		DispatchQueue.main.async(execute: {
-		  if !state {
-			  self.delegate?.showFrontMicButton()
-		  } else {
-			  self.delegate?.hideFrontMicButton()
-		  }
+			self.delegate?.showGainButton()
+            if !state {
+                self.delegate?.showFrontMicButton()
+            } else {
+                self.delegate?.hideFrontMicButton()
+            }
 		})
     }
 
@@ -868,6 +861,10 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
     func showFocus(_ center: CGPoint) {
         delegate?.showFocusAtPoint(center)
+    }
+    
+    func gotError(error: VimojoError) {
+        delegate?.showError(error: error)
     }
 
     // MARK: - Timer delegate

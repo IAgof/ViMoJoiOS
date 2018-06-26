@@ -2,7 +2,8 @@
 # platform :ios, '8.0'
 # Uncomment this line if you're using Swift
 platform :ios, 9.3
- use_frameworks!
+use_frameworks!
+inhibit_all_warnings!
 
 def shared_pods
     pod 'Fabric'
@@ -45,7 +46,7 @@ target 'ThomsonFoundation' do
 	shared_pods
 end
 
-target 'M4N' do
+target 'Market4News' do
   shared_pods
 end
 

@@ -113,9 +113,6 @@ protocol RecordPresenterDelegate {
     func showWBConfigView()
     func hideWBConfigView()
 
-    func selectInputGainSliderView()
-    func deselectInputGainSliderView()
-
     func showJackMicButton()
     func hideJackMicButton()
 
@@ -184,4 +181,8 @@ protocol RecordPresenterDelegate {
     func tutorialEnabled(_ sender: Bool)
 
 	func checkCameraProSupportedFeatures()
+    
+    func showGainButton()
+	func showGainSlider(_ value: Bool)
+    func showError(error: VimojoError)
 }
