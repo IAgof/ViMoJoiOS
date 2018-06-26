@@ -16,14 +16,14 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
     var outputURL: URL
     var activeInput: AVCaptureDeviceInput
     var project: Project?
-
+    
     var videoWriterInput: AVAssetWriterInput?
     var audioWriterInput: AVAssetWriterInput?
     var videoWriter: AVAssetWriter?
     var dataOutput: AVCaptureVideoDataOutput?
     let audioDataOutput: AVCaptureAudioDataOutput?
     let recordingQueue = DispatchQueue(label: "com.somedomain.recordingQueue")
-
+    
     lazy var lastSampleTime: CMTime = {
         let lastSampleTime = kCMTimeZero
         return lastSampleTime
@@ -48,7 +48,7 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
         audioDataOutput?.setSampleBufferDelegate(self, queue: recordingQueue)
         setupWritter()
     }
-
+    
     fileprivate func setUpAudioWriter(_ videoWriter: AVAssetWriter) {
         let audioWriterInput = AVAssetWriterInput(mediaType: AVMediaTypeAudio,
                                                   outputSettings: AudioSettings.audioSettings)
@@ -61,7 +61,7 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
     fileprivate func setUpVideoWriter(_ videoWriter: AVAssetWriter) {
         let videoWriterInput = AVAssetWriterInput(mediaType: AVMediaTypeVideo,
                                                   outputSettings: VideoSettings.videoSettings)
-
+        
         videoWriterInput.expectsMediaDataInRealTime = true
         if videoWriter.canAdd(videoWriterInput) {
             videoWriter.add(videoWriterInput)
@@ -161,21 +161,18 @@ extension CameraInteractor:
             let videoWriter = self.videoWriter,
             let videoWriterInput = self.videoWriterInput,
             let audioWriterInput = self.audioWriterInput else { return }
-        let status = videoWriter.status
-        if status != .writing
-            && status != .failed
-            && status != .cancelled {
+        if firstSampleTime == kCMTimeZero {
             videoWriter.startWriting()
             videoWriter.startSession(atSourceTime: sampleTime)
             firstSampleTime = sampleTime
         }
-
+       
         let status = videoWriter.status
         if status == .writing,
             lastOneSampleTime == kCMTimeZero {
             let isVideo = output is AVCaptureVideoDataOutput
             let isAudio = output is AVCaptureAudioDataOutput
-
+            
             if isVideo && videoWriterInput.isReadyForMoreMediaData {
                 guard (videoWriter.status == AVAssetWriterStatus.writing) else { return }
                 videoWriterInput.append(sampleBuffer)
@@ -185,21 +182,21 @@ extension CameraInteractor:
             }
         }
     }
-
+    
     func newVideoSample(sampleBuffer: CMSampleBuffer) {
         if (isRecordingVideo) {
             guard (videoWriter?.status == AVAssetWriterStatus.writing) else { return }
             videoWriterInput?.append(sampleBuffer)
         }
     }
-
+    
     func newAudioSample(sampleBuffer: CMSampleBuffer) {
         if (isRecordingVideo) {
             guard (videoWriter?.status == AVAssetWriterStatus.writing) else { return }
             audioWriterInput?.append(sampleBuffer)
         }
     }
-
+    
     func setVideoUrlParameters(_ localIdentifier: String, project: Project) {
         if let video = project.getVideoList().last {
             let phFetchAsset = PHAsset.fetchAssets(withLocalIdentifiers: [localIdentifier], options: nil)
