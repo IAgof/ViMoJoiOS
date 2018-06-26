@@ -225,9 +225,8 @@ extension ShareViewController:SharePresenterDelegate {
 		let buttons: [UIButton] = [self.shareGenericButton, self.expandPlayerButton]
         DispatchQueue.main.async {
             self.alertController?.dismiss(animated: true, completion: completion)
-			for button in buttons {
-				button.isHidden = false
-			}
+            buttons.forEach { $0.isHidden = false }
+
 			self.tabBarController?.tabBar.isHidden = false
             self.configureNavigationBarVissible()
         }

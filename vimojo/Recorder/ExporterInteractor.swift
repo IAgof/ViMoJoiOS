@@ -69,6 +69,8 @@ class ExporterInteractor: NSObject {
         // 6 - Perform the Export
         exportSession?.exportAsynchronously(completionHandler: {
             guard let status = self.exportSession?.status else {return}
+            print("----------------------Status------------------------")
+            print("-----------------\(status.description)--------------")
             switch status {
             case .failed:
                 completion(.error(ExportError.failed))
@@ -86,7 +88,9 @@ class ExporterInteractor: NSObject {
                     }
                     completion(.success(videoURL))
                 })
-            default: break
+            case .waiting, .exporting:
+                print("Export WAITING or EXPORTING")
+                break
             }
         })
     }
@@ -144,3 +148,15 @@ class ExporterInteractor: NSObject {
     }
 }
 
+extension AVAssetExportSessionStatus {
+    var description: String {
+        switch self {
+        case .cancelled: return "Cancelled"
+        case .completed: return "Completed"
+        case .exporting: return "Exporting"
+        case .failed: return "Failed"
+        case .unknown: return "Unknown"
+        case .waiting: return "Waiting"
+        }
+    }
+}

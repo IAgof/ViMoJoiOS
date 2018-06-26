@@ -55,7 +55,7 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
             }else{
                 print("File doesn't exist")
                 
-                ()
+                exportVideoAction(completion: completion)
             }
         }
     }
@@ -93,6 +93,7 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
                     ProjectRealmRepository().update(item: actualProject)
                     completion(.success(url))
                     //                        self.postToCloud(url.lastPathComponent)
+
                 }
             }
         }
