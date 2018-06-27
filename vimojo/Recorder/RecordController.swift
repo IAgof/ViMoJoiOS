@@ -10,6 +10,16 @@ import UIKit
 import VideonaProject
 
 class RecordController: ViMoJoController, UINavigationControllerDelegate {
+    enum ShowPoint {
+        case focus, exposure
+        
+        var image: UIImage {
+            switch self {
+            case .focus: return #imageLiteral(resourceName: "activity_record_icon_focus_focused")
+            case .exposure: return #imageLiteral(resourceName: "activity_record_light_point")
+            }
+        }
+    }
     // MARK: - Variables VIPER
     var eventHandler: RecordPresenterInterface?
     
@@ -80,8 +90,6 @@ class RecordController: ViMoJoController, UINavigationControllerDelegate {
     @IBOutlet weak var recordingIndicator: UIImageView!
     @IBOutlet weak var secondaryRecordingIndicator: UIImageView!
     @IBOutlet weak var secondaryThumbnailNumberClips: UILabel!
-    @IBOutlet weak var focusImageView: UIImageView!
-    @IBOutlet weak var exposureImageView: UIImageView!
     @IBOutlet weak var thumbnailNumberClips: UILabel!
     @IBOutlet weak var thumbnailInfoLabel: UILabel!
     
@@ -622,29 +630,22 @@ extension RecordController:RecordPresenterDelegate {
     func resetView() {
         eventHandler?.resetRecorder()
     }
-    
-    func showFocusAtPoint(_ point: CGPoint) {
-        
+    func focusAtPoint(_ point: CGPoint, type: ShowPoint) {
         eventHandler?.trackCameraViewTapped()
+        let imageView = UIImageView(image: type.image)
+        self.view.addSubview(imageView)
+        imageView.center = point
         
-        focusImageView.center = point
-        focusImageView.isHidden = false
-        
-        Utils().delay(0.5, closure: {
-            self.focusImageView.isHidden = true
-        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            imageView.removeFromSuperview()
+        }
+    }
+    func showFocusAtPoint(_ point: CGPoint) {
+        focusAtPoint(point, type: .focus)
     }
     
     func showExposureAtPoint(_ point: CGPoint) {
-        
-        eventHandler?.trackCameraViewTapped()
-        
-        exposureImageView.center = point
-        exposureImageView.isHidden = false
-        
-        Utils().delay(0.5, closure: {
-            self.exposureImageView.isHidden = true
-        })
+        focusAtPoint(point, type: .exposure)
     }
     
     func hidePrincipalViews() {

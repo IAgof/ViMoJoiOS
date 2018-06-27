@@ -463,13 +463,6 @@
                                         <rect key="frame" x="203.5" y="114" width="259.5" height="147"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
-                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity_record_icon_focus_focused" translatesAutoresizingMaskIntoConstraints="NO" id="lpZ-Hu-RXr">
-                                        <rect key="frame" x="299.5" y="153.5" width="68" height="68"/>
-                                    </imageView>
-                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="activity_record_light_point" translatesAutoresizingMaskIntoConstraints="NO" id="WPT-Fl-dz1" userLabel="Exposure Image View">
-                                        <rect key="frame" x="299" y="153" width="68" height="68"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iei-TN-55D" customClass="ResolutionsSelectorView" customModule="VideonaProject">
                                         <rect key="frame" x="203" y="65" width="259.5" height="193"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
@@ -565,7 +558,6 @@
                                     <constraint firstItem="5X8-bB-gAq" firstAttribute="width" secondItem="hax-3B-Lc5" secondAttribute="width" multiplier="0.39" id="AcT-c5-4dJ"/>
                                     <constraint firstItem="owx-Ns-ABx" firstAttribute="centerX" secondItem="hax-3B-Lc5" secondAttribute="centerX" id="ESk-FY-bn4"/>
                                     <constraint firstItem="Dex-fY-oYP" firstAttribute="centerX" secondItem="hax-3B-Lc5" secondAttribute="centerX" id="Eoz-Eq-lSL"/>
-                                    <constraint firstItem="lpZ-Hu-RXr" firstAttribute="centerX" secondItem="hax-3B-Lc5" secondAttribute="centerX" id="Fqt-tw-oUs"/>
                                     <constraint firstItem="Vuo-zZ-7lL" firstAttribute="centerX" secondItem="ihb-Jx-744" secondAttribute="centerX" id="FsF-1u-Wgv"/>
                                     <constraint firstAttribute="trailing" secondItem="eCP-P5-tk2" secondAttribute="trailing" constant="15" id="GR4-U8-BXI"/>
                                     <constraint firstItem="owx-Ns-ABx" firstAttribute="height" secondItem="hax-3B-Lc5" secondAttribute="height" multiplier="0.12" id="HJa-OH-Zx4"/>
@@ -612,7 +604,6 @@
                                     <constraint firstItem="Vuo-zZ-7lL" firstAttribute="centerY" secondItem="hax-3B-Lc5" secondAttribute="centerY" id="pAu-A0-8eJ"/>
                                     <constraint firstItem="bd7-YM-xmD" firstAttribute="height" secondItem="hax-3B-Lc5" secondAttribute="height" multiplier="0.12" id="uWU-0p-Py1"/>
                                     <constraint firstItem="Iei-TN-55D" firstAttribute="centerX" secondItem="hax-3B-Lc5" secondAttribute="centerX" id="vPA-mT-zGY"/>
-                                    <constraint firstItem="lpZ-Hu-RXr" firstAttribute="centerY" secondItem="hax-3B-Lc5" secondAttribute="centerY" id="x5N-qS-DCS"/>
                                     <constraint firstItem="ihb-Jx-744" firstAttribute="width" secondItem="hax-3B-Lc5" secondAttribute="width" multiplier="0.08" id="xFx-EU-sig"/>
                                     <constraint firstItem="nbb-jx-SNd" firstAttribute="leading" secondItem="hax-3B-Lc5" secondAttribute="leading" constant="15" id="yfk-Qw-ehu"/>
                                     <constraint firstItem="Pql-2H-c5V" firstAttribute="leading" secondItem="hax-3B-Lc5" secondAttribute="leading" id="yho-Ny-cdg"/>
@@ -648,12 +639,10 @@
                         <outlet property="drawerButtonRight" destination="K3Q-hj-CRb" id="zh5-uc-LWb"/>
                         <outlet property="expositionModesView" destination="bd7-YM-xmD" id="Jlj-kQ-w7K"/>
                         <outlet property="exposureConfigurationView" destination="xIW-qf-psD" id="V6H-qR-Uru"/>
-                        <outlet property="exposureImageView" destination="WPT-Fl-dz1" id="Skd-M5-V2j"/>
                         <outlet property="exposureModesButton" destination="rfD-8X-HMf" id="R8h-p5-HQG"/>
                         <outlet property="flashButton" destination="0La-NE-dnt" id="uEZ-7j-PLF"/>
                         <outlet property="focalLensSliderView" destination="1Sz-Cx-Stq" id="gbz-tv-QL5"/>
                         <outlet property="focusButton" destination="lsz-IZ-LCD" id="oaL-4k-veR"/>
-                        <outlet property="focusImageView" destination="lpZ-Hu-RXr" id="bbu-C6-McS"/>
                         <outlet property="focusView" destination="Dex-fY-oYP" id="VNM-n6-Xtv"/>
                         <outlet property="gainButton" destination="RdB-Gc-WhI" id="Y2j-iH-Oms"/>
                         <outlet property="gridButton" destination="cV1-o9-b0m" id="qqw-jC-vwA"/>
@@ -838,9 +827,7 @@
         <image name="activity_record_grid_pressed" width="26" height="22"/>
         <image name="activity_record_ic_settings" width="15" height="15"/>
         <image name="activity_record_ic_settings_pressed" width="15" height="14"/>
-        <image name="activity_record_icon_focus_focused" width="68" height="68"/>
         <image name="activity_record_icon_recording" width="7" height="7"/>
-        <image name="activity_record_light_point" width="58" height="58"/>
         <image name="activity_record_memory_100" width="15" height="15"/>
         <image name="activity_record_tutorial" width="20" height="20"/>
         <image name="common_icon_spin" width="102" height="102"/>
