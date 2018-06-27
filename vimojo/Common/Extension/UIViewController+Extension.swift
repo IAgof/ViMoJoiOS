@@ -32,3 +32,21 @@ extension CGPoint {
         return CGPoint(x: x, y: yPos)
     }
 }
+enum VimojoError: Error {
+    case save, recording, message(String)
+    
+    var localizedDescription: String {
+        switch self {
+        case .save: return "Error saving video, sorry for inconvenience".localized(.editor)
+        case .recording: return "Error recording your video, sorry for inconvenience".localized(.editor)
+        case .message(let message): return message
+        }
+    }
+}
+extension UIViewController {
+    
+    func showError(error: VimojoError) {
+        let alertController = UIAlertController(title: "Ups!", message: error.localizedDescription, defaultActionButtonTitle: "Ok")
+        self.present(alertController, animated: true, completion: nil)
+    }
+}
