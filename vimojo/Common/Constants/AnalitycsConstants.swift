@@ -109,6 +109,7 @@ class AnalyticsConstants {
     let FILTER_GROUP_SHADER = "shader"
     let FILTERS_COMBINED = "filtersCombined"
     let COMBINED = "combined"
+    let METERING = "metering"
 
     let INIT_STATE_FIRST_TIME = "firstTime"
     let INIT_STATE_RETURNING = "returning"
