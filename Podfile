@@ -41,7 +41,7 @@ target 'ThomsonFoundation' do
 	shared_pods
 end
 
-target 'M4N' do
+target 'Market4News' do
   shared_pods
 end
 

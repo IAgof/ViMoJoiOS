@@ -118,6 +118,7 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
     func viewWillAppear() {
         self.updateThumbnail()
         delegate?.checkCameraProSupportedFeatures()
+        cameraInteractor?.configureConnection()
         DispatchQueue.main.async(execute: {
             self.delegate?.resizeAllIcons()
 			switch(CamSettings.cameraStatus) {
@@ -128,7 +129,6 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
                 FlashInteractor().switchFlashState()
             }
 			self.rotateCamera()
-			self.hideAllModeConfigsIfNeccesary()
         })
     }
 
@@ -485,22 +485,22 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
     func startRecord() {
         self.trackStartRecord()
-		self.cameraInteractor?.startRecording({
-			DispatchQueue.main.async {
-			  self.delegate?.blockCameraWhenRecording(false)
-			  self.delegate?.recordButtonEnable(true)
-			  self.delegate?.setDrawerGestureStatus(false)
-			  self.delegate?.recordButtonSecondaryEnable(true)
-			  self.delegate?.selectRecordButton()
-			  self.delegate?.selectSecondaryRecordButton()
-			  self.delegate?.hideClipsRecordedView()
-			  self.delegate?.startRecordingIndicatorBlink()
-			  self.delegate?.startSecondaryRecordingIndicatorBlink()
-			  self.delegate?.showDrawerButton()
-              self.delegate?.settingsEnabled(false)
-              self.delegate?.tutorialEnabled(false)
-			}
-		})
+        self.cameraInteractor?.startRecording {
+            DispatchQueue.main.async {
+                self.delegate?.blockCameraWhenRecording(false)
+                self.delegate?.recordButtonEnable(true)
+                self.delegate?.setDrawerGestureStatus(false)
+                self.delegate?.recordButtonSecondaryEnable(true)
+                self.delegate?.selectRecordButton()
+                self.delegate?.selectSecondaryRecordButton()
+                self.delegate?.hideClipsRecordedView()
+                self.delegate?.startRecordingIndicatorBlink()
+                self.delegate?.startSecondaryRecordingIndicatorBlink()
+                self.delegate?.showDrawerButton()
+                self.delegate?.settingsEnabled(false)
+                self.delegate?.tutorialEnabled(false)
+            }
+        }
         isRecording = true
         self.startTimer()
     }
@@ -829,6 +829,13 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
                                                                   interaction:  AnalyticsConstants().INTERACTION_OPEN_SETTINGS,
                                                                   result: "")
     }
+    
+    func trackCameraViewTapped() {
+        ViMoJoTracker.sharedInstance.sendUserInteractedTracking((delegate?.getControllerName())!,
+                                                                recording: isRecording,
+                                                                interaction: AnalyticsConstants().METERING,
+                                                                result: AnalyticsConstants().METERING)
+    }
 
     // MARK: - Camera delegate
     func trackVideoRecorded(_ videoLenght: Double) {
@@ -861,6 +868,10 @@ class RecordPresenter: NSObject, RecordPresenterInterface, CameraInteractorDeleg
 
     func showFocus(_ center: CGPoint) {
         delegate?.showFocusAtPoint(center)
+    }
+
+    func gotError(error: VimojoError) {
+        delegate?.showError(error: error)
     }
 
     // MARK: - Timer delegate
