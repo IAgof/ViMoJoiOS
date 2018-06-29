@@ -45,6 +45,10 @@ target 'Market4News' do
   shared_pods
 end
 
+target 'Vanitatis' do
+    shared_pods
+end
+
 target 'vimojoUITests' do
 	shared_pods
 end

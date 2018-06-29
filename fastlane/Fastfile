@@ -6,7 +6,8 @@ default_platform :ios
 
 platform :ios do
   lane :certificates do
-      match(type: 'development',app_identifier: ["com.videona.vimojo", "com.vimojo.thomsonfoundation", "com.vimojo.m4n", "com.vimojo.elconfidencial", "com.vimojo.RTVE"], readonly: false)
-      match(type: 'adhoc', app_identifier: ["com.videona.vimojo", "com.vimojo.thomsonfoundation", "com.vimojo.m4n", "com.vimojo.elconfidencial", "com.vimojo.RTVE"], readonly: false)
+      match(type: 'development',app_identifier: ["com.videona.vimojo", "com.vimojo.thomsonfoundation", "com.vimojo.m4n", "com.vimojo.elconfidencial", 
+"com.vimojo.vanitatis", "com.vimojo.RTVE"], readonly: false)
+      match(type: 'adhoc', app_identifier: ["com.videona.vimojo", "com.vimojo.thomsonfoundation", "com.vimojo.m4n", "com.vimojo.elconfidencial", "com.vimojo.vanitatis", "com.vimojo.RTVE"], readonly: false)
   end
 end
