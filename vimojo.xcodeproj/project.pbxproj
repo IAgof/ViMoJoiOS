@@ -7,7 +7,376 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182766FA8556A5B82696CFA4 /* Pods_Vanitatis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F69252D52738048BBD369B1 /* Pods_Vanitatis.framework */; };
 		270A6F11F31FD46F3C10FB01 /* Pods_vimojoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C2C16426B4AB1C473AEEBC8 /* Pods_vimojoUITests.framework */; };
+		382794DE20E6490A0090B821 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED004F1D9178CB00969F31 /* Alamofire.framework */; };
+		382794DF20E6490A0090B821 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00571D917B7200969F31 /* FBSDKCoreKit.framework */; };
+		382794E020E6490A0090B821 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00591D917B7200969F31 /* FBSDKShareKit.framework */; };
+		382794E120E6490A0090B821 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A90C679E1FE08F63005958DB /* StoreKit.framework */; };
+		382794E220E6490A0090B821 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED00581D917B7200969F31 /* FBSDKLoginKit.framework */; };
+		382794E520E6490A0090B821 /* MusicDetailView.strings in Resources */ = {isa = PBXBuildFile; fileRef = A91BDB861E43651200BE4F1C /* MusicDetailView.strings */; };
+		382794E620E6490A0090B821 /* activity_record_rec_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE731D7D88EE00421BD0 /* activity_record_rec_circle.png */; };
+		382794E720E6490A0090B821 /* jazzyfrenchy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A910ACFA1E3A2EC200A4EC90 /* jazzyfrenchy.mp3 */; };
+		382794E820E6490A0090B821 /* MicRecorder.strings in Resources */ = {isa = PBXBuildFile; fileRef = A906CCDD1DB0D03700AC8FFB /* MicRecorder.strings */; };
+		382794EA20E6490A0090B821 /* MusicListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CAB9931EC367BC00AB6CE8 /* MusicListCell.xib */; };
+		382794EB20E6490A0090B821 /* Gallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95631FD1E31199100C5EFF4 /* Gallery.storyboard */; };
+		382794EC20E6490A0090B821 /* water_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE771D7D93B700421BD0 /* water_mark.png */; };
+		382794ED20E6490A0090B821 /* CHANGELOG in Resources */ = {isa = PBXBuildFile; fileRef = B2C36C7520B97E2F005BA8B8 /* CHANGELOG */; };
+		382794EE20E6490A0090B821 /* iso639_2.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE5B1D7D7A1300421BD0 /* iso639_2.bundle */; };
+		382794EF20E6490A0090B821 /* ShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91760FE1D916F48008915DA /* ShareCell.xib */; };
+		382794F020E6490A0090B821 /* MusicListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CAB99B1EC367BC00AB6CE8 /* MusicListView.xib */; };
+		382794F120E6490A0090B821 /* ProjectList.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97B53811E0AA0290001B288 /* ProjectList.strings */; };
+		382794F220E6490A0090B821 /* MediaAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2957FB6204B0C7400794065 /* MediaAssets.xcassets */; };
+		382794F320E6490A0090B821 /* tutorial.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9031D102022775200E672BF /* tutorial.xcassets */; };
+		382794F420E6490A0090B821 /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96858441E57170600E5BD7A /* Record.storyboard */; };
+		382794F520E6490A0090B821 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9950CC31E1AA121009367E7 /* GoogleService-Info.plist */; };
+		382794F620E6490A0090B821 /* Settings.strings in Resources */ = {isa = PBXBuildFile; fileRef = A96441131DA3E59700CAD950 /* Settings.strings */; };
+		382794F720E6490A0090B821 /* PurchaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E957D91FE5915800D0E087 /* PurchaseTableViewCell.xib */; };
+		382794F920E6490A0090B821 /* goinghigher.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A910ACF91E3A2EC200A4EC90 /* goinghigher.mp3 */; };
+		382794FA20E6490A0090B821 /* Drawer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B54B9D1DFEAD5E00388002 /* Drawer.storyboard */; };
+		382794FB20E6490A0090B821 /* PurchaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A90C67AB1FE45DAF005958DB /* PurchaseViewController.xib */; };
+		382794FC20E6490A0090B821 /* RELEASE in Resources */ = {isa = PBXBuildFile; fileRef = B2C36C7820B97E3E005BA8B8 /* RELEASE */; };
+		382794FE20E6490A0090B821 /* ukulele.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A910ACFB1E3A2EC200A4EC90 /* ukulele.mp3 */; };
+		382794FF20E6490A0090B821 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9CFF3111F054D75007C2305 /* Info.plist */; };
+		3827950020E6490A0090B821 /* DrawerMenu.strings in Resources */ = {isa = PBXBuildFile; fileRef = A96789501E3B558E00A8B37A /* DrawerMenu.strings */; };
+		3827950120E6490A0090B821 /* EditorStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97772C51DC2451200EA9291 /* EditorStrings.strings */; };
+		3827950220E6490A0090B821 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9F03D361E1E542D00DE2880 /* Assets.xcassets */; };
+		3827950320E6490A0090B821 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B385ED1D7D51380065D3EC /* Main.storyboard */; };
+		3827950420E6490A0090B821 /* VideonaFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CAB8C61EC360CC00AB6CE8 /* VideonaFooterView.xib */; };
+		3827950520E6490A0090B821 /* Editor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95737CC1E0BDCF8006F2AB7 /* Editor.storyboard */; };
+		3827950720E6490A0090B821 /* MusicProvider.strings in Resources */ = {isa = PBXBuildFile; fileRef = A94965901EAE8EEC003FCBF6 /* MusicProvider.strings */; };
+		3827950820E6490A0090B821 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A91995531EC5029C00D24B0E /* LICENSE */; };
+		3827950920E6490A0090B821 /* MuiscSelectorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97DABF31EED6539002BDDA3 /* MuiscSelectorTableViewCell.xib */; };
+		3827950A20E6490A0090B821 /* ProjectList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9A2073B1DED94BB004AAEE2 /* ProjectList.storyboard */; };
+		3827950B20E6490A0090B821 /* VideoCarrusselCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E5B7931EF525C600A286DF /* VideoCarrusselCollectionViewCell.xib */; };
+		3827950C20E6490A0090B821 /* ProjectDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A929DF412039D40B000F62AF /* ProjectDetailsViewController.xib */; };
+		3827950D20E6490A0090B821 /* acousticbreeze.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A910ACF81E3A2EC200A4EC90 /* acousticbreeze.mp3 */; };
+		3827950E20E6490A0090B821 /* Purchase.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2B9BF5B207771EE00F4E6F7 /* Purchase.strings */; };
+		3827950F20E6490A0090B821 /* MusicDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91761271D916F53008915DA /* MusicDetailView.xib */; };
+		3827951020E6490A0090B821 /* RecordingCameraConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24A1CA420BAD08F00E63DB1 /* RecordingCameraConfigurationViewController.xib */; };
+		3827951120E6490A0090B821 /* Share.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97772BB1DC244E700EA9291 /* Share.strings */; };
+		3827951220E6490A0090B821 /* filter_free.png in Resources */ = {isa = PBXBuildFile; fileRef = A93BCE751D7D92C300421BD0 /* filter_free.png */; };
+		3827951320E6490A0090B821 /* ProjectDetails.strings in Resources */ = {isa = PBXBuildFile; fileRef = B27E3EC320861062002BCEA0 /* ProjectDetails.strings */; };
+		3827951720E6490A0090B821 /* RealmProjectToProjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABADA1EC36C6700AB6CE8 /* RealmProjectToProjectMapper.swift */; };
+		3827951820E6490A0090B821 /* SettingsFTPUneditedDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB301EC36CE900AB6CE8 /* SettingsFTPUneditedDestination.swift */; };
+		3827951920E6490A0090B821 /* SettingsFTPBreakingNewsUneditedDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB2B1EC36CE900AB6CE8 /* SettingsFTPBreakingNewsUneditedDestination.swift */; };
+		3827951A20E6490A0090B821 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97DABFA1EED68CB002BDDA3 /* UITableViewExtension.swift */; };
+		3827951B20E6490A0090B821 /* PurchaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E957D81FE5915800D0E087 /* PurchaseTableViewCell.swift */; };
+		3827951C20E6490A0090B821 /* MusicListConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9941EC367BC00AB6CE8 /* MusicListConstants.swift */; };
+		3827951D20E6490A0090B821 /* CameraInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA681EC36AEC00AB6CE8 /* CameraInteractor.swift */; };
+		3827951E20E6490A0090B821 /* ViMoJoInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8C81EC360CC00AB6CE8 /* ViMoJoInterface.swift */; };
+		3827951F20E6490A0090B821 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFF3121F054D75007C2305 /* Operation.swift */; };
+		3827952020E6490A0090B821 /* AudioSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E41FD820126F4A00E9F2AD /* AudioSettings.swift */; };
+		3827952220E6490A0090B821 /* CameraInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA691EC36AEC00AB6CE8 /* CameraInteractorInterface.swift */; };
+		3827952320E6490A0090B821 /* SettingsCameraSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB221EC36CE900AB6CE8 /* SettingsCameraSettings.swift */; };
+		3827952420E6490A0090B821 /* PurchaseProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67A31FE45BA6005958DB /* PurchaseProduct.swift */; };
+		3827952520E6490A0090B821 /* CustomDPTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8A11EC35F7800AB6CE8 /* CustomDPTheme.swift */; };
+		3827952620E6490A0090B821 /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9031CFF2022762E00E672BF /* SlideView.swift */; };
+		3827952720E6490A0090B821 /* ProjectDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A929DF3C2039D40A000F62AF /* ProjectDetailsInteractor.swift */; };
+		3827952820E6490A0090B821 /* AddFilterToVideoCollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A331E53D5BE00C21918 /* AddFilterToVideoCollectionViewExtension.swift */; };
+		3827952920E6490A0090B821 /* FullScreenPlayerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760D51D9146FE008915DA /* FullScreenPlayerWireframe.swift */; };
+		3827952A20E6490A0090B821 /* DrawerMenuWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9251EC3657200AB6CE8 /* DrawerMenuWireframe.swift */; };
+		3827952B20E6490A0090B821 /* AddTextPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8F11EC361B500AB6CE8 /* AddTextPresenterInterface.swift */; };
+		3827952C20E6490A0090B821 /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F0D205A7B0200D1CF28 /* PermissionsViewController.swift */; };
+		3827952D20E6490A0090B821 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24BF163208888B6003CF796 /* Double+Extension.swift */; };
+		3827952E20E6490A0090B821 /* VideoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E41FDF201273AB00E9F2AD /* VideoSettings.swift */; };
+		3827952F20E6490A0090B821 /* ReloadProjectWithProjectAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA321EC36A4700AB6CE8 /* ReloadProjectWithProjectAction.swift */; };
+		3827953020E6490A0090B821 /* MusicListPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A919953E1EC5017300D24B0E /* MusicListPresenterInterface.swift */; };
+		3827953120E6490A0090B821 /* KindOfProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F34BBD2071972B005B541F /* KindOfProjectViewController.swift */; };
+		3827953220E6490A0090B821 /* RealmAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAD61EC36C6700AB6CE8 /* RealmAudio.swift */; };
+		3827953320E6490A0090B821 /* EditorTextConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B41D9146BF008915DA /* EditorTextConstants.swift */; };
+		3827953420E6490A0090B821 /* PurchaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67A81FE45DAF005958DB /* PurchaseProtocols.swift */; };
+		3827953520E6490A0090B821 /* SSRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EABF4920135442004E031B /* SSRadioButton.swift */; };
+		3827953620E6490A0090B821 /* DetailTextWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9931D990C4100602DCD /* DetailTextWireframe.swift */; };
+		3827953720E6490A0090B821 /* RecordPresenterInterfaceIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA781EC36AEC00AB6CE8 /* RecordPresenterInterfaceIO.swift */; };
+		3827953820E6490A0090B821 /* DuplicateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB92A1EC3658E00AB6CE8 /* DuplicateViewController.swift */; };
+		3827953920E6490A0090B821 /* AddTextInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8E01EC3619700AB6CE8 /* AddTextInteractor.swift */; };
+		3827953A20E6490A0090B821 /* ProfileSharedPreferencesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAD21EC36C6700AB6CE8 /* ProfileSharedPreferencesRepository.swift */; };
+		3827953B20E6490A0090B821 /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8C51EC360CC00AB6CE8 /* RootWireframe.swift */; };
+		3827953C20E6490A0090B821 /* SocialNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917610D1D916F48008915DA /* SocialNetwork.swift */; };
+		3827953D20E6490A0090B821 /* ShareWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917610B1D916F48008915DA /* ShareWireframe.swift */; };
+		3827953E20E6490A0090B821 /* MusicDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761261D916F53008915DA /* MusicDetailView.swift */; };
+		3827953F20E6490A0090B821 /* AddTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8E81EC361A700AB6CE8 /* AddTextViewController.swift */; };
+		3827954020E6490A0090B821 /* MicRecorderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9EB1EC3691E00AB6CE8 /* MicRecorderInteractor.swift */; };
+		3827954120E6490A0090B821 /* RealmAudioToAudioMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAD71EC36C6700AB6CE8 /* RealmAudioToAudioMapper.swift */; };
+		3827954220E6490A0090B821 /* AddTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8DC1EC3618500AB6CE8 /* AddTextModel.swift */; };
+		3827954320E6490A0090B821 /* RecordingCameraConfigurationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB04FD20128DFC0094E65E /* RecordingCameraConfigurationInteractor.swift */; };
+		3827954420E6490A0090B821 /* AddTextInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8E11EC3619700AB6CE8 /* AddTextInteractorInterface.swift */; };
+		3827954520E6490A0090B821 /* SettingsFTPBreakingNewsEditedDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB281EC36CE900AB6CE8 /* SettingsFTPBreakingNewsEditedDestination.swift */; };
+		3827954620E6490A0090B821 /* TakePhotoFromOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9031EC364FB00AB6CE8 /* TakePhotoFromOptions.swift */; };
+		3827954720E6490A0090B821 /* VideoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAE01EC36C6700AB6CE8 /* VideoRepository.swift */; };
+		3827954820E6490A0090B821 /* SettingsResolutionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB3C1EC36CE900AB6CE8 /* SettingsResolutionAction.swift */; };
+		3827954920E6490A0090B821 /* ShareFTPBreakingNewsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C7581DC35FB500A65730 /* ShareFTPBreakingNewsInteractor.swift */; };
+		3827954A20E6490A0090B821 /* GetMiddleRangeSliderValueWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9471EC366BE00AB6CE8 /* GetMiddleRangeSliderValueWorker.swift */; };
+		3827954B20E6490A0090B821 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABBAD1EC36DB000AB6CE8 /* SplitViewController.swift */; };
+		3827954C20E6490A0090B821 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFF3151F054D75007C2305 /* Session.swift */; };
+		3827954D20E6490A0090B821 /* AddTextWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8E91EC361A700AB6CE8 /* AddTextWireframe.swift */; };
+		3827954E20E6490A0090B821 /* MusicListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91995351EC5014800D24B0E /* MusicListWireframe.swift */; };
+		3827954F20E6490A0090B821 /* RecorderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA751EC36AEC00AB6CE8 /* RecorderInteractor.swift */; };
+		3827955020E6490A0090B821 /* UIViewFadeViewsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8961EC35F4700AB6CE8 /* UIViewFadeViewsExtension.swift */; };
+		3827955120E6490A0090B821 /* ApplyTextOverlayToVideoCompositionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA671EC36AEC00AB6CE8 /* ApplyTextOverlayToVideoCompositionUseCase.swift */; };
+		3827955220E6490A0090B821 /* CMTimeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B406711EF33519004C9854 /* CMTimeExtension.swift */; };
+		3827955320E6490A0090B821 /* AnalitycsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB88B1EC35F1C00AB6CE8 /* AnalitycsConstants.swift */; };
+		3827955420E6490A0090B821 /* ProjectToRealmProjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAD51EC36C6700AB6CE8 /* ProjectToRealmProjectMapper.swift */; };
+		3827955520E6490A0090B821 /* RecorderParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAA1E61FC71F0800B0ADA5 /* RecorderParameters.swift */; };
+		3827955620E6490A0090B821 /* EditingRoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A31D9146B5008915DA /* EditingRoomPresenter.swift */; };
+		3827955720E6490A0090B821 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAD01EC36C6700AB6CE8 /* Mapper.swift */; };
+		3827955820E6490A0090B821 /* ShareVideoPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95737C81E0BC892006F2AB7 /* ShareVideoPath.swift */; };
+		3827955920E6490A0090B821 /* ExportedAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA6E1EC36AEC00AB6CE8 /* ExportedAlbum.swift */; };
+		3827955A20E6490A0090B821 /* StringsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91359FA1EDB05B8004779B5 /* StringsExtension.swift */; };
+		3827955B20E6490A0090B821 /* ProjectListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA591EC36A9200AB6CE8 /* ProjectListCellView.swift */; };
+		3827955C20E6490A0090B821 /* ExporterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA6F1EC36AEC00AB6CE8 /* ExporterInteractor.swift */; };
+		3827955D20E6490A0090B821 /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAD11EC36C6700AB6CE8 /* ProfileRepository.swift */; };
+		3827955E20E6490A0090B821 /* DetailTextInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE98E1D990C4100602DCD /* DetailTextInteractor.swift */; };
+		3827955F20E6490A0090B821 /* AddFilterToVideoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A953AD531E53474A00DC0D84 /* AddFilterToVideoPresenter.swift */; };
+		3827956020E6490A0090B821 /* VImojoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F57431F63F7FE00B41929 /* VImojoCard.swift */; };
+		3827956120E6490A0090B821 /* RecordDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA721EC36AEC00AB6CE8 /* RecordDrawerController.swift */; };
+		3827956220E6490A0090B821 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDE4B27202F6627004E72BD /* UIViewController+Extension.swift */; };
+		3827956320E6490A0090B821 /* MicRecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9EF1EC3691E00AB6CE8 /* MicRecorderViewController.swift */; };
+		3827956420E6490A0090B821 /* ProjectListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA511EC36A7200AB6CE8 /* ProjectListPresenter.swift */; };
+		3827956520E6490A0090B821 /* RecordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA771EC36AEC00AB6CE8 /* RecordPresenter.swift */; };
+		3827956620E6490A0090B821 /* EditorClipsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760AF1D9146BF008915DA /* EditorClipsCell.swift */; };
+		3827956720E6490A0090B821 /* EditorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B21D9146BF008915DA /* EditorPresenter.swift */; };
+		3827956820E6490A0090B821 /* GoToRecordOrGalleryWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9761EC3676000AB6CE8 /* GoToRecordOrGalleryWireframe.swift */; };
+		3827956920E6490A0090B821 /* TrimWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABBBE1EC379C900AB6CE8 /* TrimWireframe.swift */; };
+		3827956A20E6490A0090B821 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B51D9146BF008915DA /* EditorViewController.swift */; };
+		3827956B20E6490A0090B821 /* ThumbnailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA7C1EC36AEC00AB6CE8 /* ThumbnailInteractor.swift */; };
+		3827956C20E6490A0090B821 /* SaveVideosFromGalleryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9651EC3672700AB6CE8 /* SaveVideosFromGalleryInterface.swift */; };
+		3827956D20E6490A0090B821 /* MusicSelectorCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97DABEE1EED62F2002BDDA3 /* MusicSelectorCellViewModel.swift */; };
+		3827956E20E6490A0090B821 /* SettingsEmailAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB251EC36CE900AB6CE8 /* SettingsEmailAction.swift */; };
+		3827956F20E6490A0090B821 /* MusicProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917612C1D916F53008915DA /* MusicProvider.swift */; };
+		3827957020E6490A0090B821 /* ShareWhatsappInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917610A1D916F48008915DA /* ShareWhatsappInteractor.swift */; };
+		3827957120E6490A0090B821 /* SharePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761051D916F48008915DA /* SharePresenter.swift */; };
+		3827957220E6490A0090B821 /* KYDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91995501EC5029C00D24B0E /* KYDrawerController.swift */; };
+		3827957320E6490A0090B821 /* FTPErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A900C7451DC3575700A65730 /* FTPErrorType.swift */; };
+		3827957420E6490A0090B821 /* DPTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8A21EC35F7800AB6CE8 /* DPTheme.swift */; };
+		3827957520E6490A0090B821 /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB99C1EC367BC00AB6CE8 /* MusicListViewController.swift */; };
+		3827957620E6490A0090B821 /* DuplicateInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9291EC3658E00AB6CE8 /* DuplicateInterface.swift */; };
+		3827957720E6490A0090B821 /* AddTextPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8F01EC361B500AB6CE8 /* AddTextPresenter.swift */; };
+		3827957820E6490A0090B821 /* DrawerMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9151EC3656000AB6CE8 /* DrawerMenuTableViewController.swift */; };
+		3827957920E6490A0090B821 /* AudioToRealmAudioMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABACF1EC36C6700AB6CE8 /* AudioToRealmAudioMapper.swift */; };
+		3827957A20E6490A0090B821 /* RecordingCameraConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB04FB20128DFC0094E65E /* RecordingCameraConfigurationViewController.swift */; };
+		3827957B20E6490A0090B821 /* SetTrimParametersToVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9481EC366BE00AB6CE8 /* SetTrimParametersToVideo.swift */; };
+		3827957C20E6490A0090B821 /* RecordingCameraConfigurationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB04FC20128DFC0094E65E /* RecordingCameraConfigurationProtocols.swift */; };
+		3827957D20E6490A0090B821 /* MusicModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96E15EF1DA257A400CF81E8 /* MusicModels.swift */; };
+		3827957E20E6490A0090B821 /* MusicListInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91995461EC5019100D24B0E /* MusicListInteractorInterface.swift */; };
+		3827957F20E6490A0090B821 /* GalleryWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9631EC3672700AB6CE8 /* GalleryWireframe.swift */; };
+		3827958020E6490A0090B821 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A4E1E53D97300C21918 /* FilterCollectionViewCell.swift */; };
+		3827958120E6490A0090B821 /* ProjectDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A929DF3D2039D40A000F62AF /* ProjectDetailsPresenter.swift */; };
+		3827958220E6490A0090B821 /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EABF4820135441004E031B /* SSRadioButtonsController.swift */; };
+		3827958320E6490A0090B821 /* SlideTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9031CFD2022762E00E672BF /* SlideTutorial.swift */; };
+		3827958420E6490A0090B821 /* ExportTemporalVideoToShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9325FAC1E091E1D00400AD6 /* ExportTemporalVideoToShare.swift */; };
+		3827958520E6490A0090B821 /* DrawerMenuInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9021EC364FB00AB6CE8 /* DrawerMenuInteractorInterface.swift */; };
+		3827958620E6490A0090B821 /* ViMoJoTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABBB91EC36DD000AB6CE8 /* ViMoJoTracker.swift */; };
+		3827958720E6490A0090B821 /* MusicPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA171EC369F600AB6CE8 /* MusicPresenter.swift */; };
+		3827958820E6490A0090B821 /* ProjectRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAD41EC36C6700AB6CE8 /* ProjectRepository.swift */; };
+		3827958920E6490A0090B821 /* EditorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B01D9146BF008915DA /* EditorInteractor.swift */; };
+		3827958A20E6490A0090B821 /* CustomClipsGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9561EC3671A00AB6CE8 /* CustomClipsGalleryViewController.swift */; };
+		3827958B20E6490A0090B821 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761091D916F48008915DA /* ShareViewController.swift */; };
+		3827958C20E6490A0090B821 /* MixAudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9F21EC3691E00AB6CE8 /* MixAudioModel.swift */; };
+		3827958D20E6490A0090B821 /* ShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9645EA31DC0D298000944CB /* ShareViewModel.swift */; };
+		3827958E20E6490A0090B821 /* TrimParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB93A1EC366A700AB6CE8 /* TrimParameters.swift */; };
+		3827958F20E6490A0090B821 /* SettingsFTPEditedDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB2D1EC36CE900AB6CE8 /* SettingsFTPEditedDestination.swift */; };
+		3827959020E6490A0090B821 /* FileUploadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFF3101F054D75007C2305 /* FileUploadOperation.swift */; };
+		3827959120E6490A0090B821 /* SettingsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9741D990A4A00602DCD /* SettingsContent.swift */; };
+		3827959220E6490A0090B821 /* ProjectListConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA3E1EC36A5C00AB6CE8 /* ProjectListConstants.swift */; };
+		3827959320E6490A0090B821 /* SettingsFTPBreakingNewsPasswordAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB2A1EC36CE900AB6CE8 /* SettingsFTPBreakingNewsPasswordAction.swift */; };
+		3827959420E6490A0090B821 /* SettingsUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB3E1EC36CE900AB6CE8 /* SettingsUserInfo.swift */; };
+		3827959520E6490A0090B821 /* SettingsWatermarkAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A0C431F5DA5FE00C77DDB /* SettingsWatermarkAction.swift */; };
+		3827959620E6490A0090B821 /* UIBarButtonItem+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3628AD1F9800D300E762CE /* UIBarButtonItem+extension.swift */; };
+		3827959720E6490A0090B821 /* RealmVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABADB1EC36C6700AB6CE8 /* RealmVideo.swift */; };
+		3827959820E6490A0090B821 /* MusicPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA181EC369F600AB6CE8 /* MusicPresenterInterface.swift */; };
+		3827959920E6490A0090B821 /* MicRecorderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9ED1EC3691E00AB6CE8 /* MicRecorderPresenter.swift */; };
+		3827959A20E6490A0090B821 /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D8B382031103A00F1BF99 /* SlideViewController.swift */; };
+		3827959B20E6490A0090B821 /* DuplicateWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB92B1EC3658E00AB6CE8 /* DuplicateWireframe.swift */; };
+		3827959C20E6490A0090B821 /* WriteStreamOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFF3171F054D75007C2305 /* WriteStreamOperation.swift */; };
+		3827959D20E6490A0090B821 /* KindOfProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610725E42080BD83005A65BD /* KindOfProjectTableViewCell.swift */; };
+		3827959E20E6490A0090B821 /* RecordWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA791EC36AEC00AB6CE8 /* RecordWireframe.swift */; };
+		3827959F20E6490A0090B821 /* FullScreenPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760D41D9146FE008915DA /* FullScreenPlayerViewController.swift */; };
+		382795A020E6490A0090B821 /* MusicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB99A1EC367BC00AB6CE8 /* MusicListView.swift */; };
+		382795A120E6490A0090B821 /* DetailTextInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE98F1D990C4100602DCD /* DetailTextInteractorInterface.swift */; };
+		382795A220E6490A0090B821 /* PurchasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67A71FE45DAF005958DB /* PurchasePresenter.swift */; };
+		382795A320E6490A0090B821 /* DrawerMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB91D1EC3656A00AB6CE8 /* DrawerMenuPresenter.swift */; };
+		382795A420E6490A0090B821 /* RecordingCameraConfigurationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB04F920128DFC0094E65E /* RecordingCameraConfigurationPresenter.swift */; };
+		382795A520E6490A0090B821 /* SettingsPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9791D990A4A00602DCD /* SettingsPresenterInterface.swift */; };
+		382795A620E6490A0090B821 /* FileDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFF30F1F054D75007C2305 /* FileDownloadOperation.swift */; };
+		382795A720E6490A0090B821 /* SettingsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB231EC36CE900AB6CE8 /* SettingsConstants.swift */; };
+		382795A820E6490A0090B821 /* FilterCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A421E53D68600C21918 /* FilterCollectionViewModel.swift */; };
+		382795A920E6490A0090B821 /* ReadStreamOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFF3131F054D75007C2305 /* ReadStreamOperation.swift */; };
+		382795AA20E6490A0090B821 /* RealmProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAD91EC36C6700AB6CE8 /* RealmProject.swift */; };
+		382795AB20E6490A0090B821 /* MusicProviderForVimojo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910AD081E3A2F1200A4EC90 /* MusicProviderForVimojo.swift */; };
+		382795AC20E6490A0090B821 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		382795AD20E6490A0090B821 /* AddWatermarkUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA661EC36AEC00AB6CE8 /* AddWatermarkUseCase.swift */; };
+		382795AE20E6490A0090B821 /* RecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA711EC36AEC00AB6CE8 /* RecordController.swift */; };
+		382795AF20E6490A0090B821 /* Audio4VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B898D41EF70F6D00C698C9 /* Audio4VideoViewController.swift */; };
+		382795B020E6490A0090B821 /* ProjectListInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA4A1EC36A6700AB6CE8 /* ProjectListInteractorInterface.swift */; };
+		382795B120E6490A0090B821 /* FullScreenPlayerPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760D31D9146FE008915DA /* FullScreenPlayerPresenterInterface.swift */; };
+		382795B220E6490A0090B821 /* CreateNewProjectUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8AB1EC35FAC00AB6CE8 /* CreateNewProjectUseCase.swift */; };
+		382795B320E6490A0090B821 /* ConfigPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB88C1EC35F1C00AB6CE8 /* ConfigPreferences.swift */; };
+		382795B420E6490A0090B821 /* SettingsQualityAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB3B1EC36CE900AB6CE8 /* SettingsQualityAction.swift */; };
+		382795B520E6490A0090B821 /* PurchaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67A91FE45DAF005958DB /* PurchaseRouter.swift */; };
+		382795B620E6490A0090B821 /* EditorPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B31D9146BF008915DA /* EditorPresenterInterface.swift */; };
+		382795B720E6490A0090B821 /* DuplicateProjectOnProjectListAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA311EC36A4700AB6CE8 /* DuplicateProjectOnProjectListAction.swift */; };
+		382795B820E6490A0090B821 /* FilterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A4A1E53D6A900C21918 /* FilterProvider.swift */; };
+		382795B920E6490A0090B821 /* ProjectParametersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A521E53F15F00C21918 /* ProjectParametersViewModel.swift */; };
+		382795BA20E6490A0090B821 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAA1EB1FC722FF00B0ADA5 /* PreviewView.swift */; };
+		382795BB20E6490A0090B821 /* ClipsAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA6D1EC36AEC00AB6CE8 /* ClipsAlbum.swift */; };
+		382795BC20E6490A0090B821 /* ShareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760FD1D916F48008915DA /* ShareCell.swift */; };
+		382795BD20E6490A0090B821 /* RecorderInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA761EC36AEC00AB6CE8 /* RecorderInteractorInterface.swift */; };
+		382795BE20E6490A0090B821 /* NSLocale+ISO639_2.m in Sources */ = {isa = PBXBuildFile; fileRef = A93BCE5D1D7D7A1300421BD0 /* NSLocale+ISO639_2.m */; };
+		382795BF20E6490A0090B821 /* GetVoiceOverComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9E91EC3691E00AB6CE8 /* GetVoiceOverComposition.swift */; };
+		382795C020E6490A0090B821 /* SettingsFTPBreakingNewsUsernameAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB2C1EC36CE900AB6CE8 /* SettingsFTPBreakingNewsUsernameAction.swift */; };
+		382795C120E6490A0090B821 /* SettingsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB401EC36CE900AB6CE8 /* SettingsUtils.swift */; };
+		382795C220E6490A0090B821 /* SettingsFTPUsernameAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB311EC36CE900AB6CE8 /* SettingsFTPUsernameAction.swift */; };
+		382795C320E6490A0090B821 /* MusicDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9901EC367BC00AB6CE8 /* MusicDetailViewModel.swift */; };
+		382795C420E6490A0090B821 /* ResourceListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFF3141F054D75007C2305 /* ResourceListOperation.swift */; };
+		382795C520E6490A0090B821 /* RemoveProjectOnProjectListAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA331EC36A4700AB6CE8 /* RemoveProjectOnProjectListAction.swift */; };
+		382795C620E6490A0090B821 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9751D990A4A00602DCD /* SettingsInteractor.swift */; };
+		382795C720E6490A0090B821 /*  GetSeekTimeFromValueOnVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9451EC366BE00AB6CE8 /*  GetSeekTimeFromValueOnVideo.swift */; };
+		382795C820E6490A0090B821 /* RecordingCameraConfigurationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB04FA20128DFC0094E65E /* RecordingCameraConfigurationRouter.swift */; };
+		382795C920E6490A0090B821 /* SaveVideosFromGalleryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9641EC3672700AB6CE8 /* SaveVideosFromGalleryInteractor.swift */; };
+		382795CA20E6490A0090B821 /* AllVideosGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9551EC3671A00AB6CE8 /* AllVideosGalleryViewController.swift */; };
+		382795CB20E6490A0090B821 /* DateCompareExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8941EC35F4700AB6CE8 /* DateCompareExtension.swift */; };
+		382795CC20E6490A0090B821 /* CustomExportedVideosGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9571EC3671A00AB6CE8 /* CustomExportedVideosGalleryViewController.swift */; };
+		382795CD20E6490A0090B821 /* MusicInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA151EC369F600AB6CE8 /* MusicInteractor.swift */; };
+		382795CE20E6490A0090B821 /* ProjectListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA491EC36A6700AB6CE8 /* ProjectListInteractor.swift */; };
+		382795CF20E6490A0090B821 /* SharePresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761061D916F48008915DA /* SharePresenterInterface.swift */; };
+		382795D020E6490A0090B821 /* DrawerMenuPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB91E1EC3656A00AB6CE8 /* DrawerMenuPresenterInterface.swift */; };
+		382795D120E6490A0090B821 /* ProjectDetailsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A929DF3E2039D40A000F62AF /* ProjectDetailsProtocols.swift */; };
+		382795D220E6490A0090B821 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A929DF402039D40A000F62AF /* ProjectDetailsViewController.swift */; };
+		382795D320E6490A0090B821 /* IAHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67A11FE455B5005958DB /* IAHelper.swift */; };
+		382795D420E6490A0090B821 /* AudioRealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABACD1EC36C6700AB6CE8 /* AudioRealmRepository.swift */; };
+		382795D520E6490A0090B821 /* SettingsFTPPasswordAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB2F1EC36CE900AB6CE8 /* SettingsFTPPasswordAction.swift */; };
+		382795D620E6490A0090B821 /* GalleryFetchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9611EC3672700AB6CE8 /* GalleryFetchOptions.swift */; };
+		382795D720E6490A0090B821 /* ShareYoutubeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917610C1D916F48008915DA /* ShareYoutubeInteractor.swift */; };
+		382795D820E6490A0090B821 /* ConfigureNavBarVimojoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8C41EC360CC00AB6CE8 /* ConfigureNavBarVimojoExtension.swift */; };
+		382795D920E6490A0090B821 /* SettingsActionInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB211EC36CE900AB6CE8 /* SettingsActionInterface.swift */; };
+		382795DA20E6490A0090B821 /* CreateDefaultProjectUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8AA1EC35FAC00AB6CE8 /* CreateDefaultProjectUseCase.swift */; };
+		382795DB20E6490A0090B821 /* TimerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA7D1EC36AEC00AB6CE8 /* TimerInteractor.swift */; };
+		382795DC20E6490A0090B821 /* RealmMigrationsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAD81EC36C6700AB6CE8 /* RealmMigrationsUseCase.swift */; };
+		382795DD20E6490A0090B821 /* SettingsNameAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB371EC36CE900AB6CE8 /* SettingsNameAction.swift */; };
+		382795DE20E6490A0090B821 /* RecordDrawerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA731EC36AEC00AB6CE8 /* RecordDrawerWireframe.swift */; };
+		382795DF20E6490A0090B821 /* Specification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABADE1EC36C6700AB6CE8 /* Specification.swift */; };
+		382795E020E6490A0090B821 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B385E91D7D51380065D3EC /* AppDelegate.swift */; };
+		382795E120E6490A0090B821 /* RecordedTrackAreaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9F31EC3691E00AB6CE8 /* RecordedTrackAreaViewModel.swift */; };
+		382795E220E6490A0090B821 /* SettingsLegalURLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95C07001E4B821C004A7040 /* SettingsLegalURLConstants.swift */; };
+		382795E320E6490A0090B821 /* VideoToRealmVideoMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAE11EC36C6700AB6CE8 /* VideoToRealmVideoMapper.swift */; };
+		382795E420E6490A0090B821 /* DrawerMenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9011EC364FB00AB6CE8 /* DrawerMenuInteractor.swift */; };
+		382795E520E6490A0090B821 /* DrawerProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9161EC3656000AB6CE8 /* DrawerProfileTableViewCell.swift */; };
+		382795E620E6490A0090B821 /* ShareConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760FF1D916F48008915DA /* ShareConstants.swift */; };
+		382795E720E6490A0090B821 /* RecorderConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA741EC36AEC00AB6CE8 /* RecorderConstants.swift */; };
+		382795E820E6490A0090B821 /* KYEmbedMainControllerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91995521EC5029C00D24B0E /* KYEmbedMainControllerSegue.swift */; };
+		382795E920E6490A0090B821 /* MusicListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91995451EC5019100D24B0E /* MusicListInteractor.swift */; };
+		382795EA20E6490A0090B821 /* AddFilterToVideoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A953AD5B1E53476B00DC0D84 /* AddFilterToVideoInteractor.swift */; };
+		382795EB20E6490A0090B821 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABADD1EC36C6700AB6CE8 /* Repository.swift */; };
+		382795EC20E6490A0090B821 /* PermissionsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F0B205A7B0200D1CF28 /* PermissionsProtocols.swift */; };
+		382795ED20E6490A0090B821 /* ProjectFound.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA3D1EC36A5C00AB6CE8 /* ProjectFound.swift */; };
+		382795EE20E6490A0090B821 /* SettingsFTPHostAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB2E1EC36CE900AB6CE8 /* SettingsFTPHostAction.swift */; };
+		382795EF20E6490A0090B821 /* AddFilterToVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A953AD4A1E53472100DC0D84 /* AddFilterToVideoViewController.swift */; };
+		382795F020E6490A0090B821 /* GetPHAssetFromUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9325FB11E091FB900400AD6 /* GetPHAssetFromUrl.swift */; };
+		382795F120E6490A0090B821 /* ThumbnailListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B81D9146BF008915DA /* ThumbnailListInteractor.swift */; };
+		382795F220E6490A0090B821 /* ProjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA5A1EC36A9200AB6CE8 /* ProjectListViewController.swift */; };
+		382795F320E6490A0090B821 /* TimerInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA7E1EC36AEC00AB6CE8 /* TimerInteractorInterface.swift */; };
+		382795F420E6490A0090B821 /* SettingsFTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB261EC36CE900AB6CE8 /* SettingsFTP.swift */; };
+		382795F520E6490A0090B821 /* ResolutionsImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA7B1EC36AEC00AB6CE8 /* ResolutionsImages.swift */; };
+		382795F620E6490A0090B821 /* SettingsFTPBreakingNewsHostAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB291EC36CE900AB6CE8 /* SettingsFTPBreakingNewsHostAction.swift */; };
+		382795F720E6490A0090B821 /* VideoRealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABADF1EC36C6700AB6CE8 /* VideoRealmRepository.swift */; };
+		382795F820E6490A0090B821 /* AddFilterToVideoWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A953AD4C1E53473700DC0D84 /* AddFilterToVideoWireframe.swift */; };
+		382795F920E6490A0090B821 /* FullScreenPlayerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760D21D9146FE008915DA /* FullScreenPlayerPresenter.swift */; };
+		382795FA20E6490A0090B821 /* MusicInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA161EC369F600AB6CE8 /* MusicInteractorInterface.swift */; };
+		382795FB20E6490A0090B821 /* ProjectListPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA521EC36A7200AB6CE8 /* ProjectListPresenterInterface.swift */; };
+		382795FC20E6490A0090B821 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9621EC3672700AB6CE8 /* GalleryViewController.swift */; };
+		382795FD20E6490A0090B821 /* AudioRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABACE1EC36C6700AB6CE8 /* AudioRepository.swift */; };
+		382795FE20E6490A0090B821 /* AddFilterToVideoInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A953AD641E53478E00DC0D84 /* AddFilterToVideoInteractorInterface.swift */; };
+		382795FF20E6490A0090B821 /* MicRecorderWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9F11EC3691E00AB6CE8 /* MicRecorderWireframe.swift */; };
+		3827960020E6490A0090B821 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = A91995541EC5029C00D24B0E /* README.md */; };
+		3827960120E6490A0090B821 /* EditingRoomPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A41D9146B5008915DA /* EditingRoomPresenterInterface.swift */; };
+		3827960220E6490A0090B821 /* GetCompositionForVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9461EC366BE00AB6CE8 /* GetCompositionForVideo.swift */; };
+		3827960320E6490A0090B821 /* SettingsTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB3D1EC36CE900AB6CE8 /* SettingsTransition.swift */; };
+		3827960420E6490A0090B821 /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386551D7D54CF0065D3EC /* AppDependencies.swift */; };
+		3827960520E6490A0090B821 /* TrimViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABBBD1EC379C900AB6CE8 /* TrimViewController.swift */; };
+		3827960620E6490A0090B821 /* UIApplicationExtensionGetTopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8951EC35F4700AB6CE8 /* UIApplicationExtensionGetTopController.swift */; };
+		3827960720E6490A0090B821 /* ShareInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761021D916F48008915DA /* ShareInteractor.swift */; };
+		3827960820E6490A0090B821 /* EditingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A51D9146B5008915DA /* EditingRoomViewController.swift */; };
+		3827960920E6490A0090B821 /* DirectoryCreationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFF30E1F054D75007C2305 /* DirectoryCreationOperation.swift */; };
+		3827960A20E6490A0090B821 /* ConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8851EC35F0000AB6CE8 /* ConfigurationProtocol.swift */; };
+		3827960B20E6490A0090B821 /* SettingTransitionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB431EC36CE900AB6CE8 /* SettingTransitionAction.swift */; };
+		3827960C20E6490A0090B821 /* Audio4VideoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B898D81EF70F9B00C698C9 /* Audio4VideoPresenter.swift */; };
+		3827960D20E6490A0090B821 /* Audio4VideoWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B898E01EF7128900C698C9 /* Audio4VideoWireframe.swift */; };
+		3827960E20E6490A0090B821 /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67AA1FE45DAF005958DB /* PurchaseViewController.swift */; };
+		3827960F20E6490A0090B821 /* SplitWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABBAF1EC36DB000AB6CE8 /* SplitWireframe.swift */; };
+		3827961020E6490A0090B821 /* CameraSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED64717201AC7B500DD9281 /* CameraSettings.swift */; };
+		3827961120E6490A0090B821 /* MicRecorderConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9EA1EC3691E00AB6CE8 /* MicRecorderConstants.swift */; };
+		3827961220E6490A0090B821 /* ShareInstagramInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761011D916F48008915DA /* ShareInstagramInteractor.swift */; };
+		3827961320E6490A0090B821 /* DetailTextController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE98D1D990C4100602DCD /* DetailTextController.swift */; };
+		3827961420E6490A0090B821 /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA191EC369F600AB6CE8 /* MusicViewController.swift */; };
+		3827961520E6490A0090B821 /* ShareFacebookInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761001D916F48008915DA /* ShareFacebookInteractor.swift */; };
+		3827961620E6490A0090B821 /* SocialNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917610E1D916F48008915DA /* SocialNetworkProvider.swift */; };
+		3827961720E6490A0090B821 /* ShareTwitterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761081D916F48008915DA /* ShareTwitterInteractor.swift */; };
+		3827961820E6490A0090B821 /* SettingsLegalTextAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB351EC36CE900AB6CE8 /* SettingsLegalTextAction.swift */; };
+		3827961920E6490A0090B821 /* SplitViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABBAE1EC36DB000AB6CE8 /* SplitViewInterface.swift */; };
+		3827961A20E6490A0090B821 /* EditorWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B71D9146BF008915DA /* EditorWireframe.swift */; };
+		3827961B20E6490A0090B821 /* ProjectInfoVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FA5CEF20872CBC00A1B096 /* ProjectInfoVideoModel.swift */; };
+		3827961C20E6490A0090B821 /* SettingsInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9761D990A4A00602DCD /* SettingsInteractorInterface.swift */; };
+		3827961D20E6490A0090B821 /* FlashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA701EC36AEC00AB6CE8 /* FlashInteractor.swift */; };
+		3827961E20E6490A0090B821 /* Audio4VideoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B898DC1EF70FC100C698C9 /* Audio4VideoInteractor.swift */; };
+		3827961F20E6490A0090B821 /* ShareActionInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AE3A4E1DC0CFA300A5A878 /* ShareActionInterface.swift */; };
+		3827962020E6490A0090B821 /* EditingRoomViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A61D9146B5008915DA /* EditingRoomViewInterface.swift */; };
+		3827962120E6490A0090B821 /* MusicWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA1B1EC369F600AB6CE8 /* MusicWireframe.swift */; };
+		3827962220E6490A0090B821 /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761251D916F53008915DA /* MusicCell.swift */; };
+		3827962320E6490A0090B821 /* MuiscSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97DABF21EED6539002BDDA3 /* MuiscSelectorTableViewCell.swift */; };
+		3827962420E6490A0090B821 /* EditorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9391EC366A700AB6CE8 /* EditorModel.swift */; };
+		3827962520E6490A0090B821 /* EditingRoomItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9351EC365C100AB6CE8 /* EditingRoomItemController.swift */; };
+		3827962620E6490A0090B821 /* StreamOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CFF3161F054D75007C2305 /* StreamOperation.swift */; };
+		3827962720E6490A0090B821 /* SettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE97A1D990A4A00602DCD /* SettingsProvider.swift */; };
+		3827962820E6490A0090B821 /* VimojoWireframeInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8C91EC360CC00AB6CE8 /* VimojoWireframeInterface.swift */; };
+		3827962920E6490A0090B821 /* FilterFoundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A461E53D69600C21918 /* FilterFoundModel.swift */; };
+		3827962A20E6490A0090B821 /* SettingsUsernameAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB3F1EC36CE900AB6CE8 /* SettingsUsernameAction.swift */; };
+		3827962B20E6490A0090B821 /* GoToRecordOrGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9751EC3676000AB6CE8 /* GoToRecordOrGalleryViewController.swift */; };
+		3827962C20E6490A0090B821 /* ProjectRealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABAD31EC36C6700AB6CE8 /* ProjectRealmRepository.swift */; };
+		3827962D20E6490A0090B821 /* SettingsFTPBreakingNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB271EC36CE900AB6CE8 /* SettingsFTPBreakingNews.swift */; };
+		3827962E20E6490A0090B821 /* ViMoJoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB8C71EC360CC00AB6CE8 /* ViMoJoController.swift */; };
+		3827962F20E6490A0090B821 /* KYEmbedDrawerControllerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91995511EC5029C00D24B0E /* KYEmbedDrawerControllerSegue.swift */; };
+		3827963020E6490A0090B821 /* PermissionsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F0C205A7B0200D1CF28 /* PermissionsRouter.swift */; };
+		3827963120E6490A0090B821 /* PurchaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90C67A61FE45DAF005958DB /* PurchaseInteractor.swift */; };
+		3827963220E6490A0090B821 /* ShareInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761031D916F48008915DA /* ShareInteractorInterface.swift */; };
+		3827963320E6490A0090B821 /* AIndicatorAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24DB87E208E62380090721E /* AIndicatorAlertController.swift */; };
+		3827963420E6490A0090B821 /* VideoParameterSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A953AD691E53670500DC0D84 /* VideoParameterSlider.swift */; };
+		3827963520E6490A0090B821 /* MusicListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A919953D1EC5017300D24B0E /* MusicListPresenter.swift */; };
+		3827963620E6490A0090B821 /* SettingsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE97C1D990A4A00602DCD /* SettingsWireframe.swift */; };
+		3827963720E6490A0090B821 /* NotificationsName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96C6F281F06717D006EDD04 /* NotificationsName+Extension.swift */; };
+		3827963820E6490A0090B821 /* MicRecorderInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9EC1EC3691E00AB6CE8 /* MicRecorderInteractorInterface.swift */; };
+		3827963920E6490A0090B821 /* FullScreenPlayerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760D11D9146FE008915DA /* FullScreenPlayerInterface.swift */; };
+		3827963A20E6490A0090B821 /* MicRecorderPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9EE1EC3691E00AB6CE8 /* MicRecorderPresenterInterface.swift */; };
+		3827963B20E6490A0090B821 /* VideoCarrusselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E5B7921EF525C600A286DF /* VideoCarrusselCollectionViewCell.swift */; };
+		3827963C20E6490A0090B821 /* DetailTextPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9921D990C4100602DCD /* DetailTextPresenterInterface.swift */; };
+		3827963D20E6490A0090B821 /* ShareUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91761071D916F48008915DA /* ShareUtils.swift */; };
+		3827963E20E6490A0090B821 /* TwitterVideoUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = A91761101D916F48008915DA /* TwitterVideoUpload.m */; };
+		3827963F20E6490A0090B821 /* ProjectListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA611EC36AA300AB6CE8 /* ProjectListWireframe.swift */; };
+		3827964020E6490A0090B821 /* EditorInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760B11D9146BF008915DA /* EditorInteractorInterface.swift */; };
+		3827964120E6490A0090B821 /* ShareSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CC20061E55AED800F0B00E /* ShareSave.swift */; };
+		3827964220E6490A0090B821 /* AddFilterToVideoPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A953AD571E53475600DC0D84 /* AddFilterToVideoPresenterInterface.swift */; };
+		3827964320E6490A0090B821 /* RealmVideoToVideoMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABADC1EC36C6700AB6CE8 /* RealmVideoToVideoMapper.swift */; };
+		3827964420E6490A0090B821 /* ShareMoJoFyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */; };
+		3827964520E6490A0090B821 /* EditingRoomWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91760A71D9146B5008915DA /* EditingRoomWireframe.swift */; };
+		3827964620E6490A0090B821 /* ProjectListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABA3F1EC36A5C00AB6CE8 /* ProjectListViewModel.swift */; };
+		3827964720E6490A0090B821 /* ShareFTPInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99C7CF61DC0F8FA00F2E03A /* ShareFTPInteractor.swift */; };
+		3827964820E6490A0090B821 /* TrimRangeBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB93B1EC366A700AB6CE8 /* TrimRangeBarViewModel.swift */; };
+		3827964920E6490A0090B821 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9781D990A4A00602DCD /* SettingsPresenter.swift */; };
+		3827964A20E6490A0090B821 /* ProjectDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A929DF3F2039D40A000F62AF /* ProjectDetailsRouter.swift */; };
+		3827964B20E6490A0090B821 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE97B1D990A4A00602DCD /* SettingsViewController.swift */; };
+		3827964C20E6490A0090B821 /* UIButton+AddTargetClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610725EC2080C899005A65BD /* UIButton+AddTargetClosure.swift */; };
+		3827964D20E6490A0090B821 /* DetailTextPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BE9911D990C4100602DCD /* DetailTextPresenter.swift */; };
+		3827964E20E6490A0090B821 /* MicRecorderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9F01EC3691E00AB6CE8 /* MicRecorderViewModel.swift */; };
+		3827964F20E6490A0090B821 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CABB361EC36CE900AB6CE8 /* SettingsModel.swift */; };
+		3827965020E6490A0090B821 /* DrawerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9001EC364FB00AB6CE8 /* DrawerConstants.swift */; };
+		3827965120E6490A0090B821 /* MusicListStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAB9991EC367BC00AB6CE8 /* MusicListStrings.swift */; };
+		3827965420E6490A0090B821 /* VideonaProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2A4A5D3205362F900C26433 /* VideonaProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3827966620E64AAB0090B821 /* URLs.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3827965F20E64AAB0090B821 /* URLs.strings */; };
+		3827966720E64AAB0090B821 /* Vanitatis.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3827966220E64AAB0090B821 /* Vanitatis.xcassets */; };
+		3827966820E64AAB0090B821 /* Info.plist.orig in Resources */ = {isa = PBXBuildFile; fileRef = 3827966320E64AAB0090B821 /* Info.plist.orig */; };
+		3827966920E64AAB0090B821 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3827966420E64AAB0090B821 /* Info.plist */; };
+		3827966A20E64AAB0090B821 /* configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3827966520E64AAB0090B821 /* configuration.swift */; };
 		610725E62080BD83005A65BD /* KindOfProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610725E42080BD83005A65BD /* KindOfProjectTableViewCell.swift */; };
 		610725ED2080C899005A65BD /* UIButton+AddTargetClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610725EC2080C899005A65BD /* UIButton+AddTargetClosure.swift */; };
 		61FA5CF020872CBC00A1B096 /* ProjectInfoVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FA5CEF20872CBC00A1B096 /* ProjectInfoVideoModel.swift */; };
@@ -1890,6 +2259,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		3827965320E6490A0090B821 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3827965420E6490A0090B821 /* VideonaProject.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B227C93E20D71C7900C02AD9 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1951,6 +2331,13 @@
 		0C2C16426B4AB1C473AEEBC8 /* Pods_vimojoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vimojoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10B8474FFDAB9A11F14FCD32 /* Pods-vimojoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-vimojoUITests/Pods-vimojoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		21944C5C58225F104DB6EEA9 /* Pods-vimojo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vimojo/Pods-vimojo.debug.xcconfig"; sourceTree = "<group>"; };
+		3827965820E6490A0090B821 /* Vanitatis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vanitatis.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3827966020E64AAB0090B821 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/URLs.strings; sourceTree = "<group>"; };
+		3827966120E64AAB0090B821 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/URLs.strings; sourceTree = "<group>"; };
+		3827966220E64AAB0090B821 /* Vanitatis.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Vanitatis.xcassets; sourceTree = "<group>"; };
+		3827966320E64AAB0090B821 /* Info.plist.orig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Info.plist.orig; sourceTree = "<group>"; };
+		3827966420E64AAB0090B821 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3827966520E64AAB0090B821 /* configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = configuration.swift; sourceTree = "<group>"; };
 		3B167A5195AD791FA76FC119 /* Pods_ElConfidencial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElConfidencial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F2FBDCEFECF25688E0C5452 /* Pods-ElConfidencial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElConfidencial.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElConfidencial/Pods-ElConfidencial.release.xcconfig"; sourceTree = "<group>"; };
 		3F4E6214F32C18D5641FFB99 /* Pods_Market4News.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Market4News.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1966,6 +2353,7 @@
 		74184388107E5765A1BF3496 /* Pods_M4N.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_M4N.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74DD0E3ED30DF82C36D14A78 /* Pods-M4N.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-M4N.release.xcconfig"; path = "Pods/Target Support Files/Pods-M4N/Pods-M4N.release.xcconfig"; sourceTree = "<group>"; };
 		7632CB83B0D9EBF5233B0541 /* Pods_vimojoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vimojoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F69252D52738048BBD369B1 /* Pods_Vanitatis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vanitatis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8398C2534A97CFA468D0BB18 /* Pods-Market4News.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Market4News.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Market4News/Pods-Market4News.debug.xcconfig"; sourceTree = "<group>"; };
 		90443E44A4216B1295C5C35C /* Pods-vimojo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vimojo.release.xcconfig"; path = "Pods/Target Support Files/Pods-vimojo/Pods-vimojo.release.xcconfig"; sourceTree = "<group>"; };
 		92A36892EC3CF2506356F21F /* Pods-Market4News.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Market4News.release.xcconfig"; path = "Pods/Target Support Files/Pods-Market4News/Pods-Market4News.release.xcconfig"; sourceTree = "<group>"; };
@@ -2408,12 +2796,27 @@
 		B2FD8F0C205A7B0200D1CF28 /* PermissionsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsRouter.swift; sourceTree = "<group>"; };
 		B2FD8F0D205A7B0200D1CF28 /* PermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewController.swift; sourceTree = "<group>"; };
 		B2FD8F33205A8ED800D1CF28 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		B3202BD17E293FF7D4514754 /* Pods-Vanitatis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vanitatis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vanitatis/Pods-Vanitatis.debug.xcconfig"; sourceTree = "<group>"; };
 		CB586E6DDDB51926A3B11FCA /* Pods_vimojo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vimojo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE5297002B33E4FE5AE9426E /* Pods-M4N.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-M4N.debug.xcconfig"; path = "Pods/Target Support Files/Pods-M4N/Pods-M4N.debug.xcconfig"; sourceTree = "<group>"; };
+		E6F40FCE5451C344CEFEEE7B /* Pods-Vanitatis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vanitatis.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vanitatis/Pods-Vanitatis.release.xcconfig"; sourceTree = "<group>"; };
 		F7F7B0ED841D2D5CE86D32B9 /* Pods-RTVE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTVE.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RTVE/Pods-RTVE.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		382794DD20E6490A0090B821 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				382794DE20E6490A0090B821 /* Alamofire.framework in Frameworks */,
+				382794DF20E6490A0090B821 /* FBSDKCoreKit.framework in Frameworks */,
+				382794E020E6490A0090B821 /* FBSDKShareKit.framework in Frameworks */,
+				382794E120E6490A0090B821 /* StoreKit.framework in Frameworks */,
+				382794E220E6490A0090B821 /* FBSDKLoginKit.framework in Frameworks */,
+				182766FA8556A5B82696CFA4 /* Pods_Vanitatis.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A9B385E31D7D51380065D3EC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -2497,6 +2900,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3827965E20E64AAB0090B821 /* Vanitatis */ = {
+			isa = PBXGroup;
+			children = (
+				3827965F20E64AAB0090B821 /* URLs.strings */,
+				3827966220E64AAB0090B821 /* Vanitatis.xcassets */,
+				3827966320E64AAB0090B821 /* Info.plist.orig */,
+				3827966420E64AAB0090B821 /* Info.plist */,
+				3827966520E64AAB0090B821 /* configuration.swift */,
+			);
+			path = Vanitatis;
+			sourceTree = "<group>";
+		};
 		5354C373A4B21404086FF983 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2524,6 +2939,7 @@
 				74184388107E5765A1BF3496 /* Pods_M4N.framework */,
 				3B167A5195AD791FA76FC119 /* Pods_ElConfidencial.framework */,
 				3F4E6214F32C18D5641FFB99 /* Pods_Market4News.framework */,
+				7F69252D52738048BBD369B1 /* Pods_Vanitatis.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3438,6 +3854,7 @@
 				B27414CB20D713C100000934 /* Market4News.app */,
 				B274165120D715E900000934 /* ElConfidencial.app */,
 				B227C94320D71C7900C02AD9 /* RTVE.app */,
+				3827965820E6490A0090B821 /* Vanitatis.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3930,6 +4347,7 @@
 		A9D076D01E2F7F74003AE96B /* Targets */ = {
 			isa = PBXGroup;
 			children = (
+				3827965E20E64AAB0090B821 /* Vanitatis */,
 				AE36183120B44ACF0081E722 /* ElConfidencial */,
 				AE4E66C71FFDADF5002C45CD /* M4N */,
 				AE491FCF1F3B030F00B20B70 /* ThomsonFoundation */,
@@ -4108,6 +4526,8 @@
 				92A36892EC3CF2506356F21F /* Pods-Market4News.release.xcconfig */,
 				21944C5C58225F104DB6EEA9 /* Pods-vimojo.debug.xcconfig */,
 				90443E44A4216B1295C5C35C /* Pods-vimojo.release.xcconfig */,
+				B3202BD17E293FF7D4514754 /* Pods-Vanitatis.debug.xcconfig */,
+				E6F40FCE5451C344CEFEEE7B /* Pods-Vanitatis.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -4115,6 +4535,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		382794DB20E6490A0090B821 /* Vanitatis */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3827965520E6490A0090B821 /* Build configuration list for PBXNativeTarget "Vanitatis" */;
+			buildPhases = (
+				382794DC20E6490A0090B821 /* [CP] Check Pods Manifest.lock */,
+				382794DD20E6490A0090B821 /* Frameworks */,
+				382794E420E6490A0090B821 /* Resources */,
+				3827951420E6490A0090B821 /* ShellScript */,
+				3827951520E6490A0090B821 /* [CP] Embed Pods Frameworks */,
+				3827951620E6490A0090B821 /* Sources */,
+				3827965220E6490A0090B821 /* [CP] Copy Pods Resources */,
+				3827965320E6490A0090B821 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Vanitatis;
+			productName = vimojo;
+			productReference = 3827965820E6490A0090B821 /* Vanitatis.app */;
+			productType = "com.apple.product-type.application";
+		};
 		A9B385E51D7D51380065D3EC /* vimojo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9B386031D7D51380065D3EC /* Build configuration list for PBXNativeTarget "vimojo" */;
@@ -4274,6 +4716,9 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Videona;
 				TargetAttributes = {
+					382794DB20E6490A0090B821 = {
+						DevelopmentTeam = 98YJ9HU6W9;
+					};
 					A9B385E51D7D51380065D3EC = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 98YJ9HU6W9;
@@ -4339,6 +4784,7 @@
 				B227C7C620D71C7900C02AD9 /* RTVE */,
 				AE4AAF9A1F704D8600504428 /* vimojoUITests */,
 				A9B385F91D7D51380065D3EC /* vimojoTests */,
+				382794DB20E6490A0090B821 /* Vanitatis */,
 			);
 		};
 /* End PBXProject section */
@@ -4361,6 +4807,60 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		382794E420E6490A0090B821 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				382794E520E6490A0090B821 /* MusicDetailView.strings in Resources */,
+				382794E620E6490A0090B821 /* activity_record_rec_circle.png in Resources */,
+				382794E720E6490A0090B821 /* jazzyfrenchy.mp3 in Resources */,
+				382794E820E6490A0090B821 /* MicRecorder.strings in Resources */,
+				382794EA20E6490A0090B821 /* MusicListCell.xib in Resources */,
+				382794EB20E6490A0090B821 /* Gallery.storyboard in Resources */,
+				382794EC20E6490A0090B821 /* water_mark.png in Resources */,
+				382794ED20E6490A0090B821 /* CHANGELOG in Resources */,
+				382794EE20E6490A0090B821 /* iso639_2.bundle in Resources */,
+				382794EF20E6490A0090B821 /* ShareCell.xib in Resources */,
+				382794F020E6490A0090B821 /* MusicListView.xib in Resources */,
+				382794F120E6490A0090B821 /* ProjectList.strings in Resources */,
+				382794F220E6490A0090B821 /* MediaAssets.xcassets in Resources */,
+				382794F320E6490A0090B821 /* tutorial.xcassets in Resources */,
+				382794F420E6490A0090B821 /* Record.storyboard in Resources */,
+				382794F520E6490A0090B821 /* GoogleService-Info.plist in Resources */,
+				382794F620E6490A0090B821 /* Settings.strings in Resources */,
+				382794F720E6490A0090B821 /* PurchaseTableViewCell.xib in Resources */,
+				382794F920E6490A0090B821 /* goinghigher.mp3 in Resources */,
+				382794FA20E6490A0090B821 /* Drawer.storyboard in Resources */,
+				382794FB20E6490A0090B821 /* PurchaseViewController.xib in Resources */,
+				382794FC20E6490A0090B821 /* RELEASE in Resources */,
+				382794FE20E6490A0090B821 /* ukulele.mp3 in Resources */,
+				382794FF20E6490A0090B821 /* Info.plist in Resources */,
+				3827950020E6490A0090B821 /* DrawerMenu.strings in Resources */,
+				3827950120E6490A0090B821 /* EditorStrings.strings in Resources */,
+				3827950220E6490A0090B821 /* Assets.xcassets in Resources */,
+				3827950320E6490A0090B821 /* Main.storyboard in Resources */,
+				3827950420E6490A0090B821 /* VideonaFooterView.xib in Resources */,
+				3827950520E6490A0090B821 /* Editor.storyboard in Resources */,
+				3827966720E64AAB0090B821 /* Vanitatis.xcassets in Resources */,
+				3827950720E6490A0090B821 /* MusicProvider.strings in Resources */,
+				3827950820E6490A0090B821 /* LICENSE in Resources */,
+				3827950920E6490A0090B821 /* MuiscSelectorTableViewCell.xib in Resources */,
+				3827950A20E6490A0090B821 /* ProjectList.storyboard in Resources */,
+				3827950B20E6490A0090B821 /* VideoCarrusselCollectionViewCell.xib in Resources */,
+				3827950C20E6490A0090B821 /* ProjectDetailsViewController.xib in Resources */,
+				3827950D20E6490A0090B821 /* acousticbreeze.mp3 in Resources */,
+				3827950E20E6490A0090B821 /* Purchase.strings in Resources */,
+				3827966620E64AAB0090B821 /* URLs.strings in Resources */,
+				3827966920E64AAB0090B821 /* Info.plist in Resources */,
+				3827966820E64AAB0090B821 /* Info.plist.orig in Resources */,
+				3827950F20E6490A0090B821 /* MusicDetailView.xib in Resources */,
+				3827951020E6490A0090B821 /* RecordingCameraConfigurationViewController.xib in Resources */,
+				3827951120E6490A0090B821 /* Share.strings in Resources */,
+				3827951220E6490A0090B821 /* filter_free.png in Resources */,
+				3827951320E6490A0090B821 /* ProjectDetails.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A9B385E41D7D51380065D3EC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -4710,6 +5210,101 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElConfidencial/Pods-ElConfidencial-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		382794DC20E6490A0090B821 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Vanitatis-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3827951420E6490A0090B821 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/Fabric/run eba78720f87307ca48dfa4200dd90914ff6653f2 1636d8a8a8c633c8ba87f5a67ca26a5cc354c414b108ef565df202f07f393ae9";
+		};
+		3827951520E6490A0090B821 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Vanitatis/Pods-Vanitatis-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/KCFloatingActionButton/KCFloatingActionButton.framework",
+				"${BUILT_PRODUCTS_DIR}/MBCircularProgressBar/MBCircularProgressBar.framework",
+				"${BUILT_PRODUCTS_DIR}/Mixpanel/Mixpanel.framework",
+				"${BUILT_PRODUCTS_DIR}/NMRangeSlider/NMRangeSlider.framework",
+				"${BUILT_PRODUCTS_DIR}/Permission/Permission.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/TTRangeSlider/TTRangeSlider.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KCFloatingActionButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBCircularProgressBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mixpanel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NMRangeSlider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Permission.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTRangeSlider.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vanitatis/Pods-Vanitatis-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3827965220E6490A0090B821 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Vanitatis/Pods-Vanitatis-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vanitatis/Pods-Vanitatis-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		45244F6698CB1B865CE5B75A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -4880,7 +5475,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-vimojo-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-RTVE-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4906,7 +5501,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-RTVE/Pods-RTVE-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
@@ -4943,7 +5538,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RTVE/Pods-RTVE-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B227C93D20D71C7900C02AD9 /* [CP] Copy Pods Resources */ = {
@@ -4952,7 +5547,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-RTVE/Pods-RTVE-resources.sh",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -4961,7 +5556,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RTVE/Pods-RTVE-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B27411C820D7108400000934 /* [CP] Check Pods Manifest.lock */ = {
@@ -5206,6 +5801,328 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3827951620E6490A0090B821 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3827951720E6490A0090B821 /* RealmProjectToProjectMapper.swift in Sources */,
+				3827951820E6490A0090B821 /* SettingsFTPUneditedDestination.swift in Sources */,
+				3827951920E6490A0090B821 /* SettingsFTPBreakingNewsUneditedDestination.swift in Sources */,
+				3827951A20E6490A0090B821 /* UITableViewExtension.swift in Sources */,
+				3827951B20E6490A0090B821 /* PurchaseTableViewCell.swift in Sources */,
+				3827951C20E6490A0090B821 /* MusicListConstants.swift in Sources */,
+				3827951D20E6490A0090B821 /* CameraInteractor.swift in Sources */,
+				3827951E20E6490A0090B821 /* ViMoJoInterface.swift in Sources */,
+				3827951F20E6490A0090B821 /* Operation.swift in Sources */,
+				3827952020E6490A0090B821 /* AudioSettings.swift in Sources */,
+				3827952220E6490A0090B821 /* CameraInteractorInterface.swift in Sources */,
+				3827952320E6490A0090B821 /* SettingsCameraSettings.swift in Sources */,
+				3827952420E6490A0090B821 /* PurchaseProduct.swift in Sources */,
+				3827952520E6490A0090B821 /* CustomDPTheme.swift in Sources */,
+				3827952620E6490A0090B821 /* SlideView.swift in Sources */,
+				3827952720E6490A0090B821 /* ProjectDetailsInteractor.swift in Sources */,
+				3827952820E6490A0090B821 /* AddFilterToVideoCollectionViewExtension.swift in Sources */,
+				3827952920E6490A0090B821 /* FullScreenPlayerWireframe.swift in Sources */,
+				3827952A20E6490A0090B821 /* DrawerMenuWireframe.swift in Sources */,
+				3827952B20E6490A0090B821 /* AddTextPresenterInterface.swift in Sources */,
+				3827952C20E6490A0090B821 /* PermissionsViewController.swift in Sources */,
+				3827952D20E6490A0090B821 /* Double+Extension.swift in Sources */,
+				3827952E20E6490A0090B821 /* VideoSettings.swift in Sources */,
+				3827952F20E6490A0090B821 /* ReloadProjectWithProjectAction.swift in Sources */,
+				3827953020E6490A0090B821 /* MusicListPresenterInterface.swift in Sources */,
+				3827953120E6490A0090B821 /* KindOfProjectViewController.swift in Sources */,
+				3827953220E6490A0090B821 /* RealmAudio.swift in Sources */,
+				3827953320E6490A0090B821 /* EditorTextConstants.swift in Sources */,
+				3827953420E6490A0090B821 /* PurchaseProtocols.swift in Sources */,
+				3827953520E6490A0090B821 /* SSRadioButton.swift in Sources */,
+				3827953620E6490A0090B821 /* DetailTextWireframe.swift in Sources */,
+				3827953720E6490A0090B821 /* RecordPresenterInterfaceIO.swift in Sources */,
+				3827953820E6490A0090B821 /* DuplicateViewController.swift in Sources */,
+				3827953920E6490A0090B821 /* AddTextInteractor.swift in Sources */,
+				3827953A20E6490A0090B821 /* ProfileSharedPreferencesRepository.swift in Sources */,
+				3827953B20E6490A0090B821 /* RootWireframe.swift in Sources */,
+				3827953C20E6490A0090B821 /* SocialNetwork.swift in Sources */,
+				3827953D20E6490A0090B821 /* ShareWireframe.swift in Sources */,
+				3827953E20E6490A0090B821 /* MusicDetailView.swift in Sources */,
+				3827953F20E6490A0090B821 /* AddTextViewController.swift in Sources */,
+				3827954020E6490A0090B821 /* MicRecorderInteractor.swift in Sources */,
+				3827954120E6490A0090B821 /* RealmAudioToAudioMapper.swift in Sources */,
+				3827954220E6490A0090B821 /* AddTextModel.swift in Sources */,
+				3827954320E6490A0090B821 /* RecordingCameraConfigurationInteractor.swift in Sources */,
+				3827954420E6490A0090B821 /* AddTextInteractorInterface.swift in Sources */,
+				3827954520E6490A0090B821 /* SettingsFTPBreakingNewsEditedDestination.swift in Sources */,
+				3827954620E6490A0090B821 /* TakePhotoFromOptions.swift in Sources */,
+				3827954720E6490A0090B821 /* VideoRepository.swift in Sources */,
+				3827954820E6490A0090B821 /* SettingsResolutionAction.swift in Sources */,
+				3827954920E6490A0090B821 /* ShareFTPBreakingNewsInteractor.swift in Sources */,
+				3827954A20E6490A0090B821 /* GetMiddleRangeSliderValueWorker.swift in Sources */,
+				3827954B20E6490A0090B821 /* SplitViewController.swift in Sources */,
+				3827954C20E6490A0090B821 /* Session.swift in Sources */,
+				3827954D20E6490A0090B821 /* AddTextWireframe.swift in Sources */,
+				3827954E20E6490A0090B821 /* MusicListWireframe.swift in Sources */,
+				3827954F20E6490A0090B821 /* RecorderInteractor.swift in Sources */,
+				3827955020E6490A0090B821 /* UIViewFadeViewsExtension.swift in Sources */,
+				3827955120E6490A0090B821 /* ApplyTextOverlayToVideoCompositionUseCase.swift in Sources */,
+				3827955220E6490A0090B821 /* CMTimeExtension.swift in Sources */,
+				3827955320E6490A0090B821 /* AnalitycsConstants.swift in Sources */,
+				3827955420E6490A0090B821 /* ProjectToRealmProjectMapper.swift in Sources */,
+				3827955520E6490A0090B821 /* RecorderParameters.swift in Sources */,
+				3827955620E6490A0090B821 /* EditingRoomPresenter.swift in Sources */,
+				3827955720E6490A0090B821 /* Mapper.swift in Sources */,
+				3827955820E6490A0090B821 /* ShareVideoPath.swift in Sources */,
+				3827955920E6490A0090B821 /* ExportedAlbum.swift in Sources */,
+				3827955A20E6490A0090B821 /* StringsExtension.swift in Sources */,
+				3827955B20E6490A0090B821 /* ProjectListCellView.swift in Sources */,
+				3827955C20E6490A0090B821 /* ExporterInteractor.swift in Sources */,
+				3827955D20E6490A0090B821 /* ProfileRepository.swift in Sources */,
+				3827955E20E6490A0090B821 /* DetailTextInteractor.swift in Sources */,
+				3827955F20E6490A0090B821 /* AddFilterToVideoPresenter.swift in Sources */,
+				3827956020E6490A0090B821 /* VImojoCard.swift in Sources */,
+				3827956120E6490A0090B821 /* RecordDrawerController.swift in Sources */,
+				3827956220E6490A0090B821 /* UIViewController+Extension.swift in Sources */,
+				3827956320E6490A0090B821 /* MicRecorderViewController.swift in Sources */,
+				3827956420E6490A0090B821 /* ProjectListPresenter.swift in Sources */,
+				3827956520E6490A0090B821 /* RecordPresenter.swift in Sources */,
+				3827956620E6490A0090B821 /* EditorClipsCell.swift in Sources */,
+				3827956720E6490A0090B821 /* EditorPresenter.swift in Sources */,
+				3827956820E6490A0090B821 /* GoToRecordOrGalleryWireframe.swift in Sources */,
+				3827956920E6490A0090B821 /* TrimWireframe.swift in Sources */,
+				3827956A20E6490A0090B821 /* EditorViewController.swift in Sources */,
+				3827956B20E6490A0090B821 /* ThumbnailInteractor.swift in Sources */,
+				3827956C20E6490A0090B821 /* SaveVideosFromGalleryInterface.swift in Sources */,
+				3827956D20E6490A0090B821 /* MusicSelectorCellViewModel.swift in Sources */,
+				3827956E20E6490A0090B821 /* SettingsEmailAction.swift in Sources */,
+				3827956F20E6490A0090B821 /* MusicProvider.swift in Sources */,
+				3827957020E6490A0090B821 /* ShareWhatsappInteractor.swift in Sources */,
+				3827957120E6490A0090B821 /* SharePresenter.swift in Sources */,
+				3827957220E6490A0090B821 /* KYDrawerController.swift in Sources */,
+				3827957320E6490A0090B821 /* FTPErrorType.swift in Sources */,
+				3827957420E6490A0090B821 /* DPTheme.swift in Sources */,
+				3827966A20E64AAB0090B821 /* configuration.swift in Sources */,
+				3827957520E6490A0090B821 /* MusicListViewController.swift in Sources */,
+				3827957620E6490A0090B821 /* DuplicateInterface.swift in Sources */,
+				3827957720E6490A0090B821 /* AddTextPresenter.swift in Sources */,
+				3827957820E6490A0090B821 /* DrawerMenuTableViewController.swift in Sources */,
+				3827957920E6490A0090B821 /* AudioToRealmAudioMapper.swift in Sources */,
+				3827957A20E6490A0090B821 /* RecordingCameraConfigurationViewController.swift in Sources */,
+				3827957B20E6490A0090B821 /* SetTrimParametersToVideo.swift in Sources */,
+				3827957C20E6490A0090B821 /* RecordingCameraConfigurationProtocols.swift in Sources */,
+				3827957D20E6490A0090B821 /* MusicModels.swift in Sources */,
+				3827957E20E6490A0090B821 /* MusicListInteractorInterface.swift in Sources */,
+				3827957F20E6490A0090B821 /* GalleryWireframe.swift in Sources */,
+				3827958020E6490A0090B821 /* FilterCollectionViewCell.swift in Sources */,
+				3827958120E6490A0090B821 /* ProjectDetailsPresenter.swift in Sources */,
+				3827958220E6490A0090B821 /* SSRadioButtonsController.swift in Sources */,
+				3827958320E6490A0090B821 /* SlideTutorial.swift in Sources */,
+				3827958420E6490A0090B821 /* ExportTemporalVideoToShare.swift in Sources */,
+				3827958520E6490A0090B821 /* DrawerMenuInteractorInterface.swift in Sources */,
+				3827958620E6490A0090B821 /* ViMoJoTracker.swift in Sources */,
+				3827958720E6490A0090B821 /* MusicPresenter.swift in Sources */,
+				3827958820E6490A0090B821 /* ProjectRepository.swift in Sources */,
+				3827958920E6490A0090B821 /* EditorInteractor.swift in Sources */,
+				3827958A20E6490A0090B821 /* CustomClipsGalleryViewController.swift in Sources */,
+				3827958B20E6490A0090B821 /* ShareViewController.swift in Sources */,
+				3827958C20E6490A0090B821 /* MixAudioModel.swift in Sources */,
+				3827958D20E6490A0090B821 /* ShareViewModel.swift in Sources */,
+				3827958E20E6490A0090B821 /* TrimParameters.swift in Sources */,
+				3827958F20E6490A0090B821 /* SettingsFTPEditedDestination.swift in Sources */,
+				3827959020E6490A0090B821 /* FileUploadOperation.swift in Sources */,
+				3827959120E6490A0090B821 /* SettingsContent.swift in Sources */,
+				3827959220E6490A0090B821 /* ProjectListConstants.swift in Sources */,
+				3827959320E6490A0090B821 /* SettingsFTPBreakingNewsPasswordAction.swift in Sources */,
+				3827959420E6490A0090B821 /* SettingsUserInfo.swift in Sources */,
+				3827959520E6490A0090B821 /* SettingsWatermarkAction.swift in Sources */,
+				3827959620E6490A0090B821 /* UIBarButtonItem+extension.swift in Sources */,
+				3827959720E6490A0090B821 /* RealmVideo.swift in Sources */,
+				3827959820E6490A0090B821 /* MusicPresenterInterface.swift in Sources */,
+				3827959920E6490A0090B821 /* MicRecorderPresenter.swift in Sources */,
+				3827959A20E6490A0090B821 /* SlideViewController.swift in Sources */,
+				3827959B20E6490A0090B821 /* DuplicateWireframe.swift in Sources */,
+				3827959C20E6490A0090B821 /* WriteStreamOperation.swift in Sources */,
+				3827959D20E6490A0090B821 /* KindOfProjectTableViewCell.swift in Sources */,
+				3827959E20E6490A0090B821 /* RecordWireframe.swift in Sources */,
+				3827959F20E6490A0090B821 /* FullScreenPlayerViewController.swift in Sources */,
+				382795A020E6490A0090B821 /* MusicListView.swift in Sources */,
+				382795A120E6490A0090B821 /* DetailTextInteractorInterface.swift in Sources */,
+				382795A220E6490A0090B821 /* PurchasePresenter.swift in Sources */,
+				382795A320E6490A0090B821 /* DrawerMenuPresenter.swift in Sources */,
+				382795A420E6490A0090B821 /* RecordingCameraConfigurationPresenter.swift in Sources */,
+				382795A520E6490A0090B821 /* SettingsPresenterInterface.swift in Sources */,
+				382795A620E6490A0090B821 /* FileDownloadOperation.swift in Sources */,
+				382795A720E6490A0090B821 /* SettingsConstants.swift in Sources */,
+				382795A820E6490A0090B821 /* FilterCollectionViewModel.swift in Sources */,
+				382795A920E6490A0090B821 /* ReadStreamOperation.swift in Sources */,
+				382795AA20E6490A0090B821 /* RealmProject.swift in Sources */,
+				382795AB20E6490A0090B821 /* MusicProviderForVimojo.swift in Sources */,
+				382795AC20E6490A0090B821 /* (null) in Sources */,
+				382795AD20E6490A0090B821 /* AddWatermarkUseCase.swift in Sources */,
+				382795AE20E6490A0090B821 /* RecordController.swift in Sources */,
+				382795AF20E6490A0090B821 /* Audio4VideoViewController.swift in Sources */,
+				382795B020E6490A0090B821 /* ProjectListInteractorInterface.swift in Sources */,
+				382795B120E6490A0090B821 /* FullScreenPlayerPresenterInterface.swift in Sources */,
+				382795B220E6490A0090B821 /* CreateNewProjectUseCase.swift in Sources */,
+				382795B320E6490A0090B821 /* ConfigPreferences.swift in Sources */,
+				382795B420E6490A0090B821 /* SettingsQualityAction.swift in Sources */,
+				382795B520E6490A0090B821 /* PurchaseRouter.swift in Sources */,
+				382795B620E6490A0090B821 /* EditorPresenterInterface.swift in Sources */,
+				382795B720E6490A0090B821 /* DuplicateProjectOnProjectListAction.swift in Sources */,
+				382795B820E6490A0090B821 /* FilterProvider.swift in Sources */,
+				382795B920E6490A0090B821 /* ProjectParametersViewModel.swift in Sources */,
+				382795BA20E6490A0090B821 /* PreviewView.swift in Sources */,
+				382795BB20E6490A0090B821 /* ClipsAlbum.swift in Sources */,
+				382795BC20E6490A0090B821 /* ShareCell.swift in Sources */,
+				382795BD20E6490A0090B821 /* RecorderInteractorInterface.swift in Sources */,
+				382795BE20E6490A0090B821 /* NSLocale+ISO639_2.m in Sources */,
+				382795BF20E6490A0090B821 /* GetVoiceOverComposition.swift in Sources */,
+				382795C020E6490A0090B821 /* SettingsFTPBreakingNewsUsernameAction.swift in Sources */,
+				382795C120E6490A0090B821 /* SettingsUtils.swift in Sources */,
+				382795C220E6490A0090B821 /* SettingsFTPUsernameAction.swift in Sources */,
+				382795C320E6490A0090B821 /* MusicDetailViewModel.swift in Sources */,
+				382795C420E6490A0090B821 /* ResourceListOperation.swift in Sources */,
+				382795C520E6490A0090B821 /* RemoveProjectOnProjectListAction.swift in Sources */,
+				382795C620E6490A0090B821 /* SettingsInteractor.swift in Sources */,
+				382795C720E6490A0090B821 /*  GetSeekTimeFromValueOnVideo.swift in Sources */,
+				382795C820E6490A0090B821 /* RecordingCameraConfigurationRouter.swift in Sources */,
+				382795C920E6490A0090B821 /* SaveVideosFromGalleryInteractor.swift in Sources */,
+				382795CA20E6490A0090B821 /* AllVideosGalleryViewController.swift in Sources */,
+				382795CB20E6490A0090B821 /* DateCompareExtension.swift in Sources */,
+				382795CC20E6490A0090B821 /* CustomExportedVideosGalleryViewController.swift in Sources */,
+				382795CD20E6490A0090B821 /* MusicInteractor.swift in Sources */,
+				382795CE20E6490A0090B821 /* ProjectListInteractor.swift in Sources */,
+				382795CF20E6490A0090B821 /* SharePresenterInterface.swift in Sources */,
+				382795D020E6490A0090B821 /* DrawerMenuPresenterInterface.swift in Sources */,
+				382795D120E6490A0090B821 /* ProjectDetailsProtocols.swift in Sources */,
+				382795D220E6490A0090B821 /* ProjectDetailsViewController.swift in Sources */,
+				382795D320E6490A0090B821 /* IAHelper.swift in Sources */,
+				382795D420E6490A0090B821 /* AudioRealmRepository.swift in Sources */,
+				382795D520E6490A0090B821 /* SettingsFTPPasswordAction.swift in Sources */,
+				382795D620E6490A0090B821 /* GalleryFetchOptions.swift in Sources */,
+				382795D720E6490A0090B821 /* ShareYoutubeInteractor.swift in Sources */,
+				382795D820E6490A0090B821 /* ConfigureNavBarVimojoExtension.swift in Sources */,
+				382795D920E6490A0090B821 /* SettingsActionInterface.swift in Sources */,
+				382795DA20E6490A0090B821 /* CreateDefaultProjectUseCase.swift in Sources */,
+				382795DB20E6490A0090B821 /* TimerInteractor.swift in Sources */,
+				382795DC20E6490A0090B821 /* RealmMigrationsUseCase.swift in Sources */,
+				382795DD20E6490A0090B821 /* SettingsNameAction.swift in Sources */,
+				382795DE20E6490A0090B821 /* RecordDrawerWireframe.swift in Sources */,
+				382795DF20E6490A0090B821 /* Specification.swift in Sources */,
+				382795E020E6490A0090B821 /* AppDelegate.swift in Sources */,
+				382795E120E6490A0090B821 /* RecordedTrackAreaViewModel.swift in Sources */,
+				382795E220E6490A0090B821 /* SettingsLegalURLConstants.swift in Sources */,
+				382795E320E6490A0090B821 /* VideoToRealmVideoMapper.swift in Sources */,
+				382795E420E6490A0090B821 /* DrawerMenuInteractor.swift in Sources */,
+				382795E520E6490A0090B821 /* DrawerProfileTableViewCell.swift in Sources */,
+				382795E620E6490A0090B821 /* ShareConstants.swift in Sources */,
+				382795E720E6490A0090B821 /* RecorderConstants.swift in Sources */,
+				382795E820E6490A0090B821 /* KYEmbedMainControllerSegue.swift in Sources */,
+				382795E920E6490A0090B821 /* MusicListInteractor.swift in Sources */,
+				382795EA20E6490A0090B821 /* AddFilterToVideoInteractor.swift in Sources */,
+				382795EB20E6490A0090B821 /* Repository.swift in Sources */,
+				382795EC20E6490A0090B821 /* PermissionsProtocols.swift in Sources */,
+				382795ED20E6490A0090B821 /* ProjectFound.swift in Sources */,
+				382795EE20E6490A0090B821 /* SettingsFTPHostAction.swift in Sources */,
+				382795EF20E6490A0090B821 /* AddFilterToVideoViewController.swift in Sources */,
+				382795F020E6490A0090B821 /* GetPHAssetFromUrl.swift in Sources */,
+				382795F120E6490A0090B821 /* ThumbnailListInteractor.swift in Sources */,
+				382795F220E6490A0090B821 /* ProjectListViewController.swift in Sources */,
+				382795F320E6490A0090B821 /* TimerInteractorInterface.swift in Sources */,
+				382795F420E6490A0090B821 /* SettingsFTP.swift in Sources */,
+				382795F520E6490A0090B821 /* ResolutionsImages.swift in Sources */,
+				382795F620E6490A0090B821 /* SettingsFTPBreakingNewsHostAction.swift in Sources */,
+				382795F720E6490A0090B821 /* VideoRealmRepository.swift in Sources */,
+				382795F820E6490A0090B821 /* AddFilterToVideoWireframe.swift in Sources */,
+				382795F920E6490A0090B821 /* FullScreenPlayerPresenter.swift in Sources */,
+				382795FA20E6490A0090B821 /* MusicInteractorInterface.swift in Sources */,
+				382795FB20E6490A0090B821 /* ProjectListPresenterInterface.swift in Sources */,
+				382795FC20E6490A0090B821 /* GalleryViewController.swift in Sources */,
+				382795FD20E6490A0090B821 /* AudioRepository.swift in Sources */,
+				382795FE20E6490A0090B821 /* AddFilterToVideoInteractorInterface.swift in Sources */,
+				382795FF20E6490A0090B821 /* MicRecorderWireframe.swift in Sources */,
+				3827960020E6490A0090B821 /* README.md in Sources */,
+				3827960120E6490A0090B821 /* EditingRoomPresenterInterface.swift in Sources */,
+				3827960220E6490A0090B821 /* GetCompositionForVideo.swift in Sources */,
+				3827960320E6490A0090B821 /* SettingsTransition.swift in Sources */,
+				3827960420E6490A0090B821 /* AppDependencies.swift in Sources */,
+				3827960520E6490A0090B821 /* TrimViewController.swift in Sources */,
+				3827960620E6490A0090B821 /* UIApplicationExtensionGetTopController.swift in Sources */,
+				3827960720E6490A0090B821 /* ShareInteractor.swift in Sources */,
+				3827960820E6490A0090B821 /* EditingRoomViewController.swift in Sources */,
+				3827960920E6490A0090B821 /* DirectoryCreationOperation.swift in Sources */,
+				3827960A20E6490A0090B821 /* ConfigurationProtocol.swift in Sources */,
+				3827960B20E6490A0090B821 /* SettingTransitionAction.swift in Sources */,
+				3827960C20E6490A0090B821 /* Audio4VideoPresenter.swift in Sources */,
+				3827960D20E6490A0090B821 /* Audio4VideoWireframe.swift in Sources */,
+				3827960E20E6490A0090B821 /* PurchaseViewController.swift in Sources */,
+				3827960F20E6490A0090B821 /* SplitWireframe.swift in Sources */,
+				3827961020E6490A0090B821 /* CameraSettings.swift in Sources */,
+				3827961120E6490A0090B821 /* MicRecorderConstants.swift in Sources */,
+				3827961220E6490A0090B821 /* ShareInstagramInteractor.swift in Sources */,
+				3827961320E6490A0090B821 /* DetailTextController.swift in Sources */,
+				3827961420E6490A0090B821 /* MusicViewController.swift in Sources */,
+				3827961520E6490A0090B821 /* ShareFacebookInteractor.swift in Sources */,
+				3827961620E6490A0090B821 /* SocialNetworkProvider.swift in Sources */,
+				3827961720E6490A0090B821 /* ShareTwitterInteractor.swift in Sources */,
+				3827961820E6490A0090B821 /* SettingsLegalTextAction.swift in Sources */,
+				3827961920E6490A0090B821 /* SplitViewInterface.swift in Sources */,
+				3827961A20E6490A0090B821 /* EditorWireframe.swift in Sources */,
+				3827961B20E6490A0090B821 /* ProjectInfoVideoModel.swift in Sources */,
+				3827961C20E6490A0090B821 /* SettingsInteractorInterface.swift in Sources */,
+				3827961D20E6490A0090B821 /* FlashInteractor.swift in Sources */,
+				3827961E20E6490A0090B821 /* Audio4VideoInteractor.swift in Sources */,
+				3827961F20E6490A0090B821 /* ShareActionInterface.swift in Sources */,
+				3827962020E6490A0090B821 /* EditingRoomViewInterface.swift in Sources */,
+				3827962120E6490A0090B821 /* MusicWireframe.swift in Sources */,
+				3827962220E6490A0090B821 /* MusicCell.swift in Sources */,
+				3827962320E6490A0090B821 /* MuiscSelectorTableViewCell.swift in Sources */,
+				3827962420E6490A0090B821 /* EditorModel.swift in Sources */,
+				3827962520E6490A0090B821 /* EditingRoomItemController.swift in Sources */,
+				3827962620E6490A0090B821 /* StreamOperation.swift in Sources */,
+				3827962720E6490A0090B821 /* SettingsProvider.swift in Sources */,
+				3827962820E6490A0090B821 /* VimojoWireframeInterface.swift in Sources */,
+				3827962920E6490A0090B821 /* FilterFoundModel.swift in Sources */,
+				3827962A20E6490A0090B821 /* SettingsUsernameAction.swift in Sources */,
+				3827962B20E6490A0090B821 /* GoToRecordOrGalleryViewController.swift in Sources */,
+				3827962C20E6490A0090B821 /* ProjectRealmRepository.swift in Sources */,
+				3827962D20E6490A0090B821 /* SettingsFTPBreakingNews.swift in Sources */,
+				3827962E20E6490A0090B821 /* ViMoJoController.swift in Sources */,
+				3827962F20E6490A0090B821 /* KYEmbedDrawerControllerSegue.swift in Sources */,
+				3827963020E6490A0090B821 /* PermissionsRouter.swift in Sources */,
+				3827963120E6490A0090B821 /* PurchaseInteractor.swift in Sources */,
+				3827963220E6490A0090B821 /* ShareInteractorInterface.swift in Sources */,
+				3827963320E6490A0090B821 /* AIndicatorAlertController.swift in Sources */,
+				3827963420E6490A0090B821 /* VideoParameterSlider.swift in Sources */,
+				3827963520E6490A0090B821 /* MusicListPresenter.swift in Sources */,
+				3827963620E6490A0090B821 /* SettingsWireframe.swift in Sources */,
+				3827963720E6490A0090B821 /* NotificationsName+Extension.swift in Sources */,
+				3827963820E6490A0090B821 /* MicRecorderInteractorInterface.swift in Sources */,
+				3827963920E6490A0090B821 /* FullScreenPlayerInterface.swift in Sources */,
+				3827963A20E6490A0090B821 /* MicRecorderPresenterInterface.swift in Sources */,
+				3827963B20E6490A0090B821 /* VideoCarrusselCollectionViewCell.swift in Sources */,
+				3827963C20E6490A0090B821 /* DetailTextPresenterInterface.swift in Sources */,
+				3827963D20E6490A0090B821 /* ShareUtils.swift in Sources */,
+				3827963E20E6490A0090B821 /* TwitterVideoUpload.m in Sources */,
+				3827963F20E6490A0090B821 /* ProjectListWireframe.swift in Sources */,
+				3827964020E6490A0090B821 /* EditorInteractorInterface.swift in Sources */,
+				3827964120E6490A0090B821 /* ShareSave.swift in Sources */,
+				3827964220E6490A0090B821 /* AddFilterToVideoPresenterInterface.swift in Sources */,
+				3827964320E6490A0090B821 /* RealmVideoToVideoMapper.swift in Sources */,
+				3827964420E6490A0090B821 /* ShareMoJoFyInteractor.swift in Sources */,
+				3827964520E6490A0090B821 /* EditingRoomWireframe.swift in Sources */,
+				3827964620E6490A0090B821 /* ProjectListViewModel.swift in Sources */,
+				3827964720E6490A0090B821 /* ShareFTPInteractor.swift in Sources */,
+				3827964820E6490A0090B821 /* TrimRangeBarViewModel.swift in Sources */,
+				3827964920E6490A0090B821 /* SettingsPresenter.swift in Sources */,
+				3827964A20E6490A0090B821 /* ProjectDetailsRouter.swift in Sources */,
+				3827964B20E6490A0090B821 /* SettingsViewController.swift in Sources */,
+				3827964C20E6490A0090B821 /* UIButton+AddTargetClosure.swift in Sources */,
+				3827964D20E6490A0090B821 /* DetailTextPresenter.swift in Sources */,
+				3827964E20E6490A0090B821 /* MicRecorderViewModel.swift in Sources */,
+				3827964F20E6490A0090B821 /* SettingsModel.swift in Sources */,
+				3827965020E6490A0090B821 /* DrawerConstants.swift in Sources */,
+				3827965120E6490A0090B821 /* MusicListStrings.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A9B385E21D7D51380065D3EC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -6851,6 +7768,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3827965F20E64AAB0090B821 /* URLs.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3827966020E64AAB0090B821 /* en */,
+				3827966120E64AAB0090B821 /* es */,
+			);
+			name = URLs.strings;
+			sourceTree = "<group>";
+		};
 		A906CCDD1DB0D03700AC8FFB /* MicRecorder.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -7058,6 +7984,93 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3827965620E6490A0090B821 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3202BD17E293FF7D4514754 /* Pods-Vanitatis.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Iago Fernández cedron (JVQF87BH8Q)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Iago Fernández cedron (JVQF87BH8Q)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 98YJ9HU6W9;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Crashlytics/iOS\"",
+					"\"${PODS_ROOT}/Fabric/iOS\"",
+					"$(PROJECT_DIR)/Videona",
+					"Frameworks/**",
+					"$(PROJECT_DIR)/Videona",
+					"Frameworks/SpaceOnDisk/**",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"GTM_OAUTH2_USE_FRAMEWORK_IMPORTS=1",
+					"MIXPANEL_ERROR=1",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Vanitatis/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR)";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DDEBUG\"";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.vanitatis;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7bfbfe43-8274-444e-b694-3d6b46dc2808";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.vimojo.vanitatis";
+				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3827965720E6490A0090B821 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6F40FCE5451C344CEFEEE7B /* Pods-Vanitatis.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Videona SocialMedia S.L. (98YJ9HU6W9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Videona SocialMedia S.L. (98YJ9HU6W9)";
+				DEVELOPMENT_TEAM = 98YJ9HU6W9;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Crashlytics/iOS\"",
+					"\"${PODS_ROOT}/Fabric/iOS\"",
+					"$(PROJECT_DIR)/Videona",
+					"Frameworks/**",
+					"$(PROJECT_DIR)/Videona",
+					"Frameworks/SpaceOnDisk/**",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Build/Products/Debug-iphoneos",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"GTM_OAUTH2_USE_FRAMEWORK_IMPORTS=1",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Vanitatis/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR) @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DRELEASE\"";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.vanitatis;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c75fdbdc-54f4-49a2-a86a-ff3c7faa844f";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.vimojo.vanitatis";
+				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		A9B386011D7D51380065D3EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -7323,7 +8336,7 @@
 		};
 		B227C94120D71C7900C02AD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21944C5C58225F104DB6EEA9 /* Pods-vimojo.debug.xcconfig */;
+			baseConfigurationReference = F7F7B0ED841D2D5CE86D32B9 /* Pods-RTVE.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -7367,7 +8380,7 @@
 		};
 		B227C94220D71C7900C02AD9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90443E44A4216B1295C5C35C /* Pods-vimojo.release.xcconfig */;
+			baseConfigurationReference = 535C960CB18D4BAA13BCCC12 /* Pods-RTVE.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -7672,6 +8685,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3827965520E6490A0090B821 /* Build configuration list for PBXNativeTarget "Vanitatis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3827965620E6490A0090B821 /* Debug */,
+				3827965720E6490A0090B821 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A9B385E11D7D51380065D3EC /* Build configuration list for PBXProject "vimojo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
