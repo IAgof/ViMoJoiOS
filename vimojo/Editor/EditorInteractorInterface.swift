@@ -12,7 +12,7 @@ import VideonaProject
 
 protocol EditorInteractorInterface {
     func getComposition()
-    func getListData()
+    func getListData(completion: ([EditorViewModel]) -> Void)
     func seekToSelectedItemHandler(_ videoPosition: Int)
     func removeVideo(_ index: Int)
     func moveClipToPosition(_ sourcePosition: Int,
@@ -26,7 +26,6 @@ protocol EditorInteractorInterface {
 }
 
 protocol EditorInteractorDelegate {
-    func setVideoList(_ list: [EditorViewModel])
     func setStopTimeList(_ list: [Double])
     func seekToTimeOfVideoSelectedReceiver(_ time: Float)
 
