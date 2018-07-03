@@ -2758,32 +2758,6 @@
 			name = GalleryControllers;
 			sourceTree = "<group>";
 		};
-		A91D62FD1DDF1B6200D226B8 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				A91760B21D9146BF008915DA /* EditorPresenter.swift */,
-				A91760B31D9146BF008915DA /* EditorPresenterInterface.swift */,
-			);
-			name = Presenter;
-			sourceTree = "<group>";
-		};
-		A91D63011DDF1B7100D226B8 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				A91760B51D9146BF008915DA /* EditorViewController.swift */,
-				A91760AF1D9146BF008915DA /* EditorClipsCell.swift */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		A91D63021DDF1B7500D226B8 /* Wireframe */ = {
-			isa = PBXGroup;
-			children = (
-				A91760B71D9146BF008915DA /* EditorWireframe.swift */,
-			);
-			name = Wireframe;
-			sourceTree = "<group>";
-		};
 		A929DF3A2039D39B000F62AF /* ProjectDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -3104,9 +3078,11 @@
 		A964410B1DA3013B00CAD950 /* User interface */ = {
 			isa = PBXGroup;
 			children = (
-				A91D62FD1DDF1B6200D226B8 /* Presenter */,
-				A91D63011DDF1B7100D226B8 /* View */,
-				A91D63021DDF1B7500D226B8 /* Wireframe */,
+				A91760B21D9146BF008915DA /* EditorPresenter.swift */,
+				A91760B31D9146BF008915DA /* EditorPresenterInterface.swift */,
+				A91760B51D9146BF008915DA /* EditorViewController.swift */,
+				A91760AF1D9146BF008915DA /* EditorClipsCell.swift */,
+				A91760B71D9146BF008915DA /* EditorWireframe.swift */,
 			);
 			name = "User interface";
 			sourceTree = "<group>";
@@ -4288,7 +4264,7 @@
 					A9B385F91D7D51380065D3EC = {
 						CreatedOnToolsVersion = 7.3.1;
 						LastSwiftMigration = 0930;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = A9B385E51D7D51380065D3EC;
 					};
 					AE4AAF9A1F704D8600504428 = {
@@ -4880,7 +4856,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-vimojo-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-RTVE-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4906,7 +4882,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-RTVE/Pods-RTVE-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
@@ -4943,7 +4919,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RTVE/Pods-RTVE-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B227C93D20D71C7900C02AD9 /* [CP] Copy Pods Resources */ = {
@@ -4952,7 +4928,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-RTVE/Pods-RTVE-resources.sh",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -4961,7 +4937,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RTVE/Pods-RTVE-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B27411C820D7108400000934 /* [CP] Check Pods Manifest.lock */ = {
@@ -7201,8 +7177,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DDEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7a1f1dd5-7a32-4fb5-bbc6-a82d9d3bd24c";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development com.videona.vimojo 1528905328";
+				PROVISIONING_PROFILE = "3774bcf6-d64e-4fe7-81b2-af07c19885c0";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.videona.vimojo";
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -7257,10 +7233,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = vimojoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vimojo.app/vimojo";
 			};
@@ -7270,10 +7249,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = vimojoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vimojo.app/vimojo";
 			};
@@ -7323,7 +7305,7 @@
 		};
 		B227C94120D71C7900C02AD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21944C5C58225F104DB6EEA9 /* Pods-vimojo.debug.xcconfig */;
+			baseConfigurationReference = F7F7B0ED841D2D5CE86D32B9 /* Pods-RTVE.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -7367,7 +7349,7 @@
 		};
 		B227C94220D71C7900C02AD9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90443E44A4216B1295C5C35C /* Pods-vimojo.release.xcconfig */;
+			baseConfigurationReference = 535C960CB18D4BAA13BCCC12 /* Pods-RTVE.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

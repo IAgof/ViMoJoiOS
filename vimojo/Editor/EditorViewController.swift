@@ -46,6 +46,7 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
                 self.thumbnailClipsCollectionView.deleteItems(at: [indice])
             }, completion: { (finished) in
                 guard finished else { return }
+                self.videoList.remove(at: indice.row)
                 self.eventHandler?.removeVideoClip(at: indice)
                 self.thumbnailClipsCollectionView.reloadItems(at: self.thumbnailClipsCollectionView.indexPathsForVisibleItems)
             })
@@ -126,7 +127,12 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
                                             to destinationIndexPath: IndexPath) {
         eventHandler?.moveItemAtIndexPath(sourceIndexPath,
                                           toIndexPath: destinationIndexPath)
-        self.thumbnailClipsCollectionView.reloadItems(at: [sourceIndexPath, destinationIndexPath])
+        DispatchQueue.main.async {
+            let video = self.videoList.remove(at: sourceIndexPath.row)
+            self.videoList.insert(video, at: destinationIndexPath.row)
+            self.thumbnailClipsCollectionView
+                .reloadItems(at: self.thumbnailClipsCollectionView.indexPathsForVisibleItems)
+        }
     }
     // MARK: - Actions
     @IBAction func pushDuplicateClip(_ sender: AnyObject) {

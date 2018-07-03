@@ -22,7 +22,7 @@ class SaveVideosFromGalleryInteractor: NSObject, SaveVideosFromGalleryInterface 
     }
 
     func saveVideos(_ URLs: [URL]) {
-        DispatchQueue.main.async(execute: { () -> Void in
+        DispatchQueue.global().async(execute: { () -> Void in
             for url in URLs {
                 self.saveVideoToDocuments(url)
             }
@@ -45,12 +45,9 @@ class SaveVideosFromGalleryInteractor: NSObject, SaveVideosFromGalleryInterface 
         newVideo.videoURL = url
         newVideo.mediaRecordedFinished()
         newVideo.setPosition(videoList.count + 1)
-
         videoList.append(newVideo)
-
         VideoRealmRepository().add(item: newVideo)
         actualProject.setVideoList(videoList)
-
         actualProject.updateModificationDate()
         ProjectRealmRepository().update(item: actualProject)
     }

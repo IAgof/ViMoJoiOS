@@ -22,18 +22,14 @@ class GalleryWireframe: NSObject {
         let viewController = galleryViewControllerFromStoryboard()
         viewController.wireframe = self
         viewController.interactor = interactor
-
         self.prevController = prevController
-
         prevController.show(viewController, sender: nil)
     }
 
     func galleryViewControllerFromStoryboard() -> GalleryViewController {
         let storyboard = galleryStoryboard()
         let viewController = storyboard.instantiateViewController(withIdentifier: galleryViewControllerIdentifier) as! GalleryViewController
-
         galleryViewController = viewController
-
         return viewController
     }
 
@@ -48,7 +44,9 @@ class GalleryWireframe: NSObject {
 
     func presentEditingRoomInterface() {
         if let controllerExist = galleryViewController {
-            editingRoomWireframe?.presentEditingRoomInterfaceFromViewController(controllerExist)
+            DispatchQueue.main.async {
+                self.editingRoomWireframe?.presentEditingRoomInterfaceFromViewController(controllerExist)
+            }
         }
     }
 }
