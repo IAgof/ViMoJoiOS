@@ -13,6 +13,7 @@ platform :ios do
   # don't worry, fastlane will prompt you for required
   # info which you can add here later
   lane :beta do
+    cocoapods
     match(type: 'adhoc', app_identifier: ["com.videona.vimojo"], readonly: true)
     # build your iOS app
     build_app(
