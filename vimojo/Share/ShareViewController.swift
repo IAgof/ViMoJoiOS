@@ -177,7 +177,7 @@ extension ShareViewController:SharePresenterDelegate {
         let currentTimeExportedMessage = Utils().getStringByKeyFromSettings(RecordConstants().WAIT_EXPORTING)
         self.eventHandler?.getSessionExportProgress({
             progress in
-            self.alertController?.message = currentTimeExportedMessage + " \(progress)%"
+            self.alertController?.message = currentTimeExportedMessage.appending(" \(progress)%")
         })
         
         alertController = UIAlertController(title: title,
