@@ -26,6 +26,11 @@ fastlane ios certificates
 fastlane ios beta
 ```
 
+### ios testFlight
+```
+fastlane ios testFlight
+```
+
 ### ios release
 ```
 fastlane ios release

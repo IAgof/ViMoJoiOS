@@ -6,8 +6,8 @@ default_platform :ios
 
 platform :ios do
   before_all do |lane, options|
-    cocoapods
-    ENV["SLACK_URL"] =  "https://hooks.slack.com/services/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"
+    # cocoapods
+    # ENV["SLACK_URL"] =  "https://hooks.slack.com/services/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"
   end
   lane :certificates do
       match(type: 'development',app_identifier: ["com.videona.vimojo", "com.vimojo.thomsonfoundation", "com.vimojo.m4n", "com.vimojo.elconfidencial", "com.vimojo.RTVE"], readonly: true)
@@ -18,20 +18,20 @@ platform :ios do
   # don't worry, fastlane will prompt you for required
   # info which you can add here later
   lane :beta do
-    match(type: 'adhoc', app_identifier: ["com.videona.vimojo"], readonly: true)
-    increment_build_number(build_number: app_store_build_number + 1,
-                            xcodeproj: "vimojo.xcodeproj")
-    build_app(
-      scheme: "vimojo",
-      export_method: "ad-hoc"
-    )
+    # match(type: 'adhoc', app_identifier: ["com.videona.vimojo"], readonly: true)
+    # increment_build_number(build_number: app_store_build_number + 1,
+    #                         xcodeproj: "vimojo.xcodeproj")
+    # build_app(
+    #   scheme: "vimojo",
+    #   export_method: "ad-hoc"
+    # )
 
     # upload to Beta by Crashlytics
     crashlytics(
       # keys for organization: DEPRECATED-VideonaIOS
-      api_token: "245a1998989c434deb37967cfa33882e5f169410",
-      build_secret: "a4aace077e673d7b8bbb959e93125b49664db2b0da0cfb30de69381be101c379"
-      # groups: ["Videona\ team"]
+      api_token: "1f6610673faf2f5fcde5824176e94c8f4570aa2c",
+      build_secret: "c529f00d2df71a2bc5215e4a75166cec6733c4781ea9e8df57d0c752e909701d",
+      groups: ["videona-team"]
     )
   end
   lane :testFlight do
