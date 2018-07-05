@@ -60,7 +60,7 @@ struct ProjectInfoVideoModel {
         location = formatText("location_label".localized(.projectDetails), project.projectInfo.location)
         self.description = description
         resolution = project.getProfile().getResolution()
-        frameRate = formatText("frame_rate_label".localized(.projectDetails), project.getProfile().frameRate.string + " FPS")
+        frameRate = formatText("frame_rate_label".localized(.projectDetails), project.getProfile().frameRate.string.appending(" FPS"))
         quality = formatText("quality_label".localized(.projectDetails), project.getProfile().getQuality())
         duration = formatText("duration_label".localized(.projectDetails), project.getDuration().formattedTime)
         kindOfProjectsSelected = projectsSelectedTexts(project)

@@ -139,7 +139,7 @@ class CameraInteractor: NSObject, CameraInteractorInterface {
     }
     func getNewClipPath(_ title: String) -> String {
         var path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        path =  path + "/\(title)"
+        path = "\(path)/\(title)"
         return path
     }
     func getVideoLenght(_ url: URL) -> Double {
