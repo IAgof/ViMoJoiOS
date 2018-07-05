@@ -41,7 +41,7 @@ platform :ios do
     build_app(scheme: "vimojo",
           export_method: "app-store")
     upload_to_testflight(skip_submission: true)
-    slack(message: "Successfully uploaded a new App Store build")
+    slack(message: "Successfully uploaded to testFlight")
   end
 
   lane :release do
