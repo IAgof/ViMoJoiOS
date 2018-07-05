@@ -40,7 +40,8 @@ platform :ios do
                             xcodeproj: "vimojo.xcodeproj")
     build_app(scheme: "vimojo",
           export_method: "app-store")
-    upload_to_testflight(skip_submission: true)
+    upload_to_testflight(skip_submission: true,
+                        skip_waiting_for_build_processing: true)
     slack(message: "Successfully uploaded to testFlight")
   end
 
