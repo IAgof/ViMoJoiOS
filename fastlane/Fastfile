@@ -5,6 +5,12 @@ fastlane_version "2.31.0"
 default_platform :ios
 
 platform :ios do
+  before_all do |lane, options|
+    cocoapods
+    ENV["SLACK_URL"] =  "https://hooks.slack.com/services/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"
+    ENV["FASTLANE_USER"] =  "accounts@videona.com"
+    ENV["FASTLANE_PASSWORD"] =  "Elendil1460!"
+  end
   lane :certificates do
       match(type: 'development',app_identifier: ["com.videona.vimojo", "com.vimojo.thomsonfoundation", "com.vimojo.m4n", "com.vimojo.elconfidencial", "com.vimojo.RTVE"], readonly: false)
       match(type: 'adhoc', app_identifier: ["com.videona.vimojo", "com.vimojo.thomsonfoundation", "com.vimojo.m4n", "com.vimojo.elconfidencial", "com.vimojo.RTVE"], readonly: false)
@@ -13,7 +19,6 @@ platform :ios do
   # don't worry, fastlane will prompt you for required
   # info which you can add here later
   lane :beta do
-    cocoapods
     match(type: 'adhoc', app_identifier: ["com.videona.vimojo"], readonly: true)
     increment_build_number(build_number: app_store_build_number + 1,
                             xcodeproj: "vimojo.xcodeproj")
@@ -31,7 +36,6 @@ platform :ios do
     )
   end
   lane :release do
-    cocoapods
     match(type: 'appstore', app_identifier: ["com.videona.vimojo"], readonly: true)
     increment_build_number(build_number: app_store_build_number + 1,
                             xcodeproj: "vimojo.xcodeproj")
@@ -39,7 +43,6 @@ platform :ios do
           export_method: "app-store")
     upload_to_app_store(submit_for_review: true,
                         force: true)
-    slack(message: "Successfully uploaded a new App Store build",
-          slack_url: "https://hooks.slack.com/services/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")
+    slack(message: "Successfully uploaded a new App Store build")
   end
 end
