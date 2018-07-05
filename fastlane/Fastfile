@@ -17,6 +17,7 @@ platform :ios do
   lane :certificates do
       match(type: 'development',app_identifier: ["com.videona.vimojo", "com.vimojo.thomsonfoundation", "com.vimojo.m4n", "com.vimojo.elconfidencial", "com.vimojo.RTVE"], readonly: true)
       match(type: 'adhoc', app_identifier: ["com.videona.vimojo", "com.vimojo.thomsonfoundation", "com.vimojo.m4n", "com.vimojo.elconfidencial", "com.vimojo.RTVE"], readonly: true)
+      match(type: 'appstore', app_identifier: ["com.videona.vimojo"], readonly: true)
   end
   # Fastfile actions accept additional configuration, but
   # don't worry, fastlane will prompt you for required

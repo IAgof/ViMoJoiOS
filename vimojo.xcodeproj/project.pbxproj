@@ -7058,6 +7058,307 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		612EAABC20EE2CCA006C1AA4 /* adhoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = adhoc;
+		};
+		612EAABD20EE2CCA006C1AA4 /* adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90443E44A4216B1295C5C35C /* Pods-vimojo.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Videona SocialMedia S.L. (98YJ9HU6W9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Videona SocialMedia S.L. (98YJ9HU6W9)";
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 98YJ9HU6W9;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Crashlytics/iOS\"",
+					"\"${PODS_ROOT}/Fabric/iOS\"",
+					"$(PROJECT_DIR)/Videona",
+					"Frameworks/**",
+					"$(PROJECT_DIR)/Videona",
+					"Frameworks/SpaceOnDisk/**",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Build/Products/Debug-iphoneos",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"GTM_OAUTH2_USE_FRAMEWORK_IMPORTS=1",
+				);
+				INFOPLIST_FILE = vimojo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR) @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DRELEASE\"";
+				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "11a804b1-c402-4083-a67d-a626a74583c8";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.videona.vimojo 1528906210";
+				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = adhoc;
+		};
+		612EAABE20EE2CCA006C1AA4 /* adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AF04F172FB15A5CC0DEE9E8 /* Pods-ThomsonFoundation.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Videona SocialMedia S.L. (98YJ9HU6W9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Videona SocialMedia S.L. (98YJ9HU6W9)";
+				DEVELOPMENT_TEAM = 98YJ9HU6W9;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Crashlytics/iOS\"",
+					"\"${PODS_ROOT}/Fabric/iOS\"",
+					"$(PROJECT_DIR)/Videona",
+					"Frameworks/**",
+					"$(PROJECT_DIR)/Videona",
+					"Frameworks/SpaceOnDisk/**",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Build/Products/Debug-iphoneos",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"GTM_OAUTH2_USE_FRAMEWORK_IMPORTS=1",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/ThomsonFoundation/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR) @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DRELEASE\"";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.thomsonfoundation;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6a217ec8-1a52-414c-ae5d-960ba77c7629";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.vimojo.thomsonfoundation 1528906229";
+				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = adhoc;
+		};
+		612EAABF20EE2CCA006C1AA4 /* adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92A36892EC3CF2506356F21F /* Pods-Market4News.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Videona SocialMedia S.L. (98YJ9HU6W9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Videona SocialMedia S.L. (98YJ9HU6W9)";
+				DEVELOPMENT_TEAM = 98YJ9HU6W9;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Crashlytics/iOS\"",
+					"\"${PODS_ROOT}/Fabric/iOS\"",
+					"$(PROJECT_DIR)/Videona",
+					"Frameworks/**",
+					"$(PROJECT_DIR)/Videona",
+					"Frameworks/SpaceOnDisk/**",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Build/Products/Debug-iphoneos",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"GTM_OAUTH2_USE_FRAMEWORK_IMPORTS=1",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/M4N/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR) @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DRELEASE\"";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.m4n;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "550685ab-e246-43fe-b7af-271f6f521867";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.vimojo.m4n 1528906244";
+				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = adhoc;
+		};
+		612EAAC020EE2CCA006C1AA4 /* adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F2FBDCEFECF25688E0C5452 /* Pods-ElConfidencial.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Videona SocialMedia S.L. (98YJ9HU6W9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Videona SocialMedia S.L. (98YJ9HU6W9)";
+				DEVELOPMENT_TEAM = 98YJ9HU6W9;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Crashlytics/iOS\"",
+					"\"${PODS_ROOT}/Fabric/iOS\"",
+					"$(PROJECT_DIR)/Videona",
+					"Frameworks/**",
+					"$(PROJECT_DIR)/Videona",
+					"Frameworks/SpaceOnDisk/**",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Build/Products/Debug-iphoneos",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"GTM_OAUTH2_USE_FRAMEWORK_IMPORTS=1",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/ElConfidencial/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR) @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DRELEASE\"";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.elconfidencial;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c53186d7-4078-4094-9be1-345aa0f49584";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.vimojo.elconfidencial 1528906264";
+				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = adhoc;
+		};
+		612EAAC120EE2CCA006C1AA4 /* adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 535C960CB18D4BAA13BCCC12 /* Pods-RTVE.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Videona SocialMedia S.L. (98YJ9HU6W9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Videona SocialMedia S.L. (98YJ9HU6W9)";
+				DEVELOPMENT_TEAM = 98YJ9HU6W9;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Crashlytics/iOS\"",
+					"\"${PODS_ROOT}/Fabric/iOS\"",
+					"$(PROJECT_DIR)/Videona",
+					"Frameworks/**",
+					"$(PROJECT_DIR)/Videona",
+					"Frameworks/SpaceOnDisk/**",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Build/Products/Debug-iphoneos",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"GTM_OAUTH2_USE_FRAMEWORK_IMPORTS=1",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/RTVE/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR) @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DRELEASE\"";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vimojo.RTVE;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d08d384c-d1f6-4e4e-96b9-9fadf68b7f0a";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.vimojo.RTVE 1528906284";
+				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = adhoc;
+		};
+		612EAAC220EE2CCA006C1AA4 /* adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10B8474FFDAB9A11F14FCD32 /* Pods-vimojoUITests.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = vimojoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = vimojo;
+			};
+			name = adhoc;
+		};
+		612EAAC320EE2CCA006C1AA4 /* adhoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = vimojoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vimojo.app/vimojo";
+			};
+			name = adhoc;
+		};
 		A9B386011D7D51380065D3EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -7202,7 +7503,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DDEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3774bcf6-d64e-4fe7-81b2-af07c19885c0";
+				PROVISIONING_PROFILE = "c875e649-83d4-46c3-8bfc-7c004900bc91";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.videona.vimojo";
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -7248,8 +7549,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DRELEASE\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "11a804b1-c402-4083-a67d-a626a74583c8";
-				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.videona.vimojo 1528906210";
+				PROVISIONING_PROFILE = "2122b044-b4cb-4156-a326-62c9dd236636";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.videona.vimojo";
 				SWIFT_OBJC_BRIDGING_HEADER = "vimojo/vimojo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -7681,6 +7982,7 @@
 			buildConfigurations = (
 				A9B386011D7D51380065D3EC /* Debug */,
 				A9B386021D7D51380065D3EC /* Release */,
+				612EAABC20EE2CCA006C1AA4 /* adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -7690,6 +7992,7 @@
 			buildConfigurations = (
 				A9B386041D7D51380065D3EC /* Debug */,
 				A9B386051D7D51380065D3EC /* Release */,
+				612EAABD20EE2CCA006C1AA4 /* adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -7699,6 +8002,7 @@
 			buildConfigurations = (
 				A9B386071D7D51380065D3EC /* Debug */,
 				A9B386081D7D51380065D3EC /* Release */,
+				612EAAC320EE2CCA006C1AA4 /* adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -7708,6 +8012,7 @@
 			buildConfigurations = (
 				AE4AAFA31F704D8700504428 /* Debug */,
 				AE4AAFA41F704D8700504428 /* Release */,
+				612EAAC220EE2CCA006C1AA4 /* adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -7717,6 +8022,7 @@
 			buildConfigurations = (
 				B227C94120D71C7900C02AD9 /* Debug */,
 				B227C94220D71C7900C02AD9 /* Release */,
+				612EAAC120EE2CCA006C1AA4 /* adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -7726,6 +8032,7 @@
 			buildConfigurations = (
 				B274134220D7108400000934 /* Debug */,
 				B274134320D7108400000934 /* Release */,
+				612EAABE20EE2CCA006C1AA4 /* adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -7735,6 +8042,7 @@
 			buildConfigurations = (
 				B27414C920D713C100000934 /* Debug */,
 				B27414CA20D713C100000934 /* Release */,
+				612EAABF20EE2CCA006C1AA4 /* adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -7744,6 +8052,7 @@
 			buildConfigurations = (
 				B274164F20D715E900000934 /* Debug */,
 				B274165020D715E900000934 /* Release */,
+				612EAAC020EE2CCA006C1AA4 /* adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
