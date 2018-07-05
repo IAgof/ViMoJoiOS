@@ -8,11 +8,6 @@ platform :ios do
   before_all do |lane, options|
     cocoapods
     ENV["SLACK_URL"] =  "https://hooks.slack.com/services/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"
-    ENV["FASTLANE_USER"] =  "accounts@videona.com"
-    ENV["FASTLANE_PASSWORD"] =  "Elendil1460!"
-    keychain_entry = CredentialsManager::AccountManager.new(user: "accounts@videona.com")
-    password = keychain_entry.password
-    puts password
   end
   lane :certificates do
       match(type: 'development',app_identifier: ["com.videona.vimojo", "com.vimojo.thomsonfoundation", "com.vimojo.m4n", "com.vimojo.elconfidencial", "com.vimojo.RTVE"], readonly: true)
@@ -39,6 +34,16 @@ platform :ios do
       # groups: ["Videona\ team"]
     )
   end
+  lane :testFlight do
+    match(type: 'appstore', app_identifier: ["com.videona.vimojo"], readonly: true)
+    increment_build_number(build_number: app_store_build_number + 1,
+                            xcodeproj: "vimojo.xcodeproj")
+    build_app(scheme: "vimojo",
+          export_method: "app-store")
+    upload_to_testflight(skip_submission: true)
+    slack(message: "Successfully uploaded a new App Store build")
+  end
+
   lane :release do
     match(type: 'appstore', app_identifier: ["com.videona.vimojo"], readonly: true)
     increment_build_number(build_number: app_store_build_number + 1,
