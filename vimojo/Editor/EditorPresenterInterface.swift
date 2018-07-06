@@ -16,8 +16,7 @@ protocol EditorPresenterInterface {
     func didSelectItemAtIndexPath(_ indexPath: IndexPath)
     func moveItemAtIndexPath(_ sourceIndexPath: IndexPath,
                              toIndexPath destinationIndexPath: IndexPath)
-    func removeVideoClip(_ position: Int)
-    func removeVideoClipAfterConfirmation()
+    func removeVideoClip(at indexPath: IndexPath)
 
     func pushDuplicateHandler()
     func pushSplitHandler()
@@ -43,7 +42,8 @@ protocol EditorPresenterDelegate: ViMoJoInterface {
     func numberOfCellsInCollectionView() -> Int
     func showAlertRemove(_ title: String,
                          message: String,
-                         yesString: String)
+                         yesString: String,
+                         removeAction: @escaping Action)
 
     func createAlertWaitToImport(_ completion: @escaping (() -> Void))
     func createAlertWithAddOptions(title: String,
