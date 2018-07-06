@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (4.5.1)
+  - Auth0 (1.11.1):
+    - SimpleKeychain
   - Crashlytics (3.8.6):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.13)
@@ -53,15 +55,11 @@ PODS:
   - Permission/Photos (2.0.4):
     - Permission/Core
   - Quick (1.3.0)
-  - Realm (2.10.2):
-    - Realm/Headers (= 2.10.2)
-  - Realm/Headers (2.10.2)
-  - RealmSwift (2.10.2):
-    - Realm (= 2.10.2)
   - Result (3.2.4)
   - RxCocoa (3.6.1):
     - RxSwift (~> 3.6)
   - RxSwift (3.6.1)
+  - SimpleKeychain (0.8.1)
   - SnapKit (3.0.2)
   - SwifterSwift (1.6.4)
   - TransitionButton (0.3.0)
@@ -70,6 +68,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Auth0 (~> 1.11)
   - Crashlytics
   - Fabric
   - FSPagerView
@@ -84,7 +83,6 @@ DEPENDENCIES:
   - Permission/Microphone
   - Permission/Photos
   - Quick
-  - RealmSwift
   - RxCocoa (~> 3.0)
   - SnapKit (~> 3.0.0)
   - SwifterSwift (~> 1.2)
@@ -95,6 +93,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Auth0
     - Crashlytics
     - Fabric
     - FSPagerView
@@ -112,11 +111,10 @@ SPEC REPOS:
     - ObjectMapper
     - Permission
     - Quick
-    - Realm
-    - RealmSwift
     - Result
     - RxCocoa
     - RxSwift
+    - SimpleKeychain
     - SnapKit
     - SwifterSwift
     - TransitionButton
@@ -125,6 +123,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Auth0: 136bf9163e75595b66c3268f5e5e114248b7ad51
   Crashlytics: 95d05f4e4c19a771250c4bd9ce344d996de32bbf
   Fabric: 2fb5676bc811af011a04513451f463dac6803206
   FSPagerView: 958aba39684e1573755ddcfcc29f7eebb8413cee
@@ -142,17 +141,16 @@ SPEC CHECKSUMS:
   ObjectMapper: 63cfe41bc6f8e7c8f44344c49901b8ae7de14c52
   Permission: 6853b9694e66a6c9197468c66d1935c3629cbf9c
   Quick: 03278013f71aa05fe9ecabc94fbcc6835f1ee76f
-  Realm: 0ef72b837fb67e9f4b098bac771ddd72c7fdbb69
-  RealmSwift: 07a9ae0505091eda6b2ee7c190c3786d6e90a7b0
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
+  SimpleKeychain: e2485c28d82fcece35e9e41faeac42ebfe614815
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   SwifterSwift: 92c73c47c3cbf7d5f788adf6459bf07b5d23d3fb
   TransitionButton: 0bf7e5ffe80030f9d10d57983a04acf2f511998a
   TTRangeSlider: 2f2ce4a33b32bb323c6575b9f5161c4664459c58
   Whisper: 62e406a71a288476e605a4db06de8c6975bbb350
 
-PODFILE CHECKSUM: 53e2bcd59e9aaf4caa1dbb07bceb3b71dbe1682b
+PODFILE CHECKSUM: 32019cf6c3b54436569e0b790d56bf372481dc4a
 
 COCOAPODS: 1.5.2

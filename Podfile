@@ -26,6 +26,7 @@ def shared_pods
     pod 'Moya-ObjectMapper/RxSwift', '2.4.2'
     pod 'TransitionButton', '0.3.0'
     pod 'Whisper', '5.1.0'
+    pod 'Auth0', '~> 1.11'
 end
 
 target 'vimojo' do
