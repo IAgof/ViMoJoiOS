@@ -10,12 +10,10 @@ def shared_pods
     pod 'Crashlytics'
     pod 'Alamofire'
     pod 'Mixpanel'
-    pod 'Fabric'
-	pod 'RealmSwift'
     pod 'SwifterSwift', '~> 1.2'
     pod 'GoogleSignIn'
     pod 'NMRangeSlider', '~> 1.2'
-	pod 'TTRangeSlider'
+	   pod 'TTRangeSlider'
     pod 'MBCircularProgressBar', '0.3.4'
     pod 'KCFloatingActionButton'
     pod 'FSPagerView'
@@ -67,6 +65,3 @@ post_install do |installer|
         end
     end
 end
-
-
-

@@ -18,31 +18,25 @@ class GalleryViewController: UITabBarController {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = false
         interactor?.setDelegate(self)
-
         self.tabBar.tintColor = configuration.mainColor
-
         for controller in self.viewControllers! {
             if let galleryController = controller as? VideosGalleryViewController {
                 galleryController.delegate = self
             }
         }
     }
-	
 	func configureNavigationBarWithBackButton() {
 		UIApplication.topViewController()?.navigationItem.leftBarButtonItem = UIBarButtonItem(with: self, image: #imageLiteral(resourceName: "activity_edit_back"), selector: #selector(cancelPushed))
 		UIApplication.topViewController()?.navigationItem.rightBarButtonItem = UIBarButtonItem(with: self, image: #imageLiteral(resourceName: "activity_edit_accept_normal"), selector: #selector(getVideosFromGalleryAndSave))
 	}
-	
 	override func viewWillAppear(_ animated: Bool) {
 		configureNavigationBarWithBackButton()
 	}
 }
-
 extension GalleryViewController:VideoGalleryDelegate {
     func cancelPushed() {
         wireframe?.goPrevController()
     }
-	
 	func getVideosFromGalleryAndSave() {
 		for controller in self.viewControllers! {
 			if let galleryController = controller as? VideosGalleryViewController {
@@ -56,7 +50,6 @@ extension GalleryViewController:VideoGalleryDelegate {
 			}
 		}
 	}
-
     func saveVideos(_ URLs: [URL]) {
         interactor?.saveVideos(URLs)
     }

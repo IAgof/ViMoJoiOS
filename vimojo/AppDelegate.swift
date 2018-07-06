@@ -27,13 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         AudioSettings.loadValues()
         VideoSettings.loadValues()
         LoginState.loadState()
-        
         RealmMigrationsUseCase.updateMigrationDefault()
-
         appDependencies = AppDependencies()
-
         CustomDPTheme().configureTheme()
-
         //MIXPANEL
         mixpanel = Mixpanel.sharedInstance(withToken: AnalyticsConstants().MIXPANEL_TOKEN)
         mixpanel?.enableLogging = false
@@ -130,7 +126,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             ViMoJoTracker.sharedInstance.trackAppStartupProperties(false)
         }
         
-        let controller = PermissionsRouter.createModule(recordWireFrame: appDependencies.recordWireframe, drawerWireframe: appDependencies.recordDrawerWireframe, window: window!)
+        let controller = PermissionsRouter.createModule(recordWireFrame: appDependencies.recordWireframe,
+                                                        drawerWireframe: appDependencies.recordDrawerWireframe,
+                                                        window: window!)
         window!.rootViewController = UINavigationController(rootViewController: controller)
 
         ViMoJoTracker.sharedInstance.sendStartupAppTracking(initState: initState)

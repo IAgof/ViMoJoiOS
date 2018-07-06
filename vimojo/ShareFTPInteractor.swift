@@ -34,7 +34,7 @@ class ShareFTPInteractor: ShareActionInterface {
         let alertController = ShareUtils().createAlertViewWithInputText(title, message: message, completion: {
             filename in
 
-            let fileData = FTPfileData(name: filename + ".m4v", path: sharePath.documentsPath)
+            let fileData = FTPfileData(name: filename.appending(".m4v"), path: sharePath.documentsPath)
             self.createFTPUpload(fileData)
         })
 
