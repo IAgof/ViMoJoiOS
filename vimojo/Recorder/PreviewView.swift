@@ -30,7 +30,7 @@ class PreviewView: UIView {
     var tempURL: URL? {
         let directory = NSTemporaryDirectory() as NSString
         if directory != "" {
-            let path = directory.appendingPathComponent(NSUUID().uuidString + ".m4v")
+            let path = directory.appendingPathComponent(NSUUID().uuidString.appending(".m4v"))
             return URL(fileURLWithPath: path)
         }
         return nil

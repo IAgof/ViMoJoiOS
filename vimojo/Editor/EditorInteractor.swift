@@ -74,7 +74,7 @@ class EditorInteractor: NSObject, EditorInteractorInterface {
     }
     func getNewClipPath(_ title: String) -> String {
         var path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        path =  path + "/\(title)"
+        path = "\(path)/\(title)"
         return path
     }
     func seekToSelectedItemHandler(_ videoPosition: Int) {
