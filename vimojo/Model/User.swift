@@ -8,6 +8,7 @@
 
 import Foundation
 import ObjectMapper
+import Auth0
 
 protocol UserProtocol {
     var name: String? { get set }
@@ -26,6 +27,7 @@ struct User: UserProtocol, Mappable {
     init?(map: Map) {
         mapping(map: map)
     }
+    var credentials: Credentials?
     
     init (with username: String, password: String) {
         self.name = username

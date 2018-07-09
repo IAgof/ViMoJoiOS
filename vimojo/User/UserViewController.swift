@@ -21,20 +21,31 @@ class UserViewController: BaseRxController, UserViewProtocol {
     var presenter: UserPresenterProtocol?
     
     override func configureViews() {
-        usernameButton.rx.tap.bind {
-            self.presenter?.navigate()
-            }.disposed(by: disposableBag)
-        emailButton.rx.tap.bind {
-            self.presenter?.navigate()
-            }.disposed(by: disposableBag)
+
     }
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        switch loginState {
-        case .loggedIn(let user):
-            usernameButton.setTitle(user.name, for: .normal)
-            emailButton.setTitle(user.email, for: .normal)
-        default: break
+        loadProfile()
+    }
+    fileprivate func loadProfile() {
+        SessionManager.shared.retrieveProfile {
+            if let error = $0 {
+                self.login()
+            } else {
+                guard let profile = SessionManager.shared.profile
+                    else { return }
+                self.usernameButton.setTitle(profile.name, for: .normal)
+                self.emailButton.setTitle(profile.email, for: .normal)
+            }
+        }
+    }    
+    private func login() {
+        SessionManager.shared.login {
+            switch $0 {
+            case .failure(let error):
+                self.showWhisper(with: error.localizedDescription)
+            case .success(let result):
+                self.loadProfile()
+            }
         }
     }
 }
