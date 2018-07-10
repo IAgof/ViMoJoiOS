@@ -25,13 +25,20 @@ platform :ios do
       scheme: "vimojo",
       export_method: "ad-hoc"
     )
+    changelog = changelog_from_git_commits(
+      commits_count: 10,
+      pretty: "- (%ae) %s",# Optional, lets you provide a custom format to apply to each commit when generating the changelog text
+      date_format: "short",# Optional, lets you provide an additional date format to dates within the pretty-formatted string
+      merge_commit_filtering: "exclude_merges" # Optional, lets you filter out merge commits
 
+    )
     # upload to Beta by Crashlytics
     crashlytics(
       # keys for organization: DEPRECATED-VideonaIOS
       api_token: "1f6610673faf2f5fcde5824176e94c8f4570aa2c",
       build_secret: "c529f00d2df71a2bc5215e4a75166cec6733c4781ea9e8df57d0c752e909701d",
-      groups: ["videona-team"]
+      groups: ["videona-team"],
+      notes: changelog
     )
   end
   lane :testFlight do

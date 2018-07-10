@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,12 +9,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserViewController" customModule="M4N" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserViewController" customModule="ElConfidencial" customModuleProvider="target">
             <connections>
-                <outlet property="emailButton" destination="pw9-bf-YKS" id="w72-W5-wxa"/>
+                <outlet property="emailLabel" destination="eLV-Ar-yhw" id="FAD-Dc-kHr"/>
                 <outlet property="proyectsEditedLabel" destination="46Q-uC-wk6" id="FDt-g8-SC9"/>
                 <outlet property="proyectsSharedLabel" destination="Zbc-NF-ih7" id="ObD-pi-5LU"/>
-                <outlet property="usernameButton" destination="4bL-oe-lVl" id="b46-8B-Zx2"/>
+                <outlet property="userImageView" destination="dEO-rX-gHb" id="RXd-2c-vmD"/>
+                <outlet property="usernameLabel" destination="Cp2-pt-Rab" id="L9w-wA-638"/>
                 <outlet property="videosRecordedLabel" destination="IAN-ST-ybV" id="QoE-SH-Xml"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -30,16 +31,20 @@
                         <constraint firstAttribute="height" constant="70" id="9zq-TF-YY3"/>
                         <constraint firstAttribute="width" constant="70" id="VYe-Pv-dfS"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="35"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bL-oe-lVl">
-                    <rect key="frame" x="20" y="145" width="335" height="41"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cp2-pt-Rab">
+                    <rect key="frame" x="20" y="145" width="335" height="29"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                    <state key="normal" title="Introduzca nombre de usuario">
-                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="1Gm-DD-YDW">
-                    <rect key="frame" x="20" y="194" width="335" height="100.5"/>
+                    <rect key="frame" x="20" y="182" width="335" height="100.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wLj-WG-EHL">
                             <rect key="frame" x="0.0" y="0.0" width="101" height="100.5"/>
@@ -103,26 +108,27 @@
                         </stackView>
                     </subviews>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pw9-bf-YKS">
-                    <rect key="frame" x="20" y="303" width="268" height="30"/>
-                    <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="-8" maxY="0.0"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="16" maxY="0.0"/>
-                    <state key="normal" title="Introduzca correo electronico" image="mail">
-                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLV-Ar-yhw">
+                    <rect key="frame" x="20" y="290.5" width="335" height="21.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="pw9-bf-YKS" firstAttribute="leading" secondItem="1Gm-DD-YDW" secondAttribute="leading" id="77q-bO-oht"/>
-                <constraint firstItem="1Gm-DD-YDW" firstAttribute="top" secondItem="4bL-oe-lVl" secondAttribute="bottom" constant="8" id="Iqg-Ra-LF6"/>
-                <constraint firstItem="pw9-bf-YKS" firstAttribute="top" secondItem="1Gm-DD-YDW" secondAttribute="bottom" constant="8" id="OHv-RQ-Q9E"/>
-                <constraint firstItem="4bL-oe-lVl" firstAttribute="top" secondItem="dEO-rX-gHb" secondAttribute="bottom" constant="20" id="Z71-lk-b7b"/>
+                <constraint firstItem="eLV-Ar-yhw" firstAttribute="leading" secondItem="1Gm-DD-YDW" secondAttribute="leading" id="7Uv-sR-x1d"/>
+                <constraint firstItem="Cp2-pt-Rab" firstAttribute="leading" secondItem="1Gm-DD-YDW" secondAttribute="leading" id="B23-Nm-fOH"/>
+                <constraint firstItem="1Gm-DD-YDW" firstAttribute="top" secondItem="Cp2-pt-Rab" secondAttribute="bottom" constant="8" id="E17-O8-3Lu"/>
+                <constraint firstItem="Cp2-pt-Rab" firstAttribute="top" secondItem="dEO-rX-gHb" secondAttribute="bottom" constant="20" id="IKf-fM-6a1"/>
+                <constraint firstItem="eLV-Ar-yhw" firstAttribute="trailing" secondItem="1Gm-DD-YDW" secondAttribute="trailing" id="Y3F-H6-3hm"/>
                 <constraint firstItem="dEO-rX-gHb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Zuv-yv-7dg"/>
-                <constraint firstItem="4bL-oe-lVl" firstAttribute="leading" secondItem="1Gm-DD-YDW" secondAttribute="leading" id="b5o-3o-iti"/>
                 <constraint firstAttribute="trailing" secondItem="1Gm-DD-YDW" secondAttribute="trailing" constant="20" id="hJf-5P-x0L"/>
                 <constraint firstItem="dEO-rX-gHb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="55" id="l9I-sA-eMQ"/>
                 <constraint firstItem="1Gm-DD-YDW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="qOi-Bz-qFj"/>
+                <constraint firstItem="eLV-Ar-yhw" firstAttribute="top" secondItem="1Gm-DD-YDW" secondAttribute="bottom" constant="8" id="uuw-vk-1F7"/>
+                <constraint firstItem="1Gm-DD-YDW" firstAttribute="top" secondItem="Cp2-pt-Rab" secondAttribute="bottom" constant="8" id="wER-Gl-U8V"/>
+                <constraint firstItem="Cp2-pt-Rab" firstAttribute="trailing" secondItem="1Gm-DD-YDW" secondAttribute="trailing" id="zcD-EK-9Hs"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="78.5"/>
         </view>
@@ -131,6 +137,5 @@
         <image name="activity_gallery_projects_share_normal" width="21" height="20"/>
         <image name="camera" width="50" height="50"/>
         <image name="edit" width="50" height="50"/>
-        <image name="mail" width="30" height="30"/>
     </resources>
 </document>

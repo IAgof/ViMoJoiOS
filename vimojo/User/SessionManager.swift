@@ -36,18 +36,18 @@ class SessionManager {
         // _ = self.authentication.logging(enabled: true) // API Logging
     }
     
-    func retrieveProfile(_ callback: @escaping (Error?) -> ()) {
+    func retrieveProfile(_ callback: @escaping (Auth0.Result<Auth0.UserInfo>) -> ()) {
         guard let accessToken = self.credentials?.accessToken
-            else { return callback(CredentialsManagerError.noCredentials) }
+            else { return callback( .failure(error: CredentialsManagerError.noCredentials))}
         self.authentication
             .userInfo(withAccessToken: accessToken)
             .start { result in
                 switch(result) {
                 case .success(let profile):
                     self.profile = profile
-                    callback(nil)
+                    callback(.success(result: profile))
                 case .failure(let error):
-                    callback(error)
+                    callback(.failure(error: error))
                 }
         }
     }
@@ -65,7 +65,7 @@ class SessionManager {
             callback(nil)
         }
     }
-    func login(result: @escaping (Auth0.Result<Auth0.Credentials>) -> Void) {
+    func login(result: @escaping (Auth0.Result<Auth0.UserInfo>) -> Void) {
         Auth0
             .webAuth()
             .scope("openid profile email")
@@ -76,7 +76,7 @@ class SessionManager {
                 case .success(let response):
                     SessionManager.shared.store(credentials: response)
                     self.credentials = response
-                    result(.success(result: response))
+                    self.retrieveProfile(result)
                 }
         }
     }

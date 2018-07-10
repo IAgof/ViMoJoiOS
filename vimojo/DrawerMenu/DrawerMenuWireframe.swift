@@ -85,7 +85,7 @@ class DrawerMenuWireframe {
     
     func presentUserProfile() {
         if let controller = UIApplication.topViewController() {
-            controller.show(UserRouter.createModule(), sender: nil)
+            controller.show(UserViewController(), sender: nil)
         }
     }
 }

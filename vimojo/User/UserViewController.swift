@@ -9,42 +9,45 @@
 //
 
 import UIKit
+import Auth0
 
-class UserViewController: BaseRxController, UserViewProtocol {
+class UserViewController: BaseRxController {
     
-    @IBOutlet weak var usernameButton: UIButton!
-    @IBOutlet weak var emailButton: UIButton!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var videosRecordedLabel: UILabel!
     @IBOutlet weak var proyectsEditedLabel: UILabel!
     @IBOutlet weak var proyectsSharedLabel: UILabel!
-    
-    var presenter: UserPresenterProtocol?
-    
-    override func configureViews() {
+    @IBOutlet weak var userImageView: UIImageView!
 
-    }
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidLoad() {
         loadProfile()
     }
     fileprivate func loadProfile() {
-        SessionManager.shared.retrieveProfile {
-            if let error = $0 {
-                self.login()
-            } else {
-                guard let profile = SessionManager.shared.profile
-                    else { return }
-                self.usernameButton.setTitle(profile.name, for: .normal)
-                self.emailButton.setTitle(profile.email, for: .normal)
-            }
+        if let profile = SessionManager.shared.profile {
+            self.updateUI( profile)
+        } else {
+            self.login()
         }
-    }    
+    }
+    private func updateUI(_ profile: UserInfo) {
+        DispatchQueue.main.async {
+            self.usernameLabel.text = profile.name
+            self.emailLabel.text = profile.email
+            if let url = profile.picture { self.userImageView.download(from: url) }
+            let preferences = UserDefaults.standard
+            self.videosRecordedLabel.text = "\(preferences.integer(forKey: ConfigPreferences().TOTAL_VIDEOS_RECORDED))"
+            self.proyectsEditedLabel.text = "\(preferences.integer(forKey: ConfigPreferences().TOTAL_VIDEOS_SHARED))"
+            self.proyectsSharedLabel.text = "\(preferences.integer(forKey: ConfigPreferences().TOTAL_VIDEOS_SHARED))"
+        }
+    }
     private func login() {
         SessionManager.shared.login {
             switch $0 {
             case .failure(let error):
                 self.showWhisper(with: error.localizedDescription)
-            case .success(let result):
-                self.loadProfile()
+            case .success(let profile):
+                self.updateUI(profile)
             }
         }
     }
