@@ -20,8 +20,11 @@ class SettingsViewController: ViMoJoController,
 
     // MARK: - List variables
     var sections = Array<String>()
-    var items: [[SettingsViewModel]] = [[]]
-
+    var items: [[SettingsViewModel]] = [[]] {
+        didSet {
+            self.settingsTableView.reloadData()
+        }
+    }
     // MARK: - Outlets
     @IBOutlet weak var settingsTableView: UITableView!
 
@@ -31,7 +34,9 @@ class SettingsViewController: ViMoJoController,
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
-		configureNavigationBarVissible()
+		super.viewWillAppear(animated)
+        configureNavigationBarVissible()
+        eventHandler?.getItems()
 		UIApplication.topViewController()?.navigationItem.leftBarButtonItem = UIBarButtonItem(with: self, image: #imageLiteral(resourceName: "activity_edit_back"), selector: #selector(pushBackBarButton))
 	}
 

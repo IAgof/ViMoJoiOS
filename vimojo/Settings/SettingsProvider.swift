@@ -28,7 +28,7 @@ class SettingsProvider: NSObject {
             Utils().getStringByKeyFromSettings("Registro / inicio session"),
                                           subTitle: "",
                                           action: SettingsLoginAction(delegate: delegate))
-        if SessionManager.shared.profile != nil {
+        if SessionManager.shared.credentials != nil {
             userLoginAction = SettingsContent(title:
                 Utils().getStringByKeyFromSettings("Logout"),
                                           subTitle: "",

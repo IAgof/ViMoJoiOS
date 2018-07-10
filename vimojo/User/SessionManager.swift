@@ -75,6 +75,7 @@ class SessionManager {
                 case .failure(let error): result(.failure(error: error))
                 case .success(let response):
                     SessionManager.shared.store(credentials: response)
+                    self.credentials = response
                     result(.success(result: response))
                 }
         }
