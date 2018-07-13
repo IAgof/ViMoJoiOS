@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 import RxCocoa
 import RxSwift
-import Whisper
 
 protocol BaseViewProtocol {
     func showWhisper(with message: String, color: UIColor)
+    func showDefaultAlert(title: String?, message: String?, okAction: Action?, cancelAction: Action?)
 }
 extension UINavigationController {
     static var transparent: UINavigationController {
@@ -46,10 +46,5 @@ class BaseRxController: UIViewController {
     func removeLoadingView() {
         loadingView?.hideAnimated()
         loadingView = nil
-    }
-    func showWhisper(with message: String = "", color: UIColor = .red) {
-        guard let navigationController = navigationController else { return }
-        let message = Message(title: message, backgroundColor: color)
-        Whisper.show(whisper: message, to: navigationController, action: .show)
     }
 }

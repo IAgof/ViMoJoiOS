@@ -27,6 +27,7 @@ def shared_pods
     pod 'TransitionButton', '0.3.0'
     pod 'Whisper', '5.1.0'
     pod 'Auth0', '~> 1.11'
+    pod 'ReachabilitySwift', '~> 3' # Adds the library to your project
 end
 
 target 'vimojo' do

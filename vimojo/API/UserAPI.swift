@@ -26,9 +26,6 @@ enum HTTPError: Error {
     }
 }
 enum UserAPI {
-    case login(user: User)
-    case logout
-    case register(user: User)
     case upload(data: Data)
 }
 extension UserAPI: TargetType {
@@ -37,51 +34,22 @@ extension UserAPI: TargetType {
     }
     var path: String {
         switch self {
-            case .login: return "/login"
-            case .logout: return "/user/logout"
-            case .register: return "/user"
             case .upload: return "/video"
         }
     }
     var method: Moya.Method {
         switch self {
-        case .logout : return .get
-        case .login, .register, .upload: return .post
+        case .upload: return .post
         }
     }
     var sampleData: Data {
         switch self {
-        case .login:
-            return """
-            {
-              email: String,
-              role: String,
-              token: String,
-              username: String,
-              verified: Bool,
-              videoCount: Int,
-              _id: String
-            }
-            """.dataUTF8!
-        case .register:
-            return """
-            {
-            "name": "Alejandro",
-            "email": "mymail@mail.com",
-            "_id": "5701241594183680"
-            }
-            """.dataUTF8!
         default:
             return "Success".dataUTF8!
         }
     }
     var task: Task {
         switch self {
-        case .logout: return .requestPlain
-        case .login(let user), .register(user: let user):
-            print(user.toJSON())
-            return .requestParameters(parameters: user.toJSON(),
-                                      encoding: URLEncoding.default)
         case .upload(let data):
             return .uploadCompositeMultipart([
                 MultipartFormData(provider: .data(data),
@@ -105,7 +73,6 @@ extension UserAPI: TargetType {
                 return nil
             }
             return ["Autorization" : "Bearer \(user.token ?? "")"]
-        default: return nil
         }
     }
 }
