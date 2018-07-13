@@ -23,14 +23,12 @@ public class ProjectToRealmProjectMapper: Mapper {
         realmProject.author = from.projectInfo.author
         realmProject.location = from.projectInfo.location
         realmProject.projectDescription = from.projectInfo.description
-        realmProject.liveOnTape = from.projectInfo.liveOnTape
-        realmProject.bRoll = from.projectInfo.bRoll
-        realmProject.natVO = from.projectInfo.natVO
-        realmProject.interview = from.projectInfo.interview
-        realmProject.graphics = from.projectInfo.graphics
-        realmProject.piece = from.projectInfo.piece
-
-        
+//        realmProject.productTypes.removeAll()
+//        from.projectInfo.productTypes.forEach {
+//            let integer = IntObject()
+//            integer.value = $0.rawValue
+//            realmProject.productTypes.append(integer)
+//        }
         realmProject.projectPath = from.getProjectPath()
         realmProject.quality = from.getProfile().getQuality()
         realmProject.resolution = from.getProfile().getResolution()

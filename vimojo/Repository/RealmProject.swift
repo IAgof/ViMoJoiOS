@@ -9,6 +9,9 @@
 import Foundation
 import RealmSwift
 
+class IntObject: Object {
+    dynamic var value: Int = 0
+}
 public class RealmProject: Object {
     dynamic var uuid = ""
     // Project Info
@@ -17,12 +20,7 @@ public class RealmProject: Object {
     dynamic var author: String = ""
     dynamic var location: String = ""
     dynamic var projectDescription: String = ""
-    dynamic var liveOnTape: Bool = false
-    dynamic var bRoll: Bool = false
-    dynamic var natVO: Bool = false
-    dynamic var interview: Bool = false
-    dynamic var graphics: Bool = false
-    dynamic var piece: Bool = false
+//    let productTypes: List<IntObject> = List<IntObject>()
     // Project Info end
     dynamic var projectPath = ""
     dynamic var quality = ""

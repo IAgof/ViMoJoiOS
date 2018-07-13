@@ -10,6 +10,8 @@ import XCTest
 import Quick
 import Nimble
 import Moya
+import VideonaProject
+
 @testable import vimojo
 
 class ApiTest: QuickSpec {
@@ -25,9 +27,13 @@ class ApiTest: QuickSpec {
                     else {
                     debugPrint("video.m4v not found")
                     return
-                }     
+                }
+                let videoUpload = VideoUpload(data: videoData,
+                                              title: "Test title",
+                                              description: "Test description",
+                                              productTypes: ProjectInfo.ProductTypes.allValues)
                 waitUntil(timeout: 10, action: { (action) in
-                    loginProvider.request(.upload(data: videoData), progress: { (progress) in
+                    loginProvider.request(.upload(videoUpload), progress: { (progress) in
                         print("progress: \(progress)")
                     }) { (response) in
                         action()
@@ -37,7 +43,7 @@ class ApiTest: QuickSpec {
                             expect(error).to(beNil())
                         case .success(let value):
                             print("Value \(value)")
-                            expect(value.statusCode).to(equal(200))
+                            expect(value.statusCode).to(equal(201))
                         }
                     }
                 })

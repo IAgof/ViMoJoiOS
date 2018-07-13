@@ -9,6 +9,7 @@
 import Foundation
 import Moya
 import Moya_ObjectMapper
+import VideonaProject
 
 var loginProvider = MoyaProvider<UserAPI>()
 var baseURLString: String {
@@ -26,8 +27,14 @@ enum HTTPError: Error {
         }
     }
 }
+struct VideoUpload {
+    let data: Data
+    let title: String
+    let description: String
+    let productTypes: [ProjectInfo.ProductTypes]
+}
 enum UserAPI {
-    case upload(data: Data)
+    case upload(VideoUpload)
 }
 extension UserAPI: TargetType {
     var baseURL: URL {
@@ -51,16 +58,18 @@ extension UserAPI: TargetType {
     }
     var task: Task {
         switch self {
-        case .upload(let data):
-            return .uploadCompositeMultipart([
-                MultipartFormData(provider: .data(data),
-                                  name: "file",
-                                  fileName: "video.mp4",
-                                  mimeType: "video/mp4"),
-                MultipartFormData(provider: .data("title".dataUTF8!), name: "title"),
-                MultipartFormData(provider: .data("description".dataUTF8!), name: "description"),
-                MultipartFormData(provider: .data("LIVE_ON_TAPE".dataUTF8!), name: "productType"),
-                ], urlParameters: [:])
+        case .upload(let videoUpload):
+            var multipartFormData: [MultipartFormData] = []
+            multipartFormData.append(MultipartFormData(provider: .data(videoUpload.data),
+                                                       name: "file",
+                                                       fileName: videoUpload.title.appending(".mp4"),
+                                                       mimeType: "video/mp4"))
+            multipartFormData.append(MultipartFormData(provider: .data(videoUpload.title.dataUTF8!), name: "title"))
+            multipartFormData.append(MultipartFormData(provider: .data(videoUpload.description.dataUTF8!), name: "description"))
+            videoUpload.productTypes.forEach {
+                multipartFormData.append(MultipartFormData(provider: .data($0.multipartVal.dataUTF8!), name: "productType"))
+            }
+            return .uploadCompositeMultipart(multipartFormData, urlParameters: [:])
         }
     }
     var validate: Bool {
