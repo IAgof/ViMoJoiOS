@@ -80,13 +80,13 @@ class SessionManager {
                 }
         }
     }
-    func logout() -> Bool {
+    func logout(callback: @escaping (Bool) -> Void) {
         // Remove credentials from KeyChain
         self.credentials = nil
         // Clear session from browser
         let webAuth = Auth0.webAuth()
-        webAuth.clearSession(federated: true) { _ in }
-        return self.credentialsManager.clear()
+        self.credentialsManager.clear()
+        webAuth.clearSession(federated: true, callback: callback)
     }
     
     func store(credentials: Credentials) -> Bool {

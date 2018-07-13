@@ -32,7 +32,10 @@ class SettingsLogoutAction: SettingsActionInterface {
     }
     
     func executeSettingsAction(_ index: IndexPath) {
-        SessionManager.shared.logout()
-        delegate.executeFinished()
+        SessionManager.shared.logout { finished in
+            if finished {
+                self.delegate.executeFinished()
+            }
+        }
     }
 }
