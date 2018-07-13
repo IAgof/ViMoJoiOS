@@ -12,6 +12,7 @@ import Moya_ObjectMapper
 
 var loginProvider = MoyaProvider<UserAPI>()
 var baseURLString: String {
+//    return "http://35.174.99.151/api/v1"
     return "http://beta.viday.co/api/v1"
     //    return (Bundle.main.infoDictionary!["API_BASE_URL_ENDPOINT"] as? String) ?? ""
 }
@@ -55,12 +56,11 @@ extension UserAPI: TargetType {
                 MultipartFormData(provider: .data(data),
                                   name: "file",
                                   fileName: "video.mp4",
-                                  mimeType: "application/octet-stream")
-                ], urlParameters: [
-                    "title" : "Alejandro's video",
-                    "description" : "Alejandro's video description",
-                    "owner" : loginState.user?.id ?? "noId"
-                ])
+                                  mimeType: "video/mp4"),
+                MultipartFormData(provider: .data("title".dataUTF8!), name: "title"),
+                MultipartFormData(provider: .data("description".dataUTF8!), name: "description"),
+                MultipartFormData(provider: .data("LIVE_ON_TAPE".dataUTF8!), name: "productType"),
+                ], urlParameters: [:])
         }
     }
     var validate: Bool {
@@ -69,10 +69,8 @@ extension UserAPI: TargetType {
     var headers: [String: String]? {
         switch self {
         case .upload:
-            guard let user = loginState.user else {
-                return nil
-            }
-            return ["Autorization" : "Bearer \(user.token ?? "")"]
+            let token = SessionManager.shared.credentials?.accessToken ?? "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9FTkVPRGc1TmtFM01qVXhNVFl4TnpRNE9VWkNPVVk1UmpWQk1qTTBSRUpETWtKRk5qVkNRUSJ9.eyJpc3MiOiJodHRwczovL3ZpbW9qby5ldS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWI0ODcwMzgwM2EyZGMxZTkxZmM2OWM1IiwiYXVkIjpbImh0dHBzOi8vdmltb2pvLmF1dGgvYXBpIiwiaHR0cHM6Ly92aW1vam8uZXUuYXV0aDAuY29tL3VzZXJpbmZvIl0sImlhdCI6MTUzMTQ4NDc0MiwiZXhwIjoxNTMxNTIwNzQyLCJhenAiOiI5ejJDbzBOcFR3WE5zaGZTdmgwZGh5Q3V3VzBTNXg0RSIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwifQ.TZOaOVR25n1nI5kRC3vvTB7KEa-wh-biyt08WibYx4fzudrYkC3jr3vWwRPRqtiPnkW6AYjcf9q-VMzxwzOSofoZUgSCvnTgyoRIByZgU42rNT5BrX56ojjv0b8TmQe0CbvJrWkdk5Y5f8eHVHGcfv1zn6Q2N5ewKAai84Hl81Qr8Tbu4u541id_mF8BmtwjuO8dsJI62sec9I2Ca5zkgWVnnzy4mGubAdgKd5L7QxspoZFzG0LmBxkIT20aAcjufo2_nxjkY2Bw9Xt2wx5hK41l2LPXkpqr9dzGx4B_Qhkv6ukeHuvlcfhB2DN6CUU26zS_1qB35AnxKsoyTV30yg"
+            return ["Authorization" : "Bearer \(token)"]
         }
     }
 }

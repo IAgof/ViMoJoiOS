@@ -50,9 +50,6 @@ target 'Market4News' do
   shared_pods
 end
 
-target 'vimojoUITests' do
-	shared_pods
-end
 target 'vimojoTests' do
     shared_pods
     pod 'Quick'

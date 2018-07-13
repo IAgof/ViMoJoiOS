@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		270A6F11F31FD46F3C10FB01 /* Pods_vimojoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C2C16426B4AB1C473AEEBC8 /* Pods_vimojoUITests.framework */; };
 		610725E62080BD83005A65BD /* KindOfProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610725E42080BD83005A65BD /* KindOfProjectTableViewCell.swift */; };
 		61327F6420F38D1E0066B801 /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61327F6320F38D1E0066B801 /* LoginState.swift */; };
 		61327F6620F394D60066B801 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61327F6520F394D60066B801 /* SessionManager.swift */; };
@@ -16,6 +15,8 @@
 		61327F7820F399170066B801 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61327F7520F399160066B801 /* Realm.framework */; };
 		61327F7920F399170066B801 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 61327F7520F399160066B801 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6164763220EFB40500FDFA83 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6164763120EFB40500FDFA83 /* Auth0.plist */; };
+		618E0EB820F8AC1F0056CD49 /* ApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618E0EB620F8AC1E0056CD49 /* ApiTest.swift */; };
+		618E0EB920F8AC1F0056CD49 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 618E0EB720F8AC1E0056CD49 /* video.mp4 */; };
 		6196239E20E2A501006E14AB /* ConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6196237C20E2A501006E14AB /* ConfigurationProtocol.swift */; };
 		6196239F20E2A501006E14AB /* ConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6196237C20E2A501006E14AB /* ConfigurationProtocol.swift */; };
 		619623A020E2A501006E14AB /* ConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6196237C20E2A501006E14AB /* ConfigurationProtocol.swift */; };
@@ -368,8 +369,6 @@
 		A97DABEF1EED62F2002BDDA3 /* MusicSelectorCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97DABEE1EED62F2002BDDA3 /* MusicSelectorCellViewModel.swift */; };
 		A97DABF41EED6539002BDDA3 /* MuiscSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97DABF21EED6539002BDDA3 /* MuiscSelectorTableViewCell.swift */; };
 		A97DABF71EED6539002BDDA3 /* MuiscSelectorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97DABF31EED6539002BDDA3 /* MuiscSelectorTableViewCell.xib */; };
-		A97F0F1B1DC08E0400907196 /* SettingsProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F0F1A1DC08E0400907196 /* SettingsProviderTests.swift */; };
-		A980A5361E23DB8100D50034 /* RealmVideoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A980A5351E23DB8100D50034 /* RealmVideoTests.swift */; };
 		A9950CC41E1AA121009367E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9950CC31E1AA121009367E7 /* GoogleService-Info.plist */; };
 		A99C7CF71DC0F8FA00F2E03A /* ShareFTPInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99C7CF61DC0F8FA00F2E03A /* ShareFTPInteractor.swift */; };
 		A9A2073C1DED94BB004AAEE2 /* ProjectList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9A2073B1DED94BB004AAEE2 /* ProjectList.storyboard */; };
@@ -377,7 +376,6 @@
 		A9B385EA1D7D51380065D3EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B385E91D7D51380065D3EC /* AppDelegate.swift */; };
 		A9B385EF1D7D51380065D3EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B385ED1D7D51380065D3EC /* Main.storyboard */; };
 		A9B385F41D7D51380065D3EC /* VimojoLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B385F21D7D51380065D3EC /* VimojoLaunchScreen.storyboard */; };
-		A9B385FF1D7D51380065D3EC /* vimojoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B385FE1D7D51380065D3EC /* vimojoTests.swift */; };
 		A9B386561D7D54CF0065D3EC /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B386551D7D54CF0065D3EC /* AppDependencies.swift */; };
 		A9B898D51EF70F6D00C698C9 /* Audio4VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B898D41EF70F6D00C698C9 /* Audio4VideoViewController.swift */; };
 		A9B898D91EF70F9B00C698C9 /* Audio4VideoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B898D81EF70F9B00C698C9 /* Audio4VideoPresenter.swift */; };
@@ -561,9 +559,7 @@
 		A9FB3A4B1E53D6A900C21918 /* FilterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A4A1E53D6A900C21918 /* FilterProvider.swift */; };
 		A9FB3A4F1E53D97300C21918 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A4E1E53D97300C21918 /* FilterCollectionViewCell.swift */; };
 		A9FB3A531E53F15F00C21918 /* ProjectParametersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB3A521E53F15F00C21918 /* ProjectParametersViewModel.swift */; };
-		AE12E8F61FFEE9C800F2342E /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE12E8F51FFEE9C800F2342E /* SnapshotHelper.swift */; };
 		AE31942D1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */; };
-		AE4AAF9E1F704D8700504428 /* vimojoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4AAF9D1F704D8700504428 /* vimojoUITests.swift */; };
 		AEBB04FF20128DFC0094E65E /* RecordingCameraConfigurationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB04F920128DFC0094E65E /* RecordingCameraConfigurationPresenter.swift */; };
 		AEBB050420128DFC0094E65E /* RecordingCameraConfigurationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB04FA20128DFC0094E65E /* RecordingCameraConfigurationRouter.swift */; };
 		AEBB050920128DFC0094E65E /* RecordingCameraConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB04FB20128DFC0094E65E /* RecordingCameraConfigurationViewController.swift */; };
@@ -1932,19 +1928,12 @@
 		B2FD8F19205A7B0200D1CF28 /* PermissionsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F0B205A7B0200D1CF28 /* PermissionsProtocols.swift */; };
 		B2FD8F1E205A7B0200D1CF28 /* PermissionsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F0C205A7B0200D1CF28 /* PermissionsRouter.swift */; };
 		B2FD8F23205A7B0200D1CF28 /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD8F0D205A7B0200D1CF28 /* PermissionsViewController.swift */; };
+		BA27B74A206B00ED53313C77 /* Pods_vimojoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7632CB83B0D9EBF5233B0541 /* Pods_vimojoTests.framework */; };
 		D081F3B4EB57DF10B86CE27A /* Pods_vimojo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB586E6DDDB51926A3B11FCA /* Pods_vimojo.framework */; };
-		F378EAE0D8A2CF3C68F73CBF /* Pods_vimojoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7632CB83B0D9EBF5233B0541 /* Pods_vimojoTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A9B385FB1D7D51380065D3EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A9B385DE1D7D51380065D3EC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A9B385E51D7D51380065D3EC;
-			remoteInfo = vimojo;
-		};
-		AE4AAFA01F704D8700504428 /* PBXContainerItemProxy */ = {
+		618E0EB020F8AC070056CD49 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A9B385DE1D7D51380065D3EC /* Project object */;
 			proxyType = 1;
@@ -2049,6 +2038,10 @@
 		61327F7420F399140066B801 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		61327F7520F399160066B801 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		6164763120EFB40500FDFA83 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
+		618E0EAB20F8AC070056CD49 /* vimojoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vimojoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		618E0EAF20F8AC070056CD49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		618E0EB620F8AC1E0056CD49 /* ApiTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiTest.swift; path = ../../Downloads/Vim/vimojoTests/ApiTest.swift; sourceTree = "<group>"; };
+		618E0EB720F8AC1E0056CD49 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = video.mp4; path = ../../Downloads/Vim/vimojoTests/video.mp4; sourceTree = "<group>"; };
 		6196237C20E2A501006E14AB /* ConfigurationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationProtocol.swift; sourceTree = "<group>"; };
 		6196237E20E2A501006E14AB /* StringsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringsExtension.swift; sourceTree = "<group>"; };
 		6196237F20E2A501006E14AB /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -2243,8 +2236,6 @@
 		A97DABEE1EED62F2002BDDA3 /* MusicSelectorCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicSelectorCellViewModel.swift; sourceTree = "<group>"; };
 		A97DABF21EED6539002BDDA3 /* MuiscSelectorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MuiscSelectorTableViewCell.swift; path = "Music/Music Selector/MuiscSelectorTableViewCell.swift"; sourceTree = "<group>"; };
 		A97DABF31EED6539002BDDA3 /* MuiscSelectorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MuiscSelectorTableViewCell.xib; path = "Music/Music Selector/MuiscSelectorTableViewCell.xib"; sourceTree = "<group>"; };
-		A97F0F1A1DC08E0400907196 /* SettingsProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsProviderTests.swift; sourceTree = "<group>"; };
-		A980A5351E23DB8100D50034 /* RealmVideoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmVideoTests.swift; path = RepositoryTests/Video/RealmVideoTests.swift; sourceTree = "<group>"; };
 		A9950CC31E1AA121009367E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A99C7CF61DC0F8FA00F2E03A /* ShareFTPInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareFTPInteractor.swift; sourceTree = "<group>"; };
 		A9A2073B1DED94BB004AAEE2 /* ProjectList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProjectList.storyboard; sourceTree = "<group>"; };
@@ -2254,9 +2245,6 @@
 		A9B385EE1D7D51380065D3EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9B385F31D7D51380065D3EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/VimojoLaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9B385F51D7D51380065D3EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A9B385FA1D7D51380065D3EC /* vimojoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vimojoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9B385FE1D7D51380065D3EC /* vimojoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vimojoTests.swift; sourceTree = "<group>"; };
-		A9B386001D7D51380065D3EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9B386551D7D54CF0065D3EC /* AppDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		A9B54B9C1DFEAD5E00388002 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Drawer.storyboard; sourceTree = "<group>"; };
 		A9B54BB01DFEFD7600388002 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Drawer.strings; sourceTree = "<group>"; };
@@ -2450,7 +2438,6 @@
 		A9FB3A4E1E53D97300C21918 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterCollectionViewCell.swift; path = AddFilterToVideo/FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		A9FB3A521E53F15F00C21918 /* ProjectParametersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectParametersViewModel.swift; path = AddFilterToVideo/ProjectParametersViewModel.swift; sourceTree = "<group>"; };
 		AE12E8F41FFEB8AF00F2342E /* Pods_M4N.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_M4N.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE12E8F51FFEE9C800F2342E /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		AE31942C1F688A7B00B9BF98 /* ShareMoJoFyInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareMoJoFyInteractor.swift; path = Share/ShareMoJoFyInteractor.swift; sourceTree = "<group>"; };
 		AE36183320B44ACF0081E722 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/URLs.strings; sourceTree = "<group>"; };
 		AE36183420B44ACF0081E722 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/URLs.strings; sourceTree = "<group>"; };
@@ -2462,9 +2449,6 @@
 		AE491FD01F3B030F00B20B70 /* configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = configuration.swift; sourceTree = "<group>"; };
 		AE491FD11F3B030F00B20B70 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE491FD31F3B030F00B20B70 /* ThomsonFoundation.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ThomsonFoundation.xcassets; sourceTree = "<group>"; };
-		AE4AAF9B1F704D8600504428 /* vimojoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vimojoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE4AAF9D1F704D8700504428 /* vimojoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vimojoUITests.swift; sourceTree = "<group>"; };
-		AE4AAF9F1F704D8700504428 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE4E66C81FFDAE10002C45CD /* configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = configuration.swift; sourceTree = "<group>"; };
 		AE4E66C91FFDAE10002C45CD /* M4N.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = M4N.xcassets; sourceTree = "<group>"; };
 		AE4E66CA1FFDAE10002C45CD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -2521,6 +2505,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		618E0EA820F8AC070056CD49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA27B74A206B00ED53313C77 /* Pods_vimojoTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A9B385E31D7D51380065D3EC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -2533,22 +2525,6 @@
 				A90C679F1FE08F63005958DB /* StoreKit.framework in Frameworks */,
 				A9ED005B1D917B7200969F31 /* FBSDKLoginKit.framework in Frameworks */,
 				D081F3B4EB57DF10B86CE27A /* Pods_vimojo.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9B385F71D7D51380065D3EC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F378EAE0D8A2CF3C68F73CBF /* Pods_vimojoTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AE4AAF981F704D8600504428 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				270A6F11F31FD46F3C10FB01 /* Pods_vimojoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2636,6 +2612,16 @@
 				3F4E6214F32C18D5641FFB99 /* Pods_Market4News.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		618E0EAC20F8AC070056CD49 /* vimojoTests */ = {
+			isa = PBXGroup;
+			children = (
+				618E0EB720F8AC1E0056CD49 /* video.mp4 */,
+				618E0EB620F8AC1E0056CD49 /* ApiTest.swift */,
+				618E0EAF20F8AC070056CD49 /* Info.plist */,
+			);
+			path = vimojoTests;
 			sourceTree = "<group>";
 		};
 		6196237A20E2A501006E14AB /* Common */ = {
@@ -3463,14 +3449,6 @@
 			name = Audio;
 			sourceTree = "<group>";
 		};
-		A980A5341E23DB4B00D50034 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				A980A5351E23DB8100D50034 /* RealmVideoTests.swift */,
-			);
-			name = Repository;
-			sourceTree = "<group>";
-		};
 		A988DEEC1DACEF6E0030E285 /* Music List */ = {
 			isa = PBXGroup;
 			children = (
@@ -3660,8 +3638,7 @@
 				A919EAC7200D21B9004A7D27 /* VideonaProject.xcodeproj */,
 				A9D076D01E2F7F74003AE96B /* Targets */,
 				A9B385E81D7D51380065D3EC /* vimojo */,
-				A9B385FD1D7D51380065D3EC /* vimojoTests */,
-				AE4AAF9C1F704D8600504428 /* vimojoUITests */,
+				618E0EAC20F8AC070056CD49 /* vimojoTests */,
 				A9B385E71D7D51380065D3EC /* Products */,
 				5354C373A4B21404086FF983 /* Frameworks */,
 				BCC440BCA8009FA05E7A4053 /* Pods */,
@@ -3672,12 +3649,11 @@
 			isa = PBXGroup;
 			children = (
 				A9B385E61D7D51380065D3EC /* vimojo.app */,
-				A9B385FA1D7D51380065D3EC /* vimojoTests.xctest */,
-				AE4AAF9B1F704D8600504428 /* vimojoUITests.xctest */,
 				B274134420D7108400000934 /* ThomsonFoundation.app */,
 				B27414CB20D713C100000934 /* Market4News.app */,
 				B274165120D715E900000934 /* ElConfidencial.app */,
 				B227C94320D71C7900C02AD9 /* RTVE.app */,
+				618E0EAB20F8AC070056CD49 /* vimojoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3701,17 +3677,6 @@
 				A9950CC31E1AA121009367E7 /* GoogleService-Info.plist */,
 			);
 			path = vimojo;
-			sourceTree = "<group>";
-		};
-		A9B385FD1D7D51380065D3EC /* vimojoTests */ = {
-			isa = PBXGroup;
-			children = (
-				A9B385FE1D7D51380065D3EC /* vimojoTests.swift */,
-				A980A5341E23DB4B00D50034 /* Repository */,
-				A97F0F1A1DC08E0400907196 /* SettingsProviderTests.swift */,
-				A9B386001D7D51380065D3EC /* Info.plist */,
-			);
-			path = vimojoTests;
 			sourceTree = "<group>";
 		};
 		A9B386171D7D51940065D3EC /* StoryBoard */ = {
@@ -4191,16 +4156,6 @@
 			path = ThomsonFoundation;
 			sourceTree = "<group>";
 		};
-		AE4AAF9C1F704D8600504428 /* vimojoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				AE12E8F51FFEE9C800F2342E /* SnapshotHelper.swift */,
-				AE4AAF9D1F704D8700504428 /* vimojoUITests.swift */,
-				AE4AAF9F1F704D8700504428 /* Info.plist */,
-			);
-			path = vimojoUITests;
-			sourceTree = "<group>";
-		};
 		AE4E66C71FFDADF5002C45CD /* M4N */ = {
 			isa = PBXGroup;
 			children = (
@@ -4267,6 +4222,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		618E0EAA20F8AC070056CD49 /* vimojoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 618E0EB220F8AC070056CD49 /* Build configuration list for PBXNativeTarget "vimojoTests" */;
+			buildPhases = (
+				206644D76A47591A0E19F018 /* [CP] Check Pods Manifest.lock */,
+				618E0EA720F8AC070056CD49 /* Sources */,
+				618E0EA820F8AC070056CD49 /* Frameworks */,
+				618E0EA920F8AC070056CD49 /* Resources */,
+				11D6C330CF064A7ABACDFA74 /* [CP] Embed Pods Frameworks */,
+				D4E50D05339CDF1F36862CC9 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				618E0EB120F8AC070056CD49 /* PBXTargetDependency */,
+			);
+			name = vimojoTests;
+			productName = vimojoTests;
+			productReference = 618E0EAB20F8AC070056CD49 /* vimojoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		A9B385E51D7D51380065D3EC /* vimojo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9B386031D7D51380065D3EC /* Build configuration list for PBXNativeTarget "vimojo" */;
@@ -4287,48 +4263,6 @@
 			productName = vimojo;
 			productReference = A9B385E61D7D51380065D3EC /* vimojo.app */;
 			productType = "com.apple.product-type.application";
-		};
-		A9B385F91D7D51380065D3EC /* vimojoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A9B386061D7D51380065D3EC /* Build configuration list for PBXNativeTarget "vimojoTests" */;
-			buildPhases = (
-				C72240EE115A6916A6762297 /* [CP] Check Pods Manifest.lock */,
-				A9B385F61D7D51380065D3EC /* Sources */,
-				A9B385F71D7D51380065D3EC /* Frameworks */,
-				A9B385F81D7D51380065D3EC /* Resources */,
-				7BC683151C8DA81E1A984320 /* [CP] Embed Pods Frameworks */,
-				B62AC8C5393B1821BEA89302 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A9B385FC1D7D51380065D3EC /* PBXTargetDependency */,
-			);
-			name = vimojoTests;
-			productName = vimojoTests;
-			productReference = A9B385FA1D7D51380065D3EC /* vimojoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		AE4AAF9A1F704D8600504428 /* vimojoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AE4AAFA21F704D8700504428 /* Build configuration list for PBXNativeTarget "vimojoUITests" */;
-			buildPhases = (
-				CDE9A8DCBF3B00FA4C105B27 /* [CP] Check Pods Manifest.lock */,
-				AE4AAF971F704D8600504428 /* Sources */,
-				AE4AAF981F704D8600504428 /* Frameworks */,
-				AE4AAF991F704D8600504428 /* Resources */,
-				6760216FD77FA70ADC8C81EC /* [CP] Embed Pods Frameworks */,
-				711FB294009C08156D34BBF6 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AE4AAFA11F704D8700504428 /* PBXTargetDependency */,
-			);
-			name = vimojoUITests;
-			productName = vimojoUITests;
-			productReference = AE4AAF9B1F704D8600504428 /* vimojoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		B227C7C620D71C7900C02AD9 /* RTVE */ = {
 			isa = PBXNativeTarget;
@@ -4424,10 +4358,15 @@
 		A9B385DE1D7D51380065D3EC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Videona;
 				TargetAttributes = {
+					618E0EAA20F8AC070056CD49 = {
+						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Manual;
+						TestTargetID = A9B385E51D7D51380065D3EC;
+					};
 					A9B385E51D7D51380065D3EC = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 98YJ9HU6W9;
@@ -4438,19 +4377,6 @@
 								enabled = 1;
 							};
 						};
-					};
-					A9B385F91D7D51380065D3EC = {
-						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0930;
-						ProvisioningStyle = Automatic;
-						TestTargetID = A9B385E51D7D51380065D3EC;
-					};
-					AE4AAF9A1F704D8600504428 = {
-						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 98YJ9HU6W9;
-						LastSwiftMigration = 0930;
-						ProvisioningStyle = Manual;
-						TestTargetID = A9B385E51D7D51380065D3EC;
 					};
 					B227C7C620D71C7900C02AD9 = {
 						DevelopmentTeam = 98YJ9HU6W9;
@@ -4491,8 +4417,7 @@
 				B274134E20D713C100000934 /* Market4News */,
 				B27414D420D715E900000934 /* ElConfidencial */,
 				B227C7C620D71C7900C02AD9 /* RTVE */,
-				AE4AAF9A1F704D8600504428 /* vimojoUITests */,
-				A9B385F91D7D51380065D3EC /* vimojoTests */,
+				618E0EAA20F8AC070056CD49 /* vimojoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -4515,6 +4440,14 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		618E0EA920F8AC070056CD49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				618E0EB920F8AC1F0056CD49 /* video.mp4 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A9B385E41D7D51380065D3EC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -4567,20 +4500,6 @@
 				A97772B71DC244E700EA9291 /* Share.strings in Resources */,
 				A93BCE761D7D92C300421BD0 /* filter_free.png in Resources */,
 				B27E3EBE20861062002BCEA0 /* ProjectDetails.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9B385F81D7D51380065D3EC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AE4AAF991F704D8600504428 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4883,125 +4802,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElConfidencial/Pods-ElConfidencial-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		45244F6698CB1B865CE5B75A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-resources.sh",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		51345D41190A683202791AAC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ElConfidencial/Pods-ElConfidencial-resources.sh",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElConfidencial/Pods-ElConfidencial-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6760216FD77FA70ADC8C81EC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-vimojoUITests/Pods-vimojoUITests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Auth0/Auth0.framework",
-				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/KCFloatingActionButton/KCFloatingActionButton.framework",
-				"${BUILT_PRODUCTS_DIR}/MBCircularProgressBar/MBCircularProgressBar.framework",
-				"${BUILT_PRODUCTS_DIR}/Mixpanel/Mixpanel.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya-ObjectMapper/Moya_ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/NMRangeSlider/NMRangeSlider.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/Permission/Permission.framework",
-				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/ReachabilitySwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SimpleKeychain/SimpleKeychain.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/TTRangeSlider/TTRangeSlider.framework",
-				"${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework",
-				"${BUILT_PRODUCTS_DIR}/Whisper/Whisper.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Auth0.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KCFloatingActionButton.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBCircularProgressBar.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mixpanel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NMRangeSlider.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Permission.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReachabilitySwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimpleKeychain.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTRangeSlider.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TransitionButton.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Whisper.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vimojoUITests/Pods-vimojoUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		711FB294009C08156D34BBF6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-vimojoUITests/Pods-vimojoUITests-resources.sh",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vimojoUITests/Pods-vimojoUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7BC683151C8DA81E1A984320 /* [CP] Embed Pods Frameworks */ = {
+		11D6C330CF064A7ABACDFA74 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -5067,6 +4868,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vimojoTests/Pods-vimojoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		206644D76A47591A0E19F018 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-vimojoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		45244F6698CB1B865CE5B75A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vimojo/Pods-vimojo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		51345D41190A683202791AAC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ElConfidencial/Pods-ElConfidencial-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElConfidencial/Pods-ElConfidencial-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9A074B3DE6BD852F425D6A56 /* [CP] Embed Pods Frameworks */ = {
@@ -5485,7 +5340,7 @@
 			shellPath = /bin/sh;
 			shellScript = "${PODS_ROOT}/Fabric/run eba78720f87307ca48dfa4200dd90914ff6653f2 1636d8a8a8c633c8ba87f5a67ca26a5cc354c414b108ef565df202f07f393ae9";
 		};
-		B62AC8C5393B1821BEA89302 /* [CP] Copy Pods Resources */ = {
+		D4E50D05339CDF1F36862CC9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -5501,42 +5356,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vimojoTests/Pods-vimojoTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C72240EE115A6916A6762297 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-vimojoTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CDE9A8DCBF3B00FA4C105B27 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-vimojoUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D77629D932454CC685CC534B /* [CP] Check Pods Manifest.lock */ = {
@@ -5560,6 +5379,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		618E0EA720F8AC070056CD49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				618E0EB820F8AC1F0056CD49 /* ApiTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A9B385E21D7D51380065D3EC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -5895,25 +5722,6 @@
 				A9CAB9041EC364FB00AB6CE8 /* DrawerConstants.swift in Sources */,
 				A9CAB9C81EC367BC00AB6CE8 /* MusicListStrings.swift in Sources */,
 				619624D520E2A600006E14AB /* AIndicatorAlertController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9B385F61D7D51380065D3EC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A9B385FF1D7D51380065D3EC /* vimojoTests.swift in Sources */,
-				A97F0F1B1DC08E0400907196 /* SettingsProviderTests.swift in Sources */,
-				A980A5361E23DB8100D50034 /* RealmVideoTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AE4AAF971F704D8600504428 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AE4AAF9E1F704D8700504428 /* vimojoUITests.swift in Sources */,
-				AE12E8F61FFEE9C800F2342E /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7264,15 +7072,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A9B385FC1D7D51380065D3EC /* PBXTargetDependency */ = {
+		618E0EB120F8AC070056CD49 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A9B385E51D7D51380065D3EC /* vimojo */;
-			targetProxy = A9B385FB1D7D51380065D3EC /* PBXContainerItemProxy */;
-		};
-		AE4AAFA11F704D8700504428 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A9B385E51D7D51380065D3EC /* vimojo */;
-			targetProxy = AE4AAFA01F704D8700504428 /* PBXContainerItemProxy */;
+			targetProxy = 618E0EB020F8AC070056CD49 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -7757,36 +7560,81 @@
 			};
 			name = adhoc;
 		};
-		612EAAC220EE2CCA006C1AA4 /* adhoc */ = {
+		618E0EB320F8AC070056CD49 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 72702AD20D731DCA6B385B23 /* Pods-vimojoUITests.adhoc.xcconfig */;
+			baseConfigurationReference = 60A27DFA6BEEB168AD9751A8 /* Pods-vimojoTests.debug.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = vimojoUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = vimojoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojoUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = vimojo;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vimojo.app/vimojo";
 			};
-			name = adhoc;
+			name = Debug;
 		};
-		612EAAC320EE2CCA006C1AA4 /* adhoc */ = {
+		618E0EB420F8AC070056CD49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55F63F1EF8D6DCEFFC61355C /* Pods-vimojoTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = vimojoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vimojo.app/vimojo";
+			};
+			name = Release;
+		};
+		618E0EB520F8AC070056CD49 /* adhoc */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D8B1F74CECBF7D7DAC459385 /* Pods-vimojoTests.adhoc.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = vimojoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vimojo.app/vimojo";
 			};
 			name = adhoc;
@@ -7989,76 +7837,6 @@
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
-			};
-			name = Release;
-		};
-		A9B386071D7D51380065D3EC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60A27DFA6BEEB168AD9751A8 /* Pods-vimojoTests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = vimojoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vimojo.app/vimojo";
-			};
-			name = Debug;
-		};
-		A9B386081D7D51380065D3EC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 55F63F1EF8D6DCEFFC61355C /* Pods-vimojoTests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = vimojoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vimojo.app/vimojo";
-			};
-			name = Release;
-		};
-		AE4AAFA31F704D8700504428 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98398B354FE92A87A0B69BE4 /* Pods-vimojoUITests.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 98YJ9HU6W9;
-				INFOPLIST_FILE = vimojoUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bf8a56d6-7db6-4b68-9908-5694a59ec33b";
-				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Test Vimojo";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = vimojo;
-			};
-			name = Debug;
-		};
-		AE4AAFA41F704D8700504428 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 10B8474FFDAB9A11F14FCD32 /* Pods-vimojoUITests.release.xcconfig */;
-			buildSettings = {
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = vimojoUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.videona.vimojoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = vimojo;
 			};
 			name = Release;
 		};
@@ -8421,6 +8199,16 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		618E0EB220F8AC070056CD49 /* Build configuration list for PBXNativeTarget "vimojoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				618E0EB320F8AC070056CD49 /* Debug */,
+				618E0EB420F8AC070056CD49 /* Release */,
+				618E0EB520F8AC070056CD49 /* adhoc */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A9B385E11D7D51380065D3EC /* Build configuration list for PBXProject "vimojo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -8437,26 +8225,6 @@
 				A9B386041D7D51380065D3EC /* Debug */,
 				A9B386051D7D51380065D3EC /* Release */,
 				612EAABD20EE2CCA006C1AA4 /* adhoc */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A9B386061D7D51380065D3EC /* Build configuration list for PBXNativeTarget "vimojoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A9B386071D7D51380065D3EC /* Debug */,
-				A9B386081D7D51380065D3EC /* Release */,
-				612EAAC320EE2CCA006C1AA4 /* adhoc */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		AE4AAFA21F704D8700504428 /* Build configuration list for PBXNativeTarget "vimojoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AE4AAFA31F704D8700504428 /* Debug */,
-				AE4AAFA41F704D8700504428 /* Release */,
-				612EAAC220EE2CCA006C1AA4 /* adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
