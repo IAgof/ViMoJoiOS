@@ -167,17 +167,15 @@ UITableViewDelegate, UITableViewDataSource, FullScreenWireframeDelegate {
     }
 }
 
-extension ShareViewController:SharePresenterDelegate {
-
-    //Presenter delegate
-
+//Presenter delegate
+extension ShareViewController: SharePresenterDelegate {
 	func createAlertWaitToExport(cancelAction: @escaping () -> Void) {
         let title = Utils().getStringByKeyFromSettings(RecordConstants().WAIT_TITLE)
         let message = Utils().getStringByKeyFromSettings(RecordConstants().WAIT_DESCRIPTION)
         let currentTimeExportedMessage = Utils().getStringByKeyFromSettings(RecordConstants().WAIT_EXPORTING)
         self.eventHandler?.getSessionExportProgress({
             progress in
-            self.alertController?.message = currentTimeExportedMessage + " \(progress)%"
+            self.alertController?.message = currentTimeExportedMessage.appending(" \(progress)%")
         })
         
         alertController = UIAlertController(title: title,

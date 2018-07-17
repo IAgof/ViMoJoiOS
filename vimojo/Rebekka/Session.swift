@@ -49,7 +49,7 @@ open class Session {
         }
         operation.path = path
         if !path.hasSuffix("/") {
-            operation.path = operation.path! + "/"
+            operation.path = operation.path!.appending("/")
         }
         self.operationQueue.addOperation(operation)
     }
@@ -67,7 +67,7 @@ open class Session {
         }
         operation.path = path
         if !path.hasSuffix("/") {
-            operation.path = operation.path! + "/"
+            operation.path = operation.path!.appending("/")
         }
         self.operationQueue.addOperation(operation)
     }

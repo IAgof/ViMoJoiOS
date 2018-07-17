@@ -14,6 +14,7 @@ import Fabric
 import Crashlytics
 import VideonaProject
 import RealmSwift
+import Auth0
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -26,13 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         AudioSettings.loadValues()
         VideoSettings.loadValues()
-        
+        LoginState.loadState()
         RealmMigrationsUseCase.updateMigrationDefault()
-
         appDependencies = AppDependencies()
-
         CustomDPTheme().configureTheme()
-
         //MIXPANEL
         mixpanel = Mixpanel.sharedInstance(withToken: AnalyticsConstants().MIXPANEL_TOKEN)
         mixpanel?.enableLogging = false
@@ -65,9 +63,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func application(_ application: UIApplication,
                      open url: URL,
                              options: [UIApplicationOpenURLOptionsKey: Any]) -> Bool {
-        return GIDSignIn.sharedInstance().handle(url,
-                                                    sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                                                    annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+
+        return Auth0.resumeAuth(url, options: options)
+//        return GIDSignIn.sharedInstance().handle(url,
+//                                                    sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+//                                                    annotation: options[UIApplicationOpenURLOptionsKey.annotation])
     }
 
     func application(_ application: UIApplication,
@@ -129,9 +129,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             ViMoJoTracker.sharedInstance.trackAppStartupProperties(false)
         }
         
-        let controller = PermissionsRouter.createModule(recordWireFrame: appDependencies.recordWireframe, drawerWireframe: appDependencies.recordDrawerWireframe, window: window!)
+        let controller = PermissionsRouter.createModule(recordWireFrame: appDependencies.recordWireframe,
+                                                        drawerWireframe: appDependencies.recordDrawerWireframe,
+                                                        window: window!)
         window!.rootViewController = UINavigationController(rootViewController: controller)
 
         ViMoJoTracker.sharedInstance.sendStartupAppTracking(initState: initState)
     }
+    
 }

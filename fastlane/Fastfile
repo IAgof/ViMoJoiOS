@@ -5,8 +5,73 @@ fastlane_version "2.31.0"
 default_platform :ios
 
 platform :ios do
+  before_all do |lane, options|
+    cocoapods
+    ENV["SLACK_URL"] =  "https://hooks.slack.com/services/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"
+  end
   lane :certificates do
-      match(type: 'development',app_identifier: ["com.videona.vimojo", "com.vimojo.thomsonfoundation", "com.vimojo.m4n", "com.vimojo.elconfidencial", "com.vimojo.RTVE"], readonly: false)
-      match(type: 'adhoc', app_identifier: ["com.videona.vimojo", "com.vimojo.thomsonfoundation", "com.vimojo.m4n", "com.vimojo.elconfidencial", "com.vimojo.RTVE"], readonly: false)
+      match(type: 'development',app_identifier: ["com.videona.vimojo", "com.vimojo.thomsonfoundation", "com.vimojo.m4n", "com.vimojo.elconfidencial", "com.vimojo.RTVE"], readonly: true)
+      match(type: 'adhoc', app_identifier: ["com.videona.vimojo", "com.vimojo.thomsonfoundation", "com.vimojo.m4n", "com.vimojo.elconfidencial", "com.vimojo.RTVE"], readonly: true)
+      match(type: 'appstore', app_identifier: ["com.videona.vimojo"], readonly: true)
+  end
+  # Fastfile actions accept additional configuration, but
+  # don't worry, fastlane will prompt you for required
+  # info which you can add here later
+  lane :beta do
+    match(type: 'adhoc', app_identifier: ["com.videona.vimojo"], readonly: true)
+    increment_build_number(build_number: number_of_commits,
+                            xcodeproj: "vimojo.xcodeproj")
+    build_app(
+      scheme: "vimojo",
+      export_method: "ad-hoc"
+    )
+    changelog = changelog_from_git_commits(
+      commits_count: 10,
+      pretty: "- (%ae) %s",# Optional, lets you provide a custom format to apply to each commit when generating the changelog text
+      date_format: "short",# Optional, lets you provide an additional date format to dates within the pretty-formatted string
+      merge_commit_filtering: "exclude_merges" # Optional, lets you filter out merge commits
+
+    )
+    # upload to Beta by Crashlytics
+    crashlytics(
+      # keys for organization: DEPRECATED-VideonaIOS
+      api_token: "1f6610673faf2f5fcde5824176e94c8f4570aa2c",
+      build_secret: "c529f00d2df71a2bc5215e4a75166cec6733c4781ea9e8df57d0c752e909701d",
+      groups: ["videona-team"],
+      notes: changelog
+    )
+    slack(message: "Successfully uploaded a new Beta build")
+  end
+  lane :testFlight do
+    match(type: 'appstore', app_identifier: ["com.videona.vimojo"], readonly: true)
+    increment_build_number(build_number: app_store_build_number + 1,
+                            xcodeproj: "vimojo.xcodeproj")
+    build_app(scheme: "vimojo",
+          export_method: "app-store")
+    upload_to_testflight(skip_submission: true,
+                        skip_waiting_for_build_processing: true)
+    slack(message: "Successfully uploaded to testFlight")
+  end
+
+  lane :release do
+    match(type: 'appstore', app_identifier: ["com.videona.vimojo"], readonly: true)
+    increment_build_number(build_number: app_store_build_number + 1,
+                            xcodeproj: "vimojo.xcodeproj")
+    build_app(scheme: "vimojo",
+          export_method: "app-store")
+    upload_to_app_store(submit_for_review: true,
+                        force: true)
+    slack(message: "Successfully uploaded a new App Store build")
+  end
+  desc "Register new devices"
+  lane :register do
+    device_name = prompt(text: "Enter the device name: ")
+    device_udid = prompt(text: "Enter the device UDID: ")
+    device_hash = {}
+    device_hash[device_name] = device_udid
+    register_devices(devices: device_hash)
+    match(type: 'development', force_for_new_devices: true, app_identifier: ["com.videona.vimojo", "com.vimojo.thomsonfoundation", "com.vimojo.m4n", "com.vimojo.elconfidencial", "com.vimojo.RTVE"], readonly: false)
+    match(type: 'adhoc', force_for_new_devices: true, app_identifier: ["com.videona.vimojo", "com.vimojo.thomsonfoundation", "com.vimojo.m4n", "com.vimojo.elconfidencial", "com.vimojo.RTVE"], readonly: false)
+    match(type: 'appstore', force_for_new_devices: true, app_identifier: ["com.videona.vimojo"], readonly: false)
   end
 end

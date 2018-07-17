@@ -12,6 +12,7 @@ protocol SettingsPresenterInterface {
 
     func pushBack()
     func viewDidLoad()
+    func getItems()
     func itemListSelected(_ index: IndexPath)
 }
 

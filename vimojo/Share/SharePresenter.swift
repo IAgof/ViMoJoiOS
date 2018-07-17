@@ -100,13 +100,38 @@ class SharePresenter: NSObject, SharePresenterInterface {
         wireframe?.presentExpandPlayer()
         isGoingToExpandPlayer = true
     }
-
     func pushShare(_ indexPath: IndexPath) {
+        guard let interactor = self.interactor else { return }
+        
+        guard interactor.isLoggedIn else {
+            self.delegate?.showDefaultAlert(title: "",
+                                            message: "To upload videos, first you need to register or login".localized(.share),
+                                            okAction: { self.login(indexPath) } , cancelAction: nil)
+            return
+        }
+        guard interactor.isWifiConnected else {
+            self.delegate?.showDefaultAlert(title: "Connection",
+                                            message: "You are not connected via wifi, do you wanna upload?".localized(.share),
+                                            okAction: { self.shareVideo(indexPath) } , cancelAction: nil)
+            return
+        }
+        self.shareVideo(indexPath)
+    }
+    func login(_ indexPath: IndexPath) {
+        SessionManager.shared.login {
+            switch $0 {
+            case .failure(error: let error):
+                self.delegate?.showWhisper(with: error.localizedDescription, color: .red)
+            case .success:
+                self.shareVideo(indexPath)
+            }
+        }
+    }
+    private func shareVideo(_ indexPath: IndexPath) {
         if let path = videoURL?.absoluteString {
             interactor?.shareVideo(indexPath, videoPath: path)
         }
     }
-
     func postToYoutube(_ token: String) {
         interactor!.postToYoutube(token)
     }

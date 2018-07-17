@@ -28,7 +28,7 @@ protocol SharePresenterInterface {
     func getSessionExportProgress(_ progress: @escaping (Int) -> Void)
 }
 
-protocol SharePresenterDelegate {
+protocol SharePresenterDelegate: BaseViewProtocol {
     func createAlertWaitToExport(cancelAction: @escaping () -> Void)
     func dissmissAlertWaitToExport(completion: @escaping () -> Void) 
     func createAlertExportFailed(error: Error)

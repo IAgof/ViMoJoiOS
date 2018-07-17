@@ -80,7 +80,7 @@ public class ProjectRealmRepository: ProjectRepository {
         do {
             let realm = try Realm()
             try realm.write {
-                if let result = realm.objects(RealmProject.self).sorted(byProperty: "modificationDate", ascending: false).first {
+                if let result = realm.objects(RealmProject.self).sorted(byKeyPath: "modificationDate", ascending: false).first {
                     project = self.toProjectMapper.map(from: result)
                 } else {
                     realm.add(self.toRealmProjectMapper.map(from: project))
@@ -173,7 +173,7 @@ public class ProjectRealmRepository: ProjectRepository {
         do {
             let realm = try Realm()
             try realm.write {
-                let results = realm.objects(RealmProject.self).sorted(byProperty: "modificationDate", ascending: false)
+                let results = realm.objects(RealmProject.self).sorted(byKeyPath: "modificationDate", ascending: false)
                 projects = results.map({ self.toProjectMapper.map(from: $0) })
             }
         } catch {

@@ -32,9 +32,9 @@ extension String{
         }
     }
     func addColons() -> String {
-        return self + ":"
+        return "\(self):"
     }
     func addSpace() -> String {
-        return self + " "
+        return "\(self) "
     }
 }

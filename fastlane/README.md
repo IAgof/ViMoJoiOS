@@ -21,6 +21,26 @@ or alternatively using `brew cask install fastlane`
 fastlane ios certificates
 ```
 
+### ios beta
+```
+fastlane ios beta
+```
+
+### ios testFlight
+```
+fastlane ios testFlight
+```
+
+### ios release
+```
+fastlane ios release
+```
+
+### ios register
+```
+fastlane ios register
+```
+Register new devices
 
 ----
 

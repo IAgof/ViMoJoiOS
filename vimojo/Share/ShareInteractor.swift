@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import VideonaProject
+import ReachabilitySwift
 
 class ShareInteractor: NSObject, ShareInteractorInterface {   
 
@@ -17,13 +18,17 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
     var project: Project?
     var socialNetworks: [SocialNetwork] = []
 	var exporter: ExporterInteractor?
-    
     var timer: Timer?
-
+    
+    var isLoggedIn: Bool {
+        return SessionManager.shared.credentials != nil
+    }
+    var isWifiConnected: Bool {
+        return (Reachability()?.currentReachabilityStatus == .reachableViaWiFi)
+    }
     func setShareMoviePath(_ moviePath: String) {
         self.moviePath = moviePath
     }
-
     func getProject() -> Project {
         return project!
     }

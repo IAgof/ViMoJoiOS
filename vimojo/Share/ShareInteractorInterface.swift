@@ -20,6 +20,8 @@ protocol ShareInteractorInterface {
     func getShareExportURL() -> URL?
 	func cancelExport()
     func getExportedElapsedSessionTime(_ progressUpdate: @escaping (Int) -> Void)
+    var isLoggedIn: Bool { get }
+    var isWifiConnected: Bool { get }
 }
 
 protocol ShareInteractorDelegate {
