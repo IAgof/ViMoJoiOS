@@ -16,13 +16,14 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
 
     enum cellType: Int {
         case projects = 0
-        case newProject = 1
-		case removeWatermark = 2
-        case options = 3
-        case shop = 4
-        case mojokit = 5
-        case recordTutorial = 6
-        case editionTutorial = 7
+        case newProject
+		case removeWatermark
+        case userProfile
+        case options
+        case shop
+        case mojokit
+        case recordTutorial
+        case editionTutorial
     }
     let optionsSection = 1
 
@@ -40,6 +41,9 @@ class DrawerMenuPresenter: DrawerMenuPresenterInterface {
 				case .removeWatermark:
 					self.switchWatermark()
 					break;
+                case .userProfile:
+                    wireframe?.presentUserProfile()
+                    break
                 case .options:
                     wireframe?.presentSettings()
                     break

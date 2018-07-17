@@ -14,6 +14,7 @@ import Fabric
 import Crashlytics
 import VideonaProject
 import RealmSwift
+import Auth0
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -26,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         AudioSettings.loadValues()
         VideoSettings.loadValues()
+        LoginState.loadState()
         RealmMigrationsUseCase.updateMigrationDefault()
         appDependencies = AppDependencies()
         CustomDPTheme().configureTheme()
@@ -61,9 +63,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func application(_ application: UIApplication,
                      open url: URL,
                              options: [UIApplicationOpenURLOptionsKey: Any]) -> Bool {
-        return GIDSignIn.sharedInstance().handle(url,
-                                                    sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                                                    annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+
+        return Auth0.resumeAuth(url, options: options)
+//        return GIDSignIn.sharedInstance().handle(url,
+//                                                    sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+//                                                    annotation: options[UIApplicationOpenURLOptionsKey.annotation])
     }
 
     func application(_ application: UIApplication,
@@ -132,4 +136,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
         ViMoJoTracker.sharedInstance.sendStartupAppTracking(initState: initState)
     }
+    
 }

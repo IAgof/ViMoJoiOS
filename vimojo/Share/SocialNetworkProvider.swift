@@ -24,9 +24,9 @@ class SocialNetworkProvider: NSObject {
 
             socialNetworks.append(SocialNetwork(iconId: "activity_edit_share_ftp_pressed",
                                                 iconIdPressed: "activity_edit_share_ftp_pressed",
-                                                title: "Breaking News",
-                                                action: ShareFTPBreakingNewsInteractor(delegate: delegate,
-                                                                                       shareProject:project)))
+                                                title: "Upload to platform".localized(.share),
+                                                action: SharePlatformInteractor(delegate: delegate,
+                                                                                shareProject:project)))
         }
 
         //        socialNetworks.append( SocialNetwork(iconId: "activity_edit_share_facebook_normal",

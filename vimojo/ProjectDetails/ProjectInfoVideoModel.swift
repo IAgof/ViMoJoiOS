@@ -31,14 +31,7 @@ struct ProjectInfoVideoModel {
     }
     private var projectsSelectedTexts: (Project) -> NSAttributedString {
         return { project in
-            var arrayString: [String] = []
-            if project.projectInfo.liveOnTape { arrayString.append("product_type_live_on_tape".localized(.projectDetails)) }
-            if project.projectInfo.bRoll { arrayString.append("product_type_b_roll".localized(.projectDetails)) }
-            if project.projectInfo.natVO { arrayString.append("product_type_nat_vo".localized(.projectDetails)) }
-            if project.projectInfo.interview { arrayString.append("product_type_interview".localized(.projectDetails)) }
-            if project.projectInfo.graphics { arrayString.append("product_type_graphics".localized(.projectDetails)) }
-            if project.projectInfo.piece { arrayString.append("product_type_piece".localized(.projectDetails)) }
-            
+            var arrayString: [String] = project.projectInfo.productTypes.map { $0.localizedValue }
             let attrString: NSMutableAttributedString = NSMutableAttributedString(string: "project_type_label".localized(.projectDetails))
             attrString.addAttribute(NSForegroundColorAttributeName, value: UIColor.black, range: NSMakeRange(0, attrString.length))
             let descString: NSMutableAttributedString = NSMutableAttributedString(string:  arrayString.reduce("", { "\($0) \($1)" }))

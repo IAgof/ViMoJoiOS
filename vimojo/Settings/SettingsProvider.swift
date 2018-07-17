@@ -24,19 +24,18 @@ class SettingsProvider: NSObject {
         settings.removeAll()
 
         // MARK: - MY_ACCOUNT_SECTION
-        let nameSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().NAME),
-                                          subTitle: user.name,
-                                          action: SettingsNameAction(delegate: delegate))
+        var userLoginAction = SettingsContent(title:
+            Utils().getStringByKeyFromSettings("Registro / inicio session"),
+                                          subTitle: "",
+                                          action: SettingsLoginAction(delegate: delegate))
+        if SessionManager.shared.credentials != nil {
+            userLoginAction = SettingsContent(title:
+                Utils().getStringByKeyFromSettings("Logout"),
+                                          subTitle: "",
+                                          action: SettingsLogoutAction(delegate: delegate))
+        }
 
-        let userNameSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().USER_NAME),
-                                              subTitle: user.userName,
-                                              action: SettingsUsernameAction(delegate: delegate))
-
-        let emailSetting = SettingsContent(title: Utils().getStringByKeyFromSettings(SettingsConstants().EMAIL_PREFERENCE),
-                                           subTitle: user.email,
-                                           action: SettingsEmailAction(delegate: delegate))
-
-        let accountSettings = [nameSetting, userNameSetting, emailSetting]
+        let accountSettings = [userLoginAction]
         settings.append(accountSettings)
 
         // MARK: - CAMERA SECTION

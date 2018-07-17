@@ -79,11 +79,17 @@ class SettingsInteractor: NSObject, SettingsInteractorInterface {
 
 extension SettingsInteractor:SettingsActionDelegate {
     func executeFinished() {
-        self.findSettings()
+        // TODO: Move this from here
+        DispatchQueue.main.async {
+          self.findSettings()
+        }
     }
 
     func executeFinished(response: SettingsActionResponse) {
-        self.findSettings()
+        // TODO: Move this from here
+        DispatchQueue.main.async {
+            self.findSettings()
+        }
     }
 }
 

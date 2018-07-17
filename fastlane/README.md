@@ -36,6 +36,11 @@ fastlane ios testFlight
 fastlane ios release
 ```
 
+### ios register
+```
+fastlane ios register
+```
+Register new devices
 
 ----
 

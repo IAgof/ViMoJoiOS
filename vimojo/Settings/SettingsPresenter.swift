@@ -27,11 +27,11 @@ class SettingsPresenter: NSObject, SettingsPresenterInterface {
     func viewDidLoad() {
         delegate?.registerClass()
         delegate?.removeSeparatorTable()
-
-        interactor?.findSettings()
         delegate?.addFooter()
     }
-
+    func getItems() {
+        interactor?.findSettings()
+    }
     func itemListSelected(_ index: IndexPath) {
         interactor?.executeSettingAtIndexPath(index)
     }

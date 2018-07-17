@@ -13,19 +13,18 @@ class RealmMigrationsUseCase {
 
     static func updateMigrationDefault() {
         
-        let newVersion = UInt64(9)
-        let oldVersion = UInt64(8)
-
-        let config = Realm.Configuration(
+        let newVersion = UInt64(11)
+        Realm.Configuration.init()
+        var config = Realm.Configuration(
             schemaVersion: newVersion,
-            migrationBlock: { _, oldSchemaVersion in
-                if (oldSchemaVersion < oldVersion) {
-                    print("-------------------------------------------")
-                    print("----------UPDATED SCHEME REALM-------------")
-                    print("-------------------------------------------")
+            migrationBlock: { migration, oldSchemaVersion in
+                if (oldSchemaVersion < 11) {
+                    
                 }
         })
+        
         Realm.Configuration.defaultConfiguration = config
-        let _ = try! Realm()
+        config = Realm.Configuration()
+        config.deleteRealmIfMigrationNeeded = true
     }
 }

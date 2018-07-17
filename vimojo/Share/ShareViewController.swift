@@ -167,10 +167,8 @@ UITableViewDelegate, UITableViewDataSource, FullScreenWireframeDelegate {
     }
 }
 
-extension ShareViewController:SharePresenterDelegate {
-
-    //Presenter delegate
-
+//Presenter delegate
+extension ShareViewController: SharePresenterDelegate {
 	func createAlertWaitToExport(cancelAction: @escaping () -> Void) {
         let title = Utils().getStringByKeyFromSettings(RecordConstants().WAIT_TITLE)
         let message = Utils().getStringByKeyFromSettings(RecordConstants().WAIT_DESCRIPTION)

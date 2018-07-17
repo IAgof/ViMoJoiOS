@@ -21,6 +21,13 @@ def shared_pods
     pod 'Permission/Camera'
     pod 'Permission/Microphone'
     pod 'Permission/Photos'
+
+    pod 'RxCocoa',    '~> 3.0'
+    pod 'Moya-ObjectMapper/RxSwift', '2.4.2'
+    pod 'TransitionButton', '0.3.0'
+    pod 'Whisper', '5.1.0'
+    pod 'Auth0', '~> 1.11'
+    pod 'ReachabilitySwift', '~> 3' # Adds the library to your project
 end
 
 target 'vimojo' do
@@ -43,8 +50,10 @@ target 'Market4News' do
   shared_pods
 end
 
-target 'vimojoUITests' do
-	shared_pods
+target 'vimojoTests' do
+    shared_pods
+    pod 'Quick'
+    pod 'Nimble'
 end
 
 
