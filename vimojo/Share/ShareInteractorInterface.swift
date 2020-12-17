@@ -16,7 +16,7 @@ protocol ShareInteractorInterface {
     func setShareMoviePath(_ moviePath: String)
     func postToYoutube(_ token: String)
     func getProject() -> Project
-    func exportVideo()
+    func exportVideo(completion: @escaping (Response<URL>) -> Void)
     func getShareExportURL() -> URL?
 	func cancelExport()
     func getExportedElapsedSessionTime(_ progressUpdate: @escaping (Int) -> Void)
@@ -26,6 +26,4 @@ protocol ShareInteractorInterface {
 
 protocol ShareInteractorDelegate {
     func setShareObjectsToView(_ viewObjects: [ShareViewModel])
-    func setPlayerUrl(videoURL: URL)
-    func exportFinished(withError: Bool)
 }

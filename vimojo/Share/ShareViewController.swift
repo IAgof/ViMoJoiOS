@@ -200,12 +200,10 @@ extension ShareViewController: SharePresenterDelegate {
         self.present(alertC, animated: true, completion: nil)
     }
 
-    func createAlertExportFailed() {
+    func createAlertExportFailed(error: Error) {
         let title = ShareConstants.EXPORT_FAILED_TITLE
-        let message = ShareConstants.EXPORT_FAILED_MESSAGE
-
         alertController = UIAlertController(title: title,
-                                            message: message,
+                                            message: error.localizedDescription,
                                             preferredStyle: .alert)
 
         guard let alertC = alertController else {return}
@@ -221,14 +219,12 @@ extension ShareViewController: SharePresenterDelegate {
         alertC.addAction(action)
         self.present(alertC, animated: true, completion: nil)
     }
-
-    func dissmissAlertWaitToExport() {
+    func dissmissAlertWaitToExport(completion: @escaping () -> Void) {
 		let buttons: [UIButton] = [self.shareGenericButton, self.expandPlayerButton]
         DispatchQueue.main.async {
-            self.alertController?.dismiss(animated: true, completion: nil)
-			for button in buttons {
-				button.isHidden = false
-			}
+            self.alertController?.dismiss(animated: true, completion: completion)
+            buttons.forEach { $0.isHidden = false }
+
 			self.tabBarController?.tabBar.isHidden = false
             self.configureNavigationBarVissible()
         }

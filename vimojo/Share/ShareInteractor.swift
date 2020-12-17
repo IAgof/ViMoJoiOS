@@ -32,37 +32,35 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
     func getProject() -> Project {
         return project!
     }
-    func exportVideo() {
+    func exportVideo(completion: @escaping (Response<URL>) -> Void) {
         guard let actualProject = project else {return}
         let realmProject = ProjectRealmRepository().getProjectByUUID(uuid: actualProject.uuid)
-
         guard let modDate = actualProject.modificationDate else {
-            exportVideoAction()
+            exportVideoAction(completion: completion)
             return
         }
-
+        
         guard let exportDate = realmProject?.exportDate else {
-            exportVideoAction()
+            exportVideoAction(completion: completion)
             return
         }
-
+        
         guard let exportPath = realmProject?.getExportedPath() else {
-            exportVideoAction()
+            exportVideoAction(completion: completion)
             return
         }
-
+        
         if modDate.isGreaterThanDate(dateToCompare: exportDate) {
-            exportVideoAction()
+            exportVideoAction(completion: completion)
         } else {
             if FileManager.default.fileExists(atPath: exportPath) {
                 let exportURL = URL(fileURLWithPath: exportPath)
-                self.delegate?.setPlayerUrl(videoURL: exportURL)
-                self.delegate?.exportFinished(withError: false)
-//				self.postToCloud(exportURL.lastPathComponent)
+                completion(.success(exportURL))
+                //                self.postToCloud(exportURL.lastPathComponent)
             }else{
                 print("File doesn't exist")
                 
-                ()
+                exportVideoAction(completion: completion)
             }
         }
     }
@@ -77,7 +75,7 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
             }
         }
     }
-    func exportVideoAction() {
+    func exportVideoAction(completion: @escaping (Response<URL>) -> Void) {
         guard let actualProject = project else {return}
 
         if let exportPath = actualProject.getExportedPath() {
@@ -89,21 +87,20 @@ class ShareInteractor: NSObject, ShareInteractorInterface {
 
         DispatchQueue.global(qos: .background).async {
 			self.exporter = ExporterInteractor(project: actualProject)
-			self.exporter?.exportVideos({
-                exportURL, exportFail in
+            self.exporter?.export { response in
                 self.timer?.invalidate()
-                self.delegate?.exportFinished(withError: exportFail)
-                if !exportFail {
-                    if let url = exportURL {
-                        print("Export path response = \(url)")
-                        self.moviePath = url.absoluteString
-                        ProjectRealmRepository().update(item: actualProject)
-                        self.delegate?.setPlayerUrl(videoURL: url)
-//						self.postToCloud(url.lastPathComponent)
-                    }
-                }
+                switch response {
+                case .error(let error):
+                    completion(.error(error))
+                case .success(let url):
+                    print("Export path response = \(url)")
+                    self.moviePath = url.absoluteString
+                    ProjectRealmRepository().update(item: actualProject)
+                    completion(.success(url))
+                    //                        self.postToCloud(url.lastPathComponent)
 
-			})
+                }
+            }
         }
     }
 

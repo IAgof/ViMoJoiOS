@@ -13,7 +13,7 @@ def shared_pods
     pod 'SwifterSwift', '~> 1.2'
     pod 'GoogleSignIn'
     pod 'NMRangeSlider', '~> 1.2'
-	   pod 'TTRangeSlider'
+    pod 'TTRangeSlider'
     pod 'MBCircularProgressBar', '0.3.4'
     pod 'KCFloatingActionButton'
     pod 'FSPagerView'
